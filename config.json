@@ -1,0 +1,41 @@
+{
+   "development": {
+      "url": "http://127.0.0.1:2368",
+      "mail": {
+         "debug": true,
+         "transport": "SMTP",
+         "options": {
+            "service": "Gmail",
+            "auth": {
+               "user": "marcellopdotnet@gmail.com",
+               "pass": "t01t01@n0k0e"
+            }
+         }
+      },
+      "database": {},
+      "server": {
+         "host": "127.0.0.1",
+         "port": "2368"
+      }
+   },
+
+   "production": {
+      "url": "http://www.marcellop.com",
+      "mail": {
+         "debug": true,
+         "transport": "SMTP",
+         "options": {
+            "service": "SendGrid",
+            "auth": {
+               "user": "marcellop",
+               "pass": "k1nk@kuj1"
+            }
+         }
+      },
+      "database": {},
+      "server": {
+         "host": "www.marcellop.com",
+         "port": "2368"
+      }
+   }
+}

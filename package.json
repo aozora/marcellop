@@ -1,0 +1,33 @@
+{
+  "name": "marcellop.com",
+  "subdomain": "aozoralabs.marcellop",
+  "author": "Marcello Palmitessa",
+  "description": "The Web Presence of Marcello Palmitessa",
+  "version": "2.0.0-13",
+  "private": true,
+  "engines": {
+    "node": "v0.10.x"
+  },
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "aload": "^1.2.1",
+    "bcryptjs": "~0.7.10",
+    "body-parser": "~1.x",
+    "cookie-parser": "~1.x",
+    "csurf": "~1.x",
+    "debug": "~0.7.4",
+    "express": "^4.1.1",
+    "express-hbs": "~0.7.9",
+    "express-session": "^1.0.4",
+    "lodash": "~2.4.1",
+    "morgan": "~1.x",
+    "nodemailer": "^0.6.3",
+    "static-favicon": "~1.x"
+  },
+  "domains": [
+    "www.marcellop.com",
+    "marcellop.com"
+  ]
+}
