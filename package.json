@@ -3,7 +3,7 @@
   "subdomain": "aozoralabs.marcellop",
   "author": "Marcello Palmitessa",
   "description": "The Web Presence of Marcello Palmitessa",
-  "version": "2.0.0-13",
+  "version": "2.0.0-14",
   "private": true,
   "engines": {
     "node": "v0.10.x"
