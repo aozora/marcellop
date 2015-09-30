@@ -25,10 +25,10 @@
          "debug": true,
          "transport": "SMTP",
          "options": {
-            "service": "SendGrid",
+            "service": "Mandrillapp",
             "auth": {
-               "user": "marcellop",
-               "pass": "k1nk@kuj1"
+               "user": "marcello.palmitessa@gmail.com",
+               "pass": "GBbiSUeZFLg5vZCUCljJxw@kuj1"
             }
          }
       },

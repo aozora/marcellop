@@ -1,30 +1,35 @@
 {
   "name": "marcellop.com",
-  "subdomain": "aozoralabs.marcellop",
+  "subdomain": "marcellop",
   "author": "Marcello Palmitessa",
   "description": "The Web Presence of Marcello Palmitessa",
-  "version": "2.0.0-14",
+  "version": "3.0.0-01",
   "private": true,
-  "engines": {
-    "node": "v0.10.x"
-  },
   "scripts": {
     "start": "node app.js"
   },
   "dependencies": {
-    "aload": "^1.2.1",
-    "bcryptjs": "~0.7.10",
-    "body-parser": "~1.x",
-    "cookie-parser": "~1.x",
-    "csurf": "~1.x",
-    "debug": "~0.7.4",
-    "express": "^4.1.1",
-    "express-hbs": "~0.7.9",
-    "express-session": "^1.0.4",
-    "lodash": "~2.4.1",
-    "morgan": "~1.x",
-    "nodemailer": "^0.6.3",
-    "static-favicon": "~1.x"
+    "debug": "~2.2.0",
+    "body-parser": "~1.13.2",
+    "cookie-parser": "~1.3.5",
+    "express": "~4.13.1",
+    "morgan": "~1.6.1",
+    "serve-favicon": "~2.3.0",
+    "express-hbs": "~0.8.4",
+    "nodemailer": "^1.5.0",
+    "bcryptjs": "~0.7.10"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.0",
+    "gulp-autoprefixer": "^3.0.2",
+    "gulp-bower": "0.0.10",
+    "gulp-concat": "^2.6.0",
+    "gulp-jshint": "^1.11.2",
+    "gulp-less": "^3.0.3",
+    "gulp-notify": "^2.2.0",
+    "gulp-plumber": "^1.0.1",
+    "gulp-uglify": "^1.4.1",
+    "jshint-stylish": "^2.0.1"
   },
   "domains": [
     "www.marcellop.com",
