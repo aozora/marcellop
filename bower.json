@@ -1,0 +1,16 @@
+{
+  "name": "marcellop",
+  "version": "3.0.0",
+  "homepage": "http://www.marcellop.com",
+  "authors": [
+    "aozora <marcello.palmitessa@gmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
