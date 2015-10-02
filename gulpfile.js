@@ -33,10 +33,10 @@ gulp.task('bower-restore', function () {
 
 // preprocess Bootstrap less files
 gulp.task('bootstrap-less', function () {
-   return gulp.src('./Content/less/bootstrap.less')
+   return gulp.src('./client/style.less')
       .pipe(plumber(plumberErrorHandler))
       .pipe(less())
-      .pipe(gulp.dest('./Content/css'));
+      .pipe(gulp.dest('./public/css'));
 });
 
 
