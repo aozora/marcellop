@@ -31,23 +31,23 @@ gulp.task('bower-restore', function () {
 });
 
 
-// preprocess Bootstrap less files
-gulp.task('bootstrap-less', function () {
-   return gulp.src('./client/style.less')
-      .pipe(plumber(plumberErrorHandler))
-      .pipe(less())
-      .pipe(gulp.dest('./public/css'));
-});
+//// preprocess Bootstrap less files
+//gulp.task('bootstrap-less', function () {
+//   return gulp.src('./client/style.less')
+//      .pipe(plumber(plumberErrorHandler))
+//      .pipe(less())
+//      .pipe(gulp.dest('./public/css'));
+//});
 
 
 // preprocess custom less files
-gulp.task('main-less', function () {
+gulp.task('less', function () {
    //return gulp.src('./Content/less/custom/main.less')
-   return gulp.src('./Content/less/build.less')
+   return gulp.src('./client/style.less')
       .pipe(plumber(plumberErrorHandler))
       .pipe(less())
       .pipe(autoprefixer())
-      .pipe(gulp.dest('./Content/css'));
+      .pipe(gulp.dest('./public/assets/css'));
 });
 
 
@@ -62,5 +62,5 @@ gulp.task('jshint', function () {
 
 
 // Set a default tasks
-gulp.task('default', ['bower-restore', 'bootstrap-less', 'main-less', 'jshint'], function () {
+gulp.task('default', ['bower-restore', 'less', 'jshint'], function () {
 });

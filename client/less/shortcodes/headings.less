@@ -1,12 +1,12 @@
 /*-----------------------------------------------------------------------------------
 
-    Shortcodes: headings.less
+	Shortcodes: headings.less
 
 -----------------------------------------------------------------------------------*/
 
 
 /* ----------------------------------------------------------------
-    Heading Styles
+	Heading Styles
 -----------------------------------------------------------------*/
 
 
@@ -14,47 +14,47 @@
 -----------------------------------------------------------------*/
 
 .title-block {
-    padding: 2px 0 3px 20px;
-    border-left: 7px solid @theme-color;
-    margin-bottom: 30px;
+	padding: 2px 0 3px 20px;
+	border-left: 7px solid @theme-color;
+	margin-bottom: 30px;
 
-    .title-block-right {
-        padding: 2px 20px 3px 0;
-        border-left: 0;
-        border-right: 7px solid @theme-color;
-        text-align: right;
-    }
+	.title-block-right {
+		padding: 2px 20px 3px 0;
+		border-left: 0;
+		border-right: 7px solid @theme-color;
+		text-align: right;
+	}
 
-    h1,
-    h2,
-    h3,
-    h4 {
-        margin-bottom: 0;
-    }
+	h1,
+	h2,
+	h3,
+	h4 {
+		margin-bottom: 0;
+	}
 
-    > span {
-        display: block;
-        margin-top: 4px;
-        color: #555;
-        font-weight: 300;
-    }
+	> span {
+		display: block;
+		margin-top: 4px;
+		color: #555;
+		font-weight: 300;
+	}
 
-    h1 + span {
-        font-size: 22px;
-    }
+	h1 + span {
+		font-size: 22px;
+	}
 
-    h2 + span {
-        font-size: 19px;
-    }
+	h2 + span {
+		font-size: 19px;
+	}
 
-    h3 + span {
-        font-size: 17px;
-    }
+	h3 + span {
+		font-size: 17px;
+	}
 
-    h4 + span {
-        font-size: 15px;
-        margin-top: 3px;
-    }
+	h4 + span {
+		font-size: 15px;
+		margin-top: 3px;
+	}
 }
 
 
@@ -69,102 +69,102 @@
 .heading-block h4,
 .emphasis-title h1,
 .emphasis-title h2 {
-    margin-bottom: 0;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    color: #333;
+	margin-bottom: 0;
+	font-weight: 700;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	color: #333;
 }
 
 .emphasis-title {
-    h1,
-    h2 {
-        font-weight: 400;
-        letter-spacing: 0;
-        text-transform: none;
-    }
+	h1,
+	h2 {
+		font-weight: 400;
+		letter-spacing: 0;
+		text-transform: none;
+	}
 }
 
 .heading-block {
-    h1 {
-        font-size: 32px;
-    }
+	h1 {
+		font-size: 32px;
+	}
 
-    h2 {
-        font-size: 30px;
-    }
+	h2 {
+		font-size: 30px;
+	}
 
-    h3 {
-        font-size: 26px;
-    }
+	h3 {
+		font-size: 26px;
+	}
 
-    h4 {
-        font-size: 20px;
-        font-weight: 700;
-    }
+	h4 {
+		font-size: 20px;
+		font-weight: 700;
+	}
 
-    > span:not(.before-heading) {
-        display: block;
-        margin-top: 10px;
-        font-weight: 300;
-        color: #777;
-    }
+	> span:not(.before-heading) {
+		display: block;
+		margin-top: 10px;
+		font-weight: 300;
+		color: #777;
+	}
 
-    .before-heading {
-        margin-bottom: 7px;
-    }
+	.before-heading {
+		margin-bottom: 7px;
+	}
 }
 
 .heading-block.center,
 .heading-block.title-center,
 .center .heading-block {
-    > span {
-        max-width: 700px;
-        margin-left: auto;
-        margin-right: auto;
-    }
+	> span {
+		max-width: 700px;
+		margin-left: auto;
+		margin-right: auto;
+	}
 }
 
 .heading-block {
-    h1 + span {
-        font-size: 24px;
-    }
+	h1 + span {
+		font-size: 24px;
+	}
 
-    h2 + span {
-        font-size: 22px;
-    }
+	h2 + span {
+		font-size: 22px;
+	}
 
-    h3 + span,
-    h4 + span {
-        font-size: 20px;
-    }
+	h3 + span,
+	h4 + span {
+		font-size: 20px;
+	}
 
-    ~ p:not(.lead) {
-        font-size: 15px;
-    }
+	~ p:not(.lead) {
+		font-size: 15px;
+	}
 
-    &:after {
-        content: '';
-        display: block;
-        margin-top: 30px;
-        width: 40px;
-        border-top: 2px solid #444;
-    }
+	&:after {
+		content: '';
+		display: block;
+		margin-top: 30px;
+		width: 40px;
+		border-top: 2px solid #444;
+	}
 }
 
 .center .heading-block,
 .heading-block.center,
 .heading-block.title-center {
-    &:after {
-        margin: 30px auto 0;
-    }
+	&:after {
+		margin: 30px auto 0;
+	}
 }
 
 .heading-block.noborder,
 .heading-block.nobottomborder {
-    &:after {
-        display: none;
-    }
+	&:after {
+		display: none;
+	}
 }
 
 .tright .heading-block,
@@ -172,9 +172,9 @@
 .heading-block.title-right { direction: rtl; }
 
 .heading-block.border-color {
-    &:after {
-        border-color: @theme-color;
-    }
+	&:after {
+		border-color: @theme-color;
+	}
 }
 
 
@@ -182,17 +182,17 @@
 -----------------------------------------------------------------*/
 
 .emphasis-title {
-    margin: 0 0 50px;
+	margin: 0 0 50px;
 
-    h1,
-    h2 {
-        font-size: 64px;
-        letter-spacing: -2px;
+	h1,
+	h2 {
+		font-size: 64px;
+		letter-spacing: -2px;
 
-        strong {
-            font-weight: 700;
-        }
-    }
+		strong {
+			font-weight: 700;
+		}
+	}
 }
 
 
@@ -200,57 +200,57 @@
 -----------------------------------------------------------------*/
 
 .fancy-title {
-    position: relative;
-    margin-bottom: 30px;
+	position: relative;
+	margin-bottom: 30px;
 
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6 {
-        position: relative;
-        display: inline-block;
-        background-color: #FFF;
-        padding-right: 15px;
-        margin-bottom: 0;
-    }
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		position: relative;
+		display: inline-block;
+		background-color: #FFF;
+		padding-right: 15px;
+		margin-bottom: 0;
+	}
 
-    h4,
-    h5,
-    h6 {
-        padding-right: 10px;
-    }
+	h4,
+	h5,
+	h6 {
+		padding-right: 10px;
+	}
 
-    &.title-double-border,
-    &.title-border,
-    &.title-border-color {
-        &:before {
-            content: '';
-            position: absolute;
-            width: 100%;
-            height: 0;
-            border-top: 3px double #E5E5E5;
-            left: auto;
-            top: 46%;
-            right: 0;
-        }
-    }
+	&.title-double-border,
+	&.title-border,
+	&.title-border-color {
+		&:before {
+			content: '';
+			position: absolute;
+			width: 100%;
+			height: 0;
+			border-top: 3px double #E5E5E5;
+			left: auto;
+			top: 46%;
+			right: 0;
+		}
+	}
 
-    &.title-border {
-        &:before {
-            top: 49%;
-            border-top: 1px solid #EEE;
-        }
-    }
+	&.title-border {
+		&:before {
+			top: 49%;
+			border-top: 1px solid #EEE;
+		}
+	}
 
-    &.title-border-color {
-        &:before {
-            top: 49%;
-            border-top: 1px solid @theme-color;
-            opacity: 0.6;
-        }
-    }
+	&.title-border-color {
+		&:before {
+			top: 49%;
+			border-top: 1px solid @theme-color;
+			opacity: 0.6;
+		}
+	}
 }
 
 
@@ -258,19 +258,19 @@
 -----------------------------------------------------------------*/
 
 .title-center {
-    text-align: center;
+	text-align: center;
 
-    h1,
-    h2,
-    h3 {
-        padding: 0 15px;
-    }
+	h1,
+	h2,
+	h3 {
+		padding: 0 15px;
+	}
 
-    h4,
-    h5,
-    h6 {
-        padding: 0 10px;
-    }
+	h4,
+	h5,
+	h6 {
+		padding: 0 10px;
+	}
 }
 
 
@@ -278,19 +278,19 @@
 -----------------------------------------------------------------*/
 
 .title-right {
-    text-align: right;
+	text-align: right;
 
-    h1,
-    h2,
-    h3 {
-        padding: 0 0 0 15px;
-    }
+	h1,
+	h2,
+	h3 {
+		padding: 0 0 0 15px;
+	}
 
-    h4,
-    h5,
-    h6 {
-        padding: 0 0 0 10px;
-    }
+	h4,
+	h5,
+	h6 {
+		padding: 0 0 0 10px;
+	}
 }
 
 
@@ -298,19 +298,19 @@
 -----------------------------------------------------------------*/
 
 .fancy-title {
-    &.title-bottom-border {
-        h1,
-        h2,
-        h3,
-        h4,
-        h5,
-        h6 {
-            display: block;
-            background: transparent;
-            padding: 0 0 10px;
-            border-bottom: 2px solid @theme-color;
-        }
-    }
+	&.title-bottom-border {
+		h1,
+		h2,
+		h3,
+		h4,
+		h5,
+		h6 {
+			display: block;
+			background: transparent;
+			padding: 0 0 10px;
+			border-bottom: 2px solid @theme-color;
+		}
+	}
 }
 
 
@@ -324,12 +324,12 @@
 -----------------------------------------------------------------*/
 
 .before-heading {
-    display: block;
-    margin: 0 0 5px;
-    font-size: 16px;
-    font-family: @secondary-font;
-    font-style: italic;
-    font-weight: 400;
-    color: #999;
+	display: block;
+	margin: 0 0 5px;
+	font-size: 16px;
+	font-family: @secondary-font;
+	font-style: italic;
+	font-weight: 400;
+	color: #999;
 }
 
