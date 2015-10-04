@@ -1,0 +1,43 @@
+{{! partial post}}
+<div class="row blog-post animated" data-fx="fadeInRight">
+    <article>
+            <div class="col-sm-12">
+                <a href="{{url}}" title="{{title}}" class="post-media">
+                    {{content words="0"}}
+                </a>
+            </div>
+            <div class="col-sm-12">
+                <h4>
+                    {{title}}
+                </h4>
+            </div>
+            <div class="col-sm-12">
+                <div class="tags tags-blog">
+                    <hr>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <p><span class="color-font"><i class="fa fa-clock-o"></i></span> {{date published_at format="DD MMM, YYYY"}}</p>
+                        </div>
+                        <div class="col-sm-9">
+                            <p>
+                            {{#if tags}}
+                                <span class="color-font"><i class="fa fa-tag"></i></span>
+                                {{#tags separator=", "}}
+                                    {{name}}
+                                {{/tags}}
+                            {{/if}}
+                            </p>
+                        </div>
+
+                    </div>
+                    <hr>
+                </div>
+            </div>
+            <div class="col-sm-12">
+                <p>
+                    {{excerpt words="100"}}
+                </p>
+                <a href="{{url}}" class="btn btn-default btn-small read-more">Continue reading</a>
+            </div>
+    </article>
+</div>

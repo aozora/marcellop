@@ -1,0 +1,18 @@
+{{! Pagination }}
+
+<div class="row">
+    <div class="col-sm-12 blog-pagination text-center">
+        <ul class="pagination">
+            <li class="pull-left">
+            {{#if prev}}
+                <a class="prev" href="{{page_url prev}}#blog"><span class="color-font"><i class="fa fa-chevron-left"></i></span> Previous</a>
+            {{/if}}
+            </li>
+            <li class="pull-right">
+                {{#if next}}
+                    <a class="next" href="{{page_url next}}#blog">Next <span class="color-font"><i class="fa fa-chevron-right"></i></span></a>
+                {{/if}}
+            </li>
+        </ul>
+    </div>
+</div>

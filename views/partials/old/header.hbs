@@ -1,0 +1,96 @@
+<header id="MainHeader" class="{{#if @blog.cover}}main-header parallax{{/if}}" {{#if @blog.cover}}style="background-image: url({{@blog.cover}});"{{/if}}>
+    <div class="hero-unit">
+        <div class="logo">
+            <div class="container text-center">
+                <a href="{{@blog.url}}">
+                    {{#if @blog.logo}}
+                        <img src="{{@blog.logo}}" title="companyname" alt="companyname">
+                    {{/if}}
+                </a>
+            </div>
+        </div>
+
+        <div class="container">
+            <h1 class="text-center">{{@blog.description}}</h1>
+        </div>
+
+        <div class="social-unit">
+            <div class="container text-center">
+                <div class="social">
+                    <ul>
+                        {{! EDIT HERE }}
+                        <li>
+                            <a href="#">
+                                <div class="circle-btn" data-toggle="tooltip" data-placement="bottom"
+                                     title="Facebook">
+                                    <p><i class="fa fa-facebook"></i></p>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <div class="circle-btn" data-toggle="tooltip" data-placement="bottom"
+                                     title="Twitter">
+                                    <p><i class="fa fa-twitter"></i></p>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <div class="circle-btn" data-toggle="tooltip" data-placement="bottom"
+                                     title="LinkedIn">
+                                    <p><i class="fa fa-linkedin-square"></i></p>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <div class="circle-btn" data-toggle="tooltip" data-placement="bottom" title="Google+">
+                                    <p><i class="fa fa-google-plus"></i></p>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <div class="circle-btn" data-toggle="tooltip" data-placement="bottom" title="Pinterest">
+                                    <p><i class="fa fa-pinterest"></i></p>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <div class="circle-btn" data-toggle="tooltip" data-placement="bottom" title="Flickr">
+                                    <p><i class="fa fa-flickr"></i></p>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <div class="circle-btn" data-toggle="tooltip" data-placement="bottom" title="Dribbble">
+                                    <p><i class="fa fa-dribbble"></i></p>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <div class="circle-btn" data-toggle="tooltip" data-placement="bottom" title="Youtube">
+                                    <p><i class="fa fa-youtube"></i></p>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <div class="circle-btn" data-toggle="tooltip" data-placement="bottom" title="Vimeo">
+                                    <p><i class="fa fa-vimeo-square"></i></p>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <p class="readmeBox text-center">
+            <a href="#blog" class="btn btn-white btn-lg btn-scroll">Read More</a>
+        </p>
+    </div>
+</header>
