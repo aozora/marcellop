@@ -43,7 +43,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 //app.use(express.static(path.join(__dirname, 'public')));
 
-app.use(session({ secret: 'keyboard cat', key: 'sid', cookie: { secure: true }}));
+//app.use(session({ secret: 'keyboard cat', key: 'sid', cookie: { secure: true }}));
 //app.use(csrf());
 //app.use(require('less-middleware')({ src: path.join(__dirname, 'public') }));
 app.use(express.static(path.join(__dirname, 'public')));
