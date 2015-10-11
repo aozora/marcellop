@@ -9,6 +9,7 @@ var bower = require('gulp-bower');
 var less = require('gulp-less');
 var path = require('path');
 var eslint = require('gulp-eslint');
+var jscs = require('gulp-jscs');
 var autoprefixer = require('gulp-autoprefixer');
 var plumber = require('gulp-plumber'); // gulp error handler
 var notify = require('gulp-notify');   // cross-platform notifier
@@ -51,14 +52,14 @@ gulp.task('less', function () {
 });
 
 
-//// jshint task
-//gulp.task('jshint', function () {
-//   gulp.src('./Content/js/*.js')
-//      .pipe(plumber(plumberErrorHandler))
-//      .pipe(jshint())
-//      .pipe(jshint.reporter('jshint-stylish')); // show jshint errors
-//   //.pipe(jshint.reporter('fail'));           // task will fail if any errors
-//});
+gulp.task('jscs', function() {
+  return gulp.src('app/**/*.js')
+      .pipe(jscs({fix: true}))
+      .pipe(jscs.reporter())
+      .pipe(jscs.reporter('fail'))
+      .pipe(gulp.dest('app'));
+});
+
 
 gulp.task('lint', function () {
    return gulp.src(['app/**/*.js'])
