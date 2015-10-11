@@ -8,7 +8,7 @@ var gulp = require('gulp');
 var bower = require('gulp-bower');
 var less = require('gulp-less');
 var path = require('path');
-var jshint = require('gulp-jshint');
+var eslint = require('gulp-eslint');
 var autoprefixer = require('gulp-autoprefixer');
 var plumber = require('gulp-plumber'); // gulp error handler
 var notify = require('gulp-notify');   // cross-platform notifier
@@ -51,16 +51,28 @@ gulp.task('less', function () {
 });
 
 
-// jshint task
-gulp.task('jshint', function () {
-   gulp.src('./Content/js/*.js')
-      .pipe(plumber(plumberErrorHandler))
-      .pipe(jshint())
-      .pipe(jshint.reporter('jshint-stylish')); // show jshint errors
-   //.pipe(jshint.reporter('fail'));           // task will fail if any errors
+//// jshint task
+//gulp.task('jshint', function () {
+//   gulp.src('./Content/js/*.js')
+//      .pipe(plumber(plumberErrorHandler))
+//      .pipe(jshint())
+//      .pipe(jshint.reporter('jshint-stylish')); // show jshint errors
+//   //.pipe(jshint.reporter('fail'));           // task will fail if any errors
+//});
+
+gulp.task('lint', function () {
+   return gulp.src(['app/**/*.js'])
+      // eslint() attaches the lint output to the eslint property
+      // of the file object so it can be used by other modules.
+       .pipe(eslint())
+      // eslint.format() outputs the lint results to the console.
+      // Alternatively use eslint.formatEach() (see Docs).
+       .pipe(eslint.format())
+      // To have the process exit with an error code (1) on
+      // lint error, return the stream and pipe to failAfterError last.
+       .pipe(eslint.failAfterError());
 });
 
-
 // Set a default tasks
-gulp.task('default', ['bower-restore', 'less', 'jshint'], function () {
+gulp.task('default', ['bower-restore', 'less', 'lint'], function () {
 });

@@ -20,10 +20,12 @@
     "bcryptjs": "~0.7.10"
   },
   "devDependencies": {
+    "eslint": "^1.6.0",
     "gulp": "^3.9.0",
     "gulp-autoprefixer": "^3.0.2",
     "gulp-bower": "0.0.10",
     "gulp-concat": "^2.6.0",
+    "gulp-eslint": "^1.0.0",
     "gulp-jshint": "^1.11.2",
     "gulp-less": "^3.0.3",
     "gulp-notify": "^2.2.0",
