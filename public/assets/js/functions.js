@@ -2375,7 +2375,7 @@ var SEMICOLON = SEMICOLON || {};
 		},
 
 		extras: function(){
-			$('[data-toggle="tooltip"]').tooltip({container: 'body'});
+			//$('[data-toggle="tooltip"]').tooltip({container: 'body'});
 			$('#primary-menu-trigger,#overlay-menu-close').click(function() {
 				$( '#primary-menu > ul, #primary-menu > div > ul' ).toggleClass("show");
 				return false;
