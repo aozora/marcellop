@@ -11,6 +11,9 @@ var path = require('path');
 var eslint = require('gulp-eslint');
 var jscs = require('gulp-jscs');
 var autoprefixer = require('gulp-autoprefixer');
+var rev = require('gulp-rev');
+var sourcemaps = require('gulp-sourcemaps');
+
 var plumber = require('gulp-plumber'); // gulp error handler
 var notify = require('gulp-notify');   // cross-platform notifier
 

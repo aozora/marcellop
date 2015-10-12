@@ -99,27 +99,27 @@
 
     <!-- Cookie Notification Bar
     ============================================= -->
-    <!--<div id="cookie-notification" class="dark">-->
-        <!--<div class="container clearfix">-->
-            <!--This Website uses cookies.-->
-            <!--<a href="#" class="cookie-accept cookie-noti-btn fright btn btn-danger btn-sm">Accept</a>-->
-        <!--</div>-->
-    <!--</div>-->
-    <!--<script>-->
-        <!--jQuery(document).ready( function($){-->
+    <div id="cookie-notification" class="dark">
+        <div class="container clearfix">
+            This Website uses cookies.
+            <a href="#" class="cookie-accept cookie-noti-btn fright btn btn-danger btn-sm">Accept</a>
+        </div>
+    </div>
+    <script>
+        jQuery(document).ready( function($){
 
-            <!--if( $.cookie('websiteUsesCookies') == 'yesConfirmed' ) {-->
-                <!--$('#cookie-notification').css({ bottom: -60 });-->
-            <!--}-->
+            if( $.cookie('websiteUsesCookies') == 'yesConfirmed' ) {
+                $('#cookie-notification').css({ bottom: -60 });
+            }
 
-            <!--$('.cookie-accept').click( function(){-->
-                <!--$('#cookie-notification').animate({ bottom: -60 }, 400);-->
-                <!--$.cookie('websiteUsesCookies', 'yesConfirmed', { expires: 30 });-->
-                <!--return false;-->
-            <!--});-->
+            $('.cookie-accept').click( function(){
+                $('#cookie-notification').animate({ bottom: -60 }, 400);
+                $.cookie('websiteUsesCookies', 'yesConfirmed', { expires: 30 });
+                return false;
+            });
 
-        <!--});-->
-    <!--</script>-->
+        });
+    </script>
 
 
 </div>
