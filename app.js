@@ -1,7 +1,7 @@
 'use strict';
 var config = require('./app/config');
 //var session = require('express-session');
-var csrf = require('csurf');
+//var csrf = require('csurf');
 var helpers = require('./app/helpers');
 var crypto = require('crypto');
 var packageInfo = require('./package.json');
