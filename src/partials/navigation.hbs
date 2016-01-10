@@ -1,0 +1,56 @@
+<!-- Header
+============================================= -->
+<header id="header" class="transparent-header semi-transparent full-header" data-sticky-class="not-dark">
+
+   <div id="header-wrap">
+
+      <div class="container clearfix">
+
+         <div id="primary-menu-trigger"><i class="icon-reorder"></i></div>
+
+         <!-- Logo
+         ============================================= -->
+         <div id="logo">
+            <div id="brand">
+               <strong>Marcello</strong> Palmitessa
+            </div>
+         </div><!-- #logo end -->
+
+         <!-- Primary Navigation
+         ============================================= -->
+         <nav id="primary-menu" class="dark">
+
+            <ul>
+              {{#foreach navigation}}
+                 <li class="nav-{{slug}}{{#if current}} current{{/if}}">
+                    <a href="{{url absolute="true"}}">{{label}}</a>
+                 </li>
+              {{/foreach}}
+
+            </ul>
+
+
+            <!-- Top Cart
+            ============================================= -->
+            <div id="top-cart">
+               <a href="{{@blog.url}}/rss/" title="Subscribe">
+                  <i class="icon-line2-feed"></i>
+               </a>
+            </div><!-- #top-cart end -->
+
+            <!-- Top Search
+            ============================================= -->
+            <div id="top-search">
+               <a href="#" id="top-search-trigger"><i class="icon-search3"></i><i class="icon-line-cross"></i></a>
+               <form action="search.html" method="get">
+                  <input type="text" name="q" class="form-control" value="" placeholder="Type &amp; Hit Enter..">
+               </form>
+            </div><!-- #top-search end -->
+
+         </nav><!-- #primary-menu end -->
+
+      </div>
+
+   </div>
+
+</header><!-- #header end -->

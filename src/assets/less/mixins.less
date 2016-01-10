@@ -1,0 +1,90 @@
+/*-----------------------------------------------------------------------------------
+	mixins.less
+-----------------------------------------------------------------------------------*/
+
+.size(@width; @height) {
+  width: @width;
+  height: @height;
+}
+
+.square(@size) {
+  .size(@size; @size);
+}
+
+/* Portfolio Item Size Builder
+-----------------------------------------------------------------*/
+
+.portfolio-builder(@container, @columns, @margin) {
+  @width: floor(( @container - ( @margin * ( @columns - 1 ) ) ) / @columns);
+  @height: floor(( @width * 3 ) / 4);
+}
+
+.portfolio-item-width(@container; @columns; @margin) {
+  .portfolio-builder(@container, @columns, @margin);
+  width: @width;
+}
+
+.portfolio-item-size(@container; @columns; @margin) {
+  .portfolio-builder(@container, @columns, @margin);
+  .size(@width; @height);
+}
+
+/* Shop Item Size Builder
+-----------------------------------------------------------------*/
+
+.shop-builder(@container, @columns, @margin) {
+  @width: floor(( @container - ( @margin * ( @columns - 1 ) ) ) / @columns);
+  @height: floor(( @width * 4 ) / 3);
+}
+
+.shop-item-width(@container; @columns; @margin) {
+  .shop-builder(@container, @columns, @margin);
+  width: @width;
+}
+
+.shop-item-height(@container; @columns; @margin) {
+  .shop-builder(@container, @columns, @margin);
+  height: @height;
+}
+
+/* Blog Grid Item Size Builder
+-----------------------------------------------------------------*/
+
+.blog-grid-builder(@container, @columns, @margin) {
+  @width: floor(( @container - ( @margin * ( @columns - 1 ) ) ) / @columns);
+  @height: floor(( @width * 37 ) / 66);
+}
+
+.blog-grid-item-width(@container; @columns; @margin) {
+  .blog-grid-builder(@container, @columns, @margin);
+  width: @width;
+}
+
+.blog-grid-item-height(@container; @columns; @margin) {
+  .blog-grid-builder(@container, @columns, @margin);
+  height: @height;
+}
+
+/* Other Mixins
+-----------------------------------------------------------------*/
+
+.border-radius(@radius: 3px) {
+  border-radius: @radius;
+}
+
+.border-radius-custom(@topleft: 3px, @topright: 3px, @bottomright: 3px, @bottomleft: 3px) {
+  border-radius: @topleft @topright @bottomright @bottomleft;
+}
+
+.box-shadow(@shadow) {
+  box-shadow: @shadow;
+}
+
+.transition(@transition) {
+  transition: @transition;
+}
+
+.transition-transform(@transition) {
+  transition: transform @transition;
+}
+

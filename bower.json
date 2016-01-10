@@ -1,0 +1,28 @@
+{
+  "name": "marcellop-ghost",
+  "description": "Ghost theme for my personal website",
+  "main": "index.js",
+  "authors": [
+    "Marcello Palmitessa <marcello.palmitessa@gmail.com>"
+  ],
+  "license": "ISC",
+  "homepage": "ttps://github.com/aozora/marcellop-ghost",
+  "moduleType": [
+    "node"
+  ],
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.4",
+    "bootstrap": "~3.3.6",
+    "isotope": "~2.2.2",
+    "jrespond": "*",
+    "jquery.stellar": "stellar#~0.6.2"
+  }
+}
