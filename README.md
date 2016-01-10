@@ -1,5 +1,5 @@
 # marcellop-ghost
-Ghost theme for my personal website
+Source for the html/css template for my personal website
 
 
 

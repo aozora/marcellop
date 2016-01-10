@@ -7,17 +7,29 @@
 // Available tasks:
 //   `gulp`
 //   `gulp _build`
+//   `gulp _lint`
 //   `gulp bower-restore`
 //   `gulp clean`
-//   `gulp copy:hbs`
 //   `gulp copy:css`
+//   `gulp copy:fav`
+//   `gulp copy:fonts`
+//   `gulp copy:img`
 //   `gulp copy:lib`
 //   `gulp copy:js`
+//   `gulp copy:others`
+//   `gulp copy:revolution`
 //   `gulp critical`
-//   `gulp ghost`
+//   `gulp csslint`
+//   `gulp eslint`
+//   `gulp htmllint`
 //   `gulp images`
 //   `gulp less`
+//   `gulp less-min`
+//   `gulp pages`
+//   `gulp pages:reset`
+//   `gulp server`
 //   `gulp uncss`
+//   `gulp watch`
 //
 // *************************************
 
@@ -79,7 +91,7 @@ gulp.task('less', function () {
     .pipe($.sourcemaps.init())
     .pipe($.less(/* {paths: config.paths.less}*/))
     .pipe($.autoprefixer(config.autoprefixer))
-    .pipe($.sourcemaps.write('./', {sourceRoot: '/src/assets/less/'}))
+    .pipe($.sourcemaps.write('./', { sourceRoot: '/src/assets/less/' }))
     .pipe(gulp.dest(config.ghostTheme.root + '/assets/css'));
 });
 
@@ -99,7 +111,7 @@ gulp.task('less-min', function () {
       extname: '.min.css'
     }))
     .pipe($.cssnano())
-    .pipe($.sourcemaps.write('./', {sourceRoot: '/src/assets/less/'}))
+    .pipe($.sourcemaps.write('./', { sourceRoot: '/src/assets/less/' }))
     .pipe(gulp.dest(config.ghostTheme.root + '/assets/css'));
 });
 
@@ -116,7 +128,7 @@ gulp.task('images', function () {
       interlaced: true
     }))
     .pipe(gulp.dest('dist/assets/img'))
-    .pipe($.size({title: 'images'}));
+    .pipe($.size({ title: 'images' }));
 });
 
 
@@ -154,7 +166,7 @@ gulp.task('critical', function () {
       if (err) {
         throw new Error(err);
       } else {
-        criticalcss.findCritical("http://localhost:8000/", {rules: JSON.parse(output)}, function (err, output) {
+        criticalcss.findCritical("http://localhost:8000/", { rules: JSON.parse(output) }, function (err, output) {
           if (err) {
             throw new Error(err);
           } else {
@@ -178,42 +190,101 @@ gulp.task('critical', function () {
  *                LINTERS
  **************************************************/
 
+
+// -------------------------------------
+// Task: eslint
+// -------------------------------------
+gulp.task('eslint', function () {
+  return gulp.src(['./src/js/**/*.js'])
+    .pipe($.eslint(config.paths.settings.eslint))
+    .pipe($.eslint.format())
+    .pipe($.eslint.failAfterError());
+});
+
+
 // -------------------------------------
 // Task: csslint
 // -------------------------------------
 gulp.task('csslint', function () {
-  return gulp.src(config.ghostTheme.root + '/assets/style.css')
+  return gulp.src('./dist/*.css')
     .pipe($.csslint(config.paths.settings.csslint))
     .pipe($.csslint.reporter())
     .pipe($.csslint.failReporter());
 });
 
 
+// -------------------------------------
+// Task: htmllint
+// -------------------------------------
+gulp.task('htmllint', function () {
+  return gulp.src('src/**/*.html')
+    .pipe($.htmllint({
+      ignore: [
+        'Attribute "autocomplete" not allowed on element "button" at this point.',
+        'Attribute "autocomplete" is only allowed when the input type is "color", "date", "datetime", "datetime-local", "email", "month", "number", "password", "range", "search", "tel", "text", "time", "url", or "week".',
+        'Element "img" is missing required attribute "src".'
+      ]
+    }, htmllintReporter));
+});
+
+function htmllintReporter (filepath, issues) {
+  if (issues.length > 0) {
+    issues.forEach(function (issue) {
+      gutil.log(gutil.colors.cyan('[gulp-htmllint] ') + gutil.colors.white(filepath + ' [' + issue.line + ',' + issue.column + ']: ') + gutil.colors.red('(' + issue.code + ') ' + issue.msg));
+    });
+
+    process.exitCode = 1;
+  }
+}
+
+
 /**************************************************
  *              PAGES
  **************************************************/
 
+// -------------------------------------
+// Task: pages
+// Copy page templates into finished HTML files
+// -------------------------------------
+gulp.task('pages', function () {
+  gulp.src('src/pages/**/*.{html,hbs,handlebars}')
+    .pipe(panini({
+      root: 'src/pages/',
+      layouts: 'src/layouts/',
+      partials: 'src/partials/',
+      data: 'src/data/',
+      helpers: 'src/helpers/'
+    }))
+    .pipe(gulp.dest('dist'));
+});
+
+gulp.task('pages:reset', function (cb) {
+  panini.refresh();
+  gulp.run('pages');
+  cb();
+});
+
 
 // -------------------------------------
-// Task: copy:hbs
+// Task: copy:fonts
+// Copy files out of the assets folder
 // -------------------------------------
-gulp.task('copy:hbs', function () {
-  return gulp.src('./src//**/*.hbs')
-    .pipe($.plumber(plumberErrorHandler))
-    .pipe(gulp.dest(config.ghostTheme.root));
+gulp.task('copy:fonts', function () {
+  gulp.src(config.paths.fonts)
+    .pipe(gulp.dest('dist/assets/fonts'));
 });
 
 
 // -------------------------------------
 // Task: copy:css
-// Copy static assets of the assets folder
-// Less, Images, Hbs are excluded.
+// Copy files out of the app folder
 // -------------------------------------
 gulp.task('copy:css', function () {
-  return gulp.src(config.paths.assets.css)
+  return gulp.src(config.paths.css)
     .pipe($.plumber(plumberErrorHandler))
-    .pipe(gulp.dest(config.ghostTheme.root + '/assets/css'));
+    .pipe(gulp.dest('./dist/assets/css'));
 });
+
 
 // -------------------------------------
 // Task: copy:lib
@@ -286,17 +357,26 @@ gulp.task('copy:others', function () {
 
 
 /**************************************************
- *              GHOST
+ *              WEB SERVER
  **************************************************/
-gulp.task('ghost', function () {
-  gulp.src('')
-    .pipe($.exec('cd ' + config.ghostTheme.start + '; npm start'));
+// Start a server with LiveReload to preview the site in
+gulp.task('server', function () {
+  browser.init({
+    server: 'dist', port: config.port
+  });
 });
 
 
 /**************************************************
  *              GULP DEFAULT TASKs
  **************************************************/
+
+// -------------------------------------
+// Task: lint
+// -------------------------------------
+gulp.task('_lint', ['eslint', 'csslint', 'htmllint'], function () {
+});
+
 
 // Build the "dist" folder by running all of the above tasks
 gulp.task('_build', function (done) {
@@ -336,3 +416,10 @@ gulp.task('default', ['_build', 'bower-restore'], function () {
 
   //gulp.watch(['src/assets/img/**/*'], ['images', browser.reload]);
 });
+
+
+// -------------------------------------
+// Task: default
+// Build the site, run the server, and watch for file changes
+// -------------------------------------
+gulp.task('default', ['_build', 'bower-restore', 'server', 'watch']);

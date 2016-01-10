@@ -5,17 +5,11 @@
 module.exports = function () {
   var config = {
 
-    // ghost theme settings
-    ghostTheme: {
-      start: './../ghost/',
-      root: './../ghost/content/themes/marcellop',
-      url: 'http://localhost:2368'
-    },
 
     paths: {
       // settings paths
       settings: {
-        eslint: '.eslintrc.json',
+        eslint: '.eslintrc',
         csslint: '.csslintrc'
       },
 
