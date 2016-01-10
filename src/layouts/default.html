@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-US">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+
+  <title>Marcello Palmitessa</title>
+  <meta name="description" content="{{meta_description}}"/>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+  <link rel="shortcut icon" href="{{root}}assets/favicons/favicon.ico">
+  <link rel="apple-touch-icon" href="{{root}}assets/favicons/touch-icon-iphone.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="{{root}}assets/favicons/touch-icon-ipad.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="{{root}}assets/favicons/touch-icon-iphone-retina.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="{{root}}assets/favicons/touch-icon-ipad-retina.png">
+
+  <!-- Stylesheets
+   ============================================= -->
+  <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700|Roboto:300,400,500,700" rel="stylesheet" type="text/css"/>
+  <link rel="stylesheet" href="{{root}}assets/css/bootstrap.css" type="text/css"/>
+  <link rel="stylesheet" href="{{root}}assets/css/style.css" type="text/css"/>
+  <link rel="stylesheet" href="{{root}}assets/css/dark.css" type="text/css"/>
+  <link rel="stylesheet" href="{{root}}assets/css/font-icons.css" type="text/css"/>
+  <link rel="stylesheet" href="{{root}}assets/css/animate.css" type="text/css"/>
+  <link rel="stylesheet" href="{{root}}assets/css/magnific-popup.css" type="text/css"/>
+  <link rel="stylesheet" href="{{root}}assets/css/responsive.css" type="text/css"/>
+
+
+  <!-- SLIDER REVOLUTION 5.x CSS SETTINGS -->
+  <link rel="stylesheet" type="text/css" href="{{root}}assets/rs-plugin/css/settings.css" media="screen" />
+  <link rel="stylesheet" type="text/css" href="{{root}}assets/rs-plugin/css/layers.css"/>
+  <link rel="stylesheet" type="text/css" href="{{root}}assets/rs-plugin/css/navigation.css"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+  <!--[if lt IE 9]>
+  <script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+  <![endif]-->
+</head>
+
+<body class="stretched no-transition">
+
+<!-- Document Wrapper
+ ============================================= -->
+<div id="wrapper" class="clearfix">
+
+  <!-- Header
+    ============================================= -->
+  {{> header}}
+
+  {{> body}}
+
+
+  {{> header}}
+
+</div><
+
+<!-- Go To Top
+ ============================================= -->
+<div id="gotoTop" class="icon-angle-up"></div>
+
+<!-- Footer Scripts
+ ============================================= -->
+<script type="text/javascript" src="{{root}}assets/js/jquery.easing.1.3.js"></script>
+
+<!-- SLIDER REVOLUTION 5.x SCRIPTS  -->
+<script type="text/javascript" src="{{root}}assets/rs-plugin/js/jquery.themepunch.tools.min.js"></script>
+<script type="text/javascript" src="{{root}}assets/rs-plugin/js/jquery.themepunch.revolution.min.js"></script>
+
+<script type="text/javascript" src="{{root}}assets/js/jquery.stellar.js"></script>
+<script type="text/javascript" src="{{root}}assets/js/main.js"></script>
+
+
+{{#ifpage 'form'}}
+<!--<script src="{{root}}app/account/account.service.js"></script>-->
+<!--<script src="{{root}}app/account/account.controller.js"></script>-->
+{{/ifpage}}
+
+{{#ifpage 'products'}}
+<!--<script src="{{root}}app/product/product.service.js"></script>-->
+<!--<script src="{{root}}app/product/product.list.controller.js"></script>-->
+{{/ifpage}}
+
+</body>
+</html>
