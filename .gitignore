@@ -25,3 +25,20 @@ build/Release
 # Dependency directory
 # https://www.npmjs.org/doc/misc/npm-faq.html#should-i-check-my-node_modules-folder-into-git
 node_modules
+bower_components
+
+# JetBrains Editors
+.idea
+
+# Local git config
+.gitconfig
+.git-credentials
+
+#SSL Certificates
+*.pem
+
+# Nuxt build
+.nuxt
+
+# Nuxt generate
+dist
