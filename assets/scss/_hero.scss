@@ -1,9 +1,14 @@
 .hero {
   background-color: $light-gray;
+  background-image: url(~assets/img/marcello.svg);
+  background-position: 0 38%;
+  background-size: contain;
+  background-repeat: no-repeat;
 }
 
 .hero__headings {
   margin-left: 1rem;
+  margin-top: 32%;
 
   h1 {
     margin-bottom: 30px;
