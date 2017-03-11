@@ -11,13 +11,13 @@
             On the other hand, we denounce with righteous indignation and dislike men who are so beguiled demord by
           </p>
           <p>
-            <a class="button large" href="#portfolio">my work</a>
+            <a class="button" href="#portfolio">my work</a>
           </p>
         </div>
       </div>
       <div class="small-12 medium-6 column">
         <div class="slider-img text-right">
-          <img src="~assets/img/marcello.png" alt="picture of Marcello, standing, smiling, with crossed arms"/>
+          <img src="~assets/img/marcello.png" alt="picture of Marcello, standing and smiling; the picture is in black/white colors, expept for the shirt collar that is coloured."/>
         </div>
       </div>
     </div>

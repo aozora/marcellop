@@ -2,6 +2,10 @@
   height: 141px;
   padding: 50px 0;
 
+  .row.column {
+    display: flex;
+  }
+
   .menu > li {
     margin: 0 10px;
 

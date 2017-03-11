@@ -99,7 +99,6 @@ p {
   margin: 0;
 }
 
-
 /* background color
 ===============================*/
 
@@ -125,11 +124,14 @@ p {
 
 /* Default Button Style
 ------------------------ */
-button {
+button,
+.button {
   border: 0 none;
   //font-size: 14px;
-  height: 47px;
-  line-height: 50px;
+  //height: 47px;
+  //line-height: 50px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
   transition: all 0.3s ease 0s;
 
   &.active,
