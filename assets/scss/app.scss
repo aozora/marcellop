@@ -7,7 +7,7 @@ $global-flexbox: true !global;
 @include foundation-global-styles;
 @include foundation-flex-grid;
 @include foundation-typography;
-@include foundation-forms;
+//@include foundation-forms;
 @include foundation-button;
 //@include foundation-accordion;
 //@include foundation-accordion-menu;
@@ -30,7 +30,7 @@ $global-flexbox: true !global;
 //@include foundation-progress-bar;
 //@include foundation-slider;
 //@include foundation-sticky;
-@include foundation-reveal;
+//@include foundation-reveal;
 //@include foundation-switch;
 //@include foundation-table;
 //@include foundation-tabs;
@@ -47,4 +47,9 @@ $global-flexbox: true !global;
 // Application Components
 @import 'mim';
 @import 'light';
+
+@import 'top-bar';
+@import 'hero';
+@import 'footer';
+
 //@import 'progressbar';

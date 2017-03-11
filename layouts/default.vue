@@ -4,7 +4,7 @@
     <div id="loading">
       <div id="loading-center">
         <div id="loading-center-absolute">
-          <img src="assets/img/dark-logo.png" alt="Mim" />
+          <img src="~assets/img/catforlogo.png" alt="Mim" />
           <div class="object" id="object_three"></div>
         </div>
       </div>

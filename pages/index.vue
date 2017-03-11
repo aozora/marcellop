@@ -1,14 +1,20 @@
 <template>
-  <my-header></my-header>
+  <div>
+    <my-header></my-header>
+
+    <hero></hero>
+  </div>
 </template>
 
 
 <script>
   import MyHeader from '~components/Header.vue'
+  import Hero from '~components/Hero.vue'
 
   export default {
     components: {
-      MyHeader
+      MyHeader,
+      Hero
     },
 
     mounted () {

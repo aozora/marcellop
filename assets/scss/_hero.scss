@@ -1,0 +1,38 @@
+.hero {
+  background-color: $light-gray;
+}
+
+.hero__headings {
+  margin-left: 1rem;
+
+  h1 {
+    margin-bottom: 30px;
+    color: #414141;
+    font-size: 44px;
+    line-height: 28px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+
+    small {
+      display: block;
+      margin-bottom: 11px;
+      letter-spacing: 1px;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 600;
+      font-size: 1rem;
+      line-height: 1;
+      color: #919191;
+    }
+  }
+
+  p {
+    line-height: 28px;
+    font-size: 1rem;
+    color: #6a6a6a;
+  }
+
+  .button {
+    margin-top: 40px;
+  }
+
+}

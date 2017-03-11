@@ -1,0 +1,38 @@
+.top-bar {
+  height: 141px;
+  padding: 50px 0;
+
+  .menu > li {
+    margin: 0 10px;
+
+    > a:not(.menu-text) {
+      position: relative;
+      padding: 0 5px;
+      line-height: 40px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: .875rem;
+      font-weight: 600;
+      letter-spacing: 0.40px;
+      color: #777;
+
+      &::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        width: 0;
+        left: 0;
+        height: 2px;
+        transition: all 0.3s ease 0s;
+        background: #afafaf none repeat scroll 0 0;
+      }
+
+      &:hover {
+        color: #afafaf;
+      }
+
+      &:hover:after {
+        width: 100%;
+      }
+    }
+  }
+}
