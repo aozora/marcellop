@@ -8,7 +8,7 @@
             Marcello Palmitessa
           </h1>
           <p>
-            On the other hand, we denounce with righteous indignation and dislike men who are so beguiled demord by
+            I am a Front-end architect and developer; I like to exchange knowledge, I am a good listener and a cat lover.
           </p>
           <p>
             <a class="button" href="#portfolio">my work</a>
