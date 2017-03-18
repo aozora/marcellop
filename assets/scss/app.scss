@@ -48,8 +48,10 @@ $global-flexbox: true !global;
 @import 'mim';
 @import 'light';
 
+@import 'base';
 @import 'top-bar';
 @import 'hero';
 @import 'footer';
+@import 'about';
 
 //@import 'progressbar';
