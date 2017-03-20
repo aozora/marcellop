@@ -2,7 +2,7 @@
   <section id="about" class="about-area section--light">
     <div class="row">
       <div class="small-12 column">
-        <div class="section-title text-center mb-60">
+        <div class="section-title">
           <h2>About Me</h2>
           <div class="horizontal-line" aria-hidden="true">
             <div class="top"></div>

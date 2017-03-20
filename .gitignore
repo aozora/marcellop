@@ -42,3 +42,6 @@ bower_components
 
 # Nuxt generate
 dist
+
+#external files
+_mim

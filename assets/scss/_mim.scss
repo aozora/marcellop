@@ -102,25 +102,25 @@ p {
 /* background color
 ===============================*/
 
-.light-bg {
-  background: #ffffff none repeat scroll 0 0;
-}
-
-.dark-bg {
-  background: #202020 none repeat scroll 0 0;
-}
-
-.bg-color-1 {
-  background: #f5f5f5 none repeat scroll 0 0;
-}
-
-.bg-color-2 {
-  background: #393939 none repeat scroll 0 0;
-}
-
-.bg-color-3 {
-  background: #2b2b2b none repeat scroll 0 0;
-}
+//.light-bg {
+//  background: #ffffff none repeat scroll 0 0;
+//}
+//
+//.dark-bg {
+//  background: #202020 none repeat scroll 0 0;
+//}
+//
+//.bg-color-1 {
+//  background: #f5f5f5 none repeat scroll 0 0;
+//}
+//
+//.bg-color-2 {
+//  background: #393939 none repeat scroll 0 0;
+//}
+//
+//.bg-color-3 {
+//  background: #2b2b2b none repeat scroll 0 0;
+//}
 
 /* Default Button Style
 ------------------------ */
@@ -224,44 +224,44 @@ nav ul a {
 
 /* Main menu
 ---------------------------- */
-
-.mainmenu li {
-  float: left;
-  margin: 0 10px;
-}
-
-.mainmenu li a {
-  color: #777777;
-  display: block;
-  line-height: 40px;
-  padding: 0 5px;
-  position: relative;
-  letter-spacing: 0.40px;
-}
-
-.mainmenu li a:after {
-  background: #afafaf none repeat scroll 0 0;
-  content: "";
-  height: 2px;
-  left: 0;
-  margin-top: -1px;
-  -webkit-margin-before: -2px;
-  position: absolute;
-  top: 50%;
-  -webkit-transition: all 0.3s ease 0s;
-  transition: all 0.3s ease 0s;
-  width: 0;
-}
-
-.mainmenu li a:hover,
-.mainmenu li.active a {
-  color: #afafaf;
-}
-
-.mainmenu li a:hover:after,
-.mainmenu li.active a:after {
-  width: 100%;
-}
+//
+//.mainmenu li {
+//  float: left;
+//  margin: 0 10px;
+//}
+//
+//.mainmenu li a {
+//  color: #777777;
+//  display: block;
+//  line-height: 40px;
+//  padding: 0 5px;
+//  position: relative;
+//  letter-spacing: 0.40px;
+//}
+//
+//.mainmenu li a:after {
+//  background: #afafaf none repeat scroll 0 0;
+//  content: "";
+//  height: 2px;
+//  left: 0;
+//  margin-top: -1px;
+//  -webkit-margin-before: -2px;
+//  position: absolute;
+//  top: 50%;
+//  -webkit-transition: all 0.3s ease 0s;
+//  transition: all 0.3s ease 0s;
+//  width: 0;
+//}
+//
+//.mainmenu li a:hover,
+//.mainmenu li.active a {
+//  color: #afafaf;
+//}
+//
+//.mainmenu li a:hover:after,
+//.mainmenu li.active a:after {
+//  width: 100%;
+//}
 
 /* expand menu
 --------------*/
