@@ -8,11 +8,11 @@
   .experience-area__item {
     margin-bottom: rem-calc(50);
 
-    .left-text{
-      position: relative;
-      float: left;
-      //width: 168px;
-    }
+    //.left-text{
+    //  position: relative;
+    //  float: left;
+    //  //width: 168px;
+    //}
 
 
     h4 {
@@ -44,12 +44,22 @@
       line-height: 24px;
     }
 
+    .column {
+      position: relative;
+    }
+
+    svg {
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+
     .dashed-line {
       border-right: 2px dashed #939393;
       content: '';
-      height: 117px;
+      height: 100%;
       position: absolute;
-      right: -11px;
+      right: -13px;
       top: 22px;
       width: 0;
       z-index: 1;
