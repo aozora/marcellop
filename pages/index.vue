@@ -4,6 +4,7 @@
     <hero></hero>
     <about></about>
     <experience></experience>
+    <services></services>
   </div>
 </template>
 
@@ -13,13 +14,15 @@
   import Hero from '~components/Hero.vue'
   import About from '~components/About.vue'
   import Experience from '~components/Experience.vue'
+  import Services from '~components/Services.vue'
 
   export default {
     components: {
       MyHeader,
       Hero,
       About,
-      Experience
+      Experience,
+      Services
     },
 
     mounted () {
