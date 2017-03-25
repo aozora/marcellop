@@ -17,7 +17,15 @@
       </div>
       <div class="small-12 medium-6 column">
         <div class="slider-img text-right">
-          <img src="~assets/img/marcello.png" alt="picture of Marcello, standing and smiling; the picture is in black/white colors, expept for the shirt collar that is coloured."/>
+          <img
+            sizes="(max-width: 470px) 100vw, 470px"
+            srcset="
+              /img/hero/marcello-w_200.png 200w,
+              /img/hero/marcello-w_314.png 314w,
+              /img/hero/marcello-w_411.png 411w,
+              /img/hero/marcello-w_470.png 470w"
+            src="/img/hero/marcello-w_470.png"
+            alt="picture of Marcello, standing and smiling; the picture is in black/white colors, expept for the shirt collar that is coloured.">
         </div>
       </div>
     </div>
