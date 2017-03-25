@@ -1,0 +1,51 @@
+footer {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  background: #f5f5f5 none repeat scroll 0 0;
+
+  a,
+  p {
+    font-family: $heading-font-family;
+    font-size: 1rem;
+    line-height: 1.5rem;
+    text-align: left;
+    color: #929292;
+  }
+
+  a {
+    text-transform: none;
+
+    &:hover {
+      color: #929292;
+      text-decoration: underline;
+    }
+  }
+
+  .social-links {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+    //li {
+    //  float: left;
+    //}
+    li a {
+      color: #919191;
+      display: block;
+      padding: 0 15px;
+      font-size: 1rem;
+      font-family: $heading-font-family;
+      line-height: 1.5rem;
+
+      &:hover {
+        color: $black;
+      }
+    }
+
+    li:last-child a {
+      padding-right: 0;
+    }
+  }
+
+}
+
