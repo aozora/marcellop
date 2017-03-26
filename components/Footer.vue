@@ -8,7 +8,7 @@
       <div class="small-12 medium-6 column">
         <ul class="social-links">
           <li><a href="http://www.twitter.com/marcellopalmit" target="_blank">Twitter</a></li>
-          <li><a href="http://it.linkedin.com/in/marcellopalmitessa" target="_blank">Linkden</a></li>
+          <li><a href="http://it.linkedin.com/in/marcellopalmitessa" target="_blank">LinkedIn</a></li>
         </ul>
       </div>
     </div>
