@@ -3,7 +3,8 @@
     <div class="title-bar show-for-small-only" data-responsive-toggle="main-menu" data-hide-for="medium">
       <button class="menu-icon" type="button" data-toggle="example-menu"></button>
       <div class="title-bar-title">
-        <img src="~assets/img/catforlogo.png" alt="Mim"/>
+        <img src="~assets/img/catforlogo.png" alt="marcello" aria-hidden="true"/>
+        <img class="main-menu__marcello" src="~assets/img/marcello.svg" alt="marcello">
         Marcello
       </div>
     </div>
@@ -13,7 +14,10 @@
         <div class="top-bar-left">
           <ul class="menu">
             <li class="menu-text">
-              <a href="/"><img src="~assets/img/catforlogo.png" alt="Mim"/></a>
+              <a href="/">
+                <img src="~assets/img/catforlogo.png" alt="marcello" aria-hidden="true"/>
+                <img class="main-menu__marcello" src="~assets/img/marcello.svg" alt="marcello">
+              </a>
             </li>
           </ul>
         </div>
