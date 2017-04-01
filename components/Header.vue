@@ -1,11 +1,16 @@
 <template>
-  <header>
+  <header v-shrink-on-scroll>
     <div class="title-bar show-for-small-only" data-responsive-toggle="main-menu" data-hide-for="medium">
       <button class="menu-icon" type="button" data-toggle="example-menu"></button>
       <div class="title-bar-title">
         <img src="~assets/img/catforlogo.png" alt="marcello" aria-hidden="true"/>
         <img class="main-menu__marcello" src="~assets/img/marcello.svg" alt="marcello">
         Marcello
+
+
+
+
+
       </div>
     </div>
 
@@ -41,3 +46,78 @@
     </nav>
   </header>
 </template>
+
+<script>
+  /* eslint-disable */
+
+  /**
+   * Debounce
+   * @param func
+   * @param wait
+   * @param immediate
+   * @returns {Function}
+   */
+  function debounce (func, wait = 12, immediate = true) {
+    let timeout;
+    return function () {
+      const context = this;
+      const args = arguments;
+
+      const later = function () {
+        timeout = null;
+        if (!immediate) func.apply(context, args);
+      };
+
+      const callNow = immediate && !timeout;
+
+      clearTimeout(timeout);
+      timeout = setTimeout(later, wait);
+
+      if (callNow) func.apply(context, args);
+    };
+  }
+
+  function shrinkOnScroll (event) {
+    const target = document.querySelector('body')
+
+    // animate hero/toolbar
+    // ------------------------
+    const isScrolled = target.classList.contains('scrolled')
+
+    console.log(`target.scrollTop: ${target.scrollTop}, isScrolled: ${isScrolled}`)
+
+    if (target.scrollTop > 50 && !isScrolled) {
+      target.classList.add('scrolled')
+    } else if (target.scrollTop <= 10 && isScrolled) {
+      target.classList.remove('scrolled')
+    }
+  }
+
+
+  export default {
+    directives: {
+      shrinkOnScroll: {
+        // directive definition
+
+        bind(el, binding, vnode) {
+          // run the first time
+          shrinkOnScroll({ target: el })
+
+          // add listener
+          window.addEventListener('scroll', debounce(shrinkOnScroll))
+        },
+
+        update(el, binding) {
+          // remove + add
+          window.removeEventListener('scroll', debounce(shrinkOnScroll))
+          window.addEventListener('scroll', debounce(shrinkOnScroll))
+        },
+
+        unbind(el, binding) {
+          window.removeEventListener('scroll', debounce(shrinkOnScroll))
+        }
+
+      }
+    }
+  }
+</script>

@@ -1,6 +1,13 @@
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
 .top-bar {
   height: 141px;
   padding: 50px 0;
+  transition: all .35s ease-in-out;
 
   .row.column {
     display: flex;
@@ -41,6 +48,13 @@
   }
 }
 
+body.scrolled {
+  .top-bar {
+    height: 101px;
+    padding: 20px 0;
+    box-shadow: 0 3px 2px rgba(0, 0, 0, .4);
+  }
+}
 
 .main-menu__marcello {
   height: rem-calc(14);

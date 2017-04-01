@@ -1,10 +1,26 @@
 <template>
-  <div>
+  <div class="main-container">
+    <!-- Loading Bar Start -->
+    <div id="loading">
+      <div id="loading-center">
+        <div id="loading-center-absolute">
+          <img src="~assets/img/catforlogo.png" alt="Mim"/>
+          <div class="object" id="object_three"></div>
+        </div>
+      </div>
+    </div>
+    <!-- Loading Bar End -->
+
     <my-header></my-header>
-    <hero></hero>
-    <about></about>
-    <experience></experience>
-    <services></services>
+
+    <main id="maincontent">
+      <hero></hero>
+      <about></about>
+      <experience></experience>
+      <services></services>
+    </main>
+    <my-footer/>
+
   </div>
 </template>
 
@@ -15,6 +31,7 @@
   import About from '~components/About.vue'
   import Experience from '~components/Experience.vue'
   import Services from '~components/Services.vue'
+  import MyFooter from '~components/Footer.vue'
 
   export default {
     components: {
@@ -22,7 +39,8 @@
       Hero,
       About,
       Experience,
-      Services
+      Services,
+      MyFooter
     },
 
     mounted () {
