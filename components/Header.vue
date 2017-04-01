@@ -84,7 +84,7 @@
     // ------------------------
     const isScrolled = target.classList.contains('scrolled')
 
-    console.log(`target.scrollTop: ${target.scrollTop}, isScrolled: ${isScrolled}`)
+//    console.log(`target.scrollTop: ${target.scrollTop}, isScrolled: ${isScrolled}`)
 
     if (target.scrollTop > 50 && !isScrolled) {
       target.classList.add('scrolled')
