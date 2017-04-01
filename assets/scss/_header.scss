@@ -48,6 +48,16 @@ header {
   }
 }
 
+.top-bar__logo {
+  position: relative;
+  transform: translateY(-200%);
+  transition: transform .5s ease-in-out;
+
+  &.active {
+    transform: translateY(0);
+  }
+}
+
 body.scrolled {
   .top-bar {
     height: 101px;

@@ -11,6 +11,10 @@
 
 
 
+
+
+
+
       </div>
     </div>
 
@@ -18,11 +22,9 @@
       <div class="row column">
         <div class="top-bar-left">
           <ul class="menu">
-            <li class="menu-text">
-              <a href="/">
-                <img src="~assets/img/catforlogo.png" alt="marcello" aria-hidden="true"/>
-                <img class="main-menu__marcello" src="~assets/img/marcello.svg" alt="marcello">
-              </a>
+            <li class="top-bar__logo menu-text">
+              <img src="~assets/img/catforlogo.png" alt="marcello" aria-hidden="true"/>
+              <img class="main-menu__marcello" src="~assets/img/marcello.svg" alt="marcello">
             </li>
           </ul>
         </div>
@@ -77,20 +79,29 @@
     };
   }
 
+  /**
+   * Shrink the header on scroll
+   * @param event
+   */
   function shrinkOnScroll (event) {
     const target = document.querySelector('body')
-
-    // animate hero/toolbar
-    // ------------------------
+    const logo = document.querySelector('.top-bar__logo')
     const isScrolled = target.classList.contains('scrolled')
 
-//    console.log(`target.scrollTop: ${target.scrollTop}, isScrolled: ${isScrolled}`)
+    // console.log(`target.scrollTop: ${target.scrollTop}, isScrolled: ${isScrolled}`)
 
     if (target.scrollTop > 50 && !isScrolled) {
       target.classList.add('scrolled')
     } else if (target.scrollTop <= 10 && isScrolled) {
       target.classList.remove('scrolled')
     }
+
+    if (target.scrollTop > 400 && !logo.classList.contains('active')) {
+      logo.classList.add('active')
+    } else if (target.scrollTop < 400 && logo.classList.contains('active')) {
+      logo.classList.remove('active')
+    }
+
   }
 
 
