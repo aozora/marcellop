@@ -6,11 +6,11 @@
 }
 
 section {
-  padding: rem-calc(100) 0;
+  padding: rem-calc(80) 0;
 }
 
 .section-title {
-  margin-bottom: rem-calc(60);
+  margin-bottom: rem-calc(30);
 }
 
 h2 {
@@ -19,6 +19,16 @@ h2 {
 
 .section--light {
   background: $white none repeat scroll 0 0;
+}
+
+@include breakpoint(medium) {
+  section {
+    padding: rem-calc(100) 0;
+  }
+
+  .section-title {
+    margin-bottom: rem-calc(60);
+  }
 }
 
 //.dark-bg {

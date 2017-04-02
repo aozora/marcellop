@@ -16,7 +16,7 @@
         </div>
       </div>
       <div class="small-12 medium-6 column">
-        <div class="slider-img text-right">
+        <div class="hero__image">
           <img
             sizes="(max-width: 470px) 100vw, 470px"
             srcset="

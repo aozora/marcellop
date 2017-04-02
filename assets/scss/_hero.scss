@@ -1,15 +1,14 @@
 .hero {
-  padding-top: 0;
+  padding: 0;
   background-color: $light-gray;
   background-image: url(~assets/img/marcello.svg);
-  background-position: 0 38%;
+  background-position: 15px 5%;
   background-size: contain;
   background-repeat: no-repeat;
 }
 
 .hero__headings {
   margin-left: 1rem;
-  margin-top: 32%;
 
   h1 {
     margin-bottom: 20px;
@@ -37,6 +36,24 @@
 
   .button {
     margin-top: 40px;
+  }
+
+}
+
+.hero__image {
+  width: 200px;
+}
+
+@include breakpoint(medium) {
+  .hero {
+    background-position: 0 38%;
+  }
+
+  .hero__headings {
+    margin-top: 32%;
+  }
+  .hero__image {
+    width: 100%;
   }
 
 }
