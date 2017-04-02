@@ -4,6 +4,10 @@ header {
   width: 100%;
 }
 
+.title-bar {
+  padding: 20px 25px;
+}
+
 .top-bar {
   height: 141px;
   padding: 50px 0;
@@ -68,4 +72,16 @@ body.scrolled {
 
 .main-menu__marcello {
   height: rem-calc(14);
+}
+
+//.title-bar__marcello{
+//  height: 1rem;
+//}
+
+.title-bar-title {
+  //background: transparent url(/_nuxt/img/marcello.fdccced.svg) no-repeat 13px 9px;
+  //background-size: cover;
+  padding: 20px 0;
+  flex: 1 0 auto;
+  font-size: 1.5rem;
 }

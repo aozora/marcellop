@@ -1,24 +1,15 @@
 <template>
   <header v-shrink-on-scroll>
-    <div class="title-bar show-for-small-only" data-responsive-toggle="main-menu" data-hide-for="medium">
-      <button class="menu-icon" type="button" data-toggle="example-menu"></button>
+    <div class="title-bar show-for-small-only" data-responsive-toggle="main-menu">
       <div class="title-bar-title">
-        <img src="~assets/img/catforlogo.png" alt="marcello" aria-hidden="true"/>
-        <img class="main-menu__marcello" src="~assets/img/marcello.svg" alt="marcello">
-        Marcello
-
-
-
-
-
-
-
-
-
+        <img class="title-bar__cat" src="~assets/img/catforlogo.png" alt="marcello" aria-hidden="true"/>
+        <!--<img class="title-bar__marcello" src="~assets/img/marcello.svg" alt="marcello">-->
+        Marcello Palmitessa
       </div>
+      <button class="menu-icon" type="button" data-toggle="main-menu"></button>
     </div>
 
-    <nav id="main-menu" class="top-bar">
+    <nav id="main-menu" class="top-bar show-for-medium">
       <div class="row column">
         <div class="top-bar-left">
           <ul class="menu">
