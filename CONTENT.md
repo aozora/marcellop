@@ -10,3 +10,4 @@
 * Portfolio (projects)
 * Experience Timeline
   
+> Contact me
