@@ -14,7 +14,8 @@
     "start": "nuxt start",
     "generate": "nuxt generate",
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
-    "precommit": "npm run lint"
+    "precommit": "npm run lint",
+    "deploy-test": "surge dist/ --domain marcellop.surge.sh"
   },
   "devDependencies": {
     "babel-eslint": "^7.2.1",
