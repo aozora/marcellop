@@ -2,6 +2,7 @@ header {
   position: fixed;
   top: 0;
   width: 100%;
+  z-index: 101;
 }
 
 .title-bar {
@@ -84,4 +85,15 @@ body.scrolled {
   padding: 20px 0;
   flex: 1 0 auto;
   font-size: 1.5rem;
+
+  span {
+  }
+}
+
+@media print, screen and (min-width: rem-calc(320)) {
+  .title-bar-title {
+    span {
+      display: none;
+    }
+  }
 }

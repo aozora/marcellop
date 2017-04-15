@@ -1,20 +1,18 @@
 .hero {
-  padding: 0;
-  background-color: $light-gray;
-  background-image: url(~assets/img/marcello.svg);
-  background-position: 15px 5%;
+  padding-top: 0;
+  padding-bottom: 0;
   background-size: contain;
-  background-repeat: no-repeat;
+  background: $light-gray url(~assets/img/marcello.svg) no-repeat 15px 5%;
 }
 
 .hero__headings {
-  margin-left: 1rem;
+  //margin-left: 1rem;
 
   h1 {
     margin-bottom: 20px;
     color: #414141;
-    font-size: 44px;
-    line-height: 44px;
+    font-size: rem-calc(38);
+    line-height: rem-calc(44);
     font-weight: 700;
 
     small {

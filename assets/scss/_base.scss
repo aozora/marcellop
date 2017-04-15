@@ -6,7 +6,7 @@
 }
 
 section {
-  padding: rem-calc(80) 0;
+  padding: rem-calc(80) 1.5rem;
 }
 
 .section-title {
@@ -21,6 +21,9 @@ h2 {
   background: $white none repeat scroll 0 0;
 }
 
+/*
+ * Tablet+
+*/
 @include breakpoint(medium) {
   section {
     padding: rem-calc(100) 0;

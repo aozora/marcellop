@@ -4,7 +4,7 @@
       <div class="title-bar-title">
         <img class="title-bar__cat" src="~assets/img/catforlogo.png" alt="marcello" aria-hidden="true"/>
         <!--<img class="title-bar__marcello" src="~assets/img/marcello.svg" alt="marcello">-->
-        Marcello Palmitessa
+        Marcello <span>Palmitessa</span>
       </div>
       <button class="menu-icon" type="button" data-toggle="main-menu"></button>
     </div>
