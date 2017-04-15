@@ -4,7 +4,7 @@
       <div class="small-12 medium-6 column">
         <p>Copyright &copy; 2017 Marcello Palmitessa</p>
         <p>Made with <a href="https://vuejs.org/">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" height="16" width="16" xml:space="preserve" version="1.1">
+          <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" height="16" width="16" xml:space="preserve" version="1.1">
             <g transform="matrix(1.3333333,0,0,-1.3333333,0,400)" id="g10">
               <g transform="translate(178.0626,235.0086)" id="g12">
                 <path id="path14" style="fill:#4dba87;fill-opacity:1;fill-rule:nonzero;stroke:none" d="M 0,0 -22.669,-39.264 -45.338,0 h -75.491 L -22.669,-170.017 75.491,0 Z"></path>

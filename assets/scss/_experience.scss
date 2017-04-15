@@ -1,66 +1,81 @@
 .experience-area {
-  //background-color: #f5f5f5;
+  padding-bottom: 0;
+  background-color: $light-gray;
 
-  h2 {
-    margin-bottom: rem-calc(20);
+  //h2 {
+  //  margin-bottom: rem-calc(20);
+  //}
+}
+
+.experience-area__item {
+  margin-bottom: rem-calc(50);
+
+  h4 {
+    color: #696969;
+    font-weight: 500;
+    margin-bottom: 5px;
+    text-transform: capitalize;
   }
 
-  .experience-area__item {
-    margin-bottom: rem-calc(50);
-
-
-    h4 {
-      color: #696969;
-      font-weight: 500;
-      margin-bottom: 5px;
-      text-transform: capitalize;
-    }
-
-    h4 + p {
-      color: #959595;
-      font-family: $heading-font-family;
-      font-weight: 500;
-      font-size: 14px;
-      line-height: 24px;
-    }
-
-    h3 {
-      color: #5e5e5e;
-      padding-left: 36px;
-      font-size: rem-calc(20);
-      text-transform: capitalize;
-    }
-
-    h3 + p {
-      padding-left: 36px;
-      font-family: $heading-font-family;
-      font-size: 14px;
-      line-height: 24px;
-    }
-
-    .column {
-      position: relative;
-    }
-
-    svg {
-      position: absolute;
-      top: 0;
-      left: 0;
-    }
-
-    .dashed-line {
-      border-right: 2px dashed #939393;
-      content: '';
-      height: 100%;
-      position: absolute;
-      right: -13px;
-      top: 22px;
-      width: 0;
-      z-index: 1;
-    }
+  h4 + p {
+    color: #959595;
+    font-family: $heading-font-family;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 24px;
   }
 
+  h3 {
+    padding: 0;
+    color: #5e5e5e;
+    font-size: rem-calc(20);
+    text-transform: capitalize;
+  }
+
+  h3 + p {
+    padding: 0;
+    font-family: $heading-font-family;
+    font-size: 14px;
+    line-height: 24px;
+  }
+
+  .column {
+    position: relative;
+  }
+
+  svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: none;
+  }
+
+  .dashed-line {
+    display: none;
+    border-right: 2px dashed #939393;
+    content: '';
+    height: 100%;
+    position: absolute;
+    right: -13px;
+    top: 22px;
+    width: 0;
+    z-index: 1;
+  }
 }
 
 @include breakpoint(medium) {
+
+  .experience-area__item {
+
+    h3,
+    h3 + p {
+      padding-left: 36px;
+    }
+
+    .dashed-line,
+    svg {
+      display: block;
+    }
+  }
+
 }

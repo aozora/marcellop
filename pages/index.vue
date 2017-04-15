@@ -18,6 +18,7 @@
       <about></about>
       <experience></experience>
       <services></services>
+      <contact></contact>
     </main>
     <my-footer/>
 
@@ -26,12 +27,13 @@
 
 
 <script>
-  import MyHeader from '~components/Header.vue'
-  import Hero from '~components/Hero.vue'
-  import About from '~components/About.vue'
-  import Experience from '~components/Experience.vue'
-  import Services from '~components/Services.vue'
-  import MyFooter from '~components/Footer.vue'
+  import MyHeader from '~components/Header'
+  import Hero from '~components/Hero'
+  import About from '~components/About'
+  import Experience from '~components/Experience'
+  import Services from '~components/Services'
+  import Contact from '~components/Contact'
+  import MyFooter from '~components/Footer'
 
   export default {
     components: {
@@ -40,6 +42,7 @@
       About,
       Experience,
       Services,
+      Contact,
       MyFooter
     },
 

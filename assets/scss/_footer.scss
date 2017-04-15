@@ -7,7 +7,7 @@ footer {
   p {
     font-family: $heading-font-family;
     font-size: 1rem;
-    line-height: 1.5rem;
+    line-height: 2;
     text-align: left;
     color: #929292;
   }
@@ -23,12 +23,10 @@ footer {
 
   .social-links {
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
     align-items: center;
+    margin: 1rem 0;
 
-    //li {
-    //  float: left;
-    //}
     li a {
       color: #919191;
       display: block;
@@ -49,3 +47,8 @@ footer {
 
 }
 
+@include breakpoint(medium) {
+  .social-links {
+    justify-content: flex-end;
+  }
+}
