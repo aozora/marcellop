@@ -45,8 +45,8 @@ $global-flexbox: true !global;
 
 
 // Application Components
-@import 'mim';
-@import 'light';
+//@import 'mim';
+//@import 'light';
 
 @import 'base';
 @import 'header';
@@ -54,5 +54,6 @@ $global-flexbox: true !global;
 @import 'footer';
 @import 'about';
 @import 'experience';
+@import 'portfolio';
 @import 'services';
 @import 'contact';

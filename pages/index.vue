@@ -18,6 +18,7 @@
       <about></about>
       <experience></experience>
       <services></services>
+      <portfolio></portfolio>
       <contact></contact>
     </main>
     <my-footer/>
@@ -31,6 +32,7 @@
   import Hero from '~components/Hero'
   import About from '~components/About'
   import Experience from '~components/Experience'
+  import Portfolio from '~components/Portfolio'
   import Services from '~components/Services'
   import Contact from '~components/Contact'
   import MyFooter from '~components/Footer'
@@ -42,6 +44,7 @@
       About,
       Experience,
       Services,
+      Portfolio,
       Contact,
       MyFooter
     },

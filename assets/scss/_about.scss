@@ -25,3 +25,76 @@
 .about-area__progress {
 
 }
+/* about section
+-----------------*/
+.right.skill-progress {
+  width: 370px;
+}
+
+/* Progress bar
+---------------------*/
+.skill-bar {
+  margin-bottom: 28px;
+}
+
+.skill-progress .skill-bar:last-child {
+  margin-bottom: 0px;
+}
+
+.progress-title-holder {
+  position: relative;
+  font-size: 14px;
+  text-transform: uppercase;
+}
+
+.progress-title {
+  z-index: 100;
+}
+
+.progress-wrapper {
+  width: 100%;
+  z-index: 10;
+}
+
+.progress-mark {
+  position: absolute;
+  bottom: 0;
+  transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+}
+
+.progress-mark:after {
+  background: #484848 none repeat scroll 0 0;
+  border-radius: 50%;
+  box-shadow: 0 0 0 4px rgba(72, 72, 72, 0.5);
+  content: "";
+  height: 14px;
+  position: absolute;
+  right: 7px;
+  bottom: -25px;
+  width: 14px;
+  z-index: 999;
+}
+
+.progress-mark span,
+.progress-title-holder {
+  color: #5e5e5e;
+  font-family: Montserrat, sans-serif;
+  font-weight: 700;
+}
+
+.progress-outter {
+  background-color: #c8c8c8;
+}
+
+.progress-content {
+  background-color: #484848;
+  width: 0%; /* Initial value */
+}
+
+.progress-content,
+.progress-outter {
+  height: 7px;
+  border-radius: 3px;
+}

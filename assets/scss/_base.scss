@@ -49,3 +49,275 @@ h2 {
 //.bg-color-3 {
 //  background: #2b2b2b none repeat scroll 0 0;
 //}
+
+
+::-moz-selection {
+  background: #318DFD;
+  text-shadow: none;
+  color: #fff;
+}
+
+::selection {
+  background: #318DFD;
+  text-shadow: none;
+  color: #fff;
+}
+
+.fix {
+  overflow: hidden;
+}
+
+hr.line {
+  background: #f5f5f5 none repeat scroll 0 0;
+  border: 0 none;
+  height: 1px;
+  margin: 0 auto;
+  width: 100px;
+}
+
+.col-text-center {
+  float: none !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+.clear {
+  clear: both
+}
+
+input::-moz-placeholder,
+textarea::-moz-placeholder,
+input::-webkit-input-placeholder,
+textarea::-webkit-input-placeholder,
+input::-ms-input-placeholder,
+textarea::-ms-input-placeholder {
+  opacity: 1;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+}
+
+input:focus,
+textarea:focus {
+  outline: 0;
+}
+
+/* Link style
+  ============== */
+a {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  text-transform: uppercase;
+  line-height: 1;
+
+  &:focus,
+  &:hover {
+    color: $white;
+    outline: none;
+    text-decoration: none;
+  }
+}
+
+a,
+a > * {
+  outline: none;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+/* Transition
+  =============== */
+a,
+.navbar a,
+.form-control {
+  transition: all 0.3s ease;
+}
+
+/*
+  [ 2. Typography ]
+  ==========================*/
+h1, h2, h3, h4, h5, h6 {
+  margin: 0 0 15px;
+  text-transform: uppercase;
+}
+
+h1,
+h2 {
+  font-weight: 700;
+}
+
+p {
+  color: #767676;
+  font-size: 1.375rem;
+  //line-height: 24px;
+  //font-weight: 400;
+  margin: 0;
+}
+
+
+/* Default Button Style
+------------------------ */
+button,
+.button {
+  border: 0 none;
+  //font-size: 14px;
+  //height: 47px;
+  //line-height: 50px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  transition: all 0.3s ease 0s;
+
+  &.active,
+  &:active {
+    box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.18), 0 4px 15px 0 rgba(0, 0, 0, 0.15);
+  }
+
+  &.white,
+  &.white:hover,
+  &.white:focus {
+    color: #393939;
+  }
+
+  &.focus,
+  &:focus,
+  &:hover {
+    color: #fff;
+  }
+  &:focus {
+    outline: none !important;
+  }
+
+  i.material-icons {
+    font-size: 20px;
+  }
+}
+
+/* CSS Customization
+============================== */
+ul, ul li {
+  list-style: outside none none;
+  margin: 0;
+  padding: 0;
+}
+
+nav {
+  background-color: transparent;
+}
+
+nav ul,
+nav ul li {
+  float: none;
+}
+
+nav ul li:hover,
+nav ul li.active {
+  background-color: transparent;
+}
+
+nav ul a {
+  font-size: inherit;
+}
+
+/* horizontal line
+-------------------*/
+
+.horizontal-line div {
+  background: #bcbcbc none repeat scroll 0 0;
+  height: 2px;
+  margin: 0 auto;
+  width: 77px;
+}
+
+.horizontal-line div.top {
+  margin-bottom: 3px;
+  width: 44px;
+}
+
+/*
+[ 6. Loding Bar ]
+======================*/
+#loading {
+  background: #000 none repeat scroll 0 0;
+  height: 100%;
+  margin-top: 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 9999999;
+
+  &.loaded {
+    display: none;
+  }
+}
+
+#loading-center {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+#loading-center-absolute {
+  height: auto;
+  left: 50%;
+  margin-left: -60px;
+  margin-top: -10px;
+  position: absolute;
+  top: 50%;
+  width: 120px;
+}
+
+.object {
+  background: #ffffff none repeat scroll 0 0;
+  border-radius: 50%;
+  height: 10px;
+  left: -21px;
+  margin: -20px auto 0;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  width: 10px;
+}
+
+#object_three {
+  -webkit-animation: object_three 1.5s infinite;
+  animation: object_three 1.5s infinite;
+  -webkit-animation-delay: 0.5s;
+  animation-delay: 0.5s;
+}
+
+@-webkit-keyframes object_three {
+  75% {
+    transform: scale(0);
+    -webkit-transform: scale(0);
+  }
+}
+
+@keyframes object_three {
+  75% {
+    transform: scale(0);
+    -webkit-transform: scale(0);
+  }
+}
+
+/*
+[ 7. ScrollUp ]
+===============*/
+
+#scrollUp {
+  background: #393939 none repeat scroll 0 0;
+  bottom: 60px;
+  height: 35px;
+  right: 15px;
+  text-align: center;
+  width: 30px;
+}
+
+#scrollUp i {
+  color: #fff;
+  font-size: 25px;
+  line-height: 35px;
+  text-align: center;
+}
+
+#scrollUp:hover {
+  background: #000000 none repeat scroll 0 0;
+}
+
