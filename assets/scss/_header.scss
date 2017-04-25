@@ -7,6 +7,10 @@ header {
 
 .title-bar {
   padding: 20px 25px;
+
+  .menu-icon{
+    text-indent: -1000px;
+  }
 }
 
 .top-bar {
@@ -82,18 +86,21 @@ body.scrolled {
 .title-bar-title {
   //background: transparent url(/_nuxt/img/marcello.fdccced.svg) no-repeat 13px 9px;
   //background-size: cover;
-  padding: 20px 0;
+  padding: 0;
   flex: 1 0 auto;
   font-size: 1.5rem;
 
   span {
+    display: none;
   }
 }
 
-@media print, screen and (min-width: rem-calc(320)) {
+@include breakpoint(medium) {
   .title-bar-title {
+    padding: 20px 0;
+
     span {
-      display: none;
+      display: inline;
     }
   }
 }
