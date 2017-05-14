@@ -6,7 +6,7 @@
   "version": "1.0.0",
   "private": true,
   "dependencies": {
-    "nuxt": "^0.10.5"
+    "nuxt": "^0.10.7"
   },
   "scripts": {
     "dev": "nuxt",
@@ -18,17 +18,17 @@
     "deploy-test": "surge dist/ --domain marcellop.surge.sh"
   },
   "devDependencies": {
-    "babel-eslint": "^7.2.2",
+    "babel-eslint": "^7.2.3",
     "eslint": "^3.19.0",
-    "eslint-config-standard": "^10.2.0",
+    "eslint-config-standard": "^10.2.1",
     "eslint-loader": "^1.7.1",
-    "eslint-plugin-html": "^2.0.0",
+    "eslint-plugin-html": "^2.0.3",
     "eslint-plugin-import": "^2.2.0",
     "eslint-plugin-node": "^4.2.2",
     "eslint-plugin-promise": "^3.5.0",
     "eslint-plugin-standard": "^3.0.1",
     "foundation-sites": "^6.3.1",
     "node-sass": "^4.5.2",
-    "sass-loader": "^6.0.3"
+    "sass-loader": "^6.0.5"
   }
 }
