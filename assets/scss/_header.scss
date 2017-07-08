@@ -5,10 +5,27 @@ header {
   z-index: 101;
 }
 
+/**
+  Skip Links
+ */
+[href="#maincontent"] {
+  position: absolute;
+  top: 0;
+  right: 100%; /* moves off screen */
+
+  &:focus {
+    right: auto;
+    color: $body-font-color;
+    text-decoration: underline;
+    @include better-underline();
+    z-index: 100;
+  }
+}
+
 .title-bar {
   padding: 20px 25px;
 
-  .menu-icon{
+  .menu-icon {
     text-indent: -1000px;
   }
 }
@@ -17,10 +34,7 @@ header {
   height: 141px;
   padding: 50px 0;
   transition: all .35s ease-in-out;
-
-  .row.column {
-    display: flex;
-  }
+  display: flex;
 
   .menu > li {
     margin: 0 10px;

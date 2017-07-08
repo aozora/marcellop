@@ -1,16 +1,16 @@
 <template>
   <header v-shrink-on-scroll>
-    <div class="title-bar show-for-small-only" data-responsive-toggle="main-menu">
+    <a href="#maincontent">Skip to main content</a>
+    <nav class="title-bar show-for-small-only" data-responsive-toggle="main-menu">
       <div class="title-bar-title">
         <img class="title-bar__cat" src="~assets/img/catforlogo.png" alt="marcello" aria-hidden="true"/>
         <!--<img class="title-bar__marcello" src="~assets/img/marcello.svg" alt="marcello">-->
         Marcello <span>Palmitessa</span>
       </div>
       <button class="menu-icon" type="button" data-toggle="main-menu">Menu</button>
-    </div>
+    </nav>
 
     <nav id="main-menu" class="top-bar show-for-medium">
-      <div class="row column">
         <div class="top-bar-left">
           <ul class="menu">
             <li class="top-bar__logo menu-text">
@@ -35,7 +35,6 @@
             <!--</li>-->
           </ul>
         </div>
-      </div>
     </nav>
   </header>
 </template>

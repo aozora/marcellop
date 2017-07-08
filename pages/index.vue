@@ -13,7 +13,7 @@
 
     <my-header></my-header>
 
-    <main id="maincontent">
+    <main id="maincontent" role="main">
       <hero></hero>
       <about></about>
       <experience></experience>

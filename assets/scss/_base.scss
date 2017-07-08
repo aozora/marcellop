@@ -50,6 +50,18 @@ h2 {
 //  background: #2b2b2b none repeat scroll 0 0;
 //}
 
+/*
+   Improved Links underline
+   CSS Secrets, Lea Verou, Chapter 5
+*/
+p a {
+  @include better-underline();
+}
+
+a.button {
+
+}
+
 
 ::-moz-selection {
   background: #318DFD;

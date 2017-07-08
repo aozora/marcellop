@@ -1,11 +1,31 @@
 @charset 'utf-8';
+
+/**
+ * Foundation for Sites by ZURB
+ * Version 6.4.1
+ * foundation.zurb.com
+ * Licensed under MIT Open Source
+ */
+
+// Dependencies
+@import '../_vendor/normalize-scss/sass/normalize';
+@import '../_vendor/sassy-lists/stylesheets/helpers/missing-dependencies';
+@import '../_vendor/sassy-lists/stylesheets/helpers/true';
+@import '../_vendor/sassy-lists/stylesheets/functions/purge';
+@import '../_vendor/sassy-lists/stylesheets/functions/remove';
+@import '../_vendor/sassy-lists/stylesheets/functions/replace';
+@import '../_vendor/sassy-lists/stylesheets/functions/to-list';
+
 @import 'settings';
 @import '~foundation-sites/scss/foundation';
 
 $global-flexbox: true !global;
 
 @include foundation-global-styles;
-@include foundation-flex-grid;
+
+@include foundation-xy-grid-classes;
+//@include foundation-flex-grid;
+
 @include foundation-typography;
 //@include foundation-forms;
 @include foundation-button;
@@ -15,13 +35,14 @@ $global-flexbox: true !global;
 //@include foundation-breadcrumbs;
 //@include foundation-button-group;
 //@include foundation-callout;
+//@include foundation-card;
 @include foundation-close-button;
 @include foundation-menu;
 @include foundation-menu-icon;
 //@include foundation-drilldown-menu;
 @include foundation-dropdown;
 //@include foundation-dropdown-menu;
-//@include foundation-flex-video;
+//@include foundation-responsive-embed;
 @include foundation-label;
 //@include foundation-media-object;
 //@include foundation-off-canvas;
@@ -47,7 +68,7 @@ $global-flexbox: true !global;
 // Application Components
 //@import 'mim';
 //@import 'light';
-
+@import 'mixins';
 @import 'base';
 @import 'header';
 @import 'hero';
