@@ -1,5 +1,5 @@
 <template>
-  <section id="service" class="service-area bg-color-1">
+  <section id="service" class="service-area grid-container bg-color-1">
     <div class="row column">
       <div class="section-title">
         <h2>My Skills</h2>

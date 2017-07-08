@@ -1,5 +1,5 @@
 <template>
-  <section class="contact-area light-bg" id="contact">
+  <section class="contact-area grid-container light-bg" id="contact">
     <div class="row column">
       <div class="section-title">
         <h2>GET IN TOUCH</h2>

@@ -1,5 +1,5 @@
 <template>
-  <section id="portfolio" class="portfolio-area">
+  <section id="portfolio" class="portfolio-area grid-container">
     <div class="row column">
       <div class="small-12">
         <div class="section-title">

@@ -10,31 +10,31 @@
       <button class="menu-icon" type="button" data-toggle="main-menu">Menu</button>
     </nav>
 
-    <nav id="main-menu" class="top-bar show-for-medium">
-        <div class="top-bar-left">
-          <ul class="menu">
-            <li class="top-bar__logo menu-text">
-              <img src="~assets/img/catforlogo.png" alt="marcello" aria-hidden="true"/>
-              <img class="main-menu__marcello" src="~assets/img/marcello.svg" alt="marcello">
-            </li>
-          </ul>
-        </div>
+    <nav id="main-menu" class="top-bar grid-container show-for-medium">
+      <div class="top-bar-left">
+        <ul class="menu">
+          <li class="top-bar__logo menu-text">
+            <img src="~assets/img/catforlogo.png" alt="marcello" aria-hidden="true"/>
+            <img class="main-menu__marcello" src="~assets/img/marcello.svg" alt="marcello">
+          </li>
+        </ul>
+      </div>
 
-        <div class="top-bar-right">
-          <ul class="dropdown menu" data-dropdown-menu>
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#portfolio">PORTFOLIO</a></li>
-            <li><a href="#service">Services</a></li>
-            <li><a href="#blog">Blog</a></li>
-            <li><a href="#contact">Contact</a></li>
-            <!--<li>-->
-            <!--<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">-->
-            <!--<path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>-->
-            <!--</svg>-->
-            <!--</li>-->
-          </ul>
-        </div>
+      <div class="top-bar-right">
+        <ul class="dropdown menu" data-dropdown-menu>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#portfolio">PORTFOLIO</a></li>
+          <li><a href="#service">Services</a></li>
+          <li><a href="#blog">Blog</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <!--<li>-->
+          <!--<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">-->
+          <!--<path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>-->
+          <!--</svg>-->
+          <!--</li>-->
+        </ul>
+      </div>
     </nav>
   </header>
 </template>
@@ -49,7 +49,7 @@
    * @param immediate
    * @returns {Function}
    */
-  function debounce (func, wait = 12, immediate = true) {
+  function debounce(func, wait = 12, immediate = true) {
     let timeout;
     return function () {
       const context = this;
@@ -73,7 +73,7 @@
    * Shrink the header on scroll
    * @param event
    */
-  function shrinkOnScroll (event) {
+  function shrinkOnScroll(event) {
     const target = document.querySelector('body')
     const logo = document.querySelector('.top-bar__logo')
     const isScrolled = target.classList.contains('scrolled')

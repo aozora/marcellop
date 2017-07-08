@@ -1,7 +1,7 @@
 <template>
-  <section class="hero">
-    <div class="row">
-      <div class="small-12 medium-6 column static">
+  <section class="hero grid-container">
+    <div class="grid-x">
+      <div class="small-12 medium-6 cell static">
         <div class="hero__headings">
           <h1>
             <small>Hello, my name is</small>
@@ -15,7 +15,7 @@
           </p>
         </div>
       </div>
-      <div class="small-12 medium-6 column">
+      <div class="small-12 medium-6 cell">
         <div class="hero__image">
           <img
             sizes="(max-width: 470px) 100vw, 470px"
