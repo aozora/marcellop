@@ -54,13 +54,21 @@ h2 {
    Improved Links underline
    CSS Secrets, Lea Verou, Chapter 5
 */
-p a {
-  @include better-underline();
+p {
+  a {
+    @include better-underline();
+
+    &:focus {
+      outline: none;
+      background-color: $medium-gray;
+    }
+  }
 }
 
 a.button {
 
 }
+
 
 
 ::-moz-selection {

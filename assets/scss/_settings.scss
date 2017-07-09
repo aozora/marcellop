@@ -479,7 +479,7 @@ $menu-margin: 0;
 $menu-nested-margin: 1rem; // $global-menu-nested-margin
 $menu-items-padding: 0.7rem 1rem;
 $menu-simple-margin: 1rem;
-$menu-item-color-active: #777777;// $white;
+$menu-item-color-active: $black;// $white;
 $menu-item-background-active: get-color(primary);
 $menu-icon-spacing: 0.25rem;
 $menu-item-background-hover: $light-gray;

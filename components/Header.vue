@@ -15,7 +15,9 @@
         <ul class="menu">
           <li class="top-bar__logo menu-text">
             <img src="~assets/img/catforlogo.png" alt="marcello" aria-hidden="true"/>
+            Marcello
             <img class="main-menu__marcello" src="~assets/img/marcello.svg" alt="marcello">
+            <span>Palmitessa</span>
           </li>
         </ul>
       </div>

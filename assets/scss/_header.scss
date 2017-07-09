@@ -1,3 +1,5 @@
+$menu-item-color: #555;
+
 header {
   position: fixed;
   top: 0;
@@ -22,6 +24,9 @@ header {
   }
 }
 
+/**
+  Mobile Navigation
+ */
 .title-bar {
   padding: 20px 25px;
 
@@ -30,11 +35,24 @@ header {
   }
 }
 
+/**
+  Tablet/Desktop Navigation
+ */
 .top-bar {
   height: 141px;
   padding: 50px 0;
   transition: all .35s ease-in-out;
-  //display: flex;
+
+  .top-bar-left {
+    flex: 0 0 auto;
+  }
+  .top-bar-right {
+    flex: 1 1 auto;
+  }
+
+  .menu {
+    justify-content: flex-end;
+  }
 
   .menu > li {
     margin: 0 10px;
@@ -47,7 +65,7 @@ header {
       font-size: .875rem;
       font-weight: 600;
       letter-spacing: 0.40px;
-      color: #777;
+      color: $menu-item-color;
 
       &::after {
         content: "";
@@ -57,15 +75,17 @@ header {
         left: 0;
         height: 2px;
         transition: all 0.3s ease 0s;
-        background: #afafaf none repeat scroll 0 0;
-      }
-
-      &:hover {
-        color: #afafaf;
+        background: $menu-item-color none repeat scroll 0 0;
       }
 
       &:hover:after {
         width: 100%;
+      }
+
+      &:focus {
+        outline: none;
+        background-color: $medium-gray;
+        color: $black;
       }
     }
   }
@@ -81,11 +101,46 @@ header {
   }
 }
 
+/**
+  Scrolled behavior
+ */
+
+@keyframes wave {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-10px);
+  }
+}
+
 body.scrolled {
   .top-bar {
     height: 101px;
     padding: 20px 0;
-    box-shadow: 0px 2px 16px 10px rgba(255,255,255, 0.4);
+    background-color: rgba($topbar-background, .9);
+    //box-shadow: 0 2px 16px 10px rgba(255,255,255, 0.4);
+
+    .menu {
+      background-color: transparent;
+    }
+
+    .menu li {
+      //animation: wave .45s ease-in-out infinite;
+      animation-duration: .45s;
+      animation-name: wave;
+      animation-timing-function: ease-in-out;
+      animation-iteration-count: 2;
+      animation-direction: alternate;
+    }
+
+    $count: 10;
+    @for $i from 0 to $count {
+      .menu li:nth-child( #{$count}n + #{$i} ) {
+        animation-delay: -#{($count - $i) * 2 * .45 / $count }s;
+      }
+    }
+
   }
 }
 
