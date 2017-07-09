@@ -1,6 +1,6 @@
 <template>
-  <section class="contact-area grid-container light-bg" id="contact">
-    <div class="row column">
+  <section class="contact-area light-bg" id="contact">
+    <div class="grid-container ">
       <div class="section-title">
         <h2>GET IN TOUCH</h2>
         <div class="horizontal-line">
