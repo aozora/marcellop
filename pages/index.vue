@@ -18,7 +18,7 @@
       <about></about>
       <experience></experience>
       <services></services>
-      <portfolio></portfolio>
+      <!--<portfolio></portfolio>-->
       <contact></contact>
     </main>
     <my-footer/>

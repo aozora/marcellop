@@ -35,11 +35,11 @@
 
   const timeline = [
     {
-      from: '2000',
-      to: '2002',
-      company: 'Behance',
-      role: 'Consultant',
-      description: 'There are many variations of passages of Lorem Ipsum available, but the majority'
+      from: '2013',
+      to: 'Present',
+      company: 'Avanade Italy',
+      role: 'Experience Technology',
+      description: 'As Front-end Architect I turn designed experiences into reality. I provide efficient and scalable solutions to deliver a seamless experience across multiple touchpoints. My goal is to help designers shape and imagine the future, as well to help developers to implement innovative solutions. Along with Avanade Front-end SMEs from other countries, I\'m leading a global community at Avanade about Front-end Development.'
     },
     {
       from: '2000',
