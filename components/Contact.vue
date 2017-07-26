@@ -20,6 +20,7 @@
       </p>
       <figure>
         <img src="/img/garbage-trash-can-cat.gif">
+        <figcaption>Gif by hama-house.com</figcaption>
       </figure>
 
     </div>
