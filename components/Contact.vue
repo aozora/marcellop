@@ -9,7 +9,7 @@
         </div>
       </div>
 
-      <p>There are many variations of pages of Lorem Ipsum available, bu in some form, by</p>
+      <p>Feel free to contact me</p>
       <p>
         <a rel="noopener noreferrer" target="_blank" href="http://it.linkedin.com/in/marcellopalmitessa" class="button">
           <svg width="16" height="16" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg">
@@ -18,6 +18,9 @@
           LinkedIn
        </a>
       </p>
+      <figure>
+        <img src="/img/garbage-trash-can-cat.gif">
+      </figure>
 
     </div>
   </section>
