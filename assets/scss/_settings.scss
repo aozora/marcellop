@@ -65,7 +65,7 @@
 // 1. Global
 // ---------
 
-$global-font-size: 100%;
+$global-font-size: 120%;
 $global-width: rem-calc(1170);
 $global-lineheight: 1.5;
 $foundation-palette: (
@@ -157,7 +157,7 @@ $header-styles: (
   ),
 );
 $header-text-rendering: optimizeLegibility;
-$small-font-size: 80%;
+$small-font-size: 90%;
 $header-small-font-color: $medium-gray;
 
 $paragraph-lineheight: 1.5;
