@@ -174,7 +174,7 @@ p {
   font-size: 1.375rem;
   //line-height: 24px;
   //font-weight: 400;
-  margin: 0;
+  //margin: 0;
 }
 
 /* Default Button Style
@@ -240,6 +240,18 @@ nav ul li.active {
 
 nav ul a {
   font-size: inherit;
+}
+
+/* thumbnail
+-------------------*/
+
+.thumbnail {
+  transition: $thumbnail-transition;
+  margin: $global-margin;
+
+  &:hover {
+    box-shadow: $thumbnail-shadow-hover;
+  }
 }
 
 /* horizontal line

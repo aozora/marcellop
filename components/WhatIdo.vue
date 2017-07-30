@@ -2,7 +2,7 @@
   <section id="service" class="service-area bg-color-1">
     <div class="grid-container">
       <div class="section-title">
-        <h2 tabindex="0">My Skills</h2>
+        <h2 tabindex="0">What I Do</h2>
         <div class="horizontal-line" aria-hidden="true">
           <div class="top"></div>
           <div class="bottom"></div>
