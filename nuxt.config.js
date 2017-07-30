@@ -6,7 +6,7 @@ module.exports = {
     htmlAttrs: {
       lang: 'en',
     },
-    title: 'This is the web presence of MarcelloP',
+    title: 'This is the web presence of Marcello Palmitessa',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },

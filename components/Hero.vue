@@ -3,11 +3,11 @@
     <div class="grid-x">
       <div class="small-12 medium-6 cell static">
         <div class="hero__headings">
-          <h1>
+          <h1 tabindex="0">
             <small>Hello, my name is</small>
             Marcello Palmitessa
           </h1>
-          <p>
+          <p tabindex="0">
             I am a Front-end architect and developer from Italy with a strong focus on responsive design, performance and accessibilty.
             I am an advocate to work with designers to shape and imagine the future together.
           </p>

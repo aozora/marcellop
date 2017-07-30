@@ -1,3 +1,14 @@
+.visuallyhidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  clip: rect(0 0 0 0);
+  margin: -1px;
+  padding: 0;
+  border: 0;
+  overflow: hidden;
+}
+
 .main-container {
   position: relative;
   width: 100%;
@@ -55,7 +66,7 @@ h2 {
    CSS Secrets, Lea Verou, Chapter 5
 */
 p {
-  a {
+  a:not(.button) {
     @include better-underline();
 
     &:focus {
@@ -64,12 +75,6 @@ p {
     }
   }
 }
-
-a.button {
-
-}
-
-
 
 ::-moz-selection {
   background: #318DFD;
@@ -172,38 +177,39 @@ p {
   margin: 0;
 }
 
-
 /* Default Button Style
 ------------------------ */
 button,
 .button {
-  border: 0 none;
-  //font-size: 14px;
-  //height: 47px;
-  //line-height: 50px;
-  font-family: 'Montserrat', sans-serif;
+  font-family: $heading-font-family;
   font-weight: 600;
   transition: all 0.3s ease 0s;
+  border: 1px solid #393939;
 
-  &.active,
-  &:active {
-    box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.18), 0 4px 15px 0 rgba(0, 0, 0, 0.15);
-  }
-
-  &.white,
-  &.white:hover,
-  &.white:focus {
-    color: #393939;
-  }
-
-  &.focus,
-  &:focus,
   &:hover {
-    color: #fff;
+    border: 1px solid lighten(#393939, 20%);
+    color: lighten(#393939, 20%);
   }
-  &:focus {
-    outline: none !important;
-  }
+
+  //&.active,
+  //&:active {
+  //  box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.18), 0 4px 15px 0 rgba(0, 0, 0, 0.15);
+  //}
+
+  //&.white,
+  //&.white:hover,
+  //&.white:focus {
+  //  color: #393939;
+  //}
+
+  //&.focus,
+  //&:focus,
+  //&:hover {
+  //  color: #fff;
+  //}
+  //&:focus {
+  //  outline: none !important;
+  //}
 
   i.material-icons {
     font-size: 20px;
