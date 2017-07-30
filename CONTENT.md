@@ -17,6 +17,11 @@ Got bored of backend stack, in 2015 I started my actual path as FE architect and
 Responsive Design, UI style guides, Pattern Libraries, FE architectures, and modern FE workflows.
 Ha esperienza nel web development, responsive web design & modern Front-end Workflow, Rapid prototyping, Hybrid App Development
 
+* what I do
+  css3
+  html5
+  js6
+
 * Top Skill
   * RWD
   * Modern FE Workflow

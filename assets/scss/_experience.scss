@@ -1,10 +1,6 @@
 .experience-area {
   padding-bottom: 0;
   background-color: $light-gray;
-
-  //h2 {
-  //  margin-bottom: rem-calc(20);
-  //}
 }
 
 .experience-area__item {
@@ -43,23 +39,36 @@
     position: relative;
   }
 
-  svg {
-    position: absolute;
-    top: 0;
-    left: 0;
-    display: none;
-  }
+  //svg {
+  //  position: absolute;
+  //  top: 0;
+  //  left: 0;
+  //  display: none;
+  //}
 
-  .dashed-line {
+  .experience-line {
     display: none;
     border-right: 2px dashed #939393;
     content: '';
     height: 100%;
     position: absolute;
-    right: -13px;
+    right: -10px;
     top: 22px;
     width: 0;
     z-index: 1;
+  }
+
+  .experience-dot {
+    position: absolute;
+    top: 5px;
+    left: 0;
+    display: none;
+    width: 1rem;
+    height: 1rem;
+    background-color: $white;
+    border: 2px solid #939393;
+    border-radius: 50%;
+    z-index: 2;
   }
 }
 
@@ -72,9 +81,15 @@
       padding-left: 36px;
     }
 
-    .dashed-line,
-    svg {
+    .experience-line,
+    .experience-dot {
       display: block;
+    }
+
+    &:hover {
+      .experience-dot {
+        background: #939393;
+      }
     }
   }
 
