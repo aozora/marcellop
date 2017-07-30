@@ -1,6 +1,11 @@
 .contact-area {
   background-color: $white;
 
+  p {
+    display: flex;
+    justify-content: space-around;
+  }
+
   figure {
     display: flex;
     justify-content: center;

@@ -1,12 +1,13 @@
 .service-area {
   background-color: $white;
+  padding-bottom: 0;
 }
 
 .service-area__item {
   margin-bottom: rem-calc(30);
 
   > div {
-    padding: rem-calc(50) rem-calc(20) rem-calc(60) rem-calc(20);
+    padding: 0 rem-calc(20) rem-calc(60) rem-calc(20);
     box-shadow: 0 1px 5px rgba(5, 5, 6, 0.15);
     transition: all 0.3s ease 0s;
     text-align: center;
@@ -16,7 +17,13 @@
     }
 
     img {
+      width: 5rem;
+      height: 5rem;
+      margin-top: -2rem;
+      padding: .3rem;
       border-radius: 50%;
+      border: 1px solid #dbdbdb;
+      background-color: $white;
     }
 
     > p {
@@ -37,6 +44,7 @@
     > h5 {
       color: #757575;
       font-size: 14px;
+      margin-top: 1rem;
     }
 
   }
