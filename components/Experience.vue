@@ -1,5 +1,5 @@
 <template>
-  <section class="experience-area grid-container">
+  <section id="experience" class="experience-area grid-container">
     <div class="grid-container">
       <div class="section-title">
         <h2 tabindex="0">Work Experience</h2>

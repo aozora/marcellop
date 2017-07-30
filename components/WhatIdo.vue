@@ -1,5 +1,5 @@
 <template>
-  <section id="service" class="service-area bg-color-1">
+  <section id="whatido" class="service-area bg-color-1">
     <div class="grid-container">
       <div class="section-title">
         <h2 tabindex="0">What I Do</h2>
@@ -12,7 +12,7 @@
       <div class="grid-x grid-margin-x">
         <div class="service-area__item small-12 medium-6 large-3 cell">
           <div>
-            <i aria-hidden="true" class="zmdi zmdi-devices"></i>
+            <img src="~assets/img/puzzle.svg" alt="" aria-hidden="true">
             <h5 tabindex="0" class="montserrat weight-medium no-margin">Live Style Guide &amp; Pattern Libraries</h5>
             <hr/>
             <p tabindex="0">There are many variatio <br/> ns of pssages of Lorm available, bu in some form, </p>
@@ -54,3 +54,9 @@
     </div>
   </section>
 </template>
+
+<script>
+  export default {
+    name: 'WhatIdo'
+  }
+</script>

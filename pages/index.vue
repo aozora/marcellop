@@ -17,7 +17,7 @@
       <hero></hero>
       <about></about>
       <experience></experience>
-      <whatido></whatido>
+      <what-ido></what-ido>
       <!--<portfolio></portfolio>-->
       <contact></contact>
     </main>

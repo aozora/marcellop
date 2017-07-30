@@ -15,6 +15,10 @@
       box-shadow: 0 4px 15px rgba(5, 5, 6, 0.1);
     }
 
+    img {
+      border-radius: 50%;
+    }
+
     > p {
       margin: 0;
       font-size: rem-calc(14);

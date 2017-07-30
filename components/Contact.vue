@@ -1,8 +1,8 @@
 <template>
-  <section class="contact-area light-bg" id="contact">
+  <section id="contact" class="contact-area light-bg">
     <div class="grid-container ">
       <div class="section-title">
-        <h2 tabindex="0">GET IN TOUCH</h2>
+        <h2 tabindex="0">CONTACT ME</h2>
         <div class="horizontal-line">
           <div class="top"></div>
           <div class="bottom"></div>
@@ -25,7 +25,7 @@
         </a>
       </p>
       <figure>
-        <img src="/img/garbage-trash-can-cat.gif" alt="Funny animated picture of Marcello sit at his desk, he write something, then throwing a paper ball behind him; the paper ball is catched by a cat, that then put the ball inside a trashcan.">
+        <img src="/img/garbage-trash-can-cat.gif" alt="Funny animated picture of Marcello sit at his desk, he write something, then toss a paper ball behind him; the paper ball is catched by a cat, that then put the ball inside a trashcan.">
         <figcaption class="visuallyhidden">Gif by hama-house.com</figcaption>
       </figure>
 
