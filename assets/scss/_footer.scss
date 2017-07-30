@@ -1,4 +1,8 @@
 footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   padding-top: 20px;
   padding-bottom: 20px;
   background: #f5f5f5 none repeat scroll 0 0;
@@ -17,17 +21,21 @@ footer {
 
     &:hover {
       color: #929292;
-      text-decoration: underline;
     }
   }
 
-  .social-links {
+  .footer__made-with {
     display: flex;
+    align-items: center;
+  }
+
+  .footer__social-links {
+    display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin: 1rem 0;
 
-    li a {
+    a {
       color: #919191;
       display: block;
       padding: 0 15px;
@@ -39,16 +47,12 @@ footer {
         color: $black;
       }
     }
-
-    li:last-child a {
-      padding-right: 0;
-    }
   }
 
 }
-
-@include breakpoint(medium) {
-  .social-links {
-    justify-content: flex-end;
-  }
-}
+//
+//@include breakpoint(medium) {
+//  .social-links {
+//    justify-content: flex-end;
+//  }
+//}

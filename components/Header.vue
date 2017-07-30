@@ -7,13 +7,13 @@
         <!--<img class="title-bar__marcello" src="~assets/img/marcello.svg" alt="marcello">-->
         Marcello <span>Palmitessa</span>
       </div>
-      <button class="menu-icon" type="button" data-toggle="main-menu">Menu</button>
+      <button class="menu-icon" type="button" v-on:click.prevent="toggleMenu">Menu</button>
     </nav>
 
     <nav id="main-menu" class="top-bar show-for-medium">
       <div class="menu-container">
-        <div class="top-bar-left">
-          <ul class="menu">
+        <div class="top-bar-left show-for-medium">
+          <ul class="vertical menu">
             <li class="top-bar__logo menu-text">
               <img src="~assets/img/catforlogo.png" alt="marcello" aria-hidden="true"/>
               Marcello
@@ -24,7 +24,7 @@
         </div>
 
         <div class="top-bar-right">
-          <ul class="dropdown menu" data-dropdown-menu>
+          <ul class="vertical medium-horizontal menu" data-dropdown-menu>
             <li><a href="#home">Home</a></li>
             <li><a href="#about">About</a></li>
             <li><a href="#experience">Experience</a></li>
@@ -116,6 +116,13 @@
           window.removeEventListener('scroll', debounce(shrinkOnScroll))
         }
 
+      }
+    },
+
+    methods: {
+      toggleMenu() {
+        const nav = document.getElementById('main-menu');
+        nav.classList.toggle('show-for-medium');
       }
     }
   }
