@@ -18,7 +18,7 @@
           <div class="about-area__howdy">
             <h3 tabindex="0">Howdy!</h3>
             <p tabindex="0">
-              I was born and currently live in Milan, Italy. I started working in 1999 with Microsoft technologies, from VB to .NET, C#, SQL Server, starting soon to learn coding in HTML, CSS and javascript.
+              I was born and currently live in Milan, Italy. I started working in 1999 with Microsoft technologies, from VB to .NET, C#, SQL Server, starting soon to learn coding in HTML, CSS and JavaScript.
             </p>
             <p tabindex="0">
               In the 2007, I started learning about Usability and User Experience, spending months studying books and articles of Jakob Nielsen, Alan Cooper, Steve Krug, Luke Wroblewski, and others usability guru.

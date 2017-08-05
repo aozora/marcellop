@@ -1,10 +1,9 @@
 footer {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  flex-direction: row;
+  justify-content: space-between;
   align-items: center;
-  padding-top: 20px;
-  padding-bottom: 20px;
+  padding: 1.5rem;
   background: #f5f5f5 none repeat scroll 0 0;
 
   a,
@@ -29,30 +28,4 @@ footer {
     align-items: center;
   }
 
-  .footer__social-links {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-
-    a {
-      color: #919191;
-      display: block;
-      padding: 0 15px;
-      font-size: 1rem;
-      font-family: $heading-font-family;
-      line-height: 1.5rem;
-
-      &:hover {
-        color: $black;
-      }
-    }
-  }
-
 }
-//
-//@include breakpoint(medium) {
-//  .social-links {
-//    justify-content: flex-end;
-//  }
-//}

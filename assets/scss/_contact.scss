@@ -3,7 +3,34 @@
 
   p {
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
+    align-items: center;
+
+    a {
+      margin: 0 1rem;
+      border: 1px solid $blue;
+      border-radius: 2px;
+      font-family: $heading-font-family;
+      font-size: 1.5rem;
+      line-height: rem-calc(20);
+      background: $white;
+      text-transform: capitalize;
+
+      svg {
+        margin-right: 1.5rem;
+      }
+
+      &:hover,
+      &:active {
+        color: $white;
+        background-color: $blue;
+        box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.20);
+      }
+    }
+
+    &.social-links {
+      margin-top: 2.5rem;
+    }
   }
 
   figure {
