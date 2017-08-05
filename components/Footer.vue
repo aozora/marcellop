@@ -17,5 +17,8 @@
       <img src="~assets/img/nuxt.png" alt="" width="24" height="24" aria-hidden="true">
       <a href="https://nuxtjs.org/">Nuxt</a>
     </p>
+    <div class="footer__credits">
+      <p>Many thanks to my friend <a rel="noopener noreferrer" href="http://laiskantor.com/">Lais Kantor Caserta</a></p>
+    </div>
   </footer>
 </template>

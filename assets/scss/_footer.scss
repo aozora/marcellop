@@ -6,6 +6,10 @@ footer {
   padding: 1.5rem;
   background: #f5f5f5 none repeat scroll 0 0;
 
+  p {
+    flex: 1 1 50%;
+  }
+
   a,
   p {
     font-family: $heading-font-family;
@@ -26,6 +30,11 @@ footer {
   .footer__made-with {
     display: flex;
     align-items: center;
+  }
+
+  .footer__credits {
+    flex: 0 0 100%;
+    width: 100%;
   }
 
 }
