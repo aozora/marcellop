@@ -1,7 +1,7 @@
 <template>
-  <footer>
-    <p>Copyright &copy; 2017 Marcello Palmitessa</p>
-    <p class="footer__made-with">
+  <footer class="grid-x">
+    <p class="footer__copyright small-12 medium-6 large-4 cell">Copyright &copy; 2017 Marcello Palmitessa</p>
+    <p class="footer__made-with small-12 medium-6 medium-6 large-4 cell">
       Made with
       <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" height="24" width="24" xml:space="preserve" version="1.1">
         <g transform="matrix(1.3333333,0,0,-1.3333333,0,400)" id="g10">
@@ -13,12 +13,12 @@
           </g>
         </g>
       </svg>
-      <a href="https://vuejs.org/">Vue.js</a>&nbsp;and&nbsp;
+      <a rel="noopener noreferrer" href="https://vuejs.org/">Vue.js</a>&nbsp;and&nbsp;
       <img src="~assets/img/nuxt.png" alt="" width="24" height="24" aria-hidden="true">
-      <a href="https://nuxtjs.org/">Nuxt</a>
+      <a rel="noopener noreferrer" href="https://nuxtjs.org/">Nuxt</a>
     </p>
-    <div class="footer__credits">
-      <p>Many thanks to my friend <a rel="noopener noreferrer" href="http://laiskantor.com/">Lais Kantor Caserta</a></p>
+    <div class="footer__credits small-12 medium-12 large-4 cell">
+      <p>Special thanks to my friend <a rel="noopener noreferrer" href="http://laiskantor.com/">Lais Kantor Caserta</a></p>
     </div>
   </footer>
 </template>

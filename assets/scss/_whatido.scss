@@ -7,30 +7,27 @@
   margin-bottom: rem-calc(30);
 
   > div {
-    padding: 0 rem-calc(20) rem-calc(60) rem-calc(20);
-    box-shadow: 0 1px 5px rgba(5, 5, 6, 0.15);
+    padding: rem-calc(27) rem-calc(20) rem-calc(20) rem-calc(20);
+    background: $blue;
+    background-image: linear-gradient(-225deg, $white 41%, $blue 100%);
+    box-shadow: 0 2px 10px 0 rgba(0,0,0,0.30);
+    border-radius: 2px;
     transition: all 0.3s ease 0s;
     text-align: center;
 
     &:hover {
-      box-shadow: 0 4px 15px rgba(5, 5, 6, 0.1);
+      background-image: linear-gradient(-39deg, #FFFFFF 0%, $blue 74%);
+
+      svg g{
+        fill: $white;
+      }
     }
 
-    img {
-      width: 5rem;
-      height: 5rem;
-      margin-top: -2rem;
-      padding: .3rem;
-      border-radius: 50%;
-      border: 1px solid #dbdbdb;
-      background-color: $white;
-    }
-
-    > p {
+    p {
       margin: 0;
-      font-size: rem-calc(14);
+      font-size: 1rem;
       line-height: 1.5rem;
-      font-weight: 400;
+      font-weight: 300;
       color: #979797;
     }
 
@@ -43,7 +40,8 @@
 
     > h5 {
       color: #757575;
-      font-size: 14px;
+      font-size: rem-calc(18);
+      font-weight: 400;
       margin-top: 1rem;
     }
 

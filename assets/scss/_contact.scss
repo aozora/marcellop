@@ -15,6 +15,7 @@
       line-height: rem-calc(20);
       background: $white;
       text-transform: capitalize;
+      transition: all ease .35s;
 
       svg {
         margin-right: 1.5rem;
@@ -24,6 +25,7 @@
       &:active {
         color: $white;
         background-color: $blue;
+        border-color: transparent;
         box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.20);
       }
     }
