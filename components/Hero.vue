@@ -7,13 +7,10 @@
             <small>Hello, my name is</small>
             Marcello Palmitessa
           </h1>
-          <p tabindex="0">
+          <p>
             I am a Front-end architect and developer from Italy with a strong focus on responsive design, performance and accessibilty.
             I am an advocate to work with designers to shape and imagine the future together.
           </p>
-          <!--<p>-->
-            <!--<a class="button" href="#portfolio">my work</a>-->
-          <!--</p>-->
         </div>
       </div>
       <div class="small-12 medium-6 cell">

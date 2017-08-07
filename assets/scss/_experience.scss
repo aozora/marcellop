@@ -6,29 +6,30 @@
 .experience-area__item {
   margin-bottom: rem-calc(50);
 
-  h4 {
-    color: #696969;
+  h3 {
+    color: $gray;
     font-weight: 500;
     margin-bottom: 5px;
     text-transform: capitalize;
   }
 
-  h4 + p {
-    color: #959595;
+  h3 + p {
+    color: $dark-gray;
     font-family: $heading-font-family;
     font-weight: 500;
     font-size: 14px;
     line-height: 24px;
   }
 
-  h3 {
+  h4 {
     padding: 0;
-    color: #5e5e5e;
+    color: $gray;
     font-size: rem-calc(20);
     text-transform: capitalize;
   }
 
-  h3 + p {
+  h4 + p {
+    color: $dark-gray;
     padding: 0;
     font-family: $heading-font-family;
     font-size: 14px;
@@ -39,16 +40,9 @@
     position: relative;
   }
 
-  //svg {
-  //  position: absolute;
-  //  top: 0;
-  //  left: 0;
-  //  display: none;
-  //}
-
   .experience-line {
     display: none;
-    border-right: 2px dashed #939393;
+    border-right: 2px dashed $blue;
     content: '';
     height: 100%;
     position: absolute;
@@ -66,7 +60,7 @@
     width: 1rem;
     height: 1rem;
     background-color: $white;
-    border: 2px solid #939393;
+    border: 2px solid $blue;
     border-radius: 50%;
     z-index: 2;
   }
@@ -76,8 +70,8 @@
 
   .experience-area__item {
 
-    h3,
-    h3 + p {
+    h4,
+    h4 + p {
       padding-left: 36px;
     }
 
@@ -88,7 +82,7 @@
 
     &:hover {
       .experience-dot {
-        background: #939393;
+        background: $blue;
       }
     }
   }

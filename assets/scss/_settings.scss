@@ -79,10 +79,12 @@ $foundation-palette: (
 
 $light-gray: #f5f5f5;
 $medium-gray: #cacaca;
-$dark-gray: #8a8a8a;
+$dark-gray: #494949;
+$gray: #696969;
 $black: #414141;
 $white: #fff;
 $blue: #67BFFA;
+$x: #494949;
 
 $body-background: $light-gray;
 $body-font-color: $black;
@@ -136,7 +138,7 @@ $header-font-family: $heading-font-family;
 $header-font-weight: $global-weight-normal;
 $header-font-style: normal;
 $font-family-monospace: Consolas, 'Liberation Mono', Courier, monospace;
-$header-color: #494949; //get-color(secondary);
+$header-color: $dark-gray; //get-color(secondary);
 $header-lineheight: 1.5;
 $header-margin-bottom: rem-calc(20); //0.5rem;
 $header-styles: (
