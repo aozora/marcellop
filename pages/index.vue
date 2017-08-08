@@ -16,9 +16,8 @@
     <main id="maincontent" role="main">
       <hero></hero>
       <about></about>
-      <experience></experience>
       <what-ido></what-ido>
-      <!--<portfolio></portfolio>-->
+      <experience></experience>
       <contact></contact>
     </main>
     <my-footer/>

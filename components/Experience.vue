@@ -18,7 +18,7 @@
         <div class="small-12 medium-9 cell">
           <div class="experience-dot"></div>
           <h4>{{item.role}}</h4>
-          <p>{{item.description}}</p>
+          <p v-html="item.description"></p>
         </div>
       </div>
 
@@ -30,46 +30,101 @@
 
   const timeline = [
     {
-      from: '2013',
+      from: 'Jun 2016',
       to: 'Present',
       company: 'Avanade Italy',
       role: 'Experience Technology',
       description: 'As Front-end Architect I turn designed experiences into reality. I provide efficient and scalable solutions to deliver a seamless experience across multiple touchpoints. My goal is to help designers shape and imagine the future, as well to help developers to implement innovative solutions. Along with Avanade Front-end SMEs from other countries, I\'m leading a global community at Avanade about Front-end Development.'
     },
     {
-      from: '2000',
-      to: '2002',
-      company: 'Behance',
-      role: 'Consultant',
-      description: 'There are many variations of passages of Lorem Ipsum available, but the majority There are many variations of passages of Lorem Ipsum available, but the majorityThere are many variations of passages of Lorem Ipsum available, but the majorityThere are many variations of passages of Lorem Ipsum available, but the majorityThere are many variations of passages of Lorem Ipsum available, but the majorityThere are many variations of passages of Lorem Ipsum available, but the majorityThere are many variations of passages of Lorem Ipsum available, but the majority'
+      from: 'Dec 2015',
+      to: 'May 2016',
+      company: 'Avanade Italy',
+      role: 'Technical Architect & Web Development Technical Advisor',
+      description: 'As Technical Architect my job has been to setup the proposal development process (design blue print, estimation, delivery model, price, staff planning), creates a mobilization plan & manage transition into delivery, define a training plan for the solution.' +
+      '<br>For the Software Engineer Talent Community I was nominated as Web Developer champion/advisor with the following responsabilities:' +
+      '<br>As Sitecore Technical Architect I contributed to develop, maintain, and train people on our internal assets for cutting edge Sitecore development.'
     },
     {
-      from: '2000',
-      to: '2002',
-      company: 'Behance',
-      role: 'Consultant',
-      description: 'There are many variations of passages of Lorem Ipsum available, but the majority'
+      from: 'Apr 2015',
+      to: 'Nov 2015',
+      company: 'Avanade Italy',
+      role: '.NET & Sitecore Solution Architect @Avanade',
+      description: 'As Solution Architect at Avanade I contributed to architect customer solutions: from analysis, up to define the delivery model, estimations, methodology approach, staffing, and writing the technical design.' +
+      '<br>I specialized in delivery of Sitecore solutions and thanks to my extensive front-end development knowledge I contribute to add more value to the offers for our customers.'
     },
     {
-      from: '2000',
-      to: '2002',
-      company: 'Behance',
-      role: 'Consultant',
-      description: 'There are many variations of passages of Lorem Ipsum available, but the majority'
+      from: 'Jun 2013',
+      to: 'Mar 2015',
+      company: 'Avanade Italy',
+      role: 'Technical Lead @Avanade',
+      description: 'As Technical Lead I delivered with success several web projects based on .NET & Sitecore CMS. I lead on-shore & off-shore teams, organize team work, define tech guidelines, projects software architecture, customer interface, writing technical documentation, code reviews, actively identifying bottlenecks, propose resolutions & guidelines, putting all my experience into the field.'
     },
     {
-      from: '2000',
-      to: '2002',
-      company: 'Behance',
-      role: 'Consultant',
-      description: 'There are many variations of passages of Lorem Ipsum available, but the majority'
+      from: 'Dec 2012',
+      to: 'Jun 2013',
+      company: 'Synergia ICT',
+      role: 'Senior Developer and Frontend Designer at KpnQwest Italia',
+      description: 'I was in charge of several frontend tasks to redesign their web application using Twitter Bootstrap, HTML5, CSS3, and AngularJS, on top of a ASP.NET WebApi backend.' +
+      '<br>I also developed new applications on ASP.NET MVC 3/4 and maintained some of the customer existing web apps.'
     },
     {
-      from: '2000',
-      to: '2002',
-      company: 'Behance',
-      role: 'Consultant',
-      description: 'There are many variations of passages of Lorem Ipsum available, but the majority'
+      from: 'Oct 2012',
+      to: 'Nov 2012',
+      company: 'Monitae',
+      role: 'Frontend Web Developer',
+      description: 'Refactored the frontend of their web application, introducing a clean design inspired by my project BootMetro, giving the app a Windows 8 look & feel.'
+    },
+    {
+      from: 'Apr 2011',
+      to: 'Sep 2012',
+      company: 'AGS Group',
+      role: 'Developer Analyst',
+      description: ''
+    },
+    {
+      from: 'Jan 2011',
+      to: 'Apr 2011',
+      company: 'Sciamè',
+      role: 'Software engineer and team leader',
+      description: ''
+    },
+    {
+      from: 'Jan 2009',
+      to: 'Dec 2010',
+      company: 'Pirelli Sistemi Informativi',
+      role: 'Senior Developer',
+      description: 'Consultant as Senior Developer in Pirelli Sistemi Informativi, on the Pirelli Tyre B2B platform.' +
+      '<br>Evolving maintenance to Pirelli apps; WebServices & WCF Services, SAP Integration with BAPI calls; migration of B2B apps from 32-bit to 64-bit server.'
+    },
+    {
+      from: 'Jun 2007',
+      to: 'Dec 2008',
+      company: 'Objectweb S.r.l.',
+      role: 'Co-founder & Software Solution Architect',
+      description: 'Solution Architect for software development of a CMS 2.0 Framework with ECommerce module.'
+    },
+    {
+      from: 'Dec 2006',
+      to: 'Jun 2007',
+      company: 'AIVE S.p.a.',
+      role: 'Senior Developer',
+      description: 'Consultant as Software developer in AXA Assicurazioni Spa for AIVE Spa.'
+    },
+    {
+      from: 'Dec 2002',
+      to: 'Dec 2006',
+      company: 'Filo diretto Assicurazioni Spa',
+      role: 'Developer Analyst',
+      description: 'Microsoft .NET Technology specialist. Analysis & development for reporting, accounting, insurance specific applications.' +
+      '<br>Web development with Microsoft ASP.NET technology. Database development with Microsoft SQL Server 2000 and PostgreSQL.'
+    },
+    {
+      from: 'Dec 1999',
+      to: 'Nov 2002',
+      company: 'CSP Spa',
+      role: 'Developer Analyst',
+      description: 'IT Trainer. Project Leader for software development. Consultant at Vittoria Assicurazioni Spa.'
     }
   ]
 
