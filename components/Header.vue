@@ -1,7 +1,7 @@
 <template>
   <header v-shrink-on-scroll>
     <a href="#maincontent">Skip to main content</a>
-    <nav class="title-bar show-for-small-only" data-responsive-toggle="main-menu">
+    <nav class="title-bar show-for-small-only">
       <div class="title-bar-title">
         <img class="title-bar__cat" src="~assets/img/catforlogo.png" alt="marcello" aria-hidden="true"/>
         <!--<img class="title-bar__marcello" src="~assets/img/marcello.svg" alt="marcello">-->
@@ -24,7 +24,7 @@
         </div>
 
         <div class="top-bar-right">
-          <ul class="vertical medium-horizontal menu" data-dropdown-menu>
+          <ul class="vertical medium-horizontal menu"  v-smoothscroll="{ duration : 500 }" >
             <li><a href="#home">Home</a></li>
             <li><a href="#about">About</a></li>
             <li><a href="#whatido">What I do</a></li>
