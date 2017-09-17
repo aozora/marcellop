@@ -18,14 +18,14 @@
 
 
 <script>
-  import MyHeader from '~components/Header'
-  import Hero from '~components/Hero'
-  import About from '~components/About'
-  import Experience from '~components/Experience'
-//  import Portfolio from '~components/Portfolio'
-  import WhatIdo from '~components/WhatIdo'
-  import Contact from '~components/Contact'
-  import MyFooter from '~components/Footer'
+  import MyHeader from '~/components/Header'
+  import Hero from '~/components/Hero'
+  import About from '~/components/About'
+  import Experience from '~/components/Experience'
+  //  import Portfolio from '~/components/Portfolio'
+  import WhatIdo from '~/components/WhatIdo'
+  import Contact from '~/components/Contact'
+  import MyFooter from '~/components/Footer'
 
   export default {
     components: {
@@ -34,7 +34,6 @@
       About,
       Experience,
       WhatIdo,
-//      Portfolio,
       Contact,
       MyFooter
     },

@@ -27,7 +27,6 @@
 </template>
 
 <script>
-
   const timeline = [
     {
       from: 'Jun 2016',
