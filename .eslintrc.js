@@ -11,6 +11,9 @@ module.exports = {
     'html'
   ],
   // add your custom rules here
-  rules: {},
+  rules: {
+    "no-multiple-empty-lines": ["error", { "max": 2 }],
+    "space-before-function-paren": ["off"]
+  },
   globals: {}
 }

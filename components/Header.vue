@@ -24,7 +24,7 @@
         </div>
 
         <div class="top-bar-right">
-          <ul class="vertical medium-horizontal menu"  v-smoothscroll="{ duration : 500 }" >
+          <ul class="vertical medium-horizontal menu" v-smoothscroll="{ duration : 500 }">
             <li><a href="#home">Home</a></li>
             <li><a href="#about">About</a></li>
             <li><a href="#whatido">What I do</a></li>
@@ -38,7 +38,7 @@
 </template>
 
 <script>
-  /* eslint-disable */
+  //  /* eslint-disable */
 
   /**
    * Debounce
@@ -47,36 +47,36 @@
    * @param immediate
    * @returns {Function}
    */
-  function debounce(func, wait = 12, immediate = true) {
-    let timeout;
+  function debounce (func, wait = 12, immediate = true) {
+    let timeout
     return function () {
-      const context = this;
-      const args = arguments;
+      const context = this
+      const args = arguments
 
       const later = function () {
-        timeout = null;
-        if (!immediate) func.apply(context, args);
-      };
+        timeout = null
+        if (!immediate) func.apply(context, args)
+      }
 
-      const callNow = immediate && !timeout;
+      const callNow = immediate && !timeout
 
-      clearTimeout(timeout);
-      timeout = setTimeout(later, wait);
+      clearTimeout(timeout)
+      timeout = setTimeout(later, wait)
 
-      if (callNow) func.apply(context, args);
-    };
+      if (callNow) func.apply(context, args)
+    }
   }
 
   /**
    * Shrink the header on scroll
    * @param event
    */
-  function shrinkOnScroll(event) {
+  function shrinkOnScroll (event) {
     const target = document.querySelector('body')
     const logo = document.querySelector('.top-bar__logo')
     const isScrolled = target.classList.contains('scrolled')
 
-    // console.log(`target.scrollTop: ${target.scrollTop}, isScrolled: ${isScrolled}`)
+    console.log(`target.scrollTop: ${target.scrollTop}, isScrolled: ${isScrolled}`)
 
     if (target.scrollTop > 50 && !isScrolled) {
       target.classList.add('scrolled')
@@ -89,30 +89,28 @@
     } else if (target.scrollTop < 400 && logo.classList.contains('active')) {
       logo.classList.remove('active')
     }
-
   }
-
 
   export default {
     directives: {
       shrinkOnScroll: {
         // directive definition
 
-        bind(el, binding, vnode) {
+        bind (el, binding, vnode) {
           // run the first time
-          shrinkOnScroll({ target: el })
+          shrinkOnScroll({target: el})
 
           // add listener
           window.addEventListener('scroll', debounce(shrinkOnScroll))
         },
 
-        update(el, binding) {
+        update (el, binding) {
           // remove + add
           window.removeEventListener('scroll', debounce(shrinkOnScroll))
           window.addEventListener('scroll', debounce(shrinkOnScroll))
         },
 
-        unbind(el, binding) {
+        unbind (el, binding) {
           window.removeEventListener('scroll', debounce(shrinkOnScroll))
         }
 
@@ -120,10 +118,11 @@
     },
 
     methods: {
-      toggleMenu() {
-        const nav = document.getElementById('main-menu');
-        nav.classList.toggle('show-for-medium');
+      toggleMenu () {
+        const nav = document.getElementById('main-menu')
+        nav.classList.toggle('show-for-medium')
       }
     }
   }
+
 </script>
