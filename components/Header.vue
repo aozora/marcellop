@@ -3,7 +3,7 @@
     <a href="#maincontent">Skip to main content</a>
     <nav class="title-bar show-for-small-only">
       <div class="title-bar-title">
-        <img class="title-bar__cat" src="~assets/img/catforlogo.png" alt="marcello" aria-hidden="true"/>
+        <img role="presentation" aria-hidden="true" class="title-bar__cat" src="~assets/img/catforlogo.png" alt=""/>
         <!--<img class="title-bar__marcello" src="~assets/img/marcello.svg" alt="marcello">-->
         Marcello <span>Palmitessa</span>
       </div>
@@ -15,9 +15,9 @@
         <div class="top-bar-left show-for-medium">
           <ul class="vertical menu">
             <li class="top-bar__logo menu-text">
-              <img src="~assets/img/catforlogo.png" alt="marcello" aria-hidden="true"/>
+              <img role="presentation" aria-hidden="true" src="~assets/img/catforlogo.png" alt="marcello"/>
               Marcello
-              <img class="main-menu__marcello" src="~assets/img/marcello.svg" alt="marcello">
+              <img role="presentation" aria-hidden="true" class="main-menu__marcello" src="~assets/img/marcello.svg" alt="marcello">
               <span>Palmitessa</span>
             </li>
           </ul>

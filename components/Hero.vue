@@ -8,7 +8,7 @@
             Marcello Palmitessa
           </h1>
           <p>
-            I am a Front-end architect and developer from Italy with a strong focus on responsive design, performance and accessibilty.
+            I am a Front-end architect and developer from Italy with a strong focus on responsive web design, performance and accessibilty.
             I am an advocate to work with designers to shape and imagine the future together.
           </p>
         </div>

@@ -1,5 +1,5 @@
 <template>
-  <section id="whatido" class="service-area">
+  <section id="whatido" class="whatido">
     <div class="grid-container">
       <div class="section-title">
         <h2 tabindex="0">What I Do</h2>
@@ -9,9 +9,9 @@
         </div>
       </div>
 
-      <div class="grid-x grid-margin-x">
-        <div class="service-area__item small-12 medium-6 large-3 cell">
-          <div>
+      <div class="whatido__items --grid-x --grid-margin-x">
+        <div class="whatido__item small-12 medium-4 large-4 cell">
+          <!--<div>-->
             <svg aria-hidden="true" width="42px" height="45px" viewBox="0 0 42 45" version="1.1" xmlns="http://www.w3.org/2000/svg">
               <g stroke="none" stroke-width="1" fill="#67BFFA" fill-rule="evenodd">
                 <g fill-rule="nonzero">
@@ -23,10 +23,11 @@
             </svg>
             <h5>Modern Front-end Workflow</h5>
             <p>I develop with a modern front-end build process by using task runners, module bundlers, asset optimization and backend-less web server.</p>
-          </div>
+          <!--</div>-->
         </div>
-        <div class="service-area__item small-12 medium-6 large-3 cell">
-          <div>
+
+        <div class="whatido__item small-12 medium-6 large-3 cell">
+          <!--<div>-->
             <svg width="66px" height="45px" viewBox="0 0 66 45" version="1.1" xmlns="http://www.w3.org/2000/svg">
               <g stroke="none" stroke-width="1" fill="#67BFFA" fill-rule="evenodd">
                 <g fill-rule="nonzero">
@@ -36,10 +37,11 @@
             </svg>
             <h5>Responsive Web Design</h5>
             <p>Mobile First and Desktop Last, I work closely to designers to provide the best experience for end users.</p>
-          </div>
+          <!--</div>-->
         </div>
-        <div class="service-area__item small-12 medium-6 large-3 cell">
-          <div>
+
+        <div class="whatido__item small-12 medium-6 large-3 cell">
+          <!--<div>-->
             <svg width="50px" height="45px" viewBox="0 0 50 45" version="1.1" xmlns="http://www.w3.org/2000/svg">
               <g stroke="none" stroke-width="1" fill="#67BFFA" fill-rule="evenodd">
                 <g fill-rule="nonzero">
@@ -49,15 +51,13 @@
             </svg>
             <h5>Live Style Guide &amp; Pattern Libraries</h5>
             <p>
-              <!--Quoting Stephen Hay,-->
-              <!--<cite>We’re not designing pages, we’re designing systems of components.</cite>-->
-              <!--<br>-->
               I'm experienced in building Live Style Guide and Pattern Libraries by following the Atomic Design principles.
             </p>
-          </div>
+          <!--</div>-->
         </div>
-        <div class="service-area__item small-12 medium-6 large-3 cell">
-          <div>
+
+        <div class="whatido__item small-12 medium-6 large-3 cell">
+          <!--<div>-->
             <svg width="57px" height="43px" viewBox="0 0 57 43" version="1.1" xmlns="http://www.w3.org/2000/svg">
               <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round">
                 <g transform="translate(1.000000, 2.000000)" stroke="#67BFFA" stroke-width="4">
@@ -67,10 +67,11 @@
                 </g>
               </g>
             </svg>
-            <h5>Team Leading</h5>
-            <p>I'm an experienced Team Leader, delivering solutions on time and on budget.</p>
-          </div>
+            <h5>Accessibility</h5>
+            <p>I'm continuosly learning and sharing about Web Accessibility. I believe in an inclusive Web.</p>
+          <!--</div>-->
         </div>
+
       </div>
     </div>
   </section>
