@@ -48,7 +48,7 @@
       from: 'Apr 2015',
       to: 'Nov 2015',
       company: 'Avanade Italy',
-      role: '.NET & Sitecore Solution Architect @Avanade',
+      role: '.NET & Sitecore Solution Architect',
       description: 'As Solution Architect at Avanade I contributed to architect customer solutions: from analysis, up to define the delivery model, estimations, methodology approach, staffing, and writing the technical design.' +
       '<br>I specialized in delivery of Sitecore solutions and thanks to my extensive front-end development knowledge I contribute to add more value to the offers for our customers.'
     },
@@ -56,7 +56,7 @@
       from: 'Jun 2013',
       to: 'Mar 2015',
       company: 'Avanade Italy',
-      role: 'Technical Lead @Avanade',
+      role: 'Technical Lead',
       description: 'As Technical Lead I delivered with success several web projects based on .NET & Sitecore CMS. I lead on-shore & off-shore teams, organize team work, define tech guidelines, projects software architecture, customer interface, writing technical documentation, code reviews, actively identifying bottlenecks, propose resolutions & guidelines, putting all my experience into the field.'
     },
     {

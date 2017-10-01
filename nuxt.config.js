@@ -32,7 +32,8 @@ module.exports = {
   loading: {color: '#3B8070'},
 
   plugins: [
-    '~plugins/vue-smoothscroll'
+    { src: '~plugins/vue-smoothscroll', ssr: false },
+    { src: '~plugins/vue-shrinkonscroll', ssr: false }
   ],
 
   /*
