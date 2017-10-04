@@ -1,13 +1,23 @@
 $hero-color: #414141;
 
 .hero {
-  padding-top: 0;
-  padding-bottom: 0;
+  position: relative;
+  //padding-top: 0;
+  //padding-bottom: 0;
+  padding: 0;
+  margin: 0;
   background: $light-gray url(~assets/img/marcello.svg) no-repeat 15px 5%;
   background-size: contain;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
 }
 
 .hero__headings {
+  position: relative;
   //margin-left: 1rem;
 
   h1 {
@@ -40,20 +50,24 @@ $hero-color: #414141;
 
 }
 
-.hero__image {
-  width: 200px;
-}
+//.hero__image {
+//  width: 200px;
+//}
 
 @include breakpoint(medium) {
-  .hero {
-    background-position: 0 38%;
-  }
+  //.hero {
+  //  background-position: 0 38%;
+  //}
 
   .hero__headings {
-    margin-top: 32%;
+    position: absolute;
+    top: 20%;
+    width: 40%;
+    right: 5%;
+    //margin-top: 32%;
   }
-  .hero__image {
-    width: 100%;
-  }
+  //.hero__image {
+  //  width: 100%;
+  //}
 
 }

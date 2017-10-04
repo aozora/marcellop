@@ -16,16 +16,16 @@
       <div class="grid-x">
         <div class="small-12 medium-6 cell">
           <div class="about-area__howdy">
-            <h3 tabindex="0">Howdy!</h3>
-            <p tabindex="0">
-              I was born and currently live in Milan, Italy. I started working in 1999 with Microsoft technologies, from VB to .NET, C#, SQL Server, starting soon to learn coding in HTML, CSS and JavaScript.
+            <h3>Howdy!</h3>
+            <p>
+              I was born and currently live in Milan, Italy. I am a Front-end Architect &amp; Developer, started working in 1999 with Microsoft technologies, starting soon to learn coding in HTML, CSS and JavaScript.
             </p>
-            <p tabindex="0">
-              In the 2007, I started learning about Usability and User Experience, spending months studying books and articles of Jakob Nielsen, Alan Cooper, Steve Krug, Luke Wroblewski, and others usability guru.
+            <p>
+              In the 2007, I started learning about <strong>Usability</strong> and <strong>User Experience</strong>, spending months studying books and articles of Jakob Nielsen, Alan Cooper, Steve Krug, Luke Wroblewski, and others usability guru.
               In the meantime my development and user interface design skills evolved towards a more clean approach, putting the end user at the center of the experience.
               As I matured as full-stack web engineer, in 2016 I started to focus mostly on front-end development.
             </p>
-            <p tabindex="0">I’m quite into japanese culture and language, I love to climb mountains, to read fantasy & science-fictions books & movies, and my beautiful cat "Tati".
+            <p>I’m quite into japanese culture and language, I love to climb mountains, to read fantasy & science-fictions books & movies, and my beautiful cat <strong>"Tati"</strong>.
             </p>
           </div>
         </div>

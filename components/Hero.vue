@@ -1,37 +1,37 @@
 <template>
-  <section class="hero grid-container">
-    <!--<img-->
-      <!--sizes="(max-width: 2000px) 100vw, 2000px"-->
-      <!--srcset="-->
-<!--marcello_sjhyvm_c_scale,w_768.jpg 768w,-->
-<!--marcello_sjhyvm_c_scale,w_1099.jpg 1099w,-->
-<!--marcello_sjhyvm_c_scale,w_1380.jpg 1380w,-->
-<!--marcello_sjhyvm_c_scale,w_1628.jpg 1628w,-->
-<!--marcello_sjhyvm_c_scale,w_2000.jpg 2000w"-->
-      <!--src="marcello_sjhyvm_c_scale,w_2000.jpg"-->
-      <!--alt="">-->
-    <!---->
-    <picture>
-      <source
-        media="(max-width: 767px)"
-        sizes="(max-width: 1534px) 100vw, 1534px"
-        srcset="
-/img/hero/marcello_sjhyvm_c_scale,w_375.jpg 375w,
-/img/hero/marcello_sjhyvm_c_scale,w_823.jpg 823w,
-/img/hero/marcello_sjhyvm_c_scale,w_1141.jpg 1141w,
-/img/hero/marcello_sjhyvm_c_scale,w_1433.jpg 1433w,
-/img/hero/marcello_sjhyvm_c_scale,w_1534.jpg 1534w">
-      <img
-        sizes="(max-width: 2000px) 100vw, 2000px"
-        srcset="
+  <section class="hero">
+    <img
+      sizes="(max-width: 2000px) 100vw, 2000px"
+      srcset="
 /img/hero/marcello_sjhyvm_c_scale,w_768.jpg 768w,
 /img/hero/marcello_sjhyvm_c_scale,w_1099.jpg 1099w,
 /img/hero/marcello_sjhyvm_c_scale,w_1380.jpg 1380w,
 /img/hero/marcello_sjhyvm_c_scale,w_1628.jpg 1628w,
 /img/hero/marcello_sjhyvm_c_scale,w_2000.jpg 2000w"
-        src="/img/hero/marcello_sjhyvm_c_scale,w_2000.jpg"
-        alt="">
-    </picture>
+      src="/img/hero/marcello_sjhyvm_c_scale,w_2000.jpg"
+      alt="">
+
+    <!--<picture>-->
+      <!--<source-->
+        <!--media="(max-width: 767px)"-->
+        <!--sizes="(max-width: 1534px) 100vw, 1534px"-->
+        <!--srcset="-->
+<!--/img/hero/marcello_sjhyvm_c_scale,w_375.jpg 375w,-->
+<!--/img/hero/marcello_sjhyvm_c_scale,w_823.jpg 823w,-->
+<!--/img/hero/marcello_sjhyvm_c_scale,w_1141.jpg 1141w,-->
+<!--/img/hero/marcello_sjhyvm_c_scale,w_1433.jpg 1433w,-->
+<!--/img/hero/marcello_sjhyvm_c_scale,w_1534.jpg 1534w">-->
+      <!--<img-->
+        <!--sizes="(max-width: 2000px) 100vw, 2000px"-->
+        <!--srcset="-->
+<!--/img/hero/marcello_sjhyvm_c_scale,w_768.jpg 768w,-->
+<!--/img/hero/marcello_sjhyvm_c_scale,w_1099.jpg 1099w,-->
+<!--/img/hero/marcello_sjhyvm_c_scale,w_1380.jpg 1380w,-->
+<!--/img/hero/marcello_sjhyvm_c_scale,w_1628.jpg 1628w,-->
+<!--/img/hero/marcello_sjhyvm_c_scale,w_2000.jpg 2000w"-->
+        <!--src="/img/hero/marcello_sjhyvm_c_scale,w_2000.jpg"-->
+        <!--alt="">-->
+    <!--</picture>-->
 
     <div class="hero__headings">
       <h1>
