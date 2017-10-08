@@ -1,0 +1,73 @@
+$hero-color: #414141;
+
+.hero {
+  position: relative;
+  //padding-top: 0;
+  //padding-bottom: 0;
+  padding: 0;
+  margin: 0;
+  background: $light-gray url(/assets/img/marcello.svg) no-repeat 15px 5%;
+  background-size: contain;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.hero__headings {
+  position: relative;
+  //margin-left: 1rem;
+
+  h1 {
+    margin-bottom: 20px;
+    color: $hero-color;
+    font-size: rem-calc(38);
+    line-height: rem-calc(44);
+    font-weight: 700;
+
+    small {
+      display: block;
+      margin-bottom: 11px;
+      letter-spacing: 1px;
+      font-weight: 600;
+      font-size: 1rem;
+      line-height: 1;
+      color: #919191;
+    }
+  }
+
+  p {
+    line-height: 28px;
+    font-size: 1rem;
+    color: $hero-color;
+  }
+
+  .button {
+    margin-top: 40px;
+  }
+
+}
+
+//.hero__image {
+//  width: 200px;
+//}
+
+@include breakpoint(medium) {
+  //.hero {
+  //  background-position: 0 38%;
+  //}
+
+  .hero__headings {
+    position: absolute;
+    top: 20%;
+    width: 40%;
+    right: 5%;
+    //margin-top: 32%;
+  }
+  //.hero__image {
+  //  width: 100%;
+  //}
+
+}

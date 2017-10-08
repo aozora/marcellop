@@ -1,0 +1,179 @@
+$menu-item-color: #555;
+
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 101;
+}
+
+/**
+  Skip Links
+ */
+[href="#maincontent"] {
+  position: absolute;
+  top: 0;
+  right: 100%; /* moves off screen */
+
+  &:focus {
+    right: auto;
+    color: $body-font-color;
+    text-decoration: underline;
+    @include better-underline();
+    z-index: 100;
+  }
+}
+
+/**
+  Mobile Navigation
+ */
+.title-bar {
+  padding: 20px 25px;
+
+  .menu-icon {
+    text-indent: -1000px;
+    border: 0;
+  }
+}
+
+/**
+  Tablet/Desktop Navigation
+ */
+.top-bar {
+  padding: 1.5rem 0;
+  transition: all .35s ease-in-out;
+  background-color: transparent;
+
+  .menu-container {
+    @include xy-grid-container();
+    display: flex;
+    width: 100%;
+  }
+
+  .top-bar-left {
+    flex: 0 0 auto;
+  }
+  .top-bar-right {
+    flex: 1 1 auto;
+  }
+
+  .menu {
+    justify-content: flex-end;
+    background-color: transparent;
+  }
+
+  .menu > li {
+    margin: 0 10px;
+
+    > a:not(.menu-text) {
+      position: relative;
+      padding: 0 5px;
+      line-height: 40px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: .875rem;
+      font-weight: 600;
+      letter-spacing: 0.40px;
+      color: $menu-item-color;
+
+      &::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        width: 0;
+        left: 0;
+        height: 2px;
+        transition: all 0.3s ease 0s;
+        background: $menu-item-color none repeat scroll 0 0;
+      }
+
+      &:hover:after {
+        width: 100%;
+      }
+
+      &:focus {
+        outline: none;
+        background-color: $medium-gray;
+        color: $black;
+      }
+    }
+  }
+}
+
+.top-bar__logo {
+  position: relative;
+  transform: translateY(-200%);
+  transition: transform .5s ease-in-out;
+
+  &.active {
+    transform: translateY(0);
+  }
+}
+
+/**
+  Scrolled behavior
+ */
+
+@keyframes wave {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-10px);
+  }
+}
+
+body.scrolled {
+  .top-bar {
+    height: 101px;
+    padding: 20px 0;
+    background-color: rgba($topbar-background, .9);
+    //box-shadow: 0 2px 16px 10px rgba(255,255,255, 0.4);
+
+    .menu {
+      background-color: transparent;
+    }
+
+    .menu li {
+      //animation: wave .45s ease-in-out infinite;
+      animation-duration: .45s;
+      animation-name: wave;
+      animation-timing-function: ease-in-out;
+      animation-iteration-count: 2;
+      animation-direction: alternate;
+    }
+
+    $count: 10;
+    @for $i from 0 to $count {
+      .menu li:nth-child( #{$count}n + #{$i} ) {
+        animation-delay: -#{($count - $i) * 2 * .45 / $count }s;
+      }
+    }
+
+  }
+}
+
+.main-menu__marcello {
+  height: rem-calc(14);
+}
+
+.title-bar-title {
+  //background: transparent url(/_nuxt/img/marcello.fdccced.svg) no-repeat 13px 9px;
+  //background-size: cover;
+  padding: 0;
+  flex: 1 0 auto;
+  font-size: 1.5rem;
+
+  span {
+    display: none;
+  }
+}
+
+@include breakpoint(medium) {
+  .title-bar-title {
+    padding: 20px 0;
+
+    span {
+      display: inline;
+    }
+  }
+}

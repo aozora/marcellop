@@ -1,0 +1,27 @@
+<section id="experience" class="experience-area grid-container">
+  <div class="grid-container">
+    <div class="section-title">
+      <h2>Work Experience</h2>
+      <div class="horizontal-line" aria-hidden="true">
+        <div class="top"></div>
+        <div class="bottom"></div>
+      </div>
+    </div>
+
+    {{#each content.experience.timeline}}
+      <div class="experience-area__item grid-x">
+        <div class="small-12 medium-3 cell">
+          <div class="experience-line" aria-hidden="true"></div>
+          <h3>{{company}}</h3>
+          <p>{{from}}-{{to}}</p>
+        </div>
+        <div class="small-12 medium-9 cell">
+          <div class="experience-dot"></div>
+          <h4>{{role}}</h4>
+          <p v-html="description"></p>
+        </div>
+      </div>
+    {{/each}}
+
+  </div>
+</section>

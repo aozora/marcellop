@@ -1,0 +1,36 @@
+<header>
+  <a href="#maincontent">Skip to main content</a>
+  <nav class="title-bar show-for-small-only">
+    <div class="title-bar-title">
+      <img role="presentation" aria-hidden="true" class="title-bar__cat" src="/assets/img/catforlogo.png" alt=""/>
+      <!--<img class="title-bar__marcello" src="/assets/img/marcello.svg" alt="marcello">-->
+      Marcello <span>Palmitessa</span>
+    </div>
+    <button class="menu-icon" type="button" v-on:click.prevent="toggleMenu">Menu</button>
+  </nav>
+
+  <nav id="main-menu" class="top-bar show-for-medium">
+    <div class="menu-container">
+      <div class="top-bar-left show-for-medium">
+        <ul class="vertical menu">
+          <li class="top-bar__logo menu-text">
+            <img role="presentation" aria-hidden="true" src="/assets/img/catforlogo.png" alt="marcello"/>
+            Marcello
+            <img role="presentation" aria-hidden="true" class="main-menu__marcello" src="/assets/img/marcello.svg" alt="marcello">
+            <span>Palmitessa</span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="top-bar-right">
+        <ul class="vertical medium-horizontal menu" v-smoothscroll="{ duration : 500 }">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#whatido">What I do</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>

@@ -1,0 +1,43 @@
+.contact-area {
+  background-color: $white;
+
+  p {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+
+    a {
+      margin: 0 1rem;
+      border: 1px solid $blue;
+      border-radius: 2px;
+      font-family: $heading-font-family;
+      font-size: 1.5rem;
+      line-height: rem-calc(20);
+      background: $white;
+      text-transform: capitalize;
+      transition: all ease .35s;
+
+      svg {
+        margin-right: 1.5rem;
+      }
+
+      &:hover,
+      &:active {
+        color: $white;
+        background-color: $blue;
+        border-color: transparent;
+        box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.20);
+      }
+    }
+
+    &.social-links {
+      margin-top: 2.5rem;
+    }
+  }
+
+  figure {
+    display: flex;
+    justify-content: center;
+  }
+}
