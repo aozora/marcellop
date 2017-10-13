@@ -1,8 +1,9 @@
 backend:
-  name: git-gateway
+  name: github
+  repo: aozora/marcellop
   branch: master # Branch to update (optional; defaults to master)
 
-publish_mode: editorial_workflow
+#publish_mode: editorial_workflow
 
 media_folder: "assets/img/uploads" # Media files will be stored in the repo under static/images/uploads
 public_folder: "/assets/img/uploads" # The src attribute for uploaded media will begin with /images/uploads
