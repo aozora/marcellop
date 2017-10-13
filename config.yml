@@ -36,3 +36,8 @@ PATHS:
   # Paths to JavaScript entry points for webpack to bundle modules
   entries:
     - "src/assets/js/main.js"
+
+  #admin (netlify)
+  admin:
+  - "src/admin/index.html"
+  - "src/admin/config.yml"

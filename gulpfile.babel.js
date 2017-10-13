@@ -44,6 +44,7 @@ function clean (done) {
 // This task skips over the "img", "js", and "scss" folders, which are parsed separately
 function copy () {
   gulp.src(PATHS.rootassets).pipe(gulp.dest(PATHS.dist))
+  gulp.src(PATHS.admin).pipe(gulp.dest(`${PATHS.dist}/admin`))
 
   return gulp.src(PATHS.assets).pipe(gulp.dest(`${PATHS.dist}/assets`))
 }
