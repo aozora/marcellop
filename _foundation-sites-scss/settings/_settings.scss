@@ -59,40 +59,35 @@
 //  54. Tooltip
 //  55. Top Bar
 //  56. Xy Grid
-@import '../../../node_modules/foundation-sites/scss/util/util';
+
+@import 'util/util';
 
 // 1. Global
 // ---------
 
-$global-font-size: 125%; // 20px
-$global-width: rem-calc(1170);
+$global-font-size: 100%;
+$global-width: rem-calc(1200);
 $global-lineheight: 1.5;
 $foundation-palette: (
-  primary: #a1a1a1,
-  secondary: #4f4f4f,
+  primary: #1779ba,
+  secondary: #767676,
   success: #3adb76,
   warning: #ffae00,
   alert: #cc4b37,
 );
-
-$light-gray: #f5f5f5;
+$light-gray: #e6e6e6;
 $medium-gray: #cacaca;
-$dark-gray: #494949;
-$gray: #696969;
-$black: #414141;
-$white: #fff;
-$blue: #67BFFA;
-$x: #494949;
-$menu-dark-gray: #555;
-
-$body-background: $light-gray;
+$dark-gray: #8a8a8a;
+$black: #0a0a0a;
+$white: #fefefe;
+$body-background: $white;
 $body-font-color: $black;
-$body-font-family: 'Poppins', Helvetica, Roboto, Arial, sans-serif;
-$heading-font-family: 'Montserrat', Helvetica, Roboto, Arial, sans-serif;
+$body-font-family: 'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif;
 $body-antialiased: true;
 $global-margin: 1rem;
 $global-padding: 1rem;
-$global-weight-normal: 400;
+$global-position: 1rem;
+$global-weight-normal: normal;
 $global-weight-bold: bold;
 $global-radius: 0;
 $global-menu-padding: 0.7rem 1rem;
@@ -100,6 +95,7 @@ $global-menu-nested-margin: 1rem;
 $global-text-direction: ltr;
 $global-flexbox: true;
 $global-prototype-breakpoints: false;
+$global-button-cursor: auto;
 $global-color-pick-contrast-tolerance: 0;
 $print-transparent-backgrounds: true;
 
@@ -128,67 +124,62 @@ $grid-column-gutter: (
   medium: 30px,
 );
 $grid-column-align-edge: true;
+$grid-column-alias: 'columns';
 $block-grid-max: 8;
 
 // 4. Base Typography
 // ------------------
 
-$header-font-family: $heading-font-family;
+$header-font-family: $body-font-family;
 $header-font-weight: $global-weight-normal;
 $header-font-style: normal;
 $font-family-monospace: Consolas, 'Liberation Mono', Courier, monospace;
-$header-color: $dark-gray; //get-color(secondary);
-$header-lineheight: 1.5;
-$header-margin-bottom: 1rem; //0.5rem;
+$header-color: inherit;
+$header-lineheight: 1.4;
+$header-margin-bottom: 0.5rem;
 $header-styles: (
-  'small': (
-    'h1': ('font-size': 40, 'line-height': $header-lineheight, 'margin-top': 0, 'margin-bottom': $header-margin-bottom),
-    'h2': ('font-size': 32, 'line-height': $header-lineheight, 'margin-top': 0, 'margin-bottom': $header-margin-bottom),
-    'h3': ('font-size': 22, 'line-height': $header-lineheight, 'margin-top': 0, 'margin-bottom': $header-margin-bottom),
-    'h4': ('font-size': 16, 'line-height': $header-lineheight, 'margin-top': 0, 'margin-bottom': $header-margin-bottom),
-    'h5': ('font-size': 14, 'line-height': $header-lineheight, 'margin-top': 0, 'margin-bottom': $header-margin-bottom),
-    'h6': ('font-size': 13, 'line-height': $header-lineheight, 'margin-top': 0, 'margin-bottom': $header-margin-bottom)
+  small: (
+    'h1': ('font-size': 24),
+    'h2': ('font-size': 20),
+    'h3': ('font-size': 19),
+    'h4': ('font-size': 18),
+    'h5': ('font-size': 17),
+    'h6': ('font-size': 16),
   ),
-  'medium': (
-    'h1': ('font-size': 40, 'line-height': $header-lineheight, 'margin-top': 0, 'margin-bottom': $header-margin-bottom),
-    'h2': ('font-size': 32, 'line-height': $header-lineheight, 'margin-top': 0, 'margin-bottom': $header-margin-bottom),
-    'h3': ('font-size': 24, 'line-height': $header-lineheight, 'margin-top': 0, 'margin-bottom': $header-margin-bottom),
-    'h4': ('font-size': 18, 'line-height': $header-lineheight, 'margin-top': 0, 'margin-bottom': $header-margin-bottom),
-    'h5': ('font-size': 16, 'line-height': $header-lineheight, 'margin-top': 0, 'margin-bottom': $header-margin-bottom),
-    'h6': ('font-size': 13, 'line-height': $header-lineheight, 'margin-top': 0, 'margin-bottom': $header-margin-bottom)
-  )
+  medium: (
+    'h1': ('font-size': 48),
+    'h2': ('font-size': 40),
+    'h3': ('font-size': 31),
+    'h4': ('font-size': 25),
+    'h5': ('font-size': 20),
+    'h6': ('font-size': 16),
+  ),
 );
 $header-text-rendering: optimizeLegibility;
-$small-font-size: 90%;
+$small-font-size: 80%;
 $header-small-font-color: $medium-gray;
-
-$paragraph-lineheight: 1.5;
+$paragraph-lineheight: 1.6;
 $paragraph-margin-bottom: 1rem;
 $paragraph-text-rendering: optimizeLegibility;
-
 $code-color: $black;
 $code-font-family: $font-family-monospace;
 $code-font-weight: $global-weight-normal;
 $code-background: $light-gray;
 $code-border: 1px solid $medium-gray;
 $code-padding: rem-calc(2 5 1);
-
-$anchor-color: $white;
+$anchor-color: $primary-color;
 $anchor-color-hover: scale-color($anchor-color, $lightness: -14%);
-$anchor-text-decoration: underline;
+$anchor-text-decoration: none;
 $anchor-text-decoration-hover: none;
-
 $hr-width: $global-width;
 $hr-border: 1px solid $medium-gray;
 $hr-margin: rem-calc(20) auto;
-
 $list-lineheight: $paragraph-lineheight;
 $list-margin-bottom: $paragraph-margin-bottom;
 $list-style-type: disc;
 $list-style-position: outside;
 $list-side-margin: 1.25rem;
 $list-nested-side-margin: 1.25rem;
-
 $defnlist-margin-bottom: 1rem;
 $defnlist-term-weight: $global-weight-bold;
 $defnlist-term-margin-bottom: 0.3rem;
@@ -288,13 +279,13 @@ $breadcrumbs-item-separator-color: $medium-gray;
 // ----------
 
 $button-font-family: inherit;
-$button-padding: 1.2em 2.7em; //0.85em 1em;
+$button-padding: 0.85em 1em;
 $button-margin: 0 0 $global-margin 0;
 $button-fill: solid;
-$button-background: transparent; // $primary-color;
-$button-background-hover: $white; // scale-color($button-background, $lightness: -15%);
-$button-color: $black;
-$button-color-alt: $white;
+$button-background: $primary-color;
+$button-background-hover: scale-color($button-background, $lightness: -15%);
+$button-color: $white;
+$button-color-alt: $black;
 $button-radius: $global-radius;
 $button-hollow-border-width: 1px;
 $button-sizes: (
@@ -478,15 +469,16 @@ $mediaobject-image-width-stacked: 100%;
 // --------
 
 $menu-margin: 0;
-$menu-nested-margin: 1rem; // $global-menu-nested-margin
-$menu-items-padding: 0.7rem 1rem;
+$menu-nested-margin: $global-menu-nested-margin;
+$menu-items-padding: $global-menu-padding;
 $menu-simple-margin: 1rem;
-$menu-item-color-active: $black; // $white;
+$menu-item-color-active: $white;
 $menu-item-background-active: get-color(primary);
 $menu-icon-spacing: 0.25rem;
 $menu-item-background-hover: $light-gray;
 $menu-state-back-compat: true;
 $menu-centered-back-compat: true;
+$menu-icons-back-compat: true;
 
 // 24. Meter
 // ---------
@@ -501,8 +493,12 @@ $meter-fill-bad: $alert-color;
 // 25. Off-canvas
 // --------------
 
-$offcanvas-size: 250px;
-$offcanvas-vertical-size: 250px;
+$offcanvas-sizes: (
+  small: 250px,
+);
+$offcanvas-vertical-sizes: (
+  small: 250px,
+);
 $offcanvas-background: $light-gray;
 $offcanvas-shadow: 0 0 10px rgba($black, 0.7);
 $offcanvas-inner-shadow-size: 20px;
@@ -670,8 +666,8 @@ $prototype-separator-margin-top: $global-margin;
 // --------------------
 
 $prototype-shadow-breakpoints: $global-prototype-breakpoints;
-$prototype-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .16),
-0 2px 10px 0 rgba(0, 0, 0, .12);
+$prototype-box-shadow: 0 2px 5px 0 rgba(0,0,0,.16),
+                       0 2px 10px 0 rgba(0,0,0,.12);
 
 // 41. Prototype Sizing
 // --------------------
@@ -815,19 +811,19 @@ $tab-content-padding: 1rem;
 
 $thumbnail-border: solid 4px $white;
 $thumbnail-margin-bottom: $global-margin;
-$thumbnail-shadow: 0 1px 5px rgba(5, 5, 6, 0.15); // 0 0 0 1px rgba($black, 0.2);
-$thumbnail-shadow-hover: 0 1px 5px rgba(5, 5, 6, 0.5); // 0 0 6px 1px rgba($primary-color, 0.5);
+$thumbnail-shadow: 0 0 0 1px rgba($black, 0.2);
+$thumbnail-shadow-hover: 0 0 6px 1px rgba($primary-color, 0.5);
 $thumbnail-transition: box-shadow 200ms ease-out;
 $thumbnail-radius: $global-radius;
 
 // 53. Title Bar
 // -------------
 
-$titlebar-background: $light-gray;
-$titlebar-color: #777;
+$titlebar-background: $black;
+$titlebar-color: $white;
 $titlebar-padding: 0.5rem;
-$titlebar-text-font-weight: 600;
-$titlebar-icon-color: #777;
+$titlebar-text-font-weight: bold;
+$titlebar-icon-color: $white;
 $titlebar-icon-color-hover: $medium-gray;
 $titlebar-icon-spacing: 0.25rem;
 
@@ -869,5 +865,5 @@ $grid-margin-gutters: (
 $grid-padding-gutters: $grid-margin-gutters;
 $grid-container-padding: $grid-padding-gutters;
 $grid-container-max: $global-width;
-$block-grid-max: 8;
+$xy-block-grid-max: 8;
 
