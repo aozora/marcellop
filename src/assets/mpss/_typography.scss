@@ -1,52 +1,88 @@
-// =========================================================================
-//
-//  PRECISE CONTROL OVER RESPONSIVE TYPOGRAPHY FOR SASS
-//  ---------------------------------------------------
-//  Indrek Paas @indrekpaas
-//
-//  Inspired by Mike Riethmuller's Precise control over responsive typography
-//  http://madebymike.com.au/writing/precise-control-responsive-typography/
-//
-//  `strip-unit()` function by Hugo Giraudel
-//
-//  11.08.2016 Remove redundant `&` self-reference
-//  31.03.2016 Remove redundant parenthesis from output
-//  02.10.2015 Add support for multiple properties
-//  24.04.2015 Initial release
-//
-// =========================================================================
+/*
+          min Font Size   Max FS - Min FS      1000vw - min SS / Max SS - Min SS
+    calc( 16px          + (24 - 16)         *  (100vw - 400px) / (800 - 400) )
+*/
 
-@mixin fluid-type($properties, $min-vw, $max-vw, $min-value, $max-value) {
-  @each $property in $properties {
-    #{$property}: $min-value;
-  }
-
-  @media screen and (min-width: $min-vw) {
-    @each $property in $properties {
-      #{$property}: calc(#{$min-value} + #{strip-unit($max-value - $min-value)} * (100vw - #{$min-vw}) / #{strip-unit($max-vw - $min-vw)});
-    }
-  }
-
-  @media screen and (min-width: $max-vw) {
-    @each $property in $properties {
-      #{$property}: $max-value;
-    }
-  }
-}
-
-@function strip-unit($value) {
-  @return $value / ($value * 0 + 1);
-}
-
-/* Single property */
 html {
-  @include fluid-type(font-size, 320px, 1366px, 14px, 18px);
+  box-sizing: border-box;
+  height: 100%;
+  font-size: $global-font-size;
+  // Set fluid type
+  // $properties, $min-vw, $max-vw, $min-value, $max-value
+  @include fluid-type(font-size, $minScreen, $maxScreen, $minFont, $maxFont);
 }
 
-/* Multiple properties with same values */
+// Set box-sizing globally to handle padding and border widths
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+// Default body styles
+body {
+  padding: $baseline 0;
+  margin: 0 auto;
+
+  background: $body-background;
+
+
+  font-family: $body-font-family;
+  font-weight: $global-weight-normal;
+  line-height: $baseline;
+  color: $body-font-color;
+
+  @if $render-vertical-rhythm-lines {
+    background-image: linear-gradient(rgba(200, 50, 50, .25) 1px, transparent 1px);
+    background-size: 1px $baseline;
+  }
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+p {
+  line-height: $baseline;
+  margin-bottom: $baseline;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-weight: 700;
+  margin-bottom: $baseline;
+}
+
 h1 {
-  @include fluid-type(padding-bottom padding-top, 20em, 70em, 2em, 4em);
+  font-size: $h1;
+  line-height: $h1;
+  margin-top: calc((#{$baseline} - #{$h1}) + #{$baseline});
 }
 
+h2 {
+  font-size: $h2;
+  line-height: $h2;
+  margin-top: calc((#{$baseline} - #{$h2}) + #{$baseline} * 2);
+}
 
+h3 {
+  font-size: $h3;
+  line-height: $h3;
+  margin-top: calc((#{$baseline} - #{$h3}) + #{$baseline} * 2);
+}
 
+h4 {
+  font-size: $h4;
+  line-height: $h4;
+  margin-top: calc((#{$baseline} - #{$h4}) + #{$baseline} * 2);
+}
+
+h5 {
+  font-size: $h5;
+  line-height: $h5;
+  margin-top: calc((#{$baseline} - #{$h5}) + #{$baseline} * 2);
+}

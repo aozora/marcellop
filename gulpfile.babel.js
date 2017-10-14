@@ -112,10 +112,11 @@ function styleGuide (done) {
 // Compile Sass into CSS
 // In production, the CSS is compressed
 function sass () {
-  return gulp.src('src/assets/scss/app.scss')
+  // Using MarcelloP TypoStart
+  return gulp.src('src/assets/mpss/app.scss')
     .pipe($.sourcemaps.init())
     .pipe($.sass({
-      includePaths: PATHS.sass
+      // includePaths: PATHS.sass
     })
       .on('error', $.sass.logError))
     .pipe($.autoprefixer({
@@ -127,6 +128,23 @@ function sass () {
     .pipe($.if(!PRODUCTION, $.sourcemaps.write()))
     .pipe(gulp.dest(PATHS.dist + '/assets/css'))
     .pipe(browser.reload({stream: true}))
+
+  // this is for Foundation
+  // return gulp.src('src/assets/scss/app.scss')
+  //   .pipe($.sourcemaps.init())
+  //   .pipe($.sass({
+  //     includePaths: PATHS.sass
+  //   })
+  //     .on('error', $.sass.logError))
+  //   .pipe($.autoprefixer({
+  //     browsers: COMPATIBILITY
+  //   }))
+  //   // Comment in the pipe below to run UnCSS in production
+  //   //.pipe($.if(PRODUCTION, $.uncss(UNCSS_OPTIONS)))
+  //   .pipe($.if(PRODUCTION, $.cleanCss({compatibility: 'ie9'})))
+  //   .pipe($.if(!PRODUCTION, $.sourcemaps.write()))
+  //   .pipe(gulp.dest(PATHS.dist + '/assets/css'))
+  //   .pipe(browser.reload({stream: true}))
 }
 
 // Combine JavaScript into one file
@@ -195,7 +213,8 @@ function watch () {
   gulp.watch(PATHS.assets, copy)
   gulp.watch('src/pages/**/*.html').on('all', gulp.series(pages, browser.reload))
   gulp.watch('src/{layouts,partials}/**/*.html').on('all', gulp.series(resetPages, pages, browser.reload))
-  gulp.watch('src/assets/scss/**/*.scss').on('all', sass)
+  // gulp.watch('src/assets/scss/**/*.scss').on('all', sass)
+  gulp.watch('src/assets/mpss/**/*.scss').on('all', sass)
   gulp.watch('src/assets/js/**/*.js').on('all', gulp.series(javascript, browser.reload))
   gulp.watch('src/assets/img/**/*').on('all', gulp.series(images, browser.reload))
   gulp.watch('src/styleguide/**').on('all', gulp.series(styleGuide, browser.reload))

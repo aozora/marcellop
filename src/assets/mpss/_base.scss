@@ -9,41 +9,43 @@
   overflow: hidden;
 }
 
-.main-container {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  //margin-top: 141px;
-}
+//.main-container {
+//  position: relative;
+//  width: 100%;
+//  height: 100%;
+//  //margin-top: 141px;
+//}
+//
+//section {
+//  padding: rem-calc(80) 1.5rem;
+//}
+//
+//.section-title {
+//  margin-bottom: rem-calc(30);
+//}
+//
+//h2 {
+//  text-align: center;
+//}
+//
+//.section--light {
+//  background: $color-white none repeat scroll 0 0;
+//}
 
-section {
-  padding: rem-calc(80) 1.5rem;
-}
 
-.section-title {
-  margin-bottom: rem-calc(30);
-}
-
-h2 {
-  text-align: center;
-}
-
-.section--light {
-  background: $white none repeat scroll 0 0;
-}
-
-/*
- * Tablet+
-*/
-@include breakpoint(medium) {
-  section {
-    padding: rem-calc(100) 0;
-  }
-
-  .section-title {
-    margin-bottom: rem-calc(60);
-  }
-}
+//
+///*
+// * Tablet+
+//*/
+//@include breakpoint(medium) {
+//  section {
+//    padding: rem-calc(100) 0;
+//  }
+//
+//  .section-title {
+//    margin-bottom: rem-calc(60);
+//  }
+//}
 
 /*
    Improved Links underline
@@ -55,7 +57,7 @@ p {
 
     &:focus {
       outline: none;
-      background-color: $medium-gray;
+      background-color: $color-medium-gray;
       text-shadow: none;
     }
   }
@@ -73,27 +75,27 @@ p {
   color: #fff;
 }
 
-.fix {
-  overflow: hidden;
-}
+//.fix {
+//  overflow: hidden;
+//}
+//
+//hr.line {
+//  background: #f5f5f5 none repeat scroll 0 0;
+//  border: 0 none;
+//  height: 1px;
+//  margin: 0 auto;
+//  width: 100px;
+//}
 
-hr.line {
-  background: #f5f5f5 none repeat scroll 0 0;
-  border: 0 none;
-  height: 1px;
-  margin: 0 auto;
-  width: 100px;
-}
-
-.col-text-center {
-  float: none !important;
-  margin-left: auto !important;
-  margin-right: auto !important;
-}
-
-.clear {
-  clear: both
-}
+//.col-text-center {
+//  float: none !important;
+//  margin-left: auto !important;
+//  margin-right: auto !important;
+//}
+//
+//.clear {
+//  clear: both
+//}
 
 input::-moz-placeholder,
 textarea::-moz-placeholder,
@@ -105,10 +107,10 @@ textarea::-ms-input-placeholder {
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
 }
 
-input:focus,
-textarea:focus {
-  outline: 0;
-}
+//input:focus,
+//textarea:focus {
+//  outline: 0;
+//}
 
 /* Link style
   ============== */
@@ -120,7 +122,7 @@ a {
 
   &:focus,
   &:hover {
-    color: $white;
+    color: $color-white;
     outline: none;
     text-decoration: none;
   }
@@ -142,25 +144,25 @@ a,
 }
 
 /*
-  [ 2. Typography ]
-  ==========================*/
-h1, h2, h3, h4, h5, h6 {
-  margin: 0 0 15px;
-  text-transform: uppercase;
-}
-
-h1,
-h2 {
-  font-weight: 700;
-}
-
-p {
-  color: #767676;
-  font-size: 1.375rem;
-  //line-height: 24px;
-  //font-weight: 400;
-  //margin: 0;
-}
+//  [ 2. Typography ]
+//  ==========================*/
+//h1, h2, h3, h4, h5, h6 {
+//  margin: 0 0 15px;
+//  text-transform: uppercase;
+//}
+//
+//h1,
+//h2 {
+//  font-weight: 700;
+//}
+//
+//p {
+//  color: #767676;
+//  font-size: 1.375rem;
+//  //line-height: 24px;
+//  //font-weight: 400;
+//  //margin: 0;
+//}
 
 /* Default Button Style
 ------------------------ */
@@ -176,26 +178,6 @@ button,
     color: lighten(#393939, 20%);
   }
 
-  //&.active,
-  //&:active {
-  //  box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.18), 0 4px 15px 0 rgba(0, 0, 0, 0.15);
-  //}
-
-  //&.white,
-  //&.white:hover,
-  //&.white:focus {
-  //  color: #393939;
-  //}
-
-  //&.focus,
-  //&:focus,
-  //&:hover {
-  //  color: #fff;
-  //}
-  //&:focus {
-  //  outline: none !important;
-  //}
-
   i.material-icons {
     font-size: 20px;
   }
@@ -203,122 +185,58 @@ button,
 
 /* CSS Customization
 ============================== */
-ul, ul li {
-  list-style: outside none none;
-  margin: 0;
-  padding: 0;
-}
-
-nav {
-  background-color: transparent;
-}
-
-nav ul,
-nav ul li {
-  float: none;
-}
-
-nav ul li:hover,
-nav ul li.active {
-  background-color: transparent;
-}
-
-nav ul a {
-  font-size: inherit;
-}
+//ul, ul li {
+//  list-style: outside none none;
+//  margin: 0;
+//  padding: 0;
+//}
+//
+//nav {
+//  background-color: transparent;
+//}
+//
+//nav ul,
+//nav ul li {
+//  float: none;
+//}
+//
+//nav ul li:hover,
+//nav ul li.active {
+//  background-color: transparent;
+//}
+//
+//nav ul a {
+//  font-size: inherit;
+//}
 
 /* thumbnail
 -------------------*/
-
-.thumbnail {
-  transition: $thumbnail-transition;
-  margin: $global-margin;
-
-  &:hover {
-    box-shadow: $thumbnail-shadow-hover;
-  }
-}
+//
+//.thumbnail {
+//  transition: $thumbnail-transition;
+//  margin: $global-margin;
+//
+//  &:hover {
+//    box-shadow: $thumbnail-shadow-hover;
+//  }
+//}
 
 /* horizontal line
 -------------------*/
 
-.horizontal-line div {
-  background: #bcbcbc none repeat scroll 0 0;
-  height: 2px;
-  margin: 0 auto;
-  width: 77px;
-}
+//.horizontal-line div {
+//  background: #bcbcbc none repeat scroll 0 0;
+//  height: 2px;
+//  margin: 0 auto;
+//  width: 77px;
+//}
+//
+//.horizontal-line div.top {
+//  margin-bottom: 3px;
+//  width: 44px;
+//}
 
-.horizontal-line div.top {
-  margin-bottom: 3px;
-  width: 44px;
-}
 
-/*
-[ 6. Loding Bar ]
-======================*/
-#loading {
-  background: #000 none repeat scroll 0 0;
-  height: 100%;
-  margin-top: 0;
-  position: fixed;
-  top: 0;
-  width: 100%;
-  z-index: 9999999;
-
-  &.loaded {
-    display: none;
-  }
-}
-
-#loading-center {
-  width: 100%;
-  height: 100%;
-  position: relative;
-}
-
-#loading-center-absolute {
-  height: auto;
-  left: 50%;
-  margin-left: -60px;
-  margin-top: -10px;
-  position: absolute;
-  top: 50%;
-  width: 120px;
-}
-
-.object {
-  background: #ffffff none repeat scroll 0 0;
-  border-radius: 50%;
-  height: 10px;
-  left: -21px;
-  margin: -20px auto 0;
-  position: absolute;
-  right: 0;
-  top: 50%;
-  width: 10px;
-}
-
-#object_three {
-  -webkit-animation: object_three 1.5s infinite;
-  animation: object_three 1.5s infinite;
-  -webkit-animation-delay: 0.5s;
-  animation-delay: 0.5s;
-}
-
-@-webkit-keyframes object_three {
-  75% {
-    transform: scale(0);
-    -webkit-transform: scale(0);
-  }
-}
-
-@keyframes object_three {
-  75% {
-    transform: scale(0);
-    -webkit-transform: scale(0);
-  }
-}
 
 /*
 [ 7. ScrollUp ]

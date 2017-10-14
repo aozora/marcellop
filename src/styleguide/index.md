@@ -63,6 +63,7 @@ Headings are used to denote different sections of content, usually consisting of
 
 <h6>Heading Level 6</h6>
 
+<p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic quibusdam ratione sunt dolorum, qui illo maxime doloremque accusantium cum libero eum, a optio odio placeat debitis ullam aut non distinctio.</p>
 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic quibusdam ratione sunt dolorum, qui illo maxime doloremque accusantium cum libero eum, a optio odio placeat debitis ullam aut non distinctio.
 
 
@@ -95,36 +96,4 @@ These buttons are used for less important, secondary actions on a page.
 <a href="#" class="secondary button">Regular button</a>
 <a href="#" class="secondary small button">Small button</a>
 <a href="#" class="secondary tiny button">Tiny button</a>
-```
-
-
-
-# Forms
-
-<p class="lead">Use forms to allow users to interact with the site and provide information to the company.</p>
-
----
-
-## Elements of a Form
-
-A form should be marked up using its default HTML properties. The ones we make use of include (in hierarchical order):
-
-- Form
-- Label
-- Input
-- Select
-- Text area
-- Button
-
----
-
-
-# New Section
-
-Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora omnis suscipit id ut laborum recusandae molestias hic aliquid **expedita!** [Non dicta](zurb.com), autem obcaecati error, id ab voluptate unde culpa nulla.
-
-```html_example
-<a href="#" class="button">Button</a>
-<a href="#" class="button">Button</a>
-<a href="#" class="button">Button</a>
 ```
