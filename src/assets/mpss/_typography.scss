@@ -6,7 +6,7 @@
 html {
   box-sizing: border-box;
   height: 100%;
-  font-size: $global-font-size;
+  font-size: $global-font-size; // fallback
   // Set fluid type
   // $properties, $min-vw, $max-vw, $min-value, $max-value
   @include fluid-type(font-size, $minScreen, $maxScreen, $minFont, $maxFont);
@@ -24,7 +24,7 @@ body {
   padding: $baseline 0;
   margin: 0 auto;
 
-  background: $body-background;
+  background-color: $body-background;
 
 
   font-family: $body-font-family;
@@ -41,6 +41,8 @@ body {
   -moz-osx-font-smoothing: grayscale;
   font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
+
+  width: 30em;
 }
 
 p {
