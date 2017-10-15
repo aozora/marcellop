@@ -1,17 +1,16 @@
 //  MarcelloP Settings
 //  -----------------------------
 
-
 // 1. Global
 // ---------
-$render-vertical-rhythm-lines: true;
+$render-vertical-rhythm-lines: false;
 
 $baseline: 1.5rem;
 
 // magic formula:
 // calc(#{$min-value} + #{strip-unit($max-value - $min-value)} * ((100vw - #{$min-vw}) / #{strip-unit($max-vw - $min-vw)}));
 $minScreen: 17.7em; // 320px
-$maxScreen: 77.7em;   // 1400px
+$maxScreen: 77.7em; // 1400px
 $minFont: 1rem;
 $maxFont: 2.1rem;
 
@@ -34,7 +33,7 @@ $color-black: #414141;
 $color-white: #fff;
 $color-blue: #67BFFA;
 $color-x: #494949;
-
+$color-menu: #555;
 
 $global-font-size: 1.125%; // 18px
 
@@ -42,59 +41,58 @@ $body-background: $color-light-gray;
 $body-font-color: $color-black;
 $body-font-family: 'Poppins', Helvetica, Roboto, Arial, sans-serif;
 $heading-font-family: 'Montserrat', Helvetica, Roboto, Arial, sans-serif;
-$body-antialiased: true;
+//$body-antialiased: true;
 
-$global-margin: 1rem;
-$global-padding: 1rem;
-$global-weight-normal: 400;
-$global-weight-bold: bold;
+//$global-margin: 1rem;
+//$global-padding: 1rem;
+//$global-weight-normal: 400;
+//$global-weight-bold: bold;
 $global-radius: 0;
-$global-menu-padding: 0.7rem 1rem;
-$global-menu-nested-margin: 1rem;
-$global-text-direction: ltr;
-$global-flexbox: true;
-$global-prototype-breakpoints: false;
-$global-color-pick-contrast-tolerance: 0;
-$print-transparent-backgrounds: true;
+//$global-menu-padding: 0.7rem 1rem;
+//$global-menu-nested-margin: 1rem;
+//$global-text-direction: ltr;
+//$global-flexbox: true;
+//$global-prototype-breakpoints: false;
+//$global-color-pick-contrast-tolerance: 0;
+//$print-transparent-backgrounds: true;
 
 //@include add-foundation-colors;
-
 
 // 4. Base Typography
 // ------------------
 
 $header-font-family: $heading-font-family;
-$header-font-weight: $global-weight-normal;
-$header-font-style: normal;
-$font-family-monospace: Consolas, 'Liberation Mono', Courier, monospace;
+//$header-font-weight: $global-weight-normal;
+//$header-font-style: normal;
+//$font-family-monospace: Consolas, 'Liberation Mono', Courier, monospace;
 $header-color: $color-dark-gray; //get-color(secondary);
-$header-lineheight: 1.5;
-$header-margin-bottom: 1rem; //0.5rem;
-$header-styles: (
-  'small': (
-    'h1': ('font-size': 40, 'line-height': $header-lineheight, 'margin-top': 0, 'margin-bottom': $header-margin-bottom),
-    'h2': ('font-size': 32, 'line-height': $header-lineheight, 'margin-top': 0, 'margin-bottom': $header-margin-bottom),
-    'h3': ('font-size': 22, 'line-height': $header-lineheight, 'margin-top': 0, 'margin-bottom': $header-margin-bottom),
-    'h4': ('font-size': 16, 'line-height': $header-lineheight, 'margin-top': 0, 'margin-bottom': $header-margin-bottom),
-    'h5': ('font-size': 14, 'line-height': $header-lineheight, 'margin-top': 0, 'margin-bottom': $header-margin-bottom),
-    'h6': ('font-size': 13, 'line-height': $header-lineheight, 'margin-top': 0, 'margin-bottom': $header-margin-bottom)
-  ),
-  'medium': (
-    'h1': ('font-size': 40, 'line-height': $header-lineheight, 'margin-top': 0, 'margin-bottom': $header-margin-bottom),
-    'h2': ('font-size': 32, 'line-height': $header-lineheight, 'margin-top': 0, 'margin-bottom': $header-margin-bottom),
-    'h3': ('font-size': 24, 'line-height': $header-lineheight, 'margin-top': 0, 'margin-bottom': $header-margin-bottom),
-    'h4': ('font-size': 18, 'line-height': $header-lineheight, 'margin-top': 0, 'margin-bottom': $header-margin-bottom),
-    'h5': ('font-size': 16, 'line-height': $header-lineheight, 'margin-top': 0, 'margin-bottom': $header-margin-bottom),
-    'h6': ('font-size': 13, 'line-height': $header-lineheight, 'margin-top': 0, 'margin-bottom': $header-margin-bottom)
-  )
-);
-$header-text-rendering: optimizeLegibility;
-$small-font-size: 90%;
-$header-small-font-color: $color-medium-gray;
+//$header-lineheight: 1.5;
+//$header-margin-bottom: 1rem; //0.5rem;
+//$header-styles: (
+//  'small': (
+//    'h1': ('font-size': 40, 'line-height': $header-lineheight, 'margin-top': 0, 'margin-bottom': $header-margin-bottom),
+//    'h2': ('font-size': 32, 'line-height': $header-lineheight, 'margin-top': 0, 'margin-bottom': $header-margin-bottom),
+//    'h3': ('font-size': 22, 'line-height': $header-lineheight, 'margin-top': 0, 'margin-bottom': $header-margin-bottom),
+//    'h4': ('font-size': 16, 'line-height': $header-lineheight, 'margin-top': 0, 'margin-bottom': $header-margin-bottom),
+//    'h5': ('font-size': 14, 'line-height': $header-lineheight, 'margin-top': 0, 'margin-bottom': $header-margin-bottom),
+//    'h6': ('font-size': 13, 'line-height': $header-lineheight, 'margin-top': 0, 'margin-bottom': $header-margin-bottom)
+//  ),
+//  'medium': (
+//    'h1': ('font-size': 40, 'line-height': $header-lineheight, 'margin-top': 0, 'margin-bottom': $header-margin-bottom),
+//    'h2': ('font-size': 32, 'line-height': $header-lineheight, 'margin-top': 0, 'margin-bottom': $header-margin-bottom),
+//    'h3': ('font-size': 24, 'line-height': $header-lineheight, 'margin-top': 0, 'margin-bottom': $header-margin-bottom),
+//    'h4': ('font-size': 18, 'line-height': $header-lineheight, 'margin-top': 0, 'margin-bottom': $header-margin-bottom),
+//    'h5': ('font-size': 16, 'line-height': $header-lineheight, 'margin-top': 0, 'margin-bottom': $header-margin-bottom),
+//    'h6': ('font-size': 13, 'line-height': $header-lineheight, 'margin-top': 0, 'margin-bottom': $header-margin-bottom)
+//  )
+//);
+//$header-text-rendering: optimizeLegibility;
+//$small-font-size: 90%;
+//$header-small-font-color: $color-medium-gray;
 
-$paragraph-lineheight: 1.5;
-$paragraph-margin-bottom: 1rem;
-$paragraph-text-rendering: optimizeLegibility;
+//$paragraph-lineheight: 1.5;
+//$paragraph-margin-bottom: 1rem;
+//$paragraph-text-rendering: optimizeLegibility;
 
 //$code-color: $black;
 //$code-font-family: $font-family-monospace;
@@ -103,34 +101,33 @@ $paragraph-text-rendering: optimizeLegibility;
 //$code-border: 1px solid $medium-gray;
 //$code-padding: rem-calc(2 5 1);
 
-$anchor-color: $color-white;
-$anchor-color-hover: scale-color($anchor-color, $lightness: -14%);
-$anchor-text-decoration: underline;
-$anchor-text-decoration-hover: none;
+//$anchor-color: $color-white;
+//$anchor-color-hover: scale-color($anchor-color, $lightness: -14%);
+//$anchor-text-decoration: underline;
+//$anchor-text-decoration-hover: none;
 
 //$hr-width: $global-width;
 //$hr-border: 1px solid $medium-gray;
 //$hr-margin: rem-calc(20) auto;
 
-$list-lineheight: $paragraph-lineheight;
-$list-margin-bottom: $paragraph-margin-bottom;
-$list-style-type: disc;
-$list-style-position: outside;
-$list-side-margin: 1.25rem;
-$list-nested-side-margin: 1.25rem;
-
+//$list-lineheight: $paragraph-lineheight;
+//$list-margin-bottom: $paragraph-margin-bottom;
+//$list-style-type: disc;
+//$list-style-position: outside;
+//$list-side-margin: 1.25rem;
+//$list-nested-side-margin: 1.25rem;
 
 // 14. Card
 // --------
 
-$card-background: $color-white;
-$card-font-color: $body-font-color;
-$card-divider-background: $color-light-gray;
-$card-border: 1px solid $color-light-gray;
-$card-shadow: none;
-$card-border-radius: $global-radius;
-$card-padding: $global-padding;
-$card-margin-bottom: $global-margin;
+//$card-background: $color-white;
+//$card-font-color: $body-font-color;
+//$card-divider-background: $color-light-gray;
+//$card-border: 1px solid $color-light-gray;
+//$card-shadow: none;
+//$card-border-radius: $global-radius;
+//$card-padding: $global-padding;
+//$card-margin-bottom: $global-margin;
 
 // 15. Close Button
 // ----------------
@@ -152,8 +149,6 @@ $closebutton-lineheight: 1;
 $closebutton-color: $color-dark-gray;
 $closebutton-color-hover: $color-black;
 
-
-
 // 23. Menu
 // --------
 
@@ -167,8 +162,6 @@ $menu-icon-spacing: 0.25rem;
 $menu-item-background-hover: $color-light-gray;
 $menu-state-back-compat: true;
 $menu-centered-back-compat: true;
-
-
 
 // 53. Title Bar
 // -------------

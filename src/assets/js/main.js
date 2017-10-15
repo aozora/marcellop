@@ -1,4 +1,6 @@
 import $ from 'jquery';
+import sticky from 'stickyfilljs/dist/stickyfill.es6';
+
 // eslint-disable-next-line no-unused-vars
 import whatInput from 'what-input';
 
@@ -27,4 +29,8 @@ if (window.netlifyIdentity) {
 
 // on document ready
 $(document).ready(() => {
+
+  const stickyEelements = document.querySelectorAll('header');
+  sticky.add(stickyEelements);
+
 });
