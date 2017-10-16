@@ -21,6 +21,7 @@ html {
 
 // Default body styles
 body {
+  position: relative;
   padding: $baseline 0;
   margin: 0 auto;
 
@@ -42,7 +43,7 @@ body {
   font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 
-  width: 30em;
+  //width: 30em;
 }
 
 p {

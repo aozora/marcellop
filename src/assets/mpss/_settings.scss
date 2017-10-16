@@ -152,34 +152,38 @@ $closebutton-color-hover: $color-black;
 // 23. Menu
 // --------
 
-$menu-margin: 0;
-$menu-nested-margin: 1rem; // $global-menu-nested-margin
-$menu-items-padding: 0.7rem 1rem;
-$menu-simple-margin: 1rem;
-$menu-item-color-active: $color-black; // $white;
-$menu-item-background-active: get-color(primary);
-$menu-icon-spacing: 0.25rem;
-$menu-item-background-hover: $color-light-gray;
-$menu-state-back-compat: true;
-$menu-centered-back-compat: true;
+//$menu-margin: 0;
+//$menu-nested-margin: 1rem; // $global-menu-nested-margin
+//$menu-items-padding: 0.7rem 1rem;
+//$menu-simple-margin: 1rem;
+//$menu-item-color-active: $color-black; // $white;
+//$menu-item-background-active: get-color(primary);
+//$menu-icon-spacing: 0.25rem;
+//$menu-item-background-hover: $color-light-gray;
+//$menu-state-back-compat: true;
+//$menu-centered-back-compat: true;
 
-// 53. Title Bar
-// -------------
+//// 53. Title Bar
+//// -------------
+//
+//$titlebar-background: $color-light-gray;
+//$titlebar-color: #777;
+//$titlebar-padding: 0.5rem;
+//$titlebar-text-font-weight: 600;
+//$titlebar-icon-color: #777;
+//$titlebar-icon-color-hover: $color-medium-gray;
+//$titlebar-icon-spacing: 0.25rem;
 
-$titlebar-background: $color-light-gray;
-$titlebar-color: #777;
-$titlebar-padding: 0.5rem;
-$titlebar-text-font-weight: 600;
-$titlebar-icon-color: #777;
-$titlebar-icon-color-hover: $color-medium-gray;
-$titlebar-icon-spacing: 0.25rem;
+//// 55. Top Bar
+//// -----------
+//
+//$topbar-padding: 0.5rem;
+//$topbar-background: $color-light-gray;
+//$topbar-submenu-background: $topbar-background;
+//$topbar-title-spacing: 0.5rem 1rem 0.5rem 0;
+//$topbar-input-width: 200px;
+//$topbar-unstack-breakpoint: medium;
 
-// 55. Top Bar
+// Main Menu
 // -----------
-
-$topbar-padding: 0.5rem;
-$topbar-background: $color-light-gray;
-$topbar-submenu-background: $topbar-background;
-$topbar-title-spacing: 0.5rem 1rem 0.5rem 0;
-$topbar-input-width: 200px;
-$topbar-unstack-breakpoint: medium;
+$menu-background: $color-light-gray;

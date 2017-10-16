@@ -32,7 +32,6 @@
 //  background: $color-white none repeat scroll 0 0;
 //}
 
-
 //
 ///*
 // * Tablet+
@@ -115,10 +114,10 @@ textarea::-ms-input-placeholder {
 /* Link style
   ============== */
 a {
-  font-family: 'Montserrat', sans-serif;
+  font-family: $header-font-family;
   font-weight: 400;
   text-transform: uppercase;
-  line-height: 1;
+  //line-height: 1;
 
   &:focus,
   &:hover {
@@ -236,29 +235,32 @@ button,
 //  width: 44px;
 //}
 
+//
+///*
+//[ 7. ScrollUp ]
+//===============*/
+//
+//#scrollUp {
+//  background: #393939 none repeat scroll 0 0;
+//  bottom: 60px;
+//  height: 35px;
+//  right: 15px;
+//  text-align: center;
+//  width: 30px;
+//}
+//
+//#scrollUp i {
+//  color: #fff;
+//  font-size: 25px;
+//  line-height: 35px;
+//  text-align: center;
+//}
+//
+//#scrollUp:hover {
+//  background: #000000 none repeat scroll 0 0;
+//}
+//
 
-
-/*
-[ 7. ScrollUp ]
-===============*/
-
-#scrollUp {
-  background: #393939 none repeat scroll 0 0;
-  bottom: 60px;
-  height: 35px;
-  right: 15px;
-  text-align: center;
-  width: 30px;
+img {
+  max-width: 100%;
 }
-
-#scrollUp i {
-  color: #fff;
-  font-size: 25px;
-  line-height: 35px;
-  text-align: center;
-}
-
-#scrollUp:hover {
-  background: #000000 none repeat scroll 0 0;
-}
-

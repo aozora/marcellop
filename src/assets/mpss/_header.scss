@@ -1,12 +1,10 @@
-$color-menu: #555;
-
 header {
   //position: fixed;
   //top: 0;
   position: -webkit-sticky;
   position: sticky;
   top: 0;
-  width: 100%;
+  //width: 100%;
   z-index: 101;
 }
 
@@ -42,28 +40,54 @@ header {
 /**
   Tablet/Desktop Navigation
  */
-.top-bar,
-.menu-small {
-  padding: 1.5rem 0;
+.main-menu {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  //justify-content: space-between;
+  align-items: flex-start;
+
+  padding: $baseline 0;
   //transition: all .35s ease-in-out;
   background-color: transparent;
 
-  .menu-container {
-    //@include xy-grid-container();
-    display: flex;
-    width: 100%;
+  .main-menu__title {
+    //flex: 1 1 50%;
+  }
+  .main-menu__toggle {
+    //flex: 1 1 50%;
   }
 
-  .top-bar-left {
-    flex: 0 0 auto;
+
+  //.menu-container {
+  //  //@include xy-grid-container();
+  //  display: flex;
+  //  width: 100%;
+  //}
+
+  //.top-bar-left {
+  //  flex: 0 0 auto;
+  //}
+  //.top-bar-right {
+  //  flex: 1 1 auto;
+  //}
+
+  .menu,
+  .menu li {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
   }
-  .top-bar-right {
-    flex: 1 1 auto;
-  }
+
+  //.menu {
+  //  justify-content: flex-end;
+  //  background-color: transparent;
+  //}
 
   .menu {
-    justify-content: flex-end;
-    background-color: transparent;
+    flex: 0 0 100%;
+    display: flex;
+    flex-direction: column;
   }
 
   .menu > li {
@@ -74,7 +98,7 @@ header {
       padding: 0 5px;
       line-height: 40px;
       font-family: $heading-font-family;
-      font-size: .875rem;
+      //font-size: .875rem;
       font-weight: 600;
       letter-spacing: 0.40px;
       color: $color-menu;
@@ -102,16 +126,16 @@ header {
     }
   }
 }
-
-.top-bar__logo {
-  position: relative;
-  transform: translateY(-200%);
-  transition: transform .5s ease-in-out;
-
-  &.active {
-    transform: translateY(0);
-  }
-}
+//
+//.top-bar__logo {
+//  position: relative;
+//  transform: translateY(-200%);
+//  transition: transform .5s ease-in-out;
+//
+//  &.active {
+//    transform: translateY(0);
+//  }
+//}
 
 /**
   Scrolled behavior
@@ -126,51 +150,51 @@ header {
   }
 }
 
-body.scrolled {
-  .top-bar {
-    height: 101px;
-    padding: 20px 0;
-    background-color: rgba($topbar-background, .9);
-    //box-shadow: 0 2px 16px 10px rgba(255,255,255, 0.4);
-
-    .menu {
-      background-color: transparent;
-    }
-
-    .menu li {
-      //animation: wave .45s ease-in-out infinite;
-      animation-duration: .45s;
-      animation-name: wave;
-      animation-timing-function: ease-in-out;
-      animation-iteration-count: 2;
-      animation-direction: alternate;
-    }
-
-    $count: 10;
-    @for $i from 0 to $count {
-      .menu li:nth-child( #{$count}n + #{$i} ) {
-        animation-delay: -#{($count - $i) * 2 * .45 / $count }s;
-      }
-    }
-
-  }
-}
-
-.main-menu__marcello {
-  height: rem-calc(14);
-}
-
-.title-bar-title {
-  //background: transparent url(/_nuxt/img/marcello.fdccced.svg) no-repeat 13px 9px;
-  //background-size: cover;
-  padding: 0;
-  flex: 1 0 auto;
-  font-size: 1.5rem;
-
-  span {
-    display: none;
-  }
-}
+//body.scrolled {
+//  .top-bar {
+//    height: 101px;
+//    padding: 20px 0;
+//    background-color: rgba($topbar-background, .9);
+//    //box-shadow: 0 2px 16px 10px rgba(255,255,255, 0.4);
+//
+//    .menu {
+//      background-color: transparent;
+//    }
+//
+//    .menu li {
+//      //animation: wave .45s ease-in-out infinite;
+//      animation-duration: .45s;
+//      animation-name: wave;
+//      animation-timing-function: ease-in-out;
+//      animation-iteration-count: 2;
+//      animation-direction: alternate;
+//    }
+//
+//    $count: 10;
+//    @for $i from 0 to $count {
+//      .menu li:nth-child( #{$count}n + #{$i} ) {
+//        animation-delay: -#{($count - $i) * 2 * .45 / $count }s;
+//      }
+//    }
+//
+//  }
+//}
+//
+//.main-menu__marcello {
+//  height: rem-calc(14);
+//}
+//
+//.title-bar-title {
+//  //background: transparent url(/_nuxt/img/marcello.fdccced.svg) no-repeat 13px 9px;
+//  //background-size: cover;
+//  padding: 0;
+//  flex: 1 0 auto;
+//  font-size: 1.5rem;
+//
+//  span {
+//    display: none;
+//  }
+//}
 
 //@include breakpoint(medium) {
 //  .title-bar-title {
