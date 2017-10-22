@@ -7,9 +7,10 @@ html {
   box-sizing: border-box;
   height: 100%;
   font-size: $global-font-size; // fallback
+
   // Set fluid type
   // $properties, $min-vw, $max-vw, $min-value, $max-value
-  @include fluid-type(font-size, $minScreen, $maxScreen, $minFont, $maxFont);
+  @include fluid-type(font-size, $minScreen, $maxScreen, $minBodyFont, $maxBodyFont);
 }
 
 // Set box-sizing globally to handle padding and border widths
@@ -22,11 +23,11 @@ html {
 // Default body styles
 body {
   position: relative;
-  padding: $baseline 0;
   margin: 0 auto;
+  padding: 0;
+  //padding: $baseline 0;
 
   background-color: $body-background;
-
 
   font-family: $body-font-family;
   font-weight: normal;
@@ -43,7 +44,7 @@ body {
   font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 
-  //width: 30em;
+  //width: 40em;
 }
 
 p {

@@ -6,13 +6,14 @@
 $render-vertical-rhythm-lines: false;
 
 $baseline: 1.5rem;
+$global-font-size: 1.125%; // 18px
 
 // magic formula:
 // calc(#{$min-value} + #{strip-unit($max-value - $min-value)} * ((100vw - #{$min-vw}) / #{strip-unit($max-vw - $min-vw)}));
 $minScreen: 17.7em; // 320px
-$maxScreen: 77.7em; // 1400px
-$minFont: 1rem;
-$maxFont: 2.1rem;
+$maxScreen: 66.6em; // 1200px
+$minBodyFont: 1rem; // 18px
+$maxBodyFont: 1.111rem; // 20px
 
 // Modular scale
 // http://type-scale.com/?size=18&scale=1.500&text=A%20Spooky,%20Visual%20Type%20Scale&webfont=Montserrat%2BPoppins&font-family=%27Poppins%27&font-weight=400&font-family-headers=Montserrat&font-weight-headers=inherit&background-color=white&font-color=%23494949
@@ -34,8 +35,6 @@ $color-white: #fff;
 $color-blue: #67BFFA;
 $color-x: #494949;
 $color-menu: #555;
-
-$global-font-size: 1.125%; // 18px
 
 $body-background: $color-light-gray;
 $body-font-color: $color-black;

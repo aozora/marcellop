@@ -1,3 +1,5 @@
+$menu-background: $color-light-gray;
+
 header {
   //position: fixed;
   //top: 0;
@@ -24,6 +26,7 @@ header {
     z-index: 100;
   }
 }
+
 //
 ///**
 //  Mobile Navigation
@@ -50,6 +53,7 @@ header {
   padding: $baseline 0;
   //transition: all .35s ease-in-out;
   background-color: transparent;
+  background-color: $menu-background;
 
   .main-menu__title {
     //flex: 1 1 50%;
@@ -57,7 +61,6 @@ header {
   .main-menu__toggle {
     //flex: 1 1 50%;
   }
-
 
   //.menu-container {
   //  //@include xy-grid-container();
@@ -79,26 +82,27 @@ header {
     margin: 0;
   }
 
-  //.menu {
-  //  justify-content: flex-end;
-  //  background-color: transparent;
-  //}
-
   .menu {
     flex: 0 0 100%;
     display: flex;
     flex-direction: column;
+    display: none;
   }
 
   .menu > li {
     margin: 0 10px;
 
-    > a:not(.menu-text) {
+    > a {
       position: relative;
       padding: 0 5px;
       line-height: 40px;
       font-family: $heading-font-family;
       //font-size: .875rem;
+
+      //font-size: $global-font-size; // fallback
+      // $properties, $min-vw, $max-vw, $min-value, $max-value
+      @include fluid-type(font-size, $minScreen, $maxScreen, $minBodyFont, 1rem);
+
       font-weight: 600;
       letter-spacing: 0.40px;
       color: $color-menu;
@@ -126,6 +130,15 @@ header {
     }
   }
 }
+
+.main-menu__topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 0 $baseline;
+}
+
 //
 //.top-bar__logo {
 //  position: relative;
@@ -140,6 +153,19 @@ header {
 /**
   Scrolled behavior
  */
+
+@media screen and (min-width: 40em) {
+  .main-menu__toggle {
+    display: none;
+  }
+
+  .main-menu {
+    .menu {
+      flex-direction: row;
+    }
+  }
+
+}
 
 @keyframes wave {
   from {
