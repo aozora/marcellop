@@ -165,21 +165,26 @@ a,
 
 /* Default Button Style
 ------------------------ */
-button,
-.button {
+button {
+  padding: $baseline;
+  border: 1px solid $color-black;
+  border-radius: $global-radius;
   font-family: $heading-font-family;
-  font-weight: 600;
-  transition: all 0.3s ease 0s;
-  border: 1px solid #393939;
+  @include fluid-type(font-size, $minScreen, $maxScreen, $minBodyFont, $maxBodyFont);
+  font-weight: 400;
+  color: $color-white;
+  background-color: $color-black;
+  //transition: all 0.3s ease 0s;
+  transition: background-color 0.25s ease-out, color 0.25s ease-out;
 
   &:hover {
     border: 1px solid lighten(#393939, 20%);
     color: lighten(#393939, 20%);
   }
 
-  i.material-icons {
-    font-size: 20px;
-  }
+  //i.material-icons {
+  //  font-size: 20px;
+  //}
 }
 
 /* CSS Customization
