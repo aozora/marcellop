@@ -55,15 +55,6 @@ header {
   //background-color: transparent;
   background-color: $menu-background;
 
-  .main-menu__title {
-    //flex: 1 1 50%;
-    opacity: 0;
-  }
-  .main-menu__toggle {
-    //flex: 1 1 50%;
-
-  }
-
   //.menu-container {
   //  //@include xy-grid-container();
   //  display: flex;
@@ -142,6 +133,20 @@ header {
   align-items: center;
   width: 100%;
   padding: 0 $baseline;
+}
+
+
+.main-menu__title {
+  //flex: 1 1 50%;
+  opacity: 0;
+}
+
+.main-menu__toggle {
+  //flex: 1 1 50%;
+  background-color: $menu-background;
+  color: $color-black;
+  padding: ($baseline / 2) $baseline;
+  border-color: $menu-background;
 }
 
 //
