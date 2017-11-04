@@ -1,0 +1,99 @@
+.experience-area {
+  //padding-bottom: 0;
+  background-color: $color-light-gray;
+}
+
+.experience-area__items{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.experience-area__item {
+  width: 100%;
+  margin-bottom: $baseline; // rem-calc(50);
+
+  h3 {
+    color: $color-gray;
+    font-weight: 500;
+    //margin-bottom: 5px;
+    text-transform: capitalize;
+  }
+
+  h3 + p {
+    color: $color-dark-gray;
+    font-family: $heading-font-family;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 24px;
+  }
+
+  h4 {
+    padding: 0;
+    color: $color-gray;
+    font-size: 1.1rem; // rem-calc(20);
+    text-transform: capitalize;
+  }
+
+  h4 + p {
+    color: $color-dark-gray;
+    padding: 0;
+    font-family: $heading-font-family;
+    font-size: 1rem; // 14px;
+    //line-height: 24px;
+  }
+
+  .cell {
+    position: relative;
+  }
+
+  .experience-line {
+    display: none;
+    border-right: 2px dashed $color-blue;
+    content: '';
+    height: 100%;
+    position: absolute;
+    right: -10px;
+    top: 22px;
+    width: 0;
+    z-index: 1;
+  }
+
+  .experience-dot {
+    position: absolute;
+    top: 5px;
+    left: 0;
+    display: none;
+    width: 1rem;
+    height: 1rem;
+    background-color: $color-white;
+    border: 2px solid $color-blue;
+    border-radius: 50%;
+    z-index: 2;
+  }
+}
+//
+//@include breakpoint(medium) {
+//
+//  .experience-area__item {
+//
+//    h4,
+//    h4 + p {
+//      padding-left: 36px;
+//    }
+//
+//    .experience-line,
+//    .experience-dot {
+//      display: block;
+//    }
+//
+//    &:hover {
+//      .experience-dot {
+//        background: $blue;
+//      }
+//    }
+//  }
+//
+//}
