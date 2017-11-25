@@ -4,6 +4,7 @@ $hero-color: #414141;
   position: relative;
   padding: 0;
   margin: 0;
+  max-width: none;
   //background: $light-gray url(/assets/img/marcello.svg) no-repeat 15px 5%;
   //background-size: contain;
 
@@ -12,14 +13,14 @@ $hero-color: #414141;
     height: 100%;
     object-fit: cover;
   }
-  img {
-    clip-path: polygon(53% 0, 66% 59%, 59% 100%, 0 100%, 0 0);
-  }
+
+  //img {
+  //  clip-path: polygon(53% 0, 66% 59%, 59% 100%, 0 100%, 0 0);
+  //}
 }
 
-
 .hero__headings {
-  padding: $baseline;
+  padding: $baseline ($baseline * 2);
   position: relative;
 
   h1 {

@@ -16,9 +16,12 @@
 //  //margin-top: 141px;
 //}
 //
+
 section {
-  padding: $baseline;
+  max-width: $maxWidth;
+  padding: $baseline ($baseline * 2);
 }
+
 //
 //.section-title {
 //  margin-bottom: rem-calc(30);
