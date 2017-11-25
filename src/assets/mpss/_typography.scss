@@ -1,16 +1,28 @@
 /*
           min Font Size   Max FS - Min FS      1000vw - min SS / Max SS - Min SS
     calc( 16px          + (24 - 16)         *  (100vw - 400px) / (800 - 400) )
+
+    calc(-0.0401779em + 1rem + 0.226994vw)
+
+     font-size:calc(21px + (22 - 19) * (100vw - 768px)/ (1300 - 768));
+
 */
+
+html,
+body {
+  min-height:100%;
+  overflow-x:hidden
+}
+
 
 html {
   box-sizing: border-box;
   height: 100%;
-  font-size: $global-font-size; // fallback
+  //font-size: $global-font-size; // fallback
 
   // Set fluid type
   // $properties, $min-vw, $max-vw, $min-value, $max-value
-  @include fluid-type(font-size, $minScreen, $maxScreen, $minBodyFont, $maxBodyFont);
+  //@include fluid-type(font-size, $minScreen, $maxScreen, $minBodyFont, $maxBodyFont);
 }
 
 // Set box-sizing globally to handle padding and border widths
@@ -31,7 +43,11 @@ body {
 
   font-family: $body-font-family;
   font-weight: normal;
-  line-height: $baseline;
+
+  font-size: calc(18px + 0.25vw);
+  //line-height: $baseline;
+  line-height: $baselineNoUnit;
+
   color: $body-font-color;
 
   @if $render-vertical-rhythm-lines {
@@ -48,7 +64,7 @@ body {
 }
 
 p {
-  line-height: $baseline;
+  line-height: $baselineNoUnit;
   margin-bottom: $baseline;
 }
 

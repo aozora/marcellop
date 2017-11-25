@@ -18,8 +18,13 @@
 //
 
 section {
+  //width: 92vw;
+  //max-width: 1440px;
+  //margin: 0 auto;
+
+
   max-width: $maxWidth;
-  padding: $baseline ($baseline * 2);
+  padding: $baseline;
 }
 
 //

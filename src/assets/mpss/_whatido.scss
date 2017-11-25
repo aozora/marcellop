@@ -3,9 +3,10 @@ var div = Math.floor(imgOriginalHeight/lineHeight);
 var imgNewHeight = lineHeight * div;
  */
 
-$item-height: floor(21rem / $baseline) * $baseline;
+$item-height: floor(25rem / $baseline) * $baseline;
 
 .whatido {
+  //padding: $baseline 0;
   background-color: $color-white;
 }
 
@@ -18,9 +19,10 @@ $item-height: floor(21rem / $baseline) * $baseline;
 }
 
 .whatido__item {
-  width: 16.6rem; //rem-calc(300);
+  width: calc(20rem + 2vw); // 16.6rem; //rem-calc(300);
   height: $item-height; // rem-calc(370);
-  margin: 0 2rem $baseline 2rem;
+  //margin: 0 2rem $baseline 2rem;
+  margin: 0 0 $baseline 0;
 
   //> div {
   padding: $baseline; //rem-calc(27) rem-calc(20) rem-calc(20) rem-calc(20);
@@ -33,16 +35,16 @@ $item-height: floor(21rem / $baseline) * $baseline;
 
   p {
     margin: 0;
-    font-size: 1rem;
+    //font-size: 1rem;
     //line-height: 1.5rem;
     font-weight: 300;
     color: $color-black;
   }
 
-  > h5 {
+  > h3 {
     color: $color-black;
-    font-size: 1.1rem;
-    line-height: $baseline;
+    //font-size: 1.1rem;
+    //line-height: $baseline;
     font-weight: 400;
     margin: $baseline 0;
   }

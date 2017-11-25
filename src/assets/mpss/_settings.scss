@@ -5,7 +5,8 @@
 // ---------
 $render-vertical-rhythm-lines: false;
 
-$baseline: 1.5rem;
+$baseline: 1.6rem;
+$baselineNoUnit: 1.6;
 $global-font-size: 1.125%; // 18px
 
 // magic formula:
@@ -15,7 +16,7 @@ $maxScreen: 66.6em; // 1200px
 $minBodyFont: 1rem; // 18px
 $maxBodyFont: 1.111rem; // 20px
 
-$maxWidth: 40rem;
+$maxWidth: 40em;
 
 // Modular scale
 // http://type-scale.com/?size=18&scale=1.500&text=A%20Spooky,%20Visual%20Type%20Scale&webfont=Montserrat%2BPoppins&font-family=%27Poppins%27&font-weight=400&font-family-headers=Montserrat&font-weight-headers=inherit&background-color=white&font-color=%23494949
@@ -35,6 +36,7 @@ $color-gray: #696969;
 $color-black: #414141;
 $color-white: #fff;
 $color-blue: #67BFFA;
+$color-blue2: #3b739a;
 $color-x: #494949;
 $color-menu: #555;
 
@@ -42,30 +44,12 @@ $body-background: $color-light-gray;
 $body-font-color: $color-black;
 $body-font-family: 'Poppins', Helvetica, Roboto, Arial, sans-serif;
 $heading-font-family: 'Montserrat', Helvetica, Roboto, Arial, sans-serif;
-//$body-antialiased: true;
-
-//$global-margin: 1rem;
-//$global-padding: 1rem;
-//$global-weight-normal: 400;
-//$global-weight-bold: bold;
 $global-radius: 0;
-//$global-menu-padding: 0.7rem 1rem;
-//$global-menu-nested-margin: 1rem;
-//$global-text-direction: ltr;
-//$global-flexbox: true;
-//$global-prototype-breakpoints: false;
-//$global-color-pick-contrast-tolerance: 0;
-//$print-transparent-backgrounds: true;
-
-//@include add-foundation-colors;
 
 // 4. Base Typography
 // ------------------
 
 $header-font-family: $heading-font-family;
-//$header-font-weight: $global-weight-normal;
-//$header-font-style: normal;
-//$font-family-monospace: Consolas, 'Liberation Mono', Courier, monospace;
 $header-color: $color-dark-gray; //get-color(secondary);
 //$header-lineheight: 1.5;
 //$header-margin-bottom: 1rem; //0.5rem;
@@ -91,99 +75,6 @@ $header-color: $color-dark-gray; //get-color(secondary);
 //$small-font-size: 90%;
 //$header-small-font-color: $color-medium-gray;
 
-//$paragraph-lineheight: 1.5;
-//$paragraph-margin-bottom: 1rem;
-//$paragraph-text-rendering: optimizeLegibility;
-
-//$code-color: $black;
-//$code-font-family: $font-family-monospace;
-//$code-font-weight: $global-weight-normal;
-//$code-background: $light-gray;
-//$code-border: 1px solid $medium-gray;
-//$code-padding: rem-calc(2 5 1);
-
-//$anchor-color: $color-white;
-//$anchor-color-hover: scale-color($anchor-color, $lightness: -14%);
-//$anchor-text-decoration: underline;
-//$anchor-text-decoration-hover: none;
-
-//$hr-width: $global-width;
-//$hr-border: 1px solid $medium-gray;
-//$hr-margin: rem-calc(20) auto;
-
-//$list-lineheight: $paragraph-lineheight;
-//$list-margin-bottom: $paragraph-margin-bottom;
-//$list-style-type: disc;
-//$list-style-position: outside;
-//$list-side-margin: 1.25rem;
-//$list-nested-side-margin: 1.25rem;
-
-// 14. Card
-// --------
-
-//$card-background: $color-white;
-//$card-font-color: $body-font-color;
-//$card-divider-background: $color-light-gray;
-//$card-border: 1px solid $color-light-gray;
-//$card-shadow: none;
-//$card-border-radius: $global-radius;
-//$card-padding: $global-padding;
-//$card-margin-bottom: $global-margin;
-
-// 15. Close Button
-// ----------------
-
-$closebutton-position: right top;
-$closebutton-offset-horizontal: (
-  small: 0.66rem,
-  medium: 1rem,
-);
-$closebutton-offset-vertical: (
-  small: 0.33em,
-  medium: 0.5rem,
-);
-$closebutton-size: (
-  small: 1.5em,
-  medium: 2em,
-);
-$closebutton-lineheight: 1;
-$closebutton-color: $color-dark-gray;
-$closebutton-color-hover: $color-black;
-
-// 23. Menu
-// --------
-
-//$menu-margin: 0;
-//$menu-nested-margin: 1rem; // $global-menu-nested-margin
-//$menu-items-padding: 0.7rem 1rem;
-//$menu-simple-margin: 1rem;
-//$menu-item-color-active: $color-black; // $white;
-//$menu-item-background-active: get-color(primary);
-//$menu-icon-spacing: 0.25rem;
-//$menu-item-background-hover: $color-light-gray;
-//$menu-state-back-compat: true;
-//$menu-centered-back-compat: true;
-
-//// 53. Title Bar
-//// -------------
-//
-//$titlebar-background: $color-light-gray;
-//$titlebar-color: #777;
-//$titlebar-padding: 0.5rem;
-//$titlebar-text-font-weight: 600;
-//$titlebar-icon-color: #777;
-//$titlebar-icon-color-hover: $color-medium-gray;
-//$titlebar-icon-spacing: 0.25rem;
-
-//// 55. Top Bar
-//// -----------
-//
-//$topbar-padding: 0.5rem;
-//$topbar-background: $color-light-gray;
-//$topbar-submenu-background: $topbar-background;
-//$topbar-title-spacing: 0.5rem 1rem 0.5rem 0;
-//$topbar-input-width: 200px;
-//$topbar-unstack-breakpoint: medium;
 
 // Main Menu
 // -----------

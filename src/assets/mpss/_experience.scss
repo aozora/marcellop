@@ -1,6 +1,9 @@
 .experience-area {
   //padding-bottom: 0;
-  background-color: $color-light-gray;
+  //background-color: $color-light-gray;
+  background-color: $color-blue;
+  background-image: linear-gradient(215deg, $color-white 43%, $color-blue 129%);
+
 }
 
 .experience-area__items{
@@ -12,13 +15,17 @@
 }
 
 .experience-area__item {
+  display: flex;
+  flex-direction: column;
+
   width: 100%;
   margin-bottom: $baseline; // rem-calc(50);
 
   h3 {
+    margin-top: 0;
+    margin-bottom: 0;
     color: $color-gray;
     font-weight: 500;
-    //margin-bottom: 5px;
     text-transform: capitalize;
   }
 
@@ -26,14 +33,16 @@
     color: $color-dark-gray;
     font-family: $heading-font-family;
     font-weight: 500;
-    font-size: 14px;
-    line-height: 24px;
+    font-size: .85rem;
+    //line-height: $baseline;
   }
 
   h4 {
+    margin-top: 0;
     padding: 0;
     color: $color-gray;
     font-size: 1.1rem; // rem-calc(20);
+    line-height: $baselineNoUnit;
     text-transform: capitalize;
   }
 
@@ -41,7 +50,7 @@
     color: $color-dark-gray;
     padding: 0;
     font-family: $heading-font-family;
-    font-size: 1rem; // 14px;
+    //font-size: 1rem; // 14px;
     //line-height: 24px;
   }
 

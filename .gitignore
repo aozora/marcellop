@@ -42,4 +42,4 @@ build
 *.pem
 
 # local deploy
-static/*
+dist/*
