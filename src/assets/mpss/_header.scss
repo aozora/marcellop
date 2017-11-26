@@ -1,4 +1,11 @@
-$menu-background: $color-light-gray;
+$menu-mobile-background: $color-black;
+$menu-desktop-background: $color-light-gray;
+$color-menu: #555;
+
+[hidden] {
+  display: none;
+}
+
 
 header {
   //position: fixed;
@@ -27,19 +34,6 @@ header {
   }
 }
 
-//
-///**
-//  Mobile Navigation
-// */
-//.title-bar {
-//  padding: 20px 25px;
-//
-//  .menu-icon {
-//    //text-indent: -1000px;
-//    border: 0;
-//  }
-//}
-
 /**
   Tablet/Desktop Navigation
  */
@@ -47,26 +41,17 @@ header {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  //justify-content: space-between;
+  justify-content: flex-end;
   align-items: flex-start;
 
   padding: $baseline 0;
   //transition: all .35s ease-in-out;
   //background-color: transparent;
-  background-color: $menu-background;
+  background-color: $menu-mobile-background;
 
-  //.menu-container {
-  //  //@include xy-grid-container();
-  //  display: flex;
-  //  width: 100%;
-  //}
-
-  //.top-bar-left {
-  //  flex: 0 0 auto;
-  //}
-  //.top-bar-right {
-  //  flex: 1 1 auto;
-  //}
+  button {
+    color: $color-white;
+  }
 
   .menu,
   .menu li {
@@ -78,7 +63,7 @@ header {
   .menu {
     flex: 0 0 100%;
     flex-direction: column;
-    display: none;
+    //display: none;
 
     .active {
       display: flex;
@@ -87,6 +72,7 @@ header {
 
   .menu > li {
     margin: 0 10px;
+    text-align: right;
 
     > a {
       position: relative;
@@ -101,7 +87,7 @@ header {
 
       font-weight: 600;
       letter-spacing: 0.40px;
-      color: $color-menu;
+      color: $color-white;
 
       &::after {
         content: "";
