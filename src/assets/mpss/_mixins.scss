@@ -2,9 +2,7 @@
    Improved Links underline
    CSS Secrets, Lea Verou, Chapter 5
 */
-@mixin better-underline(
-  $background: $body-background
-) {
+@mixin better-underline($background: $body-background) {
   text-decoration: none;
   // text shadow color should be the same as background
   text-shadow: 0.05em 0 0 $background, -0.05em 0 0 $background,

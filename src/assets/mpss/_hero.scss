@@ -53,3 +53,15 @@ $hero-color: #414141;
   //}
 
 }
+
+.hero__social {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  a {
+    flex: 1 1 33%;
+    display: flex;
+    justify-content: center;
+  }
+}

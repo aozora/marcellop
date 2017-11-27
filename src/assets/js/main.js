@@ -1,6 +1,6 @@
 import $ from 'jquery';
 import smoothScroll from 'smoothscroll';
-import sticky from 'stickyfilljs/dist/stickyfill.es6';
+// import sticky from 'stickyfilljs/dist/stickyfill.es6';
 
 // eslint-disable-next-line no-unused-vars
 import whatInput from 'what-input';
@@ -29,12 +29,12 @@ window.$ = $;
 // $(document).foundation();
 
 // on document ready
-$(document).ready(() => {
-
-  const stickyEelements = document.querySelectorAll('header');
-  sticky.add(stickyEelements);
-
-});
+// $(document).ready(() => {
+//
+//   const stickyEelements = document.querySelectorAll('header');
+//   sticky.add(stickyEelements);
+//
+// });
 
 const navButton = document.querySelector('.main-menu button');
 // eslint-disable-next-line func-names
