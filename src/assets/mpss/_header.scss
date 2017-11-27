@@ -19,7 +19,7 @@ header {
 
   height: $menu-height;
 
-  z-index: $menu-zindex;
+  z-index: $menu-zindex + 1;
 }
 
 /**
@@ -60,6 +60,11 @@ header {
     font-family: $body-font-family;
     color: $color-black;
     background-color: $menu-mobile-background;
+
+    span {
+      display: inline-block;
+      transition: transform .4s ease-in-out;
+    }
   }
 
   .menu,
@@ -82,10 +87,6 @@ header {
     background-color: $menu-mobile-background;
     box-shadow: 0 1px 4px rgba(2, 3, 3, 0.1);
     z-index: $menu-zindex;
-
-    &.open {
-      top: $menu-height;
-    }
   }
 
   .menu > li {
@@ -128,6 +129,18 @@ header {
       }
     }
   }
+}
+
+.main-menu.open {
+
+  button span {
+    transform: rotate(180deg);
+  }
+
+  .menu {
+    top: $menu-height;
+  }
+
 }
 
 .main-menu__topbar {

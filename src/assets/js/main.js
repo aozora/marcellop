@@ -41,7 +41,7 @@ const navButton = document.querySelector('.main-menu button');
 navButton.addEventListener('click', function () {
   const expanded = this.getAttribute('aria-expanded') === 'true' || false;
   this.setAttribute('aria-expanded', !expanded);
-  const menu = this.nextElementSibling;
+  const menu = document.querySelector('.main-menu');
   menu.classList.toggle('open');
 });
 
@@ -53,6 +53,10 @@ const handleClick = (event) => {
   smoothScroll(target);
 
   target.focus();
+
+  // close the menu
+  const menu = document.querySelector('.main-menu');
+  menu.classList.remove('open');
 };
 
 menuLink.forEach(item => item.addEventListener('click', handleClick));
