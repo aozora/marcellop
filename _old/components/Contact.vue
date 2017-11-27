@@ -2,14 +2,14 @@
   <section id="contact" class="contact-area light-bg">
     <div class="grid-container ">
       <div class="section-title">
-        <h2 tabindex="0">CONTACT ME</h2>
+        <h2>CONTACT ME</h2>
         <div class="horizontal-line">
           <div class="top"></div>
           <div class="bottom"></div>
         </div>
       </div>
 
-      <p tabindex="0">Feel free to get in touch</p>
+      <p>Feel free to get in touch</p>
       <p class="social-links">
         <a rel="noopener noreferrer" target="_blank" href="http://it.linkedin.com/in/marcellopalmitessa" class="button">
           <svg aria-hidden="true" width="24px" height="23px" viewBox="0 0 24 23" version="1.1" xmlns="http://www.w3.org/2000/svg">

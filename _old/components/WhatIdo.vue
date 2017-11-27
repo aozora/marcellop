@@ -2,7 +2,7 @@
   <section id="whatido" class="whatido">
     <div class="grid-container">
       <div class="section-title">
-        <h2 tabindex="0">What I Do</h2>
+        <h2>What I Do</h2>
         <div class="horizontal-line" aria-hidden="true">
           <div class="top"></div>
           <div class="bottom"></div>

@@ -4,7 +4,7 @@
       <div class="grid-x">
         <div class="small-12 cell">
           <div class="section-title">
-            <h2 tabindex="0">About Me</h2>
+            <h2>About Me</h2>
             <div class="horizontal-line" aria-hidden="true">
               <div class="top"></div>
               <div class="bottom"></div>
