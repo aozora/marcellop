@@ -42,7 +42,7 @@ navButton.addEventListener('click', function () {
   const expanded = this.getAttribute('aria-expanded') === 'true' || false;
   this.setAttribute('aria-expanded', !expanded);
   const menu = this.nextElementSibling;
-  menu.hidden = !menu.hidden;
+  menu.classList.toggle('open');
 });
 
 // smoothscroll

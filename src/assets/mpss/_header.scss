@@ -2,9 +2,12 @@ $menu-mobile-background: $color-light-gray;
 $menu-desktop-background: $color-light-gray;
 $color-menu: #555;
 
-[hidden] {
-  display: none;
-}
+$menu-height: 2 * $baseline;
+$menu-zindex: 101;
+
+//[hidden] {
+//  display: none;
+//}
 
 header {
   //position: fixed;
@@ -13,7 +16,10 @@ header {
   //position: sticky;
   //top: 0;
   //width: 100%;
-  z-index: 101;
+
+  height: $menu-height;
+
+  z-index: $menu-zindex;
 }
 
 /**
@@ -44,12 +50,14 @@ header {
   align-items: flex-start;
 
   padding: 0;
-  //transition: all .35s ease-in-out;
   //background-color: transparent;
   background-color: $menu-mobile-background;
 
   button {
+    height: $menu-height;
+    padding: 0 1.6rem;
     border: 0;
+    font-family: $body-font-family;
     color: $color-black;
     background-color: $menu-mobile-background;
   }
@@ -64,10 +72,19 @@ header {
   .menu {
     flex: 0 0 100%;
     flex-direction: column;
-    //display: none;
+    width: 100%;
+    height: auto;
+    margin-bottom: $baseline;
+    position: absolute;
+    top: -100vh;
+    left: 0;
+    transition: all .4s ease-in-out;
+    background-color: $menu-mobile-background;
+    box-shadow: 0 1px 4px rgba(2, 3, 3, 0.1);
+    z-index: $menu-zindex;
 
-    .active {
-      display: flex;
+    &.open {
+      top: $menu-height;
     }
   }
 
@@ -80,9 +97,6 @@ header {
       padding: 0 5px;
       line-height: 40px;
       font-family: $heading-font-family;
-      //font-size: .875rem;
-
-      //font-size: $global-font-size; // fallback
       // $properties, $min-vw, $max-vw, $min-value, $max-value
       @include fluid-type(font-size, $minScreen, $maxScreen, $minBodyFont, 1rem);
 
@@ -90,7 +104,7 @@ header {
       letter-spacing: 0.40px;
       color: $color-menu;
 
-      @include better-underline($menu-mobile-background);
+      //@include better-underline($menu-mobile-background);
 
       &::after {
         content: "";

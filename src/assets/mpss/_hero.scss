@@ -20,7 +20,7 @@ $hero-color: #414141;
 }
 
 .hero__headings {
-  padding: $baseline ($baseline * 2);
+  padding: 0 $baseline $baseline $baseline;
   position: relative;
 
   h1 {
@@ -47,11 +47,6 @@ $hero-color: #414141;
     //font-size: 1rem;
     color: $hero-color;
   }
-
-  //.button {
-  //  margin-top: 40px;
-  //}
-
 }
 
 .hero__social {
@@ -65,3 +60,10 @@ $hero-color: #414141;
     justify-content: center;
   }
 }
+//
+//@media screen and (max-width: 20em) {
+//  .hero__headings {
+//    padding: $baseline ($baseline * 1.5);
+//  }
+//
+//}
