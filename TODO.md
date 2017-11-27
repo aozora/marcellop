@@ -1,6 +1,6 @@
 # TODO
 
-* mobile menu js
+* font loading
 * outline/focus style
 * lazyload images with blur
 * SW  
