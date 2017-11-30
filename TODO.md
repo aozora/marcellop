@@ -1,8 +1,8 @@
 # TODO
 
-* font loading
+X font loading
 * outline/focus style
-* lazyload images with blur
+X lazyload images with blur
 * SW  
 
 * Publish on Netlify
