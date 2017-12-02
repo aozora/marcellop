@@ -49,8 +49,8 @@ p {
     @include better-underline();
 
     &:focus {
-      outline: none;
-      background-color: $color-medium-gray;
+      color: #000 !important;
+      background-color: $color-blue !important;
       text-shadow: none;
     }
   }

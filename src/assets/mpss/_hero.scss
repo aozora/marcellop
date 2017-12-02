@@ -38,7 +38,7 @@ $hero-color: #414141;
       font-weight: 600;
       font-size: 1rem;
       line-height: 1;
-      color: $color-blue2; // #6E6F6F;
+      color: $color-dark-gray;
     }
   }
 
@@ -53,11 +53,30 @@ $hero-color: #414141;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 0 10%;
 
   a {
-    flex: 1 1 33%;
     display: flex;
     justify-content: center;
+    align-items: center;
+    width: 3.5rem;
+    height: 3.5rem;
+    border-radius: 50%;
+    background-color: $color-blue;
+
+    svg {
+      fill: $color-black;
+    }
+
+    &:hover,
+    &:focus,
+    &:active {
+      background-color: $color-black;
+
+      svg {
+        fill: $color-blue;
+      }
+    }
   }
 }
 //
