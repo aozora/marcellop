@@ -7,7 +7,7 @@ $item-height: floor(26rem / $baseline) * $baseline;
 
 .whatido {
   padding: $baseline;
-  background-color: $color-white;
+  background-color: $color-blue;
 }
 
 .whatido__items {
@@ -29,8 +29,9 @@ $item-height: floor(26rem / $baseline) * $baseline;
   box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.30);
   border-radius: 2px;
   text-align: center;
-  background-color: $color-blue;
-  background-image: linear-gradient(215deg, $color-white 43%, $color-blue 129%);
+  background-color: $color-white;
+  //background-color: $color-blue;
+  //background-image: linear-gradient(215deg, $color-white 43%, $color-blue 129%);
   transition: all 0.3s ease 0s;
 
   p {
@@ -44,7 +45,7 @@ $item-height: floor(26rem / $baseline) * $baseline;
   > h3 {
     color: $color-black;
     //font-size: 1.1rem;
-    //line-height: $baseline;
+    line-height: 2rem;
     font-weight: 400;
     margin: $baseline 0;
   }
