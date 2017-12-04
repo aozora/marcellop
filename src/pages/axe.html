@@ -1,18 +1,72 @@
-{{> header}}
-
+---
+layout: axe
+---
 <main id="maincontent" role="main">
 
+  <section>
+    <table>
+      <tr>
+        <th scope="col">Description</th>
+        <th scope="col">Info</th>
+        <th scope="col">Count</th>
+        <th scope="col">Impact</th>
+      </tr>
 
-  <table>
-    <tr>
-      <th scope="col">Description</th>
-      <th scope="col">Info</th>
-      <th scope="col">Count</th>
-      <th scope="col">Impact</th>
-    </tr>
-    {{#violations violationList}}{{/violations}}
-  </table>
-
+      <!--violations violationList-->
+      <tr v-for="item in results.incomplete">
+        <th scope="row" class="help">
+          <a href="javascript:;" class="rule" data-index="{{index}}" v-html="help"></a>
+        </th>
+        <td scope="row">
+          <a target="_blank" href="{{helpUrl}}">?</a>
+        </td>
+        <td class="count">
+          {{count}}
+        </td>
+        <td class="impact">
+          {{impact}}
+        </td>
+      </tr>
+      <!--/violations-->
+    </table>
+  </section>
 </main>
 
 {{> footer}}
+
+<script src="https://unpkg.com/vue"></script>
+<script>
+  const app = new Vue({
+    el: '#maincontent',
+
+    data: {
+      results: []
+    },
+
+    computed: {
+      incomplete: function () {
+        return this.results.incomplete
+      },
+
+      violations: function () {
+        return this.results.violations
+      }
+    },
+
+    mounted: function () {
+      const vm = this
+
+      fetch('axe-a11y.json')
+        .then((resp) => resp.json())
+        .then((data) => {
+          vm.results = data[0]
+          // console.dir(data)
+        })
+        .catch(function (error) {
+          // If there is any error you will catch them here
+          console.dir(error)
+        })
+    }
+  })
+</script>
+<!--https://github.com/dequelabs/axe-core/blob/master/doc/examples/html-handlebars.md-->

@@ -195,6 +195,7 @@ function images () {
 function axe (done) {
   const options = {
     browser: 'chrome',
+    folderOutputReport: 'dist',
     saveOutputIn: 'axe-a11y.json',
     urls: ['dist/index.html']
   }
