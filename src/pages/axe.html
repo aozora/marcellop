@@ -3,8 +3,12 @@ layout: axe
 ---
 <main id="maincontent" role="main">
 
-  <section>
+  <section v-for="(results, index) in axe" :key="index">
+    <h2>{{results.title}}</h2>
+    <p>{{results.subtitle}}</p>
+
     <table>
+      <caption>{{results.subtitle}}</caption>
       <tr>
         <th scope="col">Description</th>
         <th scope="col">Info</th>
@@ -13,18 +17,18 @@ layout: axe
       </tr>
 
       <!--violations violationList-->
-      <tr v-for="item in results.incomplete">
+      <tr v-for="(rule, index) in results.rules" :key="index">
         <th scope="row" class="help">
-          <a href="javascript:;" class="rule" data-index="{{index}}" v-html="help"></a>
+          <a href="javascript:;" class="rule" data-index="{{rule.index}}" v-html="rule.help"></a>
         </th>
         <td scope="row">
-          <a target="_blank" href="{{helpUrl}}">?</a>
+          <a target="_blank" href="{{rule.helpUrl}}">?</a>
         </td>
         <td class="count">
-          {{count}}
+          {{rule.count}}
         </td>
         <td class="impact">
-          {{impact}}
+          {{rule.impact}}
         </td>
       </tr>
       <!--/violations-->
@@ -44,12 +48,29 @@ layout: axe
     },
 
     computed: {
+      violations: function () {
+        return this.results.violations
+      },
+
       incomplete: function () {
         return this.results.incomplete
       },
 
-      violations: function () {
-        return this.results.violations
+      axe: function () {
+        const axeObject = [
+          {
+            title: 'Violations',
+            subtitle: 'These results indicate what elements failed the rules',
+            rules: this.violations
+          },
+          {
+            title: 'Incomplete',
+            subtitle: 'These results were aborted and require further testing',
+            rules: this.incomplete
+          }
+        ]
+
+        return axeObject
       }
     },
 
@@ -60,6 +81,9 @@ layout: axe
         .then((resp) => resp.json())
         .then((data) => {
           vm.results = data[0]
+          // data[0].map(function (item) {
+          //   vm.results.push(item)
+          // })
           // console.dir(data)
         })
         .catch(function (error) {
