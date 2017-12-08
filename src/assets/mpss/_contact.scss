@@ -6,32 +6,65 @@
     font-weight: 400;
   }
 
-  .contact-area__social-links {
+  figure {
     display: flex;
     justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
+    margin: 0;
 
-    a {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      width: 14rem;
-      margin: 1rem;
-      padding: 1rem 2rem;
-      border: 1px solid $color-blue;
-      border-radius: 2px;
-      font-family: $heading-font-family;
-      font-size: 1.5rem;
-      line-height: rem-calc(20);
+    img {
+      object-fit: contain;
+    }
+  }
+}
+
+
+.contact-area__social-links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+
+  a {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 14rem;
+    margin: 1rem;
+    padding: 1rem 2rem;
+    border: 1px solid $color-blue;
+    border-radius: 2px;
+    font-family: $heading-font-family;
+    font-size: 1.5rem;
+    line-height: rem-calc(20);
+    color: $color-white;
+    background-color: $color-blue;
+    text-transform: capitalize;
+    transition: all ease .35s;
+
+    svg {
+      margin-right: 1.5rem;
+    }
+
+    &:hover,
+    &:active {
       color: $color-black;
       background: $color-white;
-      text-transform: capitalize;
-      transition: all ease .35s;
+      border-color: transparent;
+      box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.20);
+    }
+  }
 
-      svg {
-        margin-right: 1.5rem;
-      }
+  &.social-links {
+    margin-top: 2.5rem;
+  }
+}
+
+
+@media screen and (min-width: 56em){
+  .contact-area__social-links{
+    a {
+      color: $color-black;
+      background: $color-white;
 
       &:hover,
       &:active {
@@ -40,20 +73,7 @@
         border-color: transparent;
         box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.20);
       }
-    }
 
-    &.social-links {
-      margin-top: 2.5rem;
-    }
-  }
-
-  figure {
-    display: flex;
-    justify-content: center;
-    margin: 0;
-
-    img {
-      object-fit: contain;
     }
   }
 }

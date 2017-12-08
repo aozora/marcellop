@@ -48,6 +48,7 @@ header {
   flex-wrap: wrap;
   justify-content: flex-end;
   align-items: flex-start;
+  height: $menu-height;
 
   padding: 0;
   //background-color: transparent;
@@ -59,7 +60,7 @@ header {
     border: 0;
     font-family: $body-font-family;
     color: $color-black;
-    background-color: $menu-mobile-background;
+    background-color: $color-blue;
 
     span {
       display: inline-block;

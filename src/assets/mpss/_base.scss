@@ -48,9 +48,10 @@ p {
   a:not(.button) {
     @include better-underline();
 
+    &:hover,
     &:focus {
-      color: #000 !important;
-      background-color: $color-blue !important;
+      color: #000;
+      background-color: $color-blue;
       text-shadow: none;
     }
   }
