@@ -1,3 +1,25 @@
+@keyframes tilt {
+  0% {
+    transform: rotate3d(0, 0, 0, 0deg);
+  }
+
+  25% {
+    transform: rotate3d(0, 0, 1, -25deg);
+  }
+
+  50% {
+    transform: rotate3d(0, 0, 0, 0deg);
+  }
+
+  75% {
+    transform: rotate3d(0, 0, 1, 25deg);
+  }
+  100% {
+    transform: rotate3d(0, 0, 0, 0deg);
+  }
+
+}
+
 .contact-area {
   background-color: $color-white;
 
@@ -17,7 +39,6 @@
   }
 }
 
-
 .contact-area__social-links {
   display: flex;
   justify-content: center;
@@ -31,15 +52,15 @@
     width: 14rem;
     margin: 1rem;
     padding: 1rem 2rem;
-    border: 1px solid $color-blue;
-    border-radius: 2px;
+    //border: 1px solid $color-blue;
+    //border-radius: 2px;
     font-family: $heading-font-family;
     font-size: 1.5rem;
     line-height: rem-calc(20);
     color: $color-black;
-    background-color: $color-blue;
+    //background-color: $color-blue;
     text-transform: capitalize;
-    transition: all ease .35s;
+    //transition: all ease .35s;
 
     svg {
       margin-right: 1.5rem;
@@ -47,10 +68,13 @@
 
     &:hover,
     &:active {
-      color: $color-black;
-      background: $color-white;
-      border-color: transparent;
-      box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.20);
+      svg {
+        animation: tilt 03s ease infinite;
+      }
+      //color: $color-black;
+      //background: $color-white;
+      //border-color: transparent;
+      //box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.20);
     }
   }
 
@@ -59,21 +83,20 @@
   }
 }
 
-
-@media screen and (min-width: 56em){
-  .contact-area__social-links{
-    a {
-      color: $color-black;
-      background: $color-white;
-
-      &:hover,
-      &:active {
-        color: $color-white;
-        background-color: $color-blue;
-        border-color: transparent;
-        box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.20);
-      }
-
-    }
-  }
-}
+//@media screen and (min-width: 56em){
+//  .contact-area__social-links{
+//    a {
+//      color: $color-black;
+//      background: $color-white;
+//
+//      &:hover,
+//      &:active {
+//        color: $color-white;
+//        background-color: $color-blue;
+//        border-color: transparent;
+//        box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.20);
+//      }
+//
+//    }
+//  }
+//}
