@@ -18,7 +18,7 @@ header {
   //width: 100%;
 
   height: $menu-height;
-
+  position: relative;
   z-index: $menu-zindex + 1;
 }
 
@@ -48,6 +48,8 @@ header {
   flex-wrap: wrap;
   justify-content: flex-end;
   align-items: flex-start;
+  position: fixed;
+  width: 100%;
   height: $menu-height;
 
   padding: 0;

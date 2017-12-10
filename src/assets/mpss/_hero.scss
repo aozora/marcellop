@@ -54,6 +54,7 @@ $hero-color: #414141;
     height: 3.5rem;
     border-radius: 50%;
     background-color: $color-blue;
+    transition: all .35s ease-in-out;
 
     svg {
       fill: $color-black;
