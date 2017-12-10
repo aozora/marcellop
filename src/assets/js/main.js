@@ -43,6 +43,12 @@ navButton.addEventListener('click', function () {
   this.setAttribute('aria-expanded', !expanded);
   const menu = document.querySelector('.main-menu');
   menu.classList.toggle('open');
+
+  // toggle the links to be focusable only when the menu is open
+  const menuLinks = document.querySelectorAll('.menu li a');
+  menuLinks.forEach((link) => {
+    link.setAttribute('tabindex', !expanded ? 0 : -1);
+  });
 });
 
 // smoothscroll

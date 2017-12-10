@@ -37,7 +37,9 @@ section {
   //margin: 0 auto;
 
   max-width: $maxWidth;
-  padding: $baseline;
+  padding: 0; // $baseline;
+  @include fluid-type(padding-left, $minScreen, $maxScreen, $baseline, $baseline * 2);
+  @include fluid-type(padding-right, $minScreen, $maxScreen, $baseline, $baseline * 2);
 }
 
 /*
@@ -132,3 +134,12 @@ button {
 img {
   max-width: 100%;
 }
+
+
+
+//@media screen and (min-width: 38em){
+//  section {
+//    padding: $baseline ($baseline * 1.5);
+//  }
+//
+//}

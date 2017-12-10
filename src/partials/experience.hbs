@@ -12,7 +12,9 @@
         <div class="experience-area__item-description">
           <div class="experience-dot"></div>
           <h4>@{{company}}</h4>
-          <p>{{{description}}}</p>
+          {{#each description}}
+            <p>{{{this}}}</p>
+          {{/each}}
         </div>
       </div>
     {{/each}}

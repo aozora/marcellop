@@ -5,29 +5,20 @@ $hero-color: #414141;
   padding: 0;
   margin: 0;
   max-width: none;
-  //background: $light-gray url(/assets/img/marcello.svg) no-repeat 15px 5%;
-  //background-size: contain;
 
   picture {
     width: 100%;
     height: 100%;
     object-fit: cover;
   }
-
-  //img {
-  //  clip-path: polygon(53% 0, 66% 59%, 59% 100%, 0 100%, 0 0);
-  //}
 }
 
 .hero__headings {
-  padding: 0 $baseline $baseline $baseline;
+  padding: $baseline $baseline $baseline $baseline;
   position: relative;
 
   h1 {
-    //margin-bottom: 20px;
     color: $hero-color;
-    //font-size: rem-calc(38);
-    //line-height: rem-calc(44);
     font-weight: 700;
     text-transform: uppercase;
 
@@ -43,8 +34,8 @@ $hero-color: #414141;
   }
 
   p {
-    //line-height: 28px;
-    //font-size: 1rem;
+    text-align: justify;
+    hyphens: auto;
     color: $hero-color;
   }
 }
@@ -79,10 +70,17 @@ $hero-color: #414141;
     }
   }
 }
-//
-//@media screen and (max-width: 20em) {
-//  .hero__headings {
-//    padding: $baseline ($baseline * 1.5);
-//  }
-//
-//}
+
+/**
+  Overrides for iPhone 5 (320)
+ */
+@media screen and (max-width: 20em) {
+  .hero__headings h1 {
+    font-size: 2rem;
+  }
+
+  .hero__social {
+    padding: 0;
+  }
+
+}
