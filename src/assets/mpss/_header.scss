@@ -57,10 +57,15 @@ header {
   background-color: $menu-mobile-background;
 
   button {
-    height: $menu-height;
-    padding: 0 1.6rem;
+    height: 2.2rem;
+    padding: 0 1rem;
     border: 0;
+    margin: 0.5rem;
+    //height: $menu-height;
+    //padding: 0 1.6rem;
+    //border: 0;
     font-family: $body-font-family;
+    font-size: .85rem;
     color: $color-black;
     background-color: $color-blue;
 

@@ -20,7 +20,8 @@ $item-height: floor(26rem / $baseline) * $baseline;
 
 .whatido__item {
   width: calc(100vw - 3.2rem);
-  height: $item-height; // rem-calc(370);
+  //height: $item-height;
+  height: auto;
   //margin: 0 2rem $baseline 2rem;
   margin: 0 0 $baseline 0;
 
@@ -53,9 +54,17 @@ $item-height: floor(26rem / $baseline) * $baseline;
   //}
 }
 
-//
-//@include breakpoint(medium) {
-//  .whatido__items {
-//    flex-direction: row;
-//  }
-//}
+@media screen and (min-width: 40em) {
+  .whatido__items {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .whatido__item {
+    flex: 1 1 50%;
+    width: auto;
+    //height: $item-height;
+
+  }
+
+}
