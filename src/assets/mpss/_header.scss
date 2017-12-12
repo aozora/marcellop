@@ -56,6 +56,11 @@ header {
   //background-color: transparent;
   background-color: $menu-mobile-background;
 
+  .marcello {
+    height: $menu-height;
+    fill: $color-blue;
+  }
+
   button {
     height: 2.2rem;
     padding: 0 1rem;
