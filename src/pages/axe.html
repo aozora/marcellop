@@ -8,7 +8,7 @@ layout: axe
     <p v-html="results.subtitle"></p>
 
     <table>
-      <caption>{{results.subtitle}}</caption>
+      <caption>{{results.subtitle}} Summary</caption>
       <tr>
         <th scope="col">Rule</th>
         <th scope="col">Info</th>
@@ -16,20 +16,41 @@ layout: axe
         <th scope="col">Impact</th>
       </tr>
 
-      <!--violations violationList-->
       <tr v-for="(rule, index) in results.rules" :key="index">
         <th v-html="rule.help"></th>
         <th scope="row">
           <a href="#" class="rule" data-index="{{rule.index}}">{{rule.help}}</a>
         </th>
         <td scope="row">
-          <a target="_blank" v-bind:href="rule.helpUrl">help</a>
+          <a target="_blank" v-bind:href="rule.helpUrl">Learn more</a>
         </td>
         <td class="count" v-html="rule.nodes.length"></td>
         <td class="impact" v-html="rule.impact"></td>
       </tr>
-      <!--/violations-->
     </table>
+
+    <h3>Details</h3>
+
+    <div v-for="(rule, index) in results.rules" :key="index">
+      <h4 v-html="rule.help"></h4>
+      <h5 v-html="rule.description"></h5>
+
+      <div v-for="(node, index) in rule.nodes" :key="index">
+        <h6>Element location</h6>
+        <div class="" v-html="node.target"></div>
+
+        <h6>Element source</h6>
+        <div></div>
+        <div class="" v-html="jsonStringify(node.html)"></div>
+
+        <p>To solve this violation, you need to:</p>
+        <p>Fix at least one (<span v-html="node.none.length"></span>) of these issues:</p>
+        <ul>
+          <li v-for="(item, index) in node.any" :key="index" v-html="item.message"></li>
+        </ul>
+      </div>
+    </div>
+
   </section>
 </main>
 
@@ -72,8 +93,9 @@ layout: axe
     },
 
     methods: {
-      jsonRule: (rule) => {
-        return JSON.stringify(rule)
+      jsonStringify: (json) => {
+        // return JSON.stringify(json, ['\n', '<br>'], '\t');
+        return escape(json);
       }
     },
 
@@ -83,15 +105,11 @@ layout: axe
       fetch('axe-test.json')
         .then((resp) => resp.json())
         .then((data) => {
-          vm.results = data[0]
-          // data[0].map(function (item) {
-          //   vm.results.push(item)
-          // })
-          // console.dir(data)
+          vm.results = data[0];
         })
         .catch(function (error) {
           // If there is any error you will catch them here
-          console.dir(error)
+          console.dir(error);
         })
     }
   })
