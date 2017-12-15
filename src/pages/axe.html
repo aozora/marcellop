@@ -4,13 +4,13 @@ layout: axe
 <main id="maincontent" role="main">
 
   <section v-for="(results, index) in axe" :key="index">
-    <h2>{{results.title}}</h2>
-    <p>{{results.subtitle}}</p>
+    <h2 v-html="results.title"></h2>
+    <p v-html="results.subtitle"></p>
 
     <table>
       <caption>{{results.subtitle}}</caption>
       <tr>
-        <th scope="col">Description</th>
+        <th scope="col">Rule</th>
         <th scope="col">Info</th>
         <th scope="col">Count</th>
         <th scope="col">Impact</th>
@@ -18,18 +18,15 @@ layout: axe
 
       <!--violations violationList-->
       <tr v-for="(rule, index) in results.rules" :key="index">
-        <th scope="row" class="help">
-          <a href="javascript:;" class="rule" data-index="{{rule.index}}" v-html="rule.help"></a>
+        <th v-html="rule.help"></th>
+        <th scope="row">
+          <a href="#" class="rule" data-index="{{rule.index}}">{{rule.help}}</a>
         </th>
         <td scope="row">
-          <a target="_blank" href="{{rule.helpUrl}}">?</a>
+          <a target="_blank" v-bind:href="rule.helpUrl">help</a>
         </td>
-        <td class="count">
-          {{rule.count}}
-        </td>
-        <td class="impact">
-          {{rule.impact}}
-        </td>
+        <td class="count" v-html="rule.nodes.length"></td>
+        <td class="impact" v-html="rule.impact"></td>
       </tr>
       <!--/violations-->
     </table>
@@ -74,10 +71,16 @@ layout: axe
       }
     },
 
+    methods: {
+      jsonRule: (rule) => {
+        return JSON.stringify(rule)
+      }
+    },
+
     mounted: function () {
       const vm = this
 
-      fetch('axe-a11y.json')
+      fetch('axe-test.json')
         .then((resp) => resp.json())
         .then((data) => {
           vm.results = data[0]
