@@ -1,11 +1,13 @@
-import $ from 'jquery';
+// import $ from 'jquery';
 import smoothScroll from 'smoothscroll';
+import onscroll from './onscroll';
+
 // import sticky from 'stickyfilljs/dist/stickyfill.es6';
 
 // eslint-disable-next-line no-unused-vars
-import whatInput from 'what-input';
+// import whatInput from 'what-input';
 
-window.$ = $;
+// window.$ = $;
 
 // // eslint-disable-next-line no-unused-vars
 // import foundation from 'foundation-sites';
@@ -66,3 +68,6 @@ const handleClick = (event) => {
 };
 
 menuLink.forEach(item => item.addEventListener('click', handleClick));
+
+
+onscroll.init();
