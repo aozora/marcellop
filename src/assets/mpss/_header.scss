@@ -16,18 +16,14 @@ $menu-zindex: 101;
   }
 }
 
-//[hidden] {
-//  display: none;
-//}
+@keyframes outToRight {
+  to {
+    opacity: 0;
+    transform: translate3d(100%, 0, 0);
+  }
+}
 
 header {
-  //position: fixed;
-  //top: 0;
-  //position: -webkit-sticky;
-  //position: sticky;
-  //top: 0;
-  //width: 100%;
-
   height: $menu-height;
   position: relative;
   z-index: $menu-zindex + 1;
@@ -51,7 +47,7 @@ header {
 }
 
 /**
-  Tablet/Desktop Navigation
+  Mobile Navigation
  */
 .main-menu {
   display: flex;
@@ -112,9 +108,7 @@ header {
     flex-direction: column;
     width: 100%;
     height: auto;
-    //margin-bottom: $baseline;
     position: absolute;
-    //top: -100vh;
     top: $menu-height;
     left: 0;
     //transition: all .4s ease-in-out;
@@ -128,9 +122,10 @@ header {
     margin: 0 10px;
     text-align: right;
     background-color: $menu-mobile-background;
+    //transform: translate3d(100%, 0, 0);
 
     &:last-child {
-      margin-bottom: $baseline;
+      padding-bottom: $baseline;
     }
 
     > a {
@@ -178,11 +173,26 @@ header {
   }
 
   .menu {
-    //top: $menu-height;
     visibility: visible;
+  }
 
-    > li {
-      animation: inFromRight 0.6s both cubic-bezier(0.7, 0, 0.3, 1);
+  &.in-from-right {
+    .menu {
+      //visibility: visible;
+
+      > li {
+        animation: inFromRight 0.6s both cubic-bezier(0.7, 0, 0.3, 1);
+      }
+    }
+  }
+
+  &.out-from-right{
+    .menu {
+      //visibility: visible;
+
+      > li {
+        animation: inFromRight 0.6s both cubic-bezier(0.7, 0, 0.3, 1);
+      }
     }
   }
 
@@ -197,32 +207,16 @@ header {
 }
 
 .main-menu__title {
-  //flex: 1 1 50%;
   opacity: 0;
 }
 
 .main-menu__toggle {
-  //flex: 1 1 50%;
   background-color: $menu-background;
   color: $color-black;
   padding: ($baseline / 2) $baseline;
   border-color: $menu-background;
 }
 
-//
-//.top-bar__logo {
-//  position: relative;
-//  transform: translateY(-200%);
-//  transition: transform .5s ease-in-out;
-//
-//  &.active {
-//    transform: translateY(0);
-//  }
-//}
-
-/**
-  Scrolled behavior
- */
 
 @media screen and (min-width: 40em) {
   .main-menu__toggle {
@@ -236,68 +230,3 @@ header {
   }
 
 }
-
-@keyframes wave {
-  from {
-    transform: translateY(0);
-  }
-  to {
-    transform: translateY(-10px);
-  }
-}
-
-//body.scrolled {
-//  .top-bar {
-//    height: 101px;
-//    padding: 20px 0;
-//    background-color: rgba($topbar-background, .9);
-//    //box-shadow: 0 2px 16px 10px rgba(255,255,255, 0.4);
-//
-//    .menu {
-//      background-color: transparent;
-//    }
-//
-//    .menu li {
-//      //animation: wave .45s ease-in-out infinite;
-//      animation-duration: .45s;
-//      animation-name: wave;
-//      animation-timing-function: ease-in-out;
-//      animation-iteration-count: 2;
-//      animation-direction: alternate;
-//    }
-//
-//    $count: 10;
-//    @for $i from 0 to $count {
-//      .menu li:nth-child( #{$count}n + #{$i} ) {
-//        animation-delay: -#{($count - $i) * 2 * .45 / $count }s;
-//      }
-//    }
-//
-//  }
-//}
-//
-//.main-menu__marcello {
-//  height: rem-calc(14);
-//}
-//
-//.title-bar-title {
-//  //background: transparent url(/_nuxt/img/marcello.fdccced.svg) no-repeat 13px 9px;
-//  //background-size: cover;
-//  padding: 0;
-//  flex: 1 0 auto;
-//  font-size: 1.5rem;
-//
-//  span {
-//    display: none;
-//  }
-//}
-
-//@include breakpoint(medium) {
-//  .title-bar-title {
-//    padding: 20px 0;
-//
-//    span {
-//      display: inline;
-//    }
-//  }
-//}
