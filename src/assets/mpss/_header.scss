@@ -5,6 +5,17 @@ $color-menu: #555;
 $menu-height: 2 * $baseline;
 $menu-zindex: 101;
 
+@keyframes inFromRight {
+  from {
+    opacity: 0;
+    transform: translate3d(100%, 0, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
 //[hidden] {
 //  display: none;
 //}
@@ -96,23 +107,31 @@ header {
   }
 
   .menu {
+    visibility: hidden;
     flex: 0 0 100%;
     flex-direction: column;
     width: 100%;
     height: auto;
-    margin-bottom: $baseline;
+    //margin-bottom: $baseline;
     position: absolute;
-    top: -100vh;
+    //top: -100vh;
+    top: $menu-height;
     left: 0;
-    transition: all .4s ease-in-out;
-    background-color: $menu-mobile-background;
-    box-shadow: 0 1px 4px rgba(2, 3, 3, 0.1);
+    //transition: all .4s ease-in-out;
+    //background-color: $menu-mobile-background;
+    //box-shadow: 0 1px 4px rgba(2, 3, 3, 0.1);
+    background-color: transparent;
     z-index: $menu-zindex;
   }
 
   .menu > li {
     margin: 0 10px;
     text-align: right;
+    background-color: $menu-mobile-background;
+
+    &:last-child {
+      margin-bottom: $baseline;
+    }
 
     > a {
       position: relative;
@@ -159,7 +178,12 @@ header {
   }
 
   .menu {
-    top: $menu-height;
+    //top: $menu-height;
+    visibility: visible;
+
+    > li {
+      animation: inFromRight 0.6s both cubic-bezier(0.7, 0, 0.3, 1);
+    }
   }
 
 }
