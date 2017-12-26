@@ -168,12 +168,31 @@ header {
   }
 }
 
+.main-menu__shape {
+  position: absolute;
+  top: 0; // -$menu-height;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  transform: translateY(-100vh);
+  transition: transform .5s ease-in-out;
+
+  svg {
+    width: 100%;
+    height: 100%;
+  }
+}
+
 .main-menu.open {
+  height: 100vh;
 
   button span {
     transform: rotate(180deg);
   }
 
+  .main-menu__shape {
+    transform: translateY(0);
+  }
   //.menu {
   //  visibility: visible;
   //}
@@ -218,13 +237,6 @@ header {
   padding: ($baseline / 2) $baseline;
   border-color: $menu-background;
 }
-
-.main-menu__shape {
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-
 
 @media screen and (min-width: 40em) {
   .main-menu__toggle {
