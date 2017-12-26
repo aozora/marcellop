@@ -13,6 +13,7 @@
   },
   "license": "MIT",
   "dependencies": {
+    "animejs": "^2.2.0",
     "fontfaceobserver": "^2.0.13",
     "jquery": ">=3.0.0",
     "lazysizes": "^4.0.1",

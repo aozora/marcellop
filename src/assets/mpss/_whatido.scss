@@ -56,14 +56,33 @@ $item-height: floor(26rem / $baseline) * $baseline;
 
 @media screen and (min-width: 40em) {
   .whatido__items {
-    flex-direction: row;
+    //flex-direction: row;
     flex-wrap: wrap;
+    align-items: flex-start;
   }
 
   .whatido__item {
     flex: 1 1 50%;
     width: auto;
-    //height: $item-height;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    padding: 1.6rem;
+
+    svg {
+      flex: 0 0 auto;
+    }
+
+    h3 {
+      flex: 1 1 auto;
+      text-align: left;
+      padding-left: 1rem;
+    }
+
+    p {
+      flex: 0 0 100%;
+    }
 
   }
 

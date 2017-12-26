@@ -58,10 +58,11 @@ header {
   position: fixed;
   width: 100%;
   height: $menu-height;
+  overflow: hidden;
 
   padding: 0;
-  //background-color: transparent;
-  background-color: $menu-mobile-background;
+  background-color: transparent;
+  //background-color: $menu-mobile-background;
 
   .marcello {
     height: 2rem; // $menu-height;
@@ -88,6 +89,7 @@ header {
     font-size: .85rem;
     color: $color-black;
     background-color: $color-blue;
+    z-index: $menu-zindex + 10;
 
     span {
       display: inline-block;
@@ -172,29 +174,29 @@ header {
     transform: rotate(180deg);
   }
 
-  .menu {
-    visibility: visible;
-  }
-
-  &.in-from-right {
-    .menu {
-      //visibility: visible;
-
-      > li {
-        animation: inFromRight 0.6s both cubic-bezier(0.7, 0, 0.3, 1);
-      }
-    }
-  }
-
-  &.out-from-right{
-    .menu {
-      //visibility: visible;
-
-      > li {
-        animation: inFromRight 0.6s both cubic-bezier(0.7, 0, 0.3, 1);
-      }
-    }
-  }
+  //.menu {
+  //  visibility: visible;
+  //}
+  //
+  //&.in-from-right {
+  //  .menu {
+  //    //visibility: visible;
+  //
+  //    > li {
+  //      animation: inFromRight 0.6s both cubic-bezier(0.7, 0, 0.3, 1);
+  //    }
+  //  }
+  //}
+  //
+  //&.out-from-right{
+  //  .menu {
+  //    //visibility: visible;
+  //
+  //    > li {
+  //      animation: inFromRight 0.6s both cubic-bezier(0.7, 0, 0.3, 1);
+  //    }
+  //  }
+  //}
 
 }
 
@@ -215,6 +217,19 @@ header {
   color: $color-black;
   padding: ($baseline / 2) $baseline;
   border-color: $menu-background;
+}
+
+#shape {
+  position: absolute;
+  top: 0;
+  left: 0;
+  //width: 100%;
+  //height: $menu-height;
+  //fill: $menu-mobile-background;
+
+  //path {
+  //  fill: $color-blue;
+  //}
 }
 
 
