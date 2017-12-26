@@ -32,10 +32,15 @@ export default {
         // shapeAnimationPromise.finished.then(shapePositionPromise);
         document.getElementById('fill-to-shape').beginElement();
 
-        setTimeout(() => mainMenu.classList.toggle('open'), 1100);
+        setTimeout(() => {
+          mainMenu.classList.toggle('shaped');
+
+          setTimeout(() => mainMenu.classList.toggle('open'), 500);
+        }, 500);
       } else {
         // expand if already collapsed
         mainMenu.classList.toggle('open');
+        mainMenu.classList.toggle('shaped');
         document.getElementById('shape-to-fill').beginElement();
       }
 
