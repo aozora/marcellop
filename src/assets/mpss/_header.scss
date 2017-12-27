@@ -54,7 +54,7 @@ header {
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: flex-start;
-  align-items: center;
+  align-items: flex-start;
   position: fixed;
   width: 100%;
   height: $menu-height;
@@ -125,7 +125,7 @@ header {
     background-color: transparent;
     z-index: $menu-zindex;
     opacity: 0;
-    transition: opacity .5s .2s ease-in-out;
+    transition: opacity .5s ease-in-out;
 
     > li {
       margin: 0 1rem;

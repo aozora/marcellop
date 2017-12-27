@@ -1,8 +1,18 @@
 .experience-area {
   //padding-bottom: 0;
   //background-color: $color-light-gray;
-  background-color: $color-blue;
-  background-image: linear-gradient(215deg, $color-white 43%, $color-blue 129%);
+  background-color: $color-light-gray;
+  //background-image: linear-gradient(215deg, $color-white 43%, $color-blue 129%);
+
+  button {
+    background-color: $color-blue;
+    color: $color-black;
+    border: 0;
+
+    span {
+      display: inline-block;
+    }
+  }
 
 }
 

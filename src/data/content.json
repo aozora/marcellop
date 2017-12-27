@@ -1,7 +1,7 @@
 {
   "title": "This is the web presence of Marcello Palmitessa",
   "experience": {
-    "timeline": [
+    "from2012": [
       {
         "from": "Jun 2016",
         "to": "Present",
@@ -60,7 +60,9 @@
         "description": [
           "Refactored the frontend of their web application, introducing a clean design inspired by my project BootMetro, giving the app a Windows 8 look & feel."
         ]
-      },
+      }
+    ],
+    "upTo2012": [
       {
         "from": "Apr 2011",
         "to": "Sep 2012",

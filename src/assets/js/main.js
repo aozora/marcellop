@@ -1,5 +1,4 @@
 import menu from './menu';
-import smoothscroll from './smoothscroll';
 import onscroll from './onscroll';
 
 /**
@@ -16,5 +15,4 @@ import onscroll from './onscroll';
 // }
 
 menu.init();
-smoothscroll.init();
 onscroll.init();

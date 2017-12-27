@@ -2,7 +2,7 @@
   <h2>Work Experience</h2>
 
   <div class="experience-area__items">
-    {{#each content.experience.timeline}}
+    {{#each content.experience.from2012}}
       <div class="experience-area__item">
         <div class="experience-area__item-company">
           <div class="experience-line" aria-hidden="true"></div>
@@ -19,4 +19,10 @@
       </div>
     {{/each}}
   </div>
+
+  <button aria-expanded="false">
+    See my positions before year 2012
+    <span aria-hidden="true">&#x25be;</span>
+  </button>
+
 </section>
