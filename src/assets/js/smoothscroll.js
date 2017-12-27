@@ -13,7 +13,15 @@ export default {
 
       // close the menu
       const mainMenu = document.querySelector('.main-menu');
-      mainMenu.classList.remove('open');
+      // collapse if already expanded
+      document.getElementById('fill-to-shape').beginElement();
+
+      setTimeout(() => {
+        mainMenu.classList.toggle('shaped');
+
+        setTimeout(() => mainMenu.classList.toggle('open'), 500);
+      }, 500);
+
     };
 
     menuLink.forEach(item => item.addEventListener('click', handleClick));

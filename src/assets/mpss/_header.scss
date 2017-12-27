@@ -53,7 +53,7 @@ header {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: flex-end;
+  justify-content: flex-start;
   align-items: center;
   position: fixed;
   width: 100%;
@@ -64,8 +64,16 @@ header {
   background-color: transparent;
   //background-color: $menu-mobile-background;
 
+  .main-menu__top {
+    display: flex;
+    width: 100%;
+    height: $menu-height;
+    background-color: $menu-mobile-background;
+  }
+
   .marcello {
     height: 2rem; // $menu-height;
+    margin: 0.5rem;
     fill: $color-blue;
     opacity: 0;
     transition: opacity .5s ease-in-out;
@@ -90,6 +98,7 @@ header {
     color: $color-black;
     background-color: $color-blue;
     z-index: $menu-zindex + 10;
+    transition: background-color .5s ease-in-out;
 
     span {
       display: inline-block;
@@ -105,61 +114,62 @@ header {
   }
 
   .menu {
-    //visibility: hidden;
     flex: 0 0 100%;
     flex-direction: column;
-    width: 100%;
-    height: auto;
     position: absolute;
     top: $menu-height;
     left: 0;
+    width: 100%;
+    height: auto;
+    margin: 2rem 0 0 0;
     background-color: transparent;
     z-index: $menu-zindex;
     opacity: 0;
     transition: opacity .5s .2s ease-in-out;
+
+    > li {
+      margin: 0 1rem;
+      text-align: right;
+
+      &:last-child {
+        padding-bottom: $baseline;
+      }
+
+      > a {
+        position: relative;
+        padding: 0 5px;
+        line-height: 40px;
+        font-family: $heading-font-family;
+        // $properties, $min-vw, $max-vw, $min-value, $max-value
+        @include fluid-type(font-size, $minScreen, $maxScreen, $minBodyFont, 1rem);
+
+        font-weight: 600;
+        letter-spacing: 0.40px;
+        color: $color-white;
+
+        &::after {
+          content: "";
+          position: absolute;
+          bottom: 0;
+          width: 0;
+          left: 0;
+          height: 2px;
+          transition: all 0.3s ease 0s;
+          background: $color-white none repeat scroll 0 0;
+        }
+
+        &:hover:after,
+        &:focus:after {
+          width: 100%;
+        }
+
+        &:focus {
+          outline: none;
+        }
+      }
+    }
   }
 
-  .menu > li {
-    margin: 0 1rem;
-    text-align: right;
-
-    &:last-child {
-      padding-bottom: $baseline;
-    }
-
-    > a {
-      position: relative;
-      padding: 0 5px;
-      line-height: 40px;
-      font-family: $heading-font-family;
-      // $properties, $min-vw, $max-vw, $min-value, $max-value
-      @include fluid-type(font-size, $minScreen, $maxScreen, $minBodyFont, 1rem);
-
-      font-weight: 600;
-      letter-spacing: 0.40px;
-      color: $color-white;
-
-      &::after {
-        content: "";
-        position: absolute;
-        bottom: 0;
-        width: 0;
-        left: 0;
-        height: 2px;
-        transition: all 0.3s ease 0s;
-        background: $color-white none repeat scroll 0 0;
-      }
-
-      &:hover:after,
-      &:focus:after {
-        width: 100%;
-      }
-
-      &:focus {
-        outline: none;
-      }
-    }
-  }
 }
 
 .main-menu__shape {
@@ -181,8 +191,12 @@ header {
   &.open {
     height: 100vh;
 
-    button span {
-      transform: rotate(180deg);
+    button {
+      background-color: $color-white;
+
+      span {
+        transform: rotate(180deg);
+      }
     }
 
     .menu {
