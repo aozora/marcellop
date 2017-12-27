@@ -16,3 +16,10 @@ import onscroll from './onscroll';
 
 menu.init();
 onscroll.init();
+
+const experienceButton = document.querySelector('.experience-area button');
+experienceButton.addEventListener('click', (e) => {
+  e.preventDefault();
+  const expanded = experienceButton.getAttribute('aria-expanded') === 'true' || false;
+  experienceButton.setAttribute('aria-expanded', !expanded);
+});

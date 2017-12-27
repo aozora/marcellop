@@ -20,9 +20,28 @@
     {{/each}}
   </div>
 
-  <button aria-expanded="false">
-    See my positions before year 2012
+  <button aria-expanded="false" type="button">
+    <span class="collapsed">See my positions before year 2012</span>
+    <span class="expanded">Hide my positions before year 2012</span>
     <span aria-hidden="true">&#x25be;</span>
   </button>
+  <div class="experience-area__items experience-area--old-items">
+    {{#each content.experience.upTo2012}}
+      <div class="experience-area__item">
+        <div class="experience-area__item-company">
+          <div class="experience-line" aria-hidden="true"></div>
+          <h3>{{role}}</h3>
+          <p>{{from}}-{{to}}</p>
+        </div>
+        <div class="experience-area__item-description">
+          <div class="experience-dot"></div>
+          <h4>@{{company}}</h4>
+          {{#each description}}
+            <p>{{this}}</p>
+          {{/each}}
+        </div>
+      </div>
+    {{/each}}
+  </div>
 
 </section>

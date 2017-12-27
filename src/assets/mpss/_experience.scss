@@ -5,12 +5,36 @@
   //background-image: linear-gradient(215deg, $color-white 43%, $color-blue 129%);
 
   button {
+    padding: 1rem 1.6rem;
+    margin-bottom: 2 * $baseline;
     background-color: $color-blue;
     color: $color-black;
     border: 0;
 
-    span {
+    span[aria-hidden] {
       display: inline-block;
+    }
+
+    &[aria-expanded="true"] {
+      .collapsed {
+        display: none;
+      }
+      .expanded {
+        display: inline;
+      }
+
+      span[aria-hidden] {
+        transform: rotate(180deg);
+      }
+    }
+
+    &[aria-expanded="false"] {
+      .collapsed {
+        display: inline;
+      }
+      .expanded {
+        display: none;
+      }
     }
   }
 
@@ -45,7 +69,7 @@
     font-family: $heading-font-family;
     font-weight: 500;
     font-size: .85rem;
-    //line-height: $baseline;
+    margin-bottom: 1rem;
   }
 
   h4 {
@@ -94,6 +118,13 @@
     border-radius: 50%;
     z-index: 2;
   }
+}
+
+.experience-area button[aria-expanded="true"] + .experience-area--old-items {
+  display: block;
+}
+.experience-area button[aria-expanded="false"] + .experience-area--old-items {
+  display: none;
 }
 
 //
