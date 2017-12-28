@@ -1,46 +1,62 @@
 // import smoothScroll from './smoothscroll';
 import TweenLite from 'gsap/TweenLite';
+import TimelineLite from 'gsap/TimelineLite';
 // eslint-disable-next-line no-unused-vars
 import './gsap/plugins/MorphSVGPlugin';
 import './gsap/plugins/ScrollToPlugin';
+import './gsap/plugins/CSSPlugin';
+
+// const mainMenuHeight = '3.2rem';
+const navButton = document.querySelector('.main-menu button');
+const mainMenu = document.querySelector('.main-menu');
+const mainMenuShape = document.querySelector('.main-menu__shape');
+const svg = document.querySelector('.main-menu__shape svg');
+// const menuShapeFrom = svg.getAttribute('data-animate-from');
+const menuShapeTo = svg.getAttribute('data-animate-to');
+
+function toggleMenu(callback) {
+  mainMenu.classList.toggle('open');
+  // eslint-disable-next-line no-console
+  console.log('toggleMenu');
+
+  if (callback) {
+    callback();
+  }
+}
 
 export default {
   init: () => {
-    // const mainMenuHeight = '3.2rem';
-    const navButton = document.querySelector('.main-menu button');
-    const mainMenu = document.querySelector('.main-menu');
-    const shape = document.querySelector('.main-menu__shape svg');
-    const menuShapeFrom = shape.getAttribute('data-animate-from');
-    const menuShapeTo = shape.getAttribute('data-animate-to');
+
+    TweenLite.set(mainMenuShape, { css: { y: '-100%' } });
+
+    const timeline = new TimelineLite({
+      paused: true,
+      onReverseComplete: () => {
+        toggleMenu();
+      }
+    });
+
+    timeline
+      .to(mainMenuShape, 0.5, { css: { y: '0%' } })
+      .to('#shape-points', 0.5, { morphSVG: { points: menuShapeTo } });
 
     // eslint-disable-next-line func-names
     navButton.addEventListener('click', function () {
-      const isExpanded = this.getAttribute('aria-expanded') === 'true'; //  || false;
-      this.setAttribute('aria-expanded', !isExpanded);
+      const isAlreadyExpanded = this.getAttribute('aria-expanded') === 'true'; //  || false;
+      this.setAttribute('aria-expanded', !isAlreadyExpanded);
 
-      if (isExpanded) {
+      if (isAlreadyExpanded) {
         // collapse if already expanded
-        // document.getElementById('fill-to-shape').beginElement();
-        TweenLite.to('#shape-points', 0.5, {
-          morphSVG: { points: menuShapeTo },
-          onComplete: () => {
-            mainMenu.classList.toggle('shaped');
-            setTimeout(() => mainMenu.classList.toggle('open'), 500);
-          }
-        });
+        timeline.reverse();
       } else {
         // expand if already collapsed
-        mainMenu.classList.toggle('open');
-        mainMenu.classList.toggle('shaped');
-        // document.getElementById('shape-to-fill').beginElement();
-
-        TweenLite.to('#shape-points', 0.5, {
-          morphSVG: { points: menuShapeFrom }
-        });
+        toggleMenu();
+        timeline.play();
       }
 
       // init smoothscroll
       const menuLinks = document.querySelectorAll('.menu li a');
+
       const handleClick = (event) => {
         // event.preventDefault();
         const target = document.getElementById(event.target.hash.substr(1));
@@ -52,14 +68,7 @@ export default {
             target.focus();
 
             // close the menu
-            // document.getElementById('fill-to-shape').beginElement();
-            TweenLite.to('#shape-points', 0.5, {
-              morphSVG: { points: menuShapeTo },
-              onComplete: () => {
-                mainMenu.classList.toggle('shaped');
-                setTimeout(() => mainMenu.classList.toggle('open'), 500);
-              }
-            });
+            timeline.reverse();
           }
         });
       };
@@ -68,7 +77,7 @@ export default {
 
       // toggle the links to be focusable only when the menu is open
       menuLinks.forEach((link) => {
-        link.setAttribute('tabindex', !isExpanded ? 0 : -1);
+        link.setAttribute('tabindex', !isAlreadyExpanded ? 0 : -1);
       });
     });
   }
