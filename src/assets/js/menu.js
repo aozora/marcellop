@@ -1,7 +1,5 @@
-// import smoothScroll from './smoothscroll';
 import TweenLite from 'gsap/TweenLite';
 import TimelineLite from 'gsap/TimelineLite';
-// eslint-disable-next-line no-unused-vars
 import './gsap/plugins/MorphSVGPlugin';
 import './gsap/plugins/ScrollToPlugin';
 import './gsap/plugins/CSSPlugin';
@@ -14,31 +12,34 @@ const svg = document.querySelector('.main-menu__shape svg');
 // const menuShapeFrom = svg.getAttribute('data-animate-from');
 const menuShapeTo = svg.getAttribute('data-animate-to');
 
+// Toggle the mobile menu
 function toggleMenu(callback) {
   mainMenu.classList.toggle('open');
-  // eslint-disable-next-line no-console
-  console.log('toggleMenu');
 
   if (callback) {
     callback();
   }
 }
 
+/**
+ * Define e new GSAP TimeLine
+ */
+const timeline = new TimelineLite({
+  paused: true,
+  onReverseComplete: () => {
+    toggleMenu();
+  }
+});
+
+// add the tweens to the timeline
+timeline
+  .to(mainMenuShape, 0.5, { css: { y: '0%' } })
+  .to('#shape-points', 0.5, { morphSVG: { points: menuShapeTo } });
+
 export default {
   init: () => {
-
+    // set the intial position of the menu shape
     TweenLite.set(mainMenuShape, { css: { y: '-100%' } });
-
-    const timeline = new TimelineLite({
-      paused: true,
-      onReverseComplete: () => {
-        toggleMenu();
-      }
-    });
-
-    timeline
-      .to(mainMenuShape, 0.5, { css: { y: '0%' } })
-      .to('#shape-points', 0.5, { morphSVG: { points: menuShapeTo } });
 
     // eslint-disable-next-line func-names
     navButton.addEventListener('click', function () {
@@ -58,10 +59,9 @@ export default {
       const menuLinks = document.querySelectorAll('.menu li a');
 
       const handleClick = (event) => {
-        // event.preventDefault();
+        event.preventDefault();
         const target = document.getElementById(event.target.hash.substr(1));
 
-        // smoothScroll(target, 60);
         TweenLite.to(window, 0.5, {
           scrollTo: { y: event.target.hash, offsetY: 60 },
           onComplete: () => {
