@@ -68,14 +68,19 @@ function handleClick(event) {
   event.preventDefault();
   const target = document.getElementById(event.target.hash.substr(1));
 
+  // eslint-disable-next-line no-console
+  console.log(`event.target.hash: ${event.target.hash}`);
+
   // Smoothscroll (linear for now)
   TweenLite.to(window, 0.5, {
-    scrollTo: { y: event.target.hash, offsetY: 60 },
+    scrollTo: { y: event.target.hash, offsetY: 60, autoKill: false },
     onComplete: () => {
       target.focus();
 
-      // toggle the menu
-      toggleMenu();
+      // toggle the menu (only for mobile)
+      if (getComputedStyle(navButton, null).display !== 'none') {
+        toggleMenu();
+      }
     }
   });
 }
@@ -85,8 +90,8 @@ export default {
     // set the intial position of the menu shape
     TweenLite.set(mainMenuShape, { css: { y: '-100%' } });
 
-    // set the intial position of the menu links
-    TweenLite.set(menuLinks, { css: { x: '100%' } });
+    // // set the intial position of the menu links
+    // TweenLite.set(menuLinks, { css: { x: '100%' } });
 
     // register menu links click event handler
     menuLinks.forEach((link) => {

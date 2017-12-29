@@ -1,3 +1,9 @@
+// fix for ios safari issue
+html, body {
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
 .visuallyhidden {
   position: absolute;
   width: 1px;
@@ -139,8 +145,6 @@ button {
 img {
   max-width: 100%;
 }
-
-
 
 //@media screen and (min-width: 38em){
 //  section {

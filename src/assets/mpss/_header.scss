@@ -124,8 +124,6 @@ header {
     margin: 2rem 0 0 0;
     background-color: transparent;
     z-index: $menu-zindex;
-    opacity: 0;
-    transition: opacity .5s ease-in-out;
 
     > li {
       margin: 0 1rem;
@@ -200,21 +198,7 @@ header {
         transform: rotate(180deg);
       }
     }
-
-    .menu {
-      opacity: 1;
-    }
   }
-
-  //&.shaped {
-  //  .main-menu__shape {
-  //    transform: translateY(0);
-  //  }
-  //}
-
-  //&.close {
-  //  height: $menu-height;
-  //}
 }
 
 .main-menu__topbar {
@@ -236,14 +220,45 @@ header {
   border-color: $menu-background;
 }
 
+/*
+ * Responsive Breakpoint 40EM / 720px
+ */
 @media screen and (min-width: 40em) {
-  .main-menu__toggle {
-    display: none;
-  }
 
   .main-menu {
+
+    button {
+      display: none;
+    }
+
+    .main-menu__top {
+      display: none;
+    }
+
     .menu {
+      display: flex;
+      justify-content: center;
+      align-items: center;
       flex-direction: row;
+      position: relative;
+      top: auto;
+      left: auto;
+      height: 100%;
+      margin: 0;
+      background-color: $menu-desktop-background;
+
+      > li {
+
+        &:last-child {
+          padding: 0;
+        }
+
+        > a {
+          display: inline;
+          width: auto;
+          color: $color-black;
+        }
+      }
     }
   }
 
