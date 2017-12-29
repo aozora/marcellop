@@ -3,7 +3,9 @@
   img {
     float: right;
     width: 50%;
+    max-width: 250px;
     height: 50%;
+    margin-bottom: 2 * $baseline;
     border-radius: 50%;
     clip-path: circle(50% at 50% 50%);
   }

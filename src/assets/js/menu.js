@@ -68,9 +68,6 @@ function handleClick(event) {
   event.preventDefault();
   const target = document.getElementById(event.target.hash.substr(1));
 
-  // eslint-disable-next-line no-console
-  console.log(`event.target.hash: ${event.target.hash}`);
-
   // Smoothscroll (linear for now)
   TweenLite.to(window, 0.5, {
     scrollTo: { y: event.target.hash, offsetY: 60, autoKill: false },

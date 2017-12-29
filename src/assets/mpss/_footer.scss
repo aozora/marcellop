@@ -32,3 +32,9 @@ footer {
   }
 
 }
+
+@media screen and (min-width: 40em) {
+  .footer__credits p {
+    text-align: center;
+  }
+}

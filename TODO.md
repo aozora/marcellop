@@ -2,8 +2,7 @@
 
 X font loading
 * fix skip link
->>>> reduded motion
-* what I do: change layout on large phone/tablet
+>>>> reduded motion: view-source:https://webkit.org/blog-files/prefers-reduced-motion/prm.htm
 * outline/focus style
 X lazyload images with blur
 * test colorblind + high contrast
