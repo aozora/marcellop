@@ -158,7 +158,11 @@ header {
           background: $color-white none repeat scroll 0 0;
         }
 
-        &:hover:after,
+        /*
+         * Don't enable hover on links, it wll cause this issue on ios:
+         * https://css-tricks.com/annoying-mobile-double-tap-link-issue/
+        */
+        // &:hover:after,
         &:focus:after {
           width: 100%;
         }
