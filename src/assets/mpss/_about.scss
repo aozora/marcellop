@@ -1,10 +1,13 @@
-.thumbnail {
-  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-}
 
-//.about-area {
-//  padding-bottom: 0;
-//}
+.about-area {
+  img {
+    float: right;
+    width: 50%;
+    height: 50%;
+    border-radius: 50%;
+    clip-path: circle(50% at 50% 50%);
+  }
+}
 //
 //.about-area__howdy {
 //  //margin-right: rem-calc(40);
