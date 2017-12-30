@@ -5,13 +5,13 @@ import './gsap/plugins/MorphSVGPlugin';
 import './gsap/plugins/ScrollToPlugin';
 import './gsap/plugins/CSSPlugin';
 
-// const mainMenuHeight = '3.2rem';
 const navButton = document.querySelector('.main-menu button');
 const mainMenu = document.querySelector('.main-menu');
 const menuLinks = document.querySelectorAll('.menu li a');
 const mainMenuShape = document.querySelector('.main-menu__shape');
 const svg = document.querySelector('.main-menu__shape svg');
 const menuShapeTo = svg.getAttribute('data-animate-to');
+const isMobile = getComputedStyle(navButton, null).display !== 'none';
 
 /**
  * Toggle the nav element
@@ -75,7 +75,7 @@ function handleClick(event) {
       target.focus();
 
       // toggle the menu (only for mobile)
-      if (getComputedStyle(navButton, null).display !== 'none') {
+      if (isMobile) {
         toggleMenu();
       }
     }
@@ -102,10 +102,12 @@ export default {
       // toggle the menu
       toggleMenu();
 
-      // toggle the links to be focusable only when the menu is open
-      menuLinks.forEach((link) => {
-        link.setAttribute('tabindex', !isAlreadyExpanded ? 0 : -1);
-      });
+      // toggle the links to be focusable only when the menu is open(only for mobile)
+      if (isMobile) {
+        menuLinks.forEach((link) => {
+          link.setAttribute('tabindex', !isAlreadyExpanded ? 0 : -1);
+        });
+      }
     });
   }
 };
