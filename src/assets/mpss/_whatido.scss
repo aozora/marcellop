@@ -1,8 +1,3 @@
-/*
-var div = Math.floor(imgOriginalHeight/lineHeight);
-var imgNewHeight = lineHeight * div;
- */
-
 $item-height: floor(26rem / $baseline) * $baseline;
 
 .whatido {
@@ -44,19 +39,36 @@ $item-height: floor(26rem / $baseline) * $baseline;
 }
 
 @media screen and (min-width: 40em) {
+  .whatido {
+    width: 100%;
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    h2 {
+      width: 100%;
+      max-width: $maxWidth;
+    }
+  }
+
   .whatido__items {
-    //flex-direction: row;
+    flex-direction: row;
     flex-wrap: wrap;
-    align-items: flex-start;
+    align-items: center;
+    justify-content: space-between;
+    max-width: $maxWidth;
   }
 
   .whatido__item {
-    flex: 1 1 50%;
+    flex: 1 1 40%;
     width: auto;
+    max-width: 45%;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     align-items: flex-start;
+    justify-content: center;
     padding: 1.6rem;
 
     svg {
@@ -65,8 +77,11 @@ $item-height: floor(26rem / $baseline) * $baseline;
 
     h3 {
       flex: 1 1 auto;
-      text-align: left;
-      padding-left: 1rem;
+      width: 100%;
+      height: 4rem;
+      margin: 1.6rem 0;
+      padding: 0;
+      text-align: center;
     }
 
     p {

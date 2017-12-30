@@ -86,6 +86,7 @@ h1 {
 h2 {
   font-size: $h2;
   line-height: $h2;
+  text-align: center;
   //margin-top: calc((#{$baseline} - #{$h2}) + #{$baseline} * 2);
 }
 
@@ -105,4 +106,12 @@ h5 {
   font-size: $h5;
   line-height: $h5;
   //margin-top: calc((#{$baseline} - #{$h5}) + #{$baseline} * 2);
+}
+
+
+
+@media screen and (min-width: 65em) {
+  body {
+    max-width: 100%;
+  }
 }

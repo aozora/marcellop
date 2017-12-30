@@ -34,9 +34,12 @@ $hero-color: #414141;
   }
 
   p {
-    text-align: justify;
-    hyphens: auto;
     color: $hero-color;
+
+    @supports (hyphens: auto) {
+      text-align: justify;
+      hyphens: auto;
+    }
   }
 }
 
@@ -99,18 +102,62 @@ $hero-color: #414141;
 }
 
 @media screen and (min-width: 40em) {
+  .hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .hero__headings {
+    max-width: $maxWidth;
+  }
+
   .hero__social {
     a {
       @include better-underline();
       width: auto;
       height: auto;
+      padding: 0 1rem;
       border-radius: 0;
       background-color: transparent;
       color: $color-black;
+      text-transform: capitalize;
+      transition: all ease .35s;
 
       svg {
         margin-right: 1rem;
       }
+
+      &:hover,
+      &:focus {
+        background-color: $color-blue;
+        color: $color-black;
+
+        svg {
+          fill: $color-black;
+        }
+      }
     }
   }
 }
+
+@media screen and (min-width: 65em) {
+  .hero__headings {
+    position: absolute;
+    top: 3.6rem;
+    right: 4rem;
+    max-width: 32em;
+    z-index: 2;
+    /* background-color: rgba(255,255,255,.2); */
+    text-shadow: 1px 1px rgba(255, 255, 255, 1);
+  }
+
+  .hero__social {
+    padding: 0;
+
+    a{
+      //border-color: $color-white;
+    }
+  }
+}
+
