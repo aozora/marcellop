@@ -15,14 +15,9 @@
   "dependencies": {
     "fontfaceobserver": "^2.0.13",
     "gsap": "^1.20.3",
-    "jquery": ">=3.0.0",
     "lazysizes": "^4.0.1",
-    "motion-ui": "~1.2.2",
     "picturefill": "^3.0.2",
-    "smoothscroll": "^0.4.0",
-    "velocity-animate": "^1.5.0",
-    "waypoints": "^4.0.1",
-    "what-input": "^5.0.3"
+    "waypoints": "^4.0.1"
   },
   "devDependencies": {
     "babel-core": "^6.24.1",
@@ -41,7 +36,6 @@
     "friendly-errors-webpack-plugin": "^1.6.1",
     "gulp": "github:gulpjs/gulp#4.0",
     "gulp-autoprefixer": "^4.0.0",
-    "gulp-axe-webdriver": "^1.4.0",
     "gulp-babel": "^7.0.0",
     "gulp-cache-bust": "^1.1.0",
     "gulp-clean-css": "^3.3.1",

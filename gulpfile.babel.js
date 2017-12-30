@@ -15,10 +15,7 @@ import named from 'vinyl-named'
 import sitemap from 'gulp-sitemap'
 import through from 'through2'
 import cachebuster from 'gulp-cache-bust'
-import gulpAxe from 'gulp-axe-webdriver'
-// import handlebars from 'handlebars';
-// import rename from 'gulp-rename';
-// import postcss from 'gulp-postcss';
+// import gulpAxe from 'gulp-axe-webdriver'
 
 const webpackConfig = require('./webpack.config.js')
 
@@ -191,19 +188,19 @@ function images () {
     })))
     .pipe(gulp.dest(PATHS.dist + '/assets/img'))
 }
-
-function axe (done) {
-  const options = {
-    browser: 'chrome',
-    folderOutputReport: 'dist',
-    saveOutputIn: 'axe-a11y.json',
-    urls: ['dist/index.html']
-  }
-
-  gulpAxe(options, done)
-
-  done()
-}
+//
+// function axe (done) {
+//   const options = {
+//     browser: 'chrome',
+//     folderOutputReport: 'dist',
+//     saveOutputIn: 'axe-a11y.json',
+//     urls: ['dist/index.html']
+//   }
+//
+//   gulpAxe(options, done)
+//
+//   done()
+// }
 
 // Start a server with BrowserSync to preview the site in
 function server (done) {
@@ -246,7 +243,7 @@ gulp.task(
     pages,
     gulp.parallel(sass, javascript, images, copy),
     cachebusting,
-    axe,
+    // axe,
     sitemapxml,
     styleGuide
   )
