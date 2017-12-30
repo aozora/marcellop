@@ -36,12 +36,16 @@ header {
   position: absolute;
   top: 0;
   right: 100%; /* moves off screen */
+  background-color: #67B8EE;
 
   &:focus {
     right: auto;
+    height: $menu-height;
     color: $body-font-color;
     text-decoration: underline;
-    @include better-underline();
+    //@include better-underline($color-black);
+    padding: 0 1rem;
+    margin: 0;
     z-index: 100;
   }
 }
