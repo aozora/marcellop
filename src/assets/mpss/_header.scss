@@ -5,24 +5,6 @@ $menu-desktop-background: $color-light-gray;
 $menu-height: 2 * $baseline;
 $menu-zindex: 101;
 
-@keyframes inFromRight {
-  from {
-    opacity: 0;
-    transform: translate3d(100%, 0, 0);
-  }
-  to {
-    opacity: 1;
-    transform: translate3d(0, 0, 0);
-  }
-}
-
-@keyframes outToRight {
-  to {
-    opacity: 0;
-    transform: translate3d(100%, 0, 0);
-  }
-}
-
 header {
   height: $menu-height;
   position: relative;
@@ -95,6 +77,7 @@ header {
     height: 2.2rem;
     padding: 0 1rem;
     border: 0;
+    border-radius: 2px;
     margin: 0.5rem;
     font-family: $body-font-family;
     font-size: .85rem;
@@ -102,11 +85,6 @@ header {
     background-color: $color-blue;
     z-index: $menu-zindex + 10;
     transition: background-color .5s ease-in-out;
-
-    span {
-      display: inline-block;
-      transition: transform .4s ease-in-out;
-    }
   }
 
   .menu,
@@ -185,8 +163,6 @@ header {
   left: 0;
   width: 100%;
   height: 100vh;
-  //transform: translateY(-100vh);
-  //transition: transform .5s ease-in-out;
 
   svg {
     width: 100%;
@@ -200,10 +176,6 @@ header {
 
     button {
       background-color: $color-white;
-
-      span {
-        transform: rotate(180deg);
-      }
     }
   }
 }

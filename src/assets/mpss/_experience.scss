@@ -10,10 +10,7 @@
     background-color: $color-blue;
     color: $color-black;
     border: 0;
-
-    span[aria-hidden] {
-      display: inline-block;
-    }
+    border-radius: 2px;
 
     &[aria-expanded="true"] {
       .collapsed {
@@ -21,10 +18,6 @@
       }
       .expanded {
         display: inline;
-      }
-
-      span[aria-hidden] {
-        transform: rotate(180deg);
       }
     }
 
