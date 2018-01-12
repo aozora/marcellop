@@ -36,10 +36,10 @@ $hero-color: #414141;
   p {
     color: $hero-color;
 
-    @supports (hyphens: auto) {
-      text-align: justify;
-      hyphens: auto;
-    }
+    //@supports (hyphens: auto) {
+    //  text-align: justify;
+    //  hyphens: auto;
+    //}
   }
 }
 
@@ -84,6 +84,7 @@ $hero-color: #414141;
   }
 }
 
+// up to 702px
 @media screen and (max-width: 39em) {
   .hero__social {
     padding: 0;
@@ -102,6 +103,7 @@ $hero-color: #414141;
   }
 }
 
+// 720+
 @media screen and (min-width: 40em) {
   .hero {
     display: flex;
@@ -126,7 +128,7 @@ $hero-color: #414141;
       transition: all ease .35s;
 
       svg {
-        margin-right: 1rem;
+        margin-right: .6rem;
       }
 
       &:hover,
@@ -142,7 +144,30 @@ $hero-color: #414141;
   }
 }
 
-@media screen and (min-width: 65em) {
+// 1026 - 1439
+@media screen and (min-width: 57em) and (max-width: 79em) {
+  .hero__headings {
+    position: absolute;
+    top: 3.6rem;
+    right: 4rem;
+    max-width: 22em;
+    z-index: 2;
+    /* background-color: rgba(255,255,255,.2); */
+    text-shadow: 1px 1px rgba(255, 255, 255, 1);
+  }
+
+  .hero__social {
+    padding: 0;
+
+    a {
+      padding: 0 .6rem;
+      font-size: .8rem;
+    }
+  }
+}
+
+// 1170+
+@media screen and (min-width: 80em) {
   .hero__headings {
     position: absolute;
     top: 3.6rem;
@@ -156,8 +181,8 @@ $hero-color: #414141;
   .hero__social {
     padding: 0;
 
-    a{
-      //border-color: $color-white;
+    svg {
+      margin-right: 1rem;
     }
   }
 }
