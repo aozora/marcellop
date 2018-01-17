@@ -28,7 +28,8 @@
     font-weight: 400;
   }
 
-  figure {
+  figure,
+  video {
     display: flex;
     justify-content: center;
     margin: 0;
@@ -37,6 +38,11 @@
       object-fit: contain;
     }
   }
+
+  video {
+    max-width: 100%;
+  }
+
 }
 
 .contact-area__social-links {
@@ -72,6 +78,14 @@
 
   &.social-links {
     margin-top: 2.5rem;
+  }
+}
+
+@media screen and (min-width: 28em) {
+  .contact-area {
+    video {
+      max-width: 500px;
+    }
   }
 }
 
