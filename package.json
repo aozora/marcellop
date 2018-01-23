@@ -28,6 +28,7 @@
     "babel-preset-stage-2": "^6.24.1",
     "babel-register": "^6.7.2",
     "browser-sync": "^2.10.0",
+    "compression": "^1.7.1",
     "eslint": "^4.11.1",
     "eslint-config-airbnb-base": "^12.1.0",
     "eslint-friendly-formatter": "^3.0.0",

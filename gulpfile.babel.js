@@ -15,6 +15,7 @@ import named from 'vinyl-named'
 import sitemap from 'gulp-sitemap'
 import through from 'through2'
 import cachebuster from 'gulp-cache-bust'
+import compression  from 'compression'
 // import gulpAxe from 'gulp-axe-webdriver'
 
 const webpackConfig = require('./webpack.config.js')
@@ -205,7 +206,10 @@ function images () {
 // Start a server with BrowserSync to preview the site in
 function server (done) {
   browser.init({
-    server: PATHS.dist,
+    server: {
+      baseDir: PATHS.dist,
+      middleware: [compression()]
+    },
     port: PORT,
     // browser: browser === undefined ? 'google chrome' : browser,
     browser: 'google chrome',

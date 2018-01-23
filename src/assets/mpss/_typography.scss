@@ -21,9 +21,6 @@ html {
   //font-size: $global-font-size; // fallback
   font-size: calc(18px + 0.25vw);
 
-  // no FOIT, fallback font is displayed until the web one is loaded
-  font-display: swap;
-
   // Set fluid type
   // $properties, $min-vw, $max-vw, $min-value, $max-value
   //@include fluid-type(font-size, $minScreen, $maxScreen, $minBodyFont, $maxBodyFont);
