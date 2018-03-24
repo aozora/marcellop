@@ -40,11 +40,16 @@
   <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,600,700|Poppins:300,400'" rel="stylesheet">
   <link rel="stylesheet" href="{{root}}assets/css/app.css">
 
-  <script src="/lazysizes.min.js" async defer></script>
-  <script src="/picturefill.min.js" async defer></script>
+  <link href="/lazysizes.min.js" rel="preload" as="script">
+  <link href="/picturefill.min.js" rel="preload" as="script">
+  <link href="{{root}}assets/js/main.js" rel="preload" as="script">
+
+  <script src="/lazysizes.min.js" async></script>
+  <script src="/picturefill.min.js" async></script>
+
 
   <!-- load application scripts bundle -->
-  <script src="{{root}}assets/js/main.js" async></script>
+  <script src="{{root}}assets/js/main.js" defer></script>
 
   <script>
     (function(){
