@@ -85,3 +85,7 @@ sw.*
 
 # API key file
 .themoviedb.js
+
+# gridsome
+.cache
+.temp
