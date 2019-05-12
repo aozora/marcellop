@@ -1,0 +1,214 @@
+// SMACSS Base Rules
+// ----------------------------
+// Base styles include setting heading sizes, default link styles, default
+// font styles, and body backgrounds.
+// There should be no need to use !important in a Base style.
+// ==========================================================================
+
+// Set box-sizing globally to handle padding and border widths
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  min-height: 100%;
+  margin: 0;
+  padding: 0;
+
+  //@include media("<desktop") {
+  //  overflow-x: hidden; // this conflict with position sticky
+  //}
+}
+
+html {
+  box-sizing: border-box;
+  height: 100%;
+  scroll-behavior: smooth; // this conflicts with GSAP ScrollToPlugin
+}
+
+html {
+  font-size: calc(16px + 0.2vw); // 112.5%; // 18px
+  line-height: $baseline;
+}
+
+
+// Default body styles
+body {
+  position: relative;
+  max-width: $maxWidth;
+  height: 100%;
+  margin: 0 auto;
+  padding: 0;
+  background-color: $body-background;
+  font-family: $body-font-family;
+  font-weight: normal;
+  letter-spacing: $body-font-letter-spacing;
+  font-size: 1rem;
+  line-height: inherit; // $line-height;
+  font-kerning: $kerning;
+
+  @if $use-variable-font {
+    @supports (font-variation-settings: normal) {
+      font-family: $variable-font-family;
+    }
+  }
+
+  color: $body-font-color;
+
+  //@if $render-vertical-rhythm-lines {
+  //  background-image: linear-gradient(to bottom, hsla(200, 100%, 50%, .3) 1px, transparent 1px);
+  //  background-position: left top;
+  //  background-repeat: repeat;
+  //  background-size: 100% vr(1);
+  //}
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+
+  @include media(">=desktop") {
+    max-width: 100%;
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: $heading-font-family;
+  font-weight: $heading-font-weight;
+  padding: 0;
+  margin: 0 0 1rem 0;
+  color: inherit;
+
+  @if $use-variable-font-for-headings {
+    @supports (font-variation-settings: normal) {
+      font-family: $variable-heading-font-family;
+    }
+  }
+}
+
+
+h1 {
+  font-size: 2.227rem;
+  letter-spacing: 1.5px;
+  line-height: 1;
+  text-align: left;
+  text-transform: uppercase;
+  color: $color-white;
+
+  @include media(">=tablet") {
+    font-size: 2.88rem;
+    line-height: 3.5rem;
+    letter-spacing: normal;
+  }
+}
+
+h2 {
+  @include branded-heading;
+}
+
+//h3 {
+//  font-size: 1.5rem;
+//  line-height: 2;
+//  letter-spacing: .6px;
+//}
+//
+//h4 {
+//  font-size: 1.111rem;
+//  line-height: 1.6;
+//  letter-spacing: .5px;
+//}
+//
+//h5,
+//h6 {
+//  font-size: 1rem;
+//  line-height: 1.5;
+//  letter-spacing: .5px;
+//}
+
+
+p {
+  font-size: 1rem;
+  line-height: $baseline;
+  margin: 0 auto 1.5rem auto;
+}
+
+/*
+   Improved Links underline
+   CSS Secrets, Lea Verou, Chapter 5
+*/
+p {
+  a:not(.button) {
+    @include better-underline();
+
+    &:hover,
+    &:focus {
+      //color: #000;
+      //background-color: $color-brand-light;
+      text-shadow: none;
+    }
+  }
+}
+
+/* Link style
+  ============== */
+a {
+  margin: 0;
+  padding: 0;
+  font-weight: 400;
+  line-height: inherit;
+  //text-transform: uppercase;
+  color: $color-white;
+  //@include better-underline-always;
+
+  //&:focus,
+  //&:hover {
+  //  color: $color-light;
+  //  text-decoration: none;
+  //}
+}
+
+a,
+a > * {
+  outline: none;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+/**
+ * Turn off margins on nested lists.
+ */
+
+ol,
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+ul,
+li {
+  list-style-type: none;
+}
+
+figure {
+  margin: 0;
+  padding: 0;
+}
+
+/* Transition
+  =============== */
+a {
+  transition: all 0.3s ease;
+}
+
+
+img {
+  max-width: 100%;
+}
+

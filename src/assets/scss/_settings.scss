@@ -1,0 +1,76 @@
+//  Settings
+//  -----------------------------
+@import './mixins/mixins';
+
+// 1. Global
+// ---------
+$render-vertical-rhythm-lines: false;
+$maxWidth: 1600px;
+
+// Include-Media breakpoints
+// ------------------
+$breakpoints: (
+  phone: 414px,
+  tablet: 768px,
+  desktop: 1280px,
+  desktophd: 1920px
+);
+
+
+// colors
+// ------------------
+$color-brand: #e6b91e;
+$color-black: #000;
+$color-dark: #141515;
+$color-dark-gray: #2B2C2E;
+$color-light: #DCE2EB;
+$color-white: #fff;
+$color-error: #f00;
+
+
+// Shadows
+// ------------------
+$default-box-shadow: 1px 1px 4px 0 rgba(0, 0, 0, 0.50);
+$default-text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.50);
+
+// Body
+// ------------------
+$global-radius: 4px;
+$body-background: $color-dark-gray;
+
+// Base Typography
+// ------------------
+$baseline: 1.5;
+$use-variable-font: false;
+$use-variable-font-for-headings: false;
+$body-font-color: $color-white;
+$body-font-letter-spacing: normal;
+$variable-font-family: 'Ubuntu Var', Helvetica, Roboto, Arial, sans-serif;
+$variable-heading-font-family: $variable-font-family;
+$body-font-family: 'Ubuntu', Helvetica, Roboto, Arial, sans-serif;
+$heading-font-family: 'Montserrat', sans-serif;
+$heading-font-weight: 700;
+$kerning: normal; // auto (default), normal (enabled), none (disabled)
+$selection-color: $color-brand;
+$placeholder-color: $color-black;
+
+
+// Focus
+// -----------
+$focus-outline: none;
+$focus-box-shadow: 1px 1px 0 0 $color-brand;
+
+
+// Main Menu
+// -----------
+$menu-background: transparent;
+$menu-height: 46px;
+$menu-zindex: 101;
+$menu-toggle-button-zindex: $menu-zindex + 2;
+
+
+// Forms
+// -----------
+$form-field-max-width: 20rem;
+$form-field-border: 2px solid $color-black;
+$form-border-radius: 2px;

@@ -1,0 +1,101 @@
+.button {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 1.888rem;
+  padding: 10px 1rem;
+  border: 0;
+  border-radius: $global-radius;
+  background-color: $color-dark;
+  transition: all .2s ease-out;
+  font-family: $body-font-family;
+
+  @if $use-variable-font {
+    @supports (font-variation-settings: normal) {
+      font-family: $variable-font-family;
+    }
+  }
+
+  font-size: 1rem;
+  line-height: 1;
+  font-weight: 700;
+  letter-spacing: normal;
+  color: $color-white;
+  text-transform: none;
+  box-shadow: $default-box-shadow;
+
+  &:hover,
+  &:focus,
+  &:active {
+    background-color: $color-brand;
+    color: $color-black;
+  }
+}
+
+
+// inline svg
+.button__icon {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 1.888rem;
+  height: 1.888rem;
+  margin-left: .5rem;
+  background-color: $color-brand;
+  transition: all .2s ease-out;
+
+  svg {
+    width: 1.111rem;
+    height: 1.111rem;
+  }
+}
+
+.button--icon {
+  padding-right: 2.888rem;
+
+
+  &:hover,
+  &:focus,
+  &:active {
+    .button__icon {
+      background-color: $color-black;
+      color: $color-brand;
+    }
+  }
+}
+
+.button--imdb {
+  height: 1.888rem;
+  padding-right: 4.778rem;
+
+  .button__icon,
+  .button__icon svg {
+    width: 68px;
+    height: 1.888rem;
+  }
+
+  .imdb-box {
+    fill: $color-brand;
+  }
+
+  .imdb-text {
+    fill: #273238;
+  }
+
+  &:hover,
+  &:active,
+  &:focus {
+    .imdb-box {
+      fill: #273238;
+    }
+
+    .imdb-text {
+      fill: $color-brand;
+    }
+  }
+
+}

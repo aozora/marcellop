@@ -1,0 +1,59 @@
+.search-suggestions {
+  position: fixed;
+  top: $menu-height;
+  left: 0;
+  display: none;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 100vw;
+  height: calc(100vh - #{$menu-height});
+  padding: 2rem;
+  background-color: rgba($body-background, .9);
+  z-index: 3;
+  overflow: auto;
+
+  header {
+    position: relative;
+    width: 100%;
+  }
+
+  section {
+    width: 100%;
+  }
+
+  h2 {
+    //width: 100%;
+    margin-top: 1.5rem;
+  }
+}
+
+.search-suggestions--active {
+  display: flex;
+}
+
+.search-suggestions__close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 1.778rem;
+  height: 1.778rem;
+  padding: 0;
+  border: 0;
+  color: $color-black;
+  background-color: transparent;
+
+  svg {
+    width: 1.778rem;
+    height: 1.778rem;
+  }
+
+  &:hover,
+  &:active,
+  &:focus {
+    color: $color-brand;
+  }
+}

@@ -1,0 +1,47 @@
+.video-list--scrollable {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: stretch;
+
+  max-width: none;
+  padding-right: 0;
+  margin: 2rem 0;
+
+  .video-list__container {
+    flex: 1;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    scrollbar-color: $body-background;
+    scrollbar-width: 10px;
+    scrollbar-gutter: always;
+    overflow-x: scroll;
+    padding: 0 30px;
+  }
+
+  .video {
+    flex: 0 0 430px;
+    width: 430px;
+    height: 242px;
+    margin: 1.5rem;
+    box-shadow: -1rem 0 2rem $color-black;
+
+    &:not(:first-child) {
+      margin-left: -10px;
+
+      @include media('>=tablet') {
+        margin-left: -130px;
+      }
+    }
+
+    &:hover {
+      transform: translate(0, -1rem);
+    }
+
+    //&:focus-within ~ .mini-card,
+    &:hover ~ .video {
+      transform: translateX(130px);
+    }
+  }
+}

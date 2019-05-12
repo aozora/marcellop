@@ -1,0 +1,69 @@
+/* class applies to select element itself, not a wrapper element */
+
+@mixin select {
+  display: block;
+  font-family: inherit;
+  //font-size: 16px;
+  //font-weight: 700;
+  //color: #444;
+  line-height: 1.5;
+  //padding: .6em 1.4em .5em .8em;
+  width: 100%;
+  max-width: 100%; /* useful when width is set to anything other than 100% */
+  box-sizing: border-box;
+  margin: 0;
+  //border: 1px solid #aaa;
+  //box-shadow: 0 1px 0 1px rgba(0, 0, 0, .04);
+  //border-radius: .5em;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+  background-color: #fff;
+  /* note: bg image below uses 2 urls. The first is an svg data uri for the arrow icon, and the second is the gradient.
+    for the icon, if you want to change the color, be sure to use `%23` instead of `#`, since it's a url. You can also swap in a different svg icon or an external image reference
+
+  */
+  background-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTQiIGhlaWdodD0iNiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNLjIxNiAxLjAyNmw1LjQzOCA0LjM1YTIgMiAwIDAgMCAyLjQ5OCAwbDUuNDM4LTQuMzVhLjU3Ni41NzYgMCAwIDAtLjY1Ni0uOTQ0TDYuOTAzIDMuNzAxLjg3My4wODJhLjU3Ni41NzYgMCAwIDAtLjY1Ny45NDR6IiBmaWxsPSIjRThFOEU4IiBmaWxsLXJ1bGU9Im5vbnplcm8iLz48L3N2Zz4=');
+  //linear-gradient(to bottom, #ffffff 0%, #e5e5e5 100%);
+  background-repeat: no-repeat, repeat;
+  /* arrow icon position (1em from the right, 50% vertical) , then gradient position*/
+  background-position: right .7em top 50%, 0 0;
+  /* icon size, then gradient */
+  background-size: .65em auto, 100%;
+
+  /* Hide arrow icon in IE browsers */
+  &::-ms-expand {
+    display: none;
+  }
+  ///* Hover style */
+  //&:hover {
+  //  border-color: #888;
+  //}
+
+  /* Focus style */
+  &:focus {
+    //border-color: #aaa;
+    /* It'd be nice to use -webkit-focus-ring-color here but it doesn't work on box-shadow */
+    //box-shadow: 0 0 1px 3px rgba(59, 153, 252, .7);
+    //box-shadow: 0 0 0 3px -moz-mac-focusring;
+    //color: #222;
+    outline: none;
+  }
+
+  //&:valid,
+  //&:focus {
+  //  border: $form-field-border;
+  //}
+
+  /* Set options to normal weight */
+  option {
+    font-weight: normal;
+  }
+}
+
+//
+///* Support for rtl text, explicit support for Arabic and Hebrew */
+//*[dir="rtl"] .select-css, :root:lang(ar) .select-css, :root:lang(iw) .select-css {
+//  background-position: left .7em top 50%, 0 0;
+//  padding: .6em .8em .5em 1.4em;
+//}
