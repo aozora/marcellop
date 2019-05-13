@@ -19,7 +19,7 @@ $breakpoints: (
 
 // colors
 // ------------------
-$color-brand: #e6b91e;
+$color-brand: #444;
 $color-black: #000;
 $color-dark: #141515;
 $color-dark-gray: #2B2C2E;
@@ -30,29 +30,32 @@ $color-error: #f00;
 
 // Shadows
 // ------------------
-$default-box-shadow: 1px 1px 4px 0 rgba(0, 0, 0, 0.50);
-$default-text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.50);
+$default-box-shadow: 0 2px 4px 5 rgba(255, 255, 255, .50);
+$default-text-shadow: none;
 
 // Body
 // ------------------
 $global-radius: 4px;
-$body-background: $color-dark-gray;
+$body-background: $color-brand;
 
 // Base Typography
 // ------------------
 $baseline: 1.5;
-$use-variable-font: false;
-$use-variable-font-for-headings: false;
-$body-font-color: $color-white;
-$body-font-letter-spacing: normal;
-$variable-font-family: 'Ubuntu Var', Helvetica, Roboto, Arial, sans-serif;
-$variable-heading-font-family: $variable-font-family;
-$body-font-family: 'Ubuntu', Helvetica, Roboto, Arial, sans-serif;
-$heading-font-family: 'Montserrat', sans-serif;
-$heading-font-weight: 700;
+
+$heading-font-weight: 300;
 $kerning: normal; // auto (default), normal (enabled), none (disabled)
 $selection-color: $color-brand;
 $placeholder-color: $color-black;
+
+// Fonts
+$use-variable-font: true;
+$use-variable-font-for-headings: false;
+$body-font-color: $color-white;
+$body-font-letter-spacing: normal;
+$variable-font-family: 'Source Sans Pro', Helvetica, Roboto, Arial, sans-serif;
+$variable-heading-font-family: 'Source Serif Pro', serif;
+$body-font-family: 'Source Sans Pro', Helvetica, Roboto, Arial, sans-serif;
+$heading-font-family: 'Source Serif Pro', serif;
 
 
 // Focus
