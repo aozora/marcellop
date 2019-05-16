@@ -1,25 +1,24 @@
 <template>
   <Layout>
-    
+    <hero></hero>
+    <about></about>
+    <what></what>
+    <experience></experience>
+    <contact></contact>
     <!-- Learn how to use images here: https://gridsome.org/docs/images -->
-    <g-image alt="Example image" src="~/favicon.png" width="135" />
-    
-    <h1>Hello, world!</h1>
-   
-    <p>
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur excepturi labore tempore expedita, et iste tenetur suscipit explicabo! Dolores, aperiam non officia eos quod asperiores
-    </p>
-
-    <p class="home-links">
-      <a href="https://gridsome.org/docs" target="_blank" rel="noopener">Gridsome Docs</a>
-      <a href="https://github.com/gridsome/gridsome" target="_blank" rel="noopener">GitHub</a>
-    </p>
-
+    <!--    <g-image alt="Example image" src="~/favicon.png" width="135" />-->
   </Layout>
 </template>
 
 <script>
+import Hero from '../components/Hero';
+import About from './About';
+import What from '../components/What';
+import Experience from '../components/Experience';
+import Contact from '../components/Contact';
+
 export default {
+  components: { Contact, Experience, What, About, Hero },
   metaInfo: {
     title: 'Hello, world!'
   }
@@ -27,7 +26,7 @@ export default {
 </script>
 
 <style>
-.home-links a {
-  margin-right: 1rem;
-}
+  .home-links a {
+    margin-right: 1rem;
+  }
 </style>
