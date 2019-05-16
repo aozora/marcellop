@@ -9,8 +9,8 @@
   "dependencies": {
     "@gridsome/source-filesystem": "^0.4.1",
     "@gridsome/transformer-remark": "^0.3.1",
-    "gridsome": "^0.5.0",
     "gridsome-plugin-netlify-cms": "^1.0.6",
+    "gridsome": "^0.6.0",
     "include-media": "^1.4.9",
     "netlify-cms": "^2.9.1"
   },

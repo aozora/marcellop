@@ -12,7 +12,7 @@
 
 <script>
 import Hero from '../components/Hero';
-import About from './About';
+import About from '../components/About';
 import What from '../components/What';
 import Experience from '../components/Experience';
 import Contact from '../components/Contact';
