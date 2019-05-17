@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html ${htmlAttrs}>
+  <head>
+    ${head}
+  </head>
+  <body ${bodyAttrs}>
+    <script>
+      if (window.netlifyIdentity) {
+        window.netlifyIdentity.on("init", user => {
+          if (!user) {
+            window.netlifyIdentity.on("login", () => {
+              document.location.href = "/admin/";
+            });
+          }
+        });
+      }
+    </script>
+
+    ${app}
+    ${scripts}
+  </body>
+</html>
