@@ -6,10 +6,13 @@
 // ==========================================================================
 
 // Set box-sizing globally to handle padding and border widths
+html {
+  box-sizing: border-box;
+}
 *,
 *::before,
 *::after {
-  box-sizing: border-box;
+  box-sizing: inherit;
 }
 
 html,
@@ -38,7 +41,7 @@ html {
 // Default body styles
 body {
   position: relative;
-  max-width: $maxWidth;
+  max-width: $sectionMaxWidth;
   height: 100%;
   margin: 0 auto;
   padding: 0;
@@ -53,6 +56,10 @@ body {
   @if $use-variable-font {
     @supports (font-variation-settings: normal) {
       font-family: $variable-font-family;
+      font-variation-settings:
+        'wght' var(--text-weight),
+        'wdth' var(--text-width),
+        'opsz' var(--text-opticalsize);
     }
   }
 

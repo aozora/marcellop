@@ -9,6 +9,7 @@
 // Dependencies
 @import '../../../node_modules/include-media/dist/_include-media.scss';
 
+@import 'variables';
 @import 'settings';
 @import './mixins/math';
 @import './mixins/mixins';
@@ -26,25 +27,8 @@
 
 
 // Application Components
-@import './modules/app-loader';
-@import './modules/glider';
-@import './modules/video';
-@import './modules/logo';
-@import './modules/card';
-@import './modules/hero';
-@import './modules/placeholder';
-@import './modules/search-suggestions';
-@import './modules/categories';
-@import './modules/cards-list';
-@import './modules/cards-list-scrollable';
-@import './modules/cards-list-grid';
-@import './modules/medium-details';
 @import './modules/header';
 @import './modules/footer';
-@import './modules/upcoming';
-@import './modules/film-strip-loader';
-@import './modules/list-filters';
-@import './modules/video-list-scrollable';
 
 @import './legacy';
 

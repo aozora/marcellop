@@ -5,15 +5,15 @@
 // 1. Global
 // ---------
 $render-vertical-rhythm-lines: false;
-$maxWidth: 1600px;
+$sectionMaxWidth: 1200px;
 
 // Include-Media breakpoints
 // ------------------
 $breakpoints: (
-  phone: 414px,
-  tablet: 768px,
-  desktop: 1280px,
-  desktophd: 1920px
+  phone: 28.875rem, // 414px,
+  tablet: 48rem, // 768px,
+  desktop: 64rem, // 1024px,
+  desktophd: 75rem // 1200px
 );
 
 
@@ -49,7 +49,7 @@ $placeholder-color: $color-black;
 
 // Fonts
 $use-variable-font: true;
-$use-variable-font-for-headings: false;
+$use-variable-font-for-headings: true;
 $body-font-color: $color-white;
 $body-font-letter-spacing: normal;
 $variable-font-family: 'Source Sans Variable', Helvetica, Roboto, Arial, sans-serif;
