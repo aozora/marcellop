@@ -9,6 +9,7 @@
 html {
   box-sizing: border-box;
 }
+
 *,
 *::before,
 *::after {
@@ -27,42 +28,58 @@ body {
 }
 
 html {
-  box-sizing: border-box;
   height: 100%;
   scroll-behavior: smooth; // this conflicts with GSAP ScrollToPlugin
+  //font-size: calc(16px + 0.2vw); // 112.5%; // 18px
+  //line-height: $baseline;
 }
 
-html {
-  font-size: calc(16px + 0.2vw); // 112.5%; // 18px
-  line-height: $baseline;
-}
-
-
-// Default body styles
-body {
-  position: relative;
-  max-width: $sectionMaxWidth;
-  height: 100%;
-  margin: 0 auto;
-  padding: 0;
-  background-color: $body-background;
+body,
+div,
+a,
+p,
+th,
+td,
+ul,
+li,
+blockquote,
+figcaption,
+cite,
+i,
+em,
+b,
+strong,
+button,
+p:first-line,
+p:first-letter {
   font-family: $body-font-family;
-  font-weight: 400;
-  letter-spacing: $body-font-letter-spacing;
   font-size: 1rem;
-  line-height: inherit; // $line-height;
+  line-height: $baseline;
+  font-weight: $body-font-weight;
+  font-style: normal;
+  letter-spacing: $body-font-letter-spacing;
   font-kerning: $kerning;
 
   @if $use-variable-font {
     @supports (font-variation-settings: normal) {
       font-family: $variable-font-family;
-      font-variation-settings:
-        'wght' var(--text-weight),
-        'wdth' var(--text-width),
-        'opsz' var(--text-opticalsize);
+      // this settings depends on th vf selected
+      font-variation-settings: 'wght' var(--text-weight);
+      /* ,
+         'wdth' var(--text-width),
+         'opsz' var(--text-opticalsize); */
     }
   }
+}
 
+// Default body styles
+body {
+  position: relative;
+  //max-width: $sectionMaxWidth;
+  height: 100%;
+  margin: 0 auto;
+  padding: 0;
+  background-color: $body-background;
   color: $body-font-color;
 
   //@if $render-vertical-rhythm-lines {
@@ -77,130 +94,237 @@ body {
   font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 
-  @include media(">=desktop") {
-    max-width: 100%;
-  }
+  //@include media(">=desktop") {
+  //  max-width: 100%;
+  //}
 }
 
-h1,
-h2,
-h3,
-h4,
-h5 {
-  font-family: $heading-font-family;
-  font-weight: $heading-font-weight;
+/* Generic header styles */
+h1, h2, h3, h4, h5, h6 {
   padding: 0;
   margin: 0 0 1rem 0;
+  font-family: $heading-font-family;
+  font-weight: $heading-font-weight;
+  transition: all linear 0.2s;
+  --text-weight: calc(var(--p-vf-weight) * var(--h1-vf-weight-multiplier-s));
   color: inherit;
+
 
   @if $use-variable-font-for-headings {
     @supports (font-variation-settings: normal) {
       font-family: $variable-heading-font-family;
+      // this settings depends on th vf selected
+      font-variation-settings: 'wght' var(--heading-weight);
+      /* ,
+         'wdth' var(--text-width),
+         'opsz' var(--text-opticalsize); */
     }
   }
 }
 
 
 h1 {
-  font-size: 2.227rem;
-  letter-spacing: 1.5px;
-  line-height: 1;
-  text-align: left;
-  text-transform: uppercase;
-  color: $color-white;
+  /* Set --text-wght value multiplier */
+  --text-weight: calc(var(--p-vf-weight) * var(--h1-vf-weight-multiplier-s));
+  //--text-width: calc(var(--p-vf-width) * .85);
+  //--text-opticalsize: calc((var(--h1-font-size-min) * 16));
 
-  @include media(">=tablet") {
-    font-size: 2.88rem;
-    line-height: 3.5rem;
-    letter-spacing: normal;
+  font-size: calc(var(--h1-font-size-min) * 1em);
+  line-height: var(--h1-line-height-min);
+  margin: 1rem auto;
+  //max-width: 50rem;
+
+  @media screen and (min-width: 24.15em) {
+    line-height: calc((var(--h1-line-height-min) * 1em) + (var(--h1-line-height-max) - var(--h1-line-height-min)) * ((100vw - (var(--breakpoint-small) * 1em)) / (var(--breakpoint-xlarge) - var(--breakpoint-small))));
+    font-size: calc((var(--h1-font-size-min) * 1em) + (var(--h1-font-size-max) - var(--h1-font-size-min)) * ((100vw - (var(--breakpoint-small) * 1em)) / (var(--breakpoint-xlarge) - var(--breakpoint-small))));
+  }
+  @media screen and (min-width: 43.75em) {
+    --text-weight: calc(var(--p-vf-weight) * var(--h1-vf-weight-multiplier-m));
+    //--text-width: calc(var(--p-vf-width) * 1.05);
+    //--text-opticalsize: calc(((var(--h1-font-size-min) + ((var(--h1-font-size-max) - var(--h1-font-size-min)) / 2)) * 16));
+    //max-width: 60rem;
+  }
+  @media screen and (min-width: 60.25em) {
+    --text-weight: calc(var(--p-vf-weight) * var(--h1-vf-weight-multiplier-l));
+    line-height: var(--h1-line-height-max);
+    //max-width: 70rem;
+  }
+  @media (min-width: 75em) {
+    --text-opticalsize: calc((var(--h1-font-size-max) * 16));
+    font-size: calc(var(--h1-font-size-max) * 1em);
+    line-height: var(--h1-line-height-max);
+    //max-width: 75rem;
   }
 }
 
 h2 {
-  @include branded-heading;
-}
+  /* Set --text-wght value multiplier */
+  --text-weight: calc(var(--p-vf-weight) * var(--h2-vf-weight-multiplier-s));
+  //--text-opticalsize: calc((var(--h2-font-size-min) * 16));
 
-//h3 {
-//  font-size: 1.5rem;
-//  line-height: 2;
-//  letter-spacing: .6px;
-//}
-//
-//h4 {
-//  font-size: 1.111rem;
-//  line-height: 1.6;
-//  letter-spacing: .5px;
-//}
-//
-//h5,
-//h6 {
-//  font-size: 1rem;
-//  line-height: 1.5;
-//  letter-spacing: .5px;
-//}
+  font-size: calc(var(--h2-font-size-min) * 1em);
+  line-height: var(--h2-line-height-min);
+  margin: 1rem auto .5rem auto;
+  max-width: var(--text-max-width);
 
+  @media screen and (min-width: 24.15em) {
+    line-height: calc((var(--h2-line-height-min) * 1em) + (var(--h2-line-height-max) - var(--h2-line-height-min)) * ((100vw - (var(--breakpoint-small) * 1em)) / (var(--breakpoint-xlarge) - var(--breakpoint-small))));
+    font-size: calc((var(--h2-font-size-min) * 1em) + (var(--h2-font-size-max) - var(--h2-font-size-min)) * ((100vw - (var(--breakpoint-small) * 1em)) / (var(--breakpoint-xlarge) - var(--breakpoint-small))));
+  }
+  @media screen and (min-width: 43.75em) {
+    --text-weight: calc(var(--p-vf-weight) * var(--h2-vf-weight-multiplier-m));
+    //--text-opticalsize: calc(((var(--h2-font-size-min) + ((var(--h2-font-size-max) - var(--h2-font-size-min)) / 2)) * 16));
 
-p {
-  font-size: 1rem;
-  line-height: $baseline;
-  margin: 0 auto 1.5rem auto;
-}
+    max-width: 38.5rem;
+  }
+  @media screen and (min-width: 60.25em) {
+    max-width: 38.5rem;
+  }
+  @media (min-width: 75em) {
+    --text-weight: calc(var(--p-vf-weight) * var(--h2-vf-weight-multiplier-l));
+    //--text-opticalsize: calc((var(--h2-font-size-max) * 16));
 
-/*
-   Improved Links underline
-   CSS Secrets, Lea Verou, Chapter 5
-*/
-p {
-  a:not(.button) {
-    @include better-underline();
-
-    &:hover,
-    &:focus {
-      //color: #000;
-      //background-color: $color-brand-light;
-      text-shadow: none;
-    }
+    font-size: calc(var(--h2-font-size-max) * 1em);
+    line-height: var(--h2-line-height-max);
+    max-width: 42rem;
   }
 }
+
+h3 {
+  /* Set --text-wght value multiplier */
+  --text-weight: calc(var(--p-vf-weight) * var(--h3-vf-weight-multiplier-s));
+  //--text-opticalsize: calc((var(--h3-font-size-min) * 16));
+
+  color: #444466;
+  font-size: calc(var(--h3-font-size-min) * 1em);
+  line-height: var(--h2-line-height-min);
+  margin: 1rem auto .5rem auto;
+  max-width: var(--text-max-width);
+  text-align: left;
+
+  @media screen and (min-width: 24.15em) {
+    line-height: calc((var(--h3-line-height-min) * 1em) + (var(--h3-line-height-max) - var(--h3-line-height-min)) * ((100vw - (var(--breakpoint-small) * 1em)) / (var(--breakpoint-xlarge) - var(--breakpoint-small))));
+    font-size: calc((var(--h3-font-size-min) * 1em) + (var(--h3-font-size-max) - var(--h3-font-size-min)) * ((100vw - (var(--breakpoint-small) * 1em)) / (var(--breakpoint-xlarge) - var(--breakpoint-small))));
+  }
+  @media screen and (min-width: 43.75em) {
+    --text-weight: calc(var(--p-vf-weight) * var(--h3-vf-weight-multiplier-m));
+
+    max-width: 38.5rem;
+  }
+  @media screen and (min-width: 60.25em) {
+    max-width: 38.5rem;
+  }
+  @media (min-width: 75em) {
+    --text-weight: calc(var(--p-vf-weight) * var(--h3-vf-weight-multiplier-l));
+    //--text-opticalsize: calc((var(--h3-font-size-max) * 16));
+
+    font-size: calc(var(--h3-font-size-max) * 1em);
+    line-height: var(--h3-line-height-max);
+    max-width: 42rem;
+  }
+}
+
+
+.italic,
+i,
+em {
+
+}
+
+b,
+strong {
+  --text-weight: 600;
+}
+
+
+p {
+  margin: 0 auto 1.5rem auto;
+  max-width: var(--text-max-width);
+  transition: all linear 0.2s;
+  hyphens: auto;
+  hanging-punctuation: first;
+}
+
+/* Variations and variables */
+p {
+  --text-width: calc(var(--p-vf-width) * .9);
+  font-size: calc(var(--p-font-size-min) * 1rem);
+  line-height: var(--p-line-height-min);
+
+  @media screen and (min-width: 24.15em) {
+    line-height: calc((var(--p-line-height-min) * 1em) + (var(--p-line-height-max) - var(--p-line-height-min)) * ((100vw - (var(--breakpoint-small) * 1em)) / (var(--breakpoint-large) - var(--breakpoint-small))));
+  }
+  @media (min-width: 60.25em) {
+    --text-width: calc(var(--p-vf-width) * 1);
+    font-size: calc((var(--p-font-size-min) * 1em) + (var(--p-font-size-max) - var(--p-font-size-min)) * ((100vw - (var(--breakpoint-large) * 1em)) / (var(--breakpoint-xlarge) - var(--breakpoint-large))));
+    line-height: var(--p-line-height-max);
+  }
+  @media (min-width: 75em) {
+    //--text-opticalsize: calc((var(--p-font-size-max) * 16));
+    font-size: calc(var(--p-font-size-max) * 1em);
+    max-width: 42rem;
+  }
+}
+
+
+///*
+//   Improved Links underline
+//   CSS Secrets, Lea Verou, Chapter 5
+//*/
+//p {
+//  a:not(.button) {
+//    @include better-underline();
+//
+//    &:hover,
+//    &:focus {
+//      //color: #000;
+//      //background-color: $color-brand-light;
+//      text-shadow: none;
+//    }
+//  }
+//}
 
 /* Link style
   ============== */
 a {
-  margin: 0;
-  padding: 0;
-  font-weight: 400;
-  line-height: inherit;
-  //text-transform: uppercase;
-  color: $color-white;
-  //@include better-underline-always;
+  transition: all 0.3s ease;
 
-  //&:focus,
-  //&:hover {
-  //  color: $color-light;
-  //  text-decoration: none;
-  //}
+  &:link {
+    color: $color-brand;
+    text-decoration: underline;
+  }
+
+  &:visited {
+    color: $color-brand;
+    text-decoration: underline;
+  }
+
+  &:hover {
+    color: $color-dark-gray;
+  }
+
+  > * {
+    outline: none;
+    cursor: pointer;
+    text-decoration: none;
+  }
 }
 
-a,
-a > * {
-  outline: none;
-  cursor: pointer;
-  text-decoration: none;
-}
 
 /**
  * Turn off margins on nested lists.
  */
-
-ol,
 ul {
-  margin: 0;
-  padding: 0;
-}
+  margin-left: auto;
+  margin-right: auto;
+  max-width: var(--text-max-width);
 
-ul,
-li {
-  list-style-type: none;
+  @media screen and (min-width: 43.75em) {
+    max-width: 38.5rem;
+  }
+  @media (min-width: 75em) {
+    max-width: 42rem;
+  }
 }
 
 figure {
@@ -208,14 +332,110 @@ figure {
   padding: 0;
 }
 
-/* Transition
-  =============== */
-a {
-  transition: all 0.3s ease;
+img {
+  height: auto;
+  max-width: 100%;
+  width: 100%;
 }
 
+blockquote {
+  float: right;
+  line-height: var(--bq-line-height-min);
+  margin: .5rem 5% 1rem .5rem;
+  max-width: 45%;
+  transition: all linear 0.2s;
 
-img {
-  max-width: 100%;
+  &.right {
+    float: right;
+    margin-left: .5rem;
+    margin-right: 5%;
+  }
+
+  &.left {
+    float: left;
+    margin-left: 5%;
+    margin-right: .5rem;
+  }
+
+  p {
+    /* Set --text-x value */
+    --text-weight: calc(var(--p-vf-weight) * .65);
+    font-size: 6.5vw;
+    margin: 0 0 .25em 0;
+    position: relative;
+
+    &:first-letter {
+
+    }
+
+    &:first-line {
+      --text-weight: calc(var(--p-vf-weight) * .65);
+    }
+  }
+
+  cite {
+    display: block;
+    font-size: 3.5vw;
+    text-align: right;
+
+    &:before {
+      content: "—";
+    }
+  }
+
+  @media screen and (min-width: 24.15em) {
+    margin: .5rem 5% .5rem .5rem;
+    max-width: 45%;
+
+    &.right {
+      margin-left: .5rem;
+      margin-right: 0;
+    }
+    &.left {
+      margin-left: 0;
+      margin-right: .5rem;
+    }
+    p {
+      --text-weight: calc(var(--p-vf-weight) * .8);
+      font-size: 5.5vw;
+      line-height: calc((var(--bq-line-height-min) * 1em) + (var(--bq-line-height-max) - var(--bq-line-height-min)) * ((100vw - (var(--breakpoint-small) * 1em)) / (var(--breakpoint-large) - var(--breakpoint-small))));
+
+      &:first-line {
+        --text-weight: calc(var(--p-vf-weight) * .8);
+      }
+
+      &:first-letter {
+
+      }
+    }
+    cite {
+      font-size: 3vw;
+    }
+  }
+
+  @media (min-width: 60.25em) {
+    margin: 1rem 12vw 2rem 2rem;
+    max-width: 29.5%;
+    &.right {
+      margin-left: 3.5%;
+      margin-right: 12vw;
+    }
+    &.left {
+      margin-left: 17%;
+      margin-right: 3.5%;
+    }
+    p {
+      --text-weight: calc(var(--p-vf-weight) * .7);
+      font-size: 4vw;
+      line-height: var(--bq-line-height-max);
+
+      &:first-line {
+        --text-weight: calc(var(--p-vf-weight) * .7);
+      }
+    }
+    cite {
+      font-size: 2.5vw;
+    }
+  }
 }
 

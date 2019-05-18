@@ -19,7 +19,7 @@ $breakpoints: (
 
 // colors
 // ------------------
-$color-brand: #444;
+$color-brand: #414141;
 $color-black: #000;
 $color-dark: #141515;
 $color-dark-gray: #2B2C2E;
@@ -36,12 +36,13 @@ $default-text-shadow: none;
 // Body
 // ------------------
 $global-radius: 4px;
-$body-background: $color-brand;
+$body-background: $color-white;
 
 // Base Typography
 // ------------------
 $baseline: 1.5;
 
+$body-font-weight: 400;
 $heading-font-weight: 300;
 $kerning: normal; // auto (default), normal (enabled), none (disabled)
 $selection-color: $color-brand;
@@ -50,7 +51,7 @@ $placeholder-color: $color-black;
 // Fonts
 $use-variable-font: true;
 $use-variable-font-for-headings: true;
-$body-font-color: $color-white;
+$body-font-color: $color-brand;
 $body-font-letter-spacing: normal;
 $variable-font-family: 'Source Sans Variable', Helvetica, Roboto, Arial, sans-serif;
 $variable-heading-font-family: 'Source Serif Variable', serif;

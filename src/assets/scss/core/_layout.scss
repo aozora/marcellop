@@ -24,3 +24,70 @@ main > section.full-width {
   max-width: none;
   padding: 0;
 }
+
+
+/* First-line styles */
+.initial > p:first-of-type:first-line {
+  /* Set --text-x value */
+  --text-weight: calc(var(--p-vf-weight) * 1.25);
+
+  @media screen and (min-width: 43.75em) {
+    --text-weight: calc(var(--p-vf-weight) * 1.25);
+  }
+}
+
+/* Initial Cap styles */
+.initial > p:first-of-type:first-letter {
+  --text-weight: calc(var(--p-vf-weight) * 1.75);
+
+  //color: #444466;
+  float: left;
+  padding-right: 0.05em;
+  //font-family: "Voto Serif GX", Georgia, "Times New Roman", serif;
+  font-size: calc(var(--dc-font-size-min) * 1em);
+  line-height: var(--dc-line-height-min);
+  margin-bottom: -.1em;
+  margin-top: -.05em;
+
+  @media screen and (min-width: 24.15em) {
+    font-size: calc((var(--dc-font-size-min) * 1em) + (var(--dc-font-size-max) - var(--dc-font-size-min)) * ((100vw - (var(--breakpoint-small) * 1em)) / (var(--breakpoint-xlarge) - var(--breakpoint-small))));
+    line-height: calc((var(--dc-line-height-min) * 1em) + (var(--dc-line-height-max) - var(--dc-line-height-min)) * ((100vw - (var(--breakpoint-small) * 1em)) / (var(--breakpoint-large) - var(--breakpoint-small))));
+  }
+  @media screen and (min-width: 43.75em) {
+    --text-weight: calc(var(--p-vf-weight) * 1.95);
+  }
+  @media (min-width: 60.25em) {
+    --text-weight: calc(var(--p-vf-weight) * 2.15);
+
+    font-size: calc(var(--dc-font-size-max) * 1em);
+    line-height: var(--dc-line-height-max);
+  }
+}
+
+
+// *******************
+// GRID
+// *******************
+main {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: 1fr 1fr;
+  gap: 3vw;
+}
+
+.home-logo {
+  grid-column: 1;
+  grid-row: 1;
+  width: 5.833rem;
+  height: 3.72rem;
+}
+
+.hero {
+  grid-column: 2/5;
+  grid-row: 1;
+}
+
+.about {
+  grid-column: 2/5;
+  grid-row: 2;
+}

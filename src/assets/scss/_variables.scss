@@ -7,8 +7,10 @@
   --breakpoint-large: #{map_get($breakpoints, desktop)};
   --breakpoint-xlarge: #{map_get($breakpoints, desktophd)};
 
-  /* initial values  */
+  /* max text sizes  */
   --text-max-width: 38rem;
+
+  /* vf initial values */
   --text-weight: 400;
   --heading-weight: 300;
   --text-width: 100;
@@ -62,381 +64,37 @@
   --bq-font-size-max: 5;
 }
 
-.italic,
-i,
-em {
 
-}
 
-b,
-strong {
-  --text-weight: 600;
-}
 
-body,
-div,
-a,
-p,
-th,
-td,
-ul,
-li,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-blockquote,
-figcaption,
-cite,
-i,
-em,
-b,
-strong,
-button,
-p:first-line,
-p:first-letter {
-  font-family: "Voto Serif GX", Georgia, "Times New Roman", serif;
-  font-weight: normal;
-  font-style: normal;
-  font-variation-settings: 'wght' var(--text-weight),
-  'wdth' var(--text-width),
-  'opsz' var(--text-opticalsize);
-}
 
-p {
-  margin-left: auto;
-  margin-right: auto;
-  max-width: var(--text-max-width);
-  transition: all linear 0.2s;
-  hyphens: auto;
-  hanging-punctuation: first;
-}
 
-/* Variations and variables */
-p {
-  --text-width: calc(var(--p-vf-width) * .9);
-  font-size: calc(var(--p-font-size-min) * 1rem);
-  line-height: var(--p-line-height-min);
 
-  @media screen and (min-width: 24.15em) {
-    line-height: calc((var(--p-line-height-min) * 1em) + (var(--p-line-height-max) - var(--p-line-height-min)) * ((100vw - (var(--breakpoint-small) * 1em)) / (var(--breakpoint-large) - var(--breakpoint-small))));
-  }
-  @media (min-width: 60.25em) {
-    --text-width: calc(var(--p-vf-width) * 1);
-    font-size: calc((var(--p-font-size-min) * 1em) + (var(--p-font-size-max) - var(--p-font-size-min)) * ((100vw - (var(--breakpoint-large) * 1em)) / (var(--breakpoint-xlarge) - var(--breakpoint-large))));
-    line-height: var(--p-line-height-max);
-  }
-  @media (min-width: 75em) {
-    --text-opticalsize: calc((var(--p-font-size-max) * 16));
-    font-size: calc(var(--p-font-size-max) * 1em);
-    max-width: 42rem;
-  }
-}
 
-/* Generic header styles */
-h1, h2, h3, h4, h5, h6 {
-  font-family: "Voto Serif GX", Georgia, "Times New Roman", serif;
-  font-weight: normal;
-  transition: all linear 0.2s;
-  --text-weight: calc(var(--p-vf-weight) * var(--h1-vf-weight-multiplier-s));
-}
 
-h1 {
-  /* Set --text-wght value multiplier */
-  --text-weight: calc(var(--p-vf-weight) * var(--h1-vf-weight-multiplier-s));
-  --text-width: calc(var(--p-vf-width) * .85);
-  --text-opticalsize: calc((var(--h1-font-size-min) * 16));
 
-  font-family: "Voto Serif GX", Georgia, "Times New Roman", serif;
-  font-size: calc(var(--h1-font-size-min) * 1em);
-  line-height: var(--h1-line-height-min);
-  margin: 1rem auto;
-  //max-width: 50rem;
-  @media screen and (min-width: 24.15em) {
-    line-height: calc((var(--h1-line-height-min) * 1em) + (var(--h1-line-height-max) - var(--h1-line-height-min)) * ((100vw - (var(--breakpoint-small) * 1em)) / (var(--breakpoint-xlarge) - var(--breakpoint-small))));
-    font-size: calc((var(--h1-font-size-min) * 1em) + (var(--h1-font-size-max) - var(--h1-font-size-min)) * ((100vw - (var(--breakpoint-small) * 1em)) / (var(--breakpoint-xlarge) - var(--breakpoint-small))));
-  }
-  @media screen and (min-width: 43.75em) {
-    --text-weight: calc(var(--p-vf-weight) * var(--h1-vf-weight-multiplier-m));
-    --text-width: calc(var(--p-vf-width) * 1.05);
-    --text-opticalsize: calc(((var(--h1-font-size-min) + ((var(--h1-font-size-max) - var(--h1-font-size-min)) / 2)) * 16));
-    //max-width: 60rem;
-  }
-  @media screen and (min-width: 60.25em) {
-    --text-weight: calc(var(--p-vf-weight) * var(--h1-vf-weight-multiplier-l));
-    line-height: var(--h1-line-height-max);
-    //max-width: 70rem;
-  }
-  @media (min-width: 75em) {
-    --text-opticalsize: calc((var(--h1-font-size-max) * 16));
-    font-size: calc(var(--h1-font-size-max) * 1em);
-    line-height: var(--h1-line-height-max);
-    //max-width: 75rem;
-  }
-}
-
-h2 {
-  /* Set --text-wght value multiplier */
-  --text-weight: calc(var(--p-vf-weight) * var(--h2-vf-weight-multiplier-s));
-  --text-opticalsize: calc((var(--h2-font-size-min) * 16));
-
-  font-family: "Voto Serif GX", Georgia, "Times New Roman", serif;
-  font-size: calc(var(--h2-font-size-min) * 1em);
-  line-height: var(--h2-line-height-min);
-  margin: 1rem auto .5rem auto;
-  max-width: var(--text-max-width);
-  @media screen and (min-width: 24.15em) {
-    line-height: calc((var(--h2-line-height-min) * 1em) + (var(--h2-line-height-max) - var(--h2-line-height-min)) * ((100vw - (var(--breakpoint-small) * 1em)) / (var(--breakpoint-xlarge) - var(--breakpoint-small))));
-    font-size: calc((var(--h2-font-size-min) * 1em) + (var(--h2-font-size-max) - var(--h2-font-size-min)) * ((100vw - (var(--breakpoint-small) * 1em)) / (var(--breakpoint-xlarge) - var(--breakpoint-small))));
-  }
-  @media screen and (min-width: 43.75em) {
-    --text-weight: calc(var(--p-vf-weight) * var(--h2-vf-weight-multiplier-m));
-    --text-opticalsize: calc(((var(--h2-font-size-min) + ((var(--h2-font-size-max) - var(--h2-font-size-min)) / 2)) * 16));
-
-    max-width: 38.5rem;
-  }
-  @media screen and (min-width: 60.25em) {
-    max-width: 38.5rem;
-  }
-  @media (min-width: 75em) {
-    --text-weight: calc(var(--p-vf-weight) * var(--h2-vf-weight-multiplier-l));
-    --text-opticalsize: calc((var(--h2-font-size-max) * 16));
-
-    font-size: calc(var(--h2-font-size-max) * 1em);
-    line-height: var(--h2-line-height-max);
-    max-width: 42rem;
-  }
-}
-
-h3 {
-  /* Set --text-wght value multiplier */
-  --text-weight: calc(var(--p-vf-weight) * var(--h3-vf-weight-multiplier-s));
-  --text-opticalsize: calc((var(--h3-font-size-min) * 16));
-
-  color: #444466;
-  font-family: "Voto Serif GX", Georgia, "Times New Roman", serif;
-  font-size: calc(var(--h3-font-size-min) * 1em);
-  line-height: var(--h2-line-height-min);
-  margin: 1rem auto .5rem auto;
-  max-width: var(--text-max-width);
-  text-align: left;
-  @media screen and (min-width: 24.15em) {
-    line-height: calc((var(--h3-line-height-min) * 1em) + (var(--h3-line-height-max) - var(--h3-line-height-min)) * ((100vw - (var(--breakpoint-small) * 1em)) / (var(--breakpoint-xlarge) - var(--breakpoint-small))));
-    font-size: calc((var(--h3-font-size-min) * 1em) + (var(--h3-font-size-max) - var(--h3-font-size-min)) * ((100vw - (var(--breakpoint-small) * 1em)) / (var(--breakpoint-xlarge) - var(--breakpoint-small))));
-  }
-  @media screen and (min-width: 43.75em) {
-    --text-weight: calc(var(--p-vf-weight) * var(--h3-vf-weight-multiplier-m));
-
-    max-width: 38.5rem;
-  }
-  @media screen and (min-width: 60.25em) {
-    max-width: 38.5rem;
-  }
-  @media (min-width: 75em) {
-    --text-weight: calc(var(--p-vf-weight) * var(--h3-vf-weight-multiplier-l));
-    --text-opticalsize: calc((var(--h3-font-size-max) * 16));
-
-    font-size: calc(var(--h3-font-size-max) * 1em);
-    line-height: var(--h3-line-height-max);
-    max-width: 42rem;
-  }
-}
-
-ul {
-  margin-left: auto;
-  margin-right: auto;
-  max-width: var(--text-max-width);
-  @media screen and (min-width: 43.75em) {
-    max-width: 38.5rem;
-  }
-  @media (min-width: 75em) {
-    max-width: 42rem;
-  }
-}
-
-a {
-  &:link {
-    color: #555577;
-    text-decoration: underline;
-  }
-
-  &:visited {
-    color: #555577;
-    text-decoration: underline;
-  }
-
-  &:hover {
-    color: #bb4444;
-
-  }
-}
-
-img {
-  height: auto;
-  max-width: 100%;
-  width: 100%;
-}
 
 /* Layout */
-
-/* Undo some of the Layout width bits */
-.section-content {
-  margin: 0 auto;
-  padding: 0;
-  width: 100%;
-}
-
-/* First-line styles */
-.article-detail.initial > p:first-of-type:first-line {
-  /* Set --text-x value */
-  --text-weight: calc(var(--p-vf-weight) * 1.25);
-
-  font-family: "Voto Serif GX", Georgia, "Times New Roman", serif;
-  @media screen and (min-width: 43.75em) {
-    --text-weight: calc(var(--p-vf-weight) * 1.25);
-
-  }
-}
-
-/* Initial Cap styles */
-.article-detail.initial > p:first-of-type:first-letter {
-  --text-weight: calc(var(--p-vf-weight) * 1.75);
-
-  color: #444466;
-  float: left;
-  padding-right: 0.05em;
-  font-family: "Voto Serif GX", Georgia, "Times New Roman", serif;
-  font-size: calc(var(--dc-font-size-min) * 1em);
-  line-height: var(--dc-line-height-min);
-  margin-bottom: -.1em;
-  margin-top: -.05em;
-  @media screen and (min-width: 24.15em) {
-    font-size: calc((var(--dc-font-size-min) * 1em) + (var(--dc-font-size-max) - var(--dc-font-size-min)) * ((100vw - (var(--breakpoint-small) * 1em)) / (var(--breakpoint-xlarge) - var(--breakpoint-small))));
-    line-height: calc((var(--dc-line-height-min) * 1em) + (var(--dc-line-height-max) - var(--dc-line-height-min)) * ((100vw - (var(--breakpoint-small) * 1em)) / (var(--breakpoint-large) - var(--breakpoint-small))));
-  }
-  @media screen and (min-width: 43.75em) {
-    --text-weight: calc(var(--p-vf-weight) * 1.95);
-  }
-  @media (min-width: 60.25em) {
-    --text-weight: calc(var(--p-vf-weight) * 2.15);
-
-    font-size: calc(var(--dc-font-size-max) * 1em);
-    line-height: var(--dc-line-height-max);
-  }
-}
-
-/* Content end styles */
-.content-area > p:last-child:after {
-  color: #777;
-  content: "\2766";
-  display: block;
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: 5em;
-  font-style: italic;
-  font-weight: 300;
-  line-height: .75;
-  margin-top: 1rem;
-  margin-bottom: 2rem;
-  text-align: center;
-}
-
-blockquote {
-  float: right;
-  line-height: var(--bq-line-height-min);
-  margin: .5rem 5% 1rem .5rem;
-  max-width: 45%;
-  transition: all linear 0.2s;
-
-  &.right {
-    float: right;
-    margin-left: .5rem;
-    margin-right: 5%;
-  }
-
-  &.left {
-    float: left;
-    margin-left: 5%;
-    margin-right: .5rem;
-  }
-
-  p {
-    /* Set --text-x value */
-    --text-weight: calc(var(--p-vf-weight) * .65);
-    font-size: 6.5vw;
-    margin: 0 0 .25em 0;
-    position: relative;
-
-    &:first-letter {
-
-    }
-
-    &:first-line {
-      --text-weight: calc(var(--p-vf-weight) * .65);
-    }
-  }
-
-  cite {
-    display: block;
-    font-size: 3.5vw;
-    text-align: right;
-
-    &:before {
-      content: "—";
-    }
-  }
-
-  @media screen and (min-width: 24.15em) {
-    margin: .5rem 5% .5rem .5rem;
-    max-width: 45%;
-    &.right {
-      margin-left: .5rem;
-      margin-right: 0;
-    }
-    &.left {
-      margin-left: 0;
-      margin-right: .5rem;
-    }
-    p {
-      --text-weight: calc(var(--p-vf-weight) * .8);
-      font-size: 5.5vw;
-      line-height: calc((var(--bq-line-height-min) * 1em) + (var(--bq-line-height-max) - var(--bq-line-height-min)) * ((100vw - (var(--breakpoint-small) * 1em)) / (var(--breakpoint-large) - var(--breakpoint-small))));
-
-      &:first-line {
-        --text-weight: calc(var(--p-vf-weight) * .8);
-      }
-
-      &:first-letter {
-
-      }
-    }
-    cite {
-      font-size: 3vw;
-    }
-  }
-  @media (min-width: 60.25em) {
-    margin: 1rem 12vw 2rem 2rem;
-    max-width: 29.5%;
-    &.right {
-      margin-left: 3.5%;
-      margin-right: 12vw;
-    }
-    &.left {
-      margin-left: 17%;
-      margin-right: 3.5%;
-    }
-    p {
-      --text-weight: calc(var(--p-vf-weight) * .7);
-      font-size: 4vw;
-      line-height: var(--bq-line-height-max);
-
-      &:first-line {
-        --text-weight: calc(var(--p-vf-weight) * .7);
-      }
-    }
-    cite {
-      font-size: 2.5vw;
-    }
-  }
-}
+//
+///* Undo some of the Layout width bits */
+//.section-content {
+//  margin: 0 auto;
+//  padding: 0;
+//  width: 100%;
+//}
+//
+//
+///* Content end styles */
+//.content-area > p:last-child:after {
+//  color: #777;
+//  content: "\2766";
+//  display: block;
+//  font-family: Georgia, "Times New Roman", serif;
+//  font-size: 5em;
+//  font-style: italic;
+//  font-weight: 300;
+//  line-height: .75;
+//  margin-top: 1rem;
+//  margin-bottom: 2rem;
+//  text-align: center;
+//}
