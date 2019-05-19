@@ -18,36 +18,6 @@
   margin: 0 auto;
 }
 
-@mixin branded-heading {
-  font-size: 1.667rem;
-  font-weight: 600;
-  line-height: 1.667rem;
-  letter-spacing: 0.33px;
-  color: $color-brand;
-  text-align: left;
-  text-transform: uppercase;
-
-  @include media(">=tablet") {
-    font-size: 1.667rem;
-    line-height: 2.05rem;
-    letter-spacing: .4px;
-  }
-}
-
-@mixin title-genres {
-  margin-bottom: .667rem;
-
-  span {
-    margin-right: 22px;
-    font-size: 17px;
-    font-weight: 700;
-    color: $color-white;
-    text-align: left;
-    text-transform: capitalize;
-  }
-}
-
-
 @function strip-unit($value) {
   @return $value / ($value * 0 + 1);
 }

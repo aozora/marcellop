@@ -30,6 +30,7 @@ body {
 html {
   height: 100%;
   scroll-behavior: smooth; // this conflicts with GSAP ScrollToPlugin
+  font-size: 112.5%; // 18px
   //font-size: calc(16px + 0.2vw); // 112.5%; // 18px
   //line-height: $baseline;
 }
@@ -165,20 +166,18 @@ h2 {
   margin: 1rem auto .5rem auto;
   max-width: var(--text-max-width);
 
-  @media screen and (min-width: 24.15em) {
-    line-height: calc((var(--h2-line-height-min) * 1em) + (var(--h2-line-height-max) - var(--h2-line-height-min)) * ((100vw - (var(--breakpoint-small) * 1em)) / (var(--breakpoint-xlarge) - var(--breakpoint-small))));
-    font-size: calc((var(--h2-font-size-min) * 1em) + (var(--h2-font-size-max) - var(--h2-font-size-min)) * ((100vw - (var(--breakpoint-small) * 1em)) / (var(--breakpoint-xlarge) - var(--breakpoint-small))));
-  }
-  @media screen and (min-width: 43.75em) {
+  @include media (">=tablet", "<desktop") {
     --text-weight: calc(var(--p-vf-weight) * var(--h2-vf-weight-multiplier-m));
     //--text-opticalsize: calc(((var(--h2-font-size-min) + ((var(--h2-font-size-max) - var(--h2-font-size-min)) / 2)) * 16));
 
+    line-height: calc((var(--h2-line-height-min) * 1em) + (var(--h2-line-height-max) - var(--h2-line-height-min)) * ((100vw - (var(--breakpoint-small) * 1em)) / (var(--breakpoint-xlarge) - var(--breakpoint-small))));
+    font-size: calc((var(--h2-font-size-min) * 1em) + (var(--h2-font-size-max) - var(--h2-font-size-min)) * ((100vw - (var(--breakpoint-small) * 1em)) / (var(--breakpoint-xlarge) - var(--breakpoint-small))));
     max-width: 38.5rem;
   }
-  @media screen and (min-width: 60.25em) {
+  @include media (">=desktop", "<desktophd") {
     max-width: 38.5rem;
   }
-  @media (min-width: 75em) {
+  @include media (">=desktophd") {
     --text-weight: calc(var(--p-vf-weight) * var(--h2-vf-weight-multiplier-l));
     //--text-opticalsize: calc((var(--h2-font-size-max) * 16));
 
@@ -200,19 +199,17 @@ h3 {
   max-width: var(--text-max-width);
   text-align: left;
 
-  @media screen and (min-width: 24.15em) {
-    line-height: calc((var(--h3-line-height-min) * 1em) + (var(--h3-line-height-max) - var(--h3-line-height-min)) * ((100vw - (var(--breakpoint-small) * 1em)) / (var(--breakpoint-xlarge) - var(--breakpoint-small))));
-    font-size: calc((var(--h3-font-size-min) * 1em) + (var(--h3-font-size-max) - var(--h3-font-size-min)) * ((100vw - (var(--breakpoint-small) * 1em)) / (var(--breakpoint-xlarge) - var(--breakpoint-small))));
-  }
-  @media screen and (min-width: 43.75em) {
+  @include media (">=tablet", "<desktop") {
     --text-weight: calc(var(--p-vf-weight) * var(--h3-vf-weight-multiplier-m));
 
+    line-height: calc((var(--h3-line-height-min) * 1em) + (var(--h3-line-height-max) - var(--h3-line-height-min)) * ((100vw - (var(--breakpoint-small) * 1em)) / (var(--breakpoint-xlarge) - var(--breakpoint-small))));
+    font-size: calc((var(--h3-font-size-min) * 1em) + (var(--h3-font-size-max) - var(--h3-font-size-min)) * ((100vw - (var(--breakpoint-small) * 1em)) / (var(--breakpoint-xlarge) - var(--breakpoint-small))));
     max-width: 38.5rem;
   }
-  @media screen and (min-width: 60.25em) {
+  @include media (">=desktop", "<desktophd") {
     max-width: 38.5rem;
   }
-  @media (min-width: 75em) {
+  @include media (">=desktophd") {
     --text-weight: calc(var(--p-vf-weight) * var(--h3-vf-weight-multiplier-l));
     //--text-opticalsize: calc((var(--h3-font-size-max) * 16));
 
@@ -249,15 +246,15 @@ p {
   font-size: calc(var(--p-font-size-min) * 1rem);
   line-height: var(--p-line-height-min);
 
-  @media screen and (min-width: 24.15em) {
+  @include media (">=tablet", "<desktop") {
     line-height: calc((var(--p-line-height-min) * 1em) + (var(--p-line-height-max) - var(--p-line-height-min)) * ((100vw - (var(--breakpoint-small) * 1em)) / (var(--breakpoint-large) - var(--breakpoint-small))));
   }
-  @media (min-width: 60.25em) {
+  @include media (">=desktop", "<desktophd") {
     --text-width: calc(var(--p-vf-width) * 1);
     font-size: calc((var(--p-font-size-min) * 1em) + (var(--p-font-size-max) - var(--p-font-size-min)) * ((100vw - (var(--breakpoint-large) * 1em)) / (var(--breakpoint-xlarge) - var(--breakpoint-large))));
     line-height: var(--p-line-height-max);
   }
-  @media (min-width: 75em) {
+  @include media (">=desktophd") {
     //--text-opticalsize: calc((var(--p-font-size-max) * 16));
     font-size: calc(var(--p-font-size-max) * 1em);
     max-width: 42rem;
@@ -317,10 +314,10 @@ ul {
   margin-right: auto;
   max-width: var(--text-max-width);
 
-  @media screen and (min-width: 43.75em) {
+  @include media (">=tablet", "<desktop") {
     max-width: 38.5rem;
   }
-  @media (min-width: 75em) {
+  @include media (">desktop") {
     max-width: 42rem;
   }
 }
@@ -381,7 +378,7 @@ blockquote {
     }
   }
 
-  @media screen and (min-width: 24.15em) {
+  @include media (">=tablet", "<desktop") {
     margin: .5rem 5% .5rem .5rem;
     max-width: 45%;
 
@@ -411,7 +408,7 @@ blockquote {
     }
   }
 
-  @media (min-width: 60.25em) {
+  @include media (">desktop") {
     margin: 1rem 12vw 2rem 2rem;
     max-width: 29.5%;
     &.right {

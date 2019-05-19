@@ -2,10 +2,10 @@
 
 :root {
   /* Breakpoint variables */
-  --breakpoint-small: #{map_get($breakpoints, phone)};
-  --breakpoint-medium: #{map_get($breakpoints, tablet)};
-  --breakpoint-large: #{map_get($breakpoints, desktop)};
-  --breakpoint-xlarge: #{map_get($breakpoints, desktophd)};
+  --breakpoint-small: #{strip-unit(map_get($breakpoints, phone))};
+  --breakpoint-medium: #{strip-unit(map_get($breakpoints, tablet))};
+  --breakpoint-large: #{strip-unit(map_get($breakpoints, desktop))};
+  --breakpoint-xlarge: #{strip-unit(map_get($breakpoints, desktophd))};
 
   /* max text sizes  */
   --text-max-width: 38rem;
@@ -28,7 +28,7 @@
   --hero-line-height-min: 1.05;
   --hero-line-height-max: 1.285;
   --hero-font-size-min: 2;
-  --hero-font-size-max: 7.78;
+  --hero-font-size-max: 7.3;
   --hero-vf-weight-multiplier-s: 1.5;
   --hero-vf-weight-multiplier-m: 1.625;
   --hero-vf-weight-multiplier-l: 1.75;
@@ -61,10 +61,10 @@
   --h3-vf-weight-multiplier-l: .5;
 
   /* Dropcap variables */
-  --dc-line-height-min: .9;
-  --dc-line-height-max: .95;
+  --dc-line-height-min: .8;
+  --dc-line-height-max: .8;
   --dc-font-size-min: 2.7;
-  --dc-font-size-max: 5.25;
+  --dc-font-size-max: 4;
 
   /* Blockquote variables */
   --bq-line-height-min: 1.1;
