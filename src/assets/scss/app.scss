@@ -21,7 +21,6 @@
 @import './core/states';
 @import './core/form';
 @import './core/buttons';
-@import './core/custom-dropdown';
 @import './core/lazy-load';
 @import './core/transitions';
 
@@ -29,6 +28,8 @@
 // Application Components
 @import './modules/header';
 @import './modules/footer';
+@import './modules/hero';
+@import './modules/about';
 
 @import './legacy';
 

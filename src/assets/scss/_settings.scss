@@ -45,14 +45,14 @@ $baseline: 1.5;
 $body-font-weight: 400;
 $heading-font-weight: 300;
 $kerning: normal; // auto (default), normal (enabled), none (disabled)
+$body-font-color: $color-brand;
+$body-font-letter-spacing: normal;
 $selection-color: $color-brand;
 $placeholder-color: $color-black;
 
 // Fonts
 $use-variable-font: true;
 $use-variable-font-for-headings: true;
-$body-font-color: $color-brand;
-$body-font-letter-spacing: normal;
 $variable-font-family: 'Source Sans Variable', Helvetica, Roboto, Arial, sans-serif;
 $variable-heading-font-family: 'Source Serif Variable', serif;
 $body-font-family: 'Source Sans Pro', Helvetica, Roboto, Arial, sans-serif;

@@ -24,6 +24,15 @@
   --p-vf-weight: var(--text-weight);
   --p-vf-width: var(--text-width);
 
+  /* HERO H1 variables */
+  --hero-line-height-min: 1.05;
+  --hero-line-height-max: 1.1;
+  --hero-font-size-min: 2;
+  --hero-font-size-max: 4.5;
+  --hero-vf-weight-multiplier-s: 1.5;
+  --hero-vf-weight-multiplier-m: 1.625;
+  --hero-vf-weight-multiplier-l: 1.75;
+
   /* H1 variables */
   --h1-line-height-min: 1.05;
   --h1-line-height-max: 1.1;
