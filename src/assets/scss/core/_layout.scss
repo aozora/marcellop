@@ -54,7 +54,7 @@ p.initial:first-of-type::first-letter {
   @include media (">=desktop") {
     --text-weight: calc(var(--p-vf-weight) * 2.15);
 
-    font-size: calc(var(--dc-font-size-max) * 1em);
+    font-size: calc(var(--dc-font-size-max) * 1rem);
     line-height: var(--dc-line-height-max);
   }
 }
