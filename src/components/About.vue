@@ -1,6 +1,6 @@
 <template>
   <section id="about" class="about">
-    <h2>About Me</h2>
+<!--    <h2>About Me</h2>-->
 
     <p class="initial">Howdy!
       I am a senior Front-end Web Developer based in Milan, Italy, working for a multinational IT corporation with over 18 years of experience.
