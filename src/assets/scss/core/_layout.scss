@@ -65,16 +65,25 @@ p.initial:first-of-type::first-letter {
 // *******************
 main {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  grid-template-rows: 100px auto auto;
+  grid-template-columns: fit-content(5.833rem) repeat(5, 1fr);
+  grid-template-rows: 100px auto;
   gap: 3vw;
 }
 
 .home-logo {
-  grid-column: 1;
+  grid-column: 1 / -1;
   grid-row: 2;
   width: 5.833rem;
   height: 3.72rem;
+
+  svg {
+    width: 5.833rem;
+    height: 3.72rem;
+  }
+
+  @include media(">=tablet") {
+    grid-column: 1;
+  }
 }
 
 .hero {
