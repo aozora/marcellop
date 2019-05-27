@@ -71,8 +71,8 @@ main {
 }
 
 .home-logo {
-  grid-column: 1 / -1;
-  grid-row: 2;
+  grid-column: 1;
+  grid-row: 2 / 4;
   width: 5.833rem;
   height: 3.72rem;
 

@@ -15,7 +15,9 @@
     "netlify-cms": "^2.9.1"
   },
   "devDependencies": {
+    "eslint-plugin-gridsome": "^1.2.5",
     "node-sass": "^4.12.0",
-    "sass-loader": "^7.1.0"
+    "sass-loader": "^7.1.0",
+    "vue-eslint-parser": "^6.0.4"
   }
 }

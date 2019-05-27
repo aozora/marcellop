@@ -1,14 +1,26 @@
 module.exports = {
+  parser: "vue-eslint-parser",
+  parserOptions: {
+    ecmaVersion: 2018,
+    sourceType: "module",
+    ecmaFeatures: {
+      jsx: true
+    }
+  },
+  // parserOptions: {
+  //   parser: 'babel-eslint'
+  // },
+
   root: true,
   env: {
     browser: true,
+    es6: true,
     node: true
   },
-  parserOptions: {
-    parser: 'babel-eslint'
-  },
+  plugins: ["gridsome"],
   extends: [
-    'plugin:vue/recommended'
+    'plugin:vue/recommended',
+    'plugin:gridsome/recommended'
   ],
   // add your custom rules here
   rules: {
