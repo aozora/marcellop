@@ -1,264 +1,98 @@
 // **************************************
-//  Source Sans Pro
+//  Cinzel
 // **************************************
-@font-face{
-  font-display: swap;
-  font-family: 'Source Sans Pro';
-  font-weight: 200;
+
+/* cinzel-regular - latin */
+@font-face {
+  font-family: 'Cinzel';
   font-style: normal;
-  font-stretch: normal;
-  src: url('/fonts/SourceSansPro-ExtraLight.ttf.woff2') format('woff2');
-}
-
-@font-face{
-  font-display: swap;
-  font-family: 'Source Sans Pro';
-  font-weight: 200;
-  font-style: italic;
-  font-stretch: normal;
-  src: url('/fonts/SourceSansPro-ExtraLightIt.ttf.woff2') format('woff2');
-}
-
-@font-face{
-  font-display: swap;
-  font-family: 'Source Sans Pro';
-  font-weight: 300;
-  font-style: normal;
-  font-stretch: normal;
-  src: url('/fonts/SourceSansPro-Light.ttf.woff2') format('woff2');
-}
-
-@font-face{
-  font-display: swap;
-  font-family: 'Source Sans Pro';
-  font-weight: 300;
-  font-style: italic;
-  font-stretch: normal;
-  src: url('/fonts/SourceSansPro-LightIt.ttf.woff2') format('woff2');
-}
-
-@font-face{
-  font-display: swap;
-  font-family: 'Source Sans Pro';
   font-weight: 400;
+  src: local('Cinzel Regular'), local('Cinzel-Regular'),
+  url('/fonts/cinzel-v8-latin-regular.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+  url('/fonts/cinzel-v8-latin-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
+/* cinzel-700 - latin */
+@font-face {
+  font-family: 'Cinzel';
   font-style: normal;
-  font-stretch: normal;
-  src: url('/fonts/SourceSansPro-Regular.ttf.woff2') format('woff2');
-}
-
-@font-face{
-  font-display: swap;
-  font-family: 'Source Sans Pro';
-  font-weight: 400;
-  font-style: italic;
-  font-stretch: normal;
-  src: url('/fonts/SourceSansPro-It.ttf.woff2') format('woff2');
-}
-
-@font-face{
-  font-display: swap;
-  font-family: 'Source Sans Pro';
-  font-weight: 600;
-  font-style: normal;
-  font-stretch: normal;
-  src: url('/fonts/SourceSansPro-Semibold.ttf.woff2') format('woff2');
-}
-
-@font-face{
-  font-display: swap;
-  font-family: 'Source Sans Pro';
-  font-weight: 600;
-  font-style: italic;
-  font-stretch: normal;
-  src: url('/fonts/SourceSansPro-SemiboldIt.ttf.woff2') format('woff2');
-}
-
-@font-face{
-  font-display: swap;
-  font-family: 'Source Sans Pro';
   font-weight: 700;
-  font-style: normal;
-  font-stretch: normal;
-  src: url('/fonts/SourceSansPro-Bold.ttf.woff2') format('woff2');
+  src: local('Cinzel Bold'), local('Cinzel-Bold'),
+  url('/fonts/cinzel-v8-latin-700.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+  url('/fonts/cinzel-v8-latin-700.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
 
-@font-face{
-  font-display: swap;
-  font-family: 'Source Sans Pro';
-  font-weight: 700;
-  font-style: italic;
-  font-stretch: normal;
-  src: url('/fonts/SourceSansPro-BoldIt.ttf.woff2') format('woff2');
-}
-
-@font-face{
-  font-display: swap;
-  font-family: 'Source Sans Pro';
-  font-weight: 900;
-  font-style: normal;
-  font-stretch: normal;
-  src: url('/fonts/SourceSansPro-Black.ttf.woff2') format('woff2');
-}
-
-@font-face{
-  font-display: swap;
-  font-family: 'Source Sans Pro';
-  font-weight: 900;
-  font-style: italic;
-  font-stretch: normal;
-  src: url('/fonts/SourceSansPro-BlackIt.ttf.woff2') format('woff2');
-}
 
 // **************************************
-//  Source Serif Pro
+//  Montserrat
 // **************************************
-@font-face{
-  font-display: swap;
-  font-family: 'Source Serif Pro';
-  font-weight: 200;
+
+/* montserrat-300 - latin */
+@font-face {
+  font-family: 'Montserrat';
   font-style: normal;
-  font-stretch: normal;
-  src: url('/fonts/SourceSerifPro-ExtraLight.ttf.woff2') format('woff2');
-}
-
-@font-face{
-  font-display: swap;
-  font-family: 'Source Serif Pro';
-  font-weight: 200;
-  font-style: italic;
-  font-stretch: normal;
-  src: url('/fonts/SourceSerifPro-ExtraLightIt.ttf.woff2') format('woff2');
-}
-
-@font-face{
-  font-display: swap;
-  font-family: 'Source Serif Pro';
   font-weight: 300;
-  font-style: normal;
-  font-stretch: normal;
-  src: url('/fonts/SourceSerifPro-Light.ttf.woff2') format('woff2');
+  src: local('Montserrat Light'), local('Montserrat-Light'),
+  url('/fonts/montserrat-v13-latin-300.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+  url('/fonts/montserrat-v13-latin-300.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
 
-@font-face{
-  font-display: swap;
-  font-family: 'Source Serif Pro';
+/* montserrat-300italic - latin */
+@font-face {
+  font-family: 'Montserrat';
+  font-style: italic;
   font-weight: 300;
-  font-style: italic;
-  font-stretch: normal;
-  src: url('/fonts/SourceSerifPro-LightIt.ttf.woff2') format('woff2');
+  src: local('Montserrat Light Italic'), local('Montserrat-LightItalic'),
+  url('/fonts/montserrat-v13-latin-300italic.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+  url('/fonts/montserrat-v13-latin-300italic.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
 
-@font-face{
-  font-display: swap;
-  font-family: 'Source Serif Pro';
+/* montserrat-regular - latin */
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
   font-weight: 400;
-  font-style: normal;
-  font-stretch: normal;
-  src: url('/fonts/SourceSerifPro-Regular.ttf.woff2') format('woff2');
+  src: local('Montserrat Regular'), local('Montserrat-Regular'),
+  url('/fonts/montserrat-v13-latin-regular.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+  url('/fonts/montserrat-v13-latin-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
 
-@font-face{
-  font-display: swap;
-  font-family: 'Source Serif Pro';
+/* montserrat-italic - latin */
+@font-face {
+  font-family: 'Montserrat';
+  font-style: italic;
   font-weight: 400;
-  font-style: italic;
-  font-stretch: normal;
-  src: url('/fonts/SourceSerifPro-It.ttf.woff2') format('woff2');
+  src: local('Montserrat Italic'), local('Montserrat-Italic'),
+  url('/fonts/montserrat-v13-latin-italic.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+  url('/fonts/montserrat-v13-latin-italic.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
 
-@font-face{
-  font-display: swap;
-  font-family: 'Source Serif Pro';
+/* montserrat-600 - latin */
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
   font-weight: 600;
-  font-style: normal;
-  font-stretch: normal;
-  src: url('/fonts/SourceSerifPro-Semibold.ttf.woff2') format('woff2');
+  src: local('Montserrat SemiBold'), local('Montserrat-SemiBold'),
+  url('/fonts/montserrat-v13-latin-600.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+  url('/fonts/montserrat-v13-latin-600.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
 
-@font-face{
-  font-display: swap;
-  font-family: 'Source Serif Pro';
+/* montserrat-600italic - latin */
+@font-face {
+  font-family: 'Montserrat';
+  font-style: italic;
   font-weight: 600;
-  font-style: italic;
-  font-stretch: normal;
-  src: url('/fonts/SourceSerifPro-SemiboldIt.ttf.woff2') format('woff2');
+  src: local('Montserrat SemiBold Italic'), local('Montserrat-SemiBoldItalic'),
+  url('/fonts/montserrat-v13-latin-600italic.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+  url('/fonts/montserrat-v13-latin-600italic.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
 
-@font-face{
-  font-display: swap;
-  font-family: 'Source Serif Pro';
+/* montserrat-700 - latin */
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
   font-weight: 700;
-  font-style: normal;
-  font-stretch: normal;
-  src: url('/fonts/SourceSerifPro-Bold.ttf.woff2') format('woff2');
-}
-
-@font-face{
-  font-display: swap;
-  font-family: 'Source Serif Pro';
-  font-weight: 700;
-  font-style: italic;
-  font-stretch: normal;
-  src: url('/fonts/SourceSerifPro-BoldIt.ttf.woff2') format('woff2');
-}
-
-@font-face{
-  font-display: swap;
-  font-family: 'Source Serif Pro';
-  font-weight: 900;
-  font-style: normal;
-  font-stretch: normal;
-  src: url('/fonts/SourceSerifPro-Black.ttf.woff2') format('woff2');
-}
-
-@font-face{
-  font-display: swap;
-  font-family: 'Source Serif Pro';
-  font-weight: 900;
-  font-style: italic;
-  font-stretch: normal;
-  src: url('/fonts/SourceSerifPro-BlackIt.ttf.woff2') format('woff2');
-}
-
-
-// **************************************
-//  Source Sans Pro VARIABLE
-// **************************************
-@font-face{
-  font-display: swap;
-  font-family: 'Source Sans Variable';
-  font-weight: 200 900;
-  font-style: normal;
-  font-stretch: normal;
-  src: url('/fonts/var/SourceSansVariable-Roman.ttf.woff2') format('woff2');
-}
-
-@font-face{
-  font-display: swap;
-  font-family: 'Source Sans Variable';
-  font-weight: 200 900;
-  font-style: italic;
-  font-stretch: normal;
-  src: url('/fonts/var/SourceSansVariable-Italic.ttf.woff2') format('woff2');
-}
-
-// **************************************
-//  Source Serif Pro VARIABLE
-// **************************************
-@font-face{
-  font-display: swap;
-  font-family: 'Source Serif Variable';
-  font-weight: 200 900;
-  font-style: normal;
-  font-stretch: normal;
-  src: url('/fonts/var/SourceSerifVariable-Roman.ttf.woff2') format('woff2');
-}
-
-@font-face{
-  font-display: swap;
-  font-family: 'Source Serif Variable';
-  font-weight: 200 900;
-  font-style: italic;
-  font-stretch: normal;
-  src: url('/fonts/var/SourceSerifVariable-Italic.ttf.woff2') format('woff2');
+  src: local('Montserrat Bold'), local('Montserrat-Bold'),
+  url('/fonts/montserrat-v13-latin-700.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+  url('/fonts/montserrat-v13-latin-700.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }

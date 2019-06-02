@@ -5,7 +5,7 @@
 // 1. Global
 // ---------
 $render-vertical-rhythm-lines: false;
-$sectionMaxWidth: 1200px;
+$sectionMaxWidth: 1024px;
 
 // Include-Media breakpoints
 // ------------------
@@ -51,12 +51,12 @@ $selection-color: $color-brand;
 $placeholder-color: $color-black;
 
 // Fonts
-$use-variable-font: true;
-$use-variable-font-for-headings: true;
+$use-variable-font: false;
+$use-variable-font-for-headings: false;
 $variable-font-family: 'Source Sans Variable', Helvetica, Roboto, Arial, sans-serif;
 $variable-heading-font-family: 'Source Serif Variable', serif;
-$body-font-family: 'Source Sans Pro', Helvetica, Roboto, Arial, sans-serif;
-$heading-font-family: 'Source Serif Pro', serif;
+$body-font-family: 'Montserrat', Helvetica, Roboto, Arial, sans-serif;
+$heading-font-family: 'Cinzel', serif;
 
 
 // Focus

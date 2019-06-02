@@ -58,3 +58,26 @@
     margin-right: 0;
   }
 }
+
+
+// layout
+.hero {
+  display: grid;
+  grid-template-columns: 1fr max-content;
+  grid-template-areas: "heading figure" "subheading figure";
+  grid-gap: 2vw;
+
+  h1{
+    grid-area: heading;
+  }
+
+  p{
+    grid-area: subheading;
+  }
+
+  img {
+    grid-area: figure;
+    align-self: end;
+  }
+
+}

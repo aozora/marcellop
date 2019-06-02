@@ -1,13 +1,24 @@
 .about {
   width: 100%;
+  max-width: none;
+  padding: 2vw 0;
+  background-color: $color-brand;
 
-  h2 {
-    margin-left: 0;
-  }
 
   p {
     width: 100%;
     margin-left: 0;
     margin-right: 0;
+    color: $color-white;
+  }
+}
+
+.about__container {
+  @include container;
+  column-count: 1;
+
+  @include media(">=tablet") {
+    column-count: 3;
+    column-gap: 2vw;
   }
 }
