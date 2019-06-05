@@ -17,7 +17,7 @@
 
     <hero></hero>
     <about></about>
-<!--    <what></what>-->
+    <what></what>
 <!--    <experience></experience>-->
 <!--    <contact></contact>-->
 

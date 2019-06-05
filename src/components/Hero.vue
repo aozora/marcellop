@@ -1,8 +1,8 @@
 <template>
   <section id="home" class="hero">
-    <h1>Hi, I'm Marcello</h1>
+    <h1>Hi, I'm <span>Marcello</span></h1>
     <p class="lead">
-      a front-end web develop from Italy that care about browsers, devices and users; I have a strong focus on responsive web design, accessibility, and performance; I love to work with
+      a front-end web developer from Italy that care about browsers, devices and users; I have a strong focus on responsive web design, accessibility, and performance; I love to work with
       developers and designers to imagine and shape the future.
     </p>
     <g-image alt="Picture of Marcello" width="403" height="403" fit="cover" src="~/assets/img/marcello-cartoon.png"/>
