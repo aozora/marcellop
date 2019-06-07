@@ -5,7 +5,7 @@
       a front-end web developer from Italy that care about browsers, devices and users; I have a strong focus on responsive web design, accessibility, and performance; I love to work with
       developers and designers to imagine and shape the future.
     </p>
-    <g-image alt="Picture of Marcello" width="403" height="403" fit="cover" src="~/assets/img/marcello-cartoon.png"/>
+    <g-image alt="Picture of Marcello" width="403" height="403" fit="cover" src="~/assets/img/marcello-hero.jpg"/>
 
 
     <!--      <p class="hero__social">-->

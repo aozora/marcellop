@@ -2,24 +2,22 @@
 //  Cinzel
 // **************************************
 
-/* cinzel-regular - latin */
+/* playfair-display-regular - latin */
 @font-face {
-  font-family: 'Cinzel';
+  font-family: 'Playfair Display';
   font-style: normal;
   font-weight: 400;
-  src: local('Cinzel Regular'), local('Cinzel-Regular'),
-  url('/fonts/cinzel-v8-latin-regular.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
-  url('/fonts/cinzel-v8-latin-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+  src: url('/fonts/playfair-display-v14-latin-regular.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+  url('/fonts/playfair-display-v14-latin-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
 
-/* cinzel-700 - latin */
+/* playfair-display-700 - latin */
 @font-face {
-  font-family: 'Cinzel';
+  font-family: 'Playfair Display';
   font-style: normal;
   font-weight: 700;
-  src: local('Cinzel Bold'), local('Cinzel-Bold'),
-  url('/fonts/cinzel-v8-latin-700.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
-  url('/fonts/cinzel-v8-latin-700.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+  src: url('/fonts/playfair-display-v14-latin-700.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+  url('/fonts/playfair-display-v14-latin-700.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
 
 
