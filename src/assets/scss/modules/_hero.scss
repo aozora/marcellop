@@ -1,6 +1,12 @@
 .hero {
   width: 100%;
 
+  .hi{
+    font-size: 48px;
+    color: #414141;
+    text-align: left;
+  }
+
   h1 {
     /* Set --text-wght value multiplier */
     //--text-weight: calc(var(--p-vf-weight) * var(--hero-vf-weight-multiplier-s));
@@ -31,20 +37,36 @@
 // layout
 .hero {
   display: grid;
-  grid-template-columns: 1fr max-content;
-  grid-template-areas: "heading figure" "subheading figure";
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: auto;
+  grid-template-areas:
+    "hi hi hi"
+    "heading1 heading1 ."
+    "figure heading2 heading2"
+    "figure . lead";
   grid-gap: 2vw;
 
-  h1 {
-    grid-area: heading;
+  .hi {
+    grid-area: hi;
   }
 
-  p {
-    grid-area: subheading;
+  h1 {
+    grid-area: heading1;
+  }
+
+  h2 {
+    grid-area: heading2;
+    z-index: 2;
+  }
+
+  .lead {
+    grid-area: lead;
   }
 
   img {
     grid-area: figure;
+    grid-column: 1 / 3;
+    grid-row: 3 / 5;
     align-self: end;
   }
 

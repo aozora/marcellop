@@ -1,6 +1,8 @@
 <template>
   <section id="home" class="hero">
-    <h1>Hi, I'm <span>Marcello</span></h1>
+    <p class="hi">Hi! I'm</p>
+    <h1>Marcello <span>Palmitessa</span></h1>
+    <h2>a front-end web developer</h2>
     <p class="lead">
       a front-end web developer from Italy that care about browsers, devices and users; I have a strong focus on responsive web design, accessibility, and performance; I love to work with
       developers and designers to imagine and shape the future.
