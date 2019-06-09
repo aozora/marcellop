@@ -4,7 +4,7 @@ backend:
   branch: v2019 # Branch to update (optional; defaults to master)
 
 media_folder: "static/uploads" # Media files will be stored in the repo under static/uploads
-public_folder: "/uploads" # The src attribute for uploaded media will begin with /uploads
+public_folder: "/uploads" # The _src attribute for uploaded media will begin with /uploads
 
 slug:
   clean_accents: true

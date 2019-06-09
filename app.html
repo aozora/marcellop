@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html {{ HTML_ATTRS }}>
+
+<head>
+  {{ HEAD }}
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  <style>
+    #svg-defs {
+      display: none
+    }
+  </style>
+</head>
+
+<body {{ BODY_ATTRS }}>
+<!-- svg-sprite -->
+<!-- endsvg-sprite -->
+{{ APP }}
+</body>
+<script>
+if (window.netlifyIdentity) {
+  window.netlifyIdentity.on("init", user => {
+    if (!user) {
+      window.netlifyIdentity.on("login", () => {
+        document.location.href = "/admin/";
+      });
+    }
+  });
+}
+</script>
+
+</html>

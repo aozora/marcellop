@@ -2,22 +2,38 @@
   "name": "marcellop2019",
   "private": true,
   "scripts": {
-    "build": "gridsome build",
-    "develop": "gridsome develop",
-    "explore": "gridsome explore"
+    "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
+    "precommit": "npm run lint",
+    "test": "jest",
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate"
   },
   "dependencies": {
-    "@gridsome/source-filesystem": "^0.4.1",
-    "@gridsome/transformer-remark": "^0.3.2",
-    "gridsome": "^0.6.3",
-    "gridsome-plugin-netlify-cms": "^1.0.7",
+    "nuxt": "^2.8.0",
     "include-media": "^1.4.9",
-    "netlify-cms": "^2.9.1"
+    "netlify-cms": "^2.9.1",
+    "v-lazy-image": "^1.3.2"
   },
   "devDependencies": {
-    "eslint-plugin-gridsome": "^1.2.5",
-    "node-sass": "^4.12.0",
-    "sass-loader": "^7.1.0",
-    "vue-eslint-parser": "^6.0.4"
+    "@nuxtjs/eslint-config": "^0.0.1",
+    "@nuxtjs/eslint-module": "^0.0.1",
+    "babel-eslint": "^10.0.1",
+    "eslint": "^5.15.1",
+    "eslint-config-standard": ">=12.0.0",
+    "eslint-plugin-import": ">=2.16.0",
+    "eslint-plugin-jest": ">=22.3.0",
+    "eslint-plugin-node": ">=8.0.1",
+    "eslint-plugin-nuxt": ">=0.4.2",
+    "eslint-plugin-promise": ">=4.0.1",
+    "eslint-plugin-standard": ">=4.0.0",
+    "eslint-plugin-vue": "^5.2.2",
+    "@vue/test-utils": "^1.0.0-beta.27",
+    "babel-core": "7.0.0-bridge.0",
+    "babel-jest": "^24.1.0",
+    "jest": "^24.1.0",
+    "vue-jest": "^3.0.3",
+    "nodemon": "^1.18.9"
   }
 }

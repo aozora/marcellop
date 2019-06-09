@@ -43,7 +43,7 @@
     </video>
 
     <!--<figure>-->
-    <!--<img class="lazyload" src="/assets/img/garbage-trash-can-cat.gif" alt="Funny animated picture of a cat catching a paper ball and tossing it in a trashcan.">-->
+    <!--<img class="lazyload" _src="/assets/img/garbage-trash-can-cat.gif" alt="Funny animated picture of a cat catching a paper ball and tossing it in a trashcan.">-->
     <!--<figcaption class="visuallyhidden">Funny animated picture of a guy sitting at a desk writing something, and then tossing a paper ball behind that is caught by a cat, throwing put the paper into a trashcan. (Gif by hama-house.com)</figcaption>-->
     <!--</figure>-->
 

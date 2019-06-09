@@ -30,7 +30,7 @@
         <!--/assets/img/tati/tati_vaw7fe_c_scale,w_2126.jpg 2126w,-->
         <!--/assets/img/tati/tati_vaw7fe_c_scale,w_2911.jpg 2911w,-->
         <!--/assets/img/tati/tati_vaw7fe_c_scale,w_3120.jpg 3120w"-->
-        <!--                 src="/assets/img/tati/tati_vaw7fe_lq20.jpg"-->
+        <!--                 _src="/assets/img/tati/tati_vaw7fe_lq20.jpg"-->
         <!--                 alt="Picture of Tati, a Birman cat breed, white and black, sitting on the bookshelves.">-->
         <!--          </picture>-->
         I’m quite into the Japanese culture, I love to climb mountains, fantasy & science-fiction

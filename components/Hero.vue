@@ -7,7 +7,7 @@
       a front-end web developer from Italy that care about browsers, devices and users; I have a strong focus on responsive web design, accessibility, and performance; I love to work with
       developers and designers to imagine and shape the future.
     </p>
-    <g-image alt="Picture of Marcello" width="403" height="403" fit="cover" src="~/assets/img/marcello-hero.jpg"/>
+    <img alt="Picture of Marcello" width="403" height="403" :src="~/assets/img/marcello-hero.jpg"/>
 
 
     <!--      <p class="hero__social">-->
@@ -62,7 +62,7 @@
     <!--/assets/img/hero/marcello-hero_oesa3w_c_scale,w_1237.jpg 1237w,-->
     <!--/assets/img/hero/marcello-hero_oesa3w_c_scale,w_1576.jpg 1576w,-->
     <!--/assets/img/hero/marcello-hero_oesa3w_c_scale,w_2000.jpg 2000w"-->
-    <!--           src="/assets/img/hero/marcello-hero_lq20.jpg"-->
+    <!--           _src="/assets/img/hero/marcello-hero_lq20.jpg"-->
     <!--           alt="Picture of Marcello, smiling.">-->
     <!--    </picture>-->
   </section>

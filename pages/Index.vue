@@ -22,7 +22,7 @@
 <!--    <contact></contact>-->
 
     <!-- Learn how to use images here: https://gridsome.org/docs/images -->
-    <!--    <g-image alt="Example image" src="~/favicon.png" width="135" />-->
+    <!--    <g-image alt="Example image" _src="~/favicon.png" width="135" />-->
   </Layout>
 </template>
 
