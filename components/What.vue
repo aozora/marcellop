@@ -35,5 +35,5 @@
 <script>
 export default {
   name: 'What'
-}
+};
 </script>

@@ -30,13 +30,13 @@
 import Hero from '../components/Hero';
 import About from '../components/About';
 import What from '../components/What';
-import Experience from '../components/Experience';
-import Contact from '../components/Contact';
+// import Experience from '../components/Experience';
+// import Contact from '../components/Contact';
 
 export default {
-  components: { Contact, Experience, What, About, Hero },
+  components: { /* Contact, Experience, */ What, About, Hero },
   metaInfo: {
     title: 'Hello, world!'
   }
-}
+};
 </script>
