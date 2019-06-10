@@ -31,7 +31,6 @@ function getDynamicPaths(urlFilepathTable) {
 
 console.log('Dynamic Routes:');
 // console.log({ dynamicRoutes });
-console.log(`process.env.movieDbApiKey: ${process.env.movieDbApiKey}`);
 
 
 /**
@@ -84,6 +83,7 @@ export default {
   */
   modules: [
     '@nuxtjs/eslint-module',
+    '@nuxtjs/apollo'
   ],
 
   /*
@@ -109,5 +109,14 @@ export default {
      */
     extend(config, ctx) {
     }
-  }
+  },
+
+  apollo: {
+    clientConfigs: {
+      default: {
+        httpEndpoint: 'https://graphql.datocms.com',
+        getAuth: () => 'Bearer 8079c9fe33d6de8049b44e17717ce5'
+      },
+    }
+  },
 };
