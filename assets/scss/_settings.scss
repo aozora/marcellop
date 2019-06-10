@@ -52,12 +52,12 @@ $selection-color: $color-brand;
 $placeholder-color: $color-black;
 
 // Fonts
-$use-variable-font: false;
-$use-variable-font-for-headings: false;
-$variable-font-family: 'Source Sans Variable', Helvetica, Roboto, Arial, sans-serif;
-$variable-heading-font-family: 'Source Serif Variable', serif;
-$body-font-family: 'Montserrat', Helvetica, Roboto, Arial, sans-serif;
-$heading-font-family: 'Playfair Display', serif;
+$use-variable-font: true;
+$use-variable-font-for-headings: true;
+$variable-font-family: 'Inter var', Helvetica, Roboto, Arial, sans-serif;
+$variable-heading-font-family: 'Inter var', serif;
+$body-font-family: 'Inter', Helvetica, Roboto, Arial, sans-serif;
+$heading-font-family: 'Inter', serif;
 
 
 // Focus

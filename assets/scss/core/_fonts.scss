@@ -1,96 +1,271 @@
 // **************************************
-//  Cinzel
+//  Inter
 // **************************************
-
-/* playfair-display-regular - latin */
 @font-face {
-  font-family: 'Playfair Display';
-  font-style: normal;
-  font-weight: 400;
-  src: url('/fonts/playfair-display-v14-latin-regular.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
-  url('/fonts/playfair-display-v14-latin-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+  font-family: 'Inter';
+  font-style:  normal;
+  font-weight: 100;
+  src: url("/fonts/Inter-Thin.woff2?v=3.7") format("woff2"),
+  url("/fonts/Inter-Thin.woff?v=3.7") format("woff");
+}
+@font-face {
+  font-family: 'Inter';
+  font-style:  italic;
+  font-weight: 100;
+  src: url("/fonts/Inter-ThinItalic.woff2?v=3.7") format("woff2"),
+  url("/fonts/Inter-ThinItalic.woff?v=3.7") format("woff");
 }
 
-/* playfair-display-700 - latin */
 @font-face {
-  font-family: 'Playfair Display';
-  font-style: normal;
-  font-weight: 700;
-  src: url('/fonts/playfair-display-v14-latin-700.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
-  url('/fonts/playfair-display-v14-latin-700.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+  font-family: 'Inter';
+  font-style:  normal;
+  font-weight: 200;
+  src: url("/fonts/Inter-ExtraLight.woff2?v=3.7") format("woff2"),
+  url("/fonts/Inter-ExtraLight.woff?v=3.7") format("woff");
+}
+@font-face {
+  font-family: 'Inter';
+  font-style:  italic;
+  font-weight: 200;
+  src: url("/fonts/Inter-ExtraLightItalic.woff2?v=3.7") format("woff2"),
+  url("/fonts/Inter-ExtraLightItalic.woff?v=3.7") format("woff");
 }
 
-
-// **************************************
-//  Montserrat
-// **************************************
-
-/* montserrat-300 - latin */
 @font-face {
-  font-family: 'Montserrat';
-  font-style: normal;
+  font-family: 'Inter';
+  font-style:  normal;
   font-weight: 300;
-  src: local('Montserrat Light'), local('Montserrat-Light'),
-  url('/fonts/montserrat-v13-latin-300.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
-  url('/fonts/montserrat-v13-latin-300.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+  src: url("/fonts/Inter-Light.woff2?v=3.7") format("woff2"),
+  url("/fonts/Inter-Light.woff?v=3.7") format("woff");
 }
-
-/* montserrat-300italic - latin */
 @font-face {
-  font-family: 'Montserrat';
-  font-style: italic;
+  font-family: 'Inter';
+  font-style:  italic;
   font-weight: 300;
-  src: local('Montserrat Light Italic'), local('Montserrat-LightItalic'),
-  url('/fonts/montserrat-v13-latin-300italic.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
-  url('/fonts/montserrat-v13-latin-300italic.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+  src: url("/fonts/Inter-LightItalic.woff2?v=3.7") format("woff2"),
+  url("/fonts/Inter-LightItalic.woff?v=3.7") format("woff");
 }
 
-/* montserrat-regular - latin */
 @font-face {
-  font-family: 'Montserrat';
-  font-style: normal;
+  font-family: 'Inter';
+  font-style:  normal;
   font-weight: 400;
-  src: local('Montserrat Regular'), local('Montserrat-Regular'),
-  url('/fonts/montserrat-v13-latin-regular.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
-  url('/fonts/montserrat-v13-latin-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+  src: url("/fonts/Inter-Regular.woff2?v=3.7") format("woff2"),
+  url("/fonts/Inter-Regular.woff?v=3.7") format("woff");
 }
-
-/* montserrat-italic - latin */
 @font-face {
-  font-family: 'Montserrat';
-  font-style: italic;
+  font-family: 'Inter';
+  font-style:  italic;
   font-weight: 400;
-  src: local('Montserrat Italic'), local('Montserrat-Italic'),
-  url('/fonts/montserrat-v13-latin-italic.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
-  url('/fonts/montserrat-v13-latin-italic.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+  src: url("/fonts/Inter-Italic.woff2?v=3.7") format("woff2"),
+  url("/fonts/Inter-Italic.woff?v=3.7") format("woff");
 }
 
-/* montserrat-600 - latin */
 @font-face {
-  font-family: 'Montserrat';
-  font-style: normal;
+  font-family: 'Inter';
+  font-style:  normal;
+  font-weight: 500;
+  src: url("/fonts/Inter-Medium.woff2?v=3.7") format("woff2"),
+  url("/fonts/Inter-Medium.woff?v=3.7") format("woff");
+}
+@font-face {
+  font-family: 'Inter';
+  font-style:  italic;
+  font-weight: 500;
+  src: url("/fonts/Inter-MediumItalic.woff2?v=3.7") format("woff2"),
+  url("/fonts/Inter-MediumItalic.woff?v=3.7") format("woff");
+}
+
+@font-face {
+  font-family: 'Inter';
+  font-style:  normal;
   font-weight: 600;
-  src: local('Montserrat SemiBold'), local('Montserrat-SemiBold'),
-  url('/fonts/montserrat-v13-latin-600.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
-  url('/fonts/montserrat-v13-latin-600.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+  src: url("/fonts/Inter-SemiBold.woff2?v=3.7") format("woff2"),
+  url("/fonts/Inter-SemiBold.woff?v=3.7") format("woff");
 }
-
-/* montserrat-600italic - latin */
 @font-face {
-  font-family: 'Montserrat';
-  font-style: italic;
+  font-family: 'Inter';
+  font-style:  italic;
   font-weight: 600;
-  src: local('Montserrat SemiBold Italic'), local('Montserrat-SemiBoldItalic'),
-  url('/fonts/montserrat-v13-latin-600italic.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
-  url('/fonts/montserrat-v13-latin-600italic.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+  src: url("/fonts/Inter-SemiBoldItalic.woff2?v=3.7") format("woff2"),
+  url("/fonts/Inter-SemiBoldItalic.woff?v=3.7") format("woff");
 }
 
-/* montserrat-700 - latin */
 @font-face {
-  font-family: 'Montserrat';
-  font-style: normal;
+  font-family: 'Inter';
+  font-style:  normal;
   font-weight: 700;
-  src: local('Montserrat Bold'), local('Montserrat-Bold'),
-  url('/fonts/montserrat-v13-latin-700.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
-  url('/fonts/montserrat-v13-latin-700.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+  src: url("/fonts/Inter-Bold.woff2?v=3.7") format("woff2"),
+  url("/fonts/Inter-Bold.woff?v=3.7") format("woff");
 }
+@font-face {
+  font-family: 'Inter';
+  font-style:  italic;
+  font-weight: 700;
+  src: url("/fonts/Inter-BoldItalic.woff2?v=3.7") format("woff2"),
+  url("/fonts/Inter-BoldItalic.woff?v=3.7") format("woff");
+}
+
+@font-face {
+  font-family: 'Inter';
+  font-style:  normal;
+  font-weight: 800;
+  src: url("/fonts/Inter-ExtraBold.woff2?v=3.7") format("woff2"),
+  url("/fonts/Inter-ExtraBold.woff?v=3.7") format("woff");
+}
+@font-face {
+  font-family: 'Inter';
+  font-style:  italic;
+  font-weight: 800;
+  src: url("/fonts/Inter-ExtraBoldItalic.woff2?v=3.7") format("woff2"),
+  url("/fonts/Inter-ExtraBoldItalic.woff?v=3.7") format("woff");
+}
+
+@font-face {
+  font-family: 'Inter';
+  font-style:  normal;
+  font-weight: 900;
+  src: url("/fonts/Inter-Black.woff2?v=3.7") format("woff2"),
+  url("/fonts/Inter-Black.woff?v=3.7") format("woff");
+}
+@font-face {
+  font-family: 'Inter';
+  font-style:  italic;
+  font-weight: 900;
+  src: url("/fonts/Inter-BlackItalic.woff2?v=3.7") format("woff2"),
+  url("/fonts/Inter-BlackItalic.woff?v=3.7") format("woff");
+}
+
+/* -------------------------------------------------------
+Variable font.
+Usage:
+
+  html { font-family: 'Inter', sans-serif; }
+  @supports (font-variation-settings: normal) {
+    html { font-family: 'Inter var', sans-serif; }
+  }
+*/
+@font-face {
+  font-family: 'Inter var';
+  font-weight: 100 900;
+  font-style: normal;
+  font-named-instance: 'Regular';
+  src: url("/fonts/Inter-upright.var.woff2?v=3.7") format("woff2");
+}
+@font-face {
+  font-family: 'Inter var';
+  font-weight: 100 900;
+  font-style: italic;
+  font-named-instance: 'Italic';
+  src: url("/fonts/Inter-italic.var.woff2?v=3.7") format("woff2");
+}
+
+/* Legacy naming compatibility */
+@font-face {
+  font-family: 'Inter var alt';
+  font-weight: 100 900;
+  font-style: normal;
+  font-named-instance: 'Regular';
+  src: url("/fonts/Inter-upright.var.woff2?v=3.7") format("woff2");
+}
+@font-face {
+  font-family: 'Inter var alt';
+  font-weight: 100 900;
+  font-style: italic;
+  font-named-instance: 'Italic';
+  src: url("/fonts/Inter-italic.var.woff2?v=3.7") format("woff2");
+}
+
+//
+///* playfair-display-regular - latin */
+//@font-face {
+//  font-family: 'Playfair Display';
+//  font-style: normal;
+//  font-weight: 400;
+//  src: url('/fonts/playfair-display-v14-latin-regular.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+//  url('/fonts/playfair-display-v14-latin-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+//}
+//
+///* playfair-display-700 - latin */
+//@font-face {
+//  font-family: 'Playfair Display';
+//  font-style: normal;
+//  font-weight: 700;
+//  src: url('/fonts/playfair-display-v14-latin-700.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+//  url('/fonts/playfair-display-v14-latin-700.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+//}
+//
+//
+//// **************************************
+////  Montserrat
+//// **************************************
+//
+///* montserrat-300 - latin */
+//@font-face {
+//  font-family: 'Montserrat';
+//  font-style: normal;
+//  font-weight: 300;
+//  src: local('Montserrat Light'), local('Montserrat-Light'),
+//  url('/fonts/montserrat-v13-latin-300.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+//  url('/fonts/montserrat-v13-latin-300.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+//}
+//
+///* montserrat-300italic - latin */
+//@font-face {
+//  font-family: 'Montserrat';
+//  font-style: italic;
+//  font-weight: 300;
+//  src: local('Montserrat Light Italic'), local('Montserrat-LightItalic'),
+//  url('/fonts/montserrat-v13-latin-300italic.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+//  url('/fonts/montserrat-v13-latin-300italic.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+//}
+//
+///* montserrat-regular - latin */
+//@font-face {
+//  font-family: 'Montserrat';
+//  font-style: normal;
+//  font-weight: 400;
+//  src: local('Montserrat Regular'), local('Montserrat-Regular'),
+//  url('/fonts/montserrat-v13-latin-regular.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+//  url('/fonts/montserrat-v13-latin-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+//}
+//
+///* montserrat-italic - latin */
+//@font-face {
+//  font-family: 'Montserrat';
+//  font-style: italic;
+//  font-weight: 400;
+//  src: local('Montserrat Italic'), local('Montserrat-Italic'),
+//  url('/fonts/montserrat-v13-latin-italic.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+//  url('/fonts/montserrat-v13-latin-italic.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+//}
+//
+///* montserrat-600 - latin */
+//@font-face {
+//  font-family: 'Montserrat';
+//  font-style: normal;
+//  font-weight: 600;
+//  src: local('Montserrat SemiBold'), local('Montserrat-SemiBold'),
+//  url('/fonts/montserrat-v13-latin-600.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+//  url('/fonts/montserrat-v13-latin-600.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+//}
+//
+///* montserrat-600italic - latin */
+//@font-face {
+//  font-family: 'Montserrat';
+//  font-style: italic;
+//  font-weight: 600;
+//  src: local('Montserrat SemiBold Italic'), local('Montserrat-SemiBoldItalic'),
+//  url('/fonts/montserrat-v13-latin-600italic.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+//  url('/fonts/montserrat-v13-latin-600italic.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+//}
+//
+///* montserrat-700 - latin */
+//@font-face {
+//  font-family: 'Montserrat';
+//  font-style: normal;
+//  font-weight: 700;
+//  src: local('Montserrat Bold'), local('Montserrat-Bold'),
+//  url('/fonts/montserrat-v13-latin-700.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+//  url('/fonts/montserrat-v13-latin-700.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+//}
