@@ -1,0 +1,17 @@
+# .graphqlconfig=/Users/marcello/projects/marcellop!
+
+query ScratchQuery {
+  home(locale: en) {
+    id
+    _publishedAt
+    _status
+    heading1
+    heading2
+    heroDescription
+    heroPicture {
+      id
+    }
+    aboutHeading
+    aboutDescription
+  }
+}
