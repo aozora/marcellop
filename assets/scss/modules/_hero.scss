@@ -1,5 +1,5 @@
-$hero-line-height-min: 1.2;
-$hero-line-height-max: 1.5;
+$hero-line-height-min: 1.2em; // use 'em' otherwise the fluid-type mixin doesn't work
+$hero-line-height-max: 1.5em;
 $hero-font-size-min: 3.05rem;
 $hero-font-size-max: 12.388rem;
 $hero-weight: 900;
@@ -10,26 +10,23 @@ $hero-slant: 2.73;
   max-width: none;
 
   h1 {
-    /* Set --text-wght value multiplier */
     --text-weight: $hero-weight;
-    //--heading-weight: 600;
-    //--text-width: calc(var(--p-vf-width) * .85);
-    //--text-opticalsize: calc((var(--hero-font-size-min) * 16));
-    font-variation-settings: 'wght' var(--text-weight);
-    /* ,
-       'wdth' var(--text-width),
-       'opsz' var(--text-opticalsize); */
+    font-variation-settings: 'wght' $hero-weight, 'slnt' $hero-slant;
 
-    //font-size: calc(var(--hero-font-size-min) * 1em);
     line-height: var(--hero-line-height-min);
     margin: 1rem auto;
-    //max-width: 50rem;
 
     @include fluid-type(font-size, map_get($breakpoints, phone), map_get($breakpoints, desktophd), $hero-font-size-min, $hero-font-size-max);
     @include fluid-type(line-height, map_get($breakpoints, phone), map_get($breakpoints, desktophd), $hero-line-height-min, $hero-line-height-max);
 
-    span {
-      color: $color-brand2;
+    // simulate the text stroke for hollow text
+    span:last-child {
+      color: #fff;
+      text-shadow:
+        -1px -1px 0 #000,
+        1px -1px 0 #000,
+        -1px 1px 0 #000,
+        1px 1px 0 #000;
     }
   }
 
