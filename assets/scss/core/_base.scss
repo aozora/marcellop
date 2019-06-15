@@ -131,7 +131,7 @@ h1 {
   font-size: calc(var(--h1-font-size-min) * 1em);
   line-height: var(--h1-line-height-min);
   margin: 1rem auto;
-  //max-width: 50rem;
+  max-width: 50rem;
 
   //@media screen and (min-width: 24.15em) {
   //  line-height: calc((var(--h1-line-height-min) * 1em) + (var(--h1-line-height-max) - var(--h1-line-height-min)) * ((100vw - (var(--breakpoint-small) * 1em)) / (var(--breakpoint-xlarge) - var(--breakpoint-small))));

@@ -1,25 +1,32 @@
+$hero-line-height-min: 1.2;
+$hero-line-height-max: 1.5;
+$hero-font-size-min: 3.05rem;
+$hero-font-size-max: 12.388rem;
+$hero-weight: 900;
+$hero-slant: 2.73;
+
 .hero {
   width: 100%;
-
-  .hi{
-    font-size: 48px;
-    color: #414141;
-    text-align: left;
-  }
+  max-width: none;
 
   h1 {
     /* Set --text-wght value multiplier */
-    //--text-weight: calc(var(--p-vf-weight) * var(--hero-vf-weight-multiplier-s));
+    --text-weight: $hero-weight;
     //--heading-weight: 600;
     //--text-width: calc(var(--p-vf-width) * .85);
     //--text-opticalsize: calc((var(--hero-font-size-min) * 16));
+    font-variation-settings: 'wght' var(--text-weight);
+    /* ,
+       'wdth' var(--text-width),
+       'opsz' var(--text-opticalsize); */
 
-    font-size: calc(var(--hero-font-size-min) * 1em);
+    //font-size: calc(var(--hero-font-size-min) * 1em);
     line-height: var(--hero-line-height-min);
     margin: 1rem auto;
     //max-width: 50rem;
 
-    @include fluid-type(font-size, map_get($breakpoints, phone), map_get($breakpoints, desktophd), 2rem, 7.3rem);
+    @include fluid-type(font-size, map_get($breakpoints, phone), map_get($breakpoints, desktophd), $hero-font-size-min, $hero-font-size-max);
+    @include fluid-type(line-height, map_get($breakpoints, phone), map_get($breakpoints, desktophd), $hero-line-height-min, $hero-line-height-max);
 
     span {
       color: $color-brand2;
@@ -39,11 +46,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: auto;
-  grid-template-areas:
-    "hi hi hi"
-    "heading1 heading1 ."
-    "figure heading2 heading2"
-    "figure . lead";
+  grid-template-areas: "hi hi hi" "heading1 heading1 ." "figure heading2 heading2" "figure . lead";
   grid-gap: 2vw;
 
   .hi {

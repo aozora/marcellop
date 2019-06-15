@@ -1,3 +1,15 @@
+/** ****************************************************************
+
+    CSS Variables
+
+    Font rules are setup in base.scss for all major
+    elements using CSS variables.
+    When there's need to override a font rule, there's no need to
+    set again the rules, but it's best to just set a new value for
+    a CSS variable for a font rule.
+
+    **************************************************************** */
+
 @import './settings';
 
 :root {
@@ -11,10 +23,10 @@
   --text-max-width: 38rem;
 
   /* vf initial values */
-  --heading-weight: 300;
-  --text-weight: 400;
+  --heading-weight: 900;
+  --text-weight: $body-font-weight;
   --text-width: 100;
-  --text-opticalsize: 16;
+  // --text-opticalsize: 16;
 
   /* Paragraph variables */
   --p-line-height-min: 1.15;
@@ -25,21 +37,12 @@
   --p-vf-width: var(--text-width);
 
   /* HERO H1 variables */
-  --hero-line-height-min: 1;
-  --hero-line-height-max: 1.085;
-  --hero-font-size-min: 1.5;
-  --hero-font-size-max: 5;
-
-  border: 1px solid #000000;
-  font-family: Inter-Black;
-  font-size: 55px;
-  color: #535482;
-  line-height: 30px;
-
-  --hero-line-height-min: 1;
-  --hero-line-height-max: 1.085;
-  --hero-font-size-min: 1.5;
-  --hero-font-size-max: 5;
+  //$hero-line-height-min: 1.2;
+  //$hero-line-height-max: 1.5;
+  //$hero-font-size-min: 3.05rem;
+  //$hero-font-size-max: 12.388rem;
+  //$hero-weight: 900;
+  //$hero-slant: 2.73;
 
   //--hero-vf-weight-multiplier-s: 1.5;
   //--hero-vf-weight-multiplier-m: 1.625;
@@ -50,27 +53,27 @@
   --h1-line-height-max: 1.1;
   --h1-font-size-min: 2;
   --h1-font-size-max: 4.5;
-  --h1-vf-weight-multiplier-s: 1.5;
-  --h1-vf-weight-multiplier-m: 1.625;
-  --h1-vf-weight-multiplier-l: 1.75;
+  //--h1-vf-weight-multiplier-s: 1.5;
+  //--h1-vf-weight-multiplier-m: 1.625;
+  //--h1-vf-weight-multiplier-l: 1.75;
 
   /* H2 variables */
   --h2-line-height-min: 1.15;
   --h2-line-height-max: 1.25;
   --h2-font-size-min: 1.75;
   --h2-font-size-max: 2.5;
-  --h2-vf-weight-multiplier-s: 1.25;
-  --h2-vf-weight-multiplier-m: 1.5;
-  --h2-vf-weight-multiplier-l: 1.75;
+  //--h2-vf-weight-multiplier-s: 1.25;
+  //--h2-vf-weight-multiplier-m: 1.5;
+  //--h2-vf-weight-multiplier-l: 1.75;
 
   /* H3 variables */
   --h3-line-height-min: 1.15;
   --h3-line-height-max: 1.25;
   --h3-font-size-min: 1.25;
   --h3-font-size-max: 2;
-  --h3-vf-weight-multiplier-s: .5;
-  --h3-vf-weight-multiplier-m: .5;
-  --h3-vf-weight-multiplier-l: .5;
+  //--h3-vf-weight-multiplier-s: .5;
+  //--h3-vf-weight-multiplier-m: .5;
+  //--h3-vf-weight-multiplier-l: .5;
 
   /* Dropcap variables */
   --dc-line-height-min: .8;
