@@ -1,8 +1,12 @@
 <template>
-  <section id="home" class="hero">
+  <section v-if="home" id="home" class="hero">
     <!--    <p class="hi">Hi! I'm</p>-->
-    <h1 v-if="home"><span>{{ heading1[0] }}</span><br><span>{{ heading1[1] }}</span></h1>
-    <h2>a front-end web developer</h2>
+    <h1><span>{{ heading1[0] }}</span><br><span>{{ heading1[1] }}</span></h1>
+    <h2>
+      <span>{{ home.heading2A }}</span>
+      <span>{{ home.heading2B }}</span>
+      <span>{{ home.heading2C }}</span>
+    </h2>
     <p class="lead">
       a front-end web developer from Italy that care about browsers, devices and users; I have a strong focus on responsive web design, accessibility, and performance; I love to work with
       developers and designers to imagine and shape the future.
@@ -79,7 +83,9 @@ export default {
       query: gql`{
         home(locale: en) {
           heading1
-          heading2
+          heading2A
+          heading2B
+          heading2C
           heroDescription
           heroPicture {
             id
