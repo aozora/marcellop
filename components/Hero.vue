@@ -1,7 +1,7 @@
 <template>
   <section id="home" class="hero">
-    <p class="hi">Hi! I'm</p>
-    <h1>Marcello <span>Palmitessa</span></h1>
+    <!--    <p class="hi">Hi! I'm</p>-->
+    <h1 v-if="home"><span>{{ heading1[0] }}</span><span>{{ heading1[1] }}</span></h1>
     <h2>a front-end web developer</h2>
     <p class="lead">
       a front-end web developer from Italy that care about browsers, devices and users; I have a strong focus on responsive web design, accessibility, and performance; I love to work with
@@ -69,7 +69,37 @@
 </template>
 
 <script>
+import gql from 'graphql-tag';
+
 export default {
-  name: 'Hero'
+  name: 'Hero',
+
+  apollo: {
+    home: {
+      query: gql`{
+        home(locale: en) {
+          heading1
+          heading2
+          heroDescription
+          heroPicture {
+            id
+          }
+          aboutHeading
+          aboutDescription
+        }
+      }`,
+      prefetch: true
+    }
+  },
+
+  computed: {
+    heading1() {
+      if (this.home) {
+        return this.home.heading1.split(' ');
+      }
+
+      return [];
+    }
+  }
 };
 </script>
