@@ -34,33 +34,25 @@ $hero-h2-font-size-max: 3.33rem;
 // layout
 .hero {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: repeat(4, 1fr);
   grid-template-rows: auto;
-  grid-template-areas: "hi hi hi" "heading1 heading1 ." "figure heading2 heading2" "figure . lead";
+  grid-template-areas: "heading2 heading2 figure figure";
   grid-gap: 2vw;
-
-  .hi {
-    grid-area: hi;
-  }
-
-  h1 {
-    grid-area: heading1;
-  }
 
   h2 {
     grid-area: heading2;
     z-index: 2;
   }
-
-  .lead {
-    grid-area: lead;
-  }
+  //
+  //.lead {
+  //  grid-area: lead;
+  //}
 
   img {
     grid-area: figure;
-    grid-column: 1 / 3;
-    grid-row: 3 / 5;
-    align-self: end;
+    //grid-column: 1 / 3;
+    //grid-row: 3 / 5;
+    //align-self: end;
   }
 
 }

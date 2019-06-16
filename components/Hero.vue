@@ -7,10 +7,10 @@
       <span>{{ home.heading2B }}</span>
       <span>{{ home.heading2C }}</span>
     </h2>
-    <p class="lead">
-      a front-end web developer from Italy that care about browsers, devices and users; I have a strong focus on responsive web design, accessibility, and performance; I love to work with
-      developers and designers to imagine and shape the future.
-    </p>
+<!--    <p class="lead">-->
+<!--      a front-end web developer from Italy that care about browsers, devices and users; I have a strong focus on responsive web design, accessibility, and performance; I love to work with-->
+<!--      developers and designers to imagine and shape the future.-->
+<!--    </p>-->
     <img alt="Picture of Marcello" width="403" height="403" src="/img/marcello-hero.jpg"/>
 
 

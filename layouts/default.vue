@@ -1,16 +1,16 @@
 <template>
   <div>
-    <div v-if="isHome"
-         v-observe-visibility="{
-          callback: homeHeadingVisibilityChanged,
-          throttle: 300,
-          intersection: {
-            threshold: 1,
-          },
-        }"
-         class="homeHeadingScrollSentinel"
-    >
-    </div>
+<!--    <div v-if="isHome"-->
+<!--         v-observe-visibility="{-->
+<!--          callback: homeHeadingVisibilityChanged,-->
+<!--          throttle: 300,-->
+<!--          intersection: {-->
+<!--            threshold: 1,-->
+<!--          },-->
+<!--        }"-->
+<!--         class="homeHeadingScrollSentinel"-->
+<!--    >-->
+<!--    </div>-->
 
     <SiteHeader :home-header-scrolled="homeHeaderScrolled"></SiteHeader>
     <nuxt/>
