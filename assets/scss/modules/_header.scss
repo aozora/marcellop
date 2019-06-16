@@ -41,7 +41,8 @@ $header-h1-scrolled-line-height: 1;
     margin: 0 auto;
 
     @include fluid-type(font-size, map_get($breakpoints, phone), map_get($breakpoints, desktophd), $hero-h1-font-size-min, $hero-h1-font-size-max);
-    @include fluid-type(line-height, map_get($breakpoints, phone), map_get($breakpoints, desktophd), $hero-h1-line-height-min, $hero-h1-line-height-max);
+    //@include fluid-type(line-height, map_get($breakpoints, phone), map_get($breakpoints, desktophd), $hero-h1-line-height-min, $hero-h1-line-height-max);
+    line-height: .7;
 
     span {
       display: block;
@@ -51,11 +52,10 @@ $header-h1-scrolled-line-height: 1;
     span:last-child {
       transform: translate3d(5rem, -11rem, 0);
       color: $color-white;
-      text-shadow:
-        -1px -1px 0 $color-black,
-        1px -1px 0 $color-black,
-        -1px 1px 0 $color-black,
-        1px 1px 0 $color-black;
+      text-shadow: -1px -1px 0 $color-black,
+      1px -1px 0 $color-black,
+      -1px 1px 0 $color-black,
+      1px 1px 0 $color-black;
     }
   }
 }
@@ -85,12 +85,12 @@ $header-h1-scrolled-line-height: 1;
 
       span:last-child {
         color: $color-black;
-        text-shadow:
-          -1px -1px 0 $color-white,
-          1px -1px 0 $color-white,
-          -1px 1px 0 $color-white,
-          1px 1px 0 $color-white;
-      }    }
+        text-shadow: -1px -1px 0 $color-white,
+        1px -1px 0 $color-white,
+        -1px 1px 0 $color-white,
+        1px 1px 0 $color-white;
+      }
+    }
   }
 }
 

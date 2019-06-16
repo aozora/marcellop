@@ -12,7 +12,15 @@
 <!--      developers and designers to imagine and shape the future.-->
 <!--    </p>-->
     <img alt="Picture of Marcello" width="403" height="403" src="/img/marcello-hero.jpg"/>
-
+    <img
+      :srcset="`${home.heroPicture.url}?w=630;1280w,
+          ${home.heroPicture.url}?w=630&fit=max;768w,
+          ${home.heroPicture.url}?w=300&fit=max;320w
+      `"
+      sizes="(min-width: 17em) 50vw, 100vw"
+      :src="`${home.heroPicture.url}?w=630`"
+      :alt="home.heroPicture.alt"
+    >
 
     <!--      <p class="hero__social">-->
     <!--        <a rel="noopener noreferrer" target="_blank" href="http://www.twitter.com/marcellopalmit" class="button">-->
@@ -88,7 +96,8 @@ export default {
           heading2C
           heroDescription
           heroPicture {
-            id
+            url
+            alt
           }
           aboutHeading
           aboutDescription
