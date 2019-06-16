@@ -1,6 +1,18 @@
 <template>
   <div>
-    <SiteHeader></SiteHeader>
+    <div v-if="isHome"
+         v-observe-visibility="{
+          callback: homeHeadingVisibilityChanged,
+          throttle: 300,
+          intersection: {
+            threshold: 1,
+          },
+        }"
+         class="homeHeadingScrollSentinel"
+    >
+    </div>
+
+    <SiteHeader :home-header-scrolled="homeHeaderScrolled"></SiteHeader>
     <nuxt/>
     <SiteFooter></SiteFooter>
   </div>
@@ -14,6 +26,25 @@ export default {
   components: {
     SiteFooter,
     SiteHeader
+  },
+
+  data: function () {
+    return {
+      homeHeaderScrolled: false
+    };
+  },
+
+  computed: {
+    isHome() {
+      return this.$route.path === '/';
+    }
+  },
+
+  methods: {
+    homeHeadingVisibilityChanged: function (isVisible, entry) {
+      console.log(isVisible);
+      this.homeHeaderScrolled = !isVisible;
+    }
   }
 };
 </script>

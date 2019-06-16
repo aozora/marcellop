@@ -1,9 +1,12 @@
 <template>
-  <header id="header" :class="{'header--home': isHome ,'header--open': showMobileMenu}">
+  <header id="header" class="header" :class="{'header--home': isHome ,'header--open': showMobileMenu, 'header--scrolled': homeHeaderScrolled}">
     <a href="#maincontent">Skip to main content</a>
 
-    <h1 v-if="home"><span>{{ heading1[0] }}</span><br><span>{{ heading1[1] }}</span></h1>
-
+    <h1 v-if="home && isHome">
+      <span>{{ heading1[0] }}</span>
+      <br>
+      <span>{{ heading1[1] }}</span>
+    </h1>
     <!--    <nav id="main-menu" class="main-menu">-->
     <!--      <button class="main-menu__toggle" aria-expanded="false" @click.prevent="toggleMobileMenu">-->
     <!--        <span class="visuallyhidden">Menu</span>-->
@@ -29,9 +32,17 @@ import gql from 'graphql-tag';
 export default {
   name: 'SiteHeader',
 
+  props: {
+    homeHeaderScrolled: {
+      type: Boolean,
+      default: false
+    }
+  },
+
   data: function () {
     return {
-      showMobileMenu: false
+      showMobileMenu: false,
+      // homeHeadingScrolled: false
     };
   },
 
@@ -61,6 +72,10 @@ export default {
   },
 
   methods: {
+    // homeHeadingVisibilityChanged: function (isVisible, entry) {
+    //   this.homeHeadingScrolled = !isVisible;
+    // }
+
     /**
      * Toggle the mobile menu
      */

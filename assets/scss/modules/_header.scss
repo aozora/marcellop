@@ -1,3 +1,12 @@
+$hero-h1-line-height-min: 1.2em; // use 'em' otherwise the fluid-type mixin doesn't work
+$hero-h1-line-height-max: 1.5em;
+$hero-h1-font-size-min: 3.05rem;
+$hero-h1-font-size-max: 12.388rem;
+$hero-weight: 900;
+$hero-slant: 2.73;
+$header-h1-scrolled-font-size: 2.33rem;
+$header-h1-scrolled-line-height: 1;
+
 /**
   Skip Links
  */
@@ -18,6 +27,75 @@
     z-index: 100;
   }
 }
+
+.header {
+  width: 100%;
+  max-width: none;
+
+  h1 {
+    --text-weight: $hero-weight;
+    font-variation-settings: 'wght' $hero-weight, 'slnt' $hero-slant;
+    margin: 0 auto;
+
+    @include fluid-type(font-size, map_get($breakpoints, phone), map_get($breakpoints, desktophd), $hero-h1-font-size-min, $hero-h1-font-size-max);
+    @include fluid-type(line-height, map_get($breakpoints, phone), map_get($breakpoints, desktophd), $hero-h1-line-height-min, $hero-h1-line-height-max);
+
+    // simulate the text stroke for hollow text
+    span:last-child {
+      color: $color-white;
+      text-shadow:
+        -1px -1px 0 $color-black,
+        1px -1px 0 $color-black,
+        -1px 1px 0 $color-black,
+        1px 1px 0 $color-black;
+    }
+  }
+}
+
+.homeHeadingScrollSentinel {
+  height: 1px;
+  visibility: hidden;
+}
+
+.header--home {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  z-index: 101;
+  height: auto;
+  transition: all .5s ease-in-out;
+  background-color: $color-white;
+
+  &.header--scrolled {
+    height: $menu-height;
+    background-color: $color-brand;
+
+    h1 {
+      font-size: $header-h1-scrolled-font-size;
+      line-height: $header-h1-scrolled-line-height;
+      color: $color-white;
+
+      span:last-child {
+        color: $color-black;
+        text-shadow:
+          -1px -1px 0 $color-white,
+          1px -1px 0 $color-white,
+          -1px 1px 0 $color-white,
+          1px 1px 0 $color-white;
+      }    }
+  }
+}
+
+
+.header__menu {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+
+  li {
+    list-style-type: none;
+  }
+}
+
 //
 //
 //#header {
@@ -229,15 +307,3 @@
 //  }
 //}
 
-.header {
-
-}
-
-.header__menu {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-
-  li {
-    list-style-type: none;
-  }
-}

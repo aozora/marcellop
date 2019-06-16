@@ -15,7 +15,8 @@
     "graphql-tag": "^2.10.1",
     "include-media": "^1.4.9",
     "nuxt": "^2.8.0",
-    "v-lazy-image": "^1.3.2"
+    "v-lazy-image": "^1.3.2",
+    "vue-observe-visibility": "^0.4.4"
   },
   "devDependencies": {
     "@babel/core": "^7.4.5",
