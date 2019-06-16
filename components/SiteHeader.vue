@@ -1,27 +1,31 @@
 <template>
-  <header id="header" :class="{'header--open': showMobileMenu}">
+  <header id="header" :class="{'header--home': isHome ,'header--open': showMobileMenu}">
     <a href="#maincontent">Skip to main content</a>
 
-    <nav id="main-menu" class="main-menu">
-      <button class="main-menu__toggle" aria-expanded="false" @click.prevent="toggleMobileMenu">
-        <span class="visuallyhidden">Menu</span>
-      </button>
+    <h1 v-if="home"><span>{{ heading1[0] }}</span><br><span>{{ heading1[1] }}</span></h1>
 
-      <h1 class="logo">
-        <nuxt-link :to="'/'" exact>
-        </nuxt-link>
-      </h1>
+    <!--    <nav id="main-menu" class="main-menu">-->
+    <!--      <button class="main-menu__toggle" aria-expanded="false" @click.prevent="toggleMobileMenu">-->
+    <!--        <span class="visuallyhidden">Menu</span>-->
+    <!--      </button>-->
 
-      <ul class="main-menu__menu">
-<!--        <li v-for="(item, index) in menu" :key="index">-->
-<!--          <nuxt-link :to="item.linkURL.substr(1)" active-class="active" exact>{{ item.title }}</nuxt-link>-->
-<!--        </li>-->
-      </ul>
-    </nav>
+    <!--      <h1 class="logo">-->
+    <!--        <nuxt-link :to="'/'" exact>-->
+    <!--        </nuxt-link>-->
+    <!--      </h1>-->
+
+    <!--      <ul class="main-menu__menu">-->
+    <!--&lt;!&ndash;        <li v-for="(item, index) in menu" :key="index">&ndash;&gt;-->
+    <!--&lt;!&ndash;          <nuxt-link :to="item.linkURL.substr(1)" active-class="active" exact>{{ item.title }}</nuxt-link>&ndash;&gt;-->
+    <!--&lt;!&ndash;        </li>&ndash;&gt;-->
+    <!--      </ul>-->
+    <!--    </nav>-->
   </header>
 </template>
 
 <script>
+import gql from 'graphql-tag';
+
 export default {
   name: 'SiteHeader',
 
@@ -31,11 +35,30 @@ export default {
     };
   },
 
-  // computed: {
-  //   menu() {
-  //     return this.$store.state.content.menu;
-  //   },
-  // },
+  computed: {
+    isHome() {
+      return this.$route.path === '/';
+    },
+
+    heading1() {
+      if (this.home) {
+        return this.home.heading1.split(' ');
+      }
+
+      return [];
+    }
+  },
+
+  apollo: {
+    home: {
+      query: gql`{
+        home(locale: en) {
+          heading1
+        }
+      }`,
+      prefetch: true
+    }
+  },
 
   methods: {
     /**

@@ -6,9 +6,9 @@
 /* SELECTION
   ============== */
 ::selection {
-  background-color: $selection-color;
+  background-color: $selection-background-color;
   text-shadow: none;
-  color: $color-black;
+  color: $selection-color;
 }
 
 /* FOCUS

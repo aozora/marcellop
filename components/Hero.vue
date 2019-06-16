@@ -1,7 +1,7 @@
 <template>
   <section v-if="home" id="home" class="hero">
     <!--    <p class="hi">Hi! I'm</p>-->
-    <h1><span>{{ heading1[0] }}</span><br><span>{{ heading1[1] }}</span></h1>
+<!--    <h1><span>{{ heading1[0] }}</span><br><span>{{ heading1[1] }}</span></h1>-->
     <h2>
       <span>{{ home.heading2A }}</span>
       <span>{{ home.heading2B }}</span>
@@ -95,16 +95,6 @@ export default {
         }
       }`,
       prefetch: true
-    }
-  },
-
-  computed: {
-    heading1() {
-      if (this.home) {
-        return this.home.heading1.split(' ');
-      }
-
-      return [];
     }
   }
 };
