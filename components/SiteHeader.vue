@@ -4,7 +4,6 @@
 
     <h1 v-if="home && isHome">
       <span>{{ heading1[0] }}</span>
-      <br>
       <span>{{ heading1[1] }}</span>
     </h1>
     <!--    <nav id="main-menu" class="main-menu">-->

@@ -5,6 +5,7 @@ $hero-h2-font-size-max: 3.33rem;
 
 
 .hero {
+  margin-bottom: 2rem;
 
   h2 {
     display: flex;
@@ -17,7 +18,8 @@ $hero-h2-font-size-max: 3.33rem;
 
     span {
       display: inline-block;
-      padding: 0 1em;
+      padding: 0 .5em;
+      text-align: right;
       color: $color-white;
       background-color: $color-black;
     }
@@ -41,9 +43,11 @@ $hero-h2-font-size-max: 3.33rem;
 
   h2 {
     grid-area: heading2;
+    grid-column: 1 / 4;
+    align-self: center;
     z-index: 2;
   }
-  //
+
   //.lead {
   //  grid-area: lead;
   //}
