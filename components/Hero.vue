@@ -17,7 +17,7 @@
 <!--      a front-end web developer from Italy that care about browsers, devices and users; I have a strong focus on responsive web design, accessibility, and performance; I love to work with-->
 <!--      developers and designers to imagine and shape the future.-->
 <!--    </p>-->
-    <img alt="Picture of Marcello" width="403" height="403" src="/img/marcello-hero.jpg"/>
+<!--    <img alt="Picture of Marcello" width="403" height="403" src="/img/marcello-hero.jpg"/>-->
     <img
       :srcset="`${home.heroPicture.url}?w=630;1280w,
           ${home.heroPicture.url}?w=630&fit=max;768w,

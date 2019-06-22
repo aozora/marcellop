@@ -31,7 +31,7 @@ $hero-h2-font-size-max: 3.33rem;
 
     // simulate the text stroke for hollow text
     span:last-child {
-      transform: translate3d(5rem, -11rem, 0);
+      //transform: translate3d(5rem, -11rem, 0);
       color: $color-white;
       text-shadow: -1px -1px 0 $color-black,
       1px -1px 0 $color-black,

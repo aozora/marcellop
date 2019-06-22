@@ -1,5 +1,5 @@
-$header-h1-scrolled-font-size: 2.33rem;
-$header-h1-scrolled-line-height: 1;
+//$header-h1-scrolled-font-size: 2.33rem;
+//$header-h1-scrolled-line-height: 1;
 
 /**
   Skip Links
@@ -33,44 +33,35 @@ $header-h1-scrolled-line-height: 1;
   visibility: hidden;
 }
 
-.header--home {
-  //position: -webkit-sticky;
-  //position: sticky;
-  //top: 0;
-  //z-index: 101;
-  //height: auto;
-  transition: all .5s ease-in-out;
-  background-color: $color-white;
+//.header--home {
+//  //position: -webkit-sticky;
+//  //position: sticky;
+//  //top: 0;
+//  //z-index: 101;
+//  //height: auto;
+//  transition: all .5s ease-in-out;
+//  background-color: $color-white;
+//
+//  &.header--scrolled {
+//    height: $menu-height;
+//    background-color: $color-brand;
+//
+//    h1 {
+//      font-size: $header-h1-scrolled-font-size;
+//      line-height: $header-h1-scrolled-line-height;
+//      color: $color-white;
+//
+//      span:last-child {
+//        color: $color-black;
+//        text-shadow: -1px -1px 0 $color-white,
+//        1px -1px 0 $color-white,
+//        -1px 1px 0 $color-white,
+//        1px 1px 0 $color-white;
+//      }
+//    }
+//  }
+//}
 
-  &.header--scrolled {
-    height: $menu-height;
-    background-color: $color-brand;
-
-    h1 {
-      font-size: $header-h1-scrolled-font-size;
-      line-height: $header-h1-scrolled-line-height;
-      color: $color-white;
-
-      span:last-child {
-        color: $color-black;
-        text-shadow: -1px -1px 0 $color-white,
-        1px -1px 0 $color-white,
-        -1px 1px 0 $color-white,
-        1px 1px 0 $color-white;
-      }
-    }
-  }
-}
-
-
-.header__menu {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-
-  li {
-    list-style-type: none;
-  }
-}
 
 //
 //
@@ -90,147 +81,151 @@ $header-h1-scrolled-line-height: 1;
 //  }
 //}
 //
-///**
-//  Mobile Navigation
-// */
-//.main-menu {
-//  position: relative;
-//  display: flex;
-//  flex-direction: row;
-//  flex-wrap: wrap;
-//  justify-content: flex-start;
-//  align-items: center;
-//  width: 100%;
-//  height: 100%;
-//  //height: $menu-height;
-//  overflow: hidden;
-//  padding: 0 4%;
-//  background-color: $menu-background;
-//
-//  @include media(">=tablet") {
-//    justify-content: space-between;
-//    align-items: center;
-//    flex-direction: row;
-//    flex-wrap: nowrap;
-//  }
-//}
-//
-//
-//.main-menu__toggle {
-//  flex: 0 0 auto;
-//  display: flex;
-//  justify-content: center;
-//  align-items: center;
-//  width: 3.33rem;
-//  height: 3.33rem;
-//  padding: 0;
-//  margin: 0;
-//  border: 0;
-//  background-color: transparent;
-//  z-index: $menu-toggle-button-zindex;
-//
-//  svg {
-//    width: 1.44rem;
-//    height: .88rem;
-//  }
-//
-//  @include media(">=tablet") {
-//    display: none;
-//  }
-//}
-//
-//.main-menu__menu {
-//  display: flex;
-//  flex-direction: column;
-//  position: relative;
-//  width: 100%;
-//  height: auto;
-//  margin: 2rem 0 0 0;
-//  list-style-type: none;
-//  padding: 0 2.22rem;
-//  background-color: transparent;
-//  z-index: $menu-zindex;
-//
-//  > li {
-//    margin: 0;
-//    list-style-type: none;
-//    padding: 1rem 0;
-//    text-align: left;
-//  }
-//
-//  a {
-//    position: relative;
-//    display: block;
-//    width: 100%;
-//    padding: 0;
-//    font-family: $heading-font-family;
-//    font-size: .8rem;
-//    line-height: 1;
-//    font-weight: 500;
-//    letter-spacing: 0.37px;
-//    text-transform: uppercase;
-//    text-decoration: none;
-//    color: $color-white;
-//    transition: color .2s ease-out;
-//
-//
-//    /*
-//     * Don't enable hover on links, it wll cause this issue on ios:
-//     * https://css-tricks.com/annoying-mobile-double-tap-link-issue/
-//    */
-//    // &:hover:after,
-//    &:focus:after {
-//      width: 100%;
-//    }
-//
-//    &:active,
-//    &:focus {
-//      color: $color-brand;
-//      text-decoration: none;
-//    }
-//
-//  }
-//
-//  @include media(">=tablet") {
-//    display: flex;
-//    justify-content: center;
-//    align-items: center;
-//    flex-direction: row;
-//    position: relative;
-//    top: auto;
-//    left: auto;
-//    height: 100%;
-//    margin: 0;
-//    padding: 0;
-//
-//    > li {
-//      flex: 0 0 auto;
-//      margin: 0 .5rem;
-//
-//      &:last-child {
-//        padding: 0;
-//      }
-//
-//      &.main-menu__search {
-//        margin: 0;
-//      }
-//    }
-//
-//    a {
-//      display: block;
-//      width: auto;
-//      margin: 0 1rem;
-//
-//      &:hover,
-//      &:active,
-//      &:focus {
-//        color: $color-brand;
-//        text-decoration: none;
-//      }
-//
-//    }
-//  }
-//}
+
+/**
+  Mobile Navigation
+ */
+.menu {
+  position: relative;
+  display: grid;
+  grid-template-columns: 2.66rem 1fr;
+  grid-template-rows: $menu-height;
+  grid-template-areas: "toggle menu";
+  width: 100%;
+  //height: 100%;
+  height: $menu-height;
+  overflow: hidden;
+  //padding: 0 4%;
+  background-color: $menu-background;
+
+  //@include media(">=tablet") {
+  //  justify-content: space-between;
+  //  align-items: center;
+  //  flex-direction: row;
+  //  flex-wrap: nowrap;
+  //}
+}
+
+.menu__toggle {
+  grid-area: toggle;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 3.33rem;
+  height: 3.33rem;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  background-color: $color-brand;
+  border-radius: 50%;
+  z-index: $menu-toggle-button-zindex;
+
+  @include media(">=tablet") {
+    display: none;
+  }
+}
+
+.menu__items {
+  position: relative;
+  grid-area: menu;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  grid-gap: 1rem 0;
+  align-items: center;
+
+  width: 100%;
+  height: 100%;
+  //margin: 2rem 0 0 0;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  background-color: transparent;
+  z-index: $menu-zindex;
+
+  > li {
+    margin: 0;
+    list-style-type: none;
+    padding: 1rem 0;
+    text-align: left;
+  }
+
+  a {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: $heading-font-family;
+    font-size: 1rem;
+    line-height: 1;
+    font-weight: 500;
+    //letter-spacing: 0.37px;
+    text-transform: uppercase;
+    text-decoration: none;
+    text-align: center;
+    color: $color-brand;
+    transition: color .2s ease-out;
+
+
+    /*
+     * Don't enable hover on links, it wll cause this issue on ios:
+     * https://css-tricks.com/annoying-mobile-double-tap-link-issue/
+    */
+    // &:hover:after,
+    &:focus:after {
+      width: 100%;
+    }
+
+    &:active,
+    &:focus {
+      color: $color-brand;
+      text-decoration: none;
+    }
+
+  }
+
+  @include media(">=tablet") {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    position: relative;
+    top: auto;
+    left: auto;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+
+    > li {
+      flex: 0 0 auto;
+      margin: 0 .5rem;
+
+      &:last-child {
+        padding: 0;
+      }
+
+      &.main-menu__search {
+        margin: 0;
+      }
+    }
+
+    a {
+      display: block;
+      width: auto;
+      margin: 0 1rem;
+
+      &:hover,
+      &:active,
+      &:focus {
+        color: $color-brand;
+        text-decoration: none;
+      }
+
+    }
+  }
+}
+
 //
 //.main-menu__search {
 //  display: none;
