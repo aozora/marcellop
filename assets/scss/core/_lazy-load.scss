@@ -12,7 +12,7 @@
 
 .no-cssfilters {
   .blur-up {
-    box-shadow: 40px 40px 100px 0 $color-black;
+    box-shadow: 40px 40px 100px 0 var(--color-black);
   }
 
   .blur-up-shadow {

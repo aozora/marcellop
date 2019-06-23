@@ -9,6 +9,11 @@ $hero-h2-line-height-max: 1.16em;
 $hero-h2-font-size-min: 1.44rem;
 $hero-h2-font-size-max: 3.33rem;
 
+:root {
+  --hero-font-size-max: #{$hero-h1-font-size-max};
+  --hero-font-size-min: #{$hero-h1-font-size-min};
+}
+
 
 .hero {
   margin-bottom: 2rem;
@@ -21,6 +26,8 @@ $hero-h2-font-size-max: 3.33rem;
     font-variation-settings: 'wght' $hero-weight, 'slnt' $hero-slant;
     margin: 0 auto;
 
+    //font-size: calc((var(--hero-font-size-min) * 1rem) + (var(--hero-font-size-max) - var(--hero-font-size-min)) * ((100vw - (var(--breakpoint-small) * 1em)) / (((var(--breakpoint-xlarge) - var(--breakpoint-small)) * 1em) )));
+
     @include fluid-type(font-size, map_get($breakpoints, phone), map_get($breakpoints, desktophd), $hero-h1-font-size-min, $hero-h1-font-size-max);
     //@include fluid-type(line-height, map_get($breakpoints, phone), map_get($breakpoints, desktophd), $hero-h1-line-height-min, $hero-h1-line-height-max);
     line-height: .7;
@@ -32,11 +39,11 @@ $hero-h2-font-size-max: 3.33rem;
     // simulate the text stroke for hollow text
     span:last-child {
       //transform: translate3d(5rem, -11rem, 0);
-      color: $color-white;
-      text-shadow: -1px -1px 0 $color-black,
-      1px -1px 0 $color-black,
-      -1px 1px 0 $color-black,
-      1px 1px 0 $color-black;
+      color: var(--color-white);
+      text-shadow: -1px -1px 0 var(--color-black),
+      1px -1px 0 var(--color-black),
+      -1px 1px 0 var(--color-black),
+      1px 1px 0 var(--color-black);
     }
   }
 
@@ -53,8 +60,8 @@ $hero-h2-font-size-max: 3.33rem;
       display: inline-block;
       padding: 0 .5em;
       text-align: right;
-      color: $color-white;
-      background-color: $color-black;
+      color: var(--color-white);
+      background-color: var(--color-black);
     }
   }
 
@@ -75,7 +82,7 @@ $hero-h2-font-size-max: 3.33rem;
       left: 0;
       width: 100%;
       height: 100%;
-      background-color: $color-white;
+      background-color: var(--color-white);
       z-index: 2;
       transform: translateX(0);
       transition: transform .55s linear;

@@ -17,14 +17,6 @@ $breakpoints: (
 );
 
 
-// colors
-// ------------------
-$color-black: #000;
-$color-brand: $color-black;
-$color-white: #fff;
-$color-error: #f00;
-
-
 // Shadows
 // ------------------
 $default-box-shadow: 0 2px 4px 5 rgba(255, 255, 255, .50);
@@ -33,7 +25,7 @@ $default-text-shadow: none;
 // Body
 // ------------------
 $global-radius: 4px;
-$body-background: $color-white;
+$body-background: var(--color-white);
 
 // Base Typography
 // ------------------
@@ -42,11 +34,11 @@ $baseline: 1.5;
 $body-font-weight: 400;
 $heading-font-weight: 700;
 $kerning: normal; // auto (default), normal (enabled), none (disabled)
-$body-font-color: $color-brand;
+$body-font-color: var(--color-primary);
 $body-font-letter-spacing: normal;
-$selection-color: $color-white;
-$selection-background-color: $color-brand;
-$placeholder-color: $color-black;
+$selection-color: var(--color-white);
+$selection-background-color: var(--color-primary);
+$placeholder-color: var(--color-black);
 
 // Fonts
 $use-variable-font: true;
@@ -60,7 +52,7 @@ $heading-font-family: 'Playfair Display', serif;
 // Focus
 // -----------
 $focus-outline: none;
-$focus-box-shadow: 1px 1px 0 0 $color-brand;
+$focus-box-shadow: 1px 1px 0 0 var(--color-primary);
 
 
 // Main Menu
@@ -74,6 +66,6 @@ $menu-toggle-button-zindex: $menu-zindex + 2;
 // Forms
 // -----------
 $form-field-max-width: 20rem;
-$form-field-border: 2px solid $color-black;
+$form-field-border: 2px solid var(--color-black);
 $form-border-radius: 2px;
 

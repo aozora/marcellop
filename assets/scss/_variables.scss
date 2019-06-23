@@ -13,11 +13,33 @@
 @import './settings';
 
 :root {
+  /* Color variables */
+  --color-primary: #000;
+  --color-black: #000;
+  --color-white: #fff;
+  --color-error: #f00;
+
   /* Breakpoint variables */
   --breakpoint-small: #{strip-unit(map_get($breakpoints, phone))};
   --breakpoint-medium: #{strip-unit(map_get($breakpoints, tablet))};
   --breakpoint-large: #{strip-unit(map_get($breakpoints, desktop))};
   --breakpoint-xlarge: #{strip-unit(map_get($breakpoints, desktophd))};
+
+
+  /* type modular scale */
+  // body font size
+  --text-base-size: 1em;
+
+  // type scale
+  --text-scale-ratio: 1.2;
+  --text-xs: calc((1em / var(--text-scale-ratio)) / var(--text-scale-ratio));
+  --text-sm: calc(var(--text-xs) * var(--text-scale-ratio));
+  --text-md: calc(var(--text-sm) * var(--text-scale-ratio) * var(--text-scale-ratio));
+  --text-lg: calc(var(--text-md) * var(--text-scale-ratio));
+  --text-xl: calc(var(--text-lg) * var(--text-scale-ratio));
+  --text-xxl: calc(var(--text-xl) * var(--text-scale-ratio));
+  --text-xxxl: calc(var(--text-xxl) * var(--text-scale-ratio));
+
 
   /* max text sizes  */
   --text-max-width: 38rem;

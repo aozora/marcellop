@@ -18,7 +18,7 @@
     <!--      developers and designers to imagine and shape the future.-->
     <!--    </p>-->
     <!--    <img alt="Picture of Marcello" width="403" height="403" src="/img/marcello-hero.jpg"/>-->
-    <figure v-observe-visibility="visibilityChanged">
+    <figure v-observe-visibility="figureVisibilityChanged">
       <img
         :srcset="`${home.heroPicture.url}?w=630;1280w,
           ${home.heroPicture.url}?w=630&fit=max;768w,
@@ -130,7 +130,7 @@ export default {
   },
 
   methods: {
-    visibilityChanged: function (isVisible, entry) {
+    figureVisibilityChanged: function (isVisible, entry) {
       isVisible ? entry.target.classList.add('visible') : entry.target.classList.remove('visible');
       // console.log(entry)
     }

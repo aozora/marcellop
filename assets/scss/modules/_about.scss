@@ -2,14 +2,14 @@
   width: 100%;
   max-width: none;
   padding: 2vw 0;
-  background-color: $color-brand;
+  background-color: var(--color-primary);
 
 
   p {
     width: 100%;
     margin-left: 0;
     margin-right: 0;
-    color: $color-white;
+    color: var(--color-white);
   }
 }
 

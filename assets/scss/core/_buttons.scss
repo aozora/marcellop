@@ -7,7 +7,7 @@
   padding: 10px 1rem;
   border: 0;
   border-radius: $global-radius;
-  background-color: $color-brand;
+  background-color: var(--color-primary);
   transition: all .2s ease-out;
   font-family: $body-font-family;
 
@@ -21,15 +21,15 @@
   line-height: 1;
   font-weight: 700;
   letter-spacing: normal;
-  color: $color-white;
+  color: var(--color-white);
   text-transform: none;
   box-shadow: $default-box-shadow;
 
   &:hover,
   &:focus,
   &:active {
-    background-color: $color-brand;
-    color: $color-black;
+    background-color: var(--color-primary);
+    color: var(--color-black);
   }
 }
 
@@ -45,7 +45,7 @@
   width: 1.888rem;
   height: 1.888rem;
   margin-left: .5rem;
-  background-color: $color-brand;
+  background-color: var(--color-primary);
   transition: all .2s ease-out;
 
   svg {
@@ -62,8 +62,8 @@
   &:focus,
   &:active {
     .button__icon {
-      background-color: $color-black;
-      color: $color-brand;
+      background-color: var(--color-black);
+      color: var(--color-primary);
     }
   }
 }
@@ -79,7 +79,7 @@
   }
 
   .imdb-box {
-    fill: $color-brand;
+    fill: var(--color-primary);
   }
 
   .imdb-text {
@@ -94,7 +94,7 @@
     }
 
     .imdb-text {
-      fill: $color-brand;
+      fill: var(--color-primary);
     }
   }
 

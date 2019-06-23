@@ -59,7 +59,7 @@
    CSS Secrets, Lea Verou, Chapter 5
 */
 // Sara Soueidan version
-@mixin better-underline($underline-color: $color-white) {
+@mixin better-underline($underline-color: var(--color-white)) {
   text-decoration: none;
   border-bottom: .10em solid transparent;
   outline: 0;
@@ -73,7 +73,7 @@
   }
 }
 
-@mixin better-underline-always($underline-color: $color-white) {
+@mixin better-underline-always($underline-color: var(--color-white)) {
   text-decoration: none;
   outline: 0;
   border-bottom: .10em solid currentColor;
