@@ -116,9 +116,10 @@
   padding: 0;
   margin: 0;
   border: 0;
-  background-color: $color-brand;
+  background-color: transparent;
   border-radius: 50%;
   z-index: $menu-toggle-button-zindex;
+  color: $color-brand;
 
   @include media(">=tablet") {
     display: none;

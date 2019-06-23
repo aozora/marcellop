@@ -88,6 +88,7 @@ body {
   //  background-size: 100% vr(1);
   //}
 
+  // > don't use font-smoothing for light text on dark background!!
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-smoothing: antialiased;

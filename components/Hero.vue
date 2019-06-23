@@ -13,21 +13,22 @@
       <span>{{ home.heading2B }}</span>
       <span>{{ home.heading2C }}</span>
     </h2>
-<!--    <p class="lead">-->
-<!--      a front-end web developer from Italy that care about browsers, devices and users; I have a strong focus on responsive web design, accessibility, and performance; I love to work with-->
-<!--      developers and designers to imagine and shape the future.-->
-<!--    </p>-->
-<!--    <img alt="Picture of Marcello" width="403" height="403" src="/img/marcello-hero.jpg"/>-->
-    <img
-      :srcset="`${home.heroPicture.url}?w=630;1280w,
+    <!--    <p class="lead">-->
+    <!--      a front-end web developer from Italy that care about browsers, devices and users; I have a strong focus on responsive web design, accessibility, and performance; I love to work with-->
+    <!--      developers and designers to imagine and shape the future.-->
+    <!--    </p>-->
+    <!--    <img alt="Picture of Marcello" width="403" height="403" src="/img/marcello-hero.jpg"/>-->
+    <figure v-observe-visibility="visibilityChanged">
+      <img
+        :srcset="`${home.heroPicture.url}?w=630;1280w,
           ${home.heroPicture.url}?w=630&fit=max;768w,
           ${home.heroPicture.url}?w=300&fit=max;320w
       `"
-      sizes="(min-width: 17em) 50vw, 100vw"
-      :src="`${home.heroPicture.url}?w=630`"
-      :alt="home.heroPicture.alt"
-    >
-
+        sizes="(min-width: 17em) 50vw, 100vw"
+        :src="`${home.heroPicture.url}?w=630`"
+        :alt="home.heroPicture.alt"
+      >
+    </figure>
     <!--      <p class="hero__social">-->
     <!--        <a rel="noopener noreferrer" target="_blank" href="http://www.twitter.com/marcellopalmit" class="button">-->
     <!--          <svg width="24px" height="20px" viewBox="0 0 24 20" version="1.1" xmlns="http://www.w3.org/2000/svg">-->
@@ -127,5 +128,12 @@ export default {
       return [];
     }
   },
+
+  methods: {
+    visibilityChanged: function (isVisible, entry) {
+      isVisible ? entry.target.classList.add('visible') : entry.target.classList.remove('visible');
+      // console.log(entry)
+    }
+  }
 };
 </script>
