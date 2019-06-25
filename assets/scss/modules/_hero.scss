@@ -26,7 +26,7 @@ $hero-h2-font-size-max: 3.33rem;
     font-variation-settings: 'wght' $hero-weight, 'slnt' $hero-slant;
     margin: 0 auto;
 
-    //font-size: calc((var(--hero-font-size-min) * 1rem) + (var(--hero-font-size-max) - var(--hero-font-size-min)) * ((100vw - (var(--breakpoint-small) * 1em)) / (((var(--breakpoint-xlarge) - var(--breakpoint-small)) * 1em) )));
+    font-size: calc((var(--hero-font-size-min) * 1rem) + (var(--hero-font-size-max) - var(--hero-font-size-min)) * ((100vw - (var(--breakpoint-small) * 1em)) / (((var(--breakpoint-xlarge) - var(--breakpoint-small)) * 1em) )));
 
     @include fluid-type(font-size, map_get($breakpoints, phone), map_get($breakpoints, desktophd), $hero-h1-font-size-min, $hero-h1-font-size-max);
     //@include fluid-type(line-height, map_get($breakpoints, phone), map_get($breakpoints, desktophd), $hero-h1-line-height-min, $hero-h1-line-height-max);
