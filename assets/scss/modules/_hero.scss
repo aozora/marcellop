@@ -1,6 +1,6 @@
-$hero-h1-line-height-min: 1.2em; // use 'em' otherwise the fluid-type mixin doesn't work
+$hero-h1-line-height-min: 1.78em; // use 'em' otherwise the fluid-type mixin doesn't work
 $hero-h1-line-height-max: 1.5em;
-$hero-h1-font-size-min: 3.05rem;
+$hero-h1-font-size-min: 2.05rem;
 $hero-h1-font-size-max: 12.388rem;
 $hero-weight: 900;
 $hero-slant: 2.73;
@@ -19,6 +19,7 @@ $hero-h2-font-size-max: 3.33rem;
   margin-bottom: 2rem;
 
   h1 {
+    margin: 0 auto;
     width: 100%;
     max-width: none;
     max-height: 28rem;
@@ -26,11 +27,11 @@ $hero-h2-font-size-max: 3.33rem;
     font-variation-settings: 'wght' $hero-weight, 'slnt' $hero-slant;
     margin: 0 auto;
 
-    font-size: calc((var(--hero-font-size-min) * 1rem) + (var(--hero-font-size-max) - var(--hero-font-size-min)) * ((100vw - (var(--breakpoint-small) * 1em)) / (((var(--breakpoint-xlarge) - var(--breakpoint-small)) * 1em) )));
+    font-size: calc((var(--hero-font-size-min) * 1rem) + (var(--hero-font-size-max) - var(--hero-font-size-min)) * ((100vw - (var(--breakpoint-small) * 1em)) / (((var(--breakpoint-xlarge) - var(--breakpoint-small)) * 1em))));
 
     @include fluid-type(font-size, map_get($breakpoints, phone), map_get($breakpoints, desktophd), $hero-h1-font-size-min, $hero-h1-font-size-max);
-    //@include fluid-type(line-height, map_get($breakpoints, phone), map_get($breakpoints, desktophd), $hero-h1-line-height-min, $hero-h1-line-height-max);
-    line-height: .7;
+    @include fluid-type(line-height, map_get($breakpoints, phone), map_get($breakpoints, desktophd), $hero-h1-line-height-min, $hero-h1-line-height-max);
+    //line-height: .7;
 
     span {
       display: block;
@@ -45,6 +46,11 @@ $hero-h2-font-size-max: 3.33rem;
       -1px 1px 0 var(--color-black),
       1px 1px 0 var(--color-black);
     }
+  }
+
+  svg {
+    width: 313px;
+    height: 338px;
   }
 
   h2 {
@@ -96,8 +102,41 @@ $hero-h2-font-size-max: 3.33rem;
   }
 }
 
+.blend-fix {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  visibility: hidden;
+  background: red;
+  mix-blend-mode: overlay;
+}
 
 // layout
+.hero {
+  position: relative;
+  display: block;
+  padding: 12.5rem 2.22rem 0 2.22rem;
+  //background: var(--color-white) url(/img/hero-ink.svg) no-repeat bottom right;
+  background-color: var(--color-white);
+
+  h1 {
+    //position: absolute;
+    //top: 12.5rem;
+    //left: 2.22rem;
+    margin-top: 0;
+    mix-blend-mode: difference;
+    //z-index: 2;
+    color: var(--color-white);
+  }
+
+  svg {
+    position: absolute;
+    top: 13rem;
+    right: 0;
+    //z-index: 1;
+  }
+}
+
 //.hero {
 //  display: grid;
 //  grid-template-columns: repeat(4, 1fr);
