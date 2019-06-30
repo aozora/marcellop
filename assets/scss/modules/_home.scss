@@ -1,0 +1,30 @@
+.home {
+  &::before {
+    content: 'Marcello\APalmitessa';
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: auto;
+    height: 100vh;
+    padding: 0 100vw;
+    background-color: var(--color-black);
+    font-family: $heading-font-family;
+    font-size: 8rem;
+    line-height: 1.7;
+    color: var(--color-white);
+    text-transform: uppercase;
+    transform: translateX(0);
+    transition: transform 3s linear;
+    z-index: 102;
+  }
+
+
+  &.loaded {
+    &::before {
+      transform: translateX(-100%);
+    }
+  }
+}

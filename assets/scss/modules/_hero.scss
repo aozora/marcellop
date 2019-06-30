@@ -102,14 +102,6 @@ $hero-h2-font-size-max: 3.33rem;
   }
 }
 
-.blend-fix {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  visibility: hidden;
-  background: red;
-  mix-blend-mode: overlay;
-}
 
 // layout
 .hero {
