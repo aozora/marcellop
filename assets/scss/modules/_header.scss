@@ -90,20 +90,18 @@
   display: grid;
   grid-template-columns: 2.66rem 1fr;
   grid-template-rows: $menu-height;
-  grid-template-areas: "toggle menu";
+  grid-template-areas: "toggle .";
   width: 100%;
-  //height: 100%;
   height: $menu-height;
   overflow: hidden;
-  //padding: 0 4%;
   background-color: $menu-background;
 
-  //@include media(">=tablet") {
-  //  justify-content: space-between;
-  //  align-items: center;
-  //  flex-direction: row;
-  //  flex-wrap: nowrap;
-  //}
+  @include media(">=tablet") {
+    //justify-content: space-between;
+    //align-items: center;
+    //flex-direction: row;
+    //flex-wrap: nowrap;
+  }
 }
 
 .menu__toggle {
@@ -127,12 +125,15 @@
 }
 
 .menu__items {
-  position: relative;
-  grid-area: menu;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-  grid-gap: 1rem 0;
-  align-items: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  //grid-area: menu;
+  //display: grid;
+  //grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  //grid-gap: 1rem 0;
+  //align-items: center;
+  display: none;
 
   width: 100%;
   height: 100%;
@@ -161,7 +162,6 @@
     font-size: 1rem;
     line-height: 1;
     font-weight: 500;
-    //letter-spacing: 0.37px;
     text-transform: uppercase;
     text-decoration: none;
     text-align: center;
@@ -187,13 +187,13 @@
   }
 
   @include media(">=tablet") {
+    position: relative;
+    top: auto;
+    left: auto;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: row;
-    position: relative;
-    top: auto;
-    left: auto;
     height: 100%;
     margin: 0;
     padding: 0;
@@ -226,6 +226,34 @@
     }
   }
 }
+
+.header--menu-open {
+  height: 100vh;
+
+  .menu {
+    height: 100vh;
+  }
+
+  .menu__items {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 100vw;
+    height: 100vh;
+    padding: 1rem;
+    background-color: var(--color-black);
+
+    li {
+      width: 100%;
+    }
+
+    a {
+      color: var(--color-white);
+    }
+  }
+}
+
 
 //
 //.main-menu__search {

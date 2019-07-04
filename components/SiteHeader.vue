@@ -1,5 +1,5 @@
 <template>
-  <header id="header" class="header" :class="{'header--home': isHome ,'header--open': showMobileMenu, 'header--scrolled': homeHeaderScrolled}">
+  <header id="header" class="header" :class="{'header--home': isHome ,'header--menu-open': showMobileMenu, 'header--scrolled': homeHeaderScrolled}">
     <a href="#maincontent">Skip to main content</a>
 
     <!--    <h1 v-if="home && isHome">-->
