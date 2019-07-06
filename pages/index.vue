@@ -36,29 +36,57 @@ import What from '../components/What';
 export default {
   components: { /* Contact, Experience, */ What, About, Hero },
 
-  // metaInfo: {
-  //   title: 'Hello, world!'
-  // }
+  head() {
+    return {
+      // title: this.$t('home.title'),
+      link: [
+        ...this.getSeoMetaData()
+      ]
+    };
+  },
 
 
-//   apollo: {
-//     home: gql`query HomeQuery
-// {
-//   home(locale: en) {
-//     _seoMetaTags {
-//       attributes
-//       content
-//       tag
-//     }
-//   }
-// }
-// `
-//   },
+  apollo: {
+    home: gql`
+{
+  home(locale: en) {
+    _seoMetaTags {
+      attributes
+      content
+      tag
+    }
+  }
+}
+`
+  },
 
 
   mounted() {
     if (process.client) {
       document.querySelector('body').classList.add('loaded');
+    }
+  },
+
+  methods: {
+    getSeoMetaData: function () {
+      if (!this.home) {
+        return [];
+      }
+
+      return this.home._seoMetaTags.filter(meta => meta.tag === 'meta')
+        .map((meta) => {
+          if (meta.attributes !== null) {
+
+            const m = {};
+            const attributes = Object.keys(meta.attributes);
+
+            for (let index = 0; index < attributes.length; index++) {
+              m[attributes[index]] = meta.attributes[attributes[index]];
+            }
+
+            return m;
+          }
+        });
     }
   }
 };
