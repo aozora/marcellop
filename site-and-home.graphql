@@ -1,0 +1,24 @@
+query LayoutQuery
+{
+  _site {
+    globalSeo {
+      siteName
+      facebookPageUrl
+      # fallbackSeo
+      titleSuffix
+      twitterAccount
+    }
+    faviconMetaTags {
+      attributes
+      content
+      tag
+    }
+  }
+  home {
+    _seoMetaTags {
+      attributes
+      content
+      tag
+    }
+  }
+}
