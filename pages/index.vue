@@ -26,6 +26,7 @@
 </template>
 
 <script>
+import gql from 'graphql-tag';
 import Hero from '../components/Hero';
 import About from '../components/About';
 import What from '../components/What';
@@ -38,6 +39,22 @@ export default {
   // metaInfo: {
   //   title: 'Hello, world!'
   // }
+
+
+//   apollo: {
+//     home: gql`query HomeQuery
+// {
+//   home(locale: en) {
+//     _seoMetaTags {
+//       attributes
+//       content
+//       tag
+//     }
+//   }
+// }
+// `
+//   },
+
 
   mounted() {
     if (process.client) {

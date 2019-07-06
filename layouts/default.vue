@@ -19,6 +19,7 @@
 </template>
 
 <script>
+import gql from 'graphql-tag';
 import SiteHeader from '../components/SiteHeader';
 import SiteFooter from '../components/SiteFooter';
 
@@ -33,7 +34,10 @@ export default {
       // title: this.$t('home.title'),
       bodyAttrs: {
         'class': this.$route.name === 'index' ? 'home' : this.$route.name
-      }
+      },
+      link: [
+        ...this.getfaviconMetaTags()
+      ]
     };
   },
 
@@ -43,6 +47,26 @@ export default {
     };
   },
 
+  apollo: {
+    _site: gql`
+{
+  _site(locale: en) {
+    globalSeo {
+      siteName
+      facebookPageUrl
+      titleSuffix
+      twitterAccount
+    }
+    faviconMetaTags {
+      attributes
+      content
+      tag
+    }
+  }
+}
+`
+  },
+
   computed: {
     isHome() {
       return this.$route.path === '/';
@@ -50,9 +74,28 @@ export default {
   },
 
   methods: {
+    /**
+     *
+     * @param isVisible
+     * @param entry
+     */
     homeHeadingVisibilityChanged: function (isVisible, entry) {
       console.log(isVisible);
       this.homeHeaderScrolled = !isVisible;
+    },
+
+    /**
+     * Get the favicon links for the head
+     * @returns {Array|*}
+     */
+    getfaviconMetaTags: function () {
+      if (!this._site) {
+        return [];
+      }
+
+      return this._site.faviconMetaTags.map((meta) => {
+        return { rel: meta.attributes.rel, type: meta.attributes.type, sizes: meta.attributes.sizes, href: meta.attributes.href };
+      });
     }
   }
 };
