@@ -16,10 +16,13 @@ $hero-h2-font-size-max: 3.33rem;
 
 
 .hero {
+  position: relative;
+  display: block;
+  padding: 3rem 2.22rem 0 2.22rem;
   margin-bottom: 2rem;
+  background-color: var(--color-white);
 
   h1 {
-    margin: 0 auto;
     width: 100%;
     max-width: none;
     max-height: 28rem;
@@ -31,24 +34,29 @@ $hero-h2-font-size-max: 3.33rem;
 
     @include fluid-type(font-size, map_get($breakpoints, phone), map_get($breakpoints, desktophd), $hero-h1-font-size-min, $hero-h1-font-size-max);
     @include fluid-type(line-height, map_get($breakpoints, phone), map_get($breakpoints, desktophd), $hero-h1-line-height-min, $hero-h1-line-height-max);
-    //line-height: .7;
+
+    mix-blend-mode: difference;
+    color: var(--color-white);
 
     span {
       display: block;
     }
 
-    // simulate the text stroke for hollow text
-    span:last-child {
-      //transform: translate3d(5rem, -11rem, 0);
-      color: var(--color-white);
-      text-shadow: -1px -1px 0 var(--color-black),
-      1px -1px 0 var(--color-black),
-      -1px 1px 0 var(--color-black),
-      1px 1px 0 var(--color-black);
-    }
+    //// simulate the text stroke for hollow text
+    //span:last-child {
+    //  //transform: translate3d(5rem, -11rem, 0);
+    //  color: var(--color-white);
+    //  text-shadow: -1px -1px 0 var(--color-black),
+    //  1px -1px 0 var(--color-black),
+    //  -1px 1px 0 var(--color-black),
+    //  1px 1px 0 var(--color-black);
+    //}
   }
 
   svg {
+    position: absolute;
+    top: 3rem;
+    right: 0;
     width: 313px;
     height: 338px;
   }
@@ -66,8 +74,10 @@ $hero-h2-font-size-max: 3.33rem;
       display: inline-block;
       padding: 0 .5em;
       text-align: right;
+      text-transform: none;
       color: var(--color-white);
       background-color: var(--color-black);
+      z-index: 1; // prevent color bleeding
     }
   }
 
@@ -104,30 +114,7 @@ $hero-h2-font-size-max: 3.33rem;
 
 
 // layout
-.hero {
-  position: relative;
-  display: block;
-  padding: 12.5rem 2.22rem 0 2.22rem;
-  //background: var(--color-white) url(/img/hero-ink.svg) no-repeat bottom right;
-  background-color: var(--color-white);
 
-  h1 {
-    //position: absolute;
-    //top: 12.5rem;
-    //left: 2.22rem;
-    margin-top: 0;
-    mix-blend-mode: difference;
-    //z-index: 2;
-    color: var(--color-white);
-  }
-
-  svg {
-    position: absolute;
-    top: 13rem;
-    right: 0;
-    //z-index: 1;
-  }
-}
 
 //.hero {
 //  display: grid;

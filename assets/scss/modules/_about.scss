@@ -15,6 +15,7 @@
 
 .about__container {
   @include container;
+  padding: 1rem;
   column-count: 1;
 
   @include media(">=tablet") {
