@@ -1,13 +1,10 @@
 <template>
-  <article></article>
+  <section class="resume"></section>
 </template>
 
 <script>
 export default {
-  name: 'Slug'
+  name: 'Resume'
 };
 </script>
 
-<style scoped>
-
-</style>

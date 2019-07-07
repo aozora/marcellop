@@ -25,7 +25,7 @@
 .header {
   width: 100%;
   max-width: none;
-
+  height: $menu-height;
 }
 
 .homeHeadingScrollSentinel {
@@ -93,7 +93,7 @@
   grid-template-areas: "toggle .";
   width: 100%;
   height: $menu-height;
-  overflow: hidden;
+  //overflow: hidden;
   background-color: $menu-background;
 
   @include media(">=tablet") {
@@ -228,19 +228,21 @@
 }
 
 .header--menu-open {
-  height: 100vh;
+  background-color: var(--color-black);
 
-  .menu {
-    height: 100vh;
+  .menu__toggle {
+    color: var(--color-white);
   }
 
   .menu__items {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: flex-start;
-    align-items: flex-start;
+    position: fixed;
+    top: $menu-height;
+    left: 0;
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: repeat(auto-fill,3rem);
     width: 100vw;
-    height: 100vh;
+    height: calc(100vh - #{$menu-height});
     padding: 1rem;
     background-color: var(--color-black);
 
