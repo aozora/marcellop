@@ -39,7 +39,8 @@ export default {
   head() {
     return {
       // title: this.$t('home.title'),
-      link: [
+      titleTemplate: null,
+      meta: [
         ...this.getSeoMetaData()
       ]
     };
@@ -82,6 +83,7 @@ export default {
 
             for (let index = 0; index < attributes.length; index++) {
               m[attributes[index]] = meta.attributes[attributes[index]];
+              m.hid = attributes[index];
             }
 
             return m;

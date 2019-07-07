@@ -31,10 +31,14 @@ export default {
 
   head() {
     return {
-      // title: this.$t('home.title'),
+      title: this._site.globalSeo.siteName,
+      titleTemplate: `%s ${this._site.globalSeo.titleSuffix}`,
       bodyAttrs: {
         'class': this.$route.name === 'index' ? 'home' : this.$route.name
       },
+      meta: [
+        { hid: 'description', name: 'description', content: this._site.globalSeo.fallbackSeo.description }
+      ],
       link: [
         ...this.getfaviconMetaTags()
       ]
@@ -53,9 +57,17 @@ export default {
   _site(locale: en) {
     globalSeo {
       siteName
-      facebookPageUrl
       titleSuffix
       twitterAccount
+      fallbackSeo {
+        title
+        image {
+          url
+          format
+        }
+        description
+        twitterCard
+      }
     }
     faviconMetaTags {
       attributes
