@@ -30,15 +30,15 @@ import gql from 'graphql-tag';
 import Hero from '../components/Hero';
 import About from '../components/About';
 import What from '../components/What';
-import seoMetaTagFragment from '../apollo/fragments/seoMetaTagsFragmentMixin';
+// import seoMetaTagFragment from '../apollo/fragments/seoMetaTagsFragmentMixin';
 // import Experience from '../components/Experience';
 // import Contact from '../components/Contact';
 
 export default {
   components: { /* Contact, Experience, */ What, About, Hero },
-  mixins: [
-    seoMetaTagFragment
-  ],
+  // mixins: [
+  //   seoMetaTagFragment
+  // ],
 
   head() {
     return {

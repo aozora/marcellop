@@ -45,7 +45,7 @@ const routes = [
 
 export default {
   mode: 'universal',
-  modern: true,
+  // modern: true,
 
   /*
   ** Headers of the page
