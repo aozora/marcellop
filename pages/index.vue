@@ -30,7 +30,7 @@ import gql from 'graphql-tag';
 import Hero from '../components/Hero';
 import About from '../components/About';
 import What from '../components/What';
-import { datoCmsSeoMetaTags } from '../apollo/fragments/seoMetaTagsFragmentMixin';
+import { DatoCmsSeoMetaTags } from '../apollo/fragments/seoMetaTagsFragmentMixin';
 // import Experience from '../components/Experience';
 // import Contact from '../components/Contact';
 
@@ -67,12 +67,12 @@ export default {
     home: gql`
 {
   home(locale: en) {
-     _seoMetaTags {
-    ...datoCmsSeoMetaTags
+     seoMetaTags: _seoMetaTags {
+      ...datoCmsSeoMetaTags
     }
   }
 }
-${datoCmsSeoMetaTags}
+${DatoCmsSeoMetaTags}
 `
   },
 
@@ -89,7 +89,7 @@ ${datoCmsSeoMetaTags}
         return [];
       }
 
-      return this.home._seoMetaTags.filter(meta => meta.tag === 'meta')
+      return this.home.seoMetaTags.filter(meta => meta.tag === 'meta')
         .map((meta) => {
           if (meta.attributes !== null) {
 

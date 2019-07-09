@@ -22,6 +22,7 @@
 import gql from 'graphql-tag';
 import SiteHeader from '../components/SiteHeader';
 import SiteFooter from '../components/SiteFooter';
+import { DatoCmsSeoMetaTags } from '../apollo/fragments/seoMetaTagsFragmentMixin';
 
 export default {
   components: {
@@ -52,9 +53,9 @@ export default {
   },
 
   apollo: {
-    _site: gql`
+    site: gql`
 {
-  _site(locale: en) {
+  site: _site(locale: en) {
     globalSeo {
       siteName
       titleSuffix
@@ -70,12 +71,11 @@ export default {
       }
     }
     faviconMetaTags {
-      attributes
-      content
-      tag
+      ...DatoCmsSeoMetaTags
     }
   }
 }
+${DatoCmsSeoMetaTags}
 `
   },
 
@@ -101,11 +101,11 @@ export default {
      * @returns {Array|*}
      */
     getfaviconMetaTags: function () {
-      if (!this._site) {
+      if (!this.site) {
         return [];
       }
 
-      return this._site.faviconMetaTags.map((meta) => {
+      return this.site.faviconMetaTags.map((meta) => {
         return { rel: meta.attributes.rel, type: meta.attributes.type, sizes: meta.attributes.sizes, href: meta.attributes.href };
       });
     }
