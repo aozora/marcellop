@@ -1,5 +1,5 @@
-// import gql from 'graphql-tag';
-//
+import gql from 'graphql-tag';
+
 // export default {
 //   fragments: {
 //     seoMetaTags: gql`
@@ -11,3 +11,11 @@
 //     `
 //   }
 // };
+
+export const datoCmsSeoMetaTags = gql`
+  fragment datoCmsSeoMetaTags on Tag {
+    attributes
+    content
+    tag
+  }
+`;
