@@ -32,13 +32,13 @@ export default {
 
   head() {
     return {
-      title: this._site.globalSeo.siteName,
-      titleTemplate: `%s ${this._site.globalSeo.titleSuffix}`,
+      title: this.site.globalSeo.siteName,
+      titleTemplate: `%s ${this.site.globalSeo.titleSuffix}`,
       bodyAttrs: {
         'class': this.$route.name === 'index' ? 'home' : this.$route.name
       },
       meta: [
-        { hid: 'description', name: 'description', content: this._site.globalSeo.fallbackSeo.description }
+        { hid: 'description', name: 'description', content: this.site.globalSeo.fallbackSeo.description }
       ],
       link: [
         ...this.getfaviconMetaTags()

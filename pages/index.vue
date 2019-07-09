@@ -52,23 +52,11 @@ export default {
 
 
   apollo: {
-//     home: gql`
-// {
-//   home(locale: en) {
-//     _seoMetaTags {
-//       attributes
-//       content
-//       tag
-//     }
-//   }
-// }
-// `
-
     home: gql`
 {
   home(locale: en) {
      seoMetaTags: _seoMetaTags {
-      ...datoCmsSeoMetaTags
+      ...DatoCmsSeoMetaTags
     }
   }
 }
