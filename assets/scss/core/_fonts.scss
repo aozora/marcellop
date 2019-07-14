@@ -27,381 +27,116 @@
  * © 2019 MyFonts Inc
 */
 @font-face {
+  font-display: swap;
+  font-style: normal;
+  font-weight: 400;
   font-family: 'BonVivant-Regular';
   src: url('/fonts/39C2E8_0_0.woff2') format('woff2'), url('/fonts/39C2E8_0_0.woff') format('woff');
 }
 
 
 @font-face {
+  font-display: swap;
+  font-style: normal;
+  font-weight: 400;
   font-family: 'BonVivantSerif';
   src: url('/fonts/39C2E8_1_0.woff2') format('woff2'), url('/fonts/39C2E8_1_0.woff') format('woff');
 }
 
 
 @font-face {
+  font-display: swap;
+  font-style: normal;
+  font-weight: 700;
   font-family: 'BonVivantSerifBold';
   src: url('/fonts/39C2E8_2_0.woff2') format('woff2'), url('/fonts/39C2E8_2_0.woff') format('woff');
 }
 
-
-
-/*
-EksellDisplay-Large.woff
-EksellDisplay-Small.woff
-EksellDisplay-Stencil.woff
-EksellDisplayWeb-Medium.woff
+/**
+ * @license
+ * MyFonts Webfont Build ID 3785470, 2019-07-14T14:35:33-0400
+ *
+ * The fonts listed in this notice are subject to the End User License
+ * Agreement(s) entered into by the website owner. All other parties are
+ * explicitly restricted from using the Licensed Webfonts(s).
+ *
+ * You may obtain a valid license at the URLs below.
+ *
+ * Webfont: NHaasGroteskTXPro-55Rg by Linotype
+ * URL: https://www.myfonts.com/fonts/linotype/neue-haas-grotesk/pro-text-55-roman/
+ *
+ * Webfont: NHaasGroteskTXPro-56It by Linotype
+ * URL: https://www.myfonts.com/fonts/linotype/neue-haas-grotesk/pro-text-56-italic/
+ *
+ * Webfont: NHaasGroteskTXPro-65Md by Linotype
+ * URL: https://www.myfonts.com/fonts/linotype/neue-haas-grotesk/pro-text-65-medium/
+ *
+ * Webfont: NHaasGroteskTXPro-66MdIt by Linotype
+ * URL: https://www.myfonts.com/fonts/linotype/neue-haas-grotesk/pro-text-66-medium-italic/
+ *
+ * Webfont: NHaasGroteskTXPro-75Bd by Linotype
+ * URL: https://www.myfonts.com/fonts/linotype/neue-haas-grotesk/pro-text-75-bold/
+ *
+ * Webfont: NHaasGroteskTXPro-76BdIt by Linotype
+ * URL: https://www.myfonts.com/fonts/linotype/neue-haas-grotesk/pro-text-76-bold-italic/
+ *
+ *
+ * License: https://www.myfonts.com/viewlicense?type=web&buildid=3785470
+ * Licensed pageviews: 1,000,000
+ * Webfonts copyright: Copyright &#x00A9; 2013 Monotype Imaging Inc. All rights reserved.
+ *
+ * © 2019 MyFonts Inc
 */
+
 @font-face {
   font-display: swap;
-  font-family: 'Eksell Display';
   font-style: normal;
   font-weight: 400;
-  src: url("/fonts/EksellDisplay-Stencil.woff") format("woff");
+  font-family: 'Neue Haas Grotesk'; // NHaasGroteskTXPro-55Rg'; // Text 55 Roman
+  src: url('/fonts/39C2FE_0_0.woff2') format('woff2'), url('/fonts/39C2FE_0_0.woff') format('woff'), url('/fonts/39C2FE_0_0.ttf') format('truetype');
 }
 
 
-/*
-Didot Headline Bold.ttf
-Didot Headline Demi.ttf
-Didot Headline Regular.ttf
-*/
 @font-face {
   font-display: swap;
-  font-family: 'Didot Headline';
-  font-style: normal;
+  font-style: italic;
   font-weight: 400;
-  src: url("/fonts/Didot Headline Regular.ttf") format("truetype");
-}
-@font-face {
-  font-display: swap;
-  font-family: 'Didot Headline';
-  font-style: normal;
-  font-weight: 600;
-  src: url("/fonts/Didot Headline Demi.ttf") format("truetype");
-}
-@font-face {
-  font-display: swap;
-  font-family: 'Didot Headline';
-  font-style: normal;
-  font-weight: 700;
-  src: url("/fonts/Didot Headline Bold.ttf") format("truetype");
+  font-family: 'Neue Haas Grotesk'; // NHaasGroteskTXPro-56It'; // Text 56 Italic
+  src: url('/fonts/39C2FE_1_0.woff2') format('woff2'), url('/fonts/39C2FE_1_0.woff') format('woff'), url('/fonts/39C2FE_1_0.ttf') format('truetype');
 }
 
-/*
-NeueAlteGrotesk-Black.ttf
-NeueAlteGrotesk-Bold.ttf
-NeueAlteGrotesk-Book.ttf
-NeueAlteGrotesk-ExtraLight.ttf
-NeueAlteGrotesk-Heavy.ttf
-NeueAlteGrotesk-Light.ttf
-NeueAlteGrotesk-Medium.ttf
-NeueAlteGrotesk-Regular.ttf
-NeueAlteGrotesk-SemiBold.ttf
-NeueAlteGrotesk-Thin.ttf
-*/
+
 @font-face {
   font-display: swap;
-  font-family: 'Neue Alte Grotesk';
-  font-style: normal;
-  font-weight: 300;
-  src: url("/fonts/NeueAlteGrotesk-Light.ttf") format("truetype");
-}
-@font-face {
-  font-display: swap;
-  font-family: 'Neue Alte Grotesk';
-  font-style: normal;
-  font-weight: 400;
-  src: url("/fonts/NeueAlteGrotesk-Regular.ttf") format("truetype");
-}
-@font-face {
-  font-display: swap;
-  font-family: 'Neue Alte Grotesk';
   font-style: normal;
   font-weight: 500;
-  src: url("/fonts/NeueAlteGrotesk-Medium.ttf") format("truetype");
+  font-family: 'Neue Haas Grotesk'; // NHaasGroteskTXPro-65Md'; // Text 65 Medium
+  src: url('/fonts/39C2FE_2_0.woff2') format('woff2'), url('/fonts/39C2FE_2_0.woff') format('woff'), url('/fonts/39C2FE_2_0.ttf') format('truetype');
 }
+
+
 @font-face {
   font-display: swap;
-  font-family: 'Neue Alte Grotesk';
   font-style: normal;
-  font-weight: 600;
-  src: url("/fonts/NeueAlteGrotesk-SemiBold.ttf") format("truetype");
+  font-weight: 400;
+  font-family: 'Neue Haas Grotesk'; // NHaasGroteskTXPro-66MdIt'; // Text 66 Medium Italic
+  src: url('/fonts/39C2FE_3_0.woff2') format('woff2'), url('/fonts/39C2FE_3_0.woff') format('woff'), url('/fonts/39C2FE_3_0.ttf') format('truetype');
 }
+
+
+@font-face {
+   font-display: swap;
+  font-style: normal;
+  font-weight: 400;
+ font-family: 'Neue Haas Grotesk'; // NHaasGroteskTXPro-75Bd'; // Text 75 Bold
+  src: url('/fonts/39C2FE_4_0.woff2') format('woff2'), url('/fonts/39C2FE_4_0.woff') format('woff'), url('/fonts/39C2FE_4_0.ttf') format('truetype');
+}
+
+
 @font-face {
   font-display: swap;
-  font-family: 'Neue Alte Grotesk';
-  font-style: normal;
-  font-weight: 700;
-  src: url("/fonts/NeueAlteGrotesk-Bold.ttf") format("truetype");
-}
-
-
-// **************************************
-//  Inter
-// **************************************
-@font-face {
-  font-family: 'Inter';
-  font-style: normal;
-  font-weight: 100;
-  src: url("/fonts/Inter-Thin.woff2?v=3.7") format("woff2"),
-  url("/fonts/Inter-Thin.woff?v=3.7") format("woff");
-}
-
-@font-face {
-  font-family: 'Inter';
-  font-style: italic;
-  font-weight: 100;
-  src: url("/fonts/Inter-ThinItalic.woff2?v=3.7") format("woff2"),
-  url("/fonts/Inter-ThinItalic.woff?v=3.7") format("woff");
-}
-
-@font-face {
-  font-family: 'Inter';
-  font-style: normal;
-  font-weight: 200;
-  src: url("/fonts/Inter-ExtraLight.woff2?v=3.7") format("woff2"),
-  url("/fonts/Inter-ExtraLight.woff?v=3.7") format("woff");
-}
-
-@font-face {
-  font-family: 'Inter';
-  font-style: italic;
-  font-weight: 200;
-  src: url("/fonts/Inter-ExtraLightItalic.woff2?v=3.7") format("woff2"),
-  url("/fonts/Inter-ExtraLightItalic.woff?v=3.7") format("woff");
-}
-
-@font-face {
-  font-family: 'Inter';
-  font-style: normal;
-  font-weight: 300;
-  src: url("/fonts/Inter-Light.woff2?v=3.7") format("woff2"),
-  url("/fonts/Inter-Light.woff?v=3.7") format("woff");
-}
-
-@font-face {
-  font-family: 'Inter';
-  font-style: italic;
-  font-weight: 300;
-  src: url("/fonts/Inter-LightItalic.woff2?v=3.7") format("woff2"),
-  url("/fonts/Inter-LightItalic.woff?v=3.7") format("woff");
-}
-
-@font-face {
-  font-family: 'Inter';
   font-style: normal;
   font-weight: 400;
-  src: url("/fonts/Inter-Regular.woff2?v=3.7") format("woff2"),
-  url("/fonts/Inter-Regular.woff?v=3.7") format("woff");
-}
-
-@font-face {
-  font-family: 'Inter';
-  font-style: italic;
-  font-weight: 400;
-  src: url("/fonts/Inter-Italic.woff2?v=3.7") format("woff2"),
-  url("/fonts/Inter-Italic.woff?v=3.7") format("woff");
-}
-
-@font-face {
-  font-family: 'Inter';
-  font-style: normal;
-  font-weight: 500;
-  src: url("/fonts/Inter-Medium.woff2?v=3.7") format("woff2"),
-  url("/fonts/Inter-Medium.woff?v=3.7") format("woff");
-}
-
-@font-face {
-  font-family: 'Inter';
-  font-style: italic;
-  font-weight: 500;
-  src: url("/fonts/Inter-MediumItalic.woff2?v=3.7") format("woff2"),
-  url("/fonts/Inter-MediumItalic.woff?v=3.7") format("woff");
-}
-
-@font-face {
-  font-family: 'Inter';
-  font-style: normal;
-  font-weight: 600;
-  src: url("/fonts/Inter-SemiBold.woff2?v=3.7") format("woff2"),
-  url("/fonts/Inter-SemiBold.woff?v=3.7") format("woff");
-}
-
-@font-face {
-  font-family: 'Inter';
-  font-style: italic;
-  font-weight: 600;
-  src: url("/fonts/Inter-SemiBoldItalic.woff2?v=3.7") format("woff2"),
-  url("/fonts/Inter-SemiBoldItalic.woff?v=3.7") format("woff");
-}
-
-@font-face {
-  font-family: 'Inter';
-  font-style: normal;
-  font-weight: 700;
-  src: url("/fonts/Inter-Bold.woff2?v=3.7") format("woff2"),
-  url("/fonts/Inter-Bold.woff?v=3.7") format("woff");
-}
-
-@font-face {
-  font-family: 'Inter';
-  font-style: italic;
-  font-weight: 700;
-  src: url("/fonts/Inter-BoldItalic.woff2?v=3.7") format("woff2"),
-  url("/fonts/Inter-BoldItalic.woff?v=3.7") format("woff");
-}
-
-@font-face {
-  font-family: 'Inter';
-  font-style: normal;
-  font-weight: 800;
-  src: url("/fonts/Inter-ExtraBold.woff2?v=3.7") format("woff2"),
-  url("/fonts/Inter-ExtraBold.woff?v=3.7") format("woff");
-}
-
-@font-face {
-  font-family: 'Inter';
-  font-style: italic;
-  font-weight: 800;
-  src: url("/fonts/Inter-ExtraBoldItalic.woff2?v=3.7") format("woff2"),
-  url("/fonts/Inter-ExtraBoldItalic.woff?v=3.7") format("woff");
-}
-
-@font-face {
-  font-family: 'Inter';
-  font-style: normal;
-  font-weight: 900;
-  src: url("/fonts/Inter-Black.woff2?v=3.7") format("woff2"),
-  url("/fonts/Inter-Black.woff?v=3.7") format("woff");
-}
-
-@font-face {
-  font-family: 'Inter';
-  font-style: italic;
-  font-weight: 900;
-  src: url("/fonts/Inter-BlackItalic.woff2?v=3.7") format("woff2"),
-  url("/fonts/Inter-BlackItalic.woff?v=3.7") format("woff");
-}
-
-/* -------------------------------------------------------
-Variable font.
-Usage:
-
-  html { font-family: 'Inter', sans-serif; }
-  @supports (font-variation-settings: normal) {
-    html { font-family: 'Inter var', sans-serif; }
-  }
-*/
-@font-face {
-  font-family: 'Inter var';
-  font-weight: 100 900;
-  font-style: normal;
-  font-named-instance: 'Regular';
-  src: url("/fonts/Inter-upright.var.woff2?v=3.7") format("woff2");
-}
-
-@font-face {
-  font-family: 'Inter var';
-  font-weight: 100 900;
-  font-style: italic;
-  font-named-instance: 'Italic';
-  src: url("/fonts/Inter-italic.var.woff2?v=3.7") format("woff2");
-}
-
-/* Legacy naming compatibility */
-@font-face {
-  font-family: 'Inter var alt';
-  font-weight: 100 900;
-  font-style: normal;
-  font-named-instance: 'Regular';
-  src: url("/fonts/Inter-upright.var.woff2?v=3.7") format("woff2");
-}
-
-@font-face {
-  font-family: 'Inter var alt';
-  font-weight: 100 900;
-  font-style: italic;
-  font-named-instance: 'Italic';
-  src: url("/fonts/Inter-italic.var.woff2?v=3.7") format("woff2");
-}
-
-// **************************************
-//  PLAYFAIR
-// **************************************
-
-/* playfair-display-regular - latin */
-@font-face {
-  font-family: 'Playfair Display';
-  font-style: normal;
-  font-weight: 400;
-  src: url('/fonts/playfair-display-v14-latin-regular.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
-  url('/fonts/playfair-display-v14-latin-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
-}
-
-/* playfair-display-700 - latin */
-@font-face {
-  font-family: 'Playfair Display';
-  font-style: normal;
-  font-weight: 700;
-  src: url('/fonts/playfair-display-v14-latin-700.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
-  url('/fonts/playfair-display-v14-latin-700.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
-}
-
-/* playfair-display-700italic - latin */
-@font-face {
-  font-family: 'Playfair Display';
-  font-style: italic;
-  font-weight: 700;
-  src: url('/fonts/playfair-display-v14-latin-700italic.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
-  url('/fonts/playfair-display-v14-latin-700italic.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
-}
-
-/* playfair-display-italic - latin */
-@font-face {
-  font-family: 'Playfair Display';
-  font-style: italic;
-  font-weight: 400;
-  src: url('/fonts/playfair-display-v14-latin-italic.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
-  url('/fonts/playfair-display-v14-latin-italic.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
-}
-
-/* playfair-display-900 - latin */
-@font-face {
-  font-family: 'Playfair Display';
-  font-style: normal;
-  font-weight: 900;
-  src: url('/fonts/playfair-display-v14-latin-900.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
-  url('/fonts/playfair-display-v14-latin-900.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
-}
-
-/* playfair-display-900italic - latin */
-@font-face {
-  font-family: 'Playfair Display';
-  font-style: italic;
-  font-weight: 900;
-  src: url('/fonts/playfair-display-v14-latin-900italic.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
-  url('/fonts/playfair-display-v14-latin-900italic.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
-}
-
-
-
-
-/* cinzel-regular - latin */
-@font-face {
-  font-family: 'Cinzel';
-  font-style: normal;
-  font-weight: 400;
-  src: local('Cinzel Regular'), local('Cinzel-Regular'),
-  url('/fonts/cinzel-v8-latin-regular.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
-  url('/fonts/cinzel-v8-latin-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
-}
-
-/* cinzel-700 - latin */
-@font-face {
-  font-family: 'Cinzel';
-  font-style: normal;
-  font-weight: 700;
-  src: local('Cinzel Bold'), local('Cinzel-Bold'),
-  url('/fonts/cinzel-v8-latin-700.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
-  url('/fonts/cinzel-v8-latin-700.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+  font-family: 'Neue Haas Grotesk'; // NHaasGroteskTXPro-76BdIt'; // Text 76 Bold Italic
+  src: url('/fonts/39C2FE_5_0.woff2') format('woff2'), url('/fonts/39C2FE_5_0.woff') format('woff'), url('/fonts/39C2FE_5_0.ttf') format('truetype');
 }
