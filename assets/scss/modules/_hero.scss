@@ -1,6 +1,6 @@
-$hero-h1-line-height-min: 1.78em; // use 'em' otherwise the fluid-type mixin doesn't work
+$hero-h1-line-height-min: 1.3em; // use 'em' otherwise the fluid-type mixin doesn't work
 $hero-h1-line-height-max: 1.5em;
-$hero-h1-font-size-min: 2.05rem;
+$hero-h1-font-size-min: 3rem;
 $hero-h1-font-size-max: 12.388rem;
 $hero-weight: 900;
 $hero-slant: 2.73;
@@ -27,7 +27,10 @@ $hero-h2-font-size-max: 3.33rem;
     max-width: none;
     max-height: 28rem;
     --text-weight: $hero-weight;
-    font-variation-settings: 'wght' $hero-weight, 'slnt' $hero-slant;
+    @if $use-variable-font-for-headings {
+      font-variation-settings: 'wght' $hero-weight, 'slnt' $hero-slant;
+    }
+
     margin: 0 auto;
 
     font-size: calc((var(--hero-font-size-min) * 1rem) + (var(--hero-font-size-max) - var(--hero-font-size-min)) * ((100vw - (var(--breakpoint-small) * 1em)) / (((var(--breakpoint-xlarge) - var(--breakpoint-small)) * 1em))));
@@ -37,6 +40,7 @@ $hero-h2-font-size-max: 3.33rem;
 
     mix-blend-mode: difference;
     color: var(--color-white);
+    text-transform: uppercase;
 
     span {
       display: block;
@@ -74,7 +78,7 @@ $hero-h2-font-size-max: 3.33rem;
       display: inline-block;
       padding: 0 .5em;
       text-align: right;
-      text-transform: none;
+      text-transform: uppercase;
       color: var(--color-white);
       background-color: var(--color-black);
       z-index: 1; // prevent color bleeding

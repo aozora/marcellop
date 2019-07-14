@@ -1,3 +1,31 @@
+/*
+Bon Vivant Serif.otf
+Bon Vivant Serif Bold.otf
+BonVivant-Regular.otf
+*/
+@font-face {
+  font-display: swap;
+  font-family: 'Bon Vivant Serif';
+  font-style: normal;
+  font-weight: 700;
+  src: url("/fonts/Bon Vivant Serif Bold.otf") format("opentype");
+}
+
+
+/*
+EksellDisplay-Large.woff
+EksellDisplay-Small.woff
+EksellDisplay-Stencil.woff
+EksellDisplayWeb-Medium.woff
+*/
+@font-face {
+  font-display: swap;
+  font-family: 'Eksell Display';
+  font-style: normal;
+  font-weight: 400;
+  src: url("/fonts/EksellDisplay-Stencil.woff") format("woff");
+}
+
 
 /*
 Didot Headline Bold.ttf
@@ -38,6 +66,41 @@ NeueAlteGrotesk-Regular.ttf
 NeueAlteGrotesk-SemiBold.ttf
 NeueAlteGrotesk-Thin.ttf
 */
+@font-face {
+  font-display: swap;
+  font-family: 'Neue Alte Grotesk';
+  font-style: normal;
+  font-weight: 300;
+  src: url("/fonts/NeueAlteGrotesk-Light.ttf") format("truetype");
+}
+@font-face {
+  font-display: swap;
+  font-family: 'Neue Alte Grotesk';
+  font-style: normal;
+  font-weight: 400;
+  src: url("/fonts/NeueAlteGrotesk-Regular.ttf") format("truetype");
+}
+@font-face {
+  font-display: swap;
+  font-family: 'Neue Alte Grotesk';
+  font-style: normal;
+  font-weight: 500;
+  src: url("/fonts/NeueAlteGrotesk-Medium.ttf") format("truetype");
+}
+@font-face {
+  font-display: swap;
+  font-family: 'Neue Alte Grotesk';
+  font-style: normal;
+  font-weight: 600;
+  src: url("/fonts/NeueAlteGrotesk-SemiBold.ttf") format("truetype");
+}
+@font-face {
+  font-display: swap;
+  font-family: 'Neue Alte Grotesk';
+  font-style: normal;
+  font-weight: 700;
+  src: url("/fonts/NeueAlteGrotesk-Bold.ttf") format("truetype");
+}
 
 
 // **************************************
