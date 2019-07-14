@@ -1,15 +1,48 @@
-/*
-Bon Vivant Serif.otf
-Bon Vivant Serif Bold.otf
-BonVivant-Regular.otf
+/**
+ * @license
+ * MyFonts Webfont Build ID 3785448, 2019-07-14T11:06:22-0400
+ *
+ * The fonts listed in this notice are subject to the End User License
+ * Agreement(s) entered into by the website owner. All other parties are
+ * explicitly restricted from using the Licensed Webfonts(s).
+ *
+ * You may obtain a valid license at the URLs below.
+ *
+ * Webfont: BonVivant-Regular by Nicky Laatz
+ * URL: https://www.myfonts.com/fonts/nicky-laatz/bon-vivant/script/
+ * Copyright: Copyright (c) 2019 by Nicky Laatz. All rights reserved.
+ *
+ * Webfont: BonVivantSerif by Nicky Laatz
+ * URL: https://www.myfonts.com/fonts/nicky-laatz/bon-vivant/serif-regular/
+ * Copyright: Copyright \(c\) 2019 by Nicky Laatz. All rights reserved.
+ *
+ * Webfont: BonVivantSerifBold by Nicky Laatz
+ * URL: https://www.myfonts.com/fonts/nicky-laatz/bon-vivant/serif-bold/
+ * Copyright: Copyright \(c\) 2019 by Nicky Laatz. All rights reserved.
+ *
+ *
+ * License: https://www.myfonts.com/viewlicense?type=web&buildid=3785448
+ * Licensed pageviews: 100,000
+ *
+ * © 2019 MyFonts Inc
 */
 @font-face {
-  font-display: swap;
-  font-family: 'Bon Vivant Serif';
-  font-style: normal;
-  font-weight: 700;
-  src: url("/fonts/Bon Vivant Serif Bold.otf") format("opentype");
+  font-family: 'BonVivant-Regular';
+  src: url('/fonts/39C2E8_0_0.woff2') format('woff2'), url('/fonts/39C2E8_0_0.woff') format('woff');
 }
+
+
+@font-face {
+  font-family: 'BonVivantSerif';
+  src: url('/fonts/39C2E8_1_0.woff2') format('woff2'), url('/fonts/39C2E8_1_0.woff') format('woff');
+}
+
+
+@font-face {
+  font-family: 'BonVivantSerifBold';
+  src: url('/fonts/39C2E8_2_0.woff2') format('woff2'), url('/fonts/39C2E8_2_0.woff') format('woff');
+}
+
 
 
 /*
