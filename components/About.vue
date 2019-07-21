@@ -2,7 +2,7 @@
   <section v-if="about" class="about">
     <div class="about__container">
 
-      <p v-html="about.aboutDescription1"></p>
+      <div v-html="about.aboutDescription1"></div>
 
       <figure v-if="about.aboutPicture" v-observe-visibility="figureVisibilityChanged">
         <img
@@ -16,7 +16,7 @@
         >
       </figure>
 
-      <p v-html="about.aboutDescription2"></p>
+      <div v-html="about.aboutDescription2"></div>
     </div>
   </section>
 

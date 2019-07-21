@@ -51,10 +51,11 @@ em,
 b,
 strong,
 button {
+  --text-weight: $body-font-weight;
   font-family: $body-font-family;
   font-size: 1rem;
   line-height: $baseline;
-  font-weight: $body-font-weight;
+  font-weight: var(--text-weight);
   font-style: normal;
   letter-spacing: $body-font-letter-spacing;
   font-kerning: $kerning;
@@ -264,23 +265,6 @@ p {
 }
 
 
-///*
-//   Improved Links underline
-//   CSS Secrets, Lea Verou, Chapter 5
-//*/
-//p {
-//  a:not(.button) {
-//    @include better-underline();
-//
-//    &:hover,
-//    &:focus {
-//      //color: #000;
-//      //background-color: var(--color-primary)-light;
-//      text-shadow: none;
-//    }
-//  }
-//}
-
 /* Link style
   ============== */
 a {
@@ -392,6 +376,7 @@ blockquote {
       margin-left: 0;
       margin-right: .5rem;
     }
+
     p {
       --text-weight: calc(var(--p-vf-weight) * .8);
       font-size: 5.5vw;
