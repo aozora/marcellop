@@ -1,3 +1,16 @@
 .whatido {
-  padding: 1rem;
+  padding: 1rem 0;
+
+  h3 {
+    padding: 0 1rem;
+    margin: 0 0 -.5rem 0;
+    color: var(--color-black);
+    mix-blend-mode: difference;
+  }
+
+  p {
+    padding: 1rem;
+    background-color: var(--color-black);
+    color: var(--color-white);
+  }
 }

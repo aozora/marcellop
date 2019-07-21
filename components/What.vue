@@ -5,7 +5,7 @@
     <div v-if="whatido" class="whatido__items">
       <div v-for="(item, index) in whatido" :key="index" class="whatido__item">
         <h3 v-text="item.title"></h3>
-        <p v-html="item.description"></p>
+        <div v-html="item.description"></div>
       </div>
     </div>
   </section>
@@ -18,9 +18,9 @@ export default {
   props: {
     whatido: {
       required: true,
-      type: Object,
+      type: Array,
       default: () => {
-        return undefined;
+        return [];
       }
     }
   }
