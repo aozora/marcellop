@@ -4,7 +4,7 @@
 
     <hero :heading1="home.heading1" :heading2-a="home.heading2A" :heading2-b="home.heading2B" :heading2-c="home.heading2C"></hero>
     <about :about="about"></about>
-    <what></what>
+    <what :whatido="whatido"></what>
     <!--    <experience></experience>-->
     <!--    <contact></contact>-->
   </div>
@@ -53,7 +53,11 @@ export default {
       alt
       url
     }
-    seoMetaTags: _seoMetaTags {
+    whatido {
+      title
+      description(markdown: true)
+    }
+        seoMetaTags: _seoMetaTags {
       ...DatoCmsSeoMetaTags
     }
   }
@@ -71,6 +75,10 @@ ${DatoCmsSeoMetaTags}
         aboutDescription3: this.home.aboutDescription3,
         aboutPicture: this.home.aboutPicture
       };
+    },
+
+    whatido(){
+      return this.home.whatido;
     }
   },
 

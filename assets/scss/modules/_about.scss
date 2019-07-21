@@ -29,44 +29,12 @@
     border-color: var(--color-black) var(--color-white) var(--color-white) var(--color-white);
   }
 
-
-  p {
-    width: 100%;
-    margin: 0 0 3rem 0;
-    color: var(--color-white);
-
-    &:first-letter{
-      float: left;
-      margin: 0;
-      padding: 0.05em 0.1em 0 0;
-      font-size: 2.5rem;
-      line-height: 1;
-      //--text-weight: 700;
-      font-weight: 700;
-
-      @supports (initial-letter: 2) or (-webkit-initial-letter: 2) {
-          -webkit-initial-letter: 4;
-          initial-letter: 4;
-          /* undo other bits */
-          float: none;
-          font-size: inherit;
-          line-height: inherit;
-          margin: 0;
-          padding: 0 0.25em 0 0;
-      }
-    }
-
-    &:first-line{
-      //--text-weight: 700;
-      font-weight: 700;
-    }
-  }
 }
 
 .about__container {
   @include container;
   padding: 1rem;
-  column-count: 1;
+  overflow-x: hidden;
 
   @include media(">=tablet") {
     column-count: 3;
@@ -78,7 +46,7 @@
     overflow: hidden;
     margin: 0 0 3rem 0;
     transform: translateX(4rem);
-    
+
     &::after {
       content: '';
       position: absolute;
@@ -96,6 +64,38 @@
       &::after {
         transform: translateX(100%);
       }
+    }
+  }
+
+  p {
+    width: 100%;
+    margin: 0 0 3rem 0;
+    color: var(--color-white);
+
+    &:first-letter{
+      float: left;
+      margin: 0;
+      padding: 0.05em 0.1em 0 0;
+      font-size: 2.5rem;
+      line-height: 1;
+      //--text-weight: 700;
+      font-weight: 700;
+
+      @supports (initial-letter: 2) or (-webkit-initial-letter: 2) {
+        -webkit-initial-letter: 4;
+        initial-letter: 4;
+        /* undo other bits */
+        float: none;
+        font-size: inherit;
+        line-height: inherit;
+        margin: 0;
+        padding: 0 0.25em 0 0;
+      }
+    }
+
+    &:first-line{
+      //--text-weight: 700;
+      font-weight: 700;
     }
   }
 
