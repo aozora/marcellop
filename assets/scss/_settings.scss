@@ -59,8 +59,6 @@ $focus-box-shadow: 1px 1px 0 0 var(--color-primary);
 // -----------
 $menu-background: transparent;
 $menu-height: 3.33rem; // 60px
-$menu-zindex: 101;
-$menu-toggle-button-zindex: $menu-zindex + 2;
 
 
 // Forms
@@ -69,3 +67,12 @@ $form-field-max-width: 20rem;
 $form-field-border: 2px solid var(--color-black);
 $form-border-radius: 2px;
 
+
+// Z-INDEXES
+// -----------
+// list in ascending order
+// -----------
+$menu-zindex: 101;
+$menu-toggle-button-zindex: $menu-zindex + 2;
+$skiplink-zindex: $menu-toggle-button-zindex + 1;
+$home-mobile-loader-zindex: 110;

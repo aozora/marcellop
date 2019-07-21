@@ -1,5 +1,5 @@
 <template>
-  <main>
+  <main id="maincontent" role="main">
     <!--    <g-link to="/" class="home-logo">-->
     <!--      <svg viewBox="0 0 105 67" xmlns="http://www.w3.org/2000/svg">-->
     <!--        <g fill-rule="nonzero" fill="none">-->

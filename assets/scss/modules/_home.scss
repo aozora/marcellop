@@ -18,7 +18,7 @@
     text-transform: uppercase;
     transform: translateX(0);
     transition: transform 3s linear;
-    z-index: 102;
+    z-index: $home-mobile-loader-zindex;
   }
 
 
