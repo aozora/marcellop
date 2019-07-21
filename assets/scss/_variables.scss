@@ -44,6 +44,12 @@
   /* max text sizes  */
   --text-max-width: 38rem;
 
+  /* focus state */
+  --focus-outline: none;
+  --focus-box-shadow: none;
+  --focus-border: 2px dashed var(--color-black);
+
+
   /* vf initial values */
   --heading-weight: 900;
   --text-weight: $body-font-weight;

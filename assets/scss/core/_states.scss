@@ -14,8 +14,9 @@
 /* FOCUS
   ============== */
 *:focus {
-  outline: $focus-outline;
-  box-shadow: $focus-box-shadow;
+  outline: var(--focus-outline);
+  box-shadow: var(--focus-box-shadow);
+  border: var(--focus-border);
 }
 
 // Gets rid of the annoying outline for mouse users but preserves it for keyboard users,
