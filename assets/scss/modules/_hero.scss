@@ -26,15 +26,14 @@ $hero-h2-font-size-max: 3.33rem;
     width: 100%;
     max-width: none;
     max-height: 28rem;
+    margin: 0 auto;
+
     --text-weight: $hero-weight;
     @if $use-variable-font-for-headings {
       font-variation-settings: 'wght' $hero-weight, 'slnt' $hero-slant;
     }
 
-    margin: 0 auto;
-
-    font-size: calc((var(--hero-font-size-min) * 1rem) + (var(--hero-font-size-max) - var(--hero-font-size-min)) * ((100vw - (var(--breakpoint-small) * 1em)) / (((var(--breakpoint-xlarge) - var(--breakpoint-small)) * 1em))));
-
+    //font-size: calc((var(--hero-font-size-min) * 1rem) + (var(--hero-font-size-max) - var(--hero-font-size-min)) * ((100vw - (var(--breakpoint-small) * 1em)) / (((var(--breakpoint-xlarge) - var(--breakpoint-small)) * 1em))));
     @include fluid-type(font-size, map_get($breakpoints, phone), map_get($breakpoints, desktophd), $hero-h1-font-size-min, $hero-h1-font-size-max);
     @include fluid-type(line-height, map_get($breakpoints, phone), map_get($breakpoints, desktophd), $hero-h1-line-height-min, $hero-h1-line-height-max);
 
@@ -57,22 +56,14 @@ $hero-h2-font-size-max: 3.33rem;
     //}
   }
 
-  svg {
-    position: absolute;
-    top: 3rem;
-    right: 0;
-    width: 313px;
-    height: 338px;
-  }
-
   h2 {
     display: flex;
     flex-direction: column;
     align-items: flex-end;
 
-    --text-weight: 700;
     @include fluid-type(font-size, map_get($breakpoints, phone), map_get($breakpoints, desktophd), $hero-h2-font-size-min, $hero-h2-font-size-max);
     @include fluid-type(line-height, map_get($breakpoints, phone), map_get($breakpoints, desktophd), $hero-h2-line-height-min, $hero-h2-line-height-max);
+    --text-weight: 700;
 
     span {
       display: inline-block;
@@ -90,59 +81,4 @@ $hero-h2-font-size-max: 3.33rem;
     margin-left: 0;
     margin-right: 0;
   }
-
-  figure {
-    position: relative;
-    overflow: hidden;
-
-    &::after {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: var(--color-white);
-      z-index: 2;
-      transform: translateX(0);
-      transition: transform .55s linear;
-    }
-
-    &.visible {
-      &::after {
-        transform: translateX(100%);
-      }
-    }
-  }
 }
-
-
-// layout
-
-
-//.hero {
-//  display: grid;
-//  grid-template-columns: repeat(4, 1fr);
-//  grid-template-rows: auto;
-//  grid-template-areas: "heading2 heading2 figure figure";
-//  grid-gap: 2vw;
-//
-//  h2 {
-//    grid-area: heading2;
-//    grid-column: 1 / 4;
-//    align-self: center;
-//    z-index: 2;
-//  }
-//
-//  //.lead {
-//  //  grid-area: lead;
-//  //}
-//
-//  img {
-//    grid-area: figure;
-//    //grid-column: 1 / 3;
-//    //grid-row: 3 / 5;
-//    //align-self: end;
-//  }
-//
-//}
