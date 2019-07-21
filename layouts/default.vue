@@ -1,5 +1,7 @@
 <template>
   <div>
+    <a href="#main" tabindex="0">Skip to main content</a>
+
     <!--    <div v-if="isHome"-->
     <!--         v-observe-visibility="{-->
     <!--          callback: homeHeadingVisibilityChanged,-->
@@ -13,7 +15,9 @@
     <!--    </div>-->
 
     <SiteHeader :home-header-scrolled="homeHeaderScrolled"></SiteHeader>
-    <nuxt/>
+    <main id="main" role="main">
+      <nuxt/>
+    </main>
     <SiteFooter></SiteFooter>
   </div>
 </template>

@@ -1,5 +1,5 @@
 <template>
-  <main id="maincontent" role="main">
+  <div>
     <!--    <g-link to="/" class="home-logo">-->
     <!--      <svg viewBox="0 0 105 67" xmlns="http://www.w3.org/2000/svg">-->
     <!--        <g fill-rule="nonzero" fill="none">-->
@@ -22,7 +22,7 @@
 
     <!-- Learn how to use images here: https://gridsome.org/docs/images -->
     <!--    <g-image alt="Example image" _src="~/favicon.png" width="135" />-->
-  </main>
+  </div>
 </template>
 
 <script>
