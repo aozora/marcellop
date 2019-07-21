@@ -48,6 +48,7 @@ export default {
     aboutHeading(locale: en)
     aboutDescription1(locale: en, markdown: true)
     aboutDescription2(locale: en, markdown: true)
+    aboutDescription3(locale: en, markdown: true)
     aboutPicture {
       alt
       url
@@ -67,6 +68,7 @@ ${DatoCmsSeoMetaTags}
         aboutHeading: this.home.aboutHeading,
         aboutDescription1: this.home.aboutDescription1,
         aboutDescription2: this.home.aboutDescription2,
+        aboutDescription3: this.home.aboutDescription3,
         aboutPicture: this.home.aboutPicture
       };
     }

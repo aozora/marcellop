@@ -76,7 +76,9 @@
   figure {
     position: relative;
     overflow: hidden;
-
+    margin: 0 0 3rem 0;
+    transform: translateX(4rem);
+    
     &::after {
       content: '';
       position: absolute;
