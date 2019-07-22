@@ -38,6 +38,9 @@ export default {
     return {
       title: this.site.globalSeo.siteName,
       titleTemplate: `%s ${this.site.globalSeo.titleSuffix}`,
+      htmlAttrs: {
+        lang: 'en'
+      },
       bodyAttrs: {
         'class': this.$route.name === 'index' ? 'home' : this.$route.name
       },
