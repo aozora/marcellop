@@ -26,6 +26,9 @@
 }
 
 .header {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
   width: 100%;
   max-width: none;
   height: $menu-height;
@@ -110,6 +113,14 @@
     list-style-type: none;
     padding: 1rem 0;
     text-align: left;
+
+    &.menu__item-social {
+      a {
+        display: inline-block;
+        width: 33%;
+      }
+    }
+
   }
 
   a {
@@ -169,6 +180,11 @@
 
       &.main-menu__search {
         margin: 0;
+      }
+
+      // hide social icon links from tablet and up
+      &.menu__item-social {
+        display: none;
       }
     }
 
