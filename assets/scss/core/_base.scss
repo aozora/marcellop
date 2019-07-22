@@ -57,7 +57,7 @@ button {
   line-height: $baseline;
   font-weight: var(--text-weight);
   font-style: normal;
-  letter-spacing: $body-font-letter-spacing;
+  letter-spacing: var(--text-letter-spacing);
   font-kerning: $kerning;
 
   @if $use-variable-font {

@@ -55,10 +55,11 @@
   --text-weight: $body-font-weight;
   --text-width: 100;
   // --text-opticalsize: 16;
+  --text-letter-spacing: 1.2px;
 
   /* Paragraph variables */
-  --p-line-height-min: 1.15;
-  --p-line-height-max: 1.5;
+  --p-line-height-min: 1.5;
+  --p-line-height-max: 1.6;
   --p-font-size-min: 1.0;
   --p-font-size-max: 1.25;
   --p-vf-weight: var(--text-weight);
