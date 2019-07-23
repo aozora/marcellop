@@ -21,9 +21,6 @@ import { DatoCmsSeoMetaTags } from '../apollo/fragments/seoMetaTagsFragmentMixin
 
 export default {
   components: { /* Contact, Experience, */ What, About, Hero },
-  // mixins: [
-  //   seoMetaTagFragment
-  // ],
 
   head() {
     return {
@@ -57,7 +54,7 @@ export default {
       title
       description(markdown: true)
     }
-        seoMetaTags: _seoMetaTags {
+    seoMetaTags: _seoMetaTags {
       ...DatoCmsSeoMetaTags
     }
   }
