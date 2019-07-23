@@ -29,9 +29,16 @@
   //position: -webkit-sticky;
   //position: sticky;
   //top: 0;
+  display: grid;
+  grid-template-columns: 2.667rem 1fr 2.667rem;
+  grid-template-rows: $menu-height;
+  grid-template-areas: "toggle menu search";
+  grid-gap: 1rem;
   width: 100%;
   max-width: none;
   height: $menu-height;
+  margin: 0;
+  padding: 0;
 }
 
 //.homeHeadingScrollSentinel {
@@ -44,17 +51,15 @@
   Mobile Navigation
  */
 .menu {
+  grid-area: menu;
   position: relative;
-  display: grid;
-  grid-template-columns: 2.667rem 1fr 2.667rem;
-  grid-template-rows: $menu-height;
-  grid-template-areas: "toggle . search";
-  grid-gap: 1rem;
+  display: none;
   width: 100%;
   height: $menu-height;
   padding: 0;
   //overflow: hidden;
   background-color: $menu-background;
+  z-index: $menu-zindex;
 
   @include media(">=tablet") {
     //justify-content: space-between;
@@ -89,42 +94,23 @@
 }
 
 .menu__items {
-  position: absolute;
-  top: 0;
-  left: 0;
-  //grid-area: menu;
-  //display: grid;
-  //grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-  //grid-gap: 1rem 0;
-  //align-items: center;
-  display: none;
+  //position: absolute;
+  //top: 0;
+  //left: 0;
+  //display: none;
 
   width: 100%;
   height: 100%;
-  //margin: 2rem 0 0 0;
   list-style-type: none;
   margin: 0;
   padding: 0;
   background-color: transparent;
-  z-index: $menu-zindex;
 
   > li {
     margin: 0;
     list-style-type: none;
     padding: 1rem 0;
     text-align: left;
-
-    &.menu__item-social {
-      a {
-        display: inline-block;
-        width: 33%;
-      }
-
-      span {
-        @include visuallyhidden;
-      }
-    }
-
   }
 
   a {
@@ -146,7 +132,7 @@
 
 
     /*
-     * Don't enable hover on links, it wll cause this issue on ios:
+     * Don't enable hover on links on mobile, it wll cause this issue on ios:
      * https://css-tricks.com/annoying-mobile-double-tap-link-issue/
     */
     // &:hover:after,
@@ -208,6 +194,22 @@
   }
 }
 
+.menu__social {
+  width: 100%;
+  height: 100%;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+
+  @include media(">=tablet") {
+    display: none;
+  }
+
+  span {
+    @include visuallyhidden;
+  }
+}
+
 .header--menu-open {
   background-color: var(--color-black);
 
@@ -219,39 +221,30 @@
     opacity: 1;
   }
 
-
-  .menu__items {
+  .menu {
     position: fixed;
     top: $menu-height;
     left: 0;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr 2fr; // repeat(auto-fill, 4rem);
-    grid-template-areas: ". links ." ". links ." ". links ." "social1 social2 social3";
+    grid-template-rows: 2fr 1fr;
+    grid-template-areas: ". items ." "social social social";
     width: 100vw;
     height: calc(100vh - #{$menu-height});
     padding: 1rem;
     background-color: var(--color-black);
+  }
+
+
+  .menu__items {
+    grid-area: items;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(auto-fill, 4rem);
 
     li {
-      grid-area: links;
       width: 100%;
-
-      &.menu__item-social {
-        &:nth-child(1) {
-          grid-area: social1;
-        }
-
-        &:nth-child(2) {
-          grid-area: social2;
-        }
-
-        &:nth-child(3) {
-          grid-area: social3;
-        }
-      }
     }
-
 
     a {
       color: var(--color-white);
@@ -260,58 +253,15 @@
       letter-spacing: 1px;
     }
   }
+
+  .menu__social {
+    grid-area: social;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    li {
+
+    }
+  }
 }
-
-
-//
-//.main-menu__search {
-//  display: none;
-//
-//  label {
-//    display: flex;
-//    justify-content: flex-start;
-//    align-items: center;
-//    height: 100%;
-//  }
-//
-//  input {
-//    flex: 1 1 auto;
-//    width: auto;
-//    height: $menu-height;
-//    padding: 0 .5rem;
-//    border: 0;
-//    font-family: $body-font-family;
-//    font-size: 1rem;
-//    font-weight: 400;
-//    line-height: 1.5;
-//    color: var(--color-white);
-//    background-color: rgba($menu-background, .2);
-//  }
-//
-//  button {
-//    flex: 0 0 auto;
-//    width: $menu-height;
-//    height: $menu-height;
-//    padding: 0;
-//    background-color: transparent;
-//
-//    .button__icon {
-//      width: $menu-height;
-//      height: $menu-height;
-//      background-color: transparent;
-//
-//      svg {
-//        width: 1.5rem;
-//        height: 1.5rem;
-//      }
-//    }
-//  }
-//
-//  @include media(">=tablet") {
-//    display: flex;
-//    justify-content: flex-start;
-//    align-items: center;
-//    height: 100%;
-//  }
-//}
-

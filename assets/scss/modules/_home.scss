@@ -31,6 +31,7 @@
 
 
       &.loaded {
+        overflow-x: hidden;
         &::before {
           transform: translateX(-100%);
         }
