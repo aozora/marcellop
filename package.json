@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "@nuxtjs/apollo": "^4.0.0-rc8.2",
+    "apollo-cache-inmemory": "^1.6.2",
     "graphql-tag": "^2.10.1",
     "include-media": "^1.4.9",
     "nuxt": "^2.8.0",
