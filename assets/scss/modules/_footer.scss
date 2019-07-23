@@ -21,5 +21,9 @@
     font-size: .778rem;
     color: var(--color-black);
     text-align: center;
+
+    a {
+      font-size: inherit;
+    }
   }
 }
