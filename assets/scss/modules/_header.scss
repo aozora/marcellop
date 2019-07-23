@@ -26,9 +26,9 @@
 }
 
 .header {
-  position: -webkit-sticky;
-  position: sticky;
-  top: 0;
+  //position: -webkit-sticky;
+  //position: sticky;
+  //top: 0;
   width: 100%;
   max-width: none;
   height: $menu-height;
@@ -118,6 +118,10 @@
       a {
         display: inline-block;
         width: 33%;
+      }
+
+      span {
+        @include visuallyhidden;
       }
     }
 
@@ -221,16 +225,33 @@
     top: $menu-height;
     left: 0;
     display: grid;
-    grid-template-columns: 100%;
-    grid-template-rows: repeat(auto-fill, 4rem);
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 2fr; // repeat(auto-fill, 4rem);
+    grid-template-areas: ". links ." ". links ." ". links ." "social1 social2 social3";
     width: 100vw;
     height: calc(100vh - #{$menu-height});
     padding: 1rem;
     background-color: var(--color-black);
 
     li {
+      grid-area: links;
       width: 100%;
+
+      &.menu__item-social {
+        &:nth-child(1) {
+          grid-area: social1;
+        }
+
+        &:nth-child(2) {
+          grid-area: social2;
+        }
+
+        &:nth-child(3) {
+          grid-area: social3;
+        }
+      }
     }
+
 
     a {
       color: var(--color-white);
