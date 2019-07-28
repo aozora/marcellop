@@ -1,5 +1,3 @@
-
-
 .about {
   --triangle-height: 60vw;
 
@@ -29,6 +27,12 @@
     border-color: var(--color-black) var(--color-white) var(--color-white) var(--color-white);
   }
 
+  .scroll-down-button {
+    display: block;
+    margin: 0 auto;
+    background-color: transparent;
+    transform: translateY(calc(var(--triangle-height) / -2));
+  }
 }
 
 .about__container {
