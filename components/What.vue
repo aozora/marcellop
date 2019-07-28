@@ -5,7 +5,6 @@
     <div v-if="whatido" class="whatido__items">
       <div v-for="(item, index) in whatido" :key="index" class="whatido__item">
         <h3 v-text="item.title"></h3>
-        <div v-html="item.description"></div>
       </div>
     </div>
   </section>

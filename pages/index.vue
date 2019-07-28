@@ -52,7 +52,6 @@ export default {
     }
     whatido {
       title
-      description(markdown: true)
     }
     seoMetaTags: _seoMetaTags {
       ...DatoCmsSeoMetaTags
