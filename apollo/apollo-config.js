@@ -103,6 +103,21 @@ fragment TypeRef on __Type {
 
 */
 
+/* old query: (doesn't work)
+query {
+  __schema {
+    types {
+      name
+      kind
+      possibleTypes {
+        name
+        description
+      }
+    }
+  }
+}
+*/
+
 // import { InMemoryCache, IntrospectionFragmentMatcher } from 'apollo-cache-inmemory';
 // import schema from './schema.json';
 // const fragmentMatcher = new IntrospectionFragmentMatcher({
@@ -111,25 +126,27 @@ fragment TypeRef on __Type {
 //
 // export default ({ req, app }) => {
 //   return {
-//     httpEndpoint: 'https://mycoolgraphqlapi.com/api',
+//     httpEndpoint: 'https://graphql.datocms.com',
 //     getAuth: () => 'Bearer 4ea46ef94c23e12045c7f20bf32ed9',
 //     tokenName: 'apollo-token',
 //     cache: new InMemoryCache({ fragmentMatcher })
 //   };
 // };
-import { InMemoryCache } from 'apollo-cache-inmemory';
-import mockData from './mock-cache/mock';
-const cache = new InMemoryCache();
 
-cache.writeData({
-  data: mockData
-});
+
+// import { InMemoryCache } from 'apollo-cache-inmemory';
+// import mockData from './mock-cache/mock';
+// const cache = new InMemoryCache();
+//
+// cache.writeData({
+//   data: mockData
+// });
 
 export default function (context) {
   return {
     httpEndpoint: 'https://graphql.datocms.com',
     getAuth: () => 'Bearer 8079c9fe33d6de8049b44e17717ce5',
-    cache
+    // cache
     // // Local Schema
     // typeDefs = undefined,
     // // Local Resolvers

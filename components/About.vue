@@ -1,5 +1,12 @@
 <template>
   <section v-if="about" class="about">
+    <button type="button" class="scroll-down-button">
+      <svg width="26px" height="32px" viewBox="0 0 26 32" xmlns="http://www.w3.org/2000/svg">
+        <title>Scroll the page down</title>
+        <path d="M11.783 0v26.856l-9.075-9.08L.78 19.704l11.378 11.378.964.918.963-.92 11.378-11.377-1.927-1.928-9.076 9.081V0z" fill="#FFF" fill-rule="nonzero"/>
+      </svg>
+    </button>
+
     <div class="about__container">
 
       <div v-html="about.aboutDescription1"></div>

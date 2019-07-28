@@ -19,6 +19,10 @@
   }
 }
 
+.scroll-down-button {
+  @include icon-button;
+}
+
 //.button {
 //  position: relative;
 //  display: flex;
