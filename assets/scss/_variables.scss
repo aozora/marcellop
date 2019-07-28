@@ -47,7 +47,9 @@
   /* focus state */
   --focus-outline: none;
   --focus-box-shadow: none;
-  --focus-border: 2px dashed var(--color-black);
+  --focus-border-size: 2px;
+  --focus-border-style: dashed;
+  --focus-border-color: var(--color-black);
 
 
   /* vf initial values */

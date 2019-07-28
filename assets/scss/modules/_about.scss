@@ -28,10 +28,10 @@
   }
 
   .scroll-down-button {
-    display: block;
+    --focus-border-color: var(--color-white);
     margin: 0 auto;
     background-color: transparent;
-    transform: translateY(calc(var(--triangle-height) / -2));
+    transform: translateY(calc(var(--triangle-height) / -2 + 1em));
   }
 }
 
