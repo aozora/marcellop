@@ -1,6 +1,6 @@
 <template>
   <section v-if="about" class="about">
-    <button type="button" class="scroll-down-button" aria-hidden="true" @click.prevent="scrollDown">
+    <button type="button" class="scroll-down-button" aria-hidden="true" @click.prevent="scrollDown('#about')">
       <svg width="26px" height="33px" viewBox="0 0 26 33" xmlns="http://www.w3.org/2000/svg">
         <g stroke="#fff" stroke-width="2.6" fill="none" fill-rule="evenodd" stroke-linecap="square">
           <path d="M13 2l-.09 26"></path>
@@ -28,6 +28,17 @@
 
       <div v-html="about.aboutDescription2"></div>
     </div>
+
+    <button type="button" class="scroll-down-button" aria-hidden="true" @click.prevent="scrollDown('#whatido')">
+      <svg width="26px" height="33px" viewBox="0 0 26 33" xmlns="http://www.w3.org/2000/svg">
+        <g stroke="#fff" stroke-width="2.6" fill="none" fill-rule="evenodd" stroke-linecap="square">
+          <path d="M13 2l-.09 26"></path>
+          <path d="M2.615 20.758L12.91 31.054"></path>
+          <path d="M23.461 20.758l-10.55 10.296"></path>
+        </g>
+      </svg>
+    </button>
+
   </section>
 
 </template>
@@ -52,8 +63,8 @@ export default {
       // console.log(entry)
     },
 
-    scrollDown: function () {
-      document.querySelector('#about').scrollIntoView({
+    scrollDown: function (id) {
+      document.querySelector(id).scrollIntoView({
         behavior: 'smooth'
       });
     }

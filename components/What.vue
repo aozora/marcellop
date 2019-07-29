@@ -1,10 +1,10 @@
 <template>
-  <section class="whatido">
+  <section id="whatido" class="whatido">
     <h2>What I Do</h2>
 
     <div v-if="whatido" class="whatido__items">
       <div v-for="(item, index) in whatido" :key="index" class="whatido__item">
-        <h3 v-text="item.title"></h3>
+        <p v-text="item.title"></p>
       </div>
     </div>
   </section>

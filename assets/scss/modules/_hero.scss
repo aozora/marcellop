@@ -65,13 +65,12 @@ $hero-h2-font-size-max: 3.33rem;
     @include fluid-type(font-size, map_get($breakpoints, phone), map_get($breakpoints, desktophd), $hero-h2-font-size-min, $hero-h2-font-size-max);
     @include fluid-type(line-height, map_get($breakpoints, phone), map_get($breakpoints, desktophd), $hero-h2-line-height-min, $hero-h2-line-height-max);
     --text-weight: 700;
-    letter-spacing: 1px;
+    letter-spacing: var(--text-on-dark-letter-spacing);
 
     span {
       display: inline-block;
       padding: 0 1em;
       text-align: right;
-      //text-transform: uppercase;
       color: var(--color-white);
       background-color: var(--color-black);
       z-index: 1; // prevent color bleeding
@@ -85,9 +84,4 @@ $hero-h2-font-size-max: 3.33rem;
     }
   }
 
-  p {
-    width: 100%;
-    margin-left: 0;
-    margin-right: 0;
-  }
 }

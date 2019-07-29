@@ -195,9 +195,9 @@ h3 {
   --text-weight: calc(var(--p-vf-weight) * var(--h3-vf-weight-multiplier-s));
   //--text-opticalsize: calc((var(--h3-font-size-min) * 16));
 
-  color: #444466;
+  //color: #444466;
   font-size: calc(var(--h3-font-size-min) * 1em);
-  line-height: var(--h2-line-height-min);
+  line-height: var(--h3-line-height-min);
   margin: 1rem auto .5rem auto;
   max-width: var(--text-max-width);
   text-align: left;

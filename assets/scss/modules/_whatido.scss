@@ -2,21 +2,20 @@
   margin-bottom: 5rem;
   padding: 1rem;
 
-  h3 {
+  p {
     display: inline-block;
+    max-width: var(--text-max-width);
     padding: .5rem 1rem;
     margin: 1rem;
-    letter-spacing: 1px;
-    color: var(--color-white);
     background-color: var(--color-black);
+    --text-weight: calc(var(--p-vf-weight) * var(--h3-vf-weight-multiplier-s));
+    font-family: $heading-font-family;
+    font-size: calc(var(--h3-font-size-min) * 1em);
+    line-height: var(--h3-line-height-min);
+    letter-spacing: var(--text-on-dark-letter-spacing);
+    color: var(--color-white);
     text-transform: uppercase;
     text-align: center;
-  }
-
-  p {
-    padding: 1rem;
-    background-color: var(--color-black);
-    color: var(--color-white);
   }
 }
 

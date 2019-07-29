@@ -31,9 +31,15 @@
     --focus-border-color: var(--color-white);
     margin: 0 auto;
     background-color: transparent;
-    transform: translateY(calc(var(--triangle-height) / -2 + 1em)) scale(1);
+    transform: translateY(calc(var(--triangle-height) / 2 - 1em));
 
-    animation: pulse 2s 3s ease-out infinite;
+    &:first-of-type {
+      transform: translateY(calc(var(--triangle-height) / -2 + 1em));
+    }
+
+    svg {
+      animation: pulse 2s 3s ease-out infinite;
+    }
   }
 }
 
@@ -77,8 +83,9 @@
     width: 100%;
     margin: 0 0 3rem 0;
     color: var(--color-white);
+    letter-spacing: var(--text-on-dark-letter-spacing);
 
-    &:first-letter{
+    &:first-letter {
       float: left;
       margin: 0;
       padding: 0.05em 0.1em 0 0;
@@ -99,7 +106,7 @@
       }
     }
 
-    &:first-line{
+    &:first-line {
       //--text-weight: 700;
       font-weight: 500;
     }
