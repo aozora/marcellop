@@ -1,0 +1,14 @@
+@keyframes pulse {
+  0% {
+    opacity: 1;
+    transform: translateY(calc(var(--triangle-height) / -2 + 1em)) scale(1);
+  }
+  50% {
+    opacity: .8;
+    transform: translateY(calc(var(--triangle-height) / -2 + 1em)) scale(.8);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(calc(var(--triangle-height) / -2 + 1em)) scale(1);
+  }
+}

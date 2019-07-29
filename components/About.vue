@@ -1,9 +1,12 @@
 <template>
   <section v-if="about" class="about">
     <button type="button" class="scroll-down-button" aria-hidden="true" @click.prevent="scrollDown">
-      <svg width="26px" height="32px" viewBox="0 0 26 32" xmlns="http://www.w3.org/2000/svg">
-        <title>Scroll the page down</title>
-        <path d="M11.783 0v26.856l-9.075-9.08L.78 19.704l11.378 11.378.964.918.963-.92 11.378-11.377-1.927-1.928-9.076 9.081V0z" fill="#FFF" fill-rule="nonzero"/>
+      <svg width="26px" height="33px" viewBox="0 0 26 33" xmlns="http://www.w3.org/2000/svg">
+        <g stroke="#fff" stroke-width="2.6" fill="none" fill-rule="evenodd" stroke-linecap="square">
+          <path d="M13 2l-.09 26"></path>
+          <path d="M2.615 20.758L12.91 31.054"></path>
+          <path d="M23.461 20.758l-10.55 10.296"></path>
+        </g>
       </svg>
     </button>
 

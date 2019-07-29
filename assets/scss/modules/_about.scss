@@ -31,7 +31,9 @@
     --focus-border-color: var(--color-white);
     margin: 0 auto;
     background-color: transparent;
-    transform: translateY(calc(var(--triangle-height) / -2 + 1em));
+    transform: translateY(calc(var(--triangle-height) / -2 + 1em)) scale(1);
+
+    animation: pulse 2s 3s ease-out infinite;
   }
 }
 
