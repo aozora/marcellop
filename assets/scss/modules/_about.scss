@@ -27,6 +27,23 @@
     border-color: var(--color-black) var(--color-white) var(--color-white) var(--color-white);
   }
 
+  @include media(">=tablet") {
+    padding: var(--triangle-height) 0; // count for triangle height
+
+    &::before,
+    &::after {
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+
+    &::after {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+    }
+  }
+
   .scroll-down-button {
     --focus-border-color: var(--color-white);
     margin: 0 auto;
@@ -103,7 +120,7 @@
       }
     }
 
-    &:last-of-type{
+    &:last-of-type {
       @include media(">=tablet") {
         grid-area: second;
       }
