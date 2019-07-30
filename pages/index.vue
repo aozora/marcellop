@@ -2,7 +2,7 @@
   <div>
 
 
-    <hero :heading1="home.heading1" :heading2-a="home.heading2A" :heading2-b="home.heading2B" :heading2-c="home.heading2C"></hero>
+    <hero :hi="home.hi" :heading1="home.heading1" :heading2-a="home.heading2A" :heading2-b="home.heading2B" :heading2-c="home.heading2C"></hero>
     <about :about="about"></about>
     <what :whatido="whatido"></what>
     <!--    <experience></experience>-->

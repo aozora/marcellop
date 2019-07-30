@@ -1,6 +1,6 @@
 <template>
   <section class="hero">
-    <!--    <p class="hi">Hi! I'm</p>-->
+    <p class="hi">{{ hi }}</p>
     <h1>{{ heading1Splitted[0] }}<br>{{ heading1Splitted[1] }}</h1>
 
     <h2>
@@ -18,6 +18,11 @@ export default {
   name: 'Hero',
 
   props: {
+    hi: {
+      required: true,
+      type: String,
+      default: ''
+    },
     heading1: {
       required: true,
       type: String,
@@ -47,7 +52,7 @@ export default {
         return this.heading1.split(' ');
       }
 
-      return ['',''];
+      return ['', ''];
     }
   }
 };

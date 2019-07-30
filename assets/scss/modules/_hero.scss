@@ -1,9 +1,16 @@
+$hero-hi-line-height-min: 1.5em; // use 'em' otherwise the fluid-type mixin doesn't work
+$hero-hi-line-height-max: 1.5em;
+$hero-hi-font-size-min: 1.8rem;
+$hero-hi-font-size-max: 2.18rem;
+
 $hero-h1-line-height-min: 1.3em; // use 'em' otherwise the fluid-type mixin doesn't work
 $hero-h1-line-height-max: 1.5em;
 $hero-h1-font-size-min: 3rem;
 $hero-h1-font-size-max: 12.388rem;
+
 $hero-weight: 900;
 $hero-slant: 2.73;
+
 $hero-h2-line-height-min: 1.6em; // use 'em' otherwise the fluid-type mixin doesn't work
 $hero-h2-line-height-max: 1.16em;
 $hero-h2-font-size-min: 1.44rem;
@@ -22,6 +29,27 @@ $hero-h2-font-size-max: 3.33rem;
   margin-bottom: 2rem;
   background-color: var(--color-white);
 
+  .hi {
+    display: none;
+    width: 100%;
+    max-width: none;
+    //max-height: 28rem;
+    margin: 0 0 .667rem 0;
+    font-family: $heading-font-family;
+
+    --text-weight: $hero-weight;
+    @if $use-variable-font-for-headings {
+      font-variation-settings: 'wght' $hero-weight, 'slnt' $hero-slant;
+    }
+
+    @include fluid-type(font-size, map_get($breakpoints, phone), map_get($breakpoints, desktophd), $hero-hi-font-size-min, $hero-hi-font-size-max);
+    @include fluid-type(line-height, map_get($breakpoints, phone), map_get($breakpoints, desktophd), $hero-hi-line-height-min, $hero-hi-line-height-max);
+
+    @include media(">=tablet") {
+      display: block;
+    }
+  }
+
   h1 {
     width: 100%;
     max-width: none;
@@ -37,8 +65,8 @@ $hero-h2-font-size-max: 3.33rem;
     @include fluid-type(font-size, map_get($breakpoints, phone), map_get($breakpoints, desktophd), $hero-h1-font-size-min, $hero-h1-font-size-max);
     @include fluid-type(line-height, map_get($breakpoints, phone), map_get($breakpoints, desktophd), $hero-h1-line-height-min, $hero-h1-line-height-max);
 
-    mix-blend-mode: difference;
-    color: var(--color-white);
+    //mix-blend-mode: difference;
+    //color: var(--color-white);
     text-transform: uppercase;
 
     span {
@@ -54,6 +82,11 @@ $hero-h2-font-size-max: 3.33rem;
     //  -1px 1px 0 var(--color-black),
     //  1px 1px 0 var(--color-black);
     //}
+
+    @include media(">=tablet"){
+      max-width: 56vw;
+      margin: 0 0 2rem 0;
+    }
   }
 
   h2 {
@@ -78,7 +111,8 @@ $hero-h2-font-size-max: 3.33rem;
       &:first-child {
         margin-right: 2rem;
       }
-      &:last-child{
+
+      &:last-child {
         margin-right: 1.5rem;
       }
     }

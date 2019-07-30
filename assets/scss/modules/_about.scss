@@ -37,6 +37,10 @@
       transform: translateY(calc(var(--triangle-height) / -2 + 1em));
     }
 
+    @include media(">=tablet") {
+      display: none;
+    }
+
     svg {
       animation: pulse 2s 3s ease-out infinite;
     }
@@ -49,8 +53,11 @@
   overflow-x: hidden;
 
   @include media(">=tablet") {
-    column-count: 3;
-    column-gap: 2vw;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto;
+    grid-template-areas: "first" "figure" "second";
+
   }
 
   figure {
@@ -75,6 +82,30 @@
     &.visible {
       &::after {
         transform: translateX(100%);
+      }
+    }
+
+    @include media(">=tablet") {
+      grid-area: figure;
+
+      img {
+        width: 17.6rem;
+        height: 11.8rem;
+        object-fit: cover;
+      }
+    }
+  }
+
+  div {
+    &:first-of-type {
+      @include media(">=tablet") {
+        grid-area: first;
+      }
+    }
+
+    &:last-of-type{
+      @include media(">=tablet") {
+        grid-area: second;
       }
     }
   }

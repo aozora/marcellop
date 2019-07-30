@@ -33,6 +33,10 @@ html {
   font-size: 112.5%; // 18px
   //font-size: calc(16px + 0.2vw); // 112.5%; // 18px
   //line-height: $baseline;
+
+  @include media(">=tablet") {
+    font-size: 125%; // 20px
+  }
 }
 
 body,
