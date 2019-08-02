@@ -3,18 +3,18 @@ $hero-hi-line-height-max: 1.5em;
 $hero-hi-font-size-min: 1.8rem;
 $hero-hi-font-size-max: 2.18rem;
 
-$hero-h1-line-height-min: 1.3em; // use 'em' otherwise the fluid-type mixin doesn't work
-$hero-h1-line-height-max: 1.5em;
+$hero-h1-line-height-min: 1.1em; // use 'em' otherwise the fluid-type mixin doesn't work
+$hero-h1-line-height-max: 1.1em;
 $hero-h1-font-size-min: 3rem;
-$hero-h1-font-size-max: 3.18rem;
+$hero-h1-font-size-max: 5.81rem;
 
 $hero-weight: 900;
 $hero-slant: 2.73;
 
-$hero-h2-line-height-min: 1.6em; // use 'em' otherwise the fluid-type mixin doesn't work
-$hero-h2-line-height-max: 1.16em;
-$hero-h2-font-size-min: 1.388rem;
-$hero-h2-font-size-max: 1.36rem;
+$hero-p-line-height-min: 1.5em; // use 'em' otherwise the fluid-type mixin doesn't work
+$hero-p-line-height-max: 1.5em;
+$hero-p-font-size-min: 1.388rem;
+$hero-p-font-size-max: 1.81rem;
 
 :root {
   --hero-font-size-max: #{$hero-h1-font-size-max};
@@ -84,19 +84,22 @@ $hero-h2-font-size-max: 1.36rem;
     //}
 
     @include media(">=tablet"){
-      max-width: 56vw;
-      margin: 0 0 2rem 0;
+      //max-width: 56vw;
+      //margin: 0 0 2rem 0;
+      margin: 0 0 2rem 3rem;
     }
   }
 
-  h2 {
+  p {
     display: flex;
     flex-direction: column;
     align-items: flex-end;
+    max-width: none;
     margin: 0 0 1rem 0;
+    font-family: $heading-font-family;
 
-    @include fluid-type(font-size, map_get($breakpoints, phone), map_get($breakpoints, desktophd), $hero-h2-font-size-min, $hero-h2-font-size-max);
-    @include fluid-type(line-height, map_get($breakpoints, phone), map_get($breakpoints, desktophd), $hero-h2-line-height-min, $hero-h2-line-height-max);
+    @include fluid-type(font-size, map_get($breakpoints, phone), map_get($breakpoints, desktophd), $hero-p-font-size-min, $hero-p-font-size-max);
+    @include fluid-type(line-height, map_get($breakpoints, phone), map_get($breakpoints, desktophd), $hero-p-line-height-min, $hero-p-line-height-max);
     --text-weight: 700;
     letter-spacing: var(--text-on-dark-letter-spacing);
 

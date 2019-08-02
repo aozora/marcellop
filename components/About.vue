@@ -10,8 +10,9 @@
       </svg>
     </button>
 
-    <div id="about" class="about__container">
+    <h2>About</h2>
 
+    <div id="about" class="about__container">
       <div v-html="about.aboutDescription1"></div>
       <div v-html="about.aboutDescription2"></div>
 

@@ -3,11 +3,11 @@
     <p class="hi">{{ hi }}</p>
     <h1>{{ heading1Splitted[0] }}<br>{{ heading1Splitted[1] }}</h1>
 
-    <h2>
+    <p>
       <span>{{ heading2A }}</span>
       <span>{{ heading2B }}</span>
       <span>{{ heading2C }}</span>
-    </h2>
+    </p>
   </section>
 </template>
 
