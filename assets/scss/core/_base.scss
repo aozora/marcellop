@@ -34,8 +34,12 @@ html {
   //font-size: calc(16px + 0.2vw); // 112.5%; // 18px
   //line-height: $baseline;
 
-  @include media(">=tablet") {
+  @include media(">=tablet","<desktop") {
     font-size: 125%; // 20px
+  }
+
+  @include media(">=desktop") {
+    font-size: 137.5%; // 22px
   }
 }
 

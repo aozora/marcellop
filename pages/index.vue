@@ -42,10 +42,10 @@ export default {
     heading2A
     heading2B
     heading2C
-    aboutHeading(locale: en)
     aboutDescription1(locale: en, markdown: true)
     aboutDescription2(locale: en, markdown: true)
     aboutDescription3(locale: en, markdown: true)
+    aboutDescription4(locale: en, markdown: true)
     aboutPicture {
       alt
       url
@@ -65,10 +65,10 @@ ${DatoCmsSeoMetaTags}
   computed: {
     about() {
       return {
-        aboutHeading: this.home.aboutHeading,
         aboutDescription1: this.home.aboutDescription1,
         aboutDescription2: this.home.aboutDescription2,
         aboutDescription3: this.home.aboutDescription3,
+        aboutDescription4: this.home.aboutDescription4,
         aboutPicture: this.home.aboutPicture
       };
     },

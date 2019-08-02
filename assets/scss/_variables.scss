@@ -17,7 +17,10 @@
   --color-primary: #000;
   --color-black: #000;
   --color-white: #fff;
-  --color-error: #f00;
+
+  // PANTONE Color of the Year 2017
+  // https://www.pantone.com/color-intelligence/color-of-the-year/color-of-the-year-2017-color-standards
+  --color-pantone: #88B04B;
 
   /* Breakpoint variables */
   --breakpoint-small: #{strip-unit(map_get($breakpoints, phone))};
@@ -31,14 +34,14 @@
   --text-base-size: 1em;
 
   // type scale
-  --text-scale-ratio: 1.2;
-  --text-xs: calc((1em / var(--text-scale-ratio)) / var(--text-scale-ratio));
-  --text-sm: calc(var(--text-xs) * var(--text-scale-ratio));
-  --text-md: calc(var(--text-sm) * var(--text-scale-ratio) * var(--text-scale-ratio));
-  --text-lg: calc(var(--text-md) * var(--text-scale-ratio));
-  --text-xl: calc(var(--text-lg) * var(--text-scale-ratio));
-  --text-xxl: calc(var(--text-xl) * var(--text-scale-ratio));
-  --text-xxxl: calc(var(--text-xxl) * var(--text-scale-ratio));
+  //--text-scale-ratio: 1.2;
+  //--text-xs: calc((1em / var(--text-scale-ratio)) / var(--text-scale-ratio));
+  //--text-sm: calc(var(--text-xs) * var(--text-scale-ratio));
+  //--text-md: calc(var(--text-sm) * var(--text-scale-ratio) * var(--text-scale-ratio));
+  //--text-lg: calc(var(--text-md) * var(--text-scale-ratio));
+  //--text-xl: calc(var(--text-lg) * var(--text-scale-ratio));
+  //--text-xxl: calc(var(--text-xl) * var(--text-scale-ratio));
+  //--text-xxxl: calc(var(--text-xxl) * var(--text-scale-ratio));
 
 
   /* max text sizes  */

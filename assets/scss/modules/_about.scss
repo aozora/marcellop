@@ -1,5 +1,9 @@
+$triangle-height-mobile: 60vw;
+$triangle-height-tablet: 62vw;
+$triangle-height-desktop: 62vw;
+
 .about {
-  --triangle-height: 60vw;
+  --triangle-height: #{$triangle-height-mobile};
 
   position: relative;
   width: 100%;
@@ -28,18 +32,11 @@
   }
 
   @include media(">=tablet") {
-    padding: var(--triangle-height) 0; // count for triangle height
+    background-color: var(--color-white);
 
-    &::before {
-      position: absolute;
-      top: 0;
-      left: 0;
-    }
-
+    &::before,
     &::after {
-      position: absolute;
-      bottom: 0;
-      left: 0;
+      display: none;
     }
   }
 
@@ -64,16 +61,46 @@
 }
 
 .about__container {
+  position: relative;
   @include container;
-  padding: 1rem;
+  //padding: 1rem;
   overflow-x: hidden;
 
   @include media(">=tablet") {
     display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: auto auto auto;
-    grid-template-areas: "first" "figure" "second";
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto auto auto auto;
+    grid-template-areas: "content1 ." ". content2" "figure figure" "content3 ." ". content4";
+    --triangle-height: #{$triangle-height-tablet};
+    background-color: var(--color-black);
 
+    &::before {
+      grid-column: 1 / 3;
+      grid-row: 1 / 3;
+      align-self: start;
+      z-index: 1;
+      content: '';
+      display: block;
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 0 0 var(--triangle-height) 100vw;
+      border-color: var(--color-white) var(--color-white) var(--color-black) var(--color-white);
+    }
+
+    &::after {
+      grid-column: 1 / 3;
+      grid-row: 4 / 6;
+      align-self: end;
+      z-index: 1;
+      content: '';
+      display: block;
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: var(--triangle-height) 100vw 0 0;
+      border-color: var(--color-black) var(--color-white) var(--color-white) var(--color-white);
+    }
   }
 
   figure {
@@ -103,6 +130,10 @@
 
     @include media(">=tablet") {
       grid-area: figure;
+      justify-self: center;
+      align-self: center;
+      transform: none;
+      margin: 1rem 0;
 
       img {
         width: 17.6rem;
@@ -113,22 +144,42 @@
   }
 
   div {
-    &:first-of-type {
-      @include media(">=tablet") {
-        grid-area: first;
-      }
-    }
+    padding: 1rem;
+    z-index: 2;
 
-    &:last-of-type {
-      @include media(">=tablet") {
-        grid-area: second;
+    @include media(">=tablet") {
+      max-width: 23rem;
+
+      &:nth-child(1) {
+        grid-area: content1;
+
+        p {
+          color: var(--color-black);
+        }
       }
+
+      &:nth-child(2) {
+        grid-area: content2;
+      }
+
+      &:nth-child(4) {
+        grid-area: content3;
+      }
+
+      &:nth-child(5) {
+        grid-area: content4;
+
+        p {
+          color: var(--color-black);
+        }
+      }
+
     }
   }
 
   p {
     width: 100%;
-    margin: 0 0 3rem 0;
+    margin: 0;
     color: var(--color-white);
     letter-spacing: var(--text-on-dark-letter-spacing);
 

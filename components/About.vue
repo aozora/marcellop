@@ -13,6 +13,7 @@
     <div id="about" class="about__container">
 
       <div v-html="about.aboutDescription1"></div>
+      <div v-html="about.aboutDescription2"></div>
 
       <figure v-if="about.aboutPicture" v-observe-visibility="figureVisibilityChanged">
         <img
@@ -26,7 +27,8 @@
         >
       </figure>
 
-      <div v-html="about.aboutDescription2"></div>
+      <div v-html="about.aboutDescription3"></div>
+      <div v-html="about.aboutDescription4"></div>
     </div>
 
     <button type="button" class="scroll-down-button" aria-hidden="true" @click.prevent="scrollDown('#whatido')">

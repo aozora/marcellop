@@ -6,15 +6,15 @@ $hero-hi-font-size-max: 2.18rem;
 $hero-h1-line-height-min: 1.3em; // use 'em' otherwise the fluid-type mixin doesn't work
 $hero-h1-line-height-max: 1.5em;
 $hero-h1-font-size-min: 3rem;
-$hero-h1-font-size-max: 12.388rem;
+$hero-h1-font-size-max: 3.18rem;
 
 $hero-weight: 900;
 $hero-slant: 2.73;
 
 $hero-h2-line-height-min: 1.6em; // use 'em' otherwise the fluid-type mixin doesn't work
 $hero-h2-line-height-max: 1.16em;
-$hero-h2-font-size-min: 1.44rem;
-$hero-h2-font-size-max: 3.33rem;
+$hero-h2-font-size-min: 1.388rem;
+$hero-h2-font-size-max: 1.36rem;
 
 :root {
   --hero-font-size-max: #{$hero-h1-font-size-max};
