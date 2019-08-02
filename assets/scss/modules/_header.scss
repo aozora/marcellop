@@ -63,7 +63,7 @@
 
   @include media(">=tablet") {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
     align-items: center;
   }
 }
@@ -147,7 +147,7 @@
     top: auto;
     left: auto;
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
     align-items: center;
     flex-direction: row;
     height: 100%;

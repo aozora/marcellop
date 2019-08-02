@@ -9,7 +9,7 @@ $about-h2-font-size-max: 4.54rem;
   max-width: none;
   padding: 15% 0;
   background-color: var(--color-primary);
-  clip-path: polygon(0% 0%, 25.48% 5.09%, 51.25% 2.95%, 74.91% 7%, 99.90% 2.10%, 100% 100%, 0% 100%);
+  clip-path: polygon(0% 0%, 25.48% 5.09%, 51.25% 2.95%, 74.91% 7%, 99.90% 2.10%, 100% 100%, 0% 100%, 74.91% 7%);
 
   .scroll-down-button {
     --focus-border-color: var(--color-white);
@@ -165,5 +165,4 @@ $about-h2-font-size-max: 4.54rem;
       font-weight: 500;
     }
   }
-
 }
