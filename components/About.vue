@@ -47,8 +47,6 @@
 </template>
 
 <script>
-// const hasOSReducedMotion = process.client ? window.matchMedia('(prefers-reduced-motion: reduce)').matches : false;
-
 export default {
   name: 'About',
 
@@ -62,7 +60,7 @@ export default {
     }
   },
 
-  data: ()=>{
+  data: () => {
     return {
       hasOSReducedMotion: process.client ? window.matchMedia('(prefers-reduced-motion: reduce)').matches : false
     };
