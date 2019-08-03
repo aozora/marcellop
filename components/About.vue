@@ -13,8 +13,8 @@
     <div id="about" class="about__container">
       <h2>About</h2>
 
-      <div v-observe-visibility="animateParagraph" v-html="about.aboutDescription1"></div>
-      <div v-observe-visibility="animateParagraph" v-html="about.aboutDescription2"></div>
+      <div v-observe-visibility="animateParagraph" :style="{opacity: hasOSReducedMotion ? '1' : '0'}" v-html="about.aboutDescription1"></div>
+      <div v-observe-visibility="animateParagraph" :style="{opacity: hasOSReducedMotion ? '1' : '0'}" v-html="about.aboutDescription2"></div>
 
       <figure v-if="about.aboutPicture" v-observe-visibility="figureVisibilityChanged">
         <img
@@ -28,8 +28,8 @@
         >
       </figure>
 
-      <div v-observe-visibility="animateParagraph" v-html="about.aboutDescription3"></div>
-      <div v-observe-visibility="animateParagraph" v-html="about.aboutDescription4"></div>
+      <div v-observe-visibility="animateParagraph" :style="{opacity: hasOSReducedMotion ? '1' : '0'}" v-html="about.aboutDescription3"></div>
+      <div v-observe-visibility="animateParagraph" :style="{opacity: hasOSReducedMotion ? '1' : '0'}" v-html="about.aboutDescription4"></div>
     </div>
 
     <!--    <button type="button" class="scroll-down-button" aria-hidden="true" @click.prevent="scrollDown('#whatido')">-->
@@ -88,6 +88,7 @@ export default {
         const chars = mySplitText.chars; //an array of all the divs that wrap each word
         // const words = mySplitText.words; //an array of all the divs that wrap each word
 
+        this.$gsap.TweenLite.set(entry.target, { opacity: 1 });
         this.$gsap.TweenLite.set(paragraph, { perspective: 400 });
 
         tl.staggerFrom(chars, 0.8,
