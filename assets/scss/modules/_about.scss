@@ -1,34 +1,38 @@
 $about-h2-line-height-min: 1.1em; // use 'em' otherwise the fluid-type mixin doesn't work
 $about-h2-line-height-max: 1.1em;
-$about-h2-font-size-min: 3rem;
+$about-h2-font-size-min: 4rem;
 $about-h2-font-size-max: 5.45rem;
 
 .about {
   position: relative;
   width: 100%;
   max-width: none;
-  padding: 15% 0;
+  padding: 25% 0;
   background-color: var(--color-primary);
   clip-path: polygon(0% 0%, 25.48% 5.09%, 51.25% 2.95%, 74.91% 7%, 100% 4.37%, 100% 100%, 75.07% 96.35%, 50.29% 99%, 25.22% 97.01%, 0% 100%);
 
-  .scroll-down-button {
-    --focus-border-color: var(--color-white);
-    margin: 0 auto;
-    background-color: transparent;
-    transform: translateY(calc(var(--triangle-height) / 2 - 1em));
-
-    &:first-of-type {
-      transform: translateY(calc(var(--triangle-height) / -2 + 1em));
-    }
-
-    @include media(">=tablet") {
-      display: none;
-    }
-
-    svg {
-      animation: pulse 2s 3s ease-out infinite;
-    }
+  @include media(">=tablet") {
+    padding: 15% 0;
   }
+
+  //.scroll-down-button {
+  //  --focus-border-color: var(--color-white);
+  //  margin: 0 auto;
+  //  background-color: transparent;
+  //  transform: translateY(calc(var(--triangle-height) / 2 - 1em));
+  //
+  //  &:first-of-type {
+  //    transform: translateY(calc(var(--triangle-height) / -2 + 1em));
+  //  }
+  //
+  //  @include media(">=tablet") {
+  //    display: none;
+  //  }
+  //
+  //  svg {
+  //    animation: pulse 2s 3s ease-out infinite;
+  //  }
+  //}
 
 }
 
@@ -39,9 +43,7 @@ $about-h2-font-size-max: 5.45rem;
 .about__container {
   position: relative;
   @include container;
-  //padding: 1rem;
   overflow-x: hidden;
-  z-index: 2;
 
   @include media(">=tablet") {
     display: grid;
@@ -55,18 +57,9 @@ $about-h2-font-size-max: 5.45rem;
     grid-area: heading2;
     justify-self: start;
     width: 100%;
-    color: var(--color-white);
-    font-size: 4.54rem; // desktop
-    line-height: 1.1;
     margin-bottom: 3rem;
-
-    --text-weight: $hero-weight;
-    @if $use-variable-font-for-headings {
-      font-variation-settings: 'wght' $hero-weight, 'slnt' $hero-slant;
-    }
-
-    @include fluid-type(font-size, map_get($breakpoints, phone), map_get($breakpoints, desktophd), $about-h2-font-size-min, $about-h2-font-size-max);
-    @include fluid-type(line-height, map_get($breakpoints, phone), map_get($breakpoints, desktophd), $about-h2-line-height-min, $about-h2-line-height-max);
+    padding: 0 1rem;
+    color: var(--color-white);
   }
 
   figure {
@@ -109,9 +102,8 @@ $about-h2-font-size-max: 5.45rem;
     }
   }
 
-  div {
+  > div {
     padding: 1rem;
-    z-index: 2;
 
     p {
       font-size: 1rem;

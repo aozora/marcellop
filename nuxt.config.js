@@ -75,6 +75,7 @@ export default {
   */
   plugins: [
     // { src: '~/plugins/vue-lazy-load', ssr: false }
+    { src: '~/plugins/gsap', ssr: false },
     { src: '~/plugins/vue-observe-visibility.js', ssr: false }
   ],
 
