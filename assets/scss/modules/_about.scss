@@ -1,7 +1,7 @@
 $about-h2-line-height-min: 1.1em; // use 'em' otherwise the fluid-type mixin doesn't work
 $about-h2-line-height-max: 1.1em;
 $about-h2-font-size-min: 3rem;
-$about-h2-font-size-max: 4.54rem;
+$about-h2-font-size-max: 5.45rem;
 
 .about {
   position: relative;
@@ -9,7 +9,7 @@ $about-h2-font-size-max: 4.54rem;
   max-width: none;
   padding: 15% 0;
   background-color: var(--color-primary);
-  clip-path: polygon(0% 0%, 25.48% 5.09%, 51.25% 2.95%, 74.91% 7%, 99.90% 2.10%, 100% 100%, 0% 100%, 74.91% 7%);
+  clip-path: polygon(0% 0%, 25.48% 5.09%, 51.25% 2.95%, 74.91% 7%, 100% 4.37%, 100% 100%, 75.07% 96.35%, 50.29% 99%, 25.22% 97.01%, 0% 100%);
 
   .scroll-down-button {
     --focus-border-color: var(--color-white);
@@ -30,20 +30,10 @@ $about-h2-font-size-max: 4.54rem;
     }
   }
 
-  h2 {
-    color: var(--color-white);
-    font-size: 4.54rem; // desktop
-    line-height: 1.1;
-    margin-bottom: 3rem;
+}
 
-    --text-weight: $hero-weight;
-    @if $use-variable-font-for-headings {
-      font-variation-settings: 'wght' $hero-weight, 'slnt' $hero-slant;
-    }
-
-    @include fluid-type(font-size, map_get($breakpoints, phone), map_get($breakpoints, desktophd), $about-h2-font-size-min, $about-h2-font-size-max);
-    @include fluid-type(line-height, map_get($breakpoints, phone), map_get($breakpoints, desktophd), $about-h2-line-height-min, $about-h2-line-height-max);
-  }
+.loaded .about {
+  animation: about-enter 3s ease-in-out;
 }
 
 .about__container {
@@ -56,9 +46,27 @@ $about-h2-font-size-max: 4.54rem;
   @include media(">=tablet") {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: auto auto auto auto auto;
-    grid-template-areas: "content1 ." ". content2" "figure figure" "content3 ." ". content4";
+    grid-template-rows: repeat(6, auto); // auto auto auto auto auto;
+    grid-template-areas: "heading2 heading2" "content1 ." ". content2" "figure figure" "content3 ." ". content4";
     background-color: var(--color-black);
+  }
+
+  h2 {
+    grid-area: heading2;
+    justify-self: start;
+    width: 100%;
+    color: var(--color-white);
+    font-size: 4.54rem; // desktop
+    line-height: 1.1;
+    margin-bottom: 3rem;
+
+    --text-weight: $hero-weight;
+    @if $use-variable-font-for-headings {
+      font-variation-settings: 'wght' $hero-weight, 'slnt' $hero-slant;
+    }
+
+    @include fluid-type(font-size, map_get($breakpoints, phone), map_get($breakpoints, desktophd), $about-h2-font-size-min, $about-h2-font-size-max);
+    @include fluid-type(line-height, map_get($breakpoints, phone), map_get($breakpoints, desktophd), $about-h2-line-height-min, $about-h2-line-height-max);
   }
 
   figure {
@@ -114,19 +122,19 @@ $about-h2-font-size-max: 4.54rem;
     @include media(">=tablet") {
       max-width: 23rem;
 
-      &:nth-child(1) {
+      &:nth-child(2) {
         grid-area: content1;
       }
 
-      &:nth-child(2) {
+      &:nth-child(3) {
         grid-area: content2;
       }
 
-      &:nth-child(4) {
+      &:nth-child(5) {
         grid-area: content3;
       }
 
-      &:nth-child(5) {
+      &:nth-child(6) {
         grid-area: content4;
       }
 
