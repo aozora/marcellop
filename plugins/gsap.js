@@ -7,7 +7,7 @@
 * without working around the limitations of saving them as unique strings.
 * */
 import Vue from 'vue';
-import { TweenLite, TimelineLite } from 'gsap/all';
+import { TweenLite, TimelineLite, Back } from 'gsap/all';
 import SplitText from '../lib/gsap/SplitText';
 
 const GSAP = {
@@ -16,7 +16,8 @@ const GSAP = {
     Vue.prototype.$gsap = {
       TweenLite,
       TimelineLite,
-      SplitText
+      SplitText,
+      Back
     };
   }
 };

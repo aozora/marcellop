@@ -47,8 +47,6 @@
 </template>
 
 <script>
-import { Back } from 'gsap/all';
-
 export default {
   name: 'About',
 
@@ -94,7 +92,7 @@ export default {
         this.$gsap.TweenLite.set(paragraph, { perspective: 400 });
 
         tl.staggerFrom(chars, 0.8,
-          { opacity: 0, scale: 0, y: 80, rotationX: 180, transformOrigin: "0% 50% -50", ease: Back.easeOut },
+          { opacity: 0, scale: 0, y: 80, rotationX: 180, transformOrigin: "0% 50% -50", ease: this.$gsap.Back.easeOut },
           0.01, "+=0",
           function () {
             entry.target.classList.add('animated');
