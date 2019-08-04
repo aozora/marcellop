@@ -13,8 +13,8 @@
     <div id="about" class="about__container">
       <h2>About</h2>
 
-      <div v-observe-visibility="animateParagraph" :style="{opacity: hasOSReducedMotion ? '1' : '0'}" v-html="about.aboutDescription1"></div>
-      <div v-observe-visibility="animateParagraph" :style="{opacity: hasOSReducedMotion ? '1' : '0'}" v-html="about.aboutDescription2"></div>
+      <div v-observe-visibility="animateParagraph" v-html="about.aboutDescription1"></div>
+      <div v-observe-visibility="animateParagraph" v-html="about.aboutDescription2"></div>
 
       <figure v-if="about.aboutPicture" v-observe-visibility="figureVisibilityChanged">
         <img
@@ -28,8 +28,8 @@
         >
       </figure>
 
-      <div v-observe-visibility="animateParagraph" :style="{opacity: hasOSReducedMotion ? '1' : '0'}" v-html="about.aboutDescription3"></div>
-      <div v-observe-visibility="animateParagraph" :style="{opacity: hasOSReducedMotion ? '1' : '0'}" v-html="about.aboutDescription4"></div>
+      <div v-observe-visibility="animateParagraph" v-html="about.aboutDescription3"></div>
+      <div v-observe-visibility="animateParagraph" v-html="about.aboutDescription4"></div>
     </div>
 
     <!--    <button type="button" class="scroll-down-button" aria-hidden="true" @click.prevent="scrollDown('#whatido')">-->
@@ -62,8 +62,19 @@ export default {
 
   data: () => {
     return {
-      hasOSReducedMotion: process.client ? window.matchMedia('(prefers-reduced-motion: reduce)').matches : false
+      hasOSReducedMotion: process.client ? window.matchMedia('(prefers-reduced-motion: reduce)').matches : false,
+      chars: []
     };
+  },
+
+  mounted() {
+    // prepare text to be animated
+    if (!this.hasOSReducedMotion) {
+      const entries = document.querySelectorAll('.about__container p');
+      for (let index = 0; index < entries.length; index += 1) {
+        entries[index].style.opacity = this.hasOSReducedMotion ? '1' : '0';
+      }
+    }
   },
 
   methods: {
