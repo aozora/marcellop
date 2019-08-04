@@ -67,17 +67,17 @@ export default {
     };
   },
 
-  mounted() {
-    console.log(`this.hasOSReducedMotion = ${this.hasOSReducedMotion}`);
-
-    // prepare text to be animated
-    if (!this.hasOSReducedMotion) {
-      const entries = document.querySelectorAll('.about__container p');
-      for (let index = 0; index < entries.length; index += 1) {
-        entries[index].style.opacity = this.hasOSReducedMotion ? '1' : '0';
-      }
-    }
-  },
+  // mounted() {
+  //   console.log(`this.hasOSReducedMotion = ${this.hasOSReducedMotion}`);
+  //
+  //   // prepare text to be animated
+  //   if (!this.hasOSReducedMotion) {
+  //     const entries = document.querySelectorAll('.about__container p');
+  //     for (let index = 0; index < entries.length; index += 1) {
+  //       entries[index].style.opacity = this.hasOSReducedMotion ? '1' : '0';
+  //     }
+  //   }
+  // },
 
   methods: {
     figureVisibilityChanged: function (isVisible, entry) {
@@ -87,7 +87,6 @@ export default {
     animateParagraph: function (isVisible, entry) {
       // console.log(`animateParagraph triggered -  isVisible: ${isVisible}`);
 
-      console.log(`process.client = ${process.client}`);
       // console.dir(entry.target);
 
       if (isVisible && !this.hasOSReducedMotion) {
