@@ -31,19 +31,7 @@
       <div v-observe-visibility="{ callback: animateParagraph, once: true }" v-html="about.aboutDescription3"></div>
       <div v-observe-visibility="{ callback: animateParagraph, once: true }" v-html="about.aboutDescription4"></div>
     </div>
-
-    <!--    <button type="button" class="scroll-down-button" aria-hidden="true" @click.prevent="scrollDown('#whatido')">-->
-    <!--      <svg width="26px" height="33px" viewBox="0 0 26 33" xmlns="http://www.w3.org/2000/svg">-->
-    <!--        <g stroke="#fff" stroke-width="2.6" fill="none" fill-rule="evenodd" stroke-linecap="square">-->
-    <!--          <path d="M13 2l-.09 26"></path>-->
-    <!--          <path d="M2.615 20.758L12.91 31.054"></path>-->
-    <!--          <path d="M23.461 20.758l-10.55 10.296"></path>-->
-    <!--        </g>-->
-    <!--      </svg>-->
-    <!--    </button>-->
-
   </section>
-
 </template>
 
 <script>
@@ -85,7 +73,7 @@ export default {
     },
 
     animateParagraph: function (isVisible, entry) {
-      // console.log(`animateParagraph triggered -  isVisible: ${isVisible}`);
+      console.log(`animateParagraph triggered -  isVisible: ${isVisible}`);
 
       // console.dir(entry.target);
 
