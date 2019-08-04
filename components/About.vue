@@ -91,9 +91,9 @@ export default {
 
       if (isVisible && !this.hasOSReducedMotion) {
         // animate only once
-        if (entry.target.classList.contains('animated')) {
-          return false;
-        }
+        // if (entry.target.classList.contains('animated')) {
+        //   return false;
+        // }
 
         // elements to animate
         const paragraph = entry.target.querySelector('p'); // document.querySelector('.about__container p'); // for now only the 1st p
