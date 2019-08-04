@@ -47,6 +47,8 @@
 </template>
 
 <script>
+import { Back } from 'gsap/EasePack';
+
 export default {
   name: 'About',
 
