@@ -88,7 +88,7 @@ export default {
         const chars = mySplitText.chars; //an array of all the divs that wrap each word
         // const words = mySplitText.words; //an array of all the divs that wrap each word
 
-        this.$gsap.TweenLite.set(entry.target, { opacity: 1 });
+        this.$gsap.TweenLite.set(paragraph, { opacity: 1 });
         this.$gsap.TweenLite.set(paragraph, { perspective: 400 });
 
         tl.staggerFrom(chars, 0.8,
