@@ -68,6 +68,8 @@ export default {
   },
 
   mounted() {
+    console.log(`this.hasOSReducedMotion = ${this.hasOSReducedMotion}`);
+
     // prepare text to be animated
     if (!this.hasOSReducedMotion) {
       const entries = document.querySelectorAll('.about__container p');
@@ -90,6 +92,8 @@ export default {
         if (entry.target.classList.contains('animated')) {
           return false;
         }
+
+        console.dir(entry.target);
 
         // elements to animate
         const paragraph = entry.target.querySelector('p'); // document.querySelector('.about__container p'); // for now only the 1st p
