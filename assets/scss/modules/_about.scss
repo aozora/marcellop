@@ -81,7 +81,7 @@ $about-h2-font-size-max: 5.45rem;
       transition: transform .55s linear;
     }
 
-    &.visible {
+    &.animated {
       &::after {
         transform: translateX(100%);
       }

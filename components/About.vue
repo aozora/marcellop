@@ -16,7 +16,7 @@
       <div v-observe-visibility="{ callback: animateParagraph, once: true }" v-html="about.aboutDescription1"></div>
       <div v-observe-visibility="{ callback: animateParagraph, once: true }" v-html="about.aboutDescription2"></div>
 
-      <figure v-if="about.aboutPicture" v-observe-visibility="figureVisibilityChanged">
+      <figure v-if="about.aboutPicture" v-observe-visibility="{ callback: figureVisibilityChanged, once: true }">
         <img
           :srcset="`${about.aboutPicture.url}?w=630;1280w,
               ${about.aboutPicture.url}?w=630&fit=max;768w,
@@ -63,7 +63,7 @@ export default {
       const entries = document.querySelectorAll('.about__container p');
       for (let index = 0; index < entries.length; index += 1) {
         // entries[index].style.opacity = this.hasOSReducedMotion ? '1' : '0';
-        const mySplitText = new this.$gsap.SplitText(entries[index], { type: "words,chars" });
+        const mySplitText = new this.$gsap.SplitText(entries[index], { type: "words" });
         // const chars = mySplitText.chars; //an array of all the divs that wrap each word
       }
     }
@@ -71,7 +71,7 @@ export default {
 
   methods: {
     figureVisibilityChanged: function (isVisible, entry) {
-      isVisible ? entry.target.classList.add('visible') : entry.target.classList.remove('visible');
+      entry.target.classList.add('animated');
     },
 
     animateParagraph: function (isVisible, entry) {
@@ -80,26 +80,17 @@ export default {
       // console.dir(entry.target);
 
       if (isVisible && !this.hasOSReducedMotion) {
-        // animate only once
-        // if (entry.target.classList.contains('animated')) {
-        //   return false;
-        // }
-
         // elements to animate
-        const paragraph = entry.target.querySelector('p'); // document.querySelector('.about__container p'); // for now only the 1st p
-
-        const tl = new this.$gsap.TimelineLite();
-        // const mySplitText = new this.$gsap.SplitText(paragraph, { type: "words,chars" });
-        // const chars = mySplitText.chars; //an array of all the divs that wrap each word
-        // // const words = mySplitText.words; //an array of all the divs that wrap each word
-
-        this.$gsap.TweenLite.set(paragraph, { opacity: 1 });
-        this.$gsap.TweenLite.set(paragraph, { perspective: 400 });
-
+        const paragraph = entry.target.querySelector('p');
         const chars = paragraph.querySelectorAll('div');
 
+        const tl = new this.$gsap.TimelineLite();
+        // this.$gsap.TweenLite.set(paragraph, { opacity: 1 });
+        // this.$gsap.TweenLite.set(paragraph, { perspective: 400 });
+
+
         tl.staggerFrom(chars, 0.8,
-          { opacity: 0, scale: 0, y: 80, rotationX: 180, transformOrigin: "0% 50% -50", ease: this.$gsap.Back.easeOut },
+          { opacity: 0, /* scale: 0, y: 80, rotationX: 180, transformOrigin: "0% 50% -50", */ ease: this.$gsap.Back.easeOut },
           0.01, "+=0",
           function () {
             entry.target.classList.add('animated');
