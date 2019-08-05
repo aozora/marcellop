@@ -35,6 +35,8 @@
 </template>
 
 <script>
+import charming from 'charming';
+
 export default {
   name: 'About',
 
@@ -63,7 +65,8 @@ export default {
       const entries = document.querySelectorAll('.about__container p');
       for (let index = 0; index < entries.length; index += 1) {
         // entries[index].style.opacity = this.hasOSReducedMotion ? '1' : '0';
-        const mySplitText = new this.$gsap.SplitText(entries[index], { type: "words" });
+        // const mySplitText = new this.$gsap.SplitText(entries[index], { type: "words" });
+        charming(entries[index], { tagName: 'div' });
         // const chars = mySplitText.chars; //an array of all the divs that wrap each word
       }
     }
