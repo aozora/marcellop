@@ -96,6 +96,7 @@ export default {
           0.01, "+=0",
           function () {
             entry.target.classList.add('animated');
+            console.log('animated');
           }
         );
       }

@@ -22,4 +22,11 @@ const GSAP = {
   }
 };
 
+window.$gsap = {
+  TweenLite,
+  TimelineLite,
+  SplitText,
+  Back
+};
+
 Vue.use(GSAP);
