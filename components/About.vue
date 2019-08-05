@@ -71,7 +71,9 @@ export default {
 
   methods: {
     figureVisibilityChanged: function (isVisible, entry) {
-      entry.target.classList.add('animated');
+      if (isVisible) {
+        entry.target.classList.add('animated');
+      }
     },
 
     animateParagraph: function (isVisible, entry) {
