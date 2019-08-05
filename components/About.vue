@@ -55,17 +55,19 @@ export default {
     };
   },
 
-  // mounted() {
-  //   console.log(`this.hasOSReducedMotion = ${this.hasOSReducedMotion}`);
-  //
-  //   // prepare text to be animated
-  //   if (!this.hasOSReducedMotion) {
-  //     const entries = document.querySelectorAll('.about__container p');
-  //     for (let index = 0; index < entries.length; index += 1) {
-  //       entries[index].style.opacity = this.hasOSReducedMotion ? '1' : '0';
-  //     }
-  //   }
-  // },
+  mounted() {
+    // console.log(`this.hasOSReducedMotion = ${this.hasOSReducedMotion}`);
+
+    // prepare text to be animated
+    if (!this.hasOSReducedMotion) {
+      const entries = document.querySelectorAll('.about__container p');
+      for (let index = 0; index < entries.length; index += 1) {
+        // entries[index].style.opacity = this.hasOSReducedMotion ? '1' : '0';
+        const mySplitText = new this.$gsap.SplitText(entries[index], { type: "words,chars" });
+        // const chars = mySplitText.chars; //an array of all the divs that wrap each word
+      }
+    }
+  },
 
   methods: {
     figureVisibilityChanged: function (isVisible, entry) {
@@ -87,12 +89,14 @@ export default {
         const paragraph = entry.target.querySelector('p'); // document.querySelector('.about__container p'); // for now only the 1st p
 
         const tl = new this.$gsap.TimelineLite();
-        const mySplitText = new this.$gsap.SplitText(paragraph, { type: "words,chars" });
-        const chars = mySplitText.chars; //an array of all the divs that wrap each word
-        // const words = mySplitText.words; //an array of all the divs that wrap each word
+        // const mySplitText = new this.$gsap.SplitText(paragraph, { type: "words,chars" });
+        // const chars = mySplitText.chars; //an array of all the divs that wrap each word
+        // // const words = mySplitText.words; //an array of all the divs that wrap each word
 
         this.$gsap.TweenLite.set(paragraph, { opacity: 1 });
         this.$gsap.TweenLite.set(paragraph, { perspective: 400 });
+
+        const chars = paragraph.querySelectorAll('div');
 
         tl.staggerFrom(chars, 0.8,
           { opacity: 0, scale: 0, y: 80, rotationX: 180, transformOrigin: "0% 50% -50", ease: this.$gsap.Back.easeOut },
