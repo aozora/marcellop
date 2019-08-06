@@ -123,6 +123,18 @@ export default {
      */
     toggleMobileMenu: function () {
       if (window.matchMedia('(max-width: 768px)').matches) {
+        const body = document.body;
+
+        // on open
+        if (!this.showMobileMenu) {
+          // fix ios issues
+          // ref: https://css-tricks.com/prevent-page-scrolling-when-a-modal-is-open/
+          body.style.position = 'fixed';
+        } else {
+          body.style.position = '';
+        }
+
+        // toggle
         this.showMobileMenu = !this.showMobileMenu;
       }
     }

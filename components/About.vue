@@ -77,38 +77,32 @@ export default {
     },
 
     animateParagraph: function (isVisible, entry) {
-      console.log(`animateParagraph triggered -  isVisible: ${isVisible}`);
-
-      // console.dir(entry.target);
-
+      // console.log(`animateParagraph triggered -  isVisible: ${isVisible}`);
       if (isVisible && !this.hasOSReducedMotion) {
         // elements to animate
         const paragraph = entry.target.querySelector('p');
         const chars = paragraph.querySelectorAll('div');
-        const numChars = chars.length;
+        // const numChars = chars.length;
 
         const tl = new this.$gsap.TimelineLite();
 
-        for (let index = 0; index < numChars; index += 1) {
-          console.dir(chars[index]);
+        // for (let index = 0; index < numChars; index += 1) {
+        //   console.dir(chars[index]);
+        //
+        //   //random value used as position parameter
+        //   tl.from(chars[index], 2, { opacity: 0 }, Math.random() * 2,
+        //     function () {
+        //       entry.target.classList.add('animated');
+        //       console.log('animated');
+        //     }
+        //   );
+        // }
 
-          //random value used as position parameter
-          tl.from(chars[index], 2, { opacity: 0 }, Math.random() * 2,
-            function () {
-              entry.target.classList.add('animated');
-              console.log('animated');
-            }
-          );
-        }
-
-        // tl.staggerFrom(chars, 0.8,
-        //   { opacity: 0, /* scale: 0, y: 80, rotationX: 180, transformOrigin: "0% 50% -50", */ ease: this.$gsap.Back.easeOut },
-        //   0.01, "+=0",
-        //   function () {
-        //     entry.target.classList.add('animated');
-        //     console.log('animated');
-        //   }
-        // );
+        tl.staggerFrom(chars, 1.8,
+          { opacity: 0, /* scale: 0, y: 80, rotationX: 180, transformOrigin: "0% 50% -50", */ ease: this.$gsap.Back.easeOut },
+          0.02, // delay
+          "+=0",
+        );
       }
     }
 

@@ -19,8 +19,8 @@
   --color-white: #fff;
 
   // PANTONE Color of the Year 2017
-  // https://www.pantone.com/color-intelligence/color-of-the-year/color-of-the-year-2017-color-standards
-  --color-pantone: #88B04B;
+  // https://www.pantone.com/color-intelligence/color-of-the-year/color-of-the-year-2018-tools-for-designers
+  --color-pantone: #5F4B8B;
 
   /* Breakpoint variables */
   --breakpoint-small: #{strip-unit(map_get($breakpoints, phone))};
