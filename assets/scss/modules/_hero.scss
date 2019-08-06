@@ -95,7 +95,7 @@ $hero-p-font-size-max: 1.81rem;
     align-items: flex-end;
     max-width: none;
     margin: 0 0 1rem 0;
-    font-family: $heading-font-family;
+    //font-family: $heading-font-family;
 
     @include fluid-type(font-size, map_get($breakpoints, phone), map_get($breakpoints, desktophd), $hero-p-font-size-min, $hero-p-font-size-max);
     @include fluid-type(line-height, map_get($breakpoints, phone), map_get($breakpoints, desktophd), $hero-p-line-height-min, $hero-p-line-height-max);

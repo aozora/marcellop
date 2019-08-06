@@ -1,6 +1,6 @@
 <template>
   <header id="header" class="header" :class="{'header--home': isHome ,'header--menu-open': showMobileMenu, 'header--scrolled': homeHeaderScrolled}">
-    <button class="menu__toggle" aria-expanded="false" @click.prevent="toggleMobileMenu">
+    <button id="menu__toggle" class="menu__toggle" :aria-expanded="showMobileMenu" aria-controls="menu" @click.prevent="toggleMobileMenu">
       <span class="visuallyhidden">Menu</span>
       <svg width="48" height="48" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
         <g fill="none" fill-rule="evenodd">
@@ -82,6 +82,8 @@ export default {
   data: function () {
     return {
       showMobileMenu: false,
+      mobileMenuIsAriaHidden: false,
+      showSearch: false
     };
   },
 
@@ -113,10 +115,19 @@ export default {
     }
   },
 
+  mounted() {
+    // if mobile, then add ARIA attrs to the mobile menu, so it will be available to AT only when toggled
+    if (this.isMobile) {
+      const menu = document.querySelector('.menu');
+      menu.setAttribute('aria-hidden', 'true');
+      menu.setAttribute('aria-labelledby', 'menu__toggle');
+    }
+  },
+
   methods: {
-    // homeHeadingVisibilityChanged: function (isVisible, entry) {
-    //   this.homeHeadingScrolled = !isVisible;
-    // }
+    isMobile: function () {
+      return window.matchMedia('(max-width: 768px)').matches;
+    },
 
     /**
      * Toggle the mobile menu
@@ -124,6 +135,7 @@ export default {
     toggleMobileMenu: function () {
       if (window.matchMedia('(max-width: 768px)').matches) {
         const body = document.body;
+        const menu = document.querySelector('.menu');
 
         // on open
         if (!this.showMobileMenu) {
@@ -136,6 +148,12 @@ export default {
 
         // toggle
         this.showMobileMenu = !this.showMobileMenu;
+        menu.setAttribute('aria-hidden', `${!this.showMobileMenu}`);
+
+        // set focus
+        if(this.showMobileMenu){
+          menu.querySelector('a').focus();
+        }
       }
     }
   }

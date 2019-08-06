@@ -114,6 +114,7 @@
     height: 100%;
     margin: 0;
     padding: 0;
+    border: .10em solid transparent;
     font-family: $heading-font-family;
     font-size: 1rem;
     line-height: 1;
@@ -126,7 +127,7 @@
 
 
     /*
-     * Don't enable hover on links on mobile, it wll cause this issue on ios:
+     * Don't enable hover on links on mobile, it will cause this issue on ios:
      * https://css-tricks.com/annoying-mobile-double-tap-link-issue/
     */
     // &:hover:after,
@@ -138,8 +139,9 @@
     &:focus {
       color: var(--color-primary);
       text-decoration: none;
+      border-bottom: .10em dashed var(--color-pantone);
+      outline: 0;
     }
-
   }
 
   @include media(">=tablet") {
@@ -169,6 +171,8 @@
       &:focus {
         color: var(--color-primary);
         text-decoration: none;
+        border-bottom: .10em dashed var(--color-pantone);
+        outline: 0;
       }
 
     }
@@ -246,6 +250,9 @@
     }
 
     a {
+      display: inline-block;
+      height: 2.778rem;
+      width: auto;
       color: var(--color-white);
       font-size: 2rem;
       line-height: 1.6;
