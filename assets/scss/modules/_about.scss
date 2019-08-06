@@ -109,10 +109,6 @@ $about-h2-font-size-max: 5.45rem;
       font-size: 1rem;
       line-height: 1.6;
       margin-bottom: 1rem;
-
-      [class^="char"] {
-        display: inline;
-      }
     }
 
     @include media(">=tablet") {
