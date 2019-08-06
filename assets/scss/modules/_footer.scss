@@ -1,13 +1,61 @@
 .footer {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto auto auto;
+  grid-gap: 1rem;
+  grid-template-areas: "social" "copyright" "credits";
+  @include container;
+  padding: 3rem 0;
+
+
   .menu__social {
-    list-style-type: none;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    margin: 0 0 2rem 0;
+    grid-area: social;
+
+    ul {
+      list-style-type: none;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-rows: auto;
+      grid-gap: 1rem;
+      justify-items: center;
+      align-items: start;
+      max-width: none;
+      height: 1.778rem;
+      margin: 0 0 3rem 0;
+      padding: 0;
+    }
+
+    //max-width: none;
+
+    span {
+      @include visuallyhidden;
+    }
+
+    //li,
+    //a {
+    //  display: block;
+    //  width: 1.778px;
+    //  height: 1.778px;
+    //  padding: .2rem;
+    //}
+
+    a {
+      display: block;
+      width: 1.778rem;
+      height: 1.778rem;
+      padding: .2rem;
+
+      &:hover,
+      &:focus,
+      &:active {
+        color: var(--color-pantone);
+        border-color: var(--color-pantone);
+      }
+    }
   }
 
   .footer__copyright {
+    grid-area: copyright;
     margin: 0 auto 2rem auto;
     padding: 0 1rem;
     font-size: .888rem;
@@ -15,7 +63,8 @@
     text-align: center;
   }
 
-  .footer__credits{
+  .footer__credits {
+    grid-area: credits;
     margin: 0 auto 2rem auto;
     padding: 0 1rem;
     font-size: .778rem;

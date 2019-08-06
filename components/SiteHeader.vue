@@ -150,9 +150,12 @@ export default {
         this.showMobileMenu = !this.showMobileMenu;
         menu.setAttribute('aria-hidden', `${!this.showMobileMenu}`);
 
-        // set focus
-        if(this.showMobileMenu){
+        // on open, set focus on the first <a>
+        if (this.showMobileMenu) {
           menu.querySelector('a').focus();
+        } else {
+          // on close, set focus to the triggering button
+          document.querySelector('.menu__toggle').focus();
         }
       }
     }

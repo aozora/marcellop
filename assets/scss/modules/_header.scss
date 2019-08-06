@@ -186,12 +186,14 @@
   margin: 0;
   padding: 0;
 
-  @include media(">=tablet") {
-    display: none;
-  }
-
   span {
     @include visuallyhidden;
+  }
+}
+
+@include media(">=tablet") {
+  .header .menu__social {
+    display: none;
   }
 }
 

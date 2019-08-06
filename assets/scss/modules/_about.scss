@@ -57,6 +57,7 @@ $about-h2-font-size-max: 5.45rem;
     grid-area: heading2;
     justify-self: start;
     width: 100%;
+    max-width: none;
     margin-bottom: 3rem;
     padding: 0 1rem;
     color: var(--color-white);
@@ -95,8 +96,8 @@ $about-h2-font-size-max: 5.45rem;
       margin: 1rem 0;
 
       img {
-        width: 17.6rem;
-        height: 11.8rem;
+        //width: 17.6rem;
+        //height: 11.8rem;
         object-fit: cover;
       }
     }
