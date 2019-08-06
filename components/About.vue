@@ -90,8 +90,15 @@ export default {
         const tl = new this.$gsap.TimelineLite();
 
         for (let index = 0; index < numChars; index += 1) {
+          console.dir(chars[index]);
+
           //random value used as position parameter
-          tl.from(chars[index], 2, { opacity: 0 }, Math.random() * 2);
+          tl.from(chars[index], 2, { opacity: 0 }, Math.random() * 2,
+            function () {
+              entry.target.classList.add('animated');
+              console.log('animated');
+            }
+          );
         }
 
         // tl.staggerFrom(chars, 0.8,
