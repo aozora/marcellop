@@ -75,10 +75,12 @@ $hero-p-font-size-max: 1.81rem;
     //  -1px 1px 0 var(--color-black),
     //  1px 1px 0 var(--color-black);
     //}
+    @include media("<=360px"){
+      font-size: 2.5rem;
+    }
+
 
     @include media(">=tablet"){
-      //max-width: 56vw;
-      //margin: 0 0 2rem 0;
       margin: 0 0 2rem 3rem;
     }
   }
@@ -106,6 +108,10 @@ $hero-p-font-size-max: 1.81rem;
 
       &:first-child {
         margin-right: 2rem;
+
+        @include media('<=360px'){
+          margin-right: .3rem;
+        }
       }
 
       &:last-child {

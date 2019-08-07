@@ -5,3 +5,4 @@
 * focus state for desktop menu
 * close mobile menu after click
 * check reduce motion on clippath animations
+* move SCSS to modules! 
