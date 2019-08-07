@@ -64,7 +64,12 @@ export default {
       for (let index = 0; index < entries.length; index += 1) {
         // entries[index].style.opacity = this.hasOSReducedMotion ? '1' : '0';
         const mySplitText = new this.$gsap.SplitText(entries[index], { type: "words" });
-        // const chars = mySplitText.chars; //an array of all the divs that wrap each word
+        const chars = mySplitText.chars; //an array of all the divs that wrap each word
+
+        // hide form AT, otherwise every single char/word will be read standalone
+        for (let index = 0; index < chars.length; index+=1) {
+          chars[index].setAttribute('aria-hidden', 'true');
+        }
       }
     }
   },

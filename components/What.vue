@@ -3,7 +3,7 @@
     <h2>{{ whatido.heading }}</h2>
 
     <ul v-if="whatido" class="whatido__items">
-      <li v-for="(item, index) in whatido.items" :key="index">
+      <li v-for="(item, index) in whatido.items" :key="index" :style="{'--whatido-justify': getRandomJustification()}">
         <p class="whatido__title">{{ item.title }}</p>
         <div class="whatido__description" v-html="item.description"></div>
       </li>
@@ -21,6 +21,22 @@ export default {
       type: Object,
       default: () => {
         return undefined;
+      }
+    }
+  },
+
+  methods: {
+    getRandomJustification: function () {
+      const index = Math.floor(Math.random() * 3);
+
+      switch (index) {
+        case 2:
+          return 'flex-start';
+        case 1:
+          return 'center';
+        case 0:
+        default:
+          return 'flex-end';
       }
     }
   }
