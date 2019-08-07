@@ -61,6 +61,10 @@ $about-h2-font-size-max: 5.45rem;
     margin-bottom: 3rem;
     padding: 0 1rem;
     color: var(--color-white);
+
+    @include media('<=360px'){
+      margin-top: 3rem;
+    }
   }
 
   figure {
