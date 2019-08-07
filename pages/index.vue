@@ -5,8 +5,6 @@
     <hero :hi="home.hi" :heading1="home.heading1" :heading2-a="home.heading2A" :heading2-b="home.heading2B" :heading2-c="home.heading2C"></hero>
     <about :about="about"></about>
     <what :whatido="whatido"></what>
-    <!--    <experience></experience>-->
-    <!--    <contact></contact>-->
   </div>
 </template>
 
@@ -16,8 +14,6 @@ import Hero from '../components/Hero';
 import About from '../components/About';
 import What from '../components/What';
 import { DatoCmsSeoMetaTags } from '../apollo/fragments/seoMetaTagsFragmentMixin';
-// import Experience from '../components/Experience';
-// import Contact from '../components/Contact';
 
 export default {
   components: { /* Contact, Experience, */ What, About, Hero },
@@ -42,6 +38,7 @@ export default {
     heading2A
     heading2B
     heading2C
+    aboutHeading
     aboutDescription1(locale: en, markdown: true)
     aboutDescription2(locale: en, markdown: true)
     aboutDescription3(locale: en, markdown: true)
@@ -50,8 +47,10 @@ export default {
       alt
       url
     }
+    whatidoHeading
     whatido {
       title
+      description
     }
     seoMetaTags: _seoMetaTags {
       ...DatoCmsSeoMetaTags
@@ -65,6 +64,7 @@ ${DatoCmsSeoMetaTags}
   computed: {
     about() {
       return {
+        aboutHeading: this.home.aboutHeading,
         aboutDescription1: this.home.aboutDescription1,
         aboutDescription2: this.home.aboutDescription2,
         aboutDescription3: this.home.aboutDescription3,
@@ -73,8 +73,11 @@ ${DatoCmsSeoMetaTags}
       };
     },
 
-    whatido(){
-      return this.home.whatido;
+    whatido() {
+      return {
+        heading: this.home.whatidoHeading,
+        items: this.home.whatido
+      };
     }
   },
 

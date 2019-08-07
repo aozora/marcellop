@@ -72,7 +72,7 @@ button {
     @supports (font-variation-settings: normal) {
       font-family: $variable-font-family;
       // this settings depends on th vf selected
-      font-variation-settings: 'wght' var(--text-weight);
+      font-variation-settings: 'wght' #var(--text-weight);
       /* ,
          'wdth' var(--text-width),
          'opsz' var(--text-opticalsize); */
@@ -116,7 +116,7 @@ h1, h2, h3, h4, h5, h6 {
   font-family: $heading-font-family;
   font-weight: $heading-font-weight;
   transition: all linear 0.2s;
-  --text-weight: calc(var(--p-vf-weight) * var(--h1-vf-weight-multiplier-s));
+  --text-weight: calc(#{var(--p-vf-weight)} * #{var(--h1-vf-weight-multiplier-s)});
   color: inherit;
 
 
@@ -124,7 +124,7 @@ h1, h2, h3, h4, h5, h6 {
     @supports (font-variation-settings: normal) {
       font-family: $variable-heading-font-family;
       // this settings depends on th vf selected
-      font-variation-settings: 'wght' var(--heading-weight);
+      font-variation-settings: 'wght' #{var(--heading-weight)};
       /* ,
          'wdth' var(--text-width),
          'opsz' var(--text-opticalsize); */

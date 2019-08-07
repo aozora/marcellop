@@ -16,12 +16,6 @@ $hero-p-line-height-max: 1.5em;
 $hero-p-font-size-min: 1.388rem;
 $hero-p-font-size-max: 1.81rem;
 
-:root {
-  --hero-font-size-max: #{$hero-h1-font-size-max};
-  --hero-font-size-min: #{$hero-h1-font-size-min};
-}
-
-
 .hero {
   position: relative;
   display: block;

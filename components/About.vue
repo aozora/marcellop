@@ -11,7 +11,7 @@
     <!--    </button>-->
 
     <div id="about" class="about__container">
-      <h2>About</h2>
+      <h2>{{ about.aboutHeading }}</h2>
 
       <div v-observe-visibility="{ callback: animateParagraph, once: true }" v-html="about.aboutDescription1"></div>
       <div v-observe-visibility="{ callback: animateParagraph, once: true }" v-html="about.aboutDescription2"></div>

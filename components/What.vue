@@ -1,12 +1,13 @@
 <template>
   <section id="whatido" class="whatido">
-    <h2>What I Do</h2>
+    <h2>{{ whatido.heading }}</h2>
 
-    <div v-if="whatido" class="whatido__items">
-      <div v-for="(item, index) in whatido" :key="index" class="whatido__item">
-        <p v-text="item.title"></p>
-      </div>
-    </div>
+    <ul v-if="whatido" class="whatido__items">
+      <li v-for="(item, index) in whatido.items" :key="index">
+        <p class="whatido__title">{{ item.title }}</p>
+        <div class="whatido__description" v-html="item.description"></div>
+      </li>
+    </ul>
   </section>
 </template>
 
@@ -17,9 +18,9 @@ export default {
   props: {
     whatido: {
       required: true,
-      type: Array,
+      type: Object,
       default: () => {
-        return [];
+        return undefined;
       }
     }
   }

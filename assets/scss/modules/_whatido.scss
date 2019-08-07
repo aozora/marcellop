@@ -1,27 +1,59 @@
+$whatido-item-title-line-height-min: 1.5em; // use 'em' otherwise the fluid-type mixin doesn't work
+$whatido-item-title-line-height-max: 1.5em;
+$whatido-item-title-font-size-min: 2rem;
+$whatido-item-title-font-size-max: 3.45rem;
+
 .whatido {
   @include container;
   margin-bottom: 5rem;
-  padding: 1rem;
 
-  p {
-    display: inline-block;
-    max-width: var(--text-max-width);
-    padding: .5rem 1rem;
-    margin: 1rem;
-    background-color: var(--color-black);
-    --text-weight: calc(var(--p-vf-weight) * var(--h3-vf-weight-multiplier-s));
-    font-family: $heading-font-family;
-    font-size: calc(var(--h3-font-size-min) * 1em);
-    line-height: var(--h3-line-height-min);
-    letter-spacing: var(--text-on-dark-letter-spacing);
+  h2 {
+    width: 100%;
+    max-width: none;
+    padding: 0 1rem;
+  }
+
+  ul {
+    list-style-type: none;
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  li {
+    margin-bottom: 3rem;
+  }
+
+  .whatido__title {
+    position: relative;
+    width: 100%;
+    max-width: none;
+    margin: 0 auto -2rem auto;
     color: var(--color-white);
+    text-shadow: -1px -1px 0 var(--color-pantone),
+    1px -1px 0 var(--color-pantone),
+    -1px 1px 0 var(--color-pantone),
+    1px 1px 0 var(--color-pantone);
+    --text-weight: 700;
+
+    @include fluid-type(font-size, map_get($breakpoints, phone), map_get($breakpoints, desktophd), $whatido-item-title-font-size-min, $whatido-item-title-font-size-max);
+    @include fluid-type(line-height, map_get($breakpoints, phone), map_get($breakpoints, desktophd), $whatido-item-title-line-height-min, $whatido-item-title-line-height-max);
     text-transform: uppercase;
-    text-align: center;
+
+    z-index: 2;
+  }
+
+  .whatido__description {
+    position: relative;
+    width: 100%;
+    max-width: 570px;
+    margin: 0;
+    padding: 2rem 1rem 1rem 1rem;
+    color: var(--color-white);
+    background-color: var(--color-black);
+    z-index: 1;
+    clip-path: polygon(0% 0%, 100% 0%, 100% 50%, 100% 100%, 70% 100%, 30% 100%, 0% 100%);
   }
 }
 
-.whatido__item {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
