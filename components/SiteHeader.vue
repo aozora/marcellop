@@ -10,10 +10,11 @@
         </g>
       </svg>
     </button>
-    <!--      <h1 class="logo">-->
-    <!--        <nuxt-link :to="'/'" exact>-->
-    <!--        </nuxt-link>-->
-    <!--      </h1>-->
+
+    <p v-if="!isHome" aria-hidden="true" class="menu__title">
+      <span>MP</span>
+      <span>Marcello Palmitessa</span>
+    </p>
 
     <nav class="menu">
       <ul v-if="menu && menu.menuItems" class="menu__items">
