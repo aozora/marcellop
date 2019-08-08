@@ -25,10 +25,9 @@ $whatido-item-title-font-size-max: 3.45rem;
     position: relative;
     width: 100%;
     max-width: none;
-    margin: 0 auto;
+    margin: 0 auto 1rem auto;
     padding: 0 1rem;
-    color: var(--color-white);
-    background-color: var(--color-black);
+    color: var(--color-black);
     --text-weight: 700;
     font-family: $heading-font-family;
 
@@ -50,8 +49,7 @@ $whatido-item-title-font-size-max: 3.45rem;
     max-width: 570px;
     margin: 0;
     padding: 1rem;
-    color: var(--color-white);
-    background-color: var(--color-pantone);
+    color: var(--color-black);
     z-index: 1;
     transition: clip-path 1.5s ease;
   }

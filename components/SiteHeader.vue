@@ -18,7 +18,7 @@
     <nav class="menu">
       <ul v-if="menu && menu.menuItems" class="menu__items">
         <li v-for="(item, index) in menu.menuItems" :key="index">
-          <nuxt-link :to="item.url.substr(1)" active-class="active" exact @click="toggleMobileMenu">
+          <nuxt-link :to="getMenuUrl(item.url)" active-class="active" exact @click="toggleMobileMenu">
             <span :data-letters="item.title">{{ item.title }}</span>
           </nuxt-link>
         </li>
@@ -129,6 +129,14 @@ export default {
   methods: {
     isMobile: function () {
       return window.matchMedia('(max-width: 768px)').matches;
+    },
+
+    getMenuUrl: function (url) {
+      if (url !== '/') {
+        return url.substr(1);
+      }
+
+      return url;
     },
 
     /**

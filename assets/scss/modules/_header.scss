@@ -238,6 +238,7 @@
     clip-path: polygon(10% 0%, 25% 0%, 50% 0%, 75% 0%, 100% 0%, 100% 100%, 75% 100%, 50% 100%, 25% 100%, 0% 100%, 0% 0%);
     animation: menu-enter 3s ease-in-out;
     animation-fill-mode: forwards;
+    will-change: clip-path;
   }
 
 
