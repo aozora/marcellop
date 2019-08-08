@@ -18,7 +18,9 @@
     <nav class="menu">
       <ul v-if="menu && menu.menuItems" class="menu__items">
         <li v-for="(item, index) in menu.menuItems" :key="index">
-          <nuxt-link :to="item.url.substr(1)" active-class="active" exact @click="toggleMobileMenu">{{ item.title }}</nuxt-link>
+          <nuxt-link :to="item.url.substr(1)" active-class="active" exact @click="toggleMobileMenu">
+            <span :data-letters="item.title">{{ item.title }}</span>
+          </nuxt-link>
         </li>
       </ul>
 

@@ -86,9 +86,18 @@ $about-h2-font-size-max: 5.45rem;
       transition: transform .55s linear;
     }
 
+    img {
+      transition: transform 3s ease-in-out;
+      transform: scale(1.2);
+    }
+
     &.animated {
       &::after {
         transform: translateX(100%);
+      }
+
+      img {
+        transform: scale(1);
       }
     }
 

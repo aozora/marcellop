@@ -123,7 +123,7 @@
     text-decoration: none;
     text-align: center;
     color: var(--color-primary);
-    transition: color .2s ease-out;
+    transition: all .2s ease-out;
 
 
     /*
@@ -166,14 +166,14 @@
       width: auto;
       margin: 0 1rem;
 
-      &:hover,
-      &:active,
-      &:focus {
-        color: var(--color-primary);
-        text-decoration: none;
-        border-bottom: .10em dashed var(--color-pantone);
-        outline: 0;
-      }
+      //&:hover,
+      //&:active,
+      //&:focus {
+      //  color: var(--color-primary);
+      //  text-decoration: none;
+      //  border-bottom: .10em solid var(--color-pantone);
+      //  outline: 0;
+      //}
 
     }
   }
@@ -267,9 +267,69 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
+  }
+}
 
-    li {
 
+/*
+  Desktop menu links animation with effect Kumya by Codrops:
+  https://tympanus.net/codrops/2015/05/13/inspiration-for-text-styles-and-hover-effects/
+*/
+/* Kumya */
+
+@include media ('>=desktop') {
+  .menu__items {
+    a {
+      overflow: hidden;
+      padding: 10px 10px 5px 10px;
+      border: 0;
+
+      &:focus,
+      &:hover {
+        color: var(--color-pantone);
+        border: 0;
+      }
+
+      &::after {
+        content: '';
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        top: 0;
+        right: 0;
+        z-index: -1;
+        background-color: var(--color-black);
+        transform: translate3d(101%, 0, 0);
+        transition: transform 0.5s;
+        transition-timing-function: cubic-bezier(0.7, 0, 0.3, 1);
+      }
+
+      &:focus::after,
+      &:hover::after {
+        transform: translate3d(0, 0, 0);
+      }
+
+      span {
+        display: block;
+        position: relative;
+
+        &::before {
+          content: attr(data-letters);
+          position: absolute;
+          color: var(--color-white);
+          left: 0;
+          overflow: hidden;
+          white-space: nowrap;
+          width: 0;
+          transition: width 0.5s;
+          transition-timing-function: cubic-bezier(0.7, 0, 0.3, 1);
+        }
+      }
+
+      &:focus span::before,
+      &:hover span::before {
+        width: 100%;
+      }
     }
   }
 }
