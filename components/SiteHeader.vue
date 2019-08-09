@@ -1,6 +1,6 @@
 <template>
   <header id="header" class="header" :class="{'header--home': isHome ,'header--menu-open': showMobileMenu, 'header--scrolled': homeHeaderScrolled}">
-    <button id="menu__toggle" class="menu__toggle" :aria-expanded="showMobileMenu" aria-controls="menu" @click.prevent="toggleMobileMenu">
+    <button id="menu__toggle" type="button" class="menu__toggle" :aria-expanded="showMobileMenu" aria-controls="menu" @click.prevent="toggleMobileMenu">
       <span class="visuallyhidden">Menu</span>
       <svg width="48" height="48" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
         <g fill="none" fill-rule="evenodd">
@@ -55,7 +55,7 @@
       </ul>
     </nav>
 
-    <button class="menu__search" aria-expanded="false">
+    <button type="button" class="menu__search" aria-expanded="false">
       <span class="visuallyhidden">Search</span>
       <svg with="48" height="48" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
         <g fill="none" fill-rule="evenodd">
@@ -123,6 +123,7 @@ export default {
     if (this.isMobile) {
       const menu = document.querySelector('.menu');
       menu.setAttribute('aria-hidden', 'true');
+      menu.setAttribute('tabindex', '-1');
       menu.setAttribute('aria-labelledby', 'menu__toggle');
     }
   },
@@ -160,6 +161,7 @@ export default {
         // toggle
         this.showMobileMenu = !this.showMobileMenu;
         menu.setAttribute('aria-hidden', `${!this.showMobileMenu}`);
+        menu.setAttribute('tabindex', this.showMobileMenu ? '0' : '-1');
 
         // on open, set focus on the first <a>
         if (this.showMobileMenu) {

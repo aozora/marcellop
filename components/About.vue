@@ -62,14 +62,19 @@ export default {
     if (!this.hasOSReducedMotion) {
       const entries = document.querySelectorAll('.about__container p');
       for (let index = 0; index < entries.length; index += 1) {
+        const clone = entries[index].cloneNode(true);
+        clone.classList.add('visuallyhidden');
+
         // entries[index].style.opacity = this.hasOSReducedMotion ? '1' : '0';
         const mySplitText = new this.$gsap.SplitText(entries[index], { type: "words" });
         const chars = mySplitText.chars; //an array of all the divs that wrap each word
 
         // hide form AT, otherwise every single char/word will be read standalone
-        for (let index = 0; index < chars.length; index+=1) {
-          chars[index].setAttribute('aria-hidden', 'true');
-        }
+        // for (let index = 0; index < chars.length; index+=1) {
+        //   chars[index].setAttribute('aria-hidden', 'true');
+        // }
+        entries[index].setAttribute('aria-hidden', 'true');
+        entries[index].parentNode.append(clone);
       }
     }
   },
