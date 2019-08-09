@@ -7,3 +7,4 @@
 * move SCSS to modules! 
 * sitemap
 * rss
+* error pages (styles)
