@@ -1,7 +1,7 @@
 <template>
   <section class="resume">
     <h1>Resume</h1>
-    <JobsList v-if="resume && resume.jobs" :jobs="jobs"></JobsList>
+    <JobsList v-if="jobs" :jobs="jobs"></JobsList>
   </section>
 </template>
 
@@ -26,29 +26,21 @@ export default {
   },
 
   apollo: {
-    resume: gql`
+    jobs: gql`
 {
-  resume(locale: en) {
+  jobs: allResumeJobs(locale: en) {
+    title
+    from
+    to
+    company
+    description
     seoMetaTags: _seoMetaTags {
       ...DatoCmsSeoMetaTags
-    }
-    jobs {
-      from
-      to
-      title
-      company
-      description
     }
   }
 }
 ${DatoCmsSeoMetaTags}
 `
-  },
-
-  computed: {
-    jobs() {
-      return this.resume && this.resume.jobs ? this.resume.jobs : [];
-    }
   },
 
   methods: {

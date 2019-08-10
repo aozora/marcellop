@@ -2,7 +2,12 @@
   <div>
     <article v-for="(job, index) in jobs" :key="index">
       <header>
-        <h3>{{ job.title }}</h3>
+        <p>
+          <span>{{ getYear(job.from) }}</span>
+          <span v-if="job.to">{{ getYear(job.to) }}</span>
+          <span v-else>present</span>
+        </p>
+        <h3>{{ job.title }} @ {{ job.company }}</h3>
         <div v-html="job.description"></div>
       </header>
     </article>
@@ -16,10 +21,17 @@ export default {
   props: {
     jobs: {
       required: true,
-      type: Array,
+      type: Object,
       default: () => {
-        return [];
+        return undefined;
       }
+    }
+  },
+
+  methods: {
+    getYear: function (date) {
+      const d = new Date(date);
+      return d.getFullYear();
     }
   }
 };
