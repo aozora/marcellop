@@ -64,6 +64,7 @@ export default {
       for (let index = 0; index < entries.length; index += 1) {
         const clone = entries[index].cloneNode(true);
         clone.classList.add('visuallyhidden');
+        clone.setAttribute('role', 'text');
 
         // entries[index].style.opacity = this.hasOSReducedMotion ? '1' : '0';
         const mySplitText = new this.$gsap.SplitText(entries[index], { type: "words" });
