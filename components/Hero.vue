@@ -1,7 +1,7 @@
 <template>
   <section class="hero">
     <p class="hi">{{ hi }}</p>
-    <h1>{{ heading1Splitted[0] }}<br>{{ heading1Splitted[1] }}</h1>
+    <h1>{{ heading1Splitted[0] }} {{ heading1Splitted[1] }}</h1>
 
     <p>
       <span>{{ heading2A }}</span>

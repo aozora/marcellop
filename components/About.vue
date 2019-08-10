@@ -59,25 +59,25 @@ export default {
     // console.log(`this.hasOSReducedMotion = ${this.hasOSReducedMotion}`);
 
     // prepare text to be animated
-    if (!this.hasOSReducedMotion) {
-      const entries = document.querySelectorAll('.about__container p');
-      for (let index = 0; index < entries.length; index += 1) {
-        const clone = entries[index].cloneNode(true);
-        clone.classList.add('visuallyhidden');
-        clone.setAttribute('role', 'text');
-
-        // entries[index].style.opacity = this.hasOSReducedMotion ? '1' : '0';
-        const mySplitText = new this.$gsap.SplitText(entries[index], { type: "words" });
-        const chars = mySplitText.chars; //an array of all the divs that wrap each word
-
-        // hide form AT, otherwise every single char/word will be read standalone
-        // for (let index = 0; index < chars.length; index+=1) {
-        //   chars[index].setAttribute('aria-hidden', 'true');
-        // }
-        entries[index].setAttribute('aria-hidden', 'true');
-        entries[index].parentNode.append(clone);
-      }
-    }
+    // if (!this.hasOSReducedMotion) {
+    //   const entries = document.querySelectorAll('.about__container p');
+    //   for (let index = 0; index < entries.length; index += 1) {
+    //     const clone = entries[index].cloneNode(true);
+    //     clone.classList.add('visuallyhidden');
+    //     clone.setAttribute('role', 'text');
+    //
+    //     // entries[index].style.opacity = this.hasOSReducedMotion ? '1' : '0';
+    //     const mySplitText = new this.$gsap.SplitText(entries[index], { type: "words" });
+    //     const chars = mySplitText.chars; //an array of all the divs that wrap each word
+    //
+    //     // hide form AT, otherwise every single char/word will be read standalone
+    //     // for (let index = 0; index < chars.length; index+=1) {
+    //     //   chars[index].setAttribute('aria-hidden', 'true');
+    //     // }
+    //     entries[index].setAttribute('aria-hidden', 'true');
+    //     entries[index].parentNode.append(clone);
+    //   }
+    // }
   },
 
   methods: {
@@ -88,32 +88,11 @@ export default {
     },
 
     animateParagraph: function (isVisible, entry) {
-      // console.log(`animateParagraph triggered -  isVisible: ${isVisible}`);
       if (isVisible && !this.hasOSReducedMotion) {
         // elements to animate
         const paragraph = entry.target.querySelector('p');
-        const chars = paragraph.querySelectorAll('div');
-        // const numChars = chars.length;
-
         const tl = new this.$gsap.TimelineLite();
-
-        // for (let index = 0; index < numChars; index += 1) {
-        //   console.dir(chars[index]);
-        //
-        //   //random value used as position parameter
-        //   tl.from(chars[index], 2, { opacity: 0 }, Math.random() * 2,
-        //     function () {
-        //       entry.target.classList.add('animated');
-        //       console.log('animated');
-        //     }
-        //   );
-        // }
-
-        tl.staggerFrom(chars, 1.8,
-          { opacity: 0, /* scale: 0, y: 80, rotationX: 180, transformOrigin: "0% 50% -50", */ ease: this.$gsap.Back.easeOut },
-          0.02, // delay
-          "+=0",
-        );
+        tl.from(paragraph, 2, { opacity: 0 });
       }
     }
 

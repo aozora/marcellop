@@ -8,7 +8,7 @@
 * */
 import Vue from 'vue';
 import { TweenLite, TimelineLite, CSSPlugin, Back } from 'gsap/all';
-import SplitText from '../lib/gsap/SplitText';
+// import SplitText from '../lib/gsap/SplitText';
 
 const GSAP = {
   install(Vue, options) {
@@ -17,7 +17,7 @@ const GSAP = {
       TweenLite,
       TimelineLite,
       CSSPlugin,
-      SplitText,
+      // SplitText,
       Back
     };
   }
