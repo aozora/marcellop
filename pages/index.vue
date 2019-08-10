@@ -2,7 +2,7 @@
   <div>
 
 
-    <hero :hi="home.hi" :heading1="home.heading1" :heading2-a="home.heading2A" :heading2-b="home.heading2B" :heading2-c="home.heading2C"></hero>
+    <hero :hero="hero"></hero>
     <about :about="about"></about>
     <what :whatido="whatido"></what>
   </div>
@@ -62,6 +62,16 @@ ${DatoCmsSeoMetaTags}
   },
 
   computed: {
+    hero() {
+      return {
+        hi: this.home.hi,
+        heading1: this.home.heading1,
+        heading2A: this.home.heading2A,
+        heading2B: this.home.heading2B,
+        heading2C: this.home.heading2C
+      };
+    },
+
     about() {
       return {
         aboutHeading: this.home.aboutHeading,

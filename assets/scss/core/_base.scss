@@ -34,7 +34,7 @@ html {
   //font-size: calc(16px + 0.2vw); // 112.5%; // 18px
   //line-height: $baseline;
 
-  @include media(">=tablet","<desktop") {
+  @include media(">=tablet", "<desktop") {
     font-size: 125%; // 20px
   }
 
@@ -72,7 +72,7 @@ button {
     @supports (font-variation-settings: normal) {
       font-family: $variable-font-family;
       // this settings depends on th vf selected
-      font-variation-settings: 'wght' #var(--text-weight);
+      font-variation-settings: 'wght' #var (--text-weight);
       /* ,
          'wdth' var(--text-width),
          'opsz' var(--text-opticalsize); */
@@ -116,7 +116,7 @@ h1, h2, h3, h4, h5, h6 {
   font-family: $heading-font-family;
   font-weight: $heading-font-weight;
   transition: all linear 0.2s;
-  --text-weight: calc(#{var(--p-vf-weight)} * #{var(--h1-vf-weight-multiplier-s)});
+  --text-weight: var(--heading-weight);
   color: inherit;
 
 
@@ -124,7 +124,7 @@ h1, h2, h3, h4, h5, h6 {
     @supports (font-variation-settings: normal) {
       font-family: $variable-heading-font-family;
       // this settings depends on th vf selected
-      font-variation-settings: 'wght' #{var(--heading-weight)};
+      font-variation-settings: 'wght' var(--heading-weight);
       /* ,
          'wdth' var(--text-width),
          'opsz' var(--text-opticalsize); */
@@ -134,100 +134,25 @@ h1, h2, h3, h4, h5, h6 {
 
 
 h1 {
-  /* Set --text-wght value multiplier */
-  --text-weight: calc(var(--p-vf-weight) * var(--h1-vf-weight-multiplier-s));
-  //--text-width: calc(var(--p-vf-width) * .85);
-  //--text-opticalsize: calc((var(--h1-font-size-min) * 16));
-
-  //font-size: calc(var(--h1-font-size-min) * 1em);
-  line-height: var(--h1-line-height-min);
   margin: 1rem auto;
   max-width: 50rem;
-
-  //@media screen and (min-width: 24.15em) {
-  //  line-height: calc((var(--h1-line-height-min) * 1em) + (var(--h1-line-height-max) - var(--h1-line-height-min)) * ((100vw - (var(--breakpoint-small) * 1em)) / (var(--breakpoint-xlarge) - var(--breakpoint-small))));
-  //  font-size: calc((var(--h1-font-size-min) * 1em) + (var(--h1-font-size-max) - var(--h1-font-size-min)) * ((100vw - (var(--breakpoint-small) * 1em)) / (var(--breakpoint-xlarge) - var(--breakpoint-small))));
-  //}
-  //@media screen and (min-width: 43.75em) {
-  //  --text-weight: calc(var(--p-vf-weight) * var(--h1-vf-weight-multiplier-m));
-  //  //--text-width: calc(var(--p-vf-width) * 1.05);
-  //  //--text-opticalsize: calc(((var(--h1-font-size-min) + ((var(--h1-font-size-max) - var(--h1-font-size-min)) / 2)) * 16));
-  //  //max-width: 60rem;
-  //}
-  //@media screen and (min-width: 60.25em) {
-  //  --text-weight: calc(var(--p-vf-weight) * var(--h1-vf-weight-multiplier-l));
-  //  line-height: var(--h1-line-height-max);
-  //  //max-width: 70rem;
-  //}
-  //@media (min-width: 75em) {
-  //  //--text-opticalsize: calc((var(--h1-font-size-max) * 16));
-  //  font-size: calc(var(--h1-font-size-max) * 1em);
-  //  line-height: var(--h1-line-height-max);
-  //  //max-width: 75rem;
-  //}
+  font-size: var(--h1-font-size);
+  line-height: var(--h1-line-height);
 }
 
 h2 {
-  /* Set --text-wght value multiplier */
-  --text-weight: calc(var(--p-vf-weight) * var(--h2-vf-weight-multiplier-s));
-  //--text-opticalsize: calc((var(--h2-font-size-min) * 16));
-
-  font-size: calc(var(--h2-font-size-min) * 1em);
-  line-height: var(--h2-line-height-min);
   margin: 1rem auto .5rem auto;
   max-width: var(--text-max-width);
-
-  @include media (">=tablet", "<desktop") {
-    --text-weight: calc(var(--p-vf-weight) * var(--h2-vf-weight-multiplier-m));
-    //--text-opticalsize: calc(((var(--h2-font-size-min) + ((var(--h2-font-size-max) - var(--h2-font-size-min)) / 2)) * 16));
-
-    line-height: calc((var(--h2-line-height-min) * 1em) + (var(--h2-line-height-max) - var(--h2-line-height-min)) * ((100vw - (var(--breakpoint-small) * 1em)) / (var(--breakpoint-xlarge) - var(--breakpoint-small))));
-    font-size: calc((var(--h2-font-size-min) * 1em) + (var(--h2-font-size-max) - var(--h2-font-size-min)) * ((100vw - (var(--breakpoint-small) * 1em)) / (var(--breakpoint-xlarge) - var(--breakpoint-small))));
-    max-width: 38.5rem;
-  }
-  @include media (">=desktop", "<desktophd") {
-    max-width: 38.5rem;
-  }
-  @include media (">=desktophd") {
-    --text-weight: calc(var(--p-vf-weight) * var(--h2-vf-weight-multiplier-l));
-    //--text-opticalsize: calc((var(--h2-font-size-max) * 16));
-
-    font-size: calc(var(--h2-font-size-max) * 1em);
-    line-height: var(--h2-line-height-max);
-    max-width: 42rem;
-  }
+  font-size: var(--h2-font-size);
+  line-height: var(--h2-line-height);
 }
 
 h3 {
-  /* Set --text-wght value multiplier */
-  --text-weight: calc(var(--p-vf-weight) * var(--h3-vf-weight-multiplier-s));
-  //--text-opticalsize: calc((var(--h3-font-size-min) * 16));
-
-  //color: #444466;
-  font-size: calc(var(--h3-font-size-min) * 1em);
-  line-height: var(--h3-line-height-min);
   margin: 1rem auto .5rem auto;
   max-width: var(--text-max-width);
   text-align: left;
-
-  @include media (">=tablet", "<desktop") {
-    --text-weight: calc(var(--p-vf-weight) * var(--h3-vf-weight-multiplier-m));
-
-    line-height: calc((var(--h3-line-height-min) * 1em) + (var(--h3-line-height-max) - var(--h3-line-height-min)) * ((100vw - (var(--breakpoint-small) * 1em)) / (var(--breakpoint-xlarge) - var(--breakpoint-small))));
-    font-size: calc((var(--h3-font-size-min) * 1em) + (var(--h3-font-size-max) - var(--h3-font-size-min)) * ((100vw - (var(--breakpoint-small) * 1em)) / (var(--breakpoint-xlarge) - var(--breakpoint-small))));
-    max-width: 38.5rem;
-  }
-  @include media (">=desktop", "<desktophd") {
-    max-width: 38.5rem;
-  }
-  @include media (">=desktophd") {
-    --text-weight: calc(var(--p-vf-weight) * var(--h3-vf-weight-multiplier-l));
-    //--text-opticalsize: calc((var(--h3-font-size-max) * 16));
-
-    font-size: calc(var(--h3-font-size-max) * 1em);
-    line-height: var(--h3-line-height-max);
-    max-width: 42rem;
-  }
+  font-size: var(--h3-font-size);
+  line-height: var(--h3-line-height);
 }
 
 
@@ -253,24 +178,11 @@ p {
 
 /* Variations and variables */
 p {
-  --text-width: calc(var(--p-vf-width) * .9);
-  font-size: calc(var(--p-font-size-min) * 1rem);
-  line-height: var(--p-line-height-min);
-
-  @include media (">=tablet", "<desktop") {
-    line-height: calc((var(--p-line-height-min) * 1em) + (var(--p-line-height-max) - var(--p-line-height-min)) * ((100vw - (var(--breakpoint-small) * 1em)) / (var(--breakpoint-large) - var(--breakpoint-small))));
-  }
-  @include media (">=desktop", "<desktophd") {
-    --text-width: calc(var(--p-vf-width) * 1);
-    font-size: calc((var(--p-font-size-min) * 1em) + (var(--p-font-size-max) - var(--p-font-size-min)) * ((100vw - (var(--breakpoint-large) * 1em)) / (var(--breakpoint-xlarge) - var(--breakpoint-large))));
-    line-height: var(--p-line-height-max);
-  }
-  @include media (">=desktophd") {
-    //--text-opticalsize: calc((var(--p-font-size-max) * 16));
-    font-size: calc(var(--p-font-size-max) * 1em);
-    max-width: 42rem;
-  }
+  --text-width: calc(var(--p-vf-width) * 1);
+  font-size: calc((var(--p-font-size-min) * 1em) + (var(--p-font-size-max) - var(--p-font-size-min)) * ((100vw - (var(--breakpoint-large) * 1em)) / (var(--breakpoint-xlarge) - var(--breakpoint-large))));
+  line-height: calc((var(--p-line-height-min) * 1em) + (var(--p-line-height-max) - var(--p-line-height-min)) * ((100vw - (var(--breakpoint-small) * 1em)) / (var(--breakpoint-large) - var(--breakpoint-small))));
 }
+
 
 
 /* Link style

@@ -13,7 +13,6 @@
 @import 'settings';
 @import './mixins/math';
 @import './mixins/mixins';
-@import './mixins/select-mixin';
 //@import './core/check-contrast';
 @import './core/fonts';
 @import './core/base';
@@ -33,7 +32,8 @@
 @import './modules/home';
 @import './modules/about';
 @import './modules/whatido';
+@import './modules/resume';
 
-//@import './modules/error-page';
+@import './modules/error-page';
 //@import './modules/cookie-bar';
 

@@ -42,7 +42,7 @@ export default {
         lang: 'en'
       },
       bodyAttrs: {
-        'class': this.$route.name === 'index' ? 'home' : this.$route.name
+        'class': this.$route.name === 'index' ? 'home' : '' // this.$route.name
       },
       meta: [
         { hid: 'description', name: 'description', content: this.site.globalSeo.fallbackSeo.description }

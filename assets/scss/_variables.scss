@@ -74,31 +74,34 @@
   --p-vf-width: var(--text-width);
 
   /* H1 variables */
-  --h1-line-height-min: 1.05;
-  --h1-line-height-max: 1.1;
+  --h1-line-height-min: 1.5;
+  --h1-line-height-max: 1.5;
   --h1-font-size-min: 2;
-  --h1-font-size-max: 4.5;
-  //--h1-vf-weight-multiplier-s: 1.5;
-  //--h1-vf-weight-multiplier-m: 1.625;
-  //--h1-vf-weight-multiplier-l: 1.75;
+  --h1-font-size-max: 5.45;
+
+  --h1-font-size: calc((var(--h1-font-size-min) * 1rem) + (var(--h1-font-size-max) - var(--h1-font-size-min)) * ((100vw - (var(--breakpoint-small) * 1em)) / (var(--breakpoint-xlarge) - var(--breakpoint-small))));
+  --h1-line-height: calc((var(--h1-line-height-min) * 1em) + (var(--h1-line-height-max) - var(--h1-line-height-min)) * ((100vw - (var(--breakpoint-small) * 1em)) / (var(--breakpoint-xlarge) - var(--breakpoint-small))));
+
 
   /* H2 variables */
   --h2-line-height-min: 1.15;
   --h2-line-height-max: 1.25;
   --h2-font-size-min: 4;
   --h2-font-size-max: 5.45;
-  //--h2-vf-weight-multiplier-s: 1.25;
-  //--h2-vf-weight-multiplier-m: 1.5;
-  //--h2-vf-weight-multiplier-l: 1.75;
+
+  --h2-font-size: calc((var(--h2-font-size-min) * 1rem) + (var(--h2-font-size-max) - var(--h2-font-size-min)) * ((100vw - (var(--breakpoint-small) * 1em)) / (var(--breakpoint-xlarge) - var(--breakpoint-small))));
+  --h2-line-height: calc((var(--h2-line-height-min) * 1em) + (var(--h2-line-height-max) - var(--h2-line-height-min)) * ((100vw - (var(--breakpoint-small) * 1em)) / (var(--breakpoint-xlarge) - var(--breakpoint-small))));
+
 
   /* H3 variables */
   --h3-line-height-min: 1.15;
   --h3-line-height-max: 1.25;
   --h3-font-size-min: 1.25;
   --h3-font-size-max: 2;
-  //--h3-vf-weight-multiplier-s: .5;
-  //--h3-vf-weight-multiplier-m: .5;
-  //--h3-vf-weight-multiplier-l: .5;
+
+  --h3-font-size: calc((var(--h3-font-size-min) * 1rem) + (var(--h3-font-size-max) - var(--h3-font-size-min)) * ((100vw - (var(--breakpoint-small) * 1em)) / (var(--breakpoint-xlarge) - var(--breakpoint-small))));
+  --h3-line-height: calc((var(--h3-line-height-min) * 1em) + (var(--h3-line-height-max) - var(--h3-line-height-min)) * ((100vw - (var(--breakpoint-small) * 1em)) / (var(--breakpoint-xlarge) - var(--breakpoint-small))));
+
 
   /* Dropcap variables */
   --dc-line-height-min: .8;

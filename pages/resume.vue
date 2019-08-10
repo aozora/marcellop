@@ -1,27 +1,24 @@
 <template>
   <section class="resume">
-    <h2>Resume</h2>
-
-    <article v-for="(job, index) in resume.jobs" :key="index">
-      <header>
-        <h3>{{ job.title }}</h3>
-        <div v-html="job.description"></div>
-      </header>
-    </article>
+    <h1>Resume</h1>
+    <JobsList v-if="resume && resume.jobs" :jobs="jobs"></JobsList>
   </section>
 </template>
 
 <script>
 import gql from 'graphql-tag';
 import { DatoCmsSeoMetaTags } from '../apollo/fragments/seoMetaTagsFragmentMixin';
+import JobsList from '../components/JobsList';
 
 export default {
   name: 'Resume',
 
+  components: { JobsList },
+
   head() {
     return {
       // title: this.$t('home.title'),
-      titleTemplate: null,
+      // titleTemplate: null,
       meta: [
         ...this.getSeoMetaData()
       ]
@@ -36,16 +33,22 @@ export default {
       ...DatoCmsSeoMetaTags
     }
     jobs {
-      title
-      description
       from
       to
+      title
       company
+      description
     }
   }
 }
 ${DatoCmsSeoMetaTags}
 `
+  },
+
+  computed: {
+    jobs() {
+      return this.resume && this.resume.jobs ? this.resume.jobs : [];
+    }
   },
 
   methods: {
