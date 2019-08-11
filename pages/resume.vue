@@ -28,7 +28,7 @@ export default {
   apollo: {
     jobs: gql`
 {
-  jobs: allResumeJobs(locale: en) {
+  jobs: allResumeJobs(locale: en, orderBy: to_DESC) {
     title
     from
     to
