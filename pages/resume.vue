@@ -33,7 +33,7 @@ export default {
     from
     to
     company
-    description
+    description(markdown: true)
     seoMetaTags: _seoMetaTags {
       ...DatoCmsSeoMetaTags
     }

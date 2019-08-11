@@ -176,12 +176,12 @@ p {
   hanging-punctuation: first;
 }
 
-/* Variations and variables */
-p {
-  --text-width: calc(var(--p-vf-width) * 1);
-  font-size: calc((var(--p-font-size-min) * 1em) + (var(--p-font-size-max) - var(--p-font-size-min)) * ((100vw - (var(--breakpoint-large) * 1em)) / (var(--breakpoint-xlarge) - var(--breakpoint-large))));
-  line-height: calc((var(--p-line-height-min) * 1em) + (var(--p-line-height-max) - var(--p-line-height-min)) * ((100vw - (var(--breakpoint-small) * 1em)) / (var(--breakpoint-large) - var(--breakpoint-small))));
-}
+///* Variations and variables */
+//p {
+//  //--text-width: calc(var(--p-vf-width) * 1);
+//  font-size: calc((var(--p-font-size-min) * 1rem) + (var(--p-font-size-max) - var(--p-font-size-min)) * ((100vw - (var(--breakpoint-large) * 1em)) / (var(--breakpoint-xlarge) - var(--breakpoint-large))));
+//  line-height: calc((var(--p-line-height-min) * 1em) + (var(--p-line-height-max) - var(--p-line-height-min)) * ((100vw - (var(--breakpoint-small) * 1em)) / (var(--breakpoint-large) - var(--breakpoint-small))));
+//}
 
 
 
