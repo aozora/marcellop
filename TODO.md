@@ -8,3 +8,4 @@
 * sitemap
 * rss
 * error pages (styles)
+* posts pagination

@@ -9,7 +9,6 @@
     a CSS variable for a font rule.
 
     **************************************************************** */
-
 @import './settings';
 
 :root {
@@ -69,7 +68,13 @@
   --h1-font-size-min: 2;
   --h1-font-size-max: 5.45;
 
-  --h1-font-size: calc((var(--h1-font-size-min) * 1rem) + (var(--h1-font-size-max) - var(--h1-font-size-min)) * ((100vw - (var(--breakpoint-small) * 1em)) / (var(--breakpoint-xlarge) - var(--breakpoint-small))));
+
+  --h1-font-size: calc(
+    (var(--h1-font-size-min) * 1rem) +
+    (var(--h1-font-size-max) - var(--h1-font-size-min)) *
+    ((100vw - (var(--breakpoint-small) * 1rem)) /
+    (var(--breakpoint-xlarge) - var(--breakpoint-small)))
+  );
   --h1-line-height: calc((var(--h1-line-height-min) * 1em) + (var(--h1-line-height-max) - var(--h1-line-height-min)) * ((100vw - (var(--breakpoint-small) * 1em)) / (var(--breakpoint-xlarge) - var(--breakpoint-small))));
 
 
@@ -105,15 +110,6 @@
   --bq-font-size-min: 2.7;
   --bq-font-size-max: 5;
 }
-
-
-
-
-
-
-
-
-
 
 
 /* Layout */

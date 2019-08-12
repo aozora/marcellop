@@ -1,0 +1,35 @@
+.posts {
+  @include container;
+  padding: 0 1rem;
+
+  .post {
+    margin: 0 0 3rem 0;
+
+    h2 {
+      margin: 0 0 1rem 0;
+    }
+
+    a {
+      font-weight: 400;
+      font-family: 'BonVivantSerif', serif;
+      font-size: inherit;
+      line-height: inherit;
+      text-decoration: none;
+      @include better-underline(var(--color-pantone));
+    }
+
+    .metadata {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+
+      p {
+        margin: 0 0 1rem 0;
+        padding: 0 .3rem;
+        background-color: var(--color-black);
+        color: var(--color-white);
+      }
+    }
+  }
+}
