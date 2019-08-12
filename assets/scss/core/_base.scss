@@ -30,16 +30,36 @@ body {
 html {
   height: 100%;
   scroll-behavior: smooth; // this conflicts with GSAP ScrollToPlugin
-  font-size: 112.5%; // 18px
-  //font-size: calc(16px + 0.2vw); // 112.5%; // 18px
-  //line-height: $baseline;
+  font-size: var(--text-base-size);
+  line-height: $baseline;
+  font-weight: var(--text-weight);
+  font-style: normal;
+  letter-spacing: var(--text-letter-spacing);
+  font-kerning: $kerning;
 
-  @include media(">=tablet", "<desktop") {
-    font-size: 125%; // 20px
+  @if $use-variable-font {
+    @supports (font-variation-settings: normal) {
+      font-family: $variable-font-family;
+      // this settings depends on th vf selected
+      font-variation-settings: 'wght' #var (--text-weight);
+      /* ,
+         'wdth' var(--text-width),
+         'opsz' var(--text-opticalsize); */
+    }
   }
+}
 
-  @include media(">=desktop") {
-    font-size: 137.5%; // 22px
+/*
+  this rules controls the fluid typography across breakpoints
+*/
+:root {
+  @include media('>=tablet','<desktop') {
+    --text-base-size: 1.25em;
+    --text-scale-ratio: 1.125;
+  }
+  @include media('>=desktop') {
+    --text-base-size: 1.375em;
+    --text-scale-ratio: 1.125;
   }
 }
 
@@ -61,23 +81,24 @@ strong,
 button {
   --text-weight: $body-font-weight;
   font-family: $body-font-family;
-  font-size: 1rem;
-  line-height: $baseline;
-  font-weight: var(--text-weight);
-  font-style: normal;
-  letter-spacing: var(--text-letter-spacing);
-  font-kerning: $kerning;
-
-  @if $use-variable-font {
-    @supports (font-variation-settings: normal) {
-      font-family: $variable-font-family;
-      // this settings depends on th vf selected
-      font-variation-settings: 'wght' #var (--text-weight);
-      /* ,
-         'wdth' var(--text-width),
-         'opsz' var(--text-opticalsize); */
-    }
-  }
+  //font-size: 1rem;
+  //font-size: var(--text-base-size);
+  //line-height: $baseline;
+  //font-weight: var(--text-weight);
+  //font-style: normal;
+  //letter-spacing: var(--text-letter-spacing);
+  //font-kerning: $kerning;
+  //
+  //@if $use-variable-font {
+  //  @supports (font-variation-settings: normal) {
+  //    font-family: $variable-font-family;
+  //    // this settings depends on th vf selected
+  //    font-variation-settings: 'wght' #var (--text-weight);
+  //    /* ,
+  //       'wdth' var(--text-width),
+  //       'opsz' var(--text-opticalsize); */
+  //  }
+  //}
 }
 
 // Default body styles

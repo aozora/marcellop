@@ -30,7 +30,16 @@
 
   /* type modular scale */
   // body font size
-  --text-base-size: 1em;
+  --text-base-size: 1.125em; // 16px * 1.125 = 18px
+
+  // type scale
+  --text-scale-ratio: 1.25; // base mobile ratio
+  --text-base: 1rem;
+  --text-scale-1: calc(var(--text-base) * var(--text-scale-ratio));     // h3
+  --text-scale-2: calc(var(--text-scale-1) * var(--text-scale-ratio));  // h2
+  --text-scale-3: calc(var(--text-scale-2) * var(--text-scale-ratio));  // h1
+  //--text-scale-4: calc(var(--text-scale-3) * var(--text-scale-ratio));
+  //--text-scale-5: calc(var(--text-scale-4) * var(--text-scale-ratio));
 
 
   /* max text sizes  */
@@ -63,39 +72,28 @@
   --p-vf-width: var(--text-width);
 
   /* H1 variables */
-  --h1-line-height-min: 1.5;
-  --h1-line-height-max: 1.5;
-  --h1-font-size-min: 2;
-  --h1-font-size-max: 5.45;
-
-
-  --h1-font-size: calc(
-    (var(--h1-font-size-min) * 1rem) +
-    (var(--h1-font-size-max) - var(--h1-font-size-min)) *
-    ((100vw - (var(--breakpoint-small) * 1rem)) /
-    (var(--breakpoint-xlarge) - var(--breakpoint-small)))
-  );
-  --h1-line-height: calc((var(--h1-line-height-min) * 1em) + (var(--h1-line-height-max) - var(--h1-line-height-min)) * ((100vw - (var(--breakpoint-small) * 1em)) / (var(--breakpoint-xlarge) - var(--breakpoint-small))));
-
+  //--h1-line-height-min: 1.5;
+  //--h1-line-height-max: 1.5;
+  //--h1-font-size-min: 2;
+  //--h1-font-size-max: 5.45;
+  --h1-font-size: var(--text-scale-3);
+  --h1-line-height: 1.5;
 
   /* H2 variables */
-  --h2-line-height-min: 1.15;
-  --h2-line-height-max: 1.25;
-  --h2-font-size-min: 4;
-  --h2-font-size-max: 5.45;
-
-  --h2-font-size: calc((var(--h2-font-size-min) * 1rem) + (var(--h2-font-size-max) - var(--h2-font-size-min)) * ((100vw - (var(--breakpoint-small) * 1em)) / (var(--breakpoint-xlarge) - var(--breakpoint-small))));
-  --h2-line-height: calc((var(--h2-line-height-min) * 1em) + (var(--h2-line-height-max) - var(--h2-line-height-min)) * ((100vw - (var(--breakpoint-small) * 1em)) / (var(--breakpoint-xlarge) - var(--breakpoint-small))));
-
+  //--h2-line-height-min: 1.15;
+  //--h2-line-height-max: 1.25;
+  //--h2-font-size-min: 4;
+  //--h2-font-size-max: 5.45;
+  --h2-font-size: var(--text-scale-2);
+  --h2-line-height: 1.5;
 
   /* H3 variables */
-  --h3-line-height-min: 1.15;
-  --h3-line-height-max: 1.25;
-  --h3-font-size-min: 1.25;
-  --h3-font-size-max: 2;
-
-  --h3-font-size: calc((var(--h3-font-size-min) * 1rem) + (var(--h3-font-size-max) - var(--h3-font-size-min)) * ((100vw - (var(--breakpoint-small) * 1em)) / (var(--breakpoint-xlarge) - var(--breakpoint-small))));
-  --h3-line-height: calc((var(--h3-line-height-min) * 1em) + (var(--h3-line-height-max) - var(--h3-line-height-min)) * ((100vw - (var(--breakpoint-small) * 1em)) / (var(--breakpoint-xlarge) - var(--breakpoint-small))));
+  //--h3-line-height-min: 1.15;
+  //--h3-line-height-max: 1.25;
+  //--h3-font-size-min: 1.25;
+  //--h3-font-size-max: 2;
+  --h3-font-size: var(--text-scale-1);
+  --h3-line-height: 1.5;
 
 
   /* Dropcap variables */
