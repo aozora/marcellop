@@ -51,8 +51,9 @@
   figure {
     position: relative;
     overflow: hidden;
-    margin: 0 0 3rem 0;
-    transform: translateX(4rem);
+    margin: 0 0 calc(3rem * var(--text-base-size)) 0;
+    //transform: translateX(4rem);
+    padding: 0 0 0 calc(4rem * var(--text-base-size));
 
     &::after {
       content: '';
@@ -68,6 +69,7 @@
     }
 
     img {
+      object-fit: cover;
       transition: transform 3s ease-in-out;
       transform: scale(1.2);
     }
@@ -87,28 +89,20 @@
       justify-self: center;
       align-self: center;
       transform: none;
-      margin: 1rem 0;
-
-      img {
-        //width: 17.6rem;
-        //height: 11.8rem;
-        object-fit: cover;
-      }
+      margin: calc(1rem * var(--text-base-size)) 0;
+      padding: 0;
     }
   }
 
   > div {
-    padding: 1rem;
+    padding: calc(1rem * var(--text-base-size));
 
     p {
-      //font-size: 1rem;
       line-height: 1.6;
-      margin-bottom: 1rem;
+      margin-bottom: calc(1rem * var(--text-base-size));
     }
 
     @include media(">=tablet") {
-      //max-width: 23rem;
-
       &:nth-child(2) {
         grid-area: content1;
       }
