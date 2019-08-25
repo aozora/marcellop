@@ -24,7 +24,7 @@
 .about__container {
   position: relative;
   @include container;
-  overflow-x: hidden;
+  //overflow-x: hidden;
 
   @include media(">=tablet") {
     display: grid;

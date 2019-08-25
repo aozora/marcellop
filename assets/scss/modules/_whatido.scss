@@ -6,6 +6,7 @@ $whatido-item-title-font-size-max: 3.45rem;
 .whatido {
   @include container;
   margin-bottom: 5rem;
+  padding-top: calc(3 * var(--text-base-size));
 
   h2 {
     width: 100%;

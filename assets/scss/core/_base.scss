@@ -29,7 +29,7 @@ body {
 
 html {
   height: 100%;
-  font-size: 100%;
+  font-size: 112.5%;
   scroll-behavior: smooth; // this conflicts with GSAP ScrollToPlugin
 }
 
@@ -37,12 +37,12 @@ html {
   this rules controls the fluid typography across breakpoints
 */
 :root {
-  @include media('>=tablet','<desktop') {
-    --text-base-size: 1.25em;
+  @include media('>=tablet', '<desktop') {
+    --text-base-size: 1.111rem;
     --text-scale-ratio: 1.25;
   }
   @include media('>=desktop') {
-    --text-base-size: 1.375em;
+    --text-base-size: 1.222rem;
     --text-scale-ratio: 1.25;
   }
 }
@@ -135,7 +135,7 @@ body {
 /* Generic header styles */
 h1, h2, h3, h4, h5, h6 {
   padding: 0;
-  margin: 0 0 1rem 0;
+  margin: 0 0 calc(1 * var(--text-base-size)) 0;
   font-family: $heading-font-family;
   font-weight: $heading-font-weight;
   transition: all linear 0.2s;
@@ -156,35 +156,21 @@ h1, h2, h3, h4, h5, h6 {
 
 
 h1 {
-  margin: 1rem auto;
+  margin: calc(2 * var(--text-base-size)) 0 calc(3 * var(--text-base-size)) 0;
   max-width: 50rem;
   font-size: var(--h1-font-size);
   line-height: var(--h1-line-height);
-
-  //font-size: var(--h1-font-size-min);
-  //line-height: var(--h1-line-height-min);
-  //
-  //@include media('>=tablet', '<desktop') {
-  //  font-size: var(--h1-font-size);
-  //  line-height: var(--h1-line-height);
-  //}
-  //
-  //@include media('>=desktop') {
-  //  font-size: var(--h1-font-size-max);
-  //  line-height: var(--h1-line-height-max);
-  //}
-
 }
 
 h2 {
-  margin: 1rem auto .5rem auto;
+  margin: calc(1 * var(--text-base-size)) auto calc(3 * var(--text-base-size)) auto;
   max-width: var(--text-max-width);
   font-size: var(--h2-font-size);
   line-height: var(--h2-line-height);
 }
 
 h3 {
-  margin: 1rem auto .5rem auto;
+  margin: calc(1 * var(--text-base-size)) auto calc(2 * var(--text-base-size)) auto;
   max-width: var(--text-max-width);
   text-align: left;
   font-size: var(--h3-font-size);
@@ -205,7 +191,7 @@ strong {
 
 
 p {
-  margin: 0 auto 1.5rem auto;
+  margin: 0 auto calc(1.5 * var(--text-base-size)) auto;
   max-width: var(--text-max-width);
   transition: all linear 0.2s;
   hyphens: auto;
@@ -256,10 +242,10 @@ ul {
   max-width: var(--text-max-width);
 
   @include media (">=tablet", "<desktop") {
-    max-width: 38.5rem;
+    max-width: calc(38.5 * var(--text-base-size));
   }
   @include media (">desktop") {
-    max-width: 42rem;
+    max-width: calc(42 * var(--text-base-size));
   }
 }
 
@@ -277,20 +263,20 @@ img {
 blockquote {
   float: right;
   line-height: var(--bq-line-height-min);
-  margin: .5rem 5% 1rem .5rem;
+  margin: calc(.5 * var(--text-base-size)) 5% calc(1 * var(--text-base-size)) calc(.5 * var(--text-base-size));
   max-width: 45%;
   transition: all linear 0.2s;
 
   &.right {
     float: right;
-    margin-left: .5rem;
+    margin-left: calc(.5 * var(--text-base-size));
     margin-right: 5%;
   }
 
   &.left {
     float: left;
     margin-left: 5%;
-    margin-right: .5rem;
+    margin-right: calc(.5 * var(--text-base-size));
   }
 
   p {
@@ -320,22 +306,22 @@ blockquote {
   }
 
   @include media (">=tablet", "<desktop") {
-    margin: .5rem 5% .5rem .5rem;
+    margin: calc(.5 * var(--text-base-size)) 5% calc(.5 * var(--text-base-size)) calc(.5 * var(--text-base-size));
     max-width: 45%;
 
     &.right {
-      margin-left: .5rem;
+      margin-left: calc(.5 * var(--text-base-size));
       margin-right: 0;
     }
     &.left {
       margin-left: 0;
-      margin-right: .5rem;
+      margin-right: calc(.5 * var(--text-base-size));
     }
 
     p {
       --text-weight: calc(var(--p-vf-weight) * .8);
       font-size: 5.5vw;
-      line-height: calc((var(--bq-line-height-min) * 1em) + (var(--bq-line-height-max) - var(--bq-line-height-min)) * ((100vw - (var(--breakpoint-small) * 1em)) / (var(--breakpoint-large) - var(--breakpoint-small))));
+      //line-height: calc((var(--bq-line-height-min) * 1em) + (var(--bq-line-height-max) - var(--bq-line-height-min)) * ((100vw - (var(--breakpoint-small) * 1em)) / (var(--breakpoint-large) - var(--breakpoint-small))));
 
       //&:first-line {
       //  --text-weight: calc(var(--p-vf-weight) * .8);
@@ -345,6 +331,7 @@ blockquote {
       //
       //}
     }
+
     cite {
       font-size: 3vw;
     }
@@ -353,6 +340,7 @@ blockquote {
   @include media (">desktop") {
     margin: 1rem 12vw 2rem 2rem;
     max-width: 29.5%;
+
     &.right {
       margin-left: 3.5%;
       margin-right: 12vw;

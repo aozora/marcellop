@@ -43,7 +43,7 @@ export default {
     getPublishedDateFormatted() {
       return format(
         new Date(this.post._publishedAt),
-        'MMMM Do yyyy'
+        'MMMM do yyyy'
       );
     },
 
