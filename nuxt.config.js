@@ -1,51 +1,49 @@
+import apolloClient from './apollo/apollo-client';
+import gql from 'graphql-tag';
 const glob = require('glob');
 const path = require('path');
 const pkg = require('./package');
+require('dotenv').config();
 
-
-/**
- * Create an array of URLs from a list of files
- * @param {*} urlFilepathTable
- */
-function getDynamicPaths(urlFilepathTable) {
-  return [].concat(
-    ...Object.keys(urlFilepathTable).map(url => {
-      const filepathGlob = urlFilepathTable[url];
-      return glob
-        .sync(filepathGlob, { cwd: 'content' })
-        .map(filepath => `${url}/${path.basename(filepath, '.json')}`);
-    })
-  );
-}
-
-// Enhance Nuxt's generate process by gathering all content files from Netifly CMS
-// automatically and match it to the path of your Nuxt routes.
-// The Nuxt routes are generate by Nuxt automatically based on the pages folder.
-// const dynamicRoutes = getDynamicPaths({
-//   // '/movies': 'movies/*.json'
-//   // '/blog': 'blog/posts/*.json',
-//   // '/page': 'page/posts/*.json',
-//   // '/category': 'categories/posts/*.json',
-//   // '/tagged': 'tags/posts/*.json'
-// });
-
-console.log('Dynamic Routes:');
-// console.log({ dynamicRoutes });
+const query = gql`
+    {
+        allPosts {
+            slug
+        }
+    }
+`;
 
 
 /**
  * Routes used by Nuxt generate and Sitemap
  * @type {string[]}
  */
-const routes = [
+const staticRoutes = [
   '/',
-  // ...dynamicRoutes
+  '/resume'
 ];
 
+function routes() {
+  return apolloClient.query({ query: query })
+    .then((data) => {
+      const dynamicRoutes = data.allPosts.map(post => `/writings/${post.slug}`);
+      console.log(dynamicRoutes);
+      return [
+        ...staticRoutes,
+        ...dynamicRoutes
+      ];
+    });
+}
+
+console.log(`NUXT_ENV_DATO_CMS_TOKEN=${process.env.NUXT_ENV_DATO_CMS_TOKEN}`);
 
 export default {
   mode: 'universal',
   modern: true,
+
+  env: {
+    DEBUG: 'nuxt:*'
+  },
 
   /*
   ** Headers of the page
@@ -83,6 +81,7 @@ export default {
   ** Nuxt.js modules
   */
   modules: [
+    '@nuxtjs/dotenv',
     '@nuxtjs/eslint-module',
     '@nuxtjs/apollo'
   ],
@@ -110,6 +109,10 @@ export default {
      */
     extend(config, ctx) {
     }
+  },
+
+  dotenv:{
+
   },
 
   apollo: {

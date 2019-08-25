@@ -145,7 +145,7 @@ query {
 export default function (context) {
   return {
     httpEndpoint: 'https://graphql.datocms.com',
-    getAuth: () => 'Bearer 8079c9fe33d6de8049b44e17717ce5',
+    getAuth: () => `Bearer ${process.env.NUXT_ENV_DATO_CMS_TOKEN}`,
     // cache
     // // Local Schema
     // typeDefs = undefined,
