@@ -27,6 +27,8 @@
   --breakpoint-large: #{strip-unit(map_get($breakpoints, desktop))};
   --breakpoint-xlarge: #{strip-unit(map_get($breakpoints, desktophd))};
 
+  /* sectioning */
+  --var-section-margin: 3rem;
 
   /* type modular scale */
   // body font size
@@ -34,12 +36,14 @@
 
   // type scale
   --text-scale-ratio: 1.25; // base mobile ratio
-  --text-base: 1rem;
-  --text-scale-1: calc(var(--text-base) * var(--text-scale-ratio));     // h3
-  --text-scale-2: calc(var(--text-scale-1) * var(--text-scale-ratio));  // h2
-  --text-scale-3: calc(var(--text-scale-2) * var(--text-scale-ratio));  // h1
-  //--text-scale-4: calc(var(--text-scale-3) * var(--text-scale-ratio));
-  //--text-scale-5: calc(var(--text-scale-4) * var(--text-scale-ratio));
+  //--text-base: 1rem;
+  --text-scale-1: calc(1em * var(--text-scale-ratio)); // h3
+  --text-scale-2: calc(var(--text-scale-1) * var(--text-scale-ratio)); // h2
+  --text-scale-3: calc(var(--text-scale-2) * var(--text-scale-ratio)); // h1
+
+  --text-scale-4: calc(var(--text-scale-3) * var(--text-scale-ratio));
+  --text-scale-5: calc(var(--text-scale-4) * var(--text-scale-ratio));
+  --text-scale-6: calc(var(--text-scale-5) * var(--text-scale-ratio)); // h2 hero
 
 
   /* max text sizes  */
@@ -54,7 +58,7 @@
 
 
   /* vf initial values */
-  --heading-weight: 900;
+  --heading-weight: 700;
   --text-weight: $body-font-weight;
   --text-width: 100;
   // --text-opticalsize: 16;

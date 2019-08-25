@@ -1,15 +1,11 @@
 .home {
-  --h2-line-height-min: 1.15;
-  --h2-line-height-max: 1.25;
-  --h2-font-size-min: 4;
-  --h2-font-size-max: 5.45;
-
   h1 {
 
   }
 
   h2 {
-
+    --text-scale-ratio: 1.25; // base mobile ratio
+    font-size: var(--text-scale-6);
   }
 }
 

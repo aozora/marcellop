@@ -29,24 +29,8 @@ body {
 
 html {
   height: 100%;
+  font-size: 100%;
   scroll-behavior: smooth; // this conflicts with GSAP ScrollToPlugin
-  font-size: var(--text-base-size);
-  line-height: $baseline;
-  font-weight: var(--text-weight);
-  font-style: normal;
-  letter-spacing: var(--text-letter-spacing);
-  font-kerning: $kerning;
-
-  @if $use-variable-font {
-    @supports (font-variation-settings: normal) {
-      font-family: $variable-font-family;
-      // this settings depends on th vf selected
-      font-variation-settings: 'wght' #var (--text-weight);
-      /* ,
-         'wdth' var(--text-width),
-         'opsz' var(--text-opticalsize); */
-    }
-  }
 }
 
 /*
@@ -55,11 +39,11 @@ html {
 :root {
   @include media('>=tablet','<desktop') {
     --text-base-size: 1.25em;
-    --text-scale-ratio: 1.125;
+    --text-scale-ratio: 1.25;
   }
   @include media('>=desktop') {
     --text-base-size: 1.375em;
-    --text-scale-ratio: 1.125;
+    --text-scale-ratio: 1.25;
   }
 }
 
@@ -112,6 +96,24 @@ body {
   background-color: $body-background;
   color: $body-font-color;
 
+  font-size: var(--text-base-size);
+  line-height: $baseline;
+  font-weight: var(--text-weight);
+  font-style: normal;
+  letter-spacing: var(--text-letter-spacing);
+  font-kerning: $kerning;
+
+  @if $use-variable-font {
+    @supports (font-variation-settings: normal) {
+      font-family: $variable-font-family;
+      // this settings depends on th vf selected
+      font-variation-settings: 'wght' #var (--text-weight);
+      /* ,
+         'wdth' var(--text-width),
+         'opsz' var(--text-opticalsize); */
+    }
+  }
+
   //@if $render-vertical-rhythm-lines {
   //  background-image: linear-gradient(to bottom, hsla(200, 100%, 50%, .3) 1px, transparent 1px);
   //  background-position: left top;
@@ -139,7 +141,6 @@ h1, h2, h3, h4, h5, h6 {
   transition: all linear 0.2s;
   --text-weight: var(--heading-weight);
   color: inherit;
-
 
   @if $use-variable-font-for-headings {
     @supports (font-variation-settings: normal) {

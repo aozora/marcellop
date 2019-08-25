@@ -1,7 +1,7 @@
-$about-h2-line-height-min: 1.1em; // use 'em' otherwise the fluid-type mixin doesn't work
-$about-h2-line-height-max: 1.1em;
-$about-h2-font-size-min: 4rem;
-$about-h2-font-size-max: 5.45rem;
+//$about-h2-line-height-min: 1.1em; // use 'em' otherwise the fluid-type mixin doesn't work
+//$about-h2-line-height-max: 1.1em;
+//$about-h2-font-size-min: 4rem;
+//$about-h2-font-size-max: 5.45rem;
 
 .about {
   position: relative;
@@ -15,26 +15,6 @@ $about-h2-font-size-max: 5.45rem;
   @include media(">=tablet") {
     padding: 15% 0;
   }
-
-  //.scroll-down-button {
-  //  --focus-border-color: var(--color-white);
-  //  margin: 0 auto;
-  //  background-color: transparent;
-  //  transform: translateY(calc(var(--triangle-height) / 2 - 1em));
-  //
-  //  &:first-of-type {
-  //    transform: translateY(calc(var(--triangle-height) / -2 + 1em));
-  //  }
-  //
-  //  @include media(">=tablet") {
-  //    display: none;
-  //  }
-  //
-  //  svg {
-  //    animation: pulse 2s 3s ease-out infinite;
-  //  }
-  //}
-
 }
 
 .loaded .about {
@@ -63,7 +43,7 @@ $about-h2-font-size-max: 5.45rem;
     padding: 0 1rem;
     color: var(--color-white);
 
-    @include media('<=360px'){
+    @include media('<=360px') {
       margin-top: 3rem;
     }
   }
@@ -121,13 +101,13 @@ $about-h2-font-size-max: 5.45rem;
     padding: 1rem;
 
     p {
-      font-size: 1rem;
+      //font-size: 1rem;
       line-height: 1.6;
       margin-bottom: 1rem;
     }
 
     @include media(">=tablet") {
-      max-width: 23rem;
+      //max-width: 23rem;
 
       &:nth-child(2) {
         grid-area: content1;

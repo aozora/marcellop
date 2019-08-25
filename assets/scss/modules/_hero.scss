@@ -50,6 +50,7 @@ $hero-p-font-size-max: 1.81rem;
     margin: 0 auto 2rem auto;
 
     --text-weight: $hero-weight;
+
     @if $use-variable-font-for-headings {
       font-variation-settings: 'wght' $hero-weight, 'slnt' $hero-slant;
     }
@@ -80,9 +81,9 @@ $hero-p-font-size-max: 1.81rem;
     }
 
 
-    @include media(">=tablet"){
-      margin: 0 0 2rem 3rem;
-    }
+    //@include media(">=tablet"){
+    //  margin: 0 0 2rem 3rem;
+    //}
   }
 
   p {
