@@ -41,10 +41,6 @@ export default {
   mode: 'universal',
   modern: true,
 
-  env: {
-    DEBUG: 'nuxt:*'
-  },
-
   /*
   ** Headers of the page
   */
