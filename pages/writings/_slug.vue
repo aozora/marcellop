@@ -1,5 +1,5 @@
 <template>
-  <Post></Post>
+  <Post :post="post"></Post>
 </template>
 
 <script>
@@ -23,7 +23,7 @@ export default {
 
   apollo: {
     post: {
-      query: gql`
+      query: gql`query GetPost($slug: String)
 {
   post(filter: {slug: {eq: $slug}}, locale: en) {
     id
@@ -40,10 +40,16 @@ export default {
 }
 ${DatoCmsSeoMetaTags}
    `,
-      // Initial variables
-      variables: {
-        slug: this.$route.params.slug
+      variables() {
+        // Use vue reactive properties here
+        return {
+          slug: this.$route.params.slug
+        };
       }
+      // // Initial variables
+      // variables: {
+      //   slug: this.$route.params.slug
+      // }
     }
   },
 

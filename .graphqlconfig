@@ -1,17 +1,15 @@
 {
-  "projects": {
-    "marcellop": {
-      "schemaPath": "schema.graphql",
-      "extensions": {
-        "endpoints": {
-          "default": {
-            "url": "https://graphql.datocms.com",
-            "headers": {
-              "user-agent": "JS GraphQL",
-              "Authorization": "Bearer 8079c9fe33d6de8049b44e17717ce5"
-            }
-          }
-        }
+  "name": "Marcellop GraphQL Schema",
+  "schemaPath": "schema.graphql",
+  "extensions": {
+    "endpoints": {
+      "Default GraphQL Endpoint": {
+        "url": "https://graphql.datocms.com",
+        "headers": {
+          "user-agent": "JS GraphQL",
+          "Authorization": "Bearer 8079c9fe33d6de8049b44e17717ce5"
+        },
+        "introspect": false
       }
     }
   }

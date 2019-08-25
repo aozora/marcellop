@@ -1,8 +1,8 @@
-import apolloClient from './apollo/apollo-client';
 import gql from 'graphql-tag';
-const glob = require('glob');
-const path = require('path');
-const pkg = require('./package');
+import apolloClient from './apollo/apollo-client';
+// const glob = require('glob');
+// const path = require('path');
+// const pkg = require('./package');
 require('dotenv').config();
 
 const query = gql`
@@ -26,8 +26,10 @@ const staticRoutes = [
 function routes() {
   return apolloClient.query({ query: query })
     .then((data) => {
-      const dynamicRoutes = data.allPosts.map(post => `/writings/${post.slug}`);
+      const dynamicRoutes = data.data.allPosts.map(post => `/writings/${post.slug}`);
+      // console.log(data);
       console.log(dynamicRoutes);
+
       return [
         ...staticRoutes,
         ...dynamicRoutes

@@ -34,14 +34,14 @@ export default {
     getPublishedDateFormatted() {
       return format(
         new Date(this.post._publishedAt),
-        'MMMM Do YYYY'
+        'MMMM Do yyyy'
       );
     },
 
     getPublishedDateShort() {
       return format(
         new Date(this.post._publishedAt),
-        'YYYY-MM-DD'
+        'yyyy-MM-dd'
       );
     }
   }
