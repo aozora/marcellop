@@ -63,6 +63,10 @@ ${DatoCmsSeoMetaTags}
 
   computed: {
     hero() {
+      if (!this.home){
+        return {};
+      }
+
       return {
         hi: this.home.hi,
         heading1: this.home.heading1,
@@ -73,6 +77,10 @@ ${DatoCmsSeoMetaTags}
     },
 
     about() {
+      if (!this.home){
+        return {};
+      }
+
       return {
         aboutHeading: this.home.aboutHeading,
         aboutDescription1: this.home.aboutDescription1,
@@ -84,6 +92,10 @@ ${DatoCmsSeoMetaTags}
     },
 
     whatido() {
+      if (!this.home){
+        return {};
+      }
+
       return {
         heading: this.home.whatidoHeading,
         items: this.home.whatido

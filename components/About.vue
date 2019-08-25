@@ -1,15 +1,5 @@
 <template>
   <section v-if="about" class="about">
-    <!--    <button type="button" class="scroll-down-button" aria-hidden="true" @click.prevent="scrollDown('#about')">-->
-    <!--      <svg width="26px" height="33px" viewBox="0 0 26 33" xmlns="http://www.w3.org/2000/svg">-->
-    <!--        <g stroke="#fff" stroke-width="2.6" fill="none" fill-rule="evenodd" stroke-linecap="square">-->
-    <!--          <path d="M13 2l-.09 26"></path>-->
-    <!--          <path d="M2.615 20.758L12.91 31.054"></path>-->
-    <!--          <path d="M23.461 20.758l-10.55 10.296"></path>-->
-    <!--        </g>-->
-    <!--      </svg>-->
-    <!--    </button>-->
-
     <div id="about" class="about__container">
       <h2>{{ about.aboutHeading }}</h2>
 
@@ -59,25 +49,14 @@ export default {
     // console.log(`this.hasOSReducedMotion = ${this.hasOSReducedMotion}`);
 
     // prepare text to be animated
-    // if (!this.hasOSReducedMotion) {
-    //   const entries = document.querySelectorAll('.about__container p');
-    //   for (let index = 0; index < entries.length; index += 1) {
-    //     const clone = entries[index].cloneNode(true);
-    //     clone.classList.add('visuallyhidden');
-    //     clone.setAttribute('role', 'text');
-    //
-    //     // entries[index].style.opacity = this.hasOSReducedMotion ? '1' : '0';
-    //     const mySplitText = new this.$gsap.SplitText(entries[index], { type: "words" });
-    //     const chars = mySplitText.chars; //an array of all the divs that wrap each word
-    //
-    //     // hide form AT, otherwise every single char/word will be read standalone
-    //     // for (let index = 0; index < chars.length; index+=1) {
-    //     //   chars[index].setAttribute('aria-hidden', 'true');
-    //     // }
-    //     entries[index].setAttribute('aria-hidden', 'true');
-    //     entries[index].parentNode.append(clone);
-    //   }
-    // }
+    if (!this.hasOSReducedMotion) {
+      const entries = document.querySelectorAll('.about__container p');
+      for (let index = 0; index < entries.length; index += 1) {
+        entries[index].style.visibility = 'hidden';
+        entries[index].style.opacity = 0;
+        entries[index].style.transform = 'matrix(1, 0, 0, 1, 0, 40)';
+      }
+    }
   },
 
   methods: {
@@ -91,8 +70,14 @@ export default {
       if (isVisible && !this.hasOSReducedMotion) {
         // elements to animate
         const paragraph = entry.target.querySelector('p');
-        const tl = new this.$gsap.TimelineLite();
-        tl.from(paragraph, 2, { opacity: 0 });
+        // const tl = new this.$gsap.TimelineLite();
+        // tl.from(paragraph, 2, { opacity: 0 });
+
+        TweenLite.to(paragraph, 1, {
+          autoAlpha: 1,
+          y: 0,
+          ease: Circ.easeOut
+        }, 1);
       }
     }
 
