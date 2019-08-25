@@ -70,10 +70,8 @@ export default {
       if (isVisible && !this.hasOSReducedMotion) {
         // elements to animate
         const paragraph = entry.target.querySelector('p');
-        // const tl = new this.$gsap.TimelineLite();
-        // tl.from(paragraph, 2, { opacity: 0 });
 
-        TweenLite.to(paragraph, 1, {
+        this.$gsap.TweenLite.to(paragraph, 1, {
           autoAlpha: 1,
           y: 0,
           ease: Circ.easeOut

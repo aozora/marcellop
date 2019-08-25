@@ -7,14 +7,13 @@
 * without working around the limitations of saving them as unique strings.
 * */
 import Vue from 'vue';
-import { TweenLite, TimelineLite, CSSPlugin, Circ } from 'gsap/all';
+import { TweenLite, CSSPlugin, Circ } from 'gsap/all';
 
 const GSAP = {
   install(Vue, options) {
     // GSAP
     Vue.prototype.$gsap = {
       TweenLite,
-      TimelineLite,
       CSSPlugin,
       Circ
     };
