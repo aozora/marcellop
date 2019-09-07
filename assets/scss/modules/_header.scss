@@ -280,7 +280,7 @@
   line-height: 2.667rem;
   color: var(--color-black);
 
-  @include media('<846px'){
+  @include media('<846px') {
     grid-column: span 2;
     justify-self: center;
     padding: .388rem 0;
@@ -295,6 +295,7 @@
   @include media ('>=846px') {
     grid-column: span 2;
     padding-left: 1rem;
+    font-size: 1.2rem;
     line-height: 1.5;
     text-transform: uppercase;
 
@@ -307,7 +308,10 @@
         display: block;
       }
     }
+  }
 
+  @include media ('>=desktop') {
+    font-size: 1.833rem;
   }
 }
 

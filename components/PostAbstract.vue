@@ -1,16 +1,23 @@
 <template>
-  <article :aria-labelledby="`aria-post-${post.id}`" class="post" itemscope itemtype="http://http://schema.org/BlogPosting" role="article">
+  <article :aria-labelledby="`aria-post-${post.id}`"
+           class="post post--abstract"
+           itemscope
+           itemtype="http://http://schema.org/BlogPosting"
+           role="article"
+  >
     <header>
       <h2 :id="`aria-post-${post.id}`" itemprop="name">
         <nuxt-link :to="`writings/${post.slug}`" exact rel="bookmark">{{ post.title }}</nuxt-link>
       </h2>
 
-      <div class="metadata">
+      <div class="post__metadata">
         <span class="visuallyhidden">Posted </span>
         <p v-if="post.category">
           <em class="visuallyhidden">in </em>
           <span>{{ post.category }}</span>
         </p>
+        <p v-else></p>
+
         <p>
           <span class="visuallyhidden"> on </span>
           <time itemprop="datePublished" :datetime="getPublishedDateShort">{{ getPublishedDateFormatted }}</time>

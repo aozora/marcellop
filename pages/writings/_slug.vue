@@ -30,6 +30,10 @@ export default {
     slug
     title(locale: en)
     category(locale: en)
+    cover {
+      url
+      alt
+    }
     body(locale: en, markdown: true)
     _firstPublishedAt
     _publishedAt

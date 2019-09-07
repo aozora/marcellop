@@ -1,0 +1,42 @@
+.post {
+  @include container;
+
+  .post__metadata {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+
+    p {
+      margin: 0 0 1rem 0;
+      padding: 0 .3rem;
+      background-color: var(--color-black);
+      color: var(--color-white);
+    }
+  }
+
+  figure {
+    margin: calc(3 * var(--text-base-size)) 0;
+
+    img {
+      clip-path: polygon(0% 4.43%, 24.53% 0.5%, 47.1% 4.64%, 73.96% 2.89%, 100% 4.89%, 100.00% 96.68%, 73.53% 100%, 46.73% 95.15%, 21.78% 100%, 0% 95.36%)
+    }
+  }
+
+  figcaption {
+    text-align: right;
+    font-size: .8rem;
+  }
+}
+
+.post:not(.post--abstract) {
+  h1 {
+    margin-bottom: calc(1 * var(--text-base-size));
+  }
+}
+
+
+.post__signature {
+  font-family: 'BonVivant-Regular', serif;
+  font-size: 1.3rem;
+}
