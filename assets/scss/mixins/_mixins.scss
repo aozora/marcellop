@@ -16,6 +16,12 @@
   max-width: $sectionMaxWidth;
   width: 100%;
   margin: 0 auto;
+  padding: 0 3rem;
+
+  @include media(">=desktop") {
+    padding: 0;
+  }
+
 }
 
 @function strip-unit($value) {

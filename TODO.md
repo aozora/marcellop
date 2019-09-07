@@ -1,6 +1,5 @@
 # TODO
 
-* fix margin left/right on sections
 * focus state for mobile menu + social
 * focus state for desktop menu
 * check reduce motion on clippath animations
