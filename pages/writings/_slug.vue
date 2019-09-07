@@ -1,5 +1,5 @@
 <template>
-  <Post :post="post"></Post>
+  <Post if="post" :post="post"></Post>
 </template>
 
 <script>
