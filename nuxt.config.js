@@ -81,7 +81,9 @@ export default {
   modules: [
     '@nuxtjs/dotenv',
     '@nuxtjs/eslint-module',
-    '@nuxtjs/apollo'
+    '@nuxtjs/apollo',
+    '@nuxtjs/feed',
+    '@nuxtjs/sitemap'
   ],
 
   /*
@@ -109,14 +111,66 @@ export default {
     }
   },
 
-  dotenv:{
-
-  },
-
   apollo: {
     errorHandler: '~/apollo/apollo-error-handler.js',
     clientConfigs: {
       default: '~/apollo/apollo-config.js',
     }
   },
+
+  feed: [
+    {
+      path: '/feed.xml', // The route to your feed.
+      async create(feed) {
+        const query = gql`
+            {
+                allPosts(filter: {_status: {eq: published}}) {
+                    id
+                    slug
+                    title
+                    category
+                    body(markdown: false)
+                }
+            }
+        `;
+
+        const data = await apolloClient.query({ query: query });
+        const publishedPosts = data.data.allPosts;
+        // `/writings/${post.slug}`
+        publishedPosts.forEach(post => {
+          feed.addItem({
+            title: post.title,
+            id: post.id,
+            link: `https://www.marcellop.com/writings/${post.slug}`,
+            description: post.body,
+            content: post.body
+          });
+
+          if (post.category) {
+            feed.addCategory(post.category);
+          }
+        });
+
+      }, // The create function (see below)
+      cacheTime: 1000 * 60 * 15, // How long should the feed be cached
+      type: 'atom1', // Can be: rss2, atom1, json1
+      // data: ['Some additional data'] // Will be passed as 2nd argument to `create` function
+    }
+  ],
+
+  sitemap: {
+    hostname: 'https:www.marcellop.com',
+    gzip: true,
+    exclude: [],
+    routes: routes
+    // routes: [
+    //   '/page/1',
+    //   {
+    //     url: '/page/2',
+    //     changefreq: 'daily',
+    //     priority: 1,
+    //     lastmodISO: '2017-06-30T13:30:00.000Z'
+    //   }
+    // ]
+  }
 };

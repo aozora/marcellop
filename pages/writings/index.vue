@@ -5,10 +5,10 @@
     <div v-if="allPosts && allPosts.length > 0">
       <PostAbstract v-for="post in allPosts" :key="post.id" :post="post"></PostAbstract>
 
-      <div class="posts__pagination">
-        <a href="#">Older entries</a>
-        <a href="#">Newer entries</a>
-      </div>
+<!--      <div class="posts__pagination">-->
+<!--        <a href="#">Older entries</a>-->
+<!--        <a href="#">Newer entries</a>-->
+<!--      </div>-->
     </div>
 
     <div v-else>
