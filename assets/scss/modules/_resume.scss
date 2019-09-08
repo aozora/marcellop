@@ -1,12 +1,18 @@
 .resume {
   @include container;
-  padding: 0 1rem;
+  //padding: 0 1rem;
 
   article {
     position: relative;
     margin: 0 0 3rem 0;
 
-    @include media(">=tablet") {
+    @include media(">=tablet","<desktop") {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: auto auto;
+      grid-template-areas: ". title title" "date desc desc";
+    }
+    @include media(">=desktop") {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       grid-template-rows: auto auto;
