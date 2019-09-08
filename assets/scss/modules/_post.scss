@@ -1,6 +1,14 @@
 .post {
   @include container;
 
+  h1 {
+    line-height: 1.2;
+
+    @include media('>=tablet'){
+      line-height: 1.2;
+    }
+  }
+
   .post__metadata {
     display: flex;
     flex-wrap: wrap;

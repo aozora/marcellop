@@ -18,6 +18,10 @@
   margin: 0 auto;
   padding: 0 3rem;
 
+  @include media("<tablet") {
+    padding: 0 1.5rem;
+  }
+
   @include media(">=desktop") {
     padding: 0;
   }

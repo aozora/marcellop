@@ -55,17 +55,17 @@
       </ul>
     </nav>
 
-    <button type="button" class="menu__search" aria-expanded="false">
-      <span class="visuallyhidden">Search</span>
-      <svg with="48" height="48" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
-        <g fill="none" fill-rule="evenodd">
-          <g fill="currentColor" fill-rule="nonzero">
-            <path d="M21.75 31.5A9.73 9.73 0 0 1 12 21.75c0-5.4 4.35-9.75 9.75-9.75s9.75 4.35 9.75 9.75-4.35 9.75-9.75 9.75zm0-18a8.226 8.226 0 0 0-8.25 8.25A8.226 8.226 0 0 0 21.75 30 8.226 8.226 0 0 0 30 21.75a8.226 8.226 0 0 0-8.25-8.25z"/>
-            <path d="M29.012 27.95l6.735 6.735-1.061 1.061-6.735-6.735z"/>
-          </g>
-        </g>
-      </svg>
-    </button>
+    <!--    <button type="button" class="menu__search" aria-expanded="false" @click.prevent="toggleSearch">-->
+    <!--      <span class="visuallyhidden">Search</span>-->
+    <!--      <svg with="48" height="48" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">-->
+    <!--        <g fill="none" fill-rule="evenodd">-->
+    <!--          <g fill="currentColor" fill-rule="nonzero">-->
+    <!--            <path d="M21.75 31.5A9.73 9.73 0 0 1 12 21.75c0-5.4 4.35-9.75 9.75-9.75s9.75 4.35 9.75 9.75-4.35 9.75-9.75 9.75zm0-18a8.226 8.226 0 0 0-8.25 8.25A8.226 8.226 0 0 0 21.75 30 8.226 8.226 0 0 0 30 21.75a8.226 8.226 0 0 0-8.25-8.25z"/>-->
+    <!--            <path d="M29.012 27.95l6.735 6.735-1.061 1.061-6.735-6.735z"/>-->
+    <!--          </g>-->
+    <!--        </g>-->
+    <!--      </svg>-->
+    <!--    </button>-->
   </header>
 </template>
 
@@ -171,6 +171,9 @@ export default {
           document.querySelector('.menu__toggle').focus();
         }
       }
+    },
+
+    toggleSearch: function () {
     }
   }
 };
