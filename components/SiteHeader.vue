@@ -12,7 +12,7 @@
     </button>
 
     <p v-if="!isHome" aria-hidden="true" class="menu__title">
-      <span>MP</span>
+      <span aria-hidden="true">MP</span>
       <span>Marcello Palmitessa</span>
     </p>
 

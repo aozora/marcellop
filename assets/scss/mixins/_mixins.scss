@@ -25,7 +25,40 @@
   @include media(">=desktop") {
     padding: 0;
   }
+}
 
+/* First-line styles */
+p.initial:first-of-type::first-line {
+  --text-weight: calc(var(--p-vf-weight) * 1.25);
+
+  @include media (">=tablet") {
+    --text-weight: calc(var(--p-vf-weight) * 1.25);
+  }
+}
+
+@mixin dropcap {
+  /* Initial Cap styles */
+  &:first-of-type::first-letter {
+    --text-weight: calc(var(--p-vf-weight) * 1.75);
+
+    float: left;
+    font-size: calc(var(--dc-font-size) * 1rem);
+    line-height: var(--dc-line-height);
+    padding: .1em .05em .05em 0;
+    //border: 1px solid #fff;
+
+    // if initial-letter is supported
+    @supports (initial-letter: 2) or (-webkit-initial-letter: 2) {
+      -webkit-initial-letter: 2;
+      initial-letter: 2;
+      /* undo other bits */
+      float: none;
+      font-size: inherit;
+      line-height: inherit;
+      margin: 0;
+      padding: 0 0.25em 0 0;
+    }
+  }
 }
 
 @function strip-unit($value) {

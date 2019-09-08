@@ -37,7 +37,7 @@
       <figcaption>{{ post.cover.alt }}</figcaption>
     </figure>
 
-    <div v-html="post.body"></div>
+    <div class="post__body" v-html="post.body"></div>
 
     <footer>
       <p>Sincerely,</p>

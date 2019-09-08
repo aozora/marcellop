@@ -1,12 +1,16 @@
 .post {
-  @include container;
-
   h1 {
     line-height: 1.2;
 
-    @include media('>=tablet'){
+    @include media('>=tablet') {
       line-height: 1.2;
     }
+  }
+
+  header,
+  .post__body,
+  footer {
+    @include container;
   }
 
   .post__metadata {
@@ -24,10 +28,10 @@
   }
 
   figure {
-    margin: calc(3 * var(--text-base-size)) 0;
+    margin: calc(2 * var(--text-base-size)) 0;
 
     img {
-      clip-path: polygon(2.24% 11.5%, 18.65% 3.83%, 51.25% 8.81%, 75.5% 3.24%, 100.12% 9.81%, 100% 89.33%, 77.54% 99.91%, 54.52% 99.63%, 28.63% 96.38%, 0% 100%);
+      clip-path: polygon(0% 7.61%, 18.65% 3.83%, 51.25% 8.81%, 75.5% 3.24%, 100.12% 9.81%, 99.90% 93.76%, 77.54% 99.91%, 54.52% 99.63%, 28.63% 96.38%, 0% 100%);
     }
   }
 

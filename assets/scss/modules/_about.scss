@@ -124,26 +124,27 @@
     color: var(--color-white);
     letter-spacing: var(--text-on-dark-letter-spacing);
 
-    &:first-letter {
-      float: left;
-      margin: 0;
-      padding: 0.05em 0.1em 0 0;
-      font-size: 2.5rem;
-      line-height: 1;
-      //--text-weight: 700;
-      font-weight: 700;
-
-      @supports (initial-letter: 2) or (-webkit-initial-letter: 2) {
-        -webkit-initial-letter: 4;
-        initial-letter: 4;
-        /* undo other bits */
-        float: none;
-        font-size: inherit;
-        line-height: inherit;
-        margin: 0;
-        padding: 0 0.25em 0 0;
-      }
-    }
+    @include dropcap;
+    //&:first-letter {
+    //  float: left;
+    //  margin: 0;
+    //  padding: 0.1em 0.1em 0 0;
+    //  font-size: 3.2rem;
+    //  line-height: 1;
+    //  //--text-weight: 700;
+    //  font-weight: 700;
+    //
+    //  @supports (initial-letter: 2) or (-webkit-initial-letter: 2) {
+    //    -webkit-initial-letter: 2;
+    //    initial-letter: 2;
+    //    /* undo other bits */
+    //    float: none;
+    //    font-size: inherit;
+    //    line-height: inherit;
+    //    //margin: 0;
+    //    //padding: 0 0.25em 0 0;
+    //  }
+    //}
 
     &:first-line {
       //--text-weight: 700;
