@@ -3,7 +3,6 @@ import apolloClient from './apollo/apollo-client';
 // const glob = require('glob');
 // const path = require('path');
 // const pkg = require('./package');
-require('dotenv').config();
 
 const query = gql`
     {
@@ -37,11 +36,15 @@ function routes() {
     });
 }
 
-console.log(`NUXT_ENV_DATO_CMS_TOKEN=${process.env.NUXT_ENV_DATO_CMS_TOKEN}`);
-
 export default {
   mode: 'universal',
   modern: true,
+
+  env: {
+    cmsToken: process.env.NUXT_ENV_DATO_CMS_TOKEN || require('./.env.js').NUXT_ENV_DATO_CMS_TOKEN,
+    cmsSearchToken: process.env.NUXT_ENV_DATO_CMS_SEARCH_TOKEN || require('./.env.js').NUXT_ENV_DATO_CMS_SEARCH_TOKEN
+  },
+
 
   /*
   ** Headers of the page
