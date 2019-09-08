@@ -125,26 +125,6 @@
     letter-spacing: var(--text-on-dark-letter-spacing);
 
     @include dropcap;
-    //&:first-letter {
-    //  float: left;
-    //  margin: 0;
-    //  padding: 0.1em 0.1em 0 0;
-    //  font-size: 3.2rem;
-    //  line-height: 1;
-    //  //--text-weight: 700;
-    //  font-weight: 700;
-    //
-    //  @supports (initial-letter: 2) or (-webkit-initial-letter: 2) {
-    //    -webkit-initial-letter: 2;
-    //    initial-letter: 2;
-    //    /* undo other bits */
-    //    float: none;
-    //    font-size: inherit;
-    //    line-height: inherit;
-    //    //margin: 0;
-    //    //padding: 0 0.25em 0 0;
-    //  }
-    //}
 
     &:first-line {
       //--text-weight: 700;

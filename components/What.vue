@@ -33,10 +33,10 @@ export default {
         case 2:
           return 'flex-start';
         case 1:
-          return 'center';
-        case 0:
-        default:
           return 'flex-end';
+        case 0:
+          return 'center';
+        default:
       }
     }
   }

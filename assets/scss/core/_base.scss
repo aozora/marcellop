@@ -280,19 +280,10 @@ blockquote {
   }
 
   p {
-    /* Set --text-x value */
     --text-weight: calc(var(--text-weight) * .65);
     font-size: 6.5vw;
     margin: 0 0 .25em 0;
     position: relative;
-
-    //&:first-letter {
-    //
-    //}
-    //
-    //&:first-line {
-    //  --text-weight: calc(var(--p-vf-weight) * .65);
-    //}
   }
 
   cite {
@@ -307,7 +298,6 @@ blockquote {
 
   @include media (">=tablet", "<desktop") {
     margin: calc(.5 * var(--text-base-size)) 5% calc(.5 * var(--text-base-size)) calc(.5 * var(--text-base-size));
-    //max-width: 45%;
 
     &.right {
       margin-left: calc(.5 * var(--text-base-size));

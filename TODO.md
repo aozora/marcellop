@@ -8,3 +8,4 @@
 * rss
 * error pages (styles)
 * posts pagination
+* p trnasitions (like "about")
