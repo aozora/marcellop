@@ -5,7 +5,7 @@
   grid-gap: 1rem;
   grid-template-areas: "social" "copyright" "credits";
   @include container;
-  margin: 4rem 0;
+  margin: 4rem auto;
 
 
   .menu__social {
