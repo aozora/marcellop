@@ -142,10 +142,14 @@ query {
 //   data: mockData
 // });
 
+// get the token; for some reason, the process.env variable is not available here in dev
+const token = process.env.NUXT_ENV_DATO_CMS_TOKEN || require('../.datocms.js').NUXT_ENV_DATO_CMS_TOKEN;
+
+
 export default function (context) {
   return {
     httpEndpoint: 'https://graphql.datocms.com',
-    getAuth: () => `Bearer ${process.env.NUXT_ENV_DATO_CMS_TOKEN}`,
+    getAuth: () => `Bearer ${token}`,
     // cache
     // // Local Schema
     // typeDefs = undefined,

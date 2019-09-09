@@ -4,6 +4,11 @@ import apolloClient from './apollo/apollo-client';
 // const path = require('path');
 // const pkg = require('./package');
 
+console.log(process.env.NODE_ENV);
+if (process.env.NODE_ENV === 'development') {
+  console.log('token: ' + require('./.datocms.js').NUXT_ENV_DATO_CMS_TOKEN);
+}
+
 const query = gql`
     {
         allPosts {
@@ -41,8 +46,8 @@ export default {
   modern: true,
 
   env: {
-    cmsToken: process.env.NUXT_ENV_DATO_CMS_TOKEN || require('./.env.js').NUXT_ENV_DATO_CMS_TOKEN,
-    cmsSearchToken: process.env.NUXT_ENV_DATO_CMS_SEARCH_TOKEN || require('./.env.js').NUXT_ENV_DATO_CMS_SEARCH_TOKEN
+    cmsToken: process.env.NUXT_ENV_DATO_CMS_TOKEN || require('./.datocms.js').NUXT_ENV_DATO_CMS_TOKEN,
+    cmsSearchToken: process.env.NUXT_ENV_DATO_CMS_SEARCH_TOKEN || require('./.datocms.js').NUXT_ENV_DATO_CMS_SEARCH_TOKEN
   },
 
 
@@ -82,7 +87,7 @@ export default {
   ** Nuxt.js modules
   */
   modules: [
-    '@nuxtjs/dotenv',
+    // '@nuxtjs/dotenv',
     '@nuxtjs/eslint-module',
     '@nuxtjs/apollo',
     '@nuxtjs/feed',
