@@ -19,7 +19,7 @@
 .about__container {
   position: relative;
   @include container;
-  padding: 0 3rem;
+  //padding: 0 3rem;
 
   @include media(">=tablet") {
     display: grid;
@@ -35,7 +35,7 @@
     width: 100%;
     max-width: none;
     margin-bottom: 3rem;
-    padding: 0 1rem;
+    padding: 0;
     color: var(--color-white);
 
     @include media('<=360px') {

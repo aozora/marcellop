@@ -46,7 +46,7 @@ $hero-p-font-size-max: 1.81rem;
   }
 
   h1 {
-    max-width: none;
+    max-width: 99%; // this prevent the text to be on the same line between 1024-1032px
     max-height: 28rem;
     margin: 0 auto 2rem auto;
 

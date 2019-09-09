@@ -22,7 +22,11 @@
     padding: 0 1.5rem;
   }
 
-  @include media(">=desktop") {
+  @include media(">=desktop","<1092") {
+    padding: 0 1.5rem;
+  }
+
+  @include media(">=desktophd") {
     padding: 0;
   }
 }
