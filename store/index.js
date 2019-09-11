@@ -69,7 +69,7 @@ export const actions = {
       query
     });
 
-    commit('SET_RESUME', data);
+    commit('SET_RESUME', data.data.jobs);
   },
 
 

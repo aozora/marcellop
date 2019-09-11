@@ -6,6 +6,7 @@
 </template>
 
 <script>
+import { mapState } from 'vuex';
 import gql from 'graphql-tag';
 import { DatoCmsSeoMetaTags } from '../apollo/fragments/seoMetaTagsFragmentMixin';
 import JobsList from '../components/JobsList';
@@ -25,22 +26,11 @@ export default {
     };
   },
 
-  apollo: {
-    jobs: gql`
-{
-  jobs: allResumeJobs(locale: en, orderBy: to_DESC) {
-    title
-    from
-    to
-    company
-    description(markdown: true)
-    seoMetaTags: _seoMetaTags {
-      ...DatoCmsSeoMetaTags
-    }
-  }
-}
-${DatoCmsSeoMetaTags}
-`
+  computed: {
+    // mix this into the outer object with the object spread operator
+    ...mapState({
+      jobs: state => state.resume
+    })
   },
 
   methods: {

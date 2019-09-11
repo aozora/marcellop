@@ -6,4 +6,4 @@
 * check reduce motion on clippath animations
 * error pages (styles)
 * posts pagination
-* p trnasitions (like "about")
+* p transitions (like "about")
