@@ -5,10 +5,10 @@
     <div v-if="allPosts && allPosts.length > 0">
       <PostAbstract v-for="post in allPosts" :key="post.id" :post="post"></PostAbstract>
 
-<!--      <div class="posts__pagination">-->
-<!--        <a href="#">Older entries</a>-->
-<!--        <a href="#">Newer entries</a>-->
-<!--      </div>-->
+      <!--      <div class="posts__pagination">-->
+      <!--        <a href="#">Older entries</a>-->
+      <!--        <a href="#">Newer entries</a>-->
+      <!--      </div>-->
     </div>
 
     <div v-else>
@@ -18,8 +18,7 @@
 </template>
 
 <script>
-import gql from 'graphql-tag';
-import { DatoCmsSeoMetaTags } from '../../apollo/fragments/seoMetaTagsFragmentMixin';
+import { mapState } from 'vuex';
 import PostAbstract from '../../components/PostAbstract';
 
 export default {
@@ -37,25 +36,13 @@ export default {
   //   };
   // },
 
-  apollo: {
-    allPosts: gql`
-{
-  allPosts(locale: en, orderBy: _publishedAt_DESC, skip: "0", first: "10") {
-    id
-    slug
-    title(locale: en)
-    category(locale: en)
-    body(locale: en, markdown: true)
-    _firstPublishedAt
-    _publishedAt
-    seoMetaTags: _seoMetaTags {
-      ...DatoCmsSeoMetaTags
-    }
-  }
-}
-${DatoCmsSeoMetaTags}
-`
+  computed: {
+    // mix this into the outer object with the object spread operator
+    ...mapState({
+      allPosts: state => state.writings
+    })
   },
+
   //
   // methods: {
   //   getSeoMetaData: function () {

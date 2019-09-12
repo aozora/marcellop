@@ -7,8 +7,6 @@
 
 <script>
 import { mapState } from 'vuex';
-import gql from 'graphql-tag';
-import { DatoCmsSeoMetaTags } from '../apollo/fragments/seoMetaTagsFragmentMixin';
 import JobsList from '../components/JobsList';
 
 export default {

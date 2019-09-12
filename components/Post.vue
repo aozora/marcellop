@@ -64,6 +64,10 @@ export default {
 
   computed: {
     getPublishedDateFormatted() {
+      if (!this.post) {
+        return '';
+      }
+
       return format(
         new Date(this.post._publishedAt),
         'MMMM do yyyy'
@@ -71,6 +75,10 @@ export default {
     },
 
     getPublishedDateShort() {
+      if (!this.post) {
+        return '';
+      }
+
       return format(
         new Date(this.post._publishedAt),
         'yyyy-MM-dd'

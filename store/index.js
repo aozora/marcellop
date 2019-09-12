@@ -10,7 +10,11 @@ export const state = () => ({
 export const mutations = {
   SET_RESUME(state, data) {
     state.resume = data;
-  }
+  },
+
+  SET_WRITINGS(state, data) {
+    state.writings = data;
+  },
 
 };
 
@@ -21,55 +25,72 @@ export const actions = {
    * @returns {Promise<void>}
    */
   async nuxtServerInit({ dispatch }) {
-
-    await dispatch('getResume');
-    // await dispatch('getMenuContent');
-    //
-    // try {
-    //   await dispatch('getApiConfiguration');
-    //   await dispatch('getApiLanguages');
-    //   await dispatch('getApiCountries');
-    //   await dispatch('getApiMovieGenres');
-    // } catch (error) {
-    //   console.error({ error });
-    // }
-    //
-    // await dispatch('getAppLoaderContent');
+    try {
+      await dispatch('getResume');
+      await dispatch('getWritings');
+    } catch (error) {
+      console.error({ error });
+    }
   },
 
   async getResume({ state, commit }) {
-    // let { data } = await this.$axios({
-    //   method: 'get',
-    //   url: state.api.url.configuration,
-    //   responseType: 'json'
-    // });
-    //
-    // commit('SET_API_CONFIGURATION', data);
-
     // get the apollo client
     let client = this.app.apolloProvider.defaultClient;
-    const query = gql`
-        {
-            jobs: allResumeJobs(locale: en, orderBy: to_DESC) {
-                title
-                from
-                to
-                company
-                description(markdown: true)
-                seoMetaTags: _seoMetaTags {
-                    ...DatoCmsSeoMetaTags
-                }
+    const getJobsQuery = gql`query GetJobs
+    {
+        jobs: allResumeJobs(locale: en, orderBy: to_DESC) {
+            title
+            from
+            to
+            company
+            description(markdown: true)
+            seoMetaTags: _seoMetaTags {
+                ...DatoCmsSeoMetaTags
             }
         }
-        ${DatoCmsSeoMetaTags}
+    }
+    ${DatoCmsSeoMetaTags}
     `;
 
     let data = await client.query({
       // fetchPolicy: 'network-only', // ensure cache isn't being used
-      query
+      query: getJobsQuery
     });
 
     commit('SET_RESUME', data.data.jobs);
+  },
+
+  async getWritings({ state, commit }) {
+    // get the apollo client
+    let client = this.app.apolloProvider.defaultClient;
+    const getPostsQuery = gql`query GetPosts
+    {
+        allPosts(locale: en, orderBy: _publishedAt_DESC, skip: "0", first: "10") {
+            id
+            slug
+            title(locale: en)
+            category(locale: en)
+            cover {
+                url
+                alt
+            }
+            body(locale: en, markdown: true)
+            _firstPublishedAt
+            _publishedAt
+            seoMetaTags: _seoMetaTags {
+                ...DatoCmsSeoMetaTags
+            }
+        }
+    }
+    ${DatoCmsSeoMetaTags}
+    `;
+
+    let data = await client.query({
+      // fetchPolicy: 'network-only', // ensure cache isn't being used
+      query: getPostsQuery
+    });
+
+    commit('SET_WRITINGS', data.data.allPosts);
   },
 
 
