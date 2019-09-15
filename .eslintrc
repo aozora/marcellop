@@ -1,10 +1,10 @@
 {
   "extends": "airbnb",
   "rules": {
+    "semi": ["error", "always"],
     "comma-dangle": ["error", "never"],
     "linebreak-style": ["off"],
     "padded-blocks": ["off"],
-    "max-len": ["off"],
-    "semi": ["error", "always"]
+    "max-len": ["off"]
   }
 }

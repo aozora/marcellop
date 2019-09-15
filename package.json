@@ -1,6 +1,6 @@
 {
   "name": "marcellop2019",
-  "version": "4.0.0",
+  "version": "4.0.1",
   "private": true,
   "description": "Marcello Palmitessa website",
   "author": "Marcello Palmitessa",
@@ -16,6 +16,7 @@
     "gatsby-source-filesystem": "^2.1.22",
     "gatsby-transformer-remark": "^2.6.22",
     "gatsby-transformer-sharp": "^2.2.14",
+    "include-media": "^1.4.9",
     "prop-types": "^15.7.2",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
@@ -29,6 +30,7 @@
     "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-plugin-react": "^7.14.3",
     "gatsby-plugin-eslint": "^2.0.5",
+    "node-sass": "^4.12.0",
     "prettier": "^1.18.2"
   },
   "keywords": [
