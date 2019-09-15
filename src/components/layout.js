@@ -4,9 +4,9 @@
  *
  * See: https://www.gatsbyjs.org/docs/use-static-query/
  */
-import React from "react";
-import PropTypes from "prop-types";
-import { useStaticQuery, graphql, Link } from "gatsby";
+import React from 'react';
+import PropTypes from 'prop-types';
+import { useStaticQuery, graphql, Link } from 'gatsby';
 import { HelmetDatoCms } from 'gatsby-source-datocms';
 
 // import Header from "./header";
@@ -41,10 +41,10 @@ const TemplateWrapper = ({ children }) => {
               heading2B
               heading2C
               aboutHeading
-              aboutDescription1(locale: en, markdown: true)
-              aboutDescription2(locale: en, markdown: true)
-              aboutDescription3(locale: en, markdown: true)
-              aboutDescription4(locale: en, markdown: true)
+              aboutDescription1
+              aboutDescription2
+              aboutDescription3
+              aboutDescription4
               whatidoHeading
               whatido {
                   title
@@ -79,16 +79,6 @@ const TemplateWrapper = ({ children }) => {
                 <Link to="/about">About</Link>
               </li>
             </ul>
-            <p className="sidebar__social">
-              {/*{data.allDatoCmsSocialProfile.edges.map(({ node: profile }) => (*/}
-              {/*  <a*/}
-              {/*    key={profile.profileType}*/}
-              {/*    href={profile.url}*/}
-              {/*    target="blank"*/}
-              {/*    className={`social social--${profile.profileType.toLowerCase()}`}*/}
-              {/*  > </a>*/}
-              {/*))}*/}
-            </p>
 
           </div>
         </div>
@@ -97,7 +87,7 @@ const TemplateWrapper = ({ children }) => {
           <div className="container__mobile-header">
             <div className="mobile-header">
               <div className="mobile-header__menu">
-                <Link to="#" data-js="toggleSidebar"/>
+                <Link to="#/" data-js="toggleSidebar" />
               </div>
               <div className="mobile-header__logo">
                 <Link to="/">{data.datoCmsSite.globalSeo.siteName}</Link>
