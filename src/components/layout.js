@@ -43,6 +43,13 @@ const TemplateWrapper = ({ children }) => {
               aboutHeading
               aboutDescription1
               aboutDescription2
+              aboutPicture {
+                  alt
+                  url
+                  fluid(maxWidth: 630, sizes: "(min-width: 17em) 50vw, 100vw", imgixParams: {fm: "jpg", auto: "compress"}) {
+                      ...GatsbyDatoCmsSizes
+                  }
+              }
               aboutDescription3
               aboutDescription4
               whatidoHeading
@@ -84,16 +91,6 @@ const TemplateWrapper = ({ children }) => {
         </div>
 
         <div className="container__body">
-          <div className="container__mobile-header">
-            <div className="mobile-header">
-              <div className="mobile-header__menu">
-                <Link to="#/" data-js="toggleSidebar" />
-              </div>
-              <div className="mobile-header__logo">
-                <Link to="/">{data.datoCmsSite.globalSeo.siteName}</Link>
-              </div>
-            </div>
-          </div>
           {children}
         </div>
       </div>
