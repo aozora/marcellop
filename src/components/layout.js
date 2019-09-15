@@ -8,6 +8,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { useStaticQuery, graphql, Link } from 'gatsby';
 import { HelmetDatoCms } from 'gatsby-source-datocms';
+import Header from './Header';
 
 // import Header from "./header";
 import '../styles/app.scss';
@@ -71,6 +72,7 @@ const TemplateWrapper = ({ children }) => {
           favicon={data.datoCmsSite.faviconMetaTags}
           seo={data.datoCmsHome.seoMetaTags}
         />
+        <Header />
         <div className="container__sidebar">
           <div className="sidebar">
             <h6 className="sidebar__title">
