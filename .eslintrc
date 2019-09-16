@@ -31,6 +31,9 @@
           ".jsx"
         ]
       }
+    ],
+    "react/jsx-tag-spacing": [
+      "off"
     ]
   }
 }
