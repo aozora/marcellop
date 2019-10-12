@@ -16,8 +16,10 @@ const About = ({ about }) => {
   const hasOSReducedMotion = isClient ? window.matchMedia('(prefers-reduced-motion: reduce)').matches : false;
 
 
-  const animateParagraph = ({ isIntersecting, target }) => {
+  const animateParagraph = ({ isIntersecting, target, unobserve }) => {
     if (isIntersecting && !hasOSReducedMotion) {
+      unobserve(); // observe only once
+
       // elements to animate
       const paragraph = target.querySelector('p');
       if (paragraph) {
@@ -30,11 +32,12 @@ const About = ({ about }) => {
     }
   };
 
-  // const figureVisibilityChanged = (isVisible, entry) => {
-  //   if (isVisible) {
-  //     entry.target.classList.add('animated');
-  //   }
-  // };
+  const figureVisibilityChanged = (isIntersecting, target, unobserve) => {
+    if (isIntersecting) {
+      unobserve(); // observe only once
+      target.classList.add('animated');
+    }
+  };
 
   useEffect(() => {
     if (!hasOSReducedMotion && isClient) {
@@ -56,26 +59,42 @@ const About = ({ about }) => {
         {/* <div v-observe-visibility="{ callback: animateParagraph, once: true }" v-html="about.aboutDescription1"></div> */}
         {/* <div v-observe-visibility="{ callback: animateParagraph, once: true }" v-html="about.aboutDescription2"></div> */}
         <Observer onChange={animateParagraph}>
-          <div dangerouslySetInnerHTML={{ __html: about.aboutDescription1 }}/>
+          <div>
+            <p dangerouslySetInnerHTML={{ __html: about.aboutDescription1 }}/>
+          </div>
         </Observer>
-        <div dangerouslySetInnerHTML={{ __html: about.aboutDescription2 }}/>
+        <Observer onChange={animateParagraph}>
+          <div>
+            <p dangerouslySetInnerHTML={{ __html: about.aboutDescription2 }}/>
+          </div>
+        </Observer>
 
         {/* <figure v-if="about.aboutPicture" v-observe-visibility="{ callback: figureVisibilityChanged, once: true }"> */}
 
-        <figure>
-          <img
-            srcSet={`${about.aboutPicture.url}?w=630;1280w,${about.aboutPicture.url}?w=630&fit=max;768w,${about.aboutPicture.url}?w=300&fit=max;320w`}
-            sizes="(min-width: 17em) 50vw, 100vw"
-            src={`${about.aboutPicture.url}?w=630`}
-            alt={about.aboutPicture.alt}
-          />
-        </figure>
+        <Observer onChange={figureVisibilityChanged}>
+          <figure>
+            <img
+              srcSet={`${about.aboutPicture.url}?w=630;1280w,${about.aboutPicture.url}?w=630&fit=max;768w,${about.aboutPicture.url}?w=300&fit=max;320w`}
+              sizes="(min-width: 17em) 50vw, 100vw"
+              src={`${about.aboutPicture.url}?w=630`}
+              alt={about.aboutPicture.alt}
+            />
+          </figure>
+        </Observer>
 
         {/* <div v-observe-visibility="{ callback: animateParagraph, once: true }" v-html="about.aboutDescription3"></div> */}
         {/* <div v-observe-visibility="{ callback: animateParagraph, once: true }" v-html="about.aboutDescription4"></div> */}
 
-        <div dangerouslySetInnerHTML={{ __html: about.aboutDescription3 }}/>
-        <div dangerouslySetInnerHTML={{ __html: about.aboutDescription4 }}/>
+        <Observer onChange={animateParagraph}>
+          <div>
+            <p dangerouslySetInnerHTML={{ __html: about.aboutDescription3 }}/>
+          </div>
+        </Observer>
+        <Observer onChange={animateParagraph}>
+          <div>
+            <p dangerouslySetInnerHTML={{ __html: about.aboutDescription4 }}/>
+          </div>
+        </Observer>
       </div>
     </section>
   );
