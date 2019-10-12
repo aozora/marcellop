@@ -5,6 +5,7 @@ module.exports = {
     author: '@aozora'
   },
   plugins: [
+    'gatsby-plugin-eslint',
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-sass',
     {

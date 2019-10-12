@@ -6,96 +6,56 @@
  */
 import React from 'react';
 import PropTypes from 'prop-types';
-import { useStaticQuery, graphql, Link } from 'gatsby';
+import { useStaticQuery, graphql } from 'gatsby';
 import { HelmetDatoCms } from 'gatsby-source-datocms';
 import Header from './Header';
 
 // import Header from "./header";
 import '../styles/app.scss';
+import Footer from './Footer';
 
 const TemplateWrapper = ({ children }) => {
   const data = useStaticQuery(graphql`
-      {
-          datoCmsSite {
-              globalSeo {
-                  siteName
-                  titleSuffix
-                  twitterAccount
-                  fallbackSeo {
-                      title
-                      image {
-                          url
-                          format
-                      }
-                      description
-                      twitterCard
-                  }
-              }
-              faviconMetaTags {
-                  ...GatsbyDatoCmsFaviconMetaTags
-              }
+    {
+      datoCmsSite {
+        globalSeo {
+          siteName
+          titleSuffix
+          twitterAccount
+          fallbackSeo {
+            title
+            image {
+              url
+              format
+            }
+            description
+            twitterCard
           }
-          datoCmsHome {
-              hi
-              heading1
-              heading2A
-              heading2B
-              heading2C
-              aboutHeading
-              aboutDescription1
-              aboutDescription2
-              aboutPicture {
-                  alt
-                  url
-                  fluid(maxWidth: 630, sizes: "(min-width: 17em) 50vw, 100vw", imgixParams: {fm: "jpg", auto: "compress"}) {
-                      ...GatsbyDatoCmsSizes
-                  }
-              }
-              aboutDescription3
-              aboutDescription4
-              whatidoHeading
-              whatido {
-                  title
-                  description
-              }
-              seoMetaTags {
-                  ...GatsbyDatoCmsSeoMetaTags
-              }
-          }
+        }
+        faviconMetaTags {
+          ...GatsbyDatoCmsFaviconMetaTags
+        }
       }
+      datoCmsHome {
+        seoMetaTags {
+          ...GatsbyDatoCmsSeoMetaTags
+        }
+      }
+    }
   `);
 
   return (
     <>
-      <div className="container">
-        <HelmetDatoCms
-          favicon={data.datoCmsSite.faviconMetaTags}
-          seo={data.datoCmsHome.seoMetaTags}
-        />
-        <Header />
-        <div className="container__sidebar">
-          <div className="sidebar">
-            <h6 className="sidebar__title">
-              <Link to="/">{data.datoCmsSite.globalSeo.siteName}</Link>
-            </h6>
-
-
-            <ul className="sidebar__menu">
-              <li>
-                <Link to="/">Home</Link>
-              </li>
-              <li>
-                <Link to="/about">About</Link>
-              </li>
-            </ul>
-
-          </div>
-        </div>
-
-        <div className="container__body">
-          {children}
-        </div>
-      </div>
+      <HelmetDatoCms
+        favicon={data.datoCmsSite.faviconMetaTags}
+        seo={data.datoCmsHome.seoMetaTags}
+      />
+      <a href="#main" tabIndex="0">Skip to main content</a>
+      <Header/>
+      <main id="main" role="main">
+        {children}
+      </main>
+      <Footer/>
     </>
   );
 };
