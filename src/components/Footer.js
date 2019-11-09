@@ -35,7 +35,7 @@ const Footer = () => (
     <p className="footer__copyright">&copy; 2010–2019 Copyright Marcello Palmitessa. All rights reserved.</p>
     <p className="footer__credits">
       This site is built with&nbsp;
-      <a target="_blank" rel="noopener noreferrer" href="https://nuxtjs.org/">NuxtJs</a>
+      <a target="_blank" rel="noopener noreferrer" href="https://www.gatsbyjs.org/">Gatsby</a>
       &nbsp;and hosted on&nbsp;
       <a target="_blank" rel="noopener noreferrer" href="https://www.netlify.com/">Netlify</a>
       . The source code is hosted on&nbsp;

@@ -16,12 +16,12 @@ const About = ({ about }) => {
   const hasOSReducedMotion = isClient ? window.matchMedia('(prefers-reduced-motion: reduce)').matches : false;
 
 
-  const animateParagraph = ({ isIntersecting, target, unobserve }) => {
-    if (isIntersecting && !hasOSReducedMotion) {
+  const animateParagraph = (event, unobserve) => {
+    if (event.isIntersecting && !hasOSReducedMotion) {
       unobserve(); // observe only once
 
       // elements to animate
-      const paragraph = target.querySelector('p');
+      const paragraph = event.target.querySelector('p');
       if (paragraph) {
         gsap.TweenLite.to(paragraph, 1, {
           autoAlpha: 1,
@@ -32,10 +32,10 @@ const About = ({ about }) => {
     }
   };
 
-  const figureVisibilityChanged = (isIntersecting, target, unobserve) => {
-    if (isIntersecting) {
+  const figureVisibilityChanged = (event, unobserve) => {
+    if (event.isIntersecting) {
       unobserve(); // observe only once
-      target.classList.add('animated');
+      event.target.classList.add('animated');
     }
   };
 
