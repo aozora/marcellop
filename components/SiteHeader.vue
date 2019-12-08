@@ -135,6 +135,7 @@ export default {
 
     getMenuUrl: function (url) {
       if (url !== '/') {
+        console.log(`DEBUG ${url}`);
         return url.substr(1);
       }
 
