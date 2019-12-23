@@ -1,7 +1,9 @@
+/* eslint-disable react/no-danger */
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import Observer from '@researchgate/react-intersection-observer';
 import { TweenLite, CSSPlugin, Circ } from 'gsap';
+import Img from 'gatsby-image';
 
 const About = ({ about }) => {
 
@@ -32,12 +34,12 @@ const About = ({ about }) => {
     }
   };
 
-  const figureVisibilityChanged = (event, unobserve) => {
-    if (event.isIntersecting) {
-      unobserve(); // observe only once
-      event.target.classList.add('animated');
-    }
-  };
+  // const figureVisibilityChanged = (event, unobserve) => {
+  //   if (event.isIntersecting) {
+  //     unobserve(); // observe only once
+  //     event.target.classList.add('animated');
+  //   }
+  // };
 
   useEffect(() => {
     if (!hasOSReducedMotion && isClient) {
@@ -56,42 +58,39 @@ const About = ({ about }) => {
       <div id="about" className="about__container">
         <h2>{about.aboutHeading}</h2>
 
-        {/* <div v-observe-visibility="{ callback: animateParagraph, once: true }" v-html="about.aboutDescription1"></div> */}
-        {/* <div v-observe-visibility="{ callback: animateParagraph, once: true }" v-html="about.aboutDescription2"></div> */}
         <Observer onChange={animateParagraph}>
-          <div>
+          <div className="about__container__textblock-wrapper">
             <p dangerouslySetInnerHTML={{ __html: about.aboutDescription1 }}/>
           </div>
         </Observer>
         <Observer onChange={animateParagraph}>
-          <div>
+          <div className="about__container__textblock-wrapper">
             <p dangerouslySetInnerHTML={{ __html: about.aboutDescription2 }}/>
           </div>
         </Observer>
 
-        {/* <figure v-if="about.aboutPicture" v-observe-visibility="{ callback: figureVisibilityChanged, once: true }"> */}
-
-        <Observer onChange={figureVisibilityChanged}>
-          <figure>
-            <img
-              srcSet={`${about.aboutPicture.url}?w=630;1280w,${about.aboutPicture.url}?w=630&fit=max;768w,${about.aboutPicture.url}?w=300&fit=max;320w`}
-              sizes="(min-width: 17em) 50vw, 100vw"
-              src={`${about.aboutPicture.url}?w=630`}
-              alt={about.aboutPicture.alt}
-            />
-          </figure>
-        </Observer>
-
-        {/* <div v-observe-visibility="{ callback: animateParagraph, once: true }" v-html="about.aboutDescription3"></div> */}
-        {/* <div v-observe-visibility="{ callback: animateParagraph, once: true }" v-html="about.aboutDescription4"></div> */}
+        {/* <Observer onChange={figureVisibilityChanged}> */}
+        {/*  <figure> */}
+        {/*    <img */}
+        {/*      srcSet={`${about.aboutPicture.url}?w=630;1280w,${about.aboutPicture.url}?w=630&fit=max;768w,${about.aboutPicture.url}?w=300&fit=max;320w`} */}
+        {/*      sizes="(min-width: 17em) 50vw, 100vw" */}
+        {/*      src={`${about.aboutPicture.url}?w=630`} */}
+        {/*      alt={about.aboutPicture.alt} */}
+        {/*    /> */}
+        {/*  </figure> */}
+        {/* </Observer> */}
+        <Img
+          fluid={about.aboutPicture.fluid}
+          alt={about.aboutPicture.alt}
+        />
 
         <Observer onChange={animateParagraph}>
-          <div>
+          <div className="about__container__textblock-wrapper">
             <p dangerouslySetInnerHTML={{ __html: about.aboutDescription3 }}/>
           </div>
         </Observer>
         <Observer onChange={animateParagraph}>
-          <div>
+          <div className="about__container__textblock-wrapper">
             <p dangerouslySetInnerHTML={{ __html: about.aboutDescription4 }}/>
           </div>
         </Observer>
