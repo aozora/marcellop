@@ -2,6 +2,7 @@ import React from 'react';
 // import { Link, graphql } from 'gatsby';
 // import Img from 'gatsby-image';
 import { graphql, useStaticQuery } from 'gatsby';
+import { Helmet } from 'react-helmet/es/Helmet';
 import Layout from '../components/layout';
 // import Layout from '../components/layout';
 // import Image from '../components/image';
@@ -67,6 +68,9 @@ const IndexPage = () => {
 
   return (
     <Layout>
+      <Helmet>
+        <body className="home"/>
+      </Helmet>
       <Hero hero={heroData}/>
       <About about={aboutData}/>
       <What whatido={whatido}/>

@@ -62,6 +62,8 @@ const TemplateWrapper = ({ children }) => {
 
 TemplateWrapper.propTypes = {
   children: PropTypes.node.isRequired
+  // eslint-disable-next-line react/require-default-props
+  // path: PropTypes.string
 };
 
 export default TemplateWrapper;
