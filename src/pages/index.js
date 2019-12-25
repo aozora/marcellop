@@ -1,11 +1,7 @@
 import React from 'react';
-// import { Link, graphql } from 'gatsby';
-// import Img from 'gatsby-image';
 import { graphql, useStaticQuery } from 'gatsby';
 import { Helmet } from 'react-helmet/es/Helmet';
 import Layout from '../components/layout';
-// import Layout from '../components/layout';
-// import Image from '../components/image';
 // import SEO from '../components/seo';
 import Hero from '../components/Hero';
 import About from '../components/About';

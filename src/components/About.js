@@ -34,13 +34,6 @@ const About = ({ about }) => {
     }
   };
 
-  // const figureVisibilityChanged = (event, unobserve) => {
-  //   if (event.isIntersecting) {
-  //     unobserve(); // observe only once
-  //     event.target.classList.add('animated');
-  //   }
-  // };
-
   useEffect(() => {
     if (!hasOSReducedMotion && isClient) {
       // eslint-disable-next-line no-undef
@@ -69,16 +62,6 @@ const About = ({ about }) => {
           </div>
         </Observer>
 
-        {/* <Observer onChange={figureVisibilityChanged}> */}
-        {/*  <figure> */}
-        {/*    <img */}
-        {/*      srcSet={`${about.aboutPicture.url}?w=630;1280w,${about.aboutPicture.url}?w=630&fit=max;768w,${about.aboutPicture.url}?w=300&fit=max;320w`} */}
-        {/*      sizes="(min-width: 17em) 50vw, 100vw" */}
-        {/*      src={`${about.aboutPicture.url}?w=630`} */}
-        {/*      alt={about.aboutPicture.alt} */}
-        {/*    /> */}
-        {/*  </figure> */}
-        {/* </Observer> */}
         <Img
           fluid={about.aboutPicture.fluid}
           alt={about.aboutPicture.alt}

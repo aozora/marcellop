@@ -1,5 +1,5 @@
 import { graphql, Link, useStaticQuery } from 'gatsby';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 
 const Header = () => {
@@ -21,30 +21,75 @@ const Header = () => {
     }
   `);
 
-  // eslint-disable-next-line no-console
-  console.log(menu);
-  // const isMobile = () => {
-  //   if (typeof window !== 'undefined') {
-  //     // eslint-disable-next-line no-undef
-  //     window.matchMedia('(max-width: 768px)').matches;
-  //   }
-  //
-  //   return false;
-  // };
+  const isClient = typeof window !== 'undefined';
 
+  const isMobile = () => {
+    if (isClient) {
+      // eslint-disable-next-line no-undef
+      return window.matchMedia('(max-width: 768px)').matches;
+    }
 
-  // const isHome = () => {
-  //   return this.$route.path === '/';
-  // };
-
-  const toggleMobileMenu = () => {
-
+    return false;
   };
+
+  const isHome = () => {
+    // eslint-disable-next-line no-undef
+    const location = isClient ? window.location : undefined;
+    return location && location.pathname === '/';
+  };
+
+  /**
+   * Toggle the mobile menu
+   */
+  const toggleMobileMenu = () => {
+    // eslint-disable-next-line no-undef
+    if (isClient && window.matchMedia('(max-width: 768px)').matches) {
+      // eslint-disable-next-line no-undef
+      const { body } = document;
+      // eslint-disable-next-line no-undef
+      const menuElement = document.querySelector('.menu');
+
+      // on open
+      if (!showMobileMenu) {
+        // fix ios issues
+        // ref: https://css-tricks.com/prevent-page-scrolling-when-a-modal-is-open/
+        body.style.position = 'fixed';
+      } else {
+        body.style.position = '';
+      }
+
+      // toggle
+      setShowMobileMenu(!showMobileMenu);
+      menuElement.setAttribute('aria-hidden', `${!showMobileMenu}`);
+      menuElement.setAttribute('tabindex', showMobileMenu ? '0' : '-1');
+
+      // on open, set focus on the first <a>
+      if (showMobileMenu) {
+        menuElement.querySelector('a').focus();
+      } else {
+        // on close, set focus to the triggering button
+        // eslint-disable-next-line no-undef
+        document.querySelector('.menu__toggle').focus();
+      }
+    }
+  };
+
+
+  useEffect(() => {
+    // if mobile, then add ARIA attrs to the mobile menu, so it will be available to AT only when toggled
+    if (isMobile && isClient) {
+      // eslint-disable-next-line no-undef
+      const menuElement = document.querySelector('.menu');
+      menuElement.setAttribute('aria-hidden', 'true');
+      menuElement.setAttribute('tabindex', '-1');
+      menuElement.setAttribute('aria-labelledby', 'menu__toggle');
+    }
+  }, []);
 
   return (
     <header
       id="header"
-      className={`header ${true ? 'header--home' : ''} ${showMobileMenu ? 'header--menu-open' : ''}`}
+      className={`header ${isHome ? 'header--home' : ''} ${showMobileMenu ? 'header--menu-open' : ''}`}
     >
       <button
         id="menu__toggle"

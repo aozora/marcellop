@@ -9,10 +9,9 @@ import PropTypes from 'prop-types';
 import { useStaticQuery, graphql } from 'gatsby';
 import { HelmetDatoCms } from 'gatsby-source-datocms';
 import Header from './Header';
-
-// import Header from "./header";
-import '../styles/app.scss';
 import Footer from './Footer';
+
+import '../styles/app.scss';
 
 const TemplateWrapper = ({ children }) => {
   const data = useStaticQuery(graphql`
