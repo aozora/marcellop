@@ -2,16 +2,11 @@
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import Observer from '@researchgate/react-intersection-observer';
-import { TweenLite, CSSPlugin, Circ } from 'gsap';
+// import { TweenLite, CSSPlugin, Circ } from 'gsap';
+import gsap from 'gsap';
 import Img from 'gatsby-image';
 
 const About = ({ about }) => {
-
-  const gsap = {
-    TweenLite,
-    CSSPlugin,
-    Circ
-  };
 
   const isClient = typeof window !== 'undefined';
   // eslint-disable-next-line no-undef
@@ -25,10 +20,11 @@ const About = ({ about }) => {
       // elements to animate
       const paragraph = event.target.querySelector('p');
       if (paragraph) {
-        gsap.TweenLite.to(paragraph, 1, {
+        gsap.to(paragraph, {
+          duration: 1,
           autoAlpha: 1,
           y: 0,
-          ease: Circ.easeOut
+          ease: 'circ.out'
         }, 1);
       }
     }

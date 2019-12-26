@@ -41,12 +41,6 @@
   padding: 0;
 }
 
-//.homeHeadingScrollSentinel {
-//  height: 1px;
-//  visibility: hidden;
-//}
-
-
 /**
   Mobile Navigation
  */
@@ -346,7 +340,7 @@
 
       &:focus,
       &:hover {
-        color: var(--color-pantone);
+        color: var(--color-white);
         border: 0;
       }
 

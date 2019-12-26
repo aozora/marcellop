@@ -19,6 +19,14 @@
   border: var(--focus-border-size) var(--focus-border-style) var(--focus-border-color);
 }
 
+// overrides for gatsby
+.gatsby-focus-wrapper {
+  border: 0;
+  box-shadow: none;
+  outline: none;
+}
+
+
 // Gets rid of the annoying outline for mouse users but preserves it for keyboard users,
 // and is ignored by browsers that don’t support :focus-visible
 :focus:not(:focus-visible) {

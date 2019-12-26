@@ -89,7 +89,7 @@ const Header = () => {
   return (
     <header
       id="header"
-      className={`header ${isHome ? 'header--home' : ''} ${showMobileMenu ? 'header--menu-open' : ''}`}
+      className={`header ${isHome() ? 'header--home' : ''} ${showMobileMenu ? 'header--menu-open' : ''}`}
     >
       <button
         id="menu__toggle"
@@ -109,10 +109,12 @@ const Header = () => {
         </svg>
       </button>
 
-      {/* <p v-if="!isHome" aria-hidden="true" className="menu__title"> */}
-      {/*  <span aria-hidden="true">MP</span> */}
-      {/*  <span>Marcello Palmitessa</span> */}
-      {/* </p> */}
+      {!isHome() && (
+      <p aria-hidden="true" className="menu__title">
+        <span aria-hidden="true">MP</span>
+        <span>Marcello Palmitessa</span>
+      </p>
+      )}
 
       <nav className="menu">
         <ul className="menu__items">
@@ -124,7 +126,6 @@ const Header = () => {
                 </Link>
               </li>
             ))
-            //     :to="getMenuUrl(item.url)" active-class="active" exact @click.native="toggleMobileMenu">
           ))}
         </ul>
 
