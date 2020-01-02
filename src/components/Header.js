@@ -1,6 +1,6 @@
 import { graphql, Link, useStaticQuery } from 'gatsby';
 import React, { useState, useEffect } from 'react';
-
+// import GsapLink from './transitions/GsapLink';
 
 const Header = () => {
   // eslint-disable-next-line no-unused-vars
@@ -110,10 +110,10 @@ const Header = () => {
       </button>
 
       {!isHome() && (
-      <p aria-hidden="true" className="menu__title">
-        <span aria-hidden="true">MP</span>
-        <span>Marcello Palmitessa</span>
-      </p>
+        <p aria-hidden="true" className="menu__title">
+          <span aria-hidden="true">MP</span>
+          <span>Marcello Palmitessa</span>
+        </p>
       )}
 
       <nav className="menu">
@@ -121,7 +121,7 @@ const Header = () => {
           {menu.allDatoCmsMenu.edges.map((edge) => (
             edge.node.menuItems.map((item) => (
               <li key={item.url}>
-                <Link to={item.url} activeClassName="active">
+                <Link cover to={item.url} activeClassName="active">
                   <span>{item.title}</span>
                 </Link>
               </li>

@@ -1,6 +1,5 @@
 import React from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
-import { Helmet } from 'react-helmet/es/Helmet';
 import Layout from '../components/layout';
 // import SEO from '../components/seo';
 import Hero from '../components/Hero';
@@ -37,8 +36,10 @@ const indexQuery = graphql`
 `;
 
 
-const IndexPage = () => {
+// eslint-disable-next-line react/prop-types
+const IndexPage = ({ path }) => {
   const data = useStaticQuery(indexQuery);
+  // const [isHome, setIsHome] = useState(false);
 
   const heroData = {
     hi: data.datoCmsHome.hi,
@@ -63,10 +64,7 @@ const IndexPage = () => {
   };
 
   return (
-    <Layout>
-      <Helmet>
-        <body className="home"/>
-      </Helmet>
+    <Layout path={path}>
       <Hero hero={heroData}/>
       <About about={aboutData}/>
       <What whatido={whatido}/>

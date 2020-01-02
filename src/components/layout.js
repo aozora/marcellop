@@ -13,7 +13,7 @@ import Footer from './Footer';
 
 import '../styles/app.scss';
 
-const TemplateWrapper = ({ children }) => {
+const TemplateWrapper = ({ children, path }) => {
   const data = useStaticQuery(graphql`
     {
       datoCmsSite {
@@ -48,7 +48,9 @@ const TemplateWrapper = ({ children }) => {
       <HelmetDatoCms
         favicon={data.datoCmsSite.faviconMetaTags}
         seo={data.datoCmsHome.seoMetaTags}
-      />
+      >
+        <body className={path === '/' ? 'home' : ''}/>
+      </HelmetDatoCms>
       <a href="#main" tabIndex="0">Skip to main content</a>
       <Header/>
       <main id="main" role="main">
@@ -60,9 +62,9 @@ const TemplateWrapper = ({ children }) => {
 };
 
 TemplateWrapper.propTypes = {
-  children: PropTypes.node.isRequired
+  children: PropTypes.node.isRequired,
   // eslint-disable-next-line react/require-default-props
-  // path: PropTypes.string
+  path: PropTypes.string
 };
 
 export default TemplateWrapper;

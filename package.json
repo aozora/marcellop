@@ -13,6 +13,7 @@
     "gatsby-plugin-react-helmet": "^3.1.18",
     "gatsby-plugin-sass": "^2.1.26",
     "gatsby-plugin-sharp": "^2.3.10",
+    "gatsby-plugin-transition-link": "^1.17.7",
     "gatsby-source-datocms": "^2.1.22",
     "gatsby-source-filesystem": "^2.1.43",
     "gatsby-transformer-remark": "^2.6.45",
