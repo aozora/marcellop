@@ -1,7 +1,7 @@
 import React from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
 import Layout from '../components/layout';
-// import SEO from '../components/seo';
+import Seo from '../components/Seo';
 import Hero from '../components/Hero';
 import About from '../components/About';
 import What from '../components/What';
@@ -31,6 +31,9 @@ const indexQuery = graphql`
         title
         description
       }
+      seoMetaTags {
+        ...GatsbyDatoCmsSeoMetaTags
+      }
     }
   }
 `;
@@ -39,7 +42,7 @@ const indexQuery = graphql`
 // eslint-disable-next-line react/prop-types
 const IndexPage = ({ path }) => {
   const data = useStaticQuery(indexQuery);
-  // const [isHome, setIsHome] = useState(false);
+  // const { seoMetaTags } = data.datoCmsHomePage;
 
   const heroData = {
     hi: data.datoCmsHome.hi,
@@ -65,6 +68,7 @@ const IndexPage = ({ path }) => {
 
   return (
     <Layout path={path}>
+      <Seo meta={data.datoCmsHome.seoMetaTags}/>
       <Hero hero={heroData}/>
       <About about={aboutData}/>
       <What whatido={whatido}/>
