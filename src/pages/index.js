@@ -1,5 +1,6 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
+import { HelmetDatoCms } from 'gatsby-source-datocms';
 import Layout from '../components/layout';
 import Seo from '../components/Seo';
 import Hero from '../components/Hero';
@@ -41,13 +42,13 @@ const indexQuery = graphql`
 
 // eslint-disable-next-line react/prop-types
 const IndexPage = ({ path }) => {
+  const [loaded, setLoaded] = useState(false);
   const data = useStaticQuery(indexQuery);
   const isClient = typeof window !== 'undefined';
 
   useEffect(() => {
     if (isClient) {
-      // eslint-disable-next-line no-undef
-      document.querySelector('body').classList.add('loaded');
+      setLoaded(true);
     }
   });
 
@@ -75,6 +76,9 @@ const IndexPage = ({ path }) => {
 
   return (
     <Layout path={path}>
+      <HelmetDatoCms>
+        <body className={loaded ? 'loaded' : ''}/>
+      </HelmetDatoCms>
       <Seo meta={data.datoCmsHome.seoMetaTags}/>
       <Hero hero={heroData}/>
       <About about={aboutData}/>

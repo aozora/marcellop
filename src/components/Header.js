@@ -121,7 +121,7 @@ const Header = () => {
           {menu.allDatoCmsMenu.edges.map((edge) => (
             edge.node.menuItems.map((item) => (
               <li key={item.url}>
-                <Link cover to={item.url} activeClassName="active">
+                <Link to={item.url} activeClassName="active">
                   <span>{item.title}</span>
                 </Link>
               </li>
