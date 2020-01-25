@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
 import Layout from '../components/layout';
 import Seo from '../components/Seo';
@@ -42,7 +42,14 @@ const indexQuery = graphql`
 // eslint-disable-next-line react/prop-types
 const IndexPage = ({ path }) => {
   const data = useStaticQuery(indexQuery);
-  // const { seoMetaTags } = data.datoCmsHomePage;
+  const isClient = typeof window !== 'undefined';
+
+  useEffect(() => {
+    if (isClient) {
+      // eslint-disable-next-line no-undef
+      document.querySelector('body').classList.add('loaded');
+    }
+  });
 
   const heroData = {
     hi: data.datoCmsHome.hi,
