@@ -1,0 +1,7 @@
+.error-page{
+  @include container;
+
+  .hero {
+    margin-bottom: 10rem;
+  }
+}
