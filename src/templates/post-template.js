@@ -23,7 +23,12 @@ export const query = graphql`
       id
       title
       slug
-      body
+      bodyNode {
+        childMarkdownRemark {
+          html
+          excerpt
+        }
+      }
       cover {
         alt
         url

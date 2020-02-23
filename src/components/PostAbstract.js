@@ -3,9 +3,11 @@ import PropTypes from 'prop-types';
 import { format } from 'date-fns';
 // import Seo from './Seo';
 import { Link } from 'gatsby';
-import stripHtml from 'string-strip-html';
+// import stripHtml from 'string-strip-html';
 
 const PostAbstract = ({ post }) => {
+  // eslint-disable-next-line no-console
+  console.log({ post });
 
   const getPublishedDateFormatted = () => format(
     new Date(post.meta.publishedAt),
@@ -17,13 +19,13 @@ const PostAbstract = ({ post }) => {
     'yyyy-MM-dd'
   );
 
-  const getAbstract = () => {
-    const text = stripHtml(post.body);
-    if (text.length >= 200) {
-      return `${text.substr(0, 200)}...`;
-    }
-    return text;
-  };
+  // const getAbstract = () => {
+  //   const text = stripHtml(post.body);
+  //   if (text.length >= 200) {
+  //     return `${text.substr(0, 200)}...`;
+  //   }
+  //   return text;
+  // };
 
   return (
     <article
@@ -59,7 +61,7 @@ const PostAbstract = ({ post }) => {
       </header>
 
       {/* eslint-disable-next-line react/no-danger */}
-      <div className="post__body" dangerouslySetInnerHTML={{ __html: getAbstract() }}/>
+      <div className="post__body" dangerouslySetInnerHTML={{ __html: post.bodyNode.childMarkdownRemark.excerpt }}/>
     </article>
   );
 };

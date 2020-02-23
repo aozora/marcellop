@@ -58,7 +58,7 @@ const Post = ({ post }) => {
       )}
 
       {/* eslint-disable-next-line react/no-danger */}
-      <div className="post__body" dangerouslySetInnerHTML={{ __html: post.body }}/>
+      <div className="post__body" dangerouslySetInnerHTML={{ __html: post.bodyNode.childMarkdownRemark.html }}/>
 
       <footer>
         <br/>
