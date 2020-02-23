@@ -77,7 +77,7 @@ const IndexPage = ({ path }) => {
   return (
     <Layout path={path}>
       <HelmetDatoCms>
-        <body className={loaded ? 'loaded' : ''}/>
+        <body className={loaded ? 'home loaded' : 'home'}/>
       </HelmetDatoCms>
       <Seo meta={data.datoCmsHome.seoMetaTags}/>
       <Hero hero={heroData}/>

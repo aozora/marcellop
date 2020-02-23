@@ -13,6 +13,7 @@ import Footer from './Footer';
 
 import '../styles/app.scss';
 
+// eslint-disable-next-line no-unused-vars
 const TemplateWrapper = ({ children, path }) => {
   const data = useStaticQuery(graphql`
     {
@@ -49,7 +50,8 @@ const TemplateWrapper = ({ children, path }) => {
         favicon={data.datoCmsSite.faviconMetaTags}
         seo={data.datoCmsHome.seoMetaTags}
       >
-        <body className={path === '/' ? 'home' : ''}/>
+        {/* <body className={path === '/' ? 'home' : ''}/> */}
+        <html lang="en"/>
       </HelmetDatoCms>
       <a href="#main" tabIndex="0">Skip to main content</a>
       <Header/>
