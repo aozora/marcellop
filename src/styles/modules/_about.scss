@@ -126,7 +126,9 @@
     color: var(--color-white);
     letter-spacing: var(--text-on-dark-letter-spacing);
 
-    @include dropcap;
+    &.dropcap {
+      @include dropcap;
+    }
 
     &:first-line {
       //--text-weight: 700;

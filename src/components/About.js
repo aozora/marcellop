@@ -49,7 +49,7 @@ const About = ({ about }) => {
 
         <Observer onChange={animateParagraph}>
           <div className="about__container__textblock-wrapper">
-            <p dangerouslySetInnerHTML={{ __html: about.aboutDescription1 }}/>
+            <p className="dropcap" dangerouslySetInnerHTML={{ __html: about.aboutDescription1 }}/>
           </div>
         </Observer>
         <Observer onChange={animateParagraph}>
