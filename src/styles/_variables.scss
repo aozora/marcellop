@@ -12,11 +12,13 @@
 @import './settings';
 
 :root {
-  /* Color variables */
+  /**
+   * @tokens Colors
+   * @presenter Color
+   */
   --color-primary: #000;
   --color-black: #000;
   --color-white: #fff;
-
   // PANTONE Color of the Year 2017
   // https://www.pantone.com/color-intelligence/color-of-the-year/color-of-the-year-2018-tools-for-designers
   --color-pantone: #5F4B8B;
