@@ -1,5 +1,4 @@
 .post {
-  max-width: var(--text-max-width);
 
   h1 {
     line-height: 1.2;
@@ -13,6 +12,11 @@
   .post__body,
   footer {
     @include container;
+  }
+
+  .post__body,
+  footer {
+    max-width: var(--text-max-width);
   }
 
   .post__metadata {
