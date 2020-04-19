@@ -65,6 +65,8 @@ module.exports = {
         icon: 'src/images/gatsby-icon.png' // This path is relative to the root of the site.
       }
     },
+
+
     {
       resolve: 'gatsby-plugin-feed',
       options: {
@@ -82,6 +84,7 @@ module.exports = {
         feeds: [
           {
             serialize: ({ query: { site, allMarkdownRemark } }) => allMarkdownRemark.edges.map((edge) => {
+              // eslint-disable-next-line prefer-object-spread
               return Object.assign({}, {
                 description: edge.node.bodyNode.childMarkdownRemark.excerpt,
                 date: edge.node.meta.publishedAt,
