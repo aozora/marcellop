@@ -67,66 +67,67 @@ module.exports = {
     },
 
 
-    {
-      resolve: 'gatsby-plugin-feed',
-      options: {
-        query: `
-          {
-            site {
-              siteMetadata {
-                author
-                description
-                title
-              }
-            }
-          }
-        `,
-        feeds: [
-          {
-            serialize: ({ query: { site, allMarkdownRemark } }) => allMarkdownRemark.edges.map((edge) => {
-              // eslint-disable-next-line prefer-object-spread
-              return Object.assign({}, {
-                description: edge.node.bodyNode.childMarkdownRemark.excerpt,
-                date: edge.node.meta.publishedAt,
-                url: site.siteMetadata.siteUrl + edge.node.slug,
-                guid: site.siteMetadata.siteUrl + edge.node.slug,
-                custom_elements: [{ 'content:encoded': edge.node.bodyNode.childMarkdownRemark.html }]
-              });
-            }),
-            query: `
-              {
-                allDatoCmsPost(sort: {order: DESC, fields: meta___publishedAt}) {
-                  edges {
-                    node {
-                      title
-                      slug
-                      bodyNode {
-                        childMarkdownRemark {
-                          excerpt
-                          html
-                        }
-                      }
-                      meta {
-                        publishedAt
-                      }
-                    }
-                  }
-                }
-              }
-            `,
-            output: '/rss.xml',
-            title: 'Marcello Palmitessa\'s RSS Feed',
-            // optional configuration to insert feed reference in pages:
-            // if `string` is used, it will be used to create RegExp and then test if pathname of
-            // current page satisfied this regular expression;
-            // if not provided or `undefined`, all pages will have feed reference inserted
-            match: '^/writings/',
-            // optional configuration to specify external rss feed, such as feedburner
-            // link: "https://feeds.feedburner.com/gatsby/blog",
-          },
-        ]
-      }
-    }
+    // {
+    //   resolve: 'gatsby-plugin-feed',
+    //   options: {
+    //     query: `
+    //       {
+    //         site {
+    //           siteMetadata {
+    //             author
+    //             description
+    //             title
+    //           }
+    //         }
+    //       }
+    //     `,
+    //     feeds: [
+    //       {
+    //         serialize: ({ query: { site, allMarkdownRemark } }) => allMarkdownRemark.edges.map((edge) => {
+    //           // eslint-disable-next-line prefer-object-spread
+    //           return Object.assign({}, {
+    //             description: edge.node.bodyNode.childMarkdownRemark.excerpt,
+    //             date: edge.node.meta.publishedAt,
+    //             url: site.siteMetadata.siteUrl + edge.node.slug,
+    //             guid: site.siteMetadata.siteUrl + edge.node.slug,
+    //             custom_elements: [{ 'content:encoded': edge.node.bodyNode.childMarkdownRemark.html }]
+    //           });
+    //         }),
+    //         query: `
+    //           {
+    //             allDatoCmsPost(sort: {order: DESC, fields: meta___publishedAt}) {
+    //               edges {
+    //                 node {
+    //                   title
+    //                   slug
+    //                   bodyNode {
+    //                     childMarkdownRemark {
+    //                       excerpt
+    //                       html
+    //                     }
+    //                   }
+    //                   meta {
+    //                     publishedAt
+    //                   }
+    //                 }
+    //               }
+    //             }
+    //           }
+    //         `,
+    //         output: '/rss.xml',
+    //         title: 'Marcello Palmitessa\'s RSS Feed',
+    //         // optional configuration to insert feed reference in pages:
+    //         // if `string` is used, it will be used to create RegExp and then test if pathname of
+    //         // current page satisfied this regular expression;
+    //         // if not provided or `undefined`, all pages will have feed reference inserted
+    //         match: '^/writings/',
+    //         // optional configuration to specify external rss feed, such as feedburner
+    //         // link: "https://feeds.feedburner.com/gatsby/blog",
+    //       },
+    //     ]
+    //   }
+    // }
+
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // 'gatsby-plugin-offline',
