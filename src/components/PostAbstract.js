@@ -6,9 +6,6 @@ import { Link } from 'gatsby';
 // import stripHtml from 'string-strip-html';
 
 const PostAbstract = ({ post }) => {
-  // eslint-disable-next-line no-console
-  console.log({ post });
-
   const getPublishedDateFormatted = () => format(
     new Date(post.meta.publishedAt),
     'MMMM do yyyy'
@@ -66,11 +63,9 @@ const PostAbstract = ({ post }) => {
   );
 };
 
-
 PostAbstract.propTypes = {
   // eslint-disable-next-line react/forbid-prop-types
   post: PropTypes.object.isRequired
 };
-
 
 export default PostAbstract;

@@ -29,7 +29,6 @@ const indexQuery = graphql`
   }
 `;
 
-
 const Writings = () => {
   const { allDatoCmsPost } = useStaticQuery(indexQuery);
 

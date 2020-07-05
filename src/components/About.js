@@ -12,7 +12,6 @@ const About = ({ about }) => {
   // eslint-disable-next-line no-undef
   const hasOSReducedMotion = isClient ? window.matchMedia('(prefers-reduced-motion: reduce)').matches : false;
 
-
   const animateParagraph = (event, unobserve) => {
     if (event.isIntersecting && !hasOSReducedMotion) {
       unobserve(); // observe only once

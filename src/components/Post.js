@@ -3,7 +3,6 @@ import { format } from 'date-fns';
 import PropTypes from 'prop-types';
 import Img from 'gatsby-image';
 
-
 const Post = ({ post }) => {
 
   const getPublishedDateFormatted = () => format(
@@ -68,7 +67,6 @@ const Post = ({ post }) => {
     </article>
   );
 };
-
 
 Post.propTypes = {
   // eslint-disable-next-line react/forbid-prop-types

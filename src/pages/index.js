@@ -39,7 +39,6 @@ const indexQuery = graphql`
   }
 `;
 
-
 // eslint-disable-next-line react/prop-types
 const IndexPage = ({ path }) => {
   const [loaded, setLoaded] = useState(false);

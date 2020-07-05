@@ -74,7 +74,6 @@ const Header = () => {
     }
   };
 
-
   useEffect(() => {
     // if mobile, then add ARIA attrs to the mobile menu, so it will be available to AT only when toggled
     if (isMobile && isClient) {
@@ -161,6 +160,5 @@ const Header = () => {
     </header>
   );
 };
-
 
 export default Header;
