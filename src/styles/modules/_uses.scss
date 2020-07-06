@@ -1,4 +1,21 @@
-.uses{
+.uses {
   @include container;
+}
 
+.uses__use {
+  margin-bottom: calc(2 * var(--text-base-size));
+
+  h2 {
+    margin: calc(1 * var(--text-base-size)) 0 calc(1 * var(--text-base-size)) 0;
+  }
+
+  ul {
+    list-style-type: square;
+  }
+
+  li {
+    p {
+      margin-bottom: 0;
+    }
+  }
 }
