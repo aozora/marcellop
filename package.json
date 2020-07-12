@@ -1,0 +1,35 @@
+{
+  "name": "cms-datocms",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start",
+    "debug": "NODE_OPTIONS='--inspect' next dev"
+  },
+  "dependencies": {
+    "@researchgate/react-intersection-observer": "^1.2.0",
+    "classnames": "2.2.6",
+    "date-fns": "^2.14.0",
+    "gsap": "^3.4.0",
+    "include-media": "^1.4.9",
+    "next": "latest",
+    "prop-types": "^15.7.2",
+    "react": "^16.13.1",
+    "react-datocms": "1.2.4",
+    "react-dom": "^16.13.1",
+    "remark": "12.0.0",
+    "remark-html": "11.0.2",
+    "sass": "^1.26.10"
+  },
+  "devDependencies": {
+    "postcss-flexbugs-fixes": "4.2.1",
+    "postcss-preset-env": "^6.7.0"
+  },
+  "browserslist": [
+    ">0.3%",
+    "not ie 11",
+    "not dead",
+    "not op_mini all"
+  ]
+}
