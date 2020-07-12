@@ -23,8 +23,20 @@
     "sass": "^1.26.10"
   },
   "devDependencies": {
+    "@testing-library/jest-dom": "^5.11.0",
+    "@testing-library/react": "^10.4.5",
+    "babel-eslint": "^10.1.0",
+    "babel-jest": "^26.1.0",
+    "eslint": "^7.4.0",
+    "eslint-config-airbnb": "^18.2.0",
+    "eslint-plugin-import": "^2.22.0",
+    "eslint-plugin-jsx-a11y": "^6.3.1",
+    "eslint-plugin-react": "^7.20.3",
+    "eslint-plugin-react-hooks": "^4.0.7",
+    "jest": "^26.1.0",
     "postcss-flexbugs-fixes": "4.2.1",
-    "postcss-preset-env": "^6.7.0"
+    "postcss-preset-env": "^6.7.0",
+    "react-test-renderer": "^16.13.1"
   },
   "browserslist": [
     ">0.3%",

@@ -3,11 +3,11 @@ import Hero from '@/components/Hero'
 import About from '@/components/About'
 import What from '@/components/What'
 import Layout from '@/components/layout'
-import { getHomeData } from '@/lib/api'
+import { getHomeData, getAllMenu } from '@/lib/api'
 import Head from 'next/head'
 import { CMS_NAME } from '@/lib/constants'
 
-export default function Index({ homeData }) {
+export default function Index({ homeData, menu }) {
   const [heroData, setHeroData] = useState(undefined);
   const [aboutData, setAboutData] = useState(undefined);
   const [whatido, setWhatido] = useState(undefined);
@@ -40,7 +40,7 @@ export default function Index({ homeData }) {
 
   return (
     <>
-      <Layout>
+      <Layout menu={menu}>
         <Head>
           <title>Next.js Blog Example with {CMS_NAME}</title>
         </Head>
@@ -48,21 +48,6 @@ export default function Index({ homeData }) {
         {heroData && <Hero hero={heroData}/>}
         {aboutData && <About about={aboutData}/>}
         {whatido && <What whatido={whatido}/>}
-
-        {/*<Container>*/}
-        {/*  <Intro />*/}
-        {/*  {heroPost && (*/}
-        {/*    <HeroPost*/}
-        {/*      title={heroPost.title}*/}
-        {/*      coverImage={heroPost.coverImage}*/}
-        {/*      date={heroPost.date}*/}
-        {/*      author={heroPost.author}*/}
-        {/*      slug={heroPost.slug}*/}
-        {/*      excerpt={heroPost.excerpt}*/}
-        {/*    />*/}
-        {/*  )}*/}
-        {/*  {morePosts.length > 0 && <MoreStories posts={morePosts} />}*/}
-        {/*</Container>*/}
       </Layout>
     </>
   )
@@ -70,9 +55,9 @@ export default function Index({ homeData }) {
 
 export async function getStaticProps({ preview = false }) {
   const homeData = (await getHomeData(preview)) || null;
-  console.log(homeData);
+  const menu = (await getAllMenu(preview) || null);
 
   return {
-    props: { homeData },
+    props: { homeData, menu },
   }
 }
