@@ -32,7 +32,7 @@ module.exports = {
         // You can find your read-only API token under the Settings > API tokens
         // section of your administrative area:
         // eslint-disable-next-line global-require
-        apiToken: process.env.NUXT_ENV_DATO_CMS_TOKEN || require('./.datocms.js').NUXT_ENV_DATO_CMS_TOKEN,
+        apiToken: process.env.NUXT_ENV_DATO_CMS_TOKEN || require('.datocms.js').NUXT_ENV_DATO_CMS_TOKEN,
 
         // If you are working on development/staging environment, you might want to
         // preview the latest version of records instead of the published one:

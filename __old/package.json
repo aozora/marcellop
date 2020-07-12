@@ -63,11 +63,11 @@
   ],
   "license": "MIT",
   "scripts": {
-    "build": "gatsby build",
-    "develop": "gatsby develop",
-    "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
+    "build": "../node_modules/.bin/gatsby build",
+    "develop": "../node_modules/.bin/gatsby develop",
+    "format": "../node_modules/.bin/prettier --write \\\"**/*.{js,jsx,json,md}\\\"",
     "start": "npm run develop",
-    "serve": "gatsby serve",
+    "serve": "../node_modules/.bin/gatsby serve",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing \"",
     "storybook": "NODE_ENV=production start-storybook -p 6006 -s public",
     "build-storybook": "NODE_ENV=production build-storybook -s public"
