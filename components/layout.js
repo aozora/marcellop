@@ -13,7 +13,7 @@ export default function Layout({
 }) {
   return (
     <>
-      <Meta meta={page.seo.concat(site.favicon)} />
+      <Meta meta={page.seo ? page.seo.concat(site.favicon) : site.favicon} />
       <a href="#main" tabIndex="0">Skip to main content</a>
       <Alert preview={preview} />
       <Header menu={menu} />
