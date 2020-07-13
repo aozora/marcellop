@@ -6,7 +6,6 @@ import gsap from 'gsap';
 import { Image } from 'react-datocms';
 
 const About = ({ about }) => {
-
   const isClient = typeof window !== 'undefined';
   // eslint-disable-next-line no-undef
   const hasOSReducedMotion = isClient ? window.matchMedia('(prefers-reduced-motion: reduce)').matches : false;
@@ -47,33 +46,29 @@ const About = ({ about }) => {
 
         <Observer onChange={animateParagraph}>
           <div className="about__container__textblock-wrapper">
-            <p className="dropcap" dangerouslySetInnerHTML={{ __html: about.aboutDescription1 }}/>
+            <p className="dropcap" dangerouslySetInnerHTML={{ __html: about.aboutDescription1 }} />
           </div>
         </Observer>
         <Observer onChange={animateParagraph}>
           <div className="about__container__textblock-wrapper">
-            <p dangerouslySetInnerHTML={{ __html: about.aboutDescription2 }}/>
+            <p dangerouslySetInnerHTML={{ __html: about.aboutDescription2 }} />
           </div>
         </Observer>
 
-        {/*<Img*/}
-        {/*  fluid={about.aboutPicture.fluid}*/}
-        {/*  alt={about.aboutPicture.alt}*/}
-        {/*/>*/}
-        {/*<Image*/}
-        {/*  data={{*/}
-        {/*    ...about.aboutPicture.responsiveImage*/}
-        {/*  }}*/}
-        {/*/>*/}
+        <Image
+          data={{
+            ...about.aboutPicture.responsiveImage
+          }}
+        />
 
         <Observer onChange={animateParagraph}>
           <div className="about__container__textblock-wrapper">
-            <p dangerouslySetInnerHTML={{ __html: about.aboutDescription3 }}/>
+            <p dangerouslySetInnerHTML={{ __html: about.aboutDescription3 }} />
           </div>
         </Observer>
         <Observer onChange={animateParagraph}>
           <div className="about__container__textblock-wrapper">
-            <p dangerouslySetInnerHTML={{ __html: about.aboutDescription4 }}/>
+            <p dangerouslySetInnerHTML={{ __html: about.aboutDescription4 }} />
           </div>
         </Observer>
       </div>

@@ -1,63 +1,67 @@
 import React, { useEffect, useState } from 'react';
-import Hero from '@/components/Hero'
-import About from '@/components/About'
-import What from '@/components/What'
-import Layout from '@/components/layout'
-import { getHomeData, getAllMenu } from '@/lib/api'
-import Head from 'next/head'
-import { CMS_NAME } from '@/lib/constants'
+import Hero from '@/components/Hero';
+import About from '@/components/About';
+import What from '@/components/What';
+import Layout from '@/components/layout';
+import { getSiteData, getHomeData, getAllMenu } from '@/lib/api';
+import Head from 'next/head';
+import { CMS_NAME } from '@/lib/constants';
 
-export default function Index({ homeData, menu }) {
+export default function Index({ site, page, menu }) {
   const [heroData, setHeroData] = useState(undefined);
   const [aboutData, setAboutData] = useState(undefined);
   const [whatido, setWhatido] = useState(undefined);
 
   useEffect(() => {
-    if (homeData) {
+    if (page) {
       setHeroData({
-        hi: homeData.hi,
-        heading1: homeData.heading1,
-        heading2A: homeData.heading2A,
-        heading2B: homeData.heading2B,
-        heading2C: homeData.heading2C
+        hi: page.hi,
+        heading1: page.heading1,
+        heading2A: page.heading2A,
+        heading2B: page.heading2B,
+        heading2C: page.heading2C
       });
 
       setAboutData({
-        aboutHeading: homeData.aboutHeading,
-        aboutDescription1: homeData.aboutDescription1,
-        aboutDescription2: homeData.aboutDescription2,
-        aboutDescription3: homeData.aboutDescription3,
-        aboutDescription4: homeData.aboutDescription4,
-        aboutPicture: homeData.aboutPicture
+        aboutHeading: page.aboutHeading,
+        aboutDescription1: page.aboutDescription1,
+        aboutDescription2: page.aboutDescription2,
+        aboutDescription3: page.aboutDescription3,
+        aboutDescription4: page.aboutDescription4,
+        aboutPicture: page.aboutPicture
       });
 
       setWhatido({
-        heading: homeData.whatidoHeading,
-        items: homeData.whatido
+        heading: page.whatidoHeading,
+        items: page.whatido
       });
     }
-  }, [homeData]);
+  }, [page]);
 
   return (
     <>
-      <Layout menu={menu}>
+      <Layout site={site} page={page} menu={menu}>
         <Head>
-          <title>Next.js Blog Example with {CMS_NAME}</title>
+          <title>
+            Next.js Blog Example with
+            {CMS_NAME}
+          </title>
         </Head>
 
-        {heroData && <Hero hero={heroData}/>}
-        {aboutData && <About about={aboutData}/>}
-        {whatido && <What whatido={whatido}/>}
+        {heroData && <Hero hero={heroData} />}
+        {aboutData && <About about={aboutData} />}
+        {whatido && <What whatido={whatido} />}
       </Layout>
     </>
-  )
+  );
 }
 
 export async function getStaticProps({ preview = false }) {
-  const homeData = (await getHomeData(preview)) || null;
+  const page = (await getHomeData(preview)) || null;
   const menu = (await getAllMenu(preview) || null);
+  const site = (await getSiteData(preview) || null);
 
   return {
-    props: { homeData, menu },
-  }
+    props: { site, page, menu }
+  };
 }

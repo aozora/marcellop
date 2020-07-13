@@ -101,13 +101,14 @@ const Header = (menu) => {
 
       <nav className="menu">
         <ul className="menu__items">
-          {menu && menu.menuItems && menu.menuItems.map((item) => (
-            <li key={item.url}>
-              <Link to={item.url} activeClassName="active">
-                <span>{item.title}</span>
-              </Link>
-            </li>
-          ))}
+          {JSON.stringify(menu)}
+          {/* {menu && menu.map((item) => ( */}
+          {/*  <li key={item.url}> */}
+          {/*    <Link href={item.url} activeClassName="active"> */}
+          {/*      <span>{item.title}</span> */}
+          {/*    </Link> */}
+          {/*  </li> */}
+          {/* ))} */}
         </ul>
 
         <ul className="menu__social">
