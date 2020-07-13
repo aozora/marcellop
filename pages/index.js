@@ -43,7 +43,6 @@ export default function Index({ site, page, menu }) {
       <Layout site={site} page={page} menu={menu}>
         <Head>
           <title>
-            Next.js Blog Example with
             {CMS_NAME}
           </title>
         </Head>

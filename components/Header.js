@@ -1,7 +1,9 @@
 import Link from 'next/link';
 import React, { useState, useEffect } from 'react';
+import { useRouter } from 'next/router';
 
 const Header = (menu) => {
+  const router = useRouter();
   // eslint-disable-next-line no-unused-vars
   const [showMobileMenu, setShowMobileMenu] = useState(false);
   const isClient = typeof window !== 'undefined';
@@ -48,11 +50,13 @@ const Header = (menu) => {
 
       // on open, set focus on the first <a>
       if (showMobileMenu) {
-        menuElement.querySelector('a').focus();
+        menuElement.querySelector('a')
+          .focus();
       } else {
         // on close, set focus to the triggering button
         // eslint-disable-next-line no-undef
-        document.querySelector('.menu__toggle').focus();
+        document.querySelector('.menu__toggle')
+          .focus();
       }
     }
   };
@@ -101,14 +105,15 @@ const Header = (menu) => {
 
       <nav className="menu">
         <ul className="menu__items">
-          {JSON.stringify(menu)}
-          {/* {menu && menu.map((item) => ( */}
-          {/*  <li key={item.url}> */}
-          {/*    <Link href={item.url} activeClassName="active"> */}
-          {/*      <span>{item.title}</span> */}
-          {/*    </Link> */}
-          {/*  </li> */}
-          {/* ))} */}
+          {menu && menu.menu.menuItems.map((item) => (
+            <li key={item.url}>
+              <Link href={item.url}>
+                <a className={router.pathname === item.url ? 'active' : ''}>
+                  <span>{item.title}</span>
+                </a>
+              </Link>
+            </li>
+          ))}
         </ul>
 
         <ul className="menu__social">
