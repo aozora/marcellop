@@ -5,12 +5,22 @@ import What from '@/components/What';
 import Layout from '@/components/layout';
 import { getSiteData, getHomeData, getAllMenu } from '@/lib/api';
 import Head from 'next/head';
+import Helmet from 'react-helmet';
 import { CMS_NAME } from '@/lib/constants';
 
 export default function Index({ site, page, menu }) {
   const [heroData, setHeroData] = useState(undefined);
   const [aboutData, setAboutData] = useState(undefined);
   const [whatido, setWhatido] = useState(undefined);
+  // const router = useRouter();
+  const [loaded, setLoaded] = useState(false);
+  const isClient = typeof window !== 'undefined';
+
+  useEffect(() => {
+    if (isClient) {
+      setLoaded(true);
+    }
+  });
 
   useEffect(() => {
     if (page) {
@@ -40,6 +50,9 @@ export default function Index({ site, page, menu }) {
 
   return (
     <>
+      <Helmet>
+        <body className={loaded ? 'home loaded' : 'home'} />
+      </Helmet>
       <Layout site={site} page={page} menu={menu}>
         <Head>
           <title>

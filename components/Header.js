@@ -108,7 +108,11 @@ const Header = (menu) => {
           {menu && menu.menu && menu.menu.menuItems.map((item) => (
             <li key={item.url}>
               <Link href={item.url}>
-                <a className={router.pathname === item.url ? 'active' : ''}>
+                {/* eslint-disable-next-line jsx-a11y/anchor-is-valid,jsx-a11y/click-events-have-key-events */}
+                <a
+                  className={router.pathname === item.url ? 'active' : ''}
+                  onClick={toggleMobileMenu}
+                >
                   <span>{item.title}</span>
                 </a>
               </Link>
