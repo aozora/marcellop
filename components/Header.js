@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { useRouter } from 'next/router';
 
 const Header = (menu) => {
@@ -17,16 +17,16 @@ const Header = (menu) => {
     return false;
   };
 
-  const isHome = () => {
-    // eslint-disable-next-line no-undef
-    const location = isClient ? window.location : undefined;
-    return location && location.pathname === '/';
-  };
+  const isHome = () => router.pathname === '/'
+  // // eslint-disable-next-line no-undef
+  // const location = isClient ? window.location : undefined;
+  // return location && location.pathname === '/';
+  ;
 
   /**
    * Toggle the mobile menu
    */
-  const toggleMobileMenu = () => {
+  const toggleMobileMenu = useCallback(() => {
     // eslint-disable-next-line no-undef
     if (isClient && window.matchMedia('(max-width: 768px)').matches) {
       // eslint-disable-next-line no-undef
@@ -59,7 +59,7 @@ const Header = (menu) => {
           .focus();
       }
     }
-  };
+  }, [isClient, showMobileMenu]);
 
   useEffect(() => {
     // if mobile, then add ARIA attrs to the mobile menu, so it will be available to AT only when toggled
@@ -97,10 +97,10 @@ const Header = (menu) => {
       </button>
 
       {!isHome() && (
-        <p aria-hidden="true" className="menu__title">
+        <div aria-hidden="true" className="menu__title">
           <span aria-hidden="true">MP</span>
           <span>Marcello Palmitessa</span>
-        </p>
+        </div>
       )}
 
       <nav className="menu">
