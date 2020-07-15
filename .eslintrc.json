@@ -9,9 +9,7 @@
   ],
   "env": {
     "browser": true,
-    "commonjs": true,
-    "es6": true,
-    "node": true
+    "es6": true
   },
   "parserOptions": {
     "ecmaVersion": 2018,
@@ -25,11 +23,25 @@
       "version": "detect"
     }
   },
-  "plugins": [],
+  "plugins": [
+    "react"
+  ],
   "rules": {
     "react/react-in-jsx-scope": "off",
     "max-len": "off",
     "react/jsx-filename-extension": "off",
-    "comma-dangle": ["error", "never"]
+    "comma-dangle": ["error", "never"],
+
+    "indent": [
+      "error",
+      2,
+      {
+        "SwitchCase": 1,
+        "ignoredNodes": [
+          "TemplateLiteral"
+        ]
+      }
+    ],
+    "template-curly-spacing": 0
   }
 }

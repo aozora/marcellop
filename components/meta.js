@@ -5,7 +5,7 @@ import React from 'react';
 export default function Meta({ meta }) {
   return (
     <Head>
-      {renderMetaTags(meta)}
+      {meta && renderMetaTags(meta)}
     </Head>
   );
 }

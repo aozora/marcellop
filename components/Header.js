@@ -105,7 +105,7 @@ const Header = (menu) => {
 
       <nav className="menu">
         <ul className="menu__items">
-          {menu && menu.menu.menuItems.map((item) => (
+          {menu && menu.menu && menu.menu.menuItems.map((item) => (
             <li key={item.url}>
               <Link href={item.url}>
                 <a className={router.pathname === item.url ? 'active' : ''}>
