@@ -56,6 +56,7 @@ const About = ({ about }) => {
         </Observer>
 
         <Image
+          className="image-wrapper"
           data={{
             ...about.aboutPicture.responsiveImage
           }}
