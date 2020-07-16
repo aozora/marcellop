@@ -9,6 +9,7 @@ import {
 import Head from 'next/head';
 import { CMS_NAME } from '@/lib/constants';
 import React from 'react';
+import { getPublishedDateFormatted, getPublishedDateShort } from '../../lib/helpers';
 
 export default function Post({
   preview, site, menu, post
@@ -18,16 +19,6 @@ export default function Post({
   if (!router.isFallback && !post?.slug) {
     return <ErrorPage statusCode={404} />;
   }
-
-  const getPublishedDateFormatted = () => format(
-    new Date(post.publishedAt),
-    'MMMM do yyyy'
-  );
-
-  const getPublishedDateShort = () => format(
-    new Date(post.publishedAt),
-    'yyyy-MM-dd'
-  );
 
   return (
     <Layout preview={preview} site={site} page={post} menu={menu}>
@@ -63,9 +54,9 @@ export default function Post({
                   <span className="visuallyhidden"> on </span>
                   <time
                     itemProp="datePublished"
-                    dateTime={getPublishedDateShort()}
+                    dateTime={getPublishedDateShort(post.publishedAt)}
                   >
-                    {getPublishedDateFormatted()}
+                    {getPublishedDateFormatted(post.publishedAt)}
                   </time>
                 </p>
               </div>
