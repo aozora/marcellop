@@ -1,83 +1,179 @@
-<!-- AUTO-GENERATED-CONTENT:START (STARTER) -->
-<h1 align="center">
-  Marcello's personal web site, based on Gatsby
-</h1>
+# A statically generated blog example using Next.js and DatoCMS
 
-Kick off your project with this default boilerplate. This starter ships with the main Gatsby configuration files you might need to get up and running blazing fast with the blazing fast app generator for React.
+This example showcases Next.js's [Static Generation](https://nextjs.org/docs/basic-features/pages) feature using [DatoCMS](https://www.datocms.com/) as the data source.
 
-_Have another more specific idea? You may want to check out our vibrant collection of [official and community-created starters](https://www.gatsbyjs.org/docs/gatsby-starters/)._
+## Demo
 
-## 🚀 Quick start
+[https://next-blog-datocms.now.sh/](https://next-blog-datocms.now.sh/)
 
-1.  **Start developing.**
+### Related examples
 
-    Navigate into your new site’s directory and start it up.
+- [WordPress](/examples/cms-wordpress)
+- [Sanity](/examples/cms-sanity)
+- [TakeShape](/examples/cms-takeshape)
+- [Prismic](/examples/cms-prismic)
+- [Contentful](/examples/cms-contentful)
+- [Strapi](/examples/cms-strapi)
+- [Agility CMS](/examples/cms-agilitycms)
+- [Cosmic](/examples/cms-cosmic)
+- [ButterCMS](/examples/cms-buttercms)
+- [Storyblok](/examples/cms-storyblok)
+- [GraphCMS](/examples/cms-graphcms)
+- [Blog Starter](/examples/blog-starter)
 
-    ```sh
-    cd my-default-starter/
-    gatsby develop
-    ```
+## Deploy your own
 
-1.  **Open the source code and start editing!**
+Once you have access to [the environment variables you'll need](#step-5-set-up-environment-variables), deploy the example using [Vercel](https://vercel.com?utm_source=github&utm_medium=readme&utm_campaign=next-example):
 
-    Your site is now running at `http://localhost:8000`!
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/import/git?c=1&s=https://github.com/vercel/next.js/tree/canary/examples/cms-datocms&env=DATOCMS_API_TOKEN,DATOCMS_PREVIEW_SECRET&envDescription=Required%20to%20connect%20the%20app%20with%20DatoCMS&envLink=https://vercel.link/cms-datocms-env)
 
-    _Note: You'll also see a second link: _`http://localhost:8000/___graphql`_. This is a tool you can use to experiment with querying your data. Learn more about using this tool in the [Gatsby tutorial](https://www.gatsbyjs.org/tutorial/part-five/#introducing-graphiql)._
+## How to use
 
-    Open the `my-default-starter` directory in your code editor of choice and edit `src/pages/index.js`. Save your changes and the browser will update in real time!
+### Using `create-next-app`
 
-## 🧐 What's inside?
+Execute [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) with [npm](https://docs.npmjs.com/cli/init) or [Yarn](https://yarnpkg.com/lang/en/docs/cli/create/) to bootstrap the example:
 
-A quick look at the top-level files and directories you'll see in a Gatsby project.
+```bash
+npx create-next-app --example cms-datocms cms-datocms-app
+# or
+yarn create next-app --example cms-datocms cms-datocms-app
+```
 
-    .
-    ├── node_modules
-    ├── src
-    ├── .gitignore
-    ├── .prettierrc
-    ├── gatsby-browser.js
-    ├── gatsby-config.js
-    ├── gatsby-node.js
-    ├── gatsby-ssr.js
-    ├── LICENSE
-    ├── package-lock.json
-    ├── package.json
-    └── README.md
+### Download manually
 
-1.  **`/node_modules`**: This directory contains all of the modules of code that your project depends on (npm packages) are automatically installed.
+Download the example:
 
-2.  **`/src`**: This directory will contain all of the code related to what you will see on the front-end of your site (what you see in the browser) such as your site header or a page template. `src` is a convention for “source code”.
+```bash
+curl https://codeload.github.com/vercel/next.js/tar.gz/canary | tar -xz --strip=2 next.js-canary/examples/cms-datocms
+cd cms-datocms
+```
 
-3.  **`.gitignore`**: This file tells git which files it should not track / not maintain a version history for.
+## Configuration
 
-4.  **`.prettierrc`**: This is a configuration file for [Prettier](https://prettier.io/). Prettier is a tool to help keep the formatting of your code consistent.
+### Step 1. Create an account and a project on DatoCMS
 
-5.  **`gatsby-browser.js`**: This file is where Gatsby expects to find any usage of the [Gatsby browser APIs](https://www.gatsbyjs.org/docs/browser-apis/) (if any). These allow customization/extension of default Gatsby settings affecting the browser.
+First, [create an account on DatoCMS](https://datocms.com).
 
-6.  **`gatsby-config.js`**: This is the main configuration file for a Gatsby site. This is where you can specify information about your site (metadata) like the site title and description, which Gatsby plugins you’d like to include, etc. (Check out the [config docs](https://www.gatsbyjs.org/docs/gatsby-config/) for more detail).
+After creating an account, create a **new project** from the dashboard. You can select a **Blank Project**.
 
-7.  **`gatsby-node.js`**: This file is where Gatsby expects to find any usage of the [Gatsby Node APIs](https://www.gatsbyjs.org/docs/node-apis/) (if any). These allow customization/extension of default Gatsby settings affecting pieces of the site build process.
+### Step 2. Create an `Author` model
 
-8.  **`gatsby-ssr.js`**: This file is where Gatsby expects to find any usage of the [Gatsby server-side rendering APIs](https://www.gatsbyjs.org/docs/ssr-apis/) (if any). These allow customization of default Gatsby settings affecting server-side rendering.
+From the project setting page, create a new **Model**.
 
-9.  **`LICENSE`**: Gatsby is licensed under the MIT license.
+- The name should be `Author`.
 
-10. **`package-lock.json`** (See `package.json` below, first). This is an automatically generated file based on the exact versions of your npm dependencies that were installed for your project. **(You won’t change this file directly).**
+Next, add these fields (you don't have to modify the settings):
 
-11. **`package.json`**: A manifest file for Node.js projects, which includes things like metadata (the project’s name, author, etc). This manifest is how npm knows which packages to install for your project.
+- `Name` - **Text** field (**Single-line String**)
+- `Picture` - **Media** field (**Single asset**)
 
-12. **`README.md`**: A text file containing useful reference information about your project.
+### Step 3. Create a `Post` model
 
-## 🎓 Learning Gatsby
+From the project setting page, create a new **Model**:
 
-Looking for more guidance? Full documentation for Gatsby lives [on the website](https://www.gatsbyjs.org/). Here are some places to start:
+- The name should be `Post`.
+- **Important:** From the "Additional Settings" tab, turn on **Enable draft/published system.** This lets you preview the content.
 
-- **For most developers, we recommend starting with our [in-depth tutorial for creating a site with Gatsby](https://www.gatsbyjs.org/tutorial/).** It starts with zero assumptions about your level of ability and walks through every step of the process.
+Next, add these fields (you don't have to modify the settings unless specified):
 
-- **To dive straight into code samples, head [to our documentation](https://www.gatsbyjs.org/docs/).** In particular, check out the _Guides_, _API Reference_, and _Advanced Tutorials_ sections in the sidebar.
+- `Title` - **Text** field (**Single-line String**)
+- `Content` - **Text** field (**Multiple-paragraph Text**)
+- `Excerpt` - **Text** field (**Single-line String**)
+- `Cover Image` - **Media** field (**Single asset**)
+- `Date` - **Date and time** field (**Date**)
+- `Author` - **Links** field (**Single link**) , and from the "Validations" tab under "Accept only specified model", select **Author**.
+- `Slug` - **SEO** field (**Slug**), and from the "Validations" tab under "Reference field" select **Title**.
 
-## 💫 Deploy
+### Step 4. Populate Content
 
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/gatsbyjs/gatsby-starter-default)
+From the **Content** menu at the top, select **Author** and create a new record.
 
-<!-- AUTO-GENERATED-CONTENT:END -->
+- You just need **1 Author record**.
+- Use dummy data for the text.
+- For the image, you can download one from [Unsplash](https://unsplash.com/).
+
+Next, select **Post** and create a new record.
+
+- We recommend creating at least **2 Post records**.
+- Use dummy data for the text.
+- You can write markdown for the **Content** field.
+- For the images, you can download ones from [Unsplash](https://unsplash.com/).
+- Pick the **Author** you created earlier.
+
+**Important:** For each post record, you need to click **Publish** after saving. If not, the post will be in the draft state.
+
+### Step 5. Set up environment variables
+
+Go to the **Settings** menu at the top and click **API tokens**.
+
+Then click **Read-only API token** and copy the token.
+
+Next, copy the `.env.local.example` file in this directory to `.env.local` (which will be ignored by Git):
+
+```bash
+cp .env.local.example .env.local
+```
+
+Then set each variable on `.env.local`:
+
+- `DATOCMS_API_TOKEN` should be the API token you just copied.
+- `DATOCMS_PREVIEW_SECRET` can be any random string (but avoid spaces), like `MY_SECRET` - this is used for [the Preview Mode](https://nextjs.org/docs/advanced-features/preview-mode).
+
+Your `.env.local` file should look like this:
+
+```bash
+DATOCMS_API_TOKEN=...
+DATOCMS_PREVIEW_SECRET=...
+```
+
+### Step 6. Run Next.js in development mode
+
+```bash
+npm install
+npm run dev
+
+# or
+
+yarn install
+yarn dev
+```
+
+Your blog should be up and running on [http://localhost:3000](http://localhost:3000)! If it doesn't work, post on [GitHub discussions](https://github.com/vercel/next.js/discussions).
+
+### Step 7. Try preview mode
+
+On DatoCMS, go to one of the posts you've created and:
+
+- **Update the title**. For example, you can add `[Draft]` in front of the title.
+- Click **Save**, but **DO NOT** click **Publish**. By doing this, the post will be in the draft state.
+
+(If it doesn't become draft, you need to go to the model settings for `Post`, go to **Additional Settings**, and turn on **Enable draft/published system**.)
+
+Now, if you go to the post page on localhost, you won't see the updated title. However, if you use the **Preview Mode**, you'll be able to see the change ([Documentation](https://nextjs.org/docs/advanced-features/preview-mode)).
+
+To enable the Preview Mode, go to this URL:
+
+```
+http://localhost:3000/api/preview?secret=<secret>&slug=<slug>
+```
+
+- `<secret>` should be the string you entered for `DATOCMS_PREVIEW_SECRET`.
+- `<slug>` should be the post's `slug` attribute (you can check on DatoCMS).
+
+You should now be able to see the updated title. To exit the preview mode, you can click **Click here to exit preview mode** at the top.
+
+### Step 8. Deploy on Vercel
+
+You can deploy this app to the cloud with [Vercel](https://vercel.com?utm_source=github&utm_medium=readme&utm_campaign=next-example) ([Documentation](https://nextjs.org/docs/deployment)).
+
+#### Deploy Your Local Project
+
+To deploy your local project to Vercel, push it to GitHub/GitLab/Bitbucket and [import to Vercel](https://vercel.com/import/git?utm_source=github&utm_medium=readme&utm_campaign=next-example).
+
+**Important**: When you import your project on Vercel, make sure to click on **Environment Variables** and set them to match your `.env.local` file.
+
+#### Deploy from Our Template
+
+Alternatively, you can deploy using our template by clicking on the Deploy button below.
+
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/import/git?c=1&s=https://github.com/vercel/next.js/tree/canary/examples/cms-datocms&env=DATOCMS_API_TOKEN,DATOCMS_PREVIEW_SECRET&envDescription=Required%20to%20connect%20the%20app%20with%20DatoCMS&envLink=https://vercel.link/cms-datocms-env)

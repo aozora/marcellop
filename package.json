@@ -1,82 +1,48 @@
 {
-  "name": "marcellop2019",
-  "version": "4.0.1",
-  "private": true,
-  "description": "Marcello Palmitessa website",
-  "author": "Marcello Palmitessa",
+  "name": "cms-datocms",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start",
+    "debug": "NODE_OPTIONS='--inspect' next dev"
+  },
   "dependencies": {
     "@researchgate/react-intersection-observer": "^1.2.0",
+    "classnames": "2.2.6",
     "date-fns": "^2.14.0",
-    "gatsby": "^2.24.2",
-    "gatsby-image": "^2.4.13",
-    "gatsby-plugin-feed": "^2.5.11",
-    "gatsby-plugin-feed-generator": "^2.0.5",
-    "gatsby-plugin-manifest": "^2.4.18",
-    "gatsby-plugin-offline": "^3.2.17",
-    "gatsby-plugin-react-helmet": "^3.3.10",
-    "gatsby-plugin-sass": "^2.3.12",
-    "gatsby-plugin-sharp": "^2.6.19",
-    "gatsby-plugin-transition-link": "^1.20.2",
-    "gatsby-source-datocms": "^2.3.0",
-    "gatsby-source-filesystem": "^2.3.19",
-    "gatsby-transformer-remark": "^2.8.25",
-    "gatsby-transformer-sharp": "^2.5.11",
     "gsap": "^3.4.0",
     "include-media": "^1.4.9",
+    "next": "latest",
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
+    "react-datocms": "1.2.4",
     "react-dom": "^16.13.1",
-    "react-helmet": "^5.2.1"
+    "react-helmet": "^6.1.0",
+    "remark": "12.0.0",
+    "remark-html": "11.0.2",
+    "sass": "^1.26.10"
   },
   "devDependencies": {
-    "@babel/core": "^7.10.4",
-    "@storybook/addon-a11y": "^5.3.19",
-    "@storybook/addon-actions": "^5.3.19",
-    "@storybook/addon-backgrounds": "^5.3.19",
-    "@storybook/addon-docs": "^5.3.19",
-    "@storybook/addon-knobs": "^5.3.19",
-    "@storybook/addon-links": "^5.3.19",
-    "@storybook/addon-storysource": "^5.3.19",
-    "@storybook/addon-viewport": "^5.3.19",
-    "@storybook/addons": "^5.3.19",
-    "@storybook/preset-scss": "^1.0.2",
-    "@storybook/react": "^5.3.19",
-    "@storybook/theming": "^5.3.19",
+    "@testing-library/jest-dom": "^5.11.0",
+    "@testing-library/react": "^10.4.7",
     "babel-eslint": "^10.1.0",
-    "babel-loader": "^8.1.0",
-    "css-loader": "^3.6.0",
-    "eslint": "^6.8.0",
+    "babel-jest": "^26.1.0",
+    "eslint": "^7.4.0",
     "eslint-config-airbnb": "^18.2.0",
-    "eslint-loader": "^3.0.4",
     "eslint-plugin-import": "^2.22.0",
     "eslint-plugin-jsx-a11y": "^6.3.1",
     "eslint-plugin-react": "^7.20.3",
-    "gatsby-plugin-eslint": "^2.0.8",
-    "node-sass": "^4.14.1",
-    "react-is": "^16.13.1",
-    "sass-loader": "^8.0.2",
-    "storybook-design-token": "^0.6.0",
-    "style-loader": "^1.2.1"
+    "eslint-plugin-react-hooks": "^4.0.8",
+    "jest": "^26.1.0",
+    "postcss-flexbugs-fixes": "4.2.1",
+    "postcss-preset-env": "^6.7.0",
+    "react-test-renderer": "^16.13.1"
   },
-  "keywords": [
-    "gatsby"
-  ],
-  "license": "MIT",
-  "scripts": {
-    "build": "gatsby build",
-    "develop": "gatsby develop",
-    "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
-    "start": "npm run develop",
-    "serve": "gatsby serve",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing \"",
-    "storybook": "NODE_ENV=production start-storybook -p 6006 -s public",
-    "build-storybook": "NODE_ENV=production build-storybook -s public"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/gatsbyjs/gatsby-starter-default"
-  },
-  "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
-  }
+  "browserslist": [
+    ">0.3%",
+    "not ie 11",
+    "not dead",
+    "not op_mini all"
+  ]
 }
