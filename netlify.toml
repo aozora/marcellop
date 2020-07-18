@@ -1,0 +1,15 @@
+[build]
+  publish = "public"
+  command = "npm run build"
+[build.environment]
+NODE_VERSION = "10"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-XSS-Protection = "1; mode=block"
+    X-Content-Type-Options = "nosniff"
+#    Content-Security-Policy = "default-_src 'none'; base-uri 'none'; form-action 'self'; frame-ancestors 'none'; script-_src 'unsafe-inline'; style-_src 'self'; object-_src 'none'; font-_src 'self';"
+# minimal config due to some nuxt issues with csp
+    Content-Security-Policy = "base-uri 'none'; form-action 'self'; frame-ancestors 'none'; object-src 'none';"
