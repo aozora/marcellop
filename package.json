@@ -1,9 +1,21 @@
 {
-  "name": "cms-datocms",
-  "version": "1.0.0",
+  "name": "marcellop",
+  "version": "4.0.2",
+  "private": true,
+  "description": "Marcello Palmitessa website",
+  "author": "Marcello Palmitessa",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gatsbyjs/gatsby-starter-default"
+  },
+  "bugs": {
+    "url": "https://github.com/gatsbyjs/gatsby/issues"
+  },
   "scripts": {
     "dev": "next",
     "build": "next build",
+    "export": "next export",
     "start": "next start",
     "debug": "NODE_OPTIONS='--inspect' next dev"
   },
