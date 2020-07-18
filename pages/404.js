@@ -1,12 +1,20 @@
 import React from 'react';
-import Header from '@/components/Header';
 import Link from 'next/link';
 import Footer from '@/components/footer';
 
 export default function Custom404() {
   return (
     <>
-      <Header menu={null} showMenu={false} />
+      <header
+        id="header"
+        className="header"
+      >
+        <div aria-hidden="true" className="menu__title">
+          <span aria-hidden="true">MP</span>
+          <span>Marcello Palmitessa</span>
+        </div>
+      </header>
+
       <div className="error-page">
         <h1>
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 95">
