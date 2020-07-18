@@ -31,14 +31,6 @@
   }
 }
 
-/* First-line styles */
-p.initial:first-of-type::first-line {
-  --text-weight: calc(var(--p-vf-weight) * 1.25);
-
-  @include media (">=tablet") {
-    --text-weight: calc(var(--p-vf-weight) * 1.25);
-  }
-}
 
 @mixin dropcap {
   /* Initial Cap styles */

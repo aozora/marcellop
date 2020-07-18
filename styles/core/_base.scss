@@ -190,12 +190,24 @@ strong {
 }
 
 
+/* Paragraph style
+  ============== */
 p {
   margin: 0 0 calc(1.5 * var(--text-base-size)) 0;
   max-width: var(--text-max-width);
   transition: all linear 0.2s;
   hyphens: auto;
   hanging-punctuation: first;
+}
+
+
+/* First-line styles */
+p.initial:first-of-type::first-line {
+  --text-weight: calc(var(--p-vf-weight) * 1.25);
+
+  @include media (">=tablet") {
+    --text-weight: calc(var(--p-vf-weight) * 1.25);
+  }
 }
 
 ///* Variations and variables */

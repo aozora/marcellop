@@ -13,4 +13,15 @@
   .hero {
     margin-bottom: 10rem;
   }
+
+  nav {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+
+    a {
+      //display: inline-block;
+      margin: 0 auto;
+    }
+  }
 }
