@@ -7,16 +7,13 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/gatsbyjs/gatsby-starter-default"
-  },
-  "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
+    "url": "https://github.com/aozora/marcellop"
   },
   "scripts": {
     "dev": "next",
     "build": "next build",
-    "postbuild": "next-on-netlify",
     "export": "next export",
+    "deploy": "npm run build && npm run export",
     "start": "next start",
     "debug": "NODE_OPTIONS='--inspect' next dev"
   },
