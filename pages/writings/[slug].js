@@ -93,9 +93,6 @@ export async function getStaticProps({ params, preview = false }) {
   const site = (await getSiteData(preview) || null);
   const data = (await getPostBySlug(params.slug, preview) || null);
 
-  console.log(site);
-  console.log(data);
-
   return {
     props: {
       preview,

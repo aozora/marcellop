@@ -1,6 +1,8 @@
 [build]
-  publish = "public"
-  command = "npm run build"
+  command   = "npm run build"
+  functions = "out_functions"
+  publish   = "out_publish"
+
 [build.environment]
 NODE_VERSION = "10"
 

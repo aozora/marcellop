@@ -15,6 +15,7 @@
   "scripts": {
     "dev": "next",
     "build": "next build",
+    "postbuild": "next-on-netlify",
     "export": "next export",
     "start": "next start",
     "debug": "NODE_OPTIONS='--inspect' next dev"
@@ -26,6 +27,7 @@
     "gsap": "^3.4.0",
     "include-media": "^1.4.9",
     "next": "latest",
+    "next-on-netlify": "^2.3.0",
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
     "react-datocms": "1.2.4",
