@@ -1,7 +1,6 @@
 import { useRouter } from 'next/router';
 import ErrorPage from 'next/error';
 import { Image } from 'react-datocms';
-import { format } from 'date-fns';
 import Layout from '@/components/layout';
 import {
   getAllMenu, getAllPostsWithSlug, getPostBySlug, getSiteData
@@ -9,7 +8,7 @@ import {
 import Head from 'next/head';
 import { CMS_NAME } from '@/lib/constants';
 import React from 'react';
-import { getPublishedDateFormatted, getPublishedDateShort } from '../../lib/helpers';
+import { getPublishedDateFormatted, getPublishedDateShort } from '@/lib/helpers';
 
 export default function Post({
   preview, site, menu, post
@@ -93,6 +92,9 @@ export async function getStaticProps({ params, preview = false }) {
   const site = (await getSiteData(preview) || null);
   const data = (await getPostBySlug(params.slug, preview) || null);
 
+  const allPosts = await getAllPostsWithSlug();
+  console.log('*** DEBUG ***', allPosts);
+
   return {
     props: {
       preview,
@@ -105,6 +107,7 @@ export async function getStaticProps({ params, preview = false }) {
 
 export async function getStaticPaths() {
   const allPosts = await getAllPostsWithSlug();
+  console.log('*** DEBUG ***', allPosts);
 
   return {
     paths: allPosts?.map((post) => `/writings/${post.slug}`) || [],

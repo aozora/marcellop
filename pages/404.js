@@ -30,7 +30,7 @@ export default function Custom404() {
           </p>
         </section>
         <nav>
-          <Link href="/">Back to home</Link>
+          <Link href="/"><a>Back to home</a></Link>
         </nav>
       </div>
       <Footer />
