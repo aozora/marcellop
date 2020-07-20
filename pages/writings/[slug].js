@@ -3,7 +3,7 @@ import ErrorPage from 'next/error';
 import { Image } from 'react-datocms';
 import Layout from '@/components/layout';
 import {
-  getAllMenu, getAllPostsWithSlug, getPostBySlug, getSiteData
+  getAllMenu, getAllPosts, getAllPostsWithSlug, getPostBySlug, getSiteData
 } from '@/lib/api';
 import Head from 'next/head';
 import { CMS_NAME } from '@/lib/constants';
@@ -92,8 +92,9 @@ export async function getStaticProps({ params, preview = false }) {
   const site = (await getSiteData(preview) || null);
   const data = (await getPostBySlug(params.slug, preview) || null);
 
-  const allPosts = await getAllPostsWithSlug();
-  console.log('*** DEBUG ***', allPosts);
+  // const allPosts = await getAllPostsWithSlug();
+  // console.log('*** DEBUG *** params', params);
+  // console.log('*** DEBUG *** getPostBySlug', data);
 
   return {
     props: {
@@ -106,11 +107,13 @@ export async function getStaticProps({ params, preview = false }) {
 }
 
 export async function getStaticPaths() {
-  const allPosts = await getAllPostsWithSlug();
-  console.log('*** DEBUG ***', allPosts);
+  // const allPosts = await getAllPostsWithSlug();
+  const allPosts = await getAllPosts();
+  // console.log('*** DEBUG allPosts ***', allPosts);
 
   return {
-    paths: allPosts?.map((post) => `/writings/${post.slug}`) || [],
+    // paths: allPosts?.map((post) => `/writings/${post.slug}`) || [],
+    paths: allPosts?.map((post) => ({ params: { slug: post.slug } })) || [],
     fallback: false
   };
 }
