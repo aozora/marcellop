@@ -10,32 +10,25 @@ import PostAbstract from '@/components/PostAbstract';
 
 export default function Writings({ site, page, menu }) {
   return (
-    <Layout site={site} page={page} menu={menu}>
-      <Head>
-        <title>
-          {CMS_NAME}
-        </title>
-      </Head>
-      <section className="posts">
-        <h1>Writings</h1>
+    <section className="posts">
+      <h1>Writings</h1>
 
+      <div>
+        {
+          page && page.map((post) => <PostAbstract key={post.id} post={post} />)
+          // <!--      <div class="posts__pagination">-->
+          //   <!--        <a href="#">Older entries</a>-->
+          //   <!--        <a href="#">Newer entries</a>-->
+          //   <!--      </div>-->
+        }
+      </div>
+
+      {!page && (
         <div>
-          {
-            page && page.map((post) => <PostAbstract key={post.id} post={post} />)
-            // <!--      <div class="posts__pagination">-->
-            //   <!--        <a href="#">Older entries</a>-->
-            //   <!--        <a href="#">Newer entries</a>-->
-            //   <!--      </div>-->
-          }
+          <p className="sorry">Nothing new here, please come back later...</p>
         </div>
-
-        {!page && (
-          <div>
-            <p className="sorry">Nothing new here, please come back later...</p>
-          </div>
-        )}
-      </section>
-    </Layout>
+      )}
+    </section>
   );
 }
 

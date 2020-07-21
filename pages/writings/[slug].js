@@ -20,13 +20,7 @@ export default function Post({
   }
 
   return (
-    <Layout preview={preview} site={site} page={post} menu={menu}>
-      <Head>
-        <title>
-          {CMS_NAME}
-        </title>
-      </Head>
-
+    <>
       {router.isFallback ? (
         <div>Loading…</div>
       ) : (
@@ -83,7 +77,7 @@ export default function Post({
           </article>
         </>
       )}
-    </Layout>
+    </>
   );
 }
 

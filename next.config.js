@@ -1,5 +1,4 @@
 const path = require('path');
-const fetch = require('node-fetch');
 // const sitemap = require('nextjs-sitemap-generator');
 
 // sitemap({

@@ -10,21 +10,13 @@ import { CMS_NAME } from '@/lib/constants';
 
 export default function Resume({ site, page, menu }) {
   return (
-    <Layout site={site} page={page} menu={menu}>
-      <Head>
-        <title>
-          {CMS_NAME}
-        </title>
-      </Head>
+    <section className="resume">
+      <h1>Resume</h1>
 
-      <section className="resume">
-        <h1>Resume</h1>
-
-        {page && page.map((job) => (
-          <Job job={job} key={job.id} />
-        ))}
-      </section>
-    </Layout>
+      {page && page.map((job) => (
+        <Job job={job} key={job.id} />
+      ))}
+    </section>
   );
 }
 

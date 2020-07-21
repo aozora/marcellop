@@ -53,17 +53,10 @@ export default function Index({ site, page, menu }) {
       <Helmet>
         <body className={loaded ? 'home loaded' : 'home'} />
       </Helmet>
-      <Layout site={site} page={page} menu={menu}>
-        <Head>
-          <title>
-            {CMS_NAME}
-          </title>
-        </Head>
 
-        {heroData && <Hero hero={heroData} />}
-        {aboutData && <About about={aboutData} />}
-        {whatido && <What whatido={whatido} />}
-      </Layout>
+      {heroData && <Hero hero={heroData} />}
+      {aboutData && <About about={aboutData} />}
+      {whatido && <What whatido={whatido} />}
     </>
   );
 }
