@@ -2,11 +2,7 @@ import React from 'react';
 import {
   getSiteData, getAllResumeJobs, getAllMenu
 } from '@/lib/api';
-
-import Layout from '@/components/layout';
 import Job from '@/components/Job';
-import Head from 'next/head';
-import { CMS_NAME } from '@/lib/constants';
 
 export default function Resume({ site, page, menu }) {
   return (

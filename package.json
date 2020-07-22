@@ -3,13 +3,15 @@
   "version": "4.0.2",
   "private": true,
   "description": "Marcello Palmitessa website",
-  "author": "Marcello Palmitessa",
+  "author": {
+    "name": "Marcello Palmitessa",
+    "url": "https://www.marcellop.com"
+  },
   "license": "MIT",
   "repository": {
     "type": "git",
     "url": "https://github.com/aozora/marcellop"
   },
-  "url": "https://www.marcellop.com",
   "scripts": {
     "dev": "next",
     "build": "next build",

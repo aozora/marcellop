@@ -3,11 +3,6 @@ import {
   getSiteData, getAllUses, getAllMenu
 } from '@/lib/api';
 
-import Layout from '@/components/layout';
-import Job from '@/components/Job';
-import Head from 'next/head';
-import { CMS_NAME } from '@/lib/constants';
-
 export default function Uses({ site, page, menu }) {
   return (
     <section className="uses">

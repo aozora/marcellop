@@ -2,11 +2,8 @@ import React, { useEffect, useState } from 'react';
 import Hero from '@/components/Hero';
 import About from '@/components/About';
 import What from '@/components/What';
-import Layout from '@/components/layout';
 import { getSiteData, getHomeData, getAllMenu } from '@/lib/api';
-import Head from 'next/head';
 import Helmet from 'react-helmet';
-import { CMS_NAME } from '@/lib/constants';
 
 export default function Index({ site, page, menu }) {
   const [heroData, setHeroData] = useState(undefined);

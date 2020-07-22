@@ -2,11 +2,8 @@ import React from 'react';
 import {
   getSiteData, getAllPosts, getAllMenu
 } from '@/lib/api';
-
-import Layout from '@/components/layout';
-import Head from 'next/head';
-import { CMS_NAME } from '@/lib/constants';
 import PostAbstract from '@/components/PostAbstract';
+import { generateRSS } from '@/lib/rss-utils';
 
 export default function Writings({ site, page, menu }) {
   return (
@@ -36,6 +33,8 @@ export async function getStaticProps({ preview = false }) {
   const page = (await getAllPosts(preview)) || null;
   const menu = (await getAllMenu(preview) || null);
   const site = (await getSiteData(preview) || null);
+
+  await generateRSS(page);
 
   return {
     props: {

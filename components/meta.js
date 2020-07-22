@@ -6,6 +6,7 @@ export default function Meta({ meta }) {
   return (
     <Head>
       {meta && renderMetaTags(meta)}
+      <link rel="alternate" type="application/rss+xml" title="Articles RSS" href="/rss" />
     </Head>
   );
 }

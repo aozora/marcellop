@@ -13,7 +13,7 @@ function MyApp({ Component, pageProps }) {
         </title>
       </Head>
 
-      {/* // eslint-disable-next-line react/jsx-props-no-spreading */}
+      {/* eslint-disable-next-line react/jsx-props-no-spreading */}
       <Component {...pageProps} />
     </Layout>
   );
