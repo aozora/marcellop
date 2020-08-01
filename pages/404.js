@@ -1,14 +1,11 @@
 import React from 'react';
 import Link from 'next/link';
-import Footer from '@/components/footer';
+import Footer from '@/components/Footer';
 
 export default function Custom404() {
   return (
     <>
-      <header
-        id="header"
-        className="header"
-      >
+      <header id="header" className="header">
         <div aria-hidden="true" className="menu__title">
           <span aria-hidden="true">MP</span>
           <span>Marcello Palmitessa</span>
@@ -30,7 +27,9 @@ export default function Custom404() {
           </p>
         </section>
         <nav>
-          <Link href="/"><a>Back to home</a></Link>
+          <Link href="/">
+            <a>Back to home</a>
+          </Link>
         </nav>
       </div>
       <Footer />

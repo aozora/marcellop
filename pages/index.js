@@ -4,6 +4,7 @@ import About from '@/components/About';
 import What from '@/components/What';
 import { getSiteData, getHomeData, getAllMenu } from '@/lib/api';
 import Helmet from 'react-helmet';
+import { motionVariants } from '@/lib/helpers';
 
 export default function Index({ site, page, menu }) {
   const [heroData, setHeroData] = useState(undefined);
@@ -60,10 +61,14 @@ export default function Index({ site, page, menu }) {
 
 export async function getStaticProps({ preview = false }) {
   const page = (await getHomeData(preview)) || null;
-  const menu = (await getAllMenu(preview) || null);
-  const site = (await getSiteData(preview) || null);
+  const menu = (await getAllMenu(preview)) || null;
+  const site = (await getSiteData(preview)) || null;
 
   return {
-    props: { site, page, menu }
+    props: {
+      site,
+      page,
+      menu
+    }
   };
 }

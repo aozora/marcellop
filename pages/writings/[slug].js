@@ -2,14 +2,19 @@ import { useRouter } from 'next/router';
 import ErrorPage from 'next/error';
 import { Image } from 'react-datocms';
 import {
-  getAllMenu, getAllPosts, getAllPostsWithSlug, getPostBySlug, getSiteData
+  getAllMenu,
+  getAllPosts,
+  getAllPostsWithSlug,
+  getPostBySlug,
+  getSiteData
 } from '@/lib/api';
 import React from 'react';
-import { getPublishedDateFormatted, getPublishedDateShort } from '@/lib/helpers';
+import {
+  getPublishedDateFormatted,
+  getPublishedDateShort
+} from '@/lib/helpers';
 
-export default function Post({
-  preview, site, menu, post
-}) {
+export default function Post({ preview, site, menu, post }) {
   const router = useRouter();
 
   if (!router.isFallback && !post?.slug) {
@@ -29,7 +34,9 @@ export default function Post({
             itemType="http://http://schema.org/BlogPosting"
           >
             <header>
-              <h1 id={`aria-article-${post.id}`} itemProp="name">{post.title}</h1>
+              <h1 id={`aria-article-${post.id}`} itemProp="name">
+                {post.title}
+              </h1>
 
               <div className="post__metadata">
                 <span className="visuallyhidden">Posted </span>
@@ -64,7 +71,10 @@ export default function Post({
             )}
 
             {/* eslint-disable-next-line react/no-danger */}
-            <div className="post__body" dangerouslySetInnerHTML={{ __html: post.body }} />
+            <div
+              className="post__body"
+              dangerouslySetInnerHTML={{ __html: post.body }}
+            />
 
             <footer>
               <br />
@@ -79,9 +89,9 @@ export default function Post({
 }
 
 export async function getStaticProps({ params, preview = false }) {
-  const menu = (await getAllMenu(preview) || null);
-  const site = (await getSiteData(preview) || null);
-  const data = (await getPostBySlug(params.slug, preview) || null);
+  const menu = (await getAllMenu(preview)) || null;
+  const site = (await getSiteData(preview)) || null;
+  const data = (await getPostBySlug(params.slug, preview)) || null;
 
   // const allPosts = await getAllPostsWithSlug();
   // console.log('*** DEBUG *** params', params);
@@ -104,7 +114,7 @@ export async function getStaticPaths() {
 
   return {
     // paths: allPosts?.map((post) => `/writings/${post.slug}`) || [],
-    paths: allPosts?.map((post) => ({ params: { slug: post.slug } })) || [],
+    paths: allPosts?.map(post => ({ params: { slug: post.slug } })) || [],
     fallback: false
   };
 }

@@ -2,10 +2,13 @@
   "root": true,
   "parser": "babel-eslint",
   "extends": [
+    "airbnb",
     "plugin:react/recommended",
     "plugin:jsx-a11y/recommended",
     "plugin:react-hooks/recommended",
-    "airbnb"
+    "plugin:prettier/recommended",
+    "prettier/react",
+    "prettier/standard"
   ],
   "env": {
     "browser": true,
@@ -24,15 +27,19 @@
     }
   },
   "plugins": [
-    "react"
+    "react",
+    "prettier"
   ],
   "rules": {
     "react/prop-types": "off",
     "react/react-in-jsx-scope": "off",
     "max-len": "off",
     "react/jsx-filename-extension": "off",
-    "comma-dangle": ["error", "never"],
-
+    "comma-dangle": [
+      "error",
+      "never"
+    ],
+    "prettier/prettier": "error",
     "indent": [
       "error",
       2,
