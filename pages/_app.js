@@ -3,6 +3,9 @@ import Layout from '@/components/layout';
 import Head from 'next/head';
 import { AnimatePresence } from 'framer-motion';
 import { CMS_NAME } from '@/lib/constants';
+
+// app styles
+import '@/styles/fonts.css';
 import '@/styles/app.scss';
 
 function MyApp({ Component, pageProps, router }) {
