@@ -1,20 +1,18 @@
 export default function Alert({ preview }) {
   return (
-    <div>
+    <aside className="alert">
       {preview ? (
         <>
-          This is page is a preview.
-          {' '}
+          This is page is a preview.&nbsp;
           <a
             href="/api/exit-preview"
             className="underline hover:text-cyan duration-200 transition-colors"
           >
             Click here
           </a>
-          {' '}
-          to exit preview mode.
+          &nbsp;to exit preview mode.
         </>
       ) : null}
-    </div>
+    </aside>
   );
 }

@@ -5,12 +5,12 @@ import Footer from '@/components/Footer';
 export default function Custom404() {
   return (
     <>
-      <header id="header" className="header">
-        <div aria-hidden="true" className="menu__title">
-          <span aria-hidden="true">MP</span>
-          <span>Marcello Palmitessa</span>
-        </div>
-      </header>
+      {/* <header id="header" className="header"> */}
+      {/*  <div aria-hidden="true" className="menu__title"> */}
+      {/*    <span aria-hidden="true">MP</span> */}
+      {/*    <span>Marcello Palmitessa</span> */}
+      {/*  </div> */}
+      {/* </header> */}
 
       <div className="error-page">
         <h1>
@@ -23,7 +23,7 @@ export default function Custom404() {
           <p>
             <span>The page </span>
             <span>you're looking for </span>
-            <span>doesn't exists...</span>
+            <span>doesn't meow...</span>
           </p>
         </section>
         <nav>

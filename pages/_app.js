@@ -10,7 +10,12 @@ import '@/styles/app.scss';
 
 function MyApp({ Component, pageProps, router }) {
   return (
-    <Layout site={pageProps.site} page={pageProps.page} menu={pageProps.menu}>
+    <Layout
+      site={pageProps.site}
+      page={pageProps.page}
+      menu={pageProps.menu}
+      preview={pageProps.preview}
+    >
       <Head>
         <title>{CMS_NAME}</title>
       </Head>
