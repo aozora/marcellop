@@ -17,7 +17,7 @@ export default function Layout({ preview, children, site, page, menu }) {
       <a href="#main" tabIndex="0">
         Skip to main content
       </a>
-      <Alert preview={preview} />
+      {preview && <Alert preview={preview} />}
       <Header menu={menu} />
       <main id="main" role="main">
         {children}
