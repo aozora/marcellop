@@ -1,0 +1,45 @@
+import { Meta, Typeset } from '@storybook/addon-docs/blocks';
+import { typography } from '../shared';
+
+<Meta title="Styleguide/Typography" />
+
+# Typography
+
+**Headings Font:** BonVivantSerifBold
+
+**Weights:** 400(regular), 700 (Bold)
+
+<Typeset
+  fontFamily="BonVivantSerifBold"
+  fontSizes={[
+    Number(typography.size.s1),
+    Number(typography.size.s2),
+    Number(typography.size.m1),
+    Number(typography.size.m2),
+    Number(typography.size.m3),
+    Number(typography.size.l1),
+    Number(typography.size.l2),
+    Number(typography.size.l3),
+  ]}
+  fontWeight={typography.weight.regular}
+/>
+
+
+**Body Font:** Neue Haas Grotesk
+
+**Weights:** 400(regular), 500 (medium), 700(bold)
+
+<Typeset
+  fontFamily="Neue Haas Grotesk"
+  fontSizes={[
+    Number(typography.size.s1),
+    Number(typography.size.s2),
+    Number(typography.size.m1),
+    Number(typography.size.m2),
+    Number(typography.size.m3),
+    Number(typography.size.l1),
+    Number(typography.size.l2),
+    Number(typography.size.l3),
+  ]}
+  fontWeight={typography.weight.regular}
+/>
