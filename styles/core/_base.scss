@@ -140,7 +140,7 @@ body {
 /* Generic header styles */
 h1, h2, h3, h4, h5, h6 {
   padding: 0;
-  margin: 0 0 calc(1 * var(--text-base-size)) 0;
+  margin: calc(2 * var(--text-base-size)) 0 calc(1 * var(--text-base-size)) 0;
   font-family: $heading-font-family;
   font-weight: $heading-font-weight;
   transition: all linear 0.2s;
@@ -161,21 +161,21 @@ h1, h2, h3, h4, h5, h6 {
 
 
 h1 {
-  margin: calc(2 * var(--text-base-size)) 0 calc(3 * var(--text-base-size)) 0;
+  //margin: calc(2 * var(--text-base-size)) 0 calc(3 * var(--text-base-size)) 0;
   max-width: 50rem;
   font-size: var(--h1-font-size);
   line-height: var(--h1-line-height);
 }
 
 h2 {
-  margin: calc(1 * var(--text-base-size)) 0 calc(3 * var(--text-base-size)) 0;
+  //margin: calc(1 * var(--text-base-size)) 0 calc(3 * var(--text-base-size)) 0;
   max-width: var(--text-max-width);
   font-size: var(--h2-font-size);
   line-height: var(--h2-line-height);
 }
 
 h3 {
-  margin: calc(1 * var(--text-base-size)) 0 calc(2 * var(--text-base-size)) 0;
+  //margin: calc(1 * var(--text-base-size)) 0 calc(2 * var(--text-base-size)) 0;
   max-width: var(--text-max-width);
   text-align: left;
   font-size: var(--h3-font-size);
