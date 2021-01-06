@@ -1,10 +1,11 @@
+/* eslint-disable react/no-danger */
 import { useRouter } from 'next/router';
 import ErrorPage from 'next/error';
 import { Image } from 'react-datocms';
 import {
   getAllMenu,
   getAllPosts,
-  getAllPostsWithSlug,
+  // getAllPostsWithSlug,
   getPostBySlug,
   getSiteData
 } from '@/lib/api';
@@ -13,8 +14,9 @@ import {
   getPublishedDateFormatted,
   getPublishedDateShort
 } from '@/lib/helpers';
+import sanitizeHtml from 'sanitize-html';
 
-export default function Post({ preview, site, menu, post }) {
+export default function Post({ /* preview, site, menu, */ post }) {
   const router = useRouter();
 
   if (!router.isFallback && !post?.slug) {
@@ -73,7 +75,9 @@ export default function Post({ preview, site, menu, post }) {
             {/* eslint-disable-next-line react/no-danger */}
             <div
               className="post__body"
-              dangerouslySetInnerHTML={{ __html: post.body }}
+              dangerouslySetInnerHTML={{
+                __html: sanitizeHtml(post.body)
+              }}
             />
 
             <footer>

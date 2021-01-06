@@ -13,7 +13,7 @@
 
 
 @mixin container {
-  max-width: $sectionMaxWidth;
+  max-width: var(--sectionMaxWidth);
   width: 100%;
   margin: 0 auto;
   padding: 0 3rem;

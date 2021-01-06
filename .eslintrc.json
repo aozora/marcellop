@@ -24,6 +24,22 @@
   "settings": {
     "react": {
       "version": "detect"
+    },
+    "import/resolver": {
+      "alias": [
+        [
+          "@/components",
+          "./components"
+        ],
+        [
+          "@/lib",
+          "./lib"
+        ],
+        [
+          "@/styles",
+          "./styles"
+        ]
+      ]
     }
   },
   "plugins": [

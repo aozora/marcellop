@@ -68,8 +68,8 @@ em,
 b,
 strong,
 button {
-  --text-weight: $body-font-weight;
-  font-family: $body-font-family;
+  --text-weight: var(--body-font-weight);
+  font-family: var(--body-font-family);
   //font-size: 1rem;
   //font-size: var(--text-base-size);
   //line-height: $baseline;
@@ -98,21 +98,21 @@ body {
   height: 100%;
   margin: 0 auto;
   padding: 0;
-  background-color: $body-background;
-  color: $body-font-color;
+  background-color: var(--body-background);
+  color: var(--body-font-color);
 
   font-size: var(--text-base-size);
-  line-height: $baseline;
+  line-height: var(--baseline);
   font-weight: var(--text-weight);
   font-style: normal;
   letter-spacing: var(--text-letter-spacing);
-  font-kerning: $kerning;
+  font-kerning: var(--kerning);
 
   @if $use-variable-font {
     @supports (font-variation-settings: normal) {
-      font-family: $variable-font-family;
+      font-family: var(--variable-font-family);
       // this settings depends on th vf selected
-      font-variation-settings: 'wght' #var (--text-weight);
+      font-variation-settings: 'wght' #var(--text-weight);
       /* ,
          'wdth' var(--text-width),
          'opsz' var(--text-opticalsize); */
@@ -141,15 +141,15 @@ body {
 h1, h2, h3, h4, h5, h6 {
   padding: 0;
   margin: calc(2 * var(--text-base-size)) 0 calc(1 * var(--text-base-size)) 0;
-  font-family: $heading-font-family;
-  font-weight: $heading-font-weight;
+  font-family: var(--heading-font-family);
+  font-weight: var(--heading-font-weight);
   transition: all linear 0.2s;
   --text-weight: var(--heading-weight);
   color: inherit;
 
   @if $use-variable-font-for-headings {
     @supports (font-variation-settings: normal) {
-      font-family: $variable-heading-font-family;
+      font-family: var(--variable-heading-font-family);
       // this settings depends on th vf selected
       font-variation-settings: 'wght' var(--heading-weight);
       /* ,
@@ -210,17 +210,10 @@ p {
 p.initial:first-of-type::first-line {
   --text-weight: calc(var(--p-vf-weight) * 1.25);
 
-  @include media (">=tablet") {
+  @include media(">=tablet") {
     --text-weight: calc(var(--p-vf-weight) * 1.25);
   }
 }
-
-///* Variations and variables */
-//p {
-//  //--text-width: calc(var(--p-vf-width) * 1);
-//  font-size: calc((var(--p-font-size-min) * 1rem) + (var(--p-font-size-max) - var(--p-font-size-min)) * ((100vw - (var(--breakpoint-large) * 1em)) / (var(--breakpoint-xlarge) - var(--breakpoint-large))));
-//  line-height: calc((var(--p-line-height-min) * 1em) + (var(--p-line-height-max) - var(--p-line-height-min)) * ((100vw - (var(--breakpoint-small) * 1em)) / (var(--breakpoint-large) - var(--breakpoint-small))));
-//}
 
 
 /* Link style
@@ -258,10 +251,10 @@ ul {
   margin-right: auto;
   max-width: var(--text-max-width);
 
-  @include media (">=tablet", "<desktop") {
+  @include media(">=tablet", "<desktop") {
     max-width: calc(38.5 * var(--text-base-size));
   }
-  @include media (">desktop") {
+  @include media(">desktop") {
     max-width: calc(42 * var(--text-base-size));
   }
 }
