@@ -12,10 +12,9 @@
 @import './settings';
 
 :root {
-  /**
-   * @tokens Colors
-   * @presenter Color
-   */
+  // ################################################################
+  //    COLORS
+  // ################################################################
   --color-primary: #000;
   --color-black: #000;
   --color-white: #fff;
@@ -61,7 +60,7 @@
 
   /* vf initial values */
   --heading-weight: 700;
-  --text-weight: $body-font-weight;
+  --text-weight: var(--body-font-weight);
   --text-width: 100;
   // --text-opticalsize: 16;
 
@@ -99,4 +98,53 @@
   --bq-line-height: 1.5;
   --bq-font-size-min: 2.7;
   --bq-font-size-max: 5;
+
+
+  // ################################################################
+  //    SHADOWS
+  // ################################################################
+  --default-box-shadow: none;
+  --default-text-shadow: none;
+
+
+  // ################################################################
+  //    STATES
+  // ################################################################
+  --selection-color: var(--color-white);
+  --selection-background-color: var(--color-pantone);
+  --placeholder-color: var(--color-black);
+
+
+
+  // ################################################################
+  //    GLOBALS
+  // ################################################################
+  --global-radius: 4px;
+
+
+  // ################################################################
+  //    SECTIONING
+  // ################################################################
+  --sectionMaxWidth: 1024px;
+
+
+
+  // ################################################################
+  //    TYPOGRAPHY SCALE & FONTS
+  // ################################################################
+  --baseline: 1.5;
+
+  --body-font-weight: 400;
+  --heading-font-weight: 700;
+  --kerning: normal; // auto (default), normal (enabled), none (disabled)
+  --body-font-color: var(--color-primary);
+  //$body-font-letter-spacing: normal;
+
+  // Fonts
+  --variable-font-family: 'Inter var', Helvetica, Roboto, Arial, sans-serif;
+  --variable-heading-font-family: 'Playfair Display', serif;
+  --body-font-family: 'Neue Haas Grotesk', Helvetica, Roboto, Arial, sans-serif;
+  --heading-font-family: 'BonVivantSerifBold', serif;
+
 }
+

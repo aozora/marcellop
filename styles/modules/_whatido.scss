@@ -30,7 +30,7 @@ $whatido-item-title-font-size-max: 3.45rem;
     padding: 0;
     color: var(--color-black);
     --text-weight: 700;
-    font-family: $heading-font-family;
+    font-family: var(--heading-font-family);
 
     @include fluid-type(font-size, map_get($breakpoints, phone), map_get($breakpoints, desktophd), $whatido-item-title-font-size-min, $whatido-item-title-font-size-max);
     @include fluid-type(line-height, map_get($breakpoints, phone), map_get($breakpoints, desktophd), $whatido-item-title-line-height-min, $whatido-item-title-line-height-max);
