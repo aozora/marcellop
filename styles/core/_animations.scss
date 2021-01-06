@@ -65,3 +65,21 @@
     clip-path: polygon(0% 0%, 100% 0%, 100% 50%, 100% 100%, 70% 100%, 30% 100%, 0% 100%, 0% 50%);
   }
 }
+
+
+// for typography animation
+
+.splitting {
+  display: block;
+  overflow: hidden;
+}
+
+.word {
+  display: inline-block;
+}
+
+.char {
+  position: relative;
+  display: inline-block;
+  will-change: transform;
+}
