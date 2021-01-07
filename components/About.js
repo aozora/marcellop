@@ -4,11 +4,17 @@ import PropTypes from 'prop-types';
 import Observer from '@researchgate/react-intersection-observer';
 import gsap from 'gsap';
 import { Image } from 'react-datocms';
+import { useAboutScrollTrigger } from '@/lib/motionHooks';
 
 const About = ({ about }) => {
   const isClient = typeof window !== 'undefined';
   // eslint-disable-next-line no-undef
-  const hasOSReducedMotion = isClient ? window.matchMedia('(prefers-reduced-motion: reduce)').matches : false;
+  const hasOSReducedMotion = isClient
+    ? window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    : false;
+
+  // activate gsap ScrollTrigger
+  useAboutScrollTrigger(about);
 
   const animateParagraph = (event, unobserve) => {
     if (event.isIntersecting && !hasOSReducedMotion) {
@@ -17,12 +23,16 @@ const About = ({ about }) => {
       // elements to animate
       const paragraph = event.target.querySelector('p');
       if (paragraph) {
-        gsap.to(paragraph, {
-          duration: 1,
-          autoAlpha: 1,
-          y: 0,
-          ease: 'circ.out'
-        }, 1);
+        gsap.to(
+          paragraph,
+          {
+            duration: 1,
+            autoAlpha: 1,
+            y: 0,
+            ease: 'circ.out'
+          },
+          1
+        );
       }
     }
   };
@@ -37,7 +47,7 @@ const About = ({ about }) => {
         entries[index].style.transform = 'matrix(1, 0, 0, 1, 0, 40)';
       }
     }
-  }, []);
+  }, [hasOSReducedMotion, isClient]);
 
   return (
     <section className="about">
@@ -46,7 +56,10 @@ const About = ({ about }) => {
 
         <Observer onChange={animateParagraph}>
           <div className="about__container__textblock-wrapper">
-            <p className="dropcap" dangerouslySetInnerHTML={{ __html: about.aboutDescription1 }} />
+            <p
+              className="dropcap"
+              dangerouslySetInnerHTML={{ __html: about.aboutDescription1 }}
+            />
           </div>
         </Observer>
         <Observer onChange={animateParagraph}>
