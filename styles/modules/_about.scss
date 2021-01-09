@@ -43,50 +43,29 @@
     }
   }
 
-  .image-wrapper {
-    //position: relative;
-    //overflow: hidden;
-    margin: calc(3 * var(--text-base-size)) 0 calc(3 * var(--text-base-size)) 0;
-    //transform: translateX(4rem);
-    padding: 0 0 0 calc(2 * var(--text-base-size));
+  .image-container {
+    overflow: hidden;
 
-    //&::after {
-    //  content: '';
-    //  position: absolute;
-    //  top: 0;
-    //  left: 0;
-    //  width: 100%;
-    //  height: 100%;
-    //  background-color: var(--color-black);
-    //  z-index: 2;
-    //  transform: translateX(0);
-    //  transition: transform .55s linear;
-    //}
+    @include media(">=tablet") {
+      grid-area: figure;
+      margin: 0;
+      padding: 0;
+    }
+  }
+
+  .image-wrapper {
+    margin: calc(3 * var(--text-base-size)) 0 calc(3 * var(--text-base-size)) 0;
+    padding: 0 0 0 calc(2 * var(--text-base-size));
 
     img {
       max-width: 630px;
       margin: 0 auto;
       object-fit: cover;
-      //transition: transform 3s ease-in-out;
-      //transform: scale(1.2);
       clip-path: polygon(0% 4.43%, 24.53% 0.5%, 47.1% 4.64%, 73.96% 2.89%, 100% 4.89%, 100.00% 96.68%, 73.53% 100%, 46.73% 95.15%, 21.78% 100%, 0% 95.36%)
     }
 
-    //&.animated {
-    //  &::after {
-    //    transform: translateX(100%);
-    //  }
-    //
-    //  img {
-    //    transform: scale(1);
-    //  }
-    //}
-
     @include media(">=tablet") {
-      grid-area: figure;
-      //justify-self: center;
-      //align-self: center;
-      //transform: none;
+      //grid-area: figure;
       margin: calc(3 * var(--text-base-size)) 0;
       padding: 0;
     }

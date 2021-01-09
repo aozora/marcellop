@@ -68,12 +68,14 @@ const About = ({ about }) => {
           </div>
         </Observer>
 
-        <Image
-          className="image-wrapper"
-          data={{
-            ...about.aboutPicture.responsiveImage
-          }}
-        />
+        <div className="image-container">
+          <Image
+            className="image-wrapper"
+            data={{
+              ...about.aboutPicture.responsiveImage
+            }}
+          />
+        </div>
 
         <Observer onChange={animateParagraph}>
           <div className="about__container__textblock-wrapper">

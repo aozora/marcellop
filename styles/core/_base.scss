@@ -30,7 +30,7 @@ body {
 html {
   height: 100%;
   font-size: 112.5%;
-  scroll-behavior: smooth; // this conflicts with GSAP ScrollToPlugin
+  scroll-behavior: smooth;
 
   // Use smooth scrolling for anchor links—but not if the reduce motion accessibility preference is enabled
   @media (prefers-reduced-motion: reduce) {
