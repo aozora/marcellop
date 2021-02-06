@@ -61,12 +61,8 @@ export default function Footer() {
           NextJs
         </a>
         &nbsp;and hosted on&nbsp;
-        <a
-          target="_blank"
-          rel="noopener noreferrer"
-          href="https://www.netlify.com/"
-        >
-          Netlify
+        <a target="_blank" rel="noopener noreferrer" href="https://vercel.com/">
+          Vercel
         </a>
         . The source code is hosted on&nbsp;
         <a
