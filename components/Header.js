@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect, useCallback, useMemo } from 'react';
 import { useRouter } from 'next/router';
 
 const Header = (menu, showMenu = true) => {
@@ -8,16 +8,16 @@ const Header = (menu, showMenu = true) => {
   const [showMobileMenu, setShowMobileMenu] = useState(false);
   const isClient = typeof window !== 'undefined';
 
-  const isMobile = () => {
+  const isMobile = useCallback(() => {
     if (isClient) {
       // eslint-disable-next-line no-undef
       return window.matchMedia('(max-width: 768px)').matches;
     }
 
     return false;
-  };
+  }, [isClient]);
 
-  const isHome = () => router.pathname === '/';
+  const isHome = useMemo(() => router.pathname === '/', [router.pathname]);
 
   /**
    * Toggle the mobile menu
@@ -64,7 +64,7 @@ const Header = (menu, showMenu = true) => {
       menuElement.setAttribute('tabindex', '-1');
       menuElement.setAttribute('aria-labelledby', 'menu__toggle');
     }
-  }, []);
+  }, [isMobile, isClient]);
 
   return (
     // eslint-disable-next-line react/jsx-filename-extension

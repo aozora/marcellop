@@ -1,5 +1,5 @@
 /* eslint-disable react/no-danger */
-import React, { useEffect } from 'react';
+import React, { useCallback, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import Observer from '@researchgate/react-intersection-observer';
 import gsap from 'gsap';
@@ -16,26 +16,29 @@ const About = ({ about }) => {
   // activate gsap ScrollTrigger
   useAboutScrollTrigger(about);
 
-  const animateParagraph = (event, unobserve) => {
-    if (event.isIntersecting && !hasOSReducedMotion) {
-      unobserve(); // observe only once
+  const animateParagraph = useCallback(
+    (event, unobserve) => {
+      if (event.isIntersecting && !hasOSReducedMotion) {
+        unobserve(); // observe only once
 
-      // elements to animate
-      const paragraph = event.target.querySelector('p');
-      if (paragraph) {
-        gsap.to(
-          paragraph,
-          {
-            duration: 1,
-            autoAlpha: 1,
-            y: 0,
-            ease: 'circ.out'
-          },
-          1
-        );
+        // elements to animate
+        const paragraph = event.target.querySelector('p');
+        if (paragraph) {
+          gsap.to(
+            paragraph,
+            {
+              duration: 1,
+              autoAlpha: 1,
+              y: 0,
+              ease: 'circ.out'
+            },
+            1
+          );
+        }
       }
-    }
-  };
+    },
+    [hasOSReducedMotion]
+  );
 
   useEffect(() => {
     if (!hasOSReducedMotion && isClient) {
