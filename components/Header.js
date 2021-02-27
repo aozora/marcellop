@@ -70,7 +70,7 @@ const Header = (menu, showMenu = true) => {
     // eslint-disable-next-line react/jsx-filename-extension
     <header
       id="header"
-      className={`header ${isHome() ? 'header--home' : ''} ${
+      className={`header ${isHome ? 'header--home' : ''} ${
         showMobileMenu ? 'header--menu-open' : ''
       }`}
     >
@@ -114,7 +114,7 @@ const Header = (menu, showMenu = true) => {
         </button>
       )}
 
-      {!isHome() && (
+      {!isHome && (
         <div aria-hidden="true" className="menu__title">
           <span aria-hidden="true">MP</span>
           <span>Marcello Palmitessa</span>
