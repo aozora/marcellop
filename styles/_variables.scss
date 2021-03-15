@@ -18,7 +18,7 @@
   --color-primary: #000;
   --color-black: #000;
   --color-white: #fff;
-  // PANTONE Color of the Year 2017
+  // PANTONE Color of the Year 2018
   // https://www.pantone.com/color-intelligence/color-of-the-year/color-of-the-year-2018-tools-for-designers
   --color-pantone: #5F4B8B;
 
@@ -134,7 +134,7 @@
   // ################################################################
   --baseline: 1.5;
 
-  --body-font-weight: 400;
+  --body-font-weight: 500;
   --heading-font-weight: 700;
   --kerning: normal; // auto (default), normal (enabled), none (disabled)
   --body-font-color: var(--color-primary);
@@ -143,7 +143,7 @@
   // Fonts
   --variable-font-family: 'Inter var', Helvetica, Roboto, Arial, sans-serif;
   --variable-heading-font-family: 'Playfair Display', serif;
-  --body-font-family: 'Neue Haas Grotesk', Helvetica, Roboto, Arial, sans-serif;
+  --body-font-family: 'MuseoSans', Helvetica, Roboto, Arial, sans-serif;
   --heading-font-family: 'BonVivantSerifBold', serif;
 
 }
