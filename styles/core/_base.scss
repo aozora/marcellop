@@ -218,7 +218,12 @@ p.initial:first-of-type::first-line {
 
 /* Link style
   ============== */
-a {
+
+// We qualify elements with the :not pseudo class because if you have a link that’s supposed
+// to look like a button that has a .button class on it, you don’t want global link styling
+// to get in the way of the styling that .button generates,
+// https://piccalil.li/tutorial/improve-the-readability-of-the-content-on-your-website
+a:not([class]) {
   transition: all 0.3s ease;
 
   &:link {
