@@ -49,15 +49,6 @@
 }
 
 .post__body {
-  //h1 {
-  //  margin-bottom: calc(1 * var(--text-base-size));
-  //}
-
-  h2,
-  h3 {
-    //margin: calc(2 * var(--text-base-size)) 0;
-  }
-
   h2 {
     padding: .5rem calc(1 * var(--text-base-size));
     background-color: var(--color-black);
@@ -73,6 +64,9 @@
     overflow-wrap: break-word;
   }
 
+  video {
+    width: 100%;
+  }
 }
 
 
