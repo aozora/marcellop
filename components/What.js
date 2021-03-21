@@ -25,8 +25,8 @@ const What = ({ whatido }) => {
             scrollTrigger: {
               trigger: item,
               start: 'top bottom-=100px', // when the top of the trigger hits the bottom of the viewport
-              end: 'bottom center', // end when the bottom of the trigger hits the top of the viewport
-              markers: true
+              end: 'bottom center' // end when the bottom of the trigger hits the top of the viewport
+              // markers: true
             }
           }
         );
