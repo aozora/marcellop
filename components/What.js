@@ -9,30 +9,28 @@ const What = ({ whatido }) => {
     if (itemsRef.current) {
       const items = itemsRef.current.querySelectorAll('li');
 
-      gsap.fromTo(
-        [items],
-        {
-          autoAlpha: 0,
-          y: '150%'
-        },
-        {
-          duration: 1,
-          autoAlpha: 1,
-          y: 0,
-          stagger: 0.5,
-          ease: 'circ.out',
-          scrollTrigger: {
-            trigger: itemsRef.current,
-            start: 'top center', // when the top of the trigger hits the bottom of the viewport
-            end: 'bottom center', // end when the bottom of the trigger hits the top of the viewport
-            // toggleClass: {
-            //   targets: 'body',
-            //   className: 'theme-dark'
-            // }
-            markers: true
+      items.forEach(item => {
+        gsap.fromTo(
+          item,
+          {
+            autoAlpha: 0,
+            y: '150%'
+          },
+          {
+            duration: 1,
+            autoAlpha: 1,
+            y: 0,
+            stagger: 0.5,
+            ease: 'circ.out',
+            scrollTrigger: {
+              trigger: item,
+              start: 'top bottom-=100px', // when the top of the trigger hits the bottom of the viewport
+              end: 'bottom center', // end when the bottom of the trigger hits the top of the viewport
+              markers: true
+            }
           }
-        }
-      );
+        );
+      });
     }
   }, []);
 
