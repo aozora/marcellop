@@ -15,6 +15,7 @@
   "scripts": {
     "dev": "next",
     "build": "next build",
+    "postbuild": "next-sitemap",
     "export": "next export",
     "deploy": "npm run build && npm run export",
     "start": "next start",
@@ -64,6 +65,7 @@
     "eslint-plugin-react": "^7.20.6",
     "eslint-plugin-react-hooks": "^4.1.0",
     "jest": "^26.4.0",
+    "next-sitemap": "^1.6.3",
     "postcss-flexbugs-fixes": "^5.0.2",
     "postcss-preset-env": "^6.7.0",
     "prettier": "^2.0.5",
