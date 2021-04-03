@@ -16,12 +16,30 @@ $whatido-item-title-font-size-max: 3.45rem;
 
   ul {
     list-style-type: none;
+    display: grid;
+    grid-template-columns: repeat(6,1fr);
+    grid-template-rows: auto;
+    gap: 1rem;
     width: 100%;
     max-width: none;
     margin: 0;
     padding: 0 1rem;
+    overflow: hidden;
   }
 
+  li {
+    width: 100%;
+    grid-column: 1/6;
+    margin-bottom: 3rem;
+    overflow: hidden;
+
+    // this is overriden by each li in the template to "randomize" the horizontal alignment
+    //--whatido-justify: flex-end;
+
+    //display: flex;
+    //flex-wrap: wrap;
+    //justify-content: var(--whatido-justify);
+  }
   .whatido__title {
     position: relative;
     width: 100%;
@@ -30,7 +48,7 @@ $whatido-item-title-font-size-max: 3.45rem;
     padding: 0;
     color: var(--color-black);
     --text-weight: 700;
-    font-family: var(--heading-font-family);
+    font-family: var(--body-font-family);
 
     @include fluid-type(font-size, map_get($breakpoints, phone), map_get($breakpoints, desktophd), $whatido-item-title-font-size-min, $whatido-item-title-font-size-max);
     @include fluid-type(line-height, map_get($breakpoints, phone), map_get($breakpoints, desktophd), $whatido-item-title-line-height-min, $whatido-item-title-line-height-max);
@@ -49,44 +67,13 @@ $whatido-item-title-font-size-max: 3.45rem;
     width: 100%;
     max-width: 570px;
     margin: 0;
-    padding: 1rem 0;
+    padding: 0 0 1rem 0;
     color: var(--color-black);
     z-index: 1;
     transition: clip-path 1.5s ease;
   }
 
 
-  li {
-    // this is overriden by each li in the template to "randomize" the horizontal alignment
-    --whatido-justify: flex-end;
-
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: var(--whatido-justify);
-    margin-bottom: 3rem;
-    //
-    //@include media('>=tablet') {
-    //  &:nth-child(even) {
-    //    .whatido__description {
-    //      clip-path: polygon(3.33% -0.48%, 97.02% -0.47%, 100% 50%, 94.74% 100%, 63.51% 92.38%, 30% 100%, 3.51% 95.71%, 0% 50%);
-    //
-    //      &:hover {
-    //        clip-path: polygon(0% 0%, 100% 0%, 100% 50%, 100% 100%, 70% 100%, 30% 100%, 0% 100%, 0% 50%);
-    //      }
-    //    }
-    //  }
-    //
-    //  &:nth-child(odd) {
-    //    .whatido__description {
-    //      clip-path: polygon(0% 0%, 100% 0%, 96.14% 69.04%, 99.48% 99.53%, 81.05% 92.38%, 36.49% 100.00%, 1.75% 91.9%, 3.16% 49.52%);
-    //
-    //      &:hover {
-    //        clip-path: polygon(0% 0%, 100% 0%, 100% 50%, 100% 100%, 70% 100%, 30% 100%, 0% 100%, 0% 50%);
-    //      }
-    //    }
-    //  }
-    //}
-  }
 
 }
 

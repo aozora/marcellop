@@ -76,7 +76,16 @@ export default function Post({ /* preview, site, menu, */ post }) {
             <div
               className="post__body"
               dangerouslySetInnerHTML={{
-                __html: sanitizeHtml(post.body)
+                __html: sanitizeHtml(post.body, {
+                  allowedTags: sanitizeHtml.defaults.allowedTags.concat([
+                    'img',
+                    'video'
+                  ]),
+                  allowedAttributes: {
+                    ...sanitizeHtml.defaults.allowedAttributes,
+                    video: ['src', 'controls']
+                  }
+                })
               }}
             />
 

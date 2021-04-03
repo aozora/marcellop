@@ -14,7 +14,7 @@
 
     a {
       font-weight: 400;
-      font-family: 'BonVivantSerif', serif;
+      font-family: var(--heading-font-family);
       font-size: inherit;
       line-height: inherit;
       text-decoration: none;

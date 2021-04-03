@@ -1,19 +1,36 @@
-import React, { useCallback } from 'react';
+import React, { useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
+import gsap from 'gsap';
 
 const What = ({ whatido }) => {
-  const getRandomJustification = useCallback(() => {
-    const index = Math.floor(Math.random() * 3);
+  const itemsRef = useRef();
 
-    switch (index) {
-      case 2:
-        return 'flex-start';
-      case 1:
-        return 'flex-end';
-      case 0:
-        return 'center';
-      default:
-        return 'center';
+  useEffect(() => {
+    if (itemsRef.current) {
+      const items = itemsRef.current.querySelectorAll('li');
+
+      items.forEach(item => {
+        gsap.fromTo(
+          item,
+          {
+            autoAlpha: 0,
+            y: '150%'
+          },
+          {
+            duration: 1,
+            autoAlpha: 1,
+            y: 0,
+            stagger: 0.5,
+            ease: 'circ.out',
+            scrollTrigger: {
+              trigger: item,
+              start: 'top bottom-=100px', // when the top of the trigger hits the bottom of the viewport
+              end: 'bottom center' // end when the bottom of the trigger hits the top of the viewport
+              // markers: true
+            }
+          }
+        );
+      });
     }
   }, []);
 
@@ -21,20 +38,13 @@ const What = ({ whatido }) => {
     <section id="whatido" className="whatido">
       <h2>{whatido.heading}</h2>
 
-      <ul className="whatido__items">
+      <ul ref={itemsRef} className="whatido__items">
         {whatido &&
           whatido.items &&
           whatido.items.map(item => (
-            <li
-              key={item.title}
-              style={{ '--whatido-justify': getRandomJustification() }}
-            >
+            <li key={item.title}>
               <p className="whatido__title">{item.title}</p>
-              {/* eslint-disable-next-line react/no-danger */}
-              <div
-                className="whatido__description"
-                dangerouslySetInnerHTML={{ __html: item.description }}
-              />
+              <p className="whatido__description">{item.description}</p>
             </li>
           ))}
       </ul>
