@@ -60,12 +60,34 @@
     font-weight: 700;
   }
 
-  p a{
+  p a {
     overflow-wrap: break-word;
   }
 
   video {
     width: 100%;
+  }
+
+  pre {
+    padding: 1em .8em 1em;
+    margin: 2rem 0;
+    overflow: auto;
+    color: #fff;
+    background: #000;
+    //background-size: auto;
+    //background-size: 1em 1em;
+  }
+
+  code {
+    font-family: monospace;
+    font-size: .85rem;
+    text-align: left;
+    white-space: pre;
+    word-spacing: normal;
+    word-break: normal;
+    word-wrap: normal;
+    line-height: 1.5;
+    hyphens: none;
   }
 }
 
