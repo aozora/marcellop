@@ -2,6 +2,9 @@
 import { useRouter } from 'next/router';
 import ErrorPage from 'next/error';
 import { Image } from 'react-datocms';
+import highlight from 'highlight.js/lib/core';
+import javascript from 'highlight.js/lib/languages/javascript';
+import 'highlight.js/styles/darcula.css';
 import {
   getAllMenu,
   getAllPosts,
@@ -9,15 +12,25 @@ import {
   getPostBySlug,
   getSiteData
 } from '@/lib/api';
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import {
   getPublishedDateFormatted,
   getPublishedDateShort
 } from '@/lib/helpers';
 import sanitizeHtml from 'sanitize-html';
 
+highlight.registerLanguage('javascript', javascript);
+
 export default function Post({ /* preview, site, menu, */ post }) {
   const router = useRouter();
+  const postRef = useRef();
+  const isClient = typeof window !== 'undefined' && window.addEventListener;
+
+  useEffect(() => {
+    if (isClient && postRef.current) {
+      highlight.highlightAll();
+    }
+  }, [isClient]);
 
   if (!router.isFallback && !post?.slug) {
     return <ErrorPage statusCode={404} />;
@@ -30,6 +43,7 @@ export default function Post({ /* preview, site, menu, */ post }) {
       ) : (
         <>
           <article
+            ref={postRef}
             aria-labelledby={`aria-article-${post.id}`}
             className="post"
             itemScope
@@ -73,19 +87,28 @@ export default function Post({ /* preview, site, menu, */ post }) {
             )}
 
             {/* eslint-disable-next-line react/no-danger */}
+            {/* <div */}
+            {/*  className="post__body" */}
+            {/*  dangerouslySetInnerHTML={{ */}
+            {/*    __html: sanitizeHtml(post.body, { */}
+            {/*      allowedTags: sanitizeHtml.defaults.allowedTags.concat([ */}
+            {/*        'img', */}
+            {/*        'video', */}
+            {/*        'pre', */}
+            {/*        'code' */}
+            {/*      ]), */}
+            {/*      allowedAttributes: { */}
+            {/*        ...sanitizeHtml.defaults.allowedAttributes, */}
+            {/*        video: ['src', 'controls'], */}
+            {/*        code: ['class'] */}
+            {/*      } */}
+            {/*    }) */}
+            {/*  }} */}
+            {/* /> */}
             <div
               className="post__body"
               dangerouslySetInnerHTML={{
-                __html: sanitizeHtml(post.body, {
-                  allowedTags: sanitizeHtml.defaults.allowedTags.concat([
-                    'img',
-                    'video'
-                  ]),
-                  allowedAttributes: {
-                    ...sanitizeHtml.defaults.allowedAttributes,
-                    video: ['src', 'controls']
-                  }
-                })
+                __html: post.body
               }}
             />
 
