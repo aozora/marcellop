@@ -1,7 +1,7 @@
 /* eslint-disable react/no-danger */
 import { useRouter } from 'next/router';
 import ErrorPage from 'next/error';
-import { Image } from 'react-datocms';
+import { Image, StructuredText } from 'react-datocms';
 import highlight from 'highlight.js/lib/core';
 import javascript from 'highlight.js/lib/languages/javascript';
 import 'highlight.js/styles/darcula.css';
@@ -105,12 +105,30 @@ export default function Post({ /* preview, site, menu, */ post }) {
             {/*    }) */}
             {/*  }} */}
             {/* /> */}
-            <div
-              className="post__body"
-              dangerouslySetInnerHTML={{
-                __html: post.body
-              }}
-            />
+
+            {/* <div */}
+            {/*  className="post__body" */}
+            {/*  dangerouslySetInnerHTML={{ */}
+            {/*    __html: post.body */}
+            {/*  }} */}
+            {/* /> */}
+
+            <div className="post__body">
+              <StructuredText
+                data={post.body2}
+                renderBlock={({ record }) => {
+                  switch (record.__typename) {
+                    case 'ImageBlockRecord':
+                      return <Image data={record.image.responsiveImage} />;
+                    case 'VideoBlockRecord':
+                      // eslint-disable-next-line jsx-a11y/media-has-caption
+                      return <video controls src={record.video.url} />;
+                    default:
+                      return null;
+                  }
+                }}
+              />
+            </div>
 
             <footer>
               <br />
