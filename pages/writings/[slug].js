@@ -134,7 +134,8 @@ export async function getStaticProps({ params, preview = false }) {
       preview,
       site,
       menu,
-      post: data.post
+      post: data.post,
+      page: data.post
     }
   };
 }

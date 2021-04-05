@@ -1,8 +1,5 @@
 import React from 'react';
 import Layout from '@/components/layout';
-import Head from 'next/head';
-import { AnimatePresence } from 'framer-motion';
-import { CMS_NAME } from '@/lib/constants';
 
 // app styles
 import '@/styles/fonts.css';
@@ -16,10 +13,6 @@ function MyApp({ Component, pageProps, router }) {
       menu={pageProps.menu}
       preview={pageProps.preview}
     >
-      <Head>
-        <title>{CMS_NAME}</title>
-      </Head>
-
       {/* <AnimatePresence exitBeforeEnter> */}
       {/* eslint-disable-next-line react/jsx-props-no-spreading */}
       <Component {...pageProps} key={router.route} />
