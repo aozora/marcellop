@@ -1,9 +1,9 @@
-$whatido-item-title-line-height-min: 1.5em; // use 'em' otherwise the fluid-type mixin doesn't work
-$whatido-item-title-line-height-max: 1.5em;
-$whatido-item-title-font-size-min: 2rem;
-$whatido-item-title-font-size-max: 3.45rem;
-
 .whatido {
+  --whatido-item-title-line-height-min: 1.5em; // use 'em' otherwise the fluid-type mixin doesn't work
+  --whatido-item-title-line-height-max: 1.5em;
+  --whatido-item-title-font-size-min: 2rem;
+  --whatido-item-title-font-size-max: 3.45rem;
+
   @include container;
   margin-bottom: 5rem;
   padding-top: calc(3 * var(--text-base-size));
@@ -17,7 +17,7 @@ $whatido-item-title-font-size-max: 3.45rem;
   ul {
     list-style-type: none;
     display: grid;
-    grid-template-columns: repeat(6,1fr);
+    grid-template-columns: repeat(6, 1fr);
     grid-template-rows: auto;
     gap: 1rem;
     width: 100%;
@@ -32,14 +32,8 @@ $whatido-item-title-font-size-max: 3.45rem;
     grid-column: 1/6;
     margin-bottom: 3rem;
     overflow: hidden;
-
-    // this is overriden by each li in the template to "randomize" the horizontal alignment
-    //--whatido-justify: flex-end;
-
-    //display: flex;
-    //flex-wrap: wrap;
-    //justify-content: var(--whatido-justify);
   }
+
   .whatido__title {
     position: relative;
     width: 100%;
@@ -50,8 +44,8 @@ $whatido-item-title-font-size-max: 3.45rem;
     --text-weight: 700;
     font-family: var(--body-font-family);
 
-    @include fluid-type(font-size, map_get($breakpoints, phone), map_get($breakpoints, desktophd), $whatido-item-title-font-size-min, $whatido-item-title-font-size-max);
-    @include fluid-type(line-height, map_get($breakpoints, phone), map_get($breakpoints, desktophd), $whatido-item-title-line-height-min, $whatido-item-title-line-height-max);
+    font-size: clamp(var(--whatido-item-title-font-size-min), 5vw, var(--whatido-item-title-font-size-max));
+    line-height: var(--whatido-item-title-line-height-min);
     text-transform: capitalize;
     z-index: 2;
 
@@ -72,8 +66,5 @@ $whatido-item-title-font-size-max: 3.45rem;
     z-index: 1;
     transition: clip-path 1.5s ease;
   }
-
-
-
 }
 

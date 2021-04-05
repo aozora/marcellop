@@ -126,56 +126,56 @@
   }
 }
 
-
-// =========================================================================
 //
-//  PRECISE CONTROL OVER RESPONSIVE TYPOGRAPHY FOR SASS
-//  ---------------------------------------------------
-//  Indrek Paas @indrekpaas
+//// =========================================================================
+////
+////  PRECISE CONTROL OVER RESPONSIVE TYPOGRAPHY FOR SASS
+////  ---------------------------------------------------
+////  Indrek Paas @indrekpaas
+////
+////  Inspired by Mike Riethmuller's Precise control over responsive typography
+////  http://madebymike.com.au/writing/precise-control-responsive-typography/
+////
+////  `strip-unit()` function by Hugo Giraudel
+////  https://css-tricks.com/snippets/sass/strip-unit-function/
+////
+////  02.04.2018 Remove `screen` keyword from media queries
+////  11.08.2016 Remove redundant `&` self-reference
+////  31.03.2016 Remove redundant parenthesis from output
+////  02.10.2015 Add support for multiple properties
+////  24.04.2015 Initial release
+////
+//// // Examples
+//// /* Single property */
+//// html {
+////   @include fluid-type(font-size, 320px, 1366px, 14px, 18px);
+//// }
+////
+//// /* Multiple properties with same values */
+//// h1 {
+////   @include fluid-type(padding-bottom padding-top, 20em, 70em, 2em, 4em);
+//// }
+//// =========================================================================
 //
-//  Inspired by Mike Riethmuller's Precise control over responsive typography
-//  http://madebymike.com.au/writing/precise-control-responsive-typography/
+//@mixin fluid-type($properties, $min-vw, $max-vw, $min-value, $max-value) {
+//  & {
+//    @each $property in $properties {
+//      #{$property}: $min-value;
+//    }
 //
-//  `strip-unit()` function by Hugo Giraudel
-//  https://css-tricks.com/snippets/sass/strip-unit-function/
+//    @media (min-width: $min-vw) {
+//      @each $property in $properties {
+//        #{$property}: calc(#{$min-value} + #{strip-unit($max-value - $min-value)} * ((100vw - #{$min-vw}) / #{strip-unit($max-vw - $min-vw)}));
+//      }
+//    }
 //
-//  02.04.2018 Remove `screen` keyword from media queries
-//  11.08.2016 Remove redundant `&` self-reference
-//  31.03.2016 Remove redundant parenthesis from output
-//  02.10.2015 Add support for multiple properties
-//  24.04.2015 Initial release
-//
-// // Examples
-// /* Single property */
-// html {
-//   @include fluid-type(font-size, 320px, 1366px, 14px, 18px);
-// }
-//
-// /* Multiple properties with same values */
-// h1 {
-//   @include fluid-type(padding-bottom padding-top, 20em, 70em, 2em, 4em);
-// }
-// =========================================================================
-
-@mixin fluid-type($properties, $min-vw, $max-vw, $min-value, $max-value) {
-  & {
-    @each $property in $properties {
-      #{$property}: $min-value;
-    }
-
-    @media (min-width: $min-vw) {
-      @each $property in $properties {
-        #{$property}: calc(#{$min-value} + #{strip-unit($max-value - $min-value)} * ((100vw - #{$min-vw}) / #{strip-unit($max-vw - $min-vw)}));
-      }
-    }
-
-    @media (min-width: $max-vw) {
-      @each $property in $properties {
-        #{$property}: $max-value;
-      }
-    }
-  }
-}
+//    @media (min-width: $max-vw) {
+//      @each $property in $properties {
+//        #{$property}: $max-value;
+//      }
+//    }
+//  }
+//}
 
 
 /// Checks the luminance of `$color`.
