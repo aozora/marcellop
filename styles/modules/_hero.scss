@@ -1,22 +1,25 @@
-$hero-hi-line-height-min: 1.5em; // use 'em' otherwise the fluid-type mixin doesn't work
-$hero-hi-line-height-max: 1.5em;
-$hero-hi-font-size-min: 1.8rem;
-$hero-hi-font-size-max: 2.18rem;
-
-$hero-h1-line-height-min: 1.1em; // use 'em' otherwise the fluid-type mixin doesn't work
-$hero-h1-line-height-max: 1.1em;
-$hero-h1-font-size-min: 3rem;
-$hero-h1-font-size-max: 5.81rem;
-
-$hero-weight: 900;
-$hero-slant: 2.73;
-
-$hero-p-line-height-min: 1.5em; // use 'em' otherwise the fluid-type mixin doesn't work
-$hero-p-line-height-max: 1.5em;
-$hero-p-font-size-min: 1.388rem;
-$hero-p-font-size-max: 1.81rem;
-
 .hero {
+  // use 'em' otherwise the fluid-type mixin doesn't work
+  --hero-hi-line-height-min: 1.5em;
+  --hero-hi-line-height-max: 1.5em;
+  --hero-hi-font-size-min: 1.8rem;
+  --hero-hi-font-size-max: 2.18rem;
+
+  // use 'em' otherwise the fluid-type mixin doesn't work
+  --hero-h1-line-height-min: 1.1em;
+  --hero-h1-line-height-max: 1.1em;
+
+  --hero-h1-font-size-min: 2.6rem;
+  --hero-h1-font-size-max: 5.81rem;
+
+  --hero-weight: 900;
+  --hero-slant: 2.73;
+
+  --hero-p-line-height-min: 1.5em; // use 'em' otherwise the fluid-type mixin doesn't work
+  --hero-p-line-height-max: 1.5em;
+  --hero-p-font-size-min: 1.388rem;
+  --hero-p-font-size-max: 1.81rem;
+
   position: relative;
   display: block;
   @include container;
@@ -28,17 +31,16 @@ $hero-p-font-size-max: 1.81rem;
     display: none;
     width: 100%;
     max-width: none;
-    //max-height: 28rem;
     margin: 0 0 .667rem 0;
     font-family: var(--heading-font-family);
 
-    --text-weight: $hero-weight;
+    --text-weight: var(--hero-weight);
     @if $use-variable-font-for-headings {
-      font-variation-settings: 'wght' $hero-weight, 'slnt' $hero-slant;
+      font-variation-settings: 'wght' var(--hero-weight), 'slnt' var(--hero-slant);
     }
 
-    @include fluid-type(font-size, map_get($breakpoints, phone), map_get($breakpoints, desktophd), $hero-hi-font-size-min, $hero-hi-font-size-max);
-    @include fluid-type(line-height, map_get($breakpoints, phone), map_get($breakpoints, desktophd), $hero-hi-line-height-min, $hero-hi-line-height-max);
+    font-size: clamp(var(--hero-hi-font-size-min), 8vw, var(--hero-hi-font-size-max));
+    line-height: var(--hero-hi-line-height-min);
 
     @include media(">=tablet") {
       display: block;
@@ -50,41 +52,20 @@ $hero-p-font-size-max: 1.81rem;
     max-height: 28rem;
     margin: 0 auto 2rem auto;
 
-    --text-weight: $hero-weight;
+    --text-weight: var(--hero-weight);
 
     @if $use-variable-font-for-headings {
-      font-variation-settings: 'wght' $hero-weight, 'slnt' $hero-slant;
+      font-variation-settings: 'wght' var(--hero-weight), 'slnt' var(--hero-slant);
     }
 
-    //font-size: calc((var(--hero-font-size-min) * 1rem) + (var(--hero-font-size-max) - var(--hero-font-size-min)) * ((100vw - (var(--breakpoint-small) * 1em)) / (((var(--breakpoint-xlarge) - var(--breakpoint-small)) * 1em))));
-    @include fluid-type(font-size, map_get($breakpoints, phone), map_get($breakpoints, desktophd), $hero-h1-font-size-min, $hero-h1-font-size-max);
-    @include fluid-type(line-height, map_get($breakpoints, phone), map_get($breakpoints, desktophd), $hero-h1-line-height-min, $hero-h1-line-height-max);
+    font-size: clamp(var(--hero-h1-font-size-min), 8vw, var(--hero-h1-font-size-max));
+    line-height: var(--hero-h1-line-height-min);
 
-    //mix-blend-mode: difference;
-    //color: var(--color-white);
     text-transform: uppercase;
 
-    //span {
-    //  display: block;
-    //}
-
-    //// simulate the text stroke for hollow text
-    //span:last-child {
-    //  //transform: translate3d(5rem, -11rem, 0);
-    //  color: var(--color-white);
-    //  text-shadow: -1px -1px 0 var(--color-black),
-    //  1px -1px 0 var(--color-black),
-    //  -1px 1px 0 var(--color-black),
-    //  1px 1px 0 var(--color-black);
-    //}
-    @include media("<=360px"){
+    @include media("<=360px") {
       font-size: 2.5rem;
     }
-
-
-    //@include media(">=tablet"){
-    //  margin: 0 0 2rem 3rem;
-    //}
   }
 
   p {
@@ -93,10 +74,9 @@ $hero-p-font-size-max: 1.81rem;
     align-items: flex-end;
     max-width: none;
     margin: 0 0 1rem 0;
-    //font-family: var(--heading-font-family);
 
-    @include fluid-type(font-size, map_get($breakpoints, phone), map_get($breakpoints, desktophd), $hero-p-font-size-min, $hero-p-font-size-max);
-    @include fluid-type(line-height, map_get($breakpoints, phone), map_get($breakpoints, desktophd), $hero-p-line-height-min, $hero-p-line-height-max);
+    font-size: clamp(var(--hero-p-font-size-min), 8vw, var(--hero-p-font-size-max));
+    line-height: var(--hero-p-line-height-min);
     --text-weight: 700;
     letter-spacing: var(--text-on-dark-letter-spacing);
 
@@ -111,7 +91,7 @@ $hero-p-font-size-max: 1.81rem;
       &:first-child {
         margin-right: 2rem;
 
-        @include media('<=360px'){
+        @include media('<=360px') {
           margin-right: .3rem;
         }
       }
