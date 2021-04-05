@@ -43,8 +43,6 @@ export async function getStaticProps({ preview = false }) {
   const menu = (await getAllMenu(preview)) || null;
   const site = (await getSiteData(preview)) || null;
 
-  console.log(page);
-
   await generateRSS(page);
 
   return {
