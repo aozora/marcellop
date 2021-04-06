@@ -5,19 +5,12 @@ import { Image, StructuredText } from 'react-datocms';
 import highlight from 'highlight.js/lib/core';
 import javascript from 'highlight.js/lib/languages/javascript';
 import 'highlight.js/styles/darcula.css';
-import {
-  getAllMenu,
-  getAllPosts,
-  // getAllPostsWithSlug,
-  getPostBySlug,
-  getSiteData
-} from '@/lib/api';
+import { getAllMenu, getAllPosts, getPostBySlug, getSiteData } from '@/lib/api';
 import React, { useEffect, useRef } from 'react';
 import {
   getPublishedDateFormatted,
   getPublishedDateShort
 } from '@/lib/helpers';
-import sanitizeHtml from 'sanitize-html';
 
 highlight.registerLanguage('javascript', javascript);
 
@@ -117,9 +110,16 @@ export default function Post({ /* preview, site, menu, */ post }) {
               <StructuredText
                 data={post.body2}
                 renderBlock={({ record }) => {
+                  // eslint-disable-next-line no-underscore-dangle
                   switch (record.__typename) {
                     case 'ImageBlockRecord':
-                      return <Image data={record.image.responsiveImage} />;
+                      return (
+                        <Image
+                          data={{
+                            ...record.image.responsiveImage
+                          }}
+                        />
+                      );
                     case 'VideoBlockRecord':
                       // eslint-disable-next-line jsx-a11y/media-has-caption
                       return <video controls src={record.video.url} />;
