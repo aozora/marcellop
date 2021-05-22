@@ -4,21 +4,9 @@ import Alert from './alert';
 import Footer from './Footer';
 import Meta from './meta';
 
-export default function Layout({ preview, children, site, page, menu }) {
+export default function Layout({ children }) {
   return (
     <>
-      <Meta
-        meta={
-          page && page.seo
-            ? page.seo.concat(site.favicon)
-            : site && site.favicon
-        }
-      />
-      <a href="#main" tabIndex="0">
-        Skip to main content
-      </a>
-      {preview && <Alert preview={preview} />}
-      <Header menu={menu} />
       <main id="main" role="main">
         {children}
       </main>
