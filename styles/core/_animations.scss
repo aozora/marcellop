@@ -83,3 +83,16 @@
   display: inline-block;
   will-change: transform;
 }
+
+// Page Transition
+.transition-overlay {
+  position: absolute;
+  visibility: hidden;
+  top: 0;
+  right: 0;
+  width: 1px;
+  height: 1px;
+  border-radius: 50%;
+  background-color: var(--color-pantone);
+  z-index: 110;
+}

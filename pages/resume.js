@@ -2,18 +2,24 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { getSiteData, getAllResumeJobs, getAllMenu } from '@/lib/api';
 import Job from '@/components/Job';
-import { motionVariants } from '@/lib/helpers';
 import { useRouter } from 'next/router';
+import { pageMotionVariants } from '@/lib/motionShared';
 
 export default function Resume({ site, page, menu }) {
   const router = useRouter();
   return (
     <motion.section
       key={router.route}
-      initial="pageInitial"
-      animate="pageAnimate"
-      variants={motionVariants}
+      initial="initial"
+      animate="animate"
+      transition={{
+        duration: 0.3
+      }}
+      variants={pageMotionVariants}
       className="resume"
+      onAnimationComplete={definition => {
+        console.log('Completed animating', definition);
+      }}
     >
       <h1>Resume</h1>
 
