@@ -7,6 +7,7 @@ import Helmet from 'react-helmet';
 import { motion } from 'framer-motion';
 import { pageMotionVariants } from '@/lib/motionShared';
 import { useRouter } from 'next/router';
+import AppLoader from '@/components/AppLoader';
 
 export default function Index({ site, page, menu }) {
   const [heroData, setHeroData] = useState(undefined);
@@ -54,7 +55,8 @@ export default function Index({ site, page, menu }) {
       initial="initial"
       animate="animate"
       transition={{
-        duration: 0.3
+        duration: 0.3,
+        delayChildren: 2.5
       }}
       variants={pageMotionVariants}
       onAnimationComplete={definition => {
@@ -64,6 +66,8 @@ export default function Index({ site, page, menu }) {
       <Helmet>
         <body className={loaded ? 'home loaded' : 'home'} />
       </Helmet>
+
+      <AppLoader />
 
       {heroData && <Hero hero={heroData} />}
       {aboutData && <About about={aboutData} />}

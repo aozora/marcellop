@@ -29,13 +29,13 @@ function MyApp({ Component, pageProps, router }) {
       <Header menu={menu} />
 
       <AnimatePresence exitBeforeEnter initial={false}>
-        <motion.div
-          initial="initial"
-          animate="animate"
-          exit="exit"
-          variants={pageOverlayMotionVariants}
-          className="transition-overlay"
-        />
+        {/* <motion.div */}
+        {/*  initial="initial" */}
+        {/*  animate="animate" */}
+        {/*  exit="exit" */}
+        {/*  variants={pageOverlayMotionVariants} */}
+        {/*  className="transition-overlay" */}
+        {/* /> */}
         {/* eslint-disable-next-line react/jsx-props-no-spreading */}
         <Component {...pageProps} key={router.route} />
       </AnimatePresence>
