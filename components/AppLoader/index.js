@@ -1,15 +1,16 @@
 import { motion } from 'framer-motion';
 import styles from './AppLoader.module.scss';
 
+const loaderDelay = 2;
+
 const topHalfBoxVariants = {
   initial: {
-    // height: '65vh',
     top: 0
   },
   animate: {
     top: '-100%',
     transition: {
-      delay: 1,
+      delay: loaderDelay,
       duration: 1.5,
       ease: [0.87, 0, 0.13, 1]
     }
@@ -21,13 +22,12 @@ const topHalfBoxVariants = {
 
 const bottomHalfBoxVariants = {
   initial: {
-    // height: '60vh',
     bottom: 0
   },
   animate: {
     bottom: '-100%',
     transition: {
-      delay: 1,
+      delay: loaderDelay,
       duration: 1.5,
       ease: [0.87, 0, 0.13, 1]
     }
@@ -45,10 +45,12 @@ const AppLoader = () => {
         animate="animate"
         exit="exit"
         variants={topHalfBoxVariants}
-        onAnimationStart={() => document.body.classList.add('overflow-hidden')}
-        onAnimationComplete={() =>
-          document.body.classList.remove('overflow-hidden')
+        onAnimationStart={() =>
+          document.documentElement.classList.add('overflow-hidden')
         }
+        onAnimationComplete={() => {
+          document.documentElement.classList.remove('overflow-hidden');
+        }}
       />
       <motion.div
         initial="initial"

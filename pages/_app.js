@@ -1,20 +1,33 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Layout from '@/components/layout';
-
 // app styles
 import '@/styles/fonts.css';
 import '@/styles/app.scss';
 import Meta from '@/components/meta';
 import Alert from '@/components/alert';
-import Header from '@/components/Header';
-import { AnimateSharedLayout, AnimatePresence, motion } from 'framer-motion';
-import { pageOverlayMotionVariants } from '@/lib/motionShared';
+import { AnimatePresence } from 'framer-motion';
 
 function MyApp({ Component, pageProps, router }) {
   const { site, page, menu, preview } = pageProps;
+  const [isFirstMount, setIsFirstMount] = useState(true);
+
+  useEffect(() => {
+    const handleRouteChange = () => {
+      // eslint-disable-next-line no-unused-expressions
+      isFirstMount && setIsFirstMount(false);
+    };
+
+    router.events.on('routeChangeStart', handleRouteChange);
+
+    // If the component is unmounted, unsubscribe
+    // from the event with the `off` method:
+    return () => {
+      router.events.off('routeChangeStart', handleRouteChange);
+    };
+  }, [isFirstMount, router.events]);
 
   return (
-    <Layout>
+    <Layout menu={menu}>
       <Meta
         meta={
           page && page.seo
@@ -26,18 +39,13 @@ function MyApp({ Component, pageProps, router }) {
         Skip to main content
       </a>
       {preview && <Alert preview={preview} />}
-      <Header menu={menu} />
 
-      <AnimatePresence exitBeforeEnter initial={false}>
-        {/* <motion.div */}
-        {/*  initial="initial" */}
-        {/*  animate="animate" */}
-        {/*  exit="exit" */}
-        {/*  variants={pageOverlayMotionVariants} */}
-        {/*  className="transition-overlay" */}
-        {/* /> */}
-        {/* eslint-disable-next-line react/jsx-props-no-spreading */}
-        <Component {...pageProps} key={router.route} />
+      <AnimatePresence exitBeforeEnter>
+        <Component
+          {...pageProps}
+          isFirstMount={isFirstMount}
+          key={router.route}
+        />
       </AnimatePresence>
     </Layout>
   );

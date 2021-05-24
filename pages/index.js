@@ -5,15 +5,13 @@ import What from '@/components/What';
 import { getSiteData, getHomeData, getAllMenu } from '@/lib/api';
 import Helmet from 'react-helmet';
 import { motion } from 'framer-motion';
-import { pageMotionVariants } from '@/lib/motionShared';
 import { useRouter } from 'next/router';
 import AppLoader from '@/components/AppLoader';
 
-export default function Index({ site, page, menu }) {
+export default function Index({ isFirstMount, page }) {
   const [heroData, setHeroData] = useState(undefined);
   const [aboutData, setAboutData] = useState(undefined);
   const [whatido, setWhatido] = useState(undefined);
-  const router = useRouter();
   const [loaded, setLoaded] = useState(false);
   const isClient = typeof window !== 'undefined';
 
@@ -50,24 +48,12 @@ export default function Index({ site, page, menu }) {
   }, [page]);
 
   return (
-    <motion.div
-      key={router.route}
-      initial="initial"
-      animate="animate"
-      transition={{
-        duration: 0.3,
-        delayChildren: 2.5
-      }}
-      variants={pageMotionVariants}
-      onAnimationComplete={definition => {
-        console.log('Completed animating', definition);
-      }}
-    >
+    <motion.div exit={{ opacity: 0 }}>
+      {isFirstMount && <AppLoader />}
+
       <Helmet>
         <body className={loaded ? 'home loaded' : 'home'} />
       </Helmet>
-
-      <AppLoader />
 
       {heroData && <Hero hero={heroData} />}
       {aboutData && <About about={aboutData} />}

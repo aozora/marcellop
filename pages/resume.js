@@ -17,9 +17,6 @@ export default function Resume({ site, page, menu }) {
       }}
       variants={pageMotionVariants}
       className="resume"
-      onAnimationComplete={definition => {
-        console.log('Completed animating', definition);
-      }}
     >
       <h1>Resume</h1>
 

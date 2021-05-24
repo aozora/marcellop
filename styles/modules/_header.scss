@@ -23,9 +23,9 @@
 }
 
 .header {
-  //position: -webkit-sticky;
-  //position: sticky;
-  //top: 0;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
   display: grid;
   grid-template-columns: 2.667rem 1fr 1fr 2.667rem;
   grid-template-rows: $menu-height;
@@ -36,6 +36,8 @@
   height: $menu-height;
   margin: 0;
   padding: 0;
+  background-color: var(--color-white);
+  z-index: $menu-zindex;
 }
 
 /**
