@@ -17,8 +17,8 @@
       font-family: var(--heading-font-family);
       font-size: inherit;
       line-height: inherit;
-      text-decoration: none;
-      @include better-underline(var(--color-pantone));
+      //text-decoration: none;
+      //@include better-underline(var(--color-pantone));
     }
 
     .post__metadata {

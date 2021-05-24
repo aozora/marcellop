@@ -57,9 +57,9 @@
   }
 }
 
-@function strip-unit($value) {
-  @return $value / ($value * 0 + 1);
-}
+//@function strip-unit($value) {
+//  @return $value / ($value * 0 + 1);
+//}
 
 //@function rem-calc($px) {
 //  $value: strip-unit($px) / strip-unit(ms(0)) * 1rem;

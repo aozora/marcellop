@@ -226,18 +226,19 @@ p.initial:first-of-type::first-line {
 a:not([class]) {
   transition: all 0.3s ease;
 
+  &:visited,
   &:link {
     color: var(--color-primary);
     text-decoration: underline;
+    text-decoration-color: var(--color-pantone);
+    text-decoration-thickness: 0.2rem;
   }
 
-  &:visited {
-    color: var(--color-primary);
-    text-decoration: underline;
-  }
 
   &:hover {
-    color: var(--color-black);
+    //text-decoration-thickness: 0.5rem;
+    color: var(--color-white);
+    background-color: var(--color-pantone);;
   }
 
   > * {
