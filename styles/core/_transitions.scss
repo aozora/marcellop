@@ -1,20 +1,7 @@
-// NUXT TRANSITIONS
-.page-enter-active,
-.page-leave-active {
-  transition: opacity .5s;
-}
+.overflow-hidden {
+  overflow: hidden;
 
-.page-enter,
-.page-leave-to {
-  opacity: 0;
-}
-
-.fade-enter-active,
-.fade-leave-active {
-  transition: opacity .5s;
-}
-
-.fade-enter,
-.fade-leave-to {
-  opacity: 0;
+  //#header {
+  //  background-color: var(--color-black);
+  //}
 }

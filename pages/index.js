@@ -4,13 +4,14 @@ import About from '@/components/About';
 import What from '@/components/What';
 import { getSiteData, getHomeData, getAllMenu } from '@/lib/api';
 import Helmet from 'react-helmet';
-import { motionVariants } from '@/lib/helpers';
+import { motion } from 'framer-motion';
+import { useRouter } from 'next/router';
+import AppLoader from '@/components/AppLoader';
 
-export default function Index({ site, page, menu }) {
+export default function Index({ isFirstMount, page }) {
   const [heroData, setHeroData] = useState(undefined);
   const [aboutData, setAboutData] = useState(undefined);
   const [whatido, setWhatido] = useState(undefined);
-  // const router = useRouter();
   const [loaded, setLoaded] = useState(false);
   const isClient = typeof window !== 'undefined';
 
@@ -18,7 +19,7 @@ export default function Index({ site, page, menu }) {
     if (isClient) {
       setLoaded(true);
     }
-  });
+  }, [isClient]);
 
   useEffect(() => {
     if (page) {
@@ -47,7 +48,9 @@ export default function Index({ site, page, menu }) {
   }, [page]);
 
   return (
-    <>
+    <motion.div exit={{ opacity: 0 }}>
+      {isFirstMount && <AppLoader />}
+
       <Helmet>
         <body className={loaded ? 'home loaded' : 'home'} />
       </Helmet>
@@ -55,7 +58,7 @@ export default function Index({ site, page, menu }) {
       {heroData && <Hero hero={heroData} />}
       {aboutData && <About about={aboutData} />}
       {whatido && <What whatido={whatido} />}
-    </>
+    </motion.div>
   );
 }
 

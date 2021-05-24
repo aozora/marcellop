@@ -1,11 +1,23 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { getSiteData, getAllUses, getAllMenu } from '@/lib/api';
-import { motionVariants } from '@/lib/helpers';
+import { pageMotionVariants } from '@/lib/motionShared';
+import { useRouter } from 'next/router';
 
 export default function Uses({ site, page, menu }) {
+  const router = useRouter();
+
   return (
-    <section className="uses">
+    <motion.section
+      key={router.route}
+      initial="initial"
+      animate="animate"
+      transition={{
+        delay: 0.3
+      }}
+      variants={pageMotionVariants}
+      className="uses"
+    >
       <h1>Uses</h1>
       <p>
         Here the specifics of some piece of software or hardware I regularly
@@ -22,7 +34,7 @@ export default function Uses({ site, page, menu }) {
             />
           </article>
         ))}
-    </section>
+    </motion.section>
   );
 }
 
