@@ -16,7 +16,7 @@ export default function Index({ isFirstMount, page }) {
   const isClient = typeof window !== 'undefined';
 
   useEffect(() => {
-    if (isClient) {
+    if (isClient && !isFirstMount) {
       setLoaded(true);
     }
   }, [isClient]);
