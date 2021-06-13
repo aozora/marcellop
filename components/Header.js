@@ -2,6 +2,7 @@ import Link from 'next/link';
 import React, { useState, useEffect, useCallback, useMemo } from 'react';
 import { useRouter } from 'next/router';
 import { motion } from 'framer-motion';
+import gsap from 'gsap';
 
 const Header = (menu, showMenu = true) => {
   const router = useRouter();
@@ -9,7 +10,7 @@ const Header = (menu, showMenu = true) => {
   const [showMobileMenu, setShowMobileMenu] = useState(false);
   const isClient = typeof window !== 'undefined';
 
-  const isMobile = useCallback(() => {
+  const isMobile = useMemo(() => {
     if (isClient) {
       // eslint-disable-next-line no-undef
       return window.matchMedia('(max-width: 768px)').matches;
@@ -66,6 +67,27 @@ const Header = (menu, showMenu = true) => {
       menuElement.setAttribute('aria-labelledby', 'menu__toggle');
     }
   }, [isMobile, isClient]);
+
+  useEffect(() => {
+    if (isClient) {
+      gsap.fromTo(
+        '.header--home',
+        {
+          backgroundColor: '#fff'
+        },
+        {
+          backgroundColor: '#000',
+          scrollTrigger: {
+            trigger: '#about',
+            start: 'top top+=60px',
+            end: 'bottom top+=60px',
+            // className: 'header--dark',
+            markers: true
+          }
+        }
+      );
+    }
+  }, [isClient]);
 
   return (
     // eslint-disable-next-line react/jsx-filename-extension

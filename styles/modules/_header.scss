@@ -40,6 +40,14 @@
   z-index: $menu-zindex;
 }
 
+.header--dark {
+  background-color: var(--color-black);
+
+  .menu__items a {
+    color: var(--color-white);
+  }
+}
+
 /**
   Mobile Navigation
  */
