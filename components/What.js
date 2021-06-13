@@ -1,54 +1,77 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import gsap from 'gsap';
+// import { Image } from 'react-datocms';
+import Image from 'next/image';
 
 const What = ({ whatido }) => {
   const itemsRef = useRef();
+  const isClient = typeof window !== 'undefined';
 
   useEffect(() => {
-    if (itemsRef.current) {
-      const items = itemsRef.current.querySelectorAll('li');
+    if (!isClient) return;
 
-      items.forEach(item => {
-        gsap.fromTo(
-          item,
-          {
-            autoAlpha: 0,
-            y: '150%'
+    const slides = document.querySelectorAll('#whatido .whatido__item');
+
+    slides.forEach(slide => {
+      const imageWrappers = slide.querySelector('.image-wrapper');
+
+      gsap.fromTo(
+        imageWrappers,
+        {
+          y: '-30vh'
+        },
+        {
+          y: '30vh',
+          scrollTrigger: {
+            trigger: slide,
+            scrub: true,
+            start: 'top bottom' // position of trigger meets the scroller position
           },
-          {
-            duration: 1,
-            autoAlpha: 1,
-            y: 0,
-            stagger: 0.5,
-            ease: 'circ.out',
-            scrollTrigger: {
-              trigger: item,
-              start: 'top bottom-=100px', // when the top of the trigger hits the bottom of the viewport
-              end: 'bottom center' // end when the bottom of the trigger hits the top of the viewport
-              // markers: true
-            }
-          }
-        );
-      });
-    }
-  }, []);
+          ease: 'none'
+        }
+      );
+    });
+  }, [isClient]);
 
   return (
-    <section id="whatido" className="whatido">
+    <article id="whatido" className="whatido">
       <h2>{whatido.heading}</h2>
 
-      <ul ref={itemsRef} className="whatido__items">
+      <section ref={itemsRef} className="whatido__items">
         {whatido &&
           whatido.items &&
           whatido.items.map(item => (
-            <li key={item.title}>
-              <p className="whatido__title">{item.title}</p>
-              <p className="whatido__description">{item.description}</p>
-            </li>
+            <Fragment key={item.title}>
+              <div className="whatido__item">
+                <div className="whatido__item-container">
+                  <div className="whatido__item-content">
+                    <p className="whatido__title">{item.title}</p>
+                    <p className="whatido__description">{item.description}</p>
+                  </div>
+                  <figure>
+                    {/*  <Image */}
+                    {/*    lazyLoad={false} */}
+                    {/*    className="image-wrapper" */}
+                    {/*    data={{ */}
+                    {/*      ...item.cover.responsiveImage */}
+                    {/*    }} */}
+                    {/*  /> */}
+                    {item.cover && (
+                      <div className="image-wrapper">
+                        <img
+                          alt={item.cover.responsiveImage.alt}
+                          src={item.cover.responsiveImage.src}
+                        />
+                      </div>
+                    )}
+                  </figure>
+                </div>
+              </div>
+            </Fragment>
           ))}
-      </ul>
-    </section>
+      </section>
+    </article>
   );
 };
 
