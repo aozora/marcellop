@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from 'react';
+/* eslint-disable */
+import React from 'react';
 import Layout from '@/components/layout';
 // app styles
 import '@/styles/fonts.css';
@@ -9,22 +10,22 @@ import { AnimatePresence } from 'framer-motion';
 
 function MyApp({ Component, pageProps, router }) {
   const { site, page, menu, preview } = pageProps;
-  const [isFirstMount, setIsFirstMount] = useState(true);
+  // const [isFirstMount, setIsFirstMount] = useState(true);
 
-  useEffect(() => {
-    const handleRouteChange = () => {
-      // eslint-disable-next-line no-unused-expressions
-      isFirstMount && setIsFirstMount(false);
-    };
-
-    router.events.on('routeChangeStart', handleRouteChange);
-
-    // If the component is unmounted, unsubscribe
-    // from the event with the `off` method:
-    return () => {
-      router.events.off('routeChangeStart', handleRouteChange);
-    };
-  }, [isFirstMount, router.events]);
+  // useEffect(() => {
+  //   const handleRouteChange = () => {
+  //     // eslint-disable-next-line no-unused-expressions
+  //     isFirstMount && setIsFirstMount(false);
+  //   };
+  //
+  //   router.events.on('routeChangeStart', handleRouteChange);
+  //
+  //   // If the component is unmounted, unsubscribe
+  //   // from the event with the `off` method:
+  //   return () => {
+  //     router.events.off('routeChangeStart', handleRouteChange);
+  //   };
+  // }, [isFirstMount, router.events]);
 
   return (
     <Layout menu={menu}>
@@ -43,7 +44,7 @@ function MyApp({ Component, pageProps, router }) {
       <AnimatePresence exitBeforeEnter>
         <Component
           {...pageProps}
-          isFirstMount={isFirstMount}
+          // isFirstMount={isFirstMount}
           key={router.route}
         />
       </AnimatePresence>
