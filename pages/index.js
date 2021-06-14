@@ -5,10 +5,9 @@ import What from '@/components/What';
 import { getSiteData, getHomeData, getAllMenu } from '@/lib/api';
 import Helmet from 'react-helmet';
 import { motion } from 'framer-motion';
-import { useRouter } from 'next/router';
-import AppLoader from '@/components/AppLoader';
+// import AppLoader from '@/components/AppLoader';
 
-export default function Index({ isFirstMount, page }) {
+export default function Index({ /* isFirstMount, */ page }) {
   const [heroData, setHeroData] = useState(undefined);
   const [aboutData, setAboutData] = useState(undefined);
   const [whatido, setWhatido] = useState(undefined);
@@ -16,7 +15,7 @@ export default function Index({ isFirstMount, page }) {
   const isClient = typeof window !== 'undefined';
 
   useEffect(() => {
-    if (isClient && !isFirstMount) {
+    if (isClient /* && !isFirstMount */) {
       setLoaded(true);
     }
   }, [isClient]);
@@ -49,7 +48,7 @@ export default function Index({ isFirstMount, page }) {
 
   return (
     <motion.div exit={{ opacity: 0 }}>
-      {isFirstMount && <AppLoader />}
+      {/* {isFirstMount && <AppLoader />} */}
 
       <Helmet>
         <body className={loaded ? 'home loaded' : 'home'} />

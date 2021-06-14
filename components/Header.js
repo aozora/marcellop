@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import React, { useState, useEffect, useCallback, useMemo } from 'react';
 import { useRouter } from 'next/router';
-import { motion } from 'framer-motion';
+// import { motion } from 'framer-motion';
 
 const Header = (menu, showMenu = true) => {
   const router = useRouter();
@@ -69,21 +69,11 @@ const Header = (menu, showMenu = true) => {
 
   return (
     // eslint-disable-next-line react/jsx-filename-extension
-    <motion.header
+    <header
       id="header"
       className={`header ${isHome ? 'header--home' : ''} ${
         showMobileMenu ? 'header--menu-open' : ''
       }`}
-      initial={{
-        backgroundColor: '#000'
-      }}
-      animate={{
-        backgroundColor: '#fff',
-        transition: {
-          delay: 2.6,
-          duration: 0.5
-        }
-      }}
     >
       {showMenu && (
         <button
@@ -224,7 +214,7 @@ const Header = (menu, showMenu = true) => {
           </ul>
         </nav>
       )}
-    </motion.header>
+    </header>
   );
 };
 
