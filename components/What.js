@@ -15,29 +15,32 @@ const What = ({ whatido }) => {
     slides.forEach(slide => {
       const imageWrappers = slide.querySelector('.image-wrapper');
 
-      const tl = gsap.timeline({
-        paused: true,
+      // const tl = gsap.timeline({
+      //   scrollTrigger: {
+      //     trigger: slide,
+      //     start: '40% 50%' // position of trigger meets the scroller position
+      //   }
+      // });
+
+      gsap.from(slide.querySelectorAll('.whatido__title span'), {
+        ease: 'power4',
+        y: '-100%',
+        duration: 2.2,
         scrollTrigger: {
           trigger: slide,
           start: '40% 50%' // position of trigger meets the scroller position
         }
       });
-
-      tl.from(slide.querySelectorAll('.whatido__title span'), {
+      gsap.from(slide.querySelectorAll('.whatido__description span'), {
+        y: '+100%',
+        duration: 2.5,
+        delay: 0.2,
         ease: 'power4',
-        y: '+=5vh',
-        duration: 2.5
-      }).from(
-        slide.querySelectorAll('.whatido__description span'),
-        {
-          y: '-100%',
-          duration: 2,
-          ease: 'power4'
-        },
-        0.4
-      );
-
-      tl.play();
+        scrollTrigger: {
+          trigger: slide,
+          start: '40% 50%' // position of trigger meets the scroller position
+        }
+      });
 
       gsap.fromTo(
         imageWrappers,

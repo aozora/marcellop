@@ -66,12 +66,16 @@
   width: 100%;
   max-width: 570px;
   margin: 0;
-  padding: 0 1rem 1rem 0;
+  padding: 0 1rem 0 0;
   color: var(--color-text);
   z-index: 1;
   transition: clip-path 1.5s ease;
 }
 
+.whatido__title span,
+.whatido__description span {
+  display: block;
+}
 
 .whatido__item {
   &:nth-child(even) {
