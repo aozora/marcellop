@@ -79,7 +79,7 @@ const What = ({ whatido }) => {
                       <span>{item.description}</span>
                     </p>
                   </div>
-                  <figure>
+                  <figure role="presentation">
                     {item.cover && (
                       <div className="image-wrapper">
                         <picture>
@@ -92,10 +92,7 @@ const What = ({ whatido }) => {
                             srcSet={item.cover.responsiveImage.srcSet}
                             sizes={item.cover.responsiveImage.sizes}
                           />
-                          <img
-                            alt={item.cover.responsiveImage.alt}
-                            src={item.cover.responsiveImage.src}
-                          />
+                          <img alt="" src={item.cover.responsiveImage.src} />
                         </picture>
                       </div>
                     )}
