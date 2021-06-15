@@ -6,7 +6,7 @@ import { generateRSS } from '@/lib/rss-utils';
 import { pageMotionVariants } from '@/lib/motionShared';
 import { useRouter } from 'next/router';
 
-export default function Writings({ site, page, menu }) {
+export default function Writings({ page }) {
   const router = useRouter();
 
   return (

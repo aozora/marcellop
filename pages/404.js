@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react';
 import Link from 'next/link';
 import Footer from '@/components/Footer';
@@ -5,13 +6,6 @@ import Footer from '@/components/Footer';
 export default function Custom404() {
   return (
     <>
-      {/* <header id="header" className="header"> */}
-      {/*  <div aria-hidden="true" className="menu__title"> */}
-      {/*    <span aria-hidden="true">MP</span> */}
-      {/*    <span>Marcello Palmitessa</span> */}
-      {/*  </div> */}
-      {/* </header> */}
-
       <div className="error-page">
         <h1>
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 95">
@@ -22,8 +16,8 @@ export default function Custom404() {
         <section className="hero">
           <p>
             <span>The page </span>
-            <span>you're looking for </span>
-            <span>doesn't meow...</span>
+            <span>you&apos;re looking for </span>
+            <span>doesn&apos;t meow...</span>
           </p>
         </section>
         <nav>

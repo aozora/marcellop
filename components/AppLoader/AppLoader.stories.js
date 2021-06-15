@@ -14,6 +14,7 @@ const Template = args => (
       height: '100vh'
     }}
   >
+    {/* eslint-disable-next-line react/jsx-props-no-spreading */}
     <AppLoader {...args} />
   </div>
 );
