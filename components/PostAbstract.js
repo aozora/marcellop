@@ -1,8 +1,11 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react';
 import PropTypes from 'prop-types';
-import { format } from 'date-fns';
 import Link from 'next/link';
-import { getPublishedDateFormatted, getPublishedDateShort } from '../lib/helpers';
+import {
+  getPublishedDateFormatted,
+  getPublishedDateShort
+} from '../lib/helpers';
 
 const PostAbstract = ({ post }) => (
   <article

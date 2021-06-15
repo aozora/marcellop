@@ -1,5 +1,6 @@
 import { getPreviewPostBySlug } from '@/lib/api';
 
+// eslint-disable-next-line consistent-return
 export default async function preview(req, res) {
   // Check the secret and next parameters
   // This secret should only be known to this API route and the CMS

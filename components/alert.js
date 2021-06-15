@@ -1,4 +1,4 @@
-export default function Alert({ preview }) {
+export default function Alert() {
   return (
     <aside className="alert">
       This is page is a preview.&nbsp;

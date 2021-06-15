@@ -5,7 +5,7 @@ import Job from '@/components/Job';
 import { useRouter } from 'next/router';
 import { pageMotionVariants } from '@/lib/motionShared';
 
-export default function Resume({ site, page, menu }) {
+export default function Resume({ page }) {
   const router = useRouter();
   return (
     <motion.section

@@ -1,3 +1,4 @@
+/* eslint-disable react/destructuring-assignment */
 import Link from 'next/link';
 import React, { useState, useEffect, useCallback, useMemo } from 'react';
 import { useRouter } from 'next/router';
@@ -130,7 +131,7 @@ const Header = (menu, showMenu = true) => {
               menu.menu.menuItems.map(item => (
                 <li key={item.url}>
                   <Link href={item.url}>
-                    {/* eslint-disable-next-line jsx-a11y/anchor-is-valid,jsx-a11y/click-events-have-key-events */}
+                    {/* eslint-disable-next-line jsx-a11y/anchor-is-valid,jsx-a11y/click-events-have-key-events,jsx-a11y/no-static-element-interactions */}
                     <a
                       className={router.pathname === item.url ? 'active' : ''}
                       onClick={toggleMobileMenu}

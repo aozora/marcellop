@@ -1,10 +1,11 @@
+/* eslint-disable react/no-danger */
 import React from 'react';
 import { motion } from 'framer-motion';
 import { getSiteData, getAllUses, getAllMenu } from '@/lib/api';
 import { pageMotionVariants } from '@/lib/motionShared';
 import { useRouter } from 'next/router';
 
-export default function Uses({ site, page, menu }) {
+export default function Uses({ page }) {
   const router = useRouter();
 
   return (
