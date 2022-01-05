@@ -9,9 +9,7 @@ import { useAboutScrollTrigger } from '@/lib/motionHooks';
 const About = ({ about }) => {
   const isClient = typeof window !== 'undefined';
   // eslint-disable-next-line no-undef
-  const hasOSReducedMotion = isClient
-    ? window.matchMedia('(prefers-reduced-motion: reduce)').matches
-    : false;
+  const hasOSReducedMotion = isClient ? window.matchMedia('(prefers-reduced-motion: reduce)').matches : false;
 
   // activate gsap ScrollTrigger
   useAboutScrollTrigger(about);
@@ -59,10 +57,7 @@ const About = ({ about }) => {
 
         <Observer onChange={animateParagraph}>
           <div className="about__container__textblock-wrapper">
-            <p
-              className="dropcap"
-              dangerouslySetInnerHTML={{ __html: about.aboutDescription1 }}
-            />
+            <p className="dropcap" dangerouslySetInnerHTML={{ __html: about.aboutDescription1 }} />
           </div>
         </Observer>
         <Observer onChange={animateParagraph}>
@@ -72,6 +67,7 @@ const About = ({ about }) => {
         </Observer>
 
         <div className="image-container">
+          {/* eslint-disable-next-line jsx-a11y/alt-text */}
           <Image
             className="image-wrapper"
             data={{

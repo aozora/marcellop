@@ -4,13 +4,10 @@ import ErrorPage from 'next/error';
 import { Image, StructuredText } from 'react-datocms';
 import highlight from 'highlight.js/lib/core';
 import javascript from 'highlight.js/lib/languages/javascript';
-import 'highlight.js/styles/darcula.css';
+import 'highlight.js/styles/base16/darcula.css';
 import { getAllMenu, getAllPosts, getPostBySlug, getSiteData } from '@/lib/api';
 import React, { useEffect, useRef } from 'react';
-import {
-  getPublishedDateFormatted,
-  getPublishedDateShort
-} from '@/lib/helpers';
+import { getPublishedDateFormatted, getPublishedDateShort } from '@/lib/helpers';
 
 highlight.registerLanguage('javascript', javascript);
 
@@ -58,10 +55,7 @@ export default function Post({ /* preview, site, menu, */ post }) {
                 )}
                 <p>
                   <span className="visuallyhidden"> on </span>
-                  <time
-                    itemProp="datePublished"
-                    dateTime={getPublishedDateShort(post.publishedAt)}
-                  >
+                  <time itemProp="datePublished" dateTime={getPublishedDateShort(post.publishedAt)}>
                     {getPublishedDateFormatted(post.publishedAt)}
                   </time>
                 </p>
@@ -70,6 +64,7 @@ export default function Post({ /* preview, site, menu, */ post }) {
 
             {post.cover && (
               <figure>
+                {/* eslint-disable-next-line jsx-a11y/alt-text */}
                 <Image
                   data={{
                     ...post.cover.responsiveImage
@@ -114,6 +109,7 @@ export default function Post({ /* preview, site, menu, */ post }) {
                   switch (record.__typename) {
                     case 'ImageBlockRecord':
                       return (
+                        // eslint-disable-next-line jsx-a11y/alt-text
                         <Image
                           data={{
                             ...record.image.responsiveImage

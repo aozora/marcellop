@@ -88,10 +88,8 @@ const What = ({ whatido }) => {
                             sizes={item.cover.responsiveImage.sizes}
                             type="image/webp"
                           />
-                          <source
-                            srcSet={item.cover.responsiveImage.srcSet}
-                            sizes={item.cover.responsiveImage.sizes}
-                          />
+                          <source srcSet={item.cover.responsiveImage.srcSet} sizes={item.cover.responsiveImage.sizes} />
+                          {/* eslint-disable-next-line @next/next/no-img-element */}
                           <img alt="" src={item.cover.responsiveImage.src} />
                         </picture>
                       </div>
