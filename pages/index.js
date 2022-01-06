@@ -1,10 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import React, { Suspense, useEffect, useState } from 'react';
 import dynamic from 'next/dynamic';
 import Hero from '@/components/Hero';
 import About from '@/components/About';
 import What from '@/components/What';
 import { getSiteData, getHomeData, getAllMenu } from '@/lib/api';
 import Helmet from 'react-helmet';
+import { Canvas } from '@react-three/fiber';
 // import HeroAbstract from '@/components/HeroAbstract';
 
 // Dynamic import is used to prevent a payload when the website start that will include threejs r3f etc..
@@ -73,11 +74,17 @@ export default function Index({ /* isFirstMount, */ page }) {
         <body className={loaded ? 'home loaded' : 'home'} />
       </Helmet>
 
-      {/*<HeroAbstract />*/}
-      <R3F r3f />
-      {/*{heroData && <Hero hero={heroData} />}*/}
-      {/*{aboutData && <About about={aboutData} />}*/}
-      {/*{whatido && <What whatido={whatido} />}*/}
+      {isClient && (
+        <Suspense fallback={null}>
+          <HeroAbstract />
+        </Suspense>
+      )}
+
+      {!isClient && <Canvas></Canvas>}
+
+      {heroData && <Hero hero={heroData} />}
+      {aboutData && <About about={aboutData} />}
+      {whatido && <What whatido={whatido} />}
     </>
   );
 }

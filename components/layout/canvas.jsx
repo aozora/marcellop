@@ -33,10 +33,10 @@ const LCanvas = ({ children }) => {
         near: 10,
         far: 150
       }}
-      onCreated={state => {
-        console.log({ state });
-        state.events.connect(dom.current);
-      }}
+      // onCreated={state => {
+      //   console.log({ state });
+      //   state.events.connect(dom.current);
+      // }}
     >
       <color attach="background" args={['#f0f0f0']} />
       <fog attach="fog" args={['red', 60, 100]} />

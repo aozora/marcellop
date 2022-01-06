@@ -108,11 +108,44 @@ const HeroAbstract = () => {
     bokehScale = 0.2;
 
   return (
-    <>
+    <Canvas
+      shadowMap
+      shadow-mapSize-height={512}
+      shadow-mapSize-width={512}
+      camera={{
+        fov: 75,
+        position: [0, 0, 40],
+        near: 10,
+        far: 150
+      }}
+      // onCreated={state => {
+      //   console.log({ state });
+      //   state.events.connect(dom.current);
+      // }}
+    >
+      <color attach="background" args={['#f0f0f0']} />
+      <fog attach="fog" args={['red', 60, 100]} />
+      <ambientLight intensity={0.5} />
+      <pointLight position={[100, 10, -50]} intensity={20} castShadow />
+      <pointLight position={[-100, -100, -100]} intensity={10} color="black" />
+      <Environment preset="studio" />
+      <ContactShadows
+        rotation={[Math.PI / 2, 0, 0]}
+        position={[0, -30, 0]}
+        opacity={0.6}
+        width={130}
+        height={130}
+        blur={1}
+        far={40}
+      />
+      <EffectComposer multisampling={0}>
+        <DepthOfField focusDistance={focusDistance} focalLength={focalLength} bokehScale={bokehScale} />
+      </EffectComposer>
+
       <Swarm count={count} position={[0, 10, 0]} />
 
-      {/*<Preload all />*/}
-    </>
+      <Preload all />
+    </Canvas>
   );
 };
 

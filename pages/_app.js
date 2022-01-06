@@ -18,7 +18,12 @@ const LCanvas = dynamic(() => import('@/components/layout/canvas'), {
 });
 
 const Balance = ({ child }) => {
-  const [r3f, dom] = partition(child, c => c.props.r3f === true);
+  const [r3f, dom] = partition(child, c => {
+    if (c.props.r3f && c.props.r3f === true) {
+      return true;
+    }
+    return false;
+  });
 
   return (
     <>
@@ -46,11 +51,7 @@ function MyApp({ Component, pageProps }) {
       </a>
       {preview && <Alert preview={preview} />}
 
-      {child && child.length > 1 ? (
-        <Balance child={Component(pageProps).props.children} />
-      ) : (
-        <Component {...pageProps} />
-      )}
+      <Component {...pageProps} />
     </Layout>
   );
 }
