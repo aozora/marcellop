@@ -1,25 +1,14 @@
 import React from 'react';
-import { motion } from 'framer-motion';
 import { getSiteData, getAllPosts, getAllMenu } from '@/lib/api';
 import PostAbstract from '@/components/PostAbstract';
 import { generateRSS } from '@/lib/rss-utils';
-import { pageMotionVariants } from '@/lib/motionShared';
 import { useRouter } from 'next/router';
 
 export default function Writings({ page }) {
   const router = useRouter();
 
   return (
-    <motion.section
-      key={router.route}
-      initial="initial"
-      animate="animate"
-      transition={{
-        duration: 0.3
-      }}
-      variants={pageMotionVariants}
-      className="posts"
-    >
+    <section key={router.route} className="posts">
       <h1>Writings</h1>
 
       <div>
@@ -37,7 +26,7 @@ export default function Writings({ page }) {
           <p className="sorry">Nothing new here, please come back later...</p>
         </div>
       )}
-    </motion.section>
+    </section>
   );
 }
 

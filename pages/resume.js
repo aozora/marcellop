@@ -3,25 +3,15 @@ import { motion } from 'framer-motion';
 import { getSiteData, getAllResumeJobs, getAllMenu } from '@/lib/api';
 import Job from '@/components/Job';
 import { useRouter } from 'next/router';
-import { pageMotionVariants } from '@/lib/motionShared';
 
 export default function Resume({ page }) {
   const router = useRouter();
   return (
-    <motion.section
-      key={router.route}
-      initial="initial"
-      animate="animate"
-      transition={{
-        duration: 0.3
-      }}
-      variants={pageMotionVariants}
-      className="resume"
-    >
+    <section key={router.route} className="resume">
       <h1>Resume</h1>
 
       {page && page.map(job => <Job job={job} key={job.id} />)}
-    </motion.section>
+    </section>
   );
 }
 

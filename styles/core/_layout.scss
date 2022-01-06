@@ -26,10 +26,34 @@ main > section.full-width {
 }
 
 
-
 // https://piccalil.li/quick-tip/flow-css-utility/
 .flow > * + * {
   margin-top: var(--flow-space, 1em);
 }
 
+html, body, main, #root {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.dom {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 80vh;
+  overflow: hidden;
+}
+
+canvas {
+  position: relative;
+  //position: absolute;
+  //top: 0;
+  //left: 0;
+  width: 100vw;
+  height: 80vh;
+  overflow: hidden;
+}
 

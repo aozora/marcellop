@@ -1,11 +1,32 @@
 import React, { useEffect, useState } from 'react';
+import dynamic from 'next/dynamic';
 import Hero from '@/components/Hero';
 import About from '@/components/About';
 import What from '@/components/What';
 import { getSiteData, getHomeData, getAllMenu } from '@/lib/api';
 import Helmet from 'react-helmet';
-import { motion } from 'framer-motion';
-// import AppLoader from '@/components/AppLoader';
+// import HeroAbstract from '@/components/HeroAbstract';
+
+// Dynamic import is used to prevent a payload when the website start that will include threejs r3f etc..
+// WARNING ! errors might get obfuscated by using dynamic import.
+// If something goes wrong go back to a static import to show the error.
+// https://github.com/pmndrs/react-three-next/issues/49
+const HeroAbstract = dynamic(() => import('@/components/HeroAbstract'), {
+  ssr: false
+});
+const Shader = dynamic(() => import('@/components/canvas/Shader/Shader'), {
+  ssr: false
+});
+
+// canvas components goes here
+const R3F = () => {
+  return (
+    <>
+      {/*<Shader />*/}
+      <HeroAbstract />
+    </>
+  );
+};
 
 export default function Index({ /* isFirstMount, */ page }) {
   const [heroData, setHeroData] = useState(undefined);
@@ -47,17 +68,17 @@ export default function Index({ /* isFirstMount, */ page }) {
   }, [page]);
 
   return (
-    <motion.div exit={{ opacity: 0 }}>
-      {/* {isFirstMount && <AppLoader />} */}
-
+    <>
       <Helmet>
         <body className={loaded ? 'home loaded' : 'home'} />
       </Helmet>
 
-      {heroData && <Hero hero={heroData} />}
-      {aboutData && <About about={aboutData} />}
-      {whatido && <What whatido={whatido} />}
-    </motion.div>
+      {/*<HeroAbstract />*/}
+      <R3F r3f />
+      {/*{heroData && <Hero hero={heroData} />}*/}
+      {/*{aboutData && <About about={aboutData} />}*/}
+      {/*{whatido && <What whatido={whatido} />}*/}
+    </>
   );
 }
 
