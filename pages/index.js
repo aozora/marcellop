@@ -6,28 +6,15 @@ import What from '@/components/What';
 import { getSiteData, getHomeData, getAllMenu } from '@/lib/api';
 import Helmet from 'react-helmet';
 import { Canvas } from '@react-three/fiber';
-// import HeroAbstract from '@/components/HeroAbstract';
+import HeroAbstract from '@/components/HeroAbstract';
 
 // Dynamic import is used to prevent a payload when the website start that will include threejs r3f etc..
 // WARNING ! errors might get obfuscated by using dynamic import.
 // If something goes wrong go back to a static import to show the error.
 // https://github.com/pmndrs/react-three-next/issues/49
-const HeroAbstract = dynamic(() => import('@/components/HeroAbstract'), {
-  ssr: false
-});
-const Shader = dynamic(() => import('@/components/canvas/Shader/Shader'), {
-  ssr: false
-});
-
-// canvas components goes here
-const R3F = () => {
-  return (
-    <>
-      {/*<Shader />*/}
-      <HeroAbstract />
-    </>
-  );
-};
+// const HeroAbstract = dynamic(() => import('@/components/HeroAbstract'), {
+//   ssr: false
+// });
 
 export default function Index({ /* isFirstMount, */ page }) {
   const [heroData, setHeroData] = useState(undefined);
@@ -37,7 +24,7 @@ export default function Index({ /* isFirstMount, */ page }) {
   const isClient = typeof window !== 'undefined';
 
   useEffect(() => {
-    if (isClient /* && !isFirstMount */) {
+    if (isClient) {
       setLoaded(true);
     }
   }, [isClient]);
@@ -80,7 +67,27 @@ export default function Index({ /* isFirstMount, */ page }) {
         </Suspense>
       )}
 
-      {!isClient && <Canvas></Canvas>}
+      {!isClient && (
+        <div
+          style={{
+            position: 'relative',
+            width: '100%',
+            height: '100%',
+            overflow: 'hidden'
+          }}
+        >
+          <canvas
+            style={{
+              display: 'block',
+              width: '1121px',
+              height: '814px'
+            }}
+            data-engine="three.js r136"
+            width="1121"
+            height="814"
+          />
+        </div>
+      )}
 
       {heroData && <Hero hero={heroData} />}
       {aboutData && <About about={aboutData} />}

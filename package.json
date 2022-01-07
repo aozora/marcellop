@@ -47,9 +47,7 @@
     "react-helmet": "^6.1.0",
     "rss": "^1.2.2",
     "sanitize-html": "^2.6.1",
-    "short-uuid": "^4.2.0",
-    "three": "^0.136.0",
-    "zustand": "^3.6.8"
+    "three": "^0.136.0"
   },
   "devDependencies": {
     "@babel/core": "^7.16.7",
@@ -80,9 +78,6 @@
     "eslint-plugin-react": "^7.28.0",
     "eslint-plugin-react-hooks": "^4.3.0",
     "eslint-plugin-storybook": "^0.5.3",
-    "file-loader": "^6.2.0",
-    "glslify": "^7.1.1",
-    "glslify-loader": "^2.0.0",
     "jest": "^26.4.0",
     "postcss-flexbugs-fixes": "^5.0.2",
     "postcss-preset-env": "^7.2.0",
@@ -93,8 +88,7 @@
     "raw-loader": "^4.0.2",
     "sass": "^1.45.2",
     "sass-loader": "10.2.0",
-    "style-loader": "2.0.0",
-    "url-loader": "^4.1.1"
+    "style-loader": "2.0.0"
   },
   "browserslist": [
     ">0.3%",
