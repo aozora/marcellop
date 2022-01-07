@@ -2,7 +2,7 @@ import React, { useEffect, useRef, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import gsap from 'gsap';
 
-const What = ({ whatido }) => {
+const What = ({ whatido }): JSX.Element => {
   const itemsRef = useRef();
   const isClient = typeof window !== 'undefined';
 

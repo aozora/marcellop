@@ -2,12 +2,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Link from 'next/link';
-import {
-  getPublishedDateFormatted,
-  getPublishedDateShort
-} from '../lib/helpers';
+import { getPublishedDateFormatted, getPublishedDateShort } from '@/lib/helpers';
 
-const PostAbstract = ({ post }) => (
+const PostAbstract = ({ post }): JSX.Element => (
   <article
     aria-labelledby={`aria-article-${post.id}`}
     className="post"
@@ -31,10 +28,7 @@ const PostAbstract = ({ post }) => (
         )}
         <span>&nbsp; on &nbsp;</span>
         <p>
-          <time
-            itemProp="datePublished"
-            dateTime={getPublishedDateShort(post.publishedAt)}
-          >
+          <time itemProp="datePublished" dateTime={getPublishedDateShort(post.publishedAt)}>
             {getPublishedDateFormatted(post.publishedAt)}
           </time>
         </p>

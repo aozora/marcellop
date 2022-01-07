@@ -2,7 +2,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Hero = ({ hero }) => (
+const Hero = ({ hero }): JSX.Element => (
   <section className="hero">
     {hero.hi && <p className="hi">{hero.hi}</p>}
     <h1>{hero.heading1}</h1>

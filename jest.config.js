@@ -1,13 +1,25 @@
 module.exports = {
-  collectCoverageFrom: [
-    '**/*.{js,jsx,ts,tsx}',
-    '!**/*.d.ts',
-    '!**/node_modules/**'
-  ],
-  setupFilesAfterEnv: ['<rootDir>/setupTests.js'],
-  testPathIgnorePatterns: ['/node_modules/', '/.next/'],
+  testEnvironment: 'jsdom',
+  roots: ['<rootDir>'],
+  moduleFileExtensions: ['ts', 'tsx', 'js', 'json', 'jsx'],
+  testPathIgnorePatterns: ['<rootDir>[/\\\\](node_modules|.next)[/\\\\]'],
+  transformIgnorePatterns: ['[/\\\\]node_modules[/\\\\].+\\.(ts|tsx)$'],
   transform: {
-    '^.+\\.(js|jsx|ts|tsx)$': '<rootDir>/node_modules/babel-jest'
+    '^.+\\.(ts|tsx)$': 'babel-jest'
   },
-  transformIgnorePatterns: ['/node_modules/', '^.+\\.module\\.(css|sass|scss)$']
+  // watchPlugins: [
+  //   'jest-watch-typeahead/filename',
+  //   'jest-watch-typeahead/testname',
+  // ],
+  moduleNameMapper: {
+    '\\.(css|less|sass|scss)$': 'identity-obj-proxy',
+    '\\.(gif|ttf|eot|svg|png)$': '<rootDir>/test/__mocks__/fileMock.js',
+    '^@/blocks(.*)$': '<rootDir>/blocks/$1',
+    '^@/components(.*)$': '<rootDir>/components/$1',
+    '^@/lib(.*)$': '<rootDir>/lib/$1',
+    '^@/queries(.*)$': '<rootDir>/queries/$1',
+    '^@/styles(.*)$': '<rootDir>/styles/$1',
+    '^@/types(.*)$': '<rootDir>/types/$1'
+  },
+  setupFilesAfterEnv: ['<rootDir>/jest.setup.ts']
 };

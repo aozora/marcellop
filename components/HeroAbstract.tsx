@@ -5,7 +5,7 @@ import { Color, Object3D } from 'three';
 import { useControls } from 'leva';
 import { DepthOfField, EffectComposer, SSAO } from '@react-three/postprocessing';
 
-const Swarm = ({ count, ...props }) => {
+const Swarm = ({ count, ...props }): JSX.Element => {
   const mesh = useRef();
   const [dummy] = useState(() => new Object3D());
 

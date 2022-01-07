@@ -2,8 +2,11 @@
 import React from 'react';
 import Link from 'next/link';
 import Footer from '@/components/Footer';
+import { GetStaticProps } from 'next';
+import { request, RequestType } from '@/lib/datocms';
+import { homeQuery } from '@/queries/home.query';
 
-export default function Custom404() {
+export default function Custom404(): JSX.Element {
   return (
     <>
       <div className="error-page">
@@ -30,3 +33,42 @@ export default function Custom404() {
     </>
   );
 }
+
+/**
+ * Fetch the same data for the home page
+ * @param locale
+ * @param preview
+ */
+export const getStaticProps: GetStaticProps = async ({ preview }) => {
+  const graphqlRequest: RequestType = {
+    query: homeQuery,
+    preview
+  };
+
+  return {
+    props: {
+      subscription: preview
+        ? {
+            ...graphqlRequest,
+            initialData: await request(graphqlRequest),
+            token: process.env.DATOCMS_API_TOKEN
+          }
+        : {
+            enabled: false,
+            initialData: await request(graphqlRequest)
+          }
+    }
+  };
+
+  // const page = (await getHomeData(preview)) || null;
+  // const menu = (await getAllMenu(preview)) || null;
+  // const site = (await getSiteData(preview)) || null;
+  //
+  // return {
+  //   props: {
+  //     site,
+  //     page,
+  //     menu
+  //   }
+  // };
+};

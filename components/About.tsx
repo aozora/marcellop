@@ -5,8 +5,9 @@ import Observer from '@researchgate/react-intersection-observer';
 import gsap from 'gsap';
 import { Image } from 'react-datocms';
 import { useAboutScrollTrigger } from '@/lib/motionHooks';
+import TweenVars = gsap.TweenVars;
 
-const About = ({ about }) => {
+const About = ({ about }): JSX.Element => {
   const isClient = typeof window !== 'undefined';
   // eslint-disable-next-line no-undef
   const hasOSReducedMotion = isClient ? window.matchMedia('(prefers-reduced-motion: reduce)').matches : false;
@@ -29,7 +30,7 @@ const About = ({ about }) => {
               autoAlpha: 1,
               y: 0,
               ease: 'circ.out'
-            },
+            } as TweenVars,
             1
           );
         }
