@@ -40,9 +40,4 @@ const PostAbstract = ({ post }): JSX.Element => (
   </article>
 );
 
-PostAbstract.propTypes = {
-  // eslint-disable-next-line react/forbid-prop-types
-  post: PropTypes.object.isRequired
-};
-
 export default PostAbstract;

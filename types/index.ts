@@ -83,11 +83,7 @@ export type Home = {
   aboutDescription4: string;
   aboutPicture: ResponsiveImage;
   whatidoHeading: string;
-  whatido: {
-    title: string;
-    description: string;
-    cover: ResponsiveImage;
-  };
+  whatido: Array<WhatidoItem>;
   seo: Array<SeoMetaTagType>;
 };
 
@@ -108,7 +104,13 @@ export type AboutData = {
   aboutPicture: ResponsiveImage;
 };
 
+export type WhatidoItem = {
+  title: string;
+  description: string;
+  cover: ResponsiveImage;
+};
+
 export type WhatidoData = {
   heading: string;
-  items: home.whatido;
+  items: Array<WhatidoItem>;
 };

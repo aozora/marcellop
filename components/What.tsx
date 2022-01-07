@@ -1,73 +1,71 @@
-import React, { useEffect, useRef, Fragment } from 'react';
-import PropTypes from 'prop-types';
-import gsap from 'gsap';
+import React, { useRef, Fragment } from 'react';
+import { WhatidoData } from '@/types/index';
 
-const What = ({ whatido }): JSX.Element => {
+const What = ({ heading, items }: WhatidoData): JSX.Element => {
   const itemsRef = useRef();
-  const isClient = typeof window !== 'undefined';
+  // const isClient = typeof window !== 'undefined';
 
-  useEffect(() => {
-    if (!isClient) return;
-
-    // ScrollTrigger & Parallax for covers
-    const slides = document.querySelectorAll('#whatido .whatido__item');
-
-    slides.forEach(slide => {
-      const imageWrappers = slide.querySelector('.image-wrapper');
-
-      // const tl = gsap.timeline({
-      //   scrollTrigger: {
-      //     trigger: slide,
-      //     start: '40% 50%' // position of trigger meets the scroller position
-      //   }
-      // });
-
-      gsap.from(slide.querySelectorAll('.whatido__title span'), {
-        ease: 'power4',
-        y: '-100%',
-        duration: 2.2,
-        scrollTrigger: {
-          trigger: slide,
-          start: '40% 50%' // position of trigger meets the scroller position
-        }
-      });
-      gsap.from(slide.querySelectorAll('.whatido__description span'), {
-        y: '+100%',
-        duration: 2.5,
-        delay: 0.2,
-        ease: 'power4',
-        scrollTrigger: {
-          trigger: slide,
-          start: '40% 50%' // position of trigger meets the scroller position
-        }
-      });
-
-      gsap.fromTo(
-        imageWrappers,
-        {
-          y: '-30vh'
-        },
-        {
-          y: '30vh',
-          scrollTrigger: {
-            trigger: slide,
-            scrub: true,
-            start: 'top bottom' // position of trigger meets the scroller position
-          },
-          ease: 'none'
-        }
-      );
-    });
-  }, [isClient]);
+  // useEffect(() => {
+  //   if (!isClient) return;
+  //
+  //   // ScrollTrigger & Parallax for covers
+  //   const slides = document.querySelectorAll('#whatido .whatido__item');
+  //
+  //   slides.forEach(slide => {
+  //     const imageWrappers = slide.querySelector('.image-wrapper');
+  //
+  //     // const tl = gsap.timeline({
+  //     //   scrollTrigger: {
+  //     //     trigger: slide,
+  //     //     start: '40% 50%' // position of trigger meets the scroller position
+  //     //   }
+  //     // });
+  //
+  //     gsap.from(slide.querySelectorAll('.whatido__title span'), {
+  //       ease: 'power4',
+  //       y: '-100%',
+  //       duration: 2.2,
+  //       scrollTrigger: {
+  //         trigger: slide,
+  //         start: '40% 50%' // position of trigger meets the scroller position
+  //       }
+  //     });
+  //     gsap.from(slide.querySelectorAll('.whatido__description span'), {
+  //       y: '+100%',
+  //       duration: 2.5,
+  //       delay: 0.2,
+  //       ease: 'power4',
+  //       scrollTrigger: {
+  //         trigger: slide,
+  //         start: '40% 50%' // position of trigger meets the scroller position
+  //       }
+  //     });
+  //
+  //     gsap.fromTo(
+  //       imageWrappers,
+  //       {
+  //         y: '-30vh'
+  //       },
+  //       {
+  //         y: '30vh',
+  //         scrollTrigger: {
+  //           trigger: slide,
+  //           scrub: true,
+  //           start: 'top bottom' // position of trigger meets the scroller position
+  //         },
+  //         ease: 'none'
+  //       }
+  //     );
+  //   });
+  // }, [isClient]);
 
   return (
     <article id="whatido" className="whatido">
-      <h2>{whatido.heading}</h2>
+      <h2>{heading}</h2>
 
       <section ref={itemsRef} className="whatido__items">
-        {whatido &&
-          whatido.items &&
-          whatido.items.map(item => (
+        {items &&
+          items.map(item => (
             <Fragment key={item.title}>
               <div className="whatido__item">
                 <div className="whatido__item-container">
@@ -102,11 +100,6 @@ const What = ({ whatido }): JSX.Element => {
       </section>
     </article>
   );
-};
-
-What.propTypes = {
-  // eslint-disable-next-line react/forbid-prop-types
-  whatido: PropTypes.object.isRequired
 };
 
 export default What;

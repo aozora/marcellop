@@ -37,3 +37,6 @@ yarn-error.log*
 /out_publish/
 /out_functions/
 /404.html
+
+# TS
+tsconfig.tsbuildinfo

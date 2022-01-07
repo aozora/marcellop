@@ -18,17 +18,9 @@ const Job = ({ job }) => {
         {!job.to && <span>present</span>}
       </p>
       {/* eslint-disable-next-line react/no-danger */}
-      <div
-        className="job__description"
-        dangerouslySetInnerHTML={{ __html: job.description }}
-      />
+      <div className="job__description" dangerouslySetInnerHTML={{ __html: job.description }} />
     </article>
   );
-};
-
-Job.propTypes = {
-  // eslint-disable-next-line react/forbid-prop-types
-  job: PropTypes.object.isRequired
 };
 
 export default Job;

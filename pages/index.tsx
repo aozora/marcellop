@@ -8,7 +8,7 @@ import Helmet from 'react-helmet';
 import HeroAbstract from '@/components/HeroAbstract';
 import { homeQuery } from '@/queries/home.query';
 import { request, RequestType } from '@/lib/datocms';
-import { Home } from '@/types/index';
+import { AboutData, HeroData, Home, WhatidoData } from '@/types/index';
 import { GetStaticProps } from 'next';
 
 // Dynamic import is used to prevent a payload when the website start that will include threejs r3f etc..
@@ -34,10 +34,10 @@ export default function Index({ subscription }: HomeProps) {
   const { home }: HomeData = data;
   // const { site, menu } = usePageState();
 
-  const [heroData, setHeroData] = useState(undefined);
-  const [aboutData, setAboutData] = useState(undefined);
-  const [whatido, setWhatido] = useState(undefined);
-  const [loaded, setLoaded] = useState(false);
+  const [heroData, setHeroData] = useState<HeroData>(undefined);
+  const [aboutData, setAboutData] = useState<AboutData>(undefined);
+  const [whatido, setWhatido] = useState<WhatidoData>(undefined);
+  // const [loaded, setLoaded] = useState(false);
   const isClient = typeof window !== 'undefined';
 
   // useEffect(() => {
@@ -106,9 +106,9 @@ export default function Index({ subscription }: HomeProps) {
         </div>
       )}
 
-      {heroData && <Hero hero={heroData} />}
-      {aboutData && <About about={aboutData} />}
-      {whatido && <What whatido={whatido} />}
+      {heroData && <Hero {...heroData} />}
+      {aboutData && <About {...aboutData} />}
+      {whatido && <What {...whatido} />}
     </>
   );
 }
