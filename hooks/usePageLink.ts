@@ -34,11 +34,6 @@ function usePageLink() {
         default:
           break;
       }
-    } else if (externalUrl) {
-      return {
-        href: externalUrl,
-        as: null
-      };
     }
 
     return linkProps;

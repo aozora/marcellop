@@ -19,6 +19,11 @@ export const homeQuery = `
     }   
        
     home {
+      id
+      _modelApiKey
+      title
+      slug
+      canonical
       hi
       heading1
       heading2A

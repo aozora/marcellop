@@ -1,15 +1,16 @@
 /* eslint-disable indent */
 import React, { Suspense, useEffect, useState } from 'react';
-import { QueryListenerOptions, useQuerySubscription } from 'react-datocms';
+import { QueryListenerOptions, SeoMetaTagType, useQuerySubscription } from 'react-datocms';
 import Hero from '@/components/Hero';
 import About from '@/components/About';
 import What from '@/components/What';
-import Helmet from 'react-helmet';
 import HeroAbstract from '@/components/HeroAbstract';
 import { homeQuery } from '@/queries/home.query';
 import { request, RequestType } from '@/lib/datocms';
-import { AboutData, HeroData, Home, WhatidoData } from '@/types/index';
+import { AboutData, HeroData, Home, PageLink, WhatidoData } from '@/types/index';
 import { GetStaticProps } from 'next';
+import { Seo } from '@/components/Seo';
+import { usePageState } from '@/components/PageProvider';
 
 // Dynamic import is used to prevent a payload when the website start that will include threejs r3f etc..
 // WARNING ! errors might get obfuscated by using dynamic import.
@@ -33,17 +34,13 @@ export default function Index({ subscription }: HomeProps) {
   const { data } = useQuerySubscription(subscription);
   const { home }: HomeData = data;
 
+  const { site } = usePageState();
+  const metaTags: Array<SeoMetaTagType> = home && home.seo && home.seo.concat(site.favicon);
+
   const [heroData, setHeroData] = useState<HeroData>(undefined);
   const [aboutData, setAboutData] = useState<AboutData>(undefined);
   const [whatido, setWhatido] = useState<WhatidoData>(undefined);
-  // const [loaded, setLoaded] = useState(false);
   const isClient = typeof window !== 'undefined';
-
-  // useEffect(() => {
-  //   if (isClient) {
-  //     setLoaded(true);
-  //   }
-  // }, [isClient]);
 
   useEffect(() => {
     if (home) {
@@ -73,9 +70,18 @@ export default function Index({ subscription }: HomeProps) {
 
   return (
     <>
-      {/*<Helmet>*/}
-      {/*  <body className={loaded ? 'home loaded' : 'home'} />*/}
-      {/*</Helmet>*/}
+      <Seo
+        siteSeo={site.globalSeo}
+        metaTags={metaTags}
+        canonicalUrl={null}
+        pageLink={
+          {
+            id: home.id,
+            slug: home.slug,
+            _modelApiKey: home._modelApiKey
+          } as PageLink
+        }
+      />
 
       {isClient && (
         <Suspense fallback={null}>

@@ -71,6 +71,10 @@ export type MenuItem = {
 };
 
 export type Home = {
+  id: string;
+  title: string;
+  _modelApiKey: string;
+  canonical: string;
   hi: string;
   heading1: string;
   heading2A: string;
