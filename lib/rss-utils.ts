@@ -28,9 +28,7 @@ export const generateRSS = async posts => {
     if (!post.publishedAt) {
       isValid = false;
       // eslint-disable-next-line no-console
-      console.warn(
-        'All posts must have a publishedDate timestamp when generating RSS feed.'
-      );
+      console.warn('All posts must have a publishedDate timestamp when generating RSS feed.');
       // eslint-disable-next-line no-console
       console.warn('Not generating rss.xml.');
     }

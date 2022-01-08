@@ -1,20 +1,36 @@
-/* eslint-disable react/no-danger */
+/* eslint-disable indent */
 import { useRouter } from 'next/router';
 import ErrorPage from 'next/error';
-import { Image, StructuredText } from 'react-datocms';
+import { Image, QueryListenerOptions, StructuredText, useQuerySubscription } from 'react-datocms';
 import highlight from 'highlight.js/lib/core';
 import javascript from 'highlight.js/lib/languages/javascript';
-import 'highlight.js/styles/base16/darcula.css';
-import { getAllMenu, getAllPosts, getPostBySlug, getSiteData } from '@/lib/api';
 import React, { useEffect, useRef } from 'react';
 import { getPublishedDateFormatted, getPublishedDateShort } from '@/lib/helpers';
+import { GetStaticProps } from 'next';
+import { request, RequestType } from '@/lib/datocms';
+import { postsQuery } from '@/queries/posts.query';
+import { postBySlugQuery } from '@/queries/postBySlug.query';
+import 'highlight.js/styles/base16/darcula.css';
+import { Post } from '@/types/index';
 
 highlight.registerLanguage('javascript', javascript);
 
-export default function Post({ /* preview, site, menu, */ post }) {
+export type PostProps = {
+  subscription: QueryListenerOptions<any, any>;
+};
+
+export type PostData = {
+  post: Post;
+};
+
+export default function PostBySlug({ subscription }: PostProps): JSX.Element {
   const router = useRouter();
   const postRef = useRef();
   const isClient = typeof window !== 'undefined' && window.addEventListener;
+  // implement client-side updates of the page as soon as the content changes
+  // see: https://github.com/datocms/react-datocms/#live-real-time-updates
+  const { data } = useQuerySubscription(subscription);
+  const { post }: PostData = data;
 
   useEffect(() => {
     if (isClient && postRef.current) {
@@ -108,6 +124,7 @@ export default function Post({ /* preview, site, menu, */ post }) {
                   // eslint-disable-next-line no-underscore-dangle
                   switch (record.__typename) {
                     case 'ImageBlockRecord':
+                      // @ts-ignore
                       return (
                         // eslint-disable-next-line jsx-a11y/alt-text
                         <Image
@@ -138,26 +155,41 @@ export default function Post({ /* preview, site, menu, */ post }) {
   );
 }
 
-export async function getStaticProps({ params, preview = false }) {
-  const menu = (await getAllMenu(preview)) || null;
-  const site = (await getSiteData(preview)) || null;
-  const data = (await getPostBySlug(params.slug, preview)) || null;
+export const getStaticProps: GetStaticProps = async ({ params, preview }) => {
+  const graphqlRequest: RequestType = {
+    query: postBySlugQuery,
+    preview,
+    variables: {
+      slug: params.slug
+    }
+  };
+
+  // const data = (await getPostBySlug(params.slug, preview)) || null;
 
   return {
     props: {
-      preview,
-      site,
-      menu,
-      post: data.post,
-      page: data.post
+      subscription: preview
+        ? {
+            ...graphqlRequest,
+            initialData: await request(graphqlRequest),
+            token: process.env.DATOCMS_API_TOKEN
+          }
+        : {
+            enabled: false,
+            initialData: await request(graphqlRequest)
+          }
     }
   };
-}
+};
 
 export async function getStaticPaths() {
-  // const allPosts = await getAllPostsWithSlug();
-  const allPosts = await getAllPosts();
-  // console.log('*** DEBUG allPosts ***', allPosts);
+  const graphqlRequest: RequestType = {
+    query: postsQuery,
+    preview: false
+  };
+
+  const initialData = await request(graphqlRequest);
+  const { allPosts } = initialData;
 
   return {
     // paths: allPosts?.map((post) => `/writings/${post.slug}`) || [],

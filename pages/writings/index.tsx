@@ -1,11 +1,28 @@
+/* eslint-disable indent */
 import React from 'react';
-import { getSiteData, getAllPosts, getAllMenu } from '@/lib/api';
 import PostAbstract from '@/components/PostAbstract';
 import { generateRSS } from '@/lib/rss-utils';
 import { useRouter } from 'next/router';
+import { GetStaticProps } from 'next';
+import { request, RequestType } from '@/lib/datocms';
+import { postsQuery } from '@/queries/posts.query';
+import { QueryListenerOptions, useQuerySubscription } from 'react-datocms';
+import { Post } from '@/types/index';
 
-export default function Writings({ page }) {
+export type WritingsProps = {
+  subscription: QueryListenerOptions<any, any>;
+};
+
+export type WritingsData = {
+  allPosts: Array<Post>;
+};
+
+export default function Writings({ subscription }: WritingsProps) {
   const router = useRouter();
+  // implement client-side updates of the page as soon as the content changes
+  // see: https://github.com/datocms/react-datocms/#live-real-time-updates
+  const { data } = useQuerySubscription(subscription);
+  const { allPosts }: WritingsData = data;
 
   return (
     <section key={router.route} className="posts">
@@ -13,7 +30,7 @@ export default function Writings({ page }) {
 
       <div>
         {
-          page && page.map(post => <PostAbstract key={post.id} post={post} />)
+          allPosts && allPosts.map(post => <PostAbstract key={post.id} post={post} />)
           // <!--      <div class="posts__pagination">-->
           //   <!--        <a href="#">Older entries</a>-->
           //   <!--        <a href="#">Newer entries</a>-->
@@ -21,7 +38,7 @@ export default function Writings({ page }) {
         }
       </div>
 
-      {!page && (
+      {!allPosts && (
         <div>
           <p className="sorry">Nothing new here, please come back later...</p>
         </div>
@@ -30,18 +47,27 @@ export default function Writings({ page }) {
   );
 }
 
-export async function getStaticProps({ preview = false }) {
-  const page = (await getAllPosts(preview)) || null;
-  const menu = (await getAllMenu(preview)) || null;
-  const site = (await getSiteData(preview)) || null;
+export const getStaticProps: GetStaticProps = async ({ preview }) => {
+  const graphqlRequest: RequestType = {
+    query: postsQuery,
+    preview
+  };
 
-  await generateRSS(page);
+  const initialData = await request(graphqlRequest);
+  await generateRSS(initialData.allPosts);
 
   return {
     props: {
-      site,
-      page,
-      menu
+      subscription: preview
+        ? {
+            ...graphqlRequest,
+            initialData,
+            token: process.env.DATOCMS_API_TOKEN
+          }
+        : {
+            enabled: false,
+            initialData
+          }
     }
   };
-}
+};

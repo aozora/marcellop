@@ -63,8 +63,10 @@ const Swarm = ({ count, ...props }): JSX.Element => {
       dummy.scale.set(s, s, s);
 
       dummy.updateMatrix();
+      // @ts-ignore
       mesh.current.setMatrixAt(i, dummy.matrix);
     });
+    // @ts-ignore
     mesh.current.instanceMatrix.needsUpdate = true;
   });
 
@@ -107,9 +109,11 @@ const HeroAbstract = () => {
     focalLength = 1,
     bokehScale = 0.2;
 
+  // @ts-ignore
+  // @ts-ignore
   return (
     <Canvas
-      shadowMap
+      shadows
       shadow-mapSize-height={512}
       shadow-mapSize-width={512}
       camera={{
@@ -130,15 +134,107 @@ const HeroAbstract = () => {
       <pointLight position={[-100, -100, -100]} intensity={10} color="black" />
       <Environment preset="studio" />
 
-      <ContactShadows
-        rotation={[Math.PI / 2, 0, 0]}
-        position={[0, -30, 0]}
-        opacity={0.6}
-        width={130}
-        height={130}
-        blur={1}
-        far={40}
-      />
+      {/*<ContactShadows*/}
+      {/*  rotation={[Math.PI / 2, 0, 0]}*/}
+      {/*  position={[0, -30, 0]}*/}
+      {/*  opacity={0.6}*/}
+      {/*  width={130}*/}
+      {/*  height={130}*/}
+      {/*  blur={1}*/}
+      {/*  far={40}*/}
+      {/*  key={''}*/}
+      {/*  attach={undefined}*/}
+      {/*  attachArray={undefined}*/}
+      {/*  attachObject={undefined}*/}
+      {/*  args={undefined}*/}
+      {/*  onUpdate={undefined}*/}
+      {/*  up={undefined}*/}
+      {/*  matrix={undefined}*/}
+      {/*  quaternion={undefined}*/}
+      {/*  layers={undefined}*/}
+      {/*  dispose={undefined}*/}
+      {/*  onClick={undefined}*/}
+      {/*  onContextMenu={undefined}*/}
+      {/*  onDoubleClick={undefined}*/}
+      {/*  onPointerUp={undefined}*/}
+      {/*  onPointerDown={undefined}*/}
+      {/*  onPointerOver={undefined}*/}
+      {/*  onPointerOut={undefined}*/}
+      {/*  onPointerEnter={undefined}*/}
+      {/*  onPointerLeave={undefined}*/}
+      {/*  onPointerMove={undefined}*/}
+      {/*  onPointerMissed={undefined}*/}
+      {/*  onPointerCancel={undefined}*/}
+      {/*  onWheel={undefined}*/}
+      {/*  visible={undefined}*/}
+      {/*  type={undefined}*/}
+      {/*  isGroup={undefined}*/}
+      {/*  id={undefined}*/}
+      {/*  uuid={undefined}*/}
+      {/*  name={undefined}*/}
+      {/*  parent={undefined}*/}
+      {/*  modelViewMatrix={undefined}*/}
+      {/*  normalMatrix={undefined}*/}
+      {/*  matrixWorld={undefined}*/}
+      {/*  matrixAutoUpdate={undefined}*/}
+      {/*  matrixWorldNeedsUpdate={undefined}*/}
+      {/*  castShadow={undefined}*/}
+      {/*  receiveShadow={undefined}*/}
+      {/*  frustumCulled={undefined}*/}
+      {/*  renderOrder={undefined}*/}
+      {/*  animations={undefined}*/}
+      {/*  userData={undefined}*/}
+      {/*  customDepthMaterial={undefined}*/}
+      {/*  customDistanceMaterial={undefined}*/}
+      {/*  isObject3D={undefined}*/}
+      {/*  onBeforeRender={undefined}*/}
+      {/*  onAfterRender={undefined}*/}
+      {/*  applyMatrix4={undefined}*/}
+      {/*  applyQuaternion={undefined}*/}
+      {/*  setRotationFromAxisAngle={undefined}*/}
+      {/*  setRotationFromEuler={undefined}*/}
+      {/*  setRotationFromMatrix={undefined}*/}
+      {/*  setRotationFromQuaternion={undefined}*/}
+      {/*  rotateOnAxis={undefined}*/}
+      {/*  rotateOnWorldAxis={undefined}*/}
+      {/*  rotateX={undefined}*/}
+      {/*  rotateY={undefined}*/}
+      {/*  rotateZ={undefined}*/}
+      {/*  translateOnAxis={undefined}*/}
+      {/*  translateX={undefined}*/}
+      {/*  translateY={undefined}*/}
+      {/*  translateZ={undefined}*/}
+      {/*  localToWorld={undefined}*/}
+      {/*  worldToLocal={undefined}*/}
+      {/*  lookAt={undefined}*/}
+      {/*  add={undefined}*/}
+      {/*  remove={undefined}*/}
+      {/*  removeFromParent={undefined}*/}
+      {/*  clear={undefined}*/}
+      {/*  getObjectById={undefined}*/}
+      {/*  getObjectByName={undefined}*/}
+      {/*  getObjectByProperty={undefined}*/}
+      {/*  getWorldPosition={undefined}*/}
+      {/*  getWorldQuaternion={undefined}*/}
+      {/*  getWorldScale={undefined}*/}
+      {/*  getWorldDirection={undefined}*/}
+      {/*  raycast={undefined}*/}
+      {/*  traverse={undefined}*/}
+      {/*  traverseVisible={undefined}*/}
+      {/*  traverseAncestors={undefined}*/}
+      {/*  updateMatrix={undefined}*/}
+      {/*  updateMatrixWorld={undefined}*/}
+      {/*  updateWorldMatrix={undefined}*/}
+      {/*  toJSON={undefined}*/}
+      {/*  clone={undefined}*/}
+      {/*  copy={undefined}*/}
+      {/*  addEventListener={undefined}*/}
+      {/*  hasEventListener={undefined}*/}
+      {/*  removeEventListener={undefined}*/}
+      {/*  dispatchEvent={undefined}*/}
+      {/*>*/}
+      {/*  {null}*/}
+      {/*</ContactShadows>*/}
 
       <EffectComposer multisampling={0}>
         <DepthOfField focusDistance={focusDistance} focalLength={focalLength} bokehScale={bokehScale} />

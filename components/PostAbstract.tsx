@@ -1,10 +1,13 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react';
-import PropTypes from 'prop-types';
 import Link from 'next/link';
 import { getPublishedDateFormatted, getPublishedDateShort } from '@/lib/helpers';
+import { Post } from '@/types/index';
 
-const PostAbstract = ({ post }): JSX.Element => (
+export type PostAbstractProps = {
+  post: Post;
+};
+
+const PostAbstract = ({ post }: PostAbstractProps): JSX.Element => (
   <article
     aria-labelledby={`aria-article-${post.id}`}
     className="post"
@@ -34,9 +37,6 @@ const PostAbstract = ({ post }): JSX.Element => (
         </p>
       </div>
     </header>
-
-    {/* eslint-disable-next-line react/no-danger */}
-    {/* <div className="post__body" dangerouslySetInnerHTML={{ __html: post.body }} /> */}
   </article>
 );
 

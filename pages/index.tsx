@@ -32,7 +32,6 @@ export default function Index({ subscription }: HomeProps) {
   // see: https://github.com/datocms/react-datocms/#live-real-time-updates
   const { data } = useQuerySubscription(subscription);
   const { home }: HomeData = data;
-  // const { site, menu } = usePageState();
 
   const [heroData, setHeroData] = useState<HeroData>(undefined);
   const [aboutData, setAboutData] = useState<AboutData>(undefined);
@@ -133,16 +132,4 @@ export const getStaticProps: GetStaticProps = async ({ preview }) => {
           }
     }
   };
-
-  // const page = (await getHomeData(preview)) || null;
-  // const menu = (await getAllMenu(preview)) || null;
-  // const site = (await getSiteData(preview)) || null;
-  //
-  // return {
-  //   props: {
-  //     site,
-  //     page,
-  //     menu
-  //   }
-  // };
 };

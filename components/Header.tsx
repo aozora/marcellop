@@ -51,7 +51,8 @@ const Header = (): JSX.Element => {
       } else {
         // on close, set focus to the triggering button
         // eslint-disable-next-line no-undef
-        document.querySelector('.menu__toggle').focus();
+        const el = document.querySelector('.menu__toggle') as HTMLElement;
+        el.focus();
       }
     }
   }, [isClient, showMobileMenu]);

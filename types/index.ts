@@ -1,4 +1,4 @@
-import { SeoMetaTagType } from 'react-datocms';
+import { SeoMetaTagType, StructuredTextGraphQlResponse } from 'react-datocms';
 
 export type ResponsiveImage = {
   responsiveImage: {
@@ -113,4 +113,33 @@ export type WhatidoItem = {
 export type WhatidoData = {
   heading: string;
   items: Array<WhatidoItem>;
+};
+
+export type ResumeJob = {
+  id: string;
+  title: string;
+  from: string;
+  to: string;
+  company: string;
+  description: string;
+  seo: Array<SeoMetaTagType>;
+};
+
+export type Use = {
+  id: string;
+  title: string;
+  description: string;
+  seo: Array<SeoMetaTagType>;
+};
+
+export type Post = {
+  id: string;
+  title: string;
+  slug: string;
+  category: string;
+  body: string;
+  body2: StructuredTextGraphQlResponse<any>;
+  cover: ResponsiveImage;
+  seo: Array<SeoMetaTagType>;
+  publishedAt: string;
 };
