@@ -117,7 +117,7 @@ const HeroAbstract = () => {
     <Suspense fallback={<Loading />}>
       <Canvas
         mode="concurrent"
-        shadows={true}
+        shadows={{ type: 'PCFSoftShadowMap' }}
         shadow-mapSize-height={1024}
         shadow-mapSize-width={1024}
         camera={{
@@ -134,7 +134,13 @@ const HeroAbstract = () => {
         <color attach="background" args={['#f0f0f0']} />
         <fog attach="fog" args={['red', 60, 100]} />
         <ambientLight intensity={0.5} />
-        <pointLight position={[100, 10, -50]} intensity={20} castShadow={true} />
+        <pointLight
+          position={[100, 10, -50]}
+          intensity={20}
+          castShadow={true}
+          shadow-mapSize-height={1024}
+          shadow-mapSize-width={1024}
+        />
         <pointLight position={[-100, -100, -100]} intensity={10} color="black" />
         <Environment preset="studio" />
 
