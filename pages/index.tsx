@@ -83,33 +83,31 @@ export default function Index({ subscription }: HomeProps) {
         }
       />
 
-      {isClient && (
-        <Suspense fallback={null}>
-          <HeroAbstract />
-        </Suspense>
-      )}
+      <div className="canvas-container">
+        {isClient && <HeroAbstract />}
 
-      {!isClient && (
-        <div
-          style={{
-            position: 'relative',
-            width: '100%',
-            height: '100%',
-            overflow: 'hidden'
-          }}
-        >
-          <canvas
+        {!isClient && (
+          <div
             style={{
-              display: 'block',
-              width: '1121px',
-              height: '814px'
+              position: 'relative',
+              width: '100%',
+              height: '100%',
+              overflow: 'hidden'
             }}
-            data-engine="three.js r136"
-            width="1121"
-            height="814"
-          />
-        </div>
-      )}
+          >
+            <canvas
+              style={{
+                display: 'block',
+                width: '1121px',
+                height: '814px'
+              }}
+              data-engine="three.js r136"
+              width="1121"
+              height="814"
+            />
+          </div>
+        )}
+      </div>
 
       {heroData && <Hero {...heroData} />}
       {aboutData && <About {...aboutData} />}

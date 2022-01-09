@@ -1,43 +1,22 @@
-/**
-  Skip Links
- */
-[href="#main"] {
-  position: absolute;
-  top: 0;
-  right: 100%; /* moves off screen */
-  width: 100vw;
-  height: $menu-height;
-  padding: 0 1rem;
-  margin: 0;
-  background-color: var(--color-black);
-  font-size: 1.6rem;
-  line-height: $menu-height;
-  color: var(--color-white);
-  text-decoration: underline;
-
-  &:focus {
-    right: auto;
-    z-index: $skiplink-zindex;
-    color: var(--color-white);
-  }
-}
 
 .header {
+  --menu-background: transparent;
+
   position: -webkit-sticky;
   position: sticky;
   top: 0;
   display: grid;
   grid-template-columns: 2.667rem 1fr 1fr 2.667rem;
-  grid-template-rows: $menu-height;
+  grid-template-rows: var(--menu-height);
   grid-template-areas: "toggle title menu search";
   grid-gap: 1rem;
   width: 100%;
   max-width: none;
-  height: $menu-height;
+  height: var(--menu-height);
   margin: 0;
   padding: 0;
-  background-color: var(--color-white);
-  z-index: $menu-zindex;
+  background-color: var(--menu-background); // var(--color-white);
+  z-index: var(--menu-zindex);
 }
 
 /**
@@ -48,11 +27,11 @@
   position: relative;
   display: none;
   width: 100%;
-  height: $menu-height;
+  height: var(--menu-height);
   padding: 0;
   //overflow: hidden;
-  background-color: $menu-background;
-  z-index: $menu-zindex;
+  background-color: var(--menu-background);
+  z-index: var(--menu-zindex);
 
   @include media(">=tablet") {
     display: flex;
@@ -64,7 +43,7 @@
 .menu__toggle {
   grid-area: toggle;
   @include icon-button;
-  z-index: $menu-toggle-button-zindex;
+  z-index: var(--menu-toggle-button-zindex);
 
   @include media(">=tablet") {
     display: none;
@@ -82,7 +61,7 @@
 .menu__search {
   grid-area: search;
   @include icon-button;
-  z-index: $menu-toggle-button-zindex;
+  z-index: var(--menu-toggle-button-zindex);
 }
 
 .menu__items {
@@ -216,7 +195,7 @@
     display: block;
     width: 100vw;
     height: 100vh;
-    z-index: $menu-toggle-button-zindex - 2;
+    z-index: calc(var(--menu-toggle-button-zindex) - 2);
     background-color: var(--color-pantone);
   }
 
@@ -230,9 +209,9 @@
     grid-template-areas: ". items ." "social social social";
     width: 100vw;
     height: 100vh;
-    padding: $menu-height 1rem 1rem 1rem;
+    padding: var(--menu-height) 1rem 1rem 1rem;
     background-color: var(--color-black);
-    z-index: $menu-toggle-button-zindex - 1;
+    z-index: calc(var(--menu-toggle-button-zindex) - 1);
     clip-path: polygon(10% 0%, 25% 0%, 50% 0%, 75% 0%, 100% 0%, 100% 100%, 75% 100%, 50% 100%, 25% 100%, 0% 100%, 0% 0%);
     animation: menu-enter 3s ease-in-out;
     animation-fill-mode: forwards;

@@ -1,9 +1,9 @@
-import React, { useMemo, useRef, useState } from 'react';
+import React, { Suspense, useMemo, useRef, useState } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
-import { ContactShadows, Environment, Preload } from '@react-three/drei';
+import { Environment, Preload } from '@react-three/drei';
 import { Color, Object3D } from 'three';
-import { useControls } from 'leva';
-import { DepthOfField, EffectComposer, SSAO } from '@react-three/postprocessing';
+// import { useControls } from 'leva';
+import { DepthOfField, EffectComposer } from '@react-three/postprocessing';
 
 const Swarm = ({ count, ...props }): JSX.Element => {
   const mesh = useRef();
@@ -78,6 +78,10 @@ const Swarm = ({ count, ...props }): JSX.Element => {
   );
 };
 
+const Loading = () => {
+  return <h2>Loading...</h2>;
+};
+
 const HeroAbstract = () => {
   // const { count } = useControls({
   //   count: {
@@ -109,141 +113,52 @@ const HeroAbstract = () => {
     focalLength = 1,
     bokehScale = 0.2;
 
-  // @ts-ignore
-  // @ts-ignore
   return (
-    <Canvas
-      shadows
-      shadow-mapSize-height={512}
-      shadow-mapSize-width={512}
-      camera={{
-        fov: 75,
-        position: [0, 0, 40],
-        near: 10,
-        far: 150
-      }}
-      // onCreated={state => {
-      //   console.log({ state });
-      //   state.events.connect(dom.current);
-      // }}
-    >
-      <color attach="background" args={['#f0f0f0']} />
-      <fog attach="fog" args={['red', 60, 100]} />
-      <ambientLight intensity={0.5} />
-      <pointLight position={[100, 10, -50]} intensity={20} castShadow />
-      <pointLight position={[-100, -100, -100]} intensity={10} color="black" />
-      <Environment preset="studio" />
+    <Suspense fallback={<Loading />}>
+      <Canvas
+        mode="concurrent"
+        shadows={true}
+        shadow-mapSize-height={1024}
+        shadow-mapSize-width={1024}
+        camera={{
+          fov: 75,
+          position: [0, 0, 40],
+          near: 10,
+          far: 150
+        }}
+        // onCreated={state => {
+        //   console.log({ state });
+        //   state.events.connect(dom.current);
+        // }}
+      >
+        <color attach="background" args={['#f0f0f0']} />
+        <fog attach="fog" args={['red', 60, 100]} />
+        <ambientLight intensity={0.5} />
+        <pointLight position={[100, 10, -50]} intensity={20} castShadow={true} />
+        <pointLight position={[-100, -100, -100]} intensity={10} color="black" />
+        <Environment preset="studio" />
 
-      {/*<ContactShadows*/}
-      {/*  rotation={[Math.PI / 2, 0, 0]}*/}
-      {/*  position={[0, -30, 0]}*/}
-      {/*  opacity={0.6}*/}
-      {/*  width={130}*/}
-      {/*  height={130}*/}
-      {/*  blur={1}*/}
-      {/*  far={40}*/}
-      {/*  key={''}*/}
-      {/*  attach={undefined}*/}
-      {/*  attachArray={undefined}*/}
-      {/*  attachObject={undefined}*/}
-      {/*  args={undefined}*/}
-      {/*  onUpdate={undefined}*/}
-      {/*  up={undefined}*/}
-      {/*  matrix={undefined}*/}
-      {/*  quaternion={undefined}*/}
-      {/*  layers={undefined}*/}
-      {/*  dispose={undefined}*/}
-      {/*  onClick={undefined}*/}
-      {/*  onContextMenu={undefined}*/}
-      {/*  onDoubleClick={undefined}*/}
-      {/*  onPointerUp={undefined}*/}
-      {/*  onPointerDown={undefined}*/}
-      {/*  onPointerOver={undefined}*/}
-      {/*  onPointerOut={undefined}*/}
-      {/*  onPointerEnter={undefined}*/}
-      {/*  onPointerLeave={undefined}*/}
-      {/*  onPointerMove={undefined}*/}
-      {/*  onPointerMissed={undefined}*/}
-      {/*  onPointerCancel={undefined}*/}
-      {/*  onWheel={undefined}*/}
-      {/*  visible={undefined}*/}
-      {/*  type={undefined}*/}
-      {/*  isGroup={undefined}*/}
-      {/*  id={undefined}*/}
-      {/*  uuid={undefined}*/}
-      {/*  name={undefined}*/}
-      {/*  parent={undefined}*/}
-      {/*  modelViewMatrix={undefined}*/}
-      {/*  normalMatrix={undefined}*/}
-      {/*  matrixWorld={undefined}*/}
-      {/*  matrixAutoUpdate={undefined}*/}
-      {/*  matrixWorldNeedsUpdate={undefined}*/}
-      {/*  castShadow={undefined}*/}
-      {/*  receiveShadow={undefined}*/}
-      {/*  frustumCulled={undefined}*/}
-      {/*  renderOrder={undefined}*/}
-      {/*  animations={undefined}*/}
-      {/*  userData={undefined}*/}
-      {/*  customDepthMaterial={undefined}*/}
-      {/*  customDistanceMaterial={undefined}*/}
-      {/*  isObject3D={undefined}*/}
-      {/*  onBeforeRender={undefined}*/}
-      {/*  onAfterRender={undefined}*/}
-      {/*  applyMatrix4={undefined}*/}
-      {/*  applyQuaternion={undefined}*/}
-      {/*  setRotationFromAxisAngle={undefined}*/}
-      {/*  setRotationFromEuler={undefined}*/}
-      {/*  setRotationFromMatrix={undefined}*/}
-      {/*  setRotationFromQuaternion={undefined}*/}
-      {/*  rotateOnAxis={undefined}*/}
-      {/*  rotateOnWorldAxis={undefined}*/}
-      {/*  rotateX={undefined}*/}
-      {/*  rotateY={undefined}*/}
-      {/*  rotateZ={undefined}*/}
-      {/*  translateOnAxis={undefined}*/}
-      {/*  translateX={undefined}*/}
-      {/*  translateY={undefined}*/}
-      {/*  translateZ={undefined}*/}
-      {/*  localToWorld={undefined}*/}
-      {/*  worldToLocal={undefined}*/}
-      {/*  lookAt={undefined}*/}
-      {/*  add={undefined}*/}
-      {/*  remove={undefined}*/}
-      {/*  removeFromParent={undefined}*/}
-      {/*  clear={undefined}*/}
-      {/*  getObjectById={undefined}*/}
-      {/*  getObjectByName={undefined}*/}
-      {/*  getObjectByProperty={undefined}*/}
-      {/*  getWorldPosition={undefined}*/}
-      {/*  getWorldQuaternion={undefined}*/}
-      {/*  getWorldScale={undefined}*/}
-      {/*  getWorldDirection={undefined}*/}
-      {/*  raycast={undefined}*/}
-      {/*  traverse={undefined}*/}
-      {/*  traverseVisible={undefined}*/}
-      {/*  traverseAncestors={undefined}*/}
-      {/*  updateMatrix={undefined}*/}
-      {/*  updateMatrixWorld={undefined}*/}
-      {/*  updateWorldMatrix={undefined}*/}
-      {/*  toJSON={undefined}*/}
-      {/*  clone={undefined}*/}
-      {/*  copy={undefined}*/}
-      {/*  addEventListener={undefined}*/}
-      {/*  hasEventListener={undefined}*/}
-      {/*  removeEventListener={undefined}*/}
-      {/*  dispatchEvent={undefined}*/}
-      {/*>*/}
-      {/*  {null}*/}
-      {/*</ContactShadows>*/}
+        {/*<ContactShadows*/}
+        {/*  rotation={[Math.PI / 2, 0, 0]}*/}
+        {/*  position={[0, -30, 0]}*/}
+        {/*  opacity={0.6}*/}
+        {/*  width={130}*/}
+        {/*  height={130}*/}
+        {/*  blur={1}*/}
+        {/*  far={40}*/}
+        {/*>*/}
+        {/*  {null}*/}
+        {/*</ContactShadows>*/}
 
-      <EffectComposer multisampling={0}>
-        <DepthOfField focusDistance={focusDistance} focalLength={focalLength} bokehScale={bokehScale} />
-      </EffectComposer>
+        <EffectComposer multisampling={0}>
+          <DepthOfField focusDistance={focusDistance} focalLength={focalLength} bokehScale={bokehScale} />
+        </EffectComposer>
 
-      <Swarm count={count} position={[0, 10, 0]} />
+        <Swarm count={count} position={[0, 10, 0]} />
 
-      <Preload all />
-    </Canvas>
+        <Preload all />
+      </Canvas>
+    </Suspense>
   );
 };
 

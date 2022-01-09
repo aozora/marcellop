@@ -145,5 +145,20 @@
   --body-font-family: 'MuseoSans', Helvetica, Roboto, Arial, sans-serif;
   --heading-font-family: 'BonVivantSerifBold', serif;
 
+
+  // ################################################################
+  //    MAIN MENU
+  // ################################################################
+  --menu-background: transparent;
+  --menu-height: 3.33rem;
+
+
+  // ################################################################
+  //    Z-INDEXES
+  // ################################################################
+  --menu-zindex: 101;
+  --menu-toggle-button-zindex: calc(var(--menu-zindex) + 2);
+  --skiplink-zindex: calc(var(--menu-toggle-button-zindex) + 1);
+  --home-mobile-loader-zindex: 110;
 }
 

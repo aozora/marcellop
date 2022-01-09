@@ -3,6 +3,7 @@ import Head from 'next/head';
 import Header from '@/components/Header';
 import Footer from './Footer';
 import { Alert } from '@/components/Alert';
+import { SkipLink } from '@/components/SkipLink/SkipLink';
 
 type LayoutProps = {
   preview?: boolean;
@@ -17,9 +18,7 @@ export const Layout = ({ preview = false, pageProps, children }: LayoutProps): J
         <meta name="viewport" content="initial-scale=1, viewport-fit=cover" />
       </Head>
 
-      <a href="#main" tabIndex={0}>
-        Skip to main content
-      </a>
+      <SkipLink />
 
       <Header />
       <Alert preview={preview} />
