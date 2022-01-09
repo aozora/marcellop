@@ -1,7 +1,7 @@
 /* eslint-disable indent */
 import React, { Suspense, useEffect, useState } from 'react';
 import { QueryListenerOptions, SeoMetaTagType, useQuerySubscription } from 'react-datocms';
-import Hero from '@/components/Hero';
+import Hero from '@/components/Hero/Hero';
 import About from '@/components/About';
 import What from '@/components/What';
 import HeroAbstract from '@/components/HeroAbstract';

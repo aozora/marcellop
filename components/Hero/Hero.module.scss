@@ -1,4 +1,6 @@
-.hero {
+@import '../../styles/shared.scss';
+
+.Hero {
   // use 'em' otherwise the fluid-type mixin doesn't work
   --hero-hi-line-height-min: 1.5em;
   --hero-hi-line-height-max: 1.5em;
@@ -21,8 +23,11 @@
   --hero-p-font-size-max: 1.81rem;
 
   position: relative;
-  display: block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   @include container;
+  height: 100vh;
   padding: 3rem 1rem 0 1rem;
   margin-bottom: 2rem;
   //background-color: var(--color-white);
@@ -35,14 +40,14 @@
     font-family: var(--heading-font-family);
 
     --text-weight: var(--hero-weight);
-    @if $use-variable-font-for-headings {
-      font-variation-settings: 'wght' var(--hero-weight), 'slnt' var(--hero-slant);
-    }
+    //@if $use-variable-font-for-headings {
+    //  font-variation-settings: 'wght' var(--hero-weight), 'slnt' var(--hero-slant);
+    //}
 
     font-size: clamp(var(--hero-hi-font-size-min), 8vw, var(--hero-hi-font-size-max));
     line-height: var(--hero-hi-line-height-min);
 
-    @include media(">=tablet") {
+    @media (min-width: 64em) {
       display: block;
     }
   }
@@ -54,16 +59,17 @@
 
     --text-weight: var(--hero-weight);
 
-    @if $use-variable-font-for-headings {
-      font-variation-settings: 'wght' var(--hero-weight), 'slnt' var(--hero-slant);
-    }
+    //@if $use-variable-font-for-headings {
+    //  font-variation-settings: 'wght' var(--hero-weight), 'slnt' var(--hero-slant);
+    //}
 
     font-size: clamp(var(--hero-h1-font-size-min), 8vw, var(--hero-h1-font-size-max));
     line-height: var(--hero-h1-line-height-min);
 
+    text-align: center;
     text-transform: uppercase;
 
-    @include media("<=360px") {
+    @media (max-width: 360px) {
       font-size: 2.5rem;
     }
   }
@@ -91,7 +97,7 @@
       &:first-child {
         margin-right: 2rem;
 
-        @include media('<=360px') {
+        @media (max-width: 360px) {
           margin-right: .3rem;
         }
       }
