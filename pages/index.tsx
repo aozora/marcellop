@@ -3,7 +3,7 @@ import React, { Suspense, useEffect, useState } from 'react';
 import { QueryListenerOptions, SeoMetaTagType, useQuerySubscription } from 'react-datocms';
 import Hero from '@/components/Hero/Hero';
 import About from '@/components/About/About';
-import What from '@/components/What';
+import What from '@/components/What/What';
 import HeroAbstract from '@/components/HeroAbstract';
 import { homeQuery } from '@/queries/home.query';
 import { request, RequestType } from '@/lib/datocms';
