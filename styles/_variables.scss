@@ -18,9 +18,7 @@
   --color-primary: #000;
   --color-black: #000;
   --color-white: #fff;
-  // PANTONE Color of the Year 2018
-  // https://www.pantone.com/color-intelligence/color-of-the-year/color-of-the-year-2018-tools-for-designers
-  --color-pantone: #5F4B8B;
+  --color-pantone: #6968AA;
 
   /* Breakpoint variables */
   --breakpoint-small: #{strip-unit(map_get($breakpoints, phone))};

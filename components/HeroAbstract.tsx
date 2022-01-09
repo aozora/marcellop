@@ -83,31 +83,6 @@ const Loading = () => {
 };
 
 const HeroAbstract = () => {
-  // const { count } = useControls({
-  //   count: {
-  //     value: 150,
-  //     min: 0,
-  //     max: 1000,
-  //     step: 10
-  //   }
-  // });
-  // const { focusDistance, focalLength, bokehScale } = useControls({
-  //   focusDistance: {
-  //     min: 0,
-  //     max: 4,
-  //     value: 2
-  //   },
-  //   focalLength: {
-  //     min: 0,
-  //     max: 1,
-  //     value: 0.1
-  //   },
-  //   bokehScale: {
-  //     min: 0,
-  //     max: 10,
-  //     value: 0.2
-  //   }
-  // });
   const count = 150;
   const focusDistance = 2,
     focalLength = 1,
@@ -141,7 +116,7 @@ const HeroAbstract = () => {
           shadow-mapSize-height={1024}
           shadow-mapSize-width={1024}
         />
-        <pointLight position={[-100, -100, -100]} intensity={10} color="black" />
+        <pointLight position={[-100, -100, -100]} intensity={10} color="#6968AA" />
         <Environment preset="studio" />
 
         {/*<ContactShadows*/}

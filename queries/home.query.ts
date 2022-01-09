@@ -35,7 +35,7 @@ export const homeQuery = `
       aboutDescription3
       aboutDescription4
       aboutPicture {
-        responsiveImage(imgixParams: {fm: jpg, auto: compress, w: 630 h: 464 }) {
+        responsiveImage(imgixParams: {fm: jpg, fit: max, w: 1440}) {
           ...responsiveImageFragment
         }
        alt
