@@ -18,10 +18,10 @@
   @include container;
 
   @media (min-width: 64em) {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: repeat(6, auto); // auto auto auto auto auto;
-    grid-template-areas: "heading2 heading2" "content1 ." ". content2" "figure figure" "content3 ." ". content4";
+    //display: grid;
+    //grid-template-columns: 1fr 1fr;
+    //grid-template-rows: repeat(6, auto); // auto auto auto auto auto;
+    //grid-template-areas: "heading2 heading2" "figure figure" "content1 ." ". content2" "content3 ." ". content4";
     //background-color: var(--color-black);
   }
 
@@ -56,7 +56,7 @@
   }
 
   .ImageWrapper {
-    margin: 0; // calc(3 * var(--text-base-size)) 0 calc(3 * var(--text-base-size)) 0;
+    margin: 0;
     padding: 0 0 0 calc(2 * var(--text-base-size));
 
     img {
@@ -68,7 +68,7 @@
 
     @media (min-width: 64em) {
       //grid-area: figure;
-      margin: calc(3 * var(--text-base-size)) 0;
+      margin: 0;
       padding: 0;
     }
   }

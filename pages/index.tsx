@@ -4,7 +4,7 @@ import { QueryListenerOptions, SeoMetaTagType, useQuerySubscription } from 'reac
 import Hero from '@/components/Hero/Hero';
 import About from '@/components/About/About';
 import What from '@/components/What/What';
-import HeroAbstract from '@/components/HeroAbstract';
+import HeroAbstract from '@/components/HeroAbstract/HeroAbstract';
 import { homeQuery } from '@/queries/home.query';
 import { request, RequestType } from '@/lib/datocms';
 import { AboutData, HeroData, Home, PageLink, WhatidoData } from '@/types/index';
