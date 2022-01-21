@@ -1,4 +1,4 @@
-import React, { Suspense, useMemo, useRef, useState } from 'react';
+import React, { Suspense, useEffect, useMemo, useRef, useState } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { Environment, Preload, ScrollControls, Scroll, Tetrahedron, Box, useScroll } from '@react-three/drei';
 import { Color, Object3D } from 'three';
@@ -109,7 +109,7 @@ const Tetra = ({ ...props }) => {
 
     // scale
     // @ts-ignore
-    mesh.current.scale.set(1 + data.offset * 3, 1 + data.offset * 3, 1 + data.offset * 3);
+    // mesh.current.scale.set(1 + data.offset * 3, 1 + data.offset * 3, 1 + data.offset * 3);
 
     // mesh.current.position.y = MathUtils.damp(mesh.current.position.y, 0, 4, delta);
   });
@@ -132,6 +132,28 @@ const Composition = () => {
   const focalLength = 1;
   const bokehScale = 0.2;
 
+  useEffect(() => {
+    const onScroll = () => {
+      const scrollY = window.scrollY;
+      const y = Math.round(scrollY / window.innerHeight);
+      const scrollTop = document.documentElement.scrollTop;
+
+      const containerLength = window.innerHeight;
+      const scrollLength = scrollTop;
+      const scrollThreshold = scrollLength - containerLength;
+
+      console.log({ scrollTop });
+      console.log({ scrollY });
+      console.log({ y });
+      console.log({ scrollThreshold });
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+
+    return () => {
+      window.removeEventListener('scroll', onScroll);
+    };
+  }, []);
+
   return (
     <>
       <color attach="background" args={['#f0f0f0']} />
@@ -139,9 +161,9 @@ const Composition = () => {
 
       <HeroAbstractLights />
 
-      <Scroll>
-        <Swarm count={count} position={[0, 10, 0]} />
-      </Scroll>
+      {/*<Scroll>*/}
+      <Swarm count={count} position={[0, 10, 0]} />
+      {/*</Scroll>*/}
 
       <Tetra position={[0, -10, 20]} />
 
@@ -167,9 +189,9 @@ const HeroAbstract = () => {
         shadow-mapSize-width={1024}
         camera={{ fov: 75, position: [0, 0, 50], near: 10, far: 150 }}
       >
-        <ScrollControls pages={2}>
-          <Composition />
-        </ScrollControls>
+        {/*<ScrollControls pages={2}>*/}
+        <Composition />
+        {/*</ScrollControls>*/}
       </Canvas>
     </Suspense>
   );
