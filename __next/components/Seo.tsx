@@ -3,7 +3,7 @@ import { NextSeo } from 'next-seo';
 import { useMemo } from 'react';
 import { MetaTag, OpenGraphMedia } from 'next-seo/lib/types';
 import usePageLink from '../hooks/usePageLink';
-import { PageLink } from '@/types/index';
+import { PageLink } from '../../src/types/index';
 
 type GlobalSeo = {
   siteName?: string;

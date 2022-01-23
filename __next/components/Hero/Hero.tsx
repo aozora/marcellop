@@ -1,6 +1,6 @@
 /* eslint-disable react/no-array-index-key,react/no-danger */
 import React from 'react';
-import { HeroData } from '@/types/index';
+import { HeroData } from '../../../src/types/index';
 import styles from './Hero.module.scss';
 
 const Hero = ({ hi, heading1, heading2A, heading2B, heading2C }: HeroData): JSX.Element => (

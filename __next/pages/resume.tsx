@@ -6,7 +6,7 @@ import { QueryListenerOptions, useQuerySubscription } from 'react-datocms';
 import { GetStaticProps } from 'next';
 import { request, RequestType } from '@/lib/datocms';
 import { resumeQuery } from '@/queries/resume.query';
-import { ResumeJob } from '@/types/index';
+import { ResumeJob } from '../../src/types/index';
 
 export type ResumeProps = {
   subscription: QueryListenerOptions<any, any>;

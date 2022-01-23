@@ -1,6 +1,6 @@
 import React from 'react';
 import { Image } from 'react-datocms';
-import { AboutData } from '@/types/index';
+import { AboutData } from '../../../src/types/index';
 import styles from './About.module.scss';
 
 const About = ({

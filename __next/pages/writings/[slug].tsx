@@ -11,7 +11,7 @@ import { request, RequestType } from '@/lib/datocms';
 import { postsQuery } from '@/queries/posts.query';
 import { postBySlugQuery } from '@/queries/postBySlug.query';
 import 'highlight.js/styles/base16/darcula.css';
-import { Post } from '@/types/index';
+import { Post } from '../../../src/types/index';
 
 highlight.registerLanguage('javascript', javascript);
 

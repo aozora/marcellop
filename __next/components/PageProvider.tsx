@@ -1,5 +1,5 @@
 import { useContext, createContext, ReactNode, useReducer } from 'react';
-import { MenuItem, Site } from '@/types/index';
+import { MenuItem, Site } from '../../src/types/index';
 
 export type PageState = {
   site: Site;

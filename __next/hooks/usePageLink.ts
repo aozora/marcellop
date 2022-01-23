@@ -1,4 +1,4 @@
-import { PageLink } from '@/types/index';
+import { PageLink } from '../../src/types/index';
 
 export type LinkProps = {
   href: string;
