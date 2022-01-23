@@ -1,0 +1,29 @@
+<a href="#main" tabIndex={0} >
+  Skip to main content
+</a>
+
+<style lang='scss'>
+  @import '../styles/shared';
+
+  .SkipLink {
+    position: absolute;
+    top: 0;
+    right: 100%; /* moves off screen */
+    width: 100vw;
+    height: var(--menu-height);
+    padding: 0 1rem;
+    margin: 0;
+    background-color: var(--color-black);
+    font-size: 1.6rem;
+    line-height: var(--menu-height);
+    color: var(--color-white);
+    text-decoration: underline;
+
+    &:focus {
+      right: auto;
+      z-index: var(--skiplink-zindex);
+      color: var(--color-white);
+    }
+  }
+
+</style>

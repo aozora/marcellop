@@ -1,0 +1,81 @@
+@mixin visuallyhidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  clip: rect(0 0 0 0);
+  margin: -1px;
+  padding: 0;
+  border: 0;
+  overflow: hidden;
+}
+
+@mixin container {
+  max-width: var(--section-max-width);
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+
+  @media (min-width: 48em) {
+    padding: 0 2rem;
+  }
+}
+
+@mixin container-layout-grid {
+  display: grid;
+  grid-template-columns: repeat(var(--grid-columns-mobile), 1fr);
+  grid-template-rows: auto;
+  grid-gap: var(--grid-gap);
+  gap: var(--grid-gap);
+  align-items: center;
+  width: 100%;
+
+  @media (min-width: 48em) {
+    grid-template-columns: repeat(var(--grid-columns-tablet), 1fr);
+  }
+
+  @media (min-width: 64em) {
+    grid-template-columns: repeat(var(--grid-columns-desktop), 1fr);
+  }
+}
+
+@mixin underline-link {
+  a {
+    font-family: inherit;
+    font-weight: inherit;
+
+    text-decoration: none;
+    background-image: linear-gradient(transparent calc(100% - 2px), currentColor 2px);
+    background-size: 0 100%;
+    background-repeat: no-repeat;
+    transition: background-size 1s;
+
+    &:hover {
+      background-size: 100% 100%;
+    }
+  }
+}
+
+@mixin dropcap {
+  /* Initial Cap styles */
+  &:first-of-type::first-letter {
+    --text-weight: calc(var(--p-vf-weight) * 1.75);
+
+    float: left;
+    font-size: calc(var(--dc-font-size) * 1rem);
+    line-height: var(--dc-line-height);
+    padding: .1em .05em .05em 0;
+    //border: 1px solid #fff;
+
+    // if initial-letter is supported
+    @supports (initial-letter: 2) or (-webkit-initial-letter: 2) {
+      -webkit-initial-letter: 2;
+      initial-letter: 2;
+      /* undo other bits */
+      float: none;
+      font-size: inherit;
+      line-height: inherit;
+      margin: 0;
+      padding: 0 0.25em 0 0;
+    }
+  }
+}

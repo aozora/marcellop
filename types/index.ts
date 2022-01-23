@@ -1,4 +1,7 @@
-import { SeoMetaTagType, StructuredTextGraphQlResponse } from 'react-datocms';
+// import { SeoMetaTagType, StructuredTextGraphQlResponse } from 'react-datocms';
+import type {
+  StructuredText as StructuredTextGraphQlResponse
+} from 'datocms-structured-text-utils';
 
 export type ResponsiveImage = {
   responsiveImage: {
@@ -47,8 +50,21 @@ export type GlobalSeo = {
   facebookPageUrl?: string;
 };
 
+export type MetaAttribute = {
+  sizes: string,
+  type: string,
+  rel: string,
+  href: string,
+}
+
+export type Meta = {
+  attributes: Array<MetaAttribute>
+  content?: string
+  tag: string
+}
+
 export type Site = {
-  favicon: Array<SeoMetaTagType>;
+  favicon: Array<Meta>;
   globalSeo: GlobalSeo;
 };
 
@@ -89,7 +105,7 @@ export type Home = {
   aboutPicture: ResponsiveImage;
   whatidoHeading: string;
   whatido: Array<WhatidoItem>;
-  seo: Array<SeoMetaTagType>;
+  seo: Array<Meta>;
 };
 
 export type HeroData = {
@@ -127,14 +143,14 @@ export type ResumeJob = {
   to: string;
   company: string;
   description: string;
-  seo: Array<SeoMetaTagType>;
+  seo: Array<Meta>;
 };
 
 export type Use = {
   id: string;
   title: string;
   description: string;
-  seo: Array<SeoMetaTagType>;
+  seo: Array<Meta>;
 };
 
 export type Post = {
@@ -145,6 +161,6 @@ export type Post = {
   body: string;
   body2: StructuredTextGraphQlResponse<any>;
   cover: ResponsiveImage;
-  seo: Array<SeoMetaTagType>;
+  seo: Array<Meta>;
   publishedAt: string;
 };
