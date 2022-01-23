@@ -1,11 +1,11 @@
-<a href="#main" tabIndex={0} >
+<a href="#main" tabIndex={0} class='skiplink'>
   Skip to main content
 </a>
 
 <style lang='scss'>
   @import '../styles/shared';
 
-  .SkipLink {
+  .skiplink {
     position: absolute;
     top: 0;
     right: 100%; /* moves off screen */

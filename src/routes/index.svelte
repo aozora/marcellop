@@ -3,18 +3,13 @@ import { homeQuery } from '../queries/home.query';
 import type { RequestType } from '$lib/datocms';
 import { request } from '$lib/datocms';
 import type { Load } from '@sveltejs/kit';
-import type { MenuItem, Site, Home, HeroData } from '../types';
+// import type { MenuItem, Site, Home } from '../types';
+import { menu } from '../store';
 
-export type HomeProps = {
-  site: Site,
-  menu: Array<MenuItem>,
-  home: Home
-}
 
 export const load: Load = async ({ fetch }) => {
   const graphqlRequest: RequestType = {
-    query: homeQuery,
-    preview: false // TODO: fix this
+    query: homeQuery
   };
 
   try {
@@ -35,10 +30,20 @@ export const load: Load = async ({ fetch }) => {
 
 <script lang='ts'>
 
+import type { Home, MenuItem, Site } from '../types';
+
+export type HomeProps = {
+  site: Site,
+  menu: Array<MenuItem>,
+  home: Home
+}
+
 /**
  * Props
  */
 export let data:HomeProps;
+
+menu.update(() => data.menu)
 
 /**
  * State
