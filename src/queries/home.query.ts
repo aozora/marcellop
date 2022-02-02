@@ -13,6 +13,7 @@ export const homeQuery = `
     
     menu {
       menuItems {
+        id
         title
         url
       }

@@ -3,7 +3,6 @@ import type { MenuItem } from '../types';
 import { page } from '$app/stores';
 import { onDestroy } from 'svelte';
 import { browser } from '$app/env';
-import { useEffect } from 'react';
 
 /**
  * Props

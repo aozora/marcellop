@@ -1,10 +1,10 @@
-<script context='module' lang='ts'>
-import { homeQuery } from '../queries/home.query';
-import type { RequestType } from '$lib/datocms';
-import { request } from '$lib/datocms';
-import type { Load } from '@sveltejs/kit';
+<script context="module" lang="ts">
+import { homeQuery } from "../queries/home.query";
+import type { RequestType } from "$lib/datocms";
+import { request } from "$lib/datocms";
+import type { Load } from "@sveltejs/kit";
 // import type { MenuItem, Site, Home } from '../types';
-import { menu } from '../store';
+import { menu } from "../store";
 
 
 export const load: Load = async ({ fetch }) => {
@@ -28,22 +28,27 @@ export const load: Load = async ({ fetch }) => {
 };
 </script>
 
-<script lang='ts'>
+<script lang="ts">
 
-import type { Home, MenuItem, Site } from '../types';
+import type { Home, MenuItem, Site } from "../types";
 
 export type HomeProps = {
   site: Site,
-  menu: Array<MenuItem>,
+  menu: {
+    menuItems: Array<MenuItem>
+  },
   home: Home
 }
 
 /**
  * Props
  */
-export let data:HomeProps;
+export let data: HomeProps;
 
-menu.update(() => data.menu)
+menu.update(() => {
+  console.log(data)
+  return data.menu.menuItems
+});
 
 /**
  * State
@@ -58,7 +63,7 @@ menu.update(() => data.menu)
 
 </script>
 
-<section class='hero'>
+<section class="hero">
   <h1>
     {data.home.heading1}
     <br />

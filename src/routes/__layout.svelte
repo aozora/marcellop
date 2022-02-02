@@ -24,7 +24,7 @@ import '../styles/app.scss';
 </svelte:head>
 
 <SkipLink />
-<Header menu={$menu.menuItems} />
+<Header menu={$menu} />
 
 
 <main id='main' role='main'>
