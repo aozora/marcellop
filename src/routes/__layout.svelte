@@ -5,18 +5,6 @@ import SkipLink from '../components/SkipLink.svelte';
 import { menu } from '../store';
 import '../styles/fonts.css';
 import '../styles/app.scss';
-
-// let menu = menuStore;
-
-// const unsubscribe = menuStore.subscribe(value => {
-//   console.log(value);
-//   menu = value;
-// });
-
-/**
- * Cleanup
- */
-// onDestroy(unsubscribe);
 </script>
 
 <svelte:head>
