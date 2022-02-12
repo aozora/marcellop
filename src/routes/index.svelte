@@ -3,9 +3,7 @@ import { homeQuery } from "../queries/home.query";
 import type { RequestType } from "$lib/datocms";
 import { request } from "$lib/datocms";
 import type { Load } from "@sveltejs/kit";
-// import type { MenuItem, Site, Home } from '../types';
 import { menu } from "../store";
-
 
 export const load: Load = async ({ fetch }) => {
   const graphqlRequest: RequestType = {
@@ -32,6 +30,7 @@ export const load: Load = async ({ fetch }) => {
 
 import type { Home, MenuItem, Site } from "../types";
 import { Image } from "svelte-datocms";
+import HeroCanvas from "../components/HeroCanvas.svelte";
 
 export type HomeProps = {
   site: Site,
@@ -63,44 +62,48 @@ menu.update(() => {
 
 </script>
 
-<section class="hero">
-  <h1>
-    {data.home.heading1}
-    <br />
-    Design Engineer
-  </h1>
+<div>
+  <HeroCanvas />
 
-  <section class="about">
-    <div id="about" class="about-container">
-      <h2>{data.home.aboutHeading}</h2>
+  <section class="hero">
 
-      <div class="image-container">
-        <Image
-          class="image-wrapper"
-          data={{
+    <h1>
+      {data.home.heading1}
+      <br />
+      Design Engineer
+    </h1>
+
+    <section class="about">
+      <div id="about" class="about-container">
+        <h2>{data.home.aboutHeading}</h2>
+
+        <div class="image-container">
+          <Image
+            class="image-wrapper"
+            data={{
               ...data.home.aboutPicture.responsiveImage
             }}
-        />
-      </div>
+          />
+        </div>
 
-      <div class="about-container-textblock-wrapper">
-        <p class="dropcap">{@html data.home.aboutDescription1}</p>
-      </div>
-      <div class="about-container-textblock-wrapper">
-        <p>{@html data.home.aboutDescription2}</p>
-      </div>
+        <div class="about-container-textblock-wrapper">
+          <p class="dropcap">{@html data.home.aboutDescription1}</p>
+        </div>
+        <div class="about-container-textblock-wrapper">
+          <p>{@html data.home.aboutDescription2}</p>
+        </div>
 
-      <div class="about-container-textblock-wrapper">
-        <p>{@html data.home.aboutDescription3}</p>
-      </div>
+        <div class="about-container-textblock-wrapper">
+          <p>{@html data.home.aboutDescription3}</p>
+        </div>
 
-      <div class="about-container-textblock-wrapper">
-        <p>{@html data.home.aboutDescription4}</p>
+        <div class="about-container-textblock-wrapper">
+          <p>{@html data.home.aboutDescription4}</p>
+        </div>
       </div>
-    </div>
+    </section>
   </section>
-
-</section>
+</div>
 
 
 <style lang="scss">

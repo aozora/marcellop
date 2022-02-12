@@ -9,7 +9,14 @@ const config = {
 	preprocess: preprocess(),
 
 	kit: {
-		adapter: adapter()
+		adapter: adapter(),
+
+		// config for three.js
+		vite: {
+			ssr: {
+				noExternal: ['three']
+			}
+		}
 	},
 
 	vite: {
