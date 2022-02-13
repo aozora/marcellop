@@ -28,7 +28,7 @@ const getParticles = (): Array<Particle> => {
 };
 const particles: Array<Particle> = getParticles();
 
-const [x, y] = useWindowScroll();
+const { x, y } = useWindowScroll();
 
 
 </script>
@@ -44,7 +44,7 @@ const [x, y] = useWindowScroll();
                 }} />
     <PointLight position={{ x: -100, y: -100, z:-100 }} intensity={10} color="#6968AA" />
 
-    <PerspectiveCamera fov={75} near={10} far={150} position={{ x: 0, y: 0, z: 30 }} />
+    <PerspectiveCamera fov={75} near={10} far={150} position={{ x: 0, y: 0, z: 50 }} />
 
     <Tetra />
 
