@@ -62,7 +62,7 @@ menu.update(() => {
 
 </script>
 
-<div>
+<div class="main-content">
   <HeroCanvas />
 
   <section class="hero">
@@ -108,6 +108,12 @@ menu.update(() => {
 
 <style lang="scss">
   @import '../styles/shared';
+
+  .main-content > section,
+  .main-content > article{
+    position: relative;
+    z-index: 1;
+  }
 
   h1 {
     width: 100%;

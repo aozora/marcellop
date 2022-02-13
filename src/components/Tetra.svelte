@@ -3,7 +3,7 @@ import {
   Mesh, Rotation,
   useFrame
 } from "threlte";
-import { MeshStandardMaterial, TetrahedronGeometry, Vector3 } from "three";
+import { MeshStandardMaterial, TetrahedronGeometry } from "three";
 
 let rotation: Rotation = { x: 0, y: 0, z: 0 };
 const xFactor = -40 + Math.random() * 80;

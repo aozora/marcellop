@@ -2,13 +2,33 @@
 import {
   AmbientLight,
   Canvas,
-  DirectionalLight,
-  HemisphereLight,
-  Mesh, MeshInstance,
-  OrbitControls,
-  PerspectiveCamera, PointLight, useFrame
+  Group,
+  PerspectiveCamera, PointLight
 } from "threlte";
 import Tetra from "./Tetra.svelte";
+import Swarm from "./Swarm.svelte";
+import type { Particle } from "../types";
+import { useWindowScroll } from "../hooks/useWindowScroll";
+
+const count = 150;
+const getParticles = (): Array<Particle> => {
+  const temp = [];
+  for (let i = 0; i < count; i++) {
+    const t = Math.random() * 100;
+    const factor = 20 + Math.random() * 100;
+    const speed = 0.002 + Math.random() / 200;
+    const xFactor = -40 + Math.random() * 80;
+    const yFactor = -30 + Math.random() * 40;
+    const zFactor = -20 + Math.random() * 40;
+
+    temp.push({ t, factor, speed, xFactor, yFactor, zFactor, mx: 0, my: 0 });
+  }
+
+  return temp;
+};
+const particles: Array<Particle> = getParticles();
+
+const [x, y] = useWindowScroll();
 
 
 </script>
@@ -23,6 +43,16 @@ import Tetra from "./Tetra.svelte";
                   mapSize: [1024,1024]
                 }} />
     <PointLight position={{ x: -100, y: -100, z:-100 }} intensity={10} color="#6968AA" />
+
+    <PerspectiveCamera fov={75} near={10} far={150} position={{ x: 0, y: 0, z: 30 }} />
+
     <Tetra />
+
+    <Group>
+      {#each particles as particle}
+        <Swarm {particle} />
+      {/each}
+    </Group>
+
   </Canvas>
 </div>
