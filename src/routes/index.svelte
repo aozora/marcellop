@@ -87,7 +87,7 @@ const metaTags: Array<SeoMetaTagType> = data.home && data.home.seo ? data.home.s
             id: data.home.id,
             slug: data.home.slug,
             _modelApiKey: data.home._modelApiKey
-          }
+          } as PageLink
         }
 />
 <!--<Seo-->

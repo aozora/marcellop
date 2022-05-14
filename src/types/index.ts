@@ -48,19 +48,6 @@ export type GlobalSeo = {
 	facebookPageUrl?: string;
 };
 
-export type MetaAttribute = {
-	sizes: string;
-	type: string;
-	rel: string;
-	href: string;
-};
-
-export type Meta = {
-	attributes: Array<MetaAttribute>;
-	content?: string;
-	tag: string;
-};
-
 export type SeoMetaAttribute = {
 	name?: string;
 	property?: string;
@@ -81,7 +68,7 @@ export declare type SeoMetaTagType = {
 };
 
 export type Site = {
-	favicon: Array<Meta>;
+	favicon: Array<SeoMetaTagType>;
 	globalSeo: GlobalSeo;
 };
 
@@ -160,14 +147,14 @@ export type ResumeJob = {
 	to: string;
 	company: string;
 	description: string;
-	seo: Array<Meta>;
+	seo: Array<SeoMetaTagType>;
 };
 
 export type Use = {
 	id: string;
 	title: string;
 	description: string;
-	seo: Array<Meta>;
+	seo: Array<SeoMetaTagType>;
 };
 
 export type Post = {
@@ -178,7 +165,7 @@ export type Post = {
 	body: string;
 	body2: StructuredTextGraphQlResponse<any>;
 	cover: ResponsiveImage;
-	seo: Array<Meta>;
+	seo: Array<SeoMetaTagType>;
 	publishedAt: string;
 };
 

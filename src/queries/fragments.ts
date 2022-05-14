@@ -29,10 +29,10 @@ export const metaTagsFragment = `
 `;
 
 export const globalSeoFragment = `
-  fragment globalSeoFragment on GlobalSeoField {
-    siteName
-    titleSuffix
-    twitterAccount
-    facebookPageUrl
-  }
+    fragment globalSeoFragment on GlobalSeoField {
+      siteName
+      titleSuffix
+      twitterAccount
+      facebookPageUrl
+    }
 `;
