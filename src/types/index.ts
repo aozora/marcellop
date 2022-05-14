@@ -61,6 +61,25 @@ export type Meta = {
 	tag: string;
 };
 
+export type SeoMetaAttribute = {
+	name?: string;
+	property?: string;
+	content?: string;
+	href?: string;
+	rel?: string;
+	sizes?: string;
+	type?: string;
+};
+
+export declare type SeoMetaTagType = {
+	/** the tag for the meta information */
+	tag: string;
+	/** the inner content of the meta tag */
+	content: string | null;
+	/** the HTML attributes to attach to the meta tag */
+	attributes: SeoMetaAttribute | null;
+};
+
 export type Site = {
 	favicon: Array<Meta>;
 	globalSeo: GlobalSeo;
@@ -103,7 +122,7 @@ export type Home = {
 	aboutPicture: ResponsiveImage;
 	whatidoHeading: string;
 	whatido: Array<WhatidoItem>;
-	seo: Array<Meta>;
+	seo: Array<SeoMetaTagType>;
 };
 
 export type HeroData = {

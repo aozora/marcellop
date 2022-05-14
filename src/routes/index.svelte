@@ -28,9 +28,11 @@ export const load: Load = async ({ fetch }) => {
 
 <script lang="ts">
 
-import type { HeroData, Home, MenuItem, Site } from "../types";
+import type { HeroData, Home, MenuItem, SeoMetaTagType, Site } from "../types";
 import { Image } from "svelte-datocms";
 import Hero from "../components/Hero.svelte";
+import What from "../components/What.svelte";
+import Seo from "../components/Seo.svelte";
 // import { onDestroy, onMount } from "svelte";
 // import { createScene, destroyScene } from "$lib/HeroScene";
 
@@ -64,15 +66,42 @@ menu.update(() => {
 /**
  * State
  */
-const heroData:HeroData = {
+const heroData: HeroData = {
   hi: data.home.hi,
   heading1: data.home.heading1,
   heading2A: data.home.heading2A,
   heading2B: data.home.heading2B,
   heading2C: data.home.heading2C
-}
+};
+
+const metaTags: Array<SeoMetaTagType> = data.home && data.home.seo ? data.home.seo.concat(data.site.favicon) : [];
 
 </script>
+
+<Seo
+  siteSeo={data.site.globalSeo}
+  metaTags={metaTags}
+  canonicalUrl={null}
+  pageLink={
+          {
+            id: data.home.id,
+            slug: data.home.slug,
+            _modelApiKey: data.home._modelApiKey
+          }
+        }
+/>
+<!--<Seo-->
+<!--  siteSeo={site.globalSeo}-->
+<!--  metaTags={metaTags}-->
+<!--  canonicalUrl={null}-->
+<!--  pageLink={-->
+<!--          {-->
+<!--            id: home.id,-->
+<!--            slug: home.slug,-->
+<!--            _modelApiKey: home._modelApiKey-->
+<!--          } as PageLink-->
+<!--        }-->
+<!--/>-->
 
 <div class="main-content">
   <!--  <HeroCanvas />-->
@@ -82,43 +111,46 @@ const heroData:HeroData = {
 
   <Hero hero={heroData} />
 
-<!--  <section class="hero">-->
-<!--    &lt;!&ndash;    <h1>&ndash;&gt;-->
-<!--    &lt;!&ndash;      {data.home.heading1}&ndash;&gt;-->
-<!--    &lt;!&ndash;      <br />&ndash;&gt;-->
-<!--    &lt;!&ndash;      Design Engineer&ndash;&gt;-->
-<!--    &lt;!&ndash;    </h1>&ndash;&gt;-->
-<!--  </section>-->
+  <!--  <section class="hero">-->
+  <!--    &lt;!&ndash;    <h1>&ndash;&gt;-->
+  <!--    &lt;!&ndash;      {data.home.heading1}&ndash;&gt;-->
+  <!--    &lt;!&ndash;      <br />&ndash;&gt;-->
+  <!--    &lt;!&ndash;      Design Engineer&ndash;&gt;-->
+  <!--    &lt;!&ndash;    </h1>&ndash;&gt;-->
+  <!--  </section>-->
 
-    <section class="about">
-      <div id="about" class="about-container">
-        <h2>{data.home.aboutHeading}</h2>
+  <section class="about">
+    <div id="about" class="about-container">
+      <h2>{data.home.aboutHeading}</h2>
 
-        <div class="image-container">
-          <Image
-            class="image-wrapper"
-            data={{
+      <div class="image-container">
+        <Image
+          class="image-wrapper"
+          data={{
               ...data.home.aboutPicture.responsiveImage
             }}
-          />
-        </div>
-
-        <div class="about-container-textblock-wrapper">
-          <p class="dropcap">{@html data.home.aboutDescription1}</p>
-        </div>
-        <div class="about-container-textblock-wrapper">
-          <p>{@html data.home.aboutDescription2}</p>
-        </div>
-
-        <div class="about-container-textblock-wrapper">
-          <p>{@html data.home.aboutDescription3}</p>
-        </div>
-
-        <div class="about-container-textblock-wrapper">
-          <p>{@html data.home.aboutDescription4}</p>
-        </div>
+        />
       </div>
-    </section>
+
+      <div class="about-container-textblock-wrapper">
+        <p class="dropcap">{@html data.home.aboutDescription1}</p>
+      </div>
+      <div class="about-container-textblock-wrapper">
+        <p>{@html data.home.aboutDescription2}</p>
+      </div>
+
+      <div class="about-container-textblock-wrapper">
+        <p>{@html data.home.aboutDescription3}</p>
+      </div>
+
+      <div class="about-container-textblock-wrapper">
+        <p>{@html data.home.aboutDescription4}</p>
+      </div>
+    </div>
+  </section>
+
+  <What home={data.home} />
+
 </div>
 
 
