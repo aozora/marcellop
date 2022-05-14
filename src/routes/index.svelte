@@ -1,8 +1,8 @@
 <script context="module" lang="ts">
-import { homeQuery } from "../queries/home.query";
+import type { Load } from "@sveltejs/kit";
 import type { RequestType } from "$lib/datocms";
 import { request } from "$lib/datocms";
-import type { Load } from "@sveltejs/kit";
+import { homeQuery } from "../queries/home.query";
 import { menu } from "../store";
 
 export const load: Load = async ({ fetch }) => {
@@ -28,9 +28,11 @@ export const load: Load = async ({ fetch }) => {
 
 <script lang="ts">
 
-import type { Home, MenuItem, Site } from "../types";
+import type { HeroData, Home, MenuItem, Site } from "../types";
 import { Image } from "svelte-datocms";
-import HeroCanvas from "../components/HeroCanvas.svelte";
+import Hero from "../components/Hero.svelte";
+// import { onDestroy, onMount } from "svelte";
+// import { createScene, destroyScene } from "$lib/HeroScene";
 
 export type HomeProps = {
   site: Site,
@@ -49,29 +51,44 @@ menu.update(() => {
   return data.menu.menuItems;
 });
 
+
+// let canvas;
+// onMount(() => {
+//   createScene(canvas);
+// });
+//
+// onDestroy(() => {
+//   destroyScene();
+// });
+
 /**
  * State
  */
-// const heroData:HeroData = {
-//   hi: data.home.hi,
-//   heading1: data.home.heading1,
-//   heading2A: data.home.heading2A,
-//   heading2B: data.home.heading2B,
-//   heading2C: data.home.heading2C
-// }
+const heroData:HeroData = {
+  hi: data.home.hi,
+  heading1: data.home.heading1,
+  heading2A: data.home.heading2A,
+  heading2B: data.home.heading2B,
+  heading2C: data.home.heading2C
+}
 
 </script>
 
 <div class="main-content">
-  <HeroCanvas />
+  <!--  <HeroCanvas />-->
+  <!--  <div class="canvas-container">-->
+  <!--    <canvas bind:this={canvas}></canvas>-->
+  <!--  </div>-->
 
-  <section class="hero">
+  <Hero hero={heroData} />
 
-    <h1>
-      {data.home.heading1}
-      <br />
-      Design Engineer
-    </h1>
+<!--  <section class="hero">-->
+<!--    &lt;!&ndash;    <h1>&ndash;&gt;-->
+<!--    &lt;!&ndash;      {data.home.heading1}&ndash;&gt;-->
+<!--    &lt;!&ndash;      <br />&ndash;&gt;-->
+<!--    &lt;!&ndash;      Design Engineer&ndash;&gt;-->
+<!--    &lt;!&ndash;    </h1>&ndash;&gt;-->
+<!--  </section>-->
 
     <section class="about">
       <div id="about" class="about-container">
@@ -102,7 +119,6 @@ menu.update(() => {
         </div>
       </div>
     </section>
-  </section>
 </div>
 
 
@@ -110,7 +126,7 @@ menu.update(() => {
   @import '../styles/shared';
 
   .main-content > section,
-  .main-content > article{
+  .main-content > article {
     position: relative;
     z-index: 1;
   }

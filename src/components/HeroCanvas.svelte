@@ -26,6 +26,7 @@ const getParticles = (): Array<Particle> => {
 
   return temp;
 };
+
 const particles: Array<Particle> = getParticles();
 
 const { x, y } = useWindowScroll();
@@ -42,7 +43,14 @@ const { x, y } = useWindowScroll();
                 shadow={{
                   mapSize: [1024,1024]
                 }} />
-    <PointLight position={{ x: -100, y: -100, z:-100 }} intensity={10} color="#6968AA" />
+    <PointLight position={{ x: -100, y: -100, z:-100 }}
+                intensity={10}
+                color="#6968AA"
+                castShadow={true}
+                shadow={{
+                  mapSize: [1024,1024]
+                }} />
+    />
 
     <PerspectiveCamera fov={75} near={10} far={150} position={{ x: 0, y: 0, z: 50 }} />
 
