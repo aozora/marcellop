@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { getPublishedDateFormatted, getPublishedDateShort } from '@/lib/helpers';
-import { Post } from '../../src/types/index';
+import { Post } from '../../src/lib/types/index';
 
 export type PostAbstractProps = {
   post: Post;

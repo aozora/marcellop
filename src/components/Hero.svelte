@@ -1,5 +1,5 @@
 <script lang='ts'>
-import { HeroData } from '../types';
+import { HeroData } from '$lib/types';
 
 export let hero: HeroData;
 </script>

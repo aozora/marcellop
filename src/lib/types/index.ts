@@ -16,30 +16,30 @@ export type ResponsiveImage = {
 	};
 };
 
-export type ResponsiveMedia = {
-	id: string;
-	width: number;
-	height: number;
-	mimeType: string;
-	title: string;
-	alt: string;
-	responsiveImage: {
-		srcSet: string;
-		webpSrcSet: string;
-		sizes: string;
-		src: string;
-		width: number;
-		height: number;
-		aspectRatio: number;
-		alt: string;
-		title: string;
-		base64: string;
-	};
-	video: {
-		mp4Url: string;
-		thumbnailUrl: string;
-	};
-};
+// export type ResponsiveMedia = {
+// 	id: string;
+// 	width: number;
+// 	height: number;
+// 	mimeType: string;
+// 	title: string;
+// 	alt: string;
+// 	responsiveImage: {
+// 		srcSet: string;
+// 		webpSrcSet: string;
+// 		sizes: string;
+// 		src: string;
+// 		width: number;
+// 		height: number;
+// 		aspectRatio: number;
+// 		alt: string;
+// 		title: string;
+// 		base64: string;
+// 	};
+// 	video: {
+// 		mp4Url: string;
+// 		thumbnailUrl: string;
+// 	};
+// };
 
 export type GlobalSeo = {
 	siteName?: string;
@@ -84,6 +84,10 @@ export type PageLink = {
 	_modelApiKey: string;
 };
 
+export type Menu = {
+	menuItems: Array<MenuItem>;
+};
+
 export type MenuItem = {
 	id: string;
 	title: string;
@@ -112,13 +116,13 @@ export type Home = {
 	seo: Array<SeoMetaTagType>;
 };
 
-export type HeroData = {
-	hi: string;
-	heading1: string;
-	heading2A: string;
-	heading2B: string;
-	heading2C: string;
-};
+// export type HeroData = {
+// 	hi: string;
+// 	heading1: string;
+// 	heading2A: string;
+// 	heading2B: string;
+// 	heading2C: string;
+// };
 
 export type AboutData = {
 	aboutHeading: string;

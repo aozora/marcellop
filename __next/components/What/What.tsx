@@ -1,5 +1,5 @@
 import React, { useRef, Fragment } from 'react';
-import { WhatidoData } from '../../../src/types/index';
+import { WhatidoData } from '../../../src/lib/types/index';
 import styles from './What.module.scss';
 
 const What = ({ heading, items }: WhatidoData): JSX.Element => {

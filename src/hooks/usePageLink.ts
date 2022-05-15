@@ -1,4 +1,4 @@
-import type { PageLink } from '../types';
+import type { PageLink } from '../lib/types';
 
 export type LinkProps = {
 	href: string;

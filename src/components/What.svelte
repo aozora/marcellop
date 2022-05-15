@@ -1,6 +1,6 @@
 <script lang="ts">
 
-import type { Home } from "../types";
+import type { Home } from "../lib/types";
 
 export let home: Home;
 </script>

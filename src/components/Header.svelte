@@ -1,5 +1,5 @@
 <script lang='ts'>
-import type { MenuItem } from '../types';
+import type { MenuItem } from '../lib/types';
 import { page } from '$app/stores';
 import { onDestroy } from 'svelte';
 import { browser } from '$app/env';

@@ -7,7 +7,7 @@ import { GetStaticProps } from 'next';
 import { request, RequestType } from '@/lib/datocms';
 import { postsQuery } from '@/queries/posts.query';
 import { QueryListenerOptions, useQuerySubscription } from 'react-datocms';
-import { Post } from '../../../src/types/index';
+import { Post } from '../../../src/lib/types/index';
 
 export type WritingsProps = {
   subscription: QueryListenerOptions<any, any>;

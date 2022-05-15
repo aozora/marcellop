@@ -4,7 +4,7 @@ export type RequestType = {
 	preview?: boolean;
 };
 
-export async function request({ query, variables, preview }: RequestType): Promise<any | null> {
+export async function cmsRequest({ query, variables, preview }: RequestType): Promise<any | null> {
 	let endpoint = 'https://graphql.datocms.com';
 
 	if (import.meta.env.VITE_DATOCMS_ENVIRONMENT) {
@@ -35,7 +35,7 @@ export async function request({ query, variables, preview }: RequestType): Promi
 	const json = await res.json();
 
 	if (json.errors) {
-		console.error('Ouch! The query has some errors!');
+		console.error('Ouch! The query has some errors!', json.errors);
 		throw json.errors;
 	}
 

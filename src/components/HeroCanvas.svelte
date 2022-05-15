@@ -7,7 +7,7 @@ import {
 } from "threlte";
 import Tetra from "./Tetra.svelte";
 import Swarm from "./Swarm.svelte";
-import type { Particle } from "../types";
+import type { Particle } from "../lib/types";
 import { useWindowScroll } from "../hooks/useWindowScroll";
 
 const count = 150;

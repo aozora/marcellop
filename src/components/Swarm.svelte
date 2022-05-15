@@ -1,7 +1,7 @@
 <script lang="ts">
 import { Mesh, Position, Rotation, Scale, useFrame } from "threlte";
 import { Mesh as ThreeMesh, MeshStandardMaterial, TetrahedronGeometry } from "three";
-import type { Particle } from "../types";
+import type { Particle } from "../lib/types";
 
 // export let mesh: ThreeMesh;
 export let particle: Particle;

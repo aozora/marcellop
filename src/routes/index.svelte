@@ -1,46 +1,19 @@
-<script context="module" lang="ts">
-import type { Load } from "@sveltejs/kit";
-import type { RequestType } from "$lib/datocms";
-import { request } from "$lib/datocms";
-import { homeQuery } from "../queries/home.query";
-import { menu } from "../store";
-
-export const load: Load = async ({ fetch }) => {
-  const graphqlRequest: RequestType = {
-    query: homeQuery
-  };
-
-  try {
-    return {
-      props: {
-        data: await request(graphqlRequest)
-      }
-    };
-  } catch (error) {
-    console.error({ error });
-    return {
-      status: 500,
-      error: error
-    };
-  }
-};
-</script>
-
 <script lang="ts">
-
-import type { HeroData, Home, MenuItem, SeoMetaTagType, Site } from "../types";
+import type { Home, Menu, SeoMetaTagType, Site } from "$lib/types";
 import { Image } from "svelte-datocms";
-import Hero from "../components/Hero.svelte";
+// import Hero from "../components/Hero.svelte";
 import What from "../components/What.svelte";
 import Seo from "../components/Seo.svelte";
 // import { onDestroy, onMount } from "svelte";
 // import { createScene, destroyScene } from "$lib/HeroScene";
+import { menu as menuStore } from "../store";
 
 export type HomeProps = {
   site: Site,
-  menu: {
-    menuItems: Array<MenuItem>
-  },
+  menu: Menu,
+  // menu: {
+  //   menuItems: Array<MenuItem>
+  // },
   home: Home
 }
 
@@ -48,9 +21,10 @@ export type HomeProps = {
  * Props
  */
 export let data: HomeProps;
+let { site, menu, home }: HomeProps = data;
 
-menu.update(() => {
-  return data.menu.menuItems;
+menuStore.update(() => {
+  return menu.menuItems;
 });
 
 
@@ -66,42 +40,23 @@ menu.update(() => {
 /**
  * State
  */
-const heroData: HeroData = {
-  hi: data.home.hi,
-  heading1: data.home.heading1,
-  heading2A: data.home.heading2A,
-  heading2B: data.home.heading2B,
-  heading2C: data.home.heading2C
-};
 
-const metaTags: Array<SeoMetaTagType> = data.home && data.home.seo ? data.home.seo.concat(data.site.favicon) : [];
+const metaTags: Array<SeoMetaTagType> = home && home.seo ? home.seo.concat(site.favicon) : [];
 
 </script>
 
 <Seo
-  siteSeo={data.site.globalSeo}
+  siteSeo={site.globalSeo}
   metaTags={metaTags}
   canonicalUrl={null}
   pageLink={
           {
-            id: data.home.id,
-            slug: data.home.slug,
-            _modelApiKey: data.home._modelApiKey
+            id: home.id,
+            slug: home.slug,
+            _modelApiKey: home._modelApiKey
           }
         }
 />
-<!--<Seo-->
-<!--  siteSeo={site.globalSeo}-->
-<!--  metaTags={metaTags}-->
-<!--  canonicalUrl={null}-->
-<!--  pageLink={-->
-<!--          {-->
-<!--            id: home.id,-->
-<!--            slug: home.slug,-->
-<!--            _modelApiKey: home._modelApiKey-->
-<!--          } as PageLink-->
-<!--        }-->
-<!--/>-->
 
 <div class="main-content">
   <!--  <HeroCanvas />-->
@@ -109,47 +64,51 @@ const metaTags: Array<SeoMetaTagType> = data.home && data.home.seo ? data.home.s
   <!--    <canvas bind:this={canvas}></canvas>-->
   <!--  </div>-->
 
-  <Hero hero={heroData} />
+  <section class='hero'>
+    <h1>
+      {home.heading1}
+      <br />
+      Design Engineer
+    </h1>
 
-  <!--  <section class="hero">-->
-  <!--    &lt;!&ndash;    <h1>&ndash;&gt;-->
-  <!--    &lt;!&ndash;      {data.home.heading1}&ndash;&gt;-->
-  <!--    &lt;!&ndash;      <br />&ndash;&gt;-->
-  <!--    &lt;!&ndash;      Design Engineer&ndash;&gt;-->
-  <!--    &lt;!&ndash;    </h1>&ndash;&gt;-->
-  <!--  </section>-->
+    <!--{/*<p>*/}-->
+    <!--{/*  <span>{heading2A}</span>*/}-->
+    <!--{/*  <span>{heading2B}</span>*/}-->
+    <!--{/*  <span>{heading2C}</span>*/}-->
+    <!--{/*</p>*/}-->
+  </section>
 
   <section class="about">
     <div id="about" class="about-container">
-      <h2>{data.home.aboutHeading}</h2>
+      <h2>{home.aboutHeading}</h2>
 
       <div class="image-container">
         <Image
           class="image-wrapper"
           data={{
-              ...data.home.aboutPicture.responsiveImage
+              ...home.aboutPicture.responsiveImage
             }}
         />
       </div>
 
       <div class="about-container-textblock-wrapper">
-        <p class="dropcap">{@html data.home.aboutDescription1}</p>
+        <p class="dropcap">{@html home.aboutDescription1}</p>
       </div>
       <div class="about-container-textblock-wrapper">
-        <p>{@html data.home.aboutDescription2}</p>
-      </div>
-
-      <div class="about-container-textblock-wrapper">
-        <p>{@html data.home.aboutDescription3}</p>
+        <p>{@html home.aboutDescription2}</p>
       </div>
 
       <div class="about-container-textblock-wrapper">
-        <p>{@html data.home.aboutDescription4}</p>
+        <p>{@html home.aboutDescription3}</p>
+      </div>
+
+      <div class="about-container-textblock-wrapper">
+        <p>{@html home.aboutDescription4}</p>
       </div>
     </div>
   </section>
 
-  <What home={data.home} />
+  <What home={home} />
 
 </div>
 
@@ -167,6 +126,115 @@ const metaTags: Array<SeoMetaTagType> = data.home && data.home.seo ? data.home.s
     width: 100%;
     margin: 0 auto;
     text-align: center;
+  }
+
+  .hero {
+    // use 'em' otherwise the fluid-type mixin doesn't work
+    --hero-hi-line-height-min: 1.5em;
+    --hero-hi-line-height-max: 1.5em;
+    --hero-hi-font-size-min: 1.8rem;
+    --hero-hi-font-size-max: 2.18rem;
+
+    // use 'em' otherwise the fluid-type mixin doesn't work
+    --hero-h1-line-height-min: 1.1em;
+    --hero-h1-line-height-max: 1.1em;
+
+    --hero-h1-font-size-min: 2.6rem;
+    --hero-h1-font-size-max: 5.81rem;
+
+    --hero-weight: 900;
+    --hero-slant: 2.73;
+
+    --hero-p-line-height-min: 1.5em; // use 'em' otherwise the fluid-type mixin doesn't work
+    --hero-p-line-height-max: 1.5em;
+    --hero-p-font-size-min: 1.388rem;
+    --hero-p-font-size-max: 1.81rem;
+
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    @include container;
+    height: 100vh;
+    padding: 3rem 1rem 0 1rem;
+    margin-bottom: 2rem;
+    //background-color: var(--color-white);
+
+    .hi {
+      display: none;
+      width: 100%;
+      max-width: none;
+      margin: 0 0 .667rem 0;
+      font-family: var(--heading-font-family);
+
+      --text-weight: var(--hero-weight);
+      //@if $use-variable-font-for-headings {
+      //  font-variation-settings: 'wght' var(--hero-weight), 'slnt' var(--hero-slant);
+      //}
+
+      font-size: clamp(var(--hero-hi-font-size-min), 8vw, var(--hero-hi-font-size-max));
+      line-height: var(--hero-hi-line-height-min);
+
+      @media (min-width: 64em) {
+        display: block;
+      }
+    }
+
+    h1 {
+      max-width: 99%; // this prevent the text to be on the same line between 1024-1032px
+      max-height: 28rem;
+      margin: 0 auto 2rem auto;
+
+      --text-weight: var(--hero-weight);
+
+      //@if $use-variable-font-for-headings {
+      //  font-variation-settings: 'wght' var(--hero-weight), 'slnt' var(--hero-slant);
+      //}
+
+      font-size: clamp(var(--hero-h1-font-size-min), 8vw, var(--hero-h1-font-size-max));
+      line-height: var(--hero-h1-line-height-min);
+
+      text-align: center;
+      text-transform: uppercase;
+
+      @media (max-width: 360px) {
+        font-size: 2.5rem;
+      }
+    }
+
+    p {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      max-width: none;
+      margin: 0 0 1rem 0;
+
+      font-size: clamp(var(--hero-p-font-size-min), 8vw, var(--hero-p-font-size-max));
+      line-height: var(--hero-p-line-height-min);
+      --text-weight: 700;
+      letter-spacing: var(--text-on-dark-letter-spacing);
+
+      span {
+        display: inline-block;
+        padding: 0 1em;
+        text-align: right;
+        color: var(--color-white);
+        background-color: var(--color-black);
+        z-index: 1; // prevent color bleeding
+
+        &:first-child {
+          margin-right: 2rem;
+
+          @media (max-width: 360px) {
+            margin-right: .3rem;
+          }
+        }
+
+        &:last-child {
+          margin-right: 1.5rem;
+        }
+      }
+    }
   }
 
   .about {

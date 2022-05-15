@@ -7,7 +7,7 @@ import What from '@/components/What/What';
 import HeroAbstract from '@/components/HeroAbstract/HeroAbstract';
 import { homeQuery } from '@/queries/home.query';
 import { request, RequestType } from '@/lib/datocms';
-import { AboutData, HeroData, Home, PageLink, WhatidoData } from '../../src/types/index';
+import { AboutData, HeroData, Home, PageLink, WhatidoData } from '../../src/lib/types/index';
 import { GetStaticProps } from 'next';
 import { Seo } from '@/components/Seo';
 import { usePageState } from '@/components/PageProvider';

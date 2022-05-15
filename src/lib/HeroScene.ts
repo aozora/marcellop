@@ -1,3 +1,5 @@
+// @ts-ignore
+console.log('');
 // import * as THREE from 'three';
 // import type { Particle } from '../types';
 //
