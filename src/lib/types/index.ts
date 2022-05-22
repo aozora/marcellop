@@ -102,6 +102,7 @@ export type Home = {
 	canonical: string;
 	hi: string;
 	heading1: string;
+	heading2: string;
 	heading2A: string;
 	heading2B: string;
 	heading2C: string;

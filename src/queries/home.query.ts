@@ -1,4 +1,4 @@
-import { globalSeoFragment, metaTagsFragment, responsiveImageFragment } from './fragments';
+import { globalSeoFragment, metaTagsFragment, responsiveImageFragment } from './__fragments';
 
 export const homeQuery = `
   query Home {
@@ -27,6 +27,7 @@ export const homeQuery = `
       canonical
       hi
       heading1
+      heading2
       heading2A
       heading2B
       heading2C

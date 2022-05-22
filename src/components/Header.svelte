@@ -1,13 +1,13 @@
 <script lang='ts'>
-import type { MenuItem } from '../lib/types';
 import { page } from '$app/stores';
 import { onDestroy } from 'svelte';
 import { browser } from '$app/env';
+import { menuItems } from "../store";
 
 /**
  * Props
  */
-export let menu: Array<MenuItem>;
+// export let menu: Array<MenuItem>;
 
 /**
  * State
@@ -16,8 +16,9 @@ let showMobileMenu = false;
 // const isMobile = window.matchMedia('(max-width: 768px)').matches;
 const isClient = browser === true;
 
-let pageInfo;
-const unsubscribe = page.subscribe(value => pageInfo = value);
+// subscribe the page store to get page info
+let pageInfo
+const unsubscribePageStore = page.subscribe(value => pageInfo = value);
 let isHome = pageInfo.pathname === '/';
 
 /**
@@ -70,7 +71,7 @@ const toggleMobileMenu = () => {
 /**
  * Cleanup
  */
-onDestroy(unsubscribe);
+onDestroy(unsubscribePageStore);
 </script>
 
 <header
@@ -119,8 +120,8 @@ onDestroy(unsubscribe);
 
   <nav class='menu'>
     <ul class='menu__items'>
-      {#if menu}
-        {#each menu as item}
+      {#if $menuItems}
+        {#each $menuItems as item}
           <li>
             <a href={item.url} class={pageInfo.pathname === item.url ? 'active' : ''} onClick={toggleMobileMenu}>
               <span>{item.title}</span>

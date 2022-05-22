@@ -1,19 +1,18 @@
 <script lang="ts">
 import type { Home, Menu, SeoMetaTagType, Site } from "$lib/types";
 import { Image } from "svelte-datocms";
-// import Hero from "../components/Hero.svelte";
 import What from "../components/What.svelte";
 import Seo from "../components/Seo.svelte";
+// import Hero from "../components/Hero.svelte";
 // import { onDestroy, onMount } from "svelte";
 // import { createScene, destroyScene } from "$lib/HeroScene";
-import { menu as menuStore } from "../store";
+import { menuItems } from "../store";
+import { onMount } from "svelte";
+import { fly } from "svelte/transition";
 
 export type HomeProps = {
   site: Site,
   menu: Menu,
-  // menu: {
-  //   menuItems: Array<MenuItem>
-  // },
   home: Home
 }
 
@@ -23,7 +22,9 @@ export type HomeProps = {
 export let data: HomeProps;
 let { site, menu, home }: HomeProps = data;
 
-menuStore.update(() => {
+// write the menuItems store with the data form the page endpoint
+// the Header component will use that.
+menuItems.update(() => {
   return menu.menuItems;
 });
 
@@ -40,9 +41,15 @@ menuStore.update(() => {
 /**
  * State
  */
-
 const metaTags: Array<SeoMetaTagType> = home && home.seo ? home.seo.concat(site.favicon) : [];
+const heroHeading1Words = home.heading1.split(" ");
+const heroHeading2Words = home.heading2.split(" ");
 
+
+let animate = false;
+onMount(() => {
+  animate = true;
+});
 </script>
 
 <Seo
@@ -64,12 +71,30 @@ const metaTags: Array<SeoMetaTagType> = home && home.seo ? home.seo.concat(site.
   <!--    <canvas bind:this={canvas}></canvas>-->
   <!--  </div>-->
 
-  <section class='hero'>
-    <h1>
-      {home.heading1}
-      <br />
-      Design Engineer
-    </h1>
+  <section class="hero">
+    {#if animate}
+      <h1 class="splitting">
+        {#each heroHeading1Words as word}
+        <span class="word">
+          {#each Array.from(word) as char, index}
+            <span class="char" in:fly={{y:-20, duration: 1000, delay: 90 * index}}>{char}</span>
+          {/each}
+          &nbsp;
+        </span>
+        {/each}
+
+        <br />
+
+        {#each heroHeading2Words as word}
+        <span class="word">
+          {#each Array.from(word) as char, index}
+            <span class="char" in:fly={{y:20, duration: 1000, delay: 90 * index}}>{char}</span>
+          {/each}
+          &nbsp;
+        </span>
+        {/each}
+      </h1>
+    {/if}
 
     <!--{/*<p>*/}-->
     <!--{/*  <span>{heading2A}</span>*/}-->
