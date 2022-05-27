@@ -9,6 +9,7 @@ import Seo from "../components/Seo.svelte";
 import { menuItems } from "../store";
 import { onMount } from "svelte";
 import { fly } from "svelte/transition";
+import HeroCanvas from "../components/HeroCanvas.svelte";
 
 export type HomeProps = {
   site: Site,
@@ -66,10 +67,10 @@ onMount(() => {
 />
 
 <div class="main-content">
-  <!--  <HeroCanvas />-->
-  <!--  <div class="canvas-container">-->
-  <!--    <canvas bind:this={canvas}></canvas>-->
-  <!--  </div>-->
+  <HeroCanvas />
+  <!--    <div class="canvas-container">-->
+  <!--      <canvas bind:this={canvas}></canvas>-->
+  <!--    </div>-->
 
   <section class="hero">
     {#if animate}

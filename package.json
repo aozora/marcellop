@@ -22,7 +22,7 @@
     "schema-dts": "^1.1.0",
     "svelte-datocms": "^0.6.3",
     "svelte-seo": "^1.4.0",
-    "three": "^0.140.0",
+    "three": "^0.141.0",
     "threlte": "^3.1.2"
   },
   "devDependencies": {

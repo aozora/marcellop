@@ -1,6 +1,6 @@
 <script lang="ts">
-import { Mesh, Position, Rotation, Scale, useFrame } from "threlte";
-import { Mesh as ThreeMesh, MeshStandardMaterial, TetrahedronGeometry } from "three";
+import { Mesh, type Position, type Rotation, type Scale, type Size, useFrame } from "threlte";
+import { MeshStandardMaterial, TetrahedronGeometry } from "three";
 import type { Particle } from "../lib/types";
 
 // export let mesh: ThreeMesh;
@@ -18,15 +18,16 @@ useFrame((state) => {
   const b = Math.sin(t) + Math.cos(t * 2) / 10;
   const s = Math.max(1.5, Math.cos(t) * 5);
 
-  // let viewportSize: Size;
-  // state.size.subscribe(s => {
-  //   viewportSize = s;
-  // });
+  let viewportSize: Size;
+  state.size.subscribe(s => {
+    viewportSize = s;
+  });
 
-  // state.pointer.subscribe(vector => {
-  //   particle.mx += (vector.x * viewportSize.width - particle.mx) * 0.02;
-  //   particle.my += (vector.y * viewportSize.height - particle.my) * 0.02;
-  // });
+  // console.log(state.pointer)
+  state.pointer.subscribe(vector => {
+    particle.mx += (vector.x * viewportSize.width - particle.mx) * 0.02;
+    particle.my += (vector.y * viewportSize.height - particle.my) * 0.02;
+  });
 
   // position
   position = {
@@ -54,7 +55,7 @@ useFrame((state) => {
 </script>
 
 <Mesh
-  material={new MeshStandardMaterial({color: '#0f0f0f', roughness:0, metalness:0})}
+  material={new MeshStandardMaterial({color: '#696767', roughness:0, metalness:0.1})}
   geometry={new TetrahedronGeometry(1)}
   castShadow
   receiveShadow

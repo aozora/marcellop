@@ -1,6 +1,6 @@
 <script lang="ts">
 import {
-  Mesh, Rotation,
+  Mesh, type Rotation,
   useFrame
 } from "threlte";
 import { MeshStandardMaterial, TetrahedronGeometry } from "three";
