@@ -73,10 +73,10 @@ export type Site = {
 	globalSeo: GlobalSeo;
 };
 
-export type IdSlug = {
-	id: string;
-	slug: string;
-};
+// export type IdSlug = {
+// 	id: string;
+// 	slug: string;
+// };
 
 export type PageLink = {
 	id: string;

@@ -3,9 +3,6 @@ import type { Home, Menu, SeoMetaTagType, Site } from "$lib/types";
 import { Image } from "svelte-datocms";
 import What from "../components/What.svelte";
 import Seo from "../components/Seo.svelte";
-// import Hero from "../components/Hero.svelte";
-// import { onDestroy, onMount } from "svelte";
-// import { createScene, destroyScene } from "$lib/HeroScene";
 import { menuItems } from "../store";
 import { onMount } from "svelte";
 import { fly } from "svelte/transition";
@@ -175,26 +172,6 @@ onMount(() => {
     padding: 3rem 1rem 0 1rem;
     margin-bottom: 2rem;
     //background-color: var(--color-white);
-
-    .hi {
-      display: none;
-      width: 100%;
-      max-width: none;
-      margin: 0 0 .667rem 0;
-      font-family: var(--heading-font-family);
-
-      --text-weight: var(--hero-weight);
-      //@if $use-variable-font-for-headings {
-      //  font-variation-settings: 'wght' var(--hero-weight), 'slnt' var(--hero-slant);
-      //}
-
-      font-size: clamp(var(--hero-hi-font-size-min), 8vw, var(--hero-hi-font-size-max));
-      line-height: var(--hero-hi-line-height-min);
-
-      @media (min-width: 64em) {
-        display: block;
-      }
-    }
 
     h1 {
       max-width: 99%; // this prevent the text to be on the same line between 1024-1032px

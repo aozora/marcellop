@@ -1,4 +1,4 @@
-import { globalSeoFragment, metaTagsFragment, responsiveImageFragment } from '@/queries/fragments';
+import { globalSeoFragment, metaTagsFragment } from './__fragments';
 
 export const usesQuery = `
   query Uses {
