@@ -3,33 +3,19 @@ import {
   AmbientLight,
   Canvas,
   Group,
-  PerspectiveCamera, PointLight
+  PerspectiveCamera,
+  PointLight,
+  Fog
 } from "threlte";
 import Tetra from "./Tetra.svelte";
 import Swarm from "./Swarm.svelte";
-import type { Particle } from "../lib/types";
 import { useWindowScroll } from "../hooks/useWindowScroll";
 
-const count = 150;
-const getParticles = (): Array<Particle> => {
-  const temp = [];
-  for (let i = 0; i < count; i++) {
-    const t = Math.random() * 100;
-    const factor = 20 + Math.random() * 100;
-    const speed = 0.002 + Math.random() / 200;
-    const xFactor = -40 + Math.random() * 80;
-    const yFactor = -30 + Math.random() * 40;
-    const zFactor = -20 + Math.random() * 40;
-
-    temp.push({ t, factor, speed, xFactor, yFactor, zFactor, mx: 0, my: 0 });
-  }
-
-  return temp;
-};
-
-const particles: Array<Particle> = getParticles();
-
-const { x, y } = useWindowScroll();
+const { y } = useWindowScroll();
+let swarmYposition;
+y.subscribe(value => {
+  swarmYposition = value;
+});
 
 
 </script>
@@ -49,16 +35,17 @@ const { x, y } = useWindowScroll();
                   mapSize: [1024,1024]
                 }} />
     />
-
-    <PerspectiveCamera fov={75} near={10} far={150} position={{ x: 0, y: 0, z: 50 }} />
+    <Fog color={'#f0f0f0'} />
+    <PerspectiveCamera fov={75} near={10} far={150} position={{ x: 0, y: -2, z: 50 }} />
 
     <Tetra />
 
-    <Group>
-      {#each particles as particle}
-        <Swarm {particle} />
-      {/each}
-    </Group>
+    <Swarm position={{x: 0, y: swarmYposition / 4, z:0}} />
 
   </Canvas>
 </div>
+
+
+<style lang="scss">
+
+</style>

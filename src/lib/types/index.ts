@@ -1,5 +1,6 @@
 // import { SeoMetaTagType, StructuredTextGraphQlResponse } from 'react-datocms';
 import type { StructuredText as StructuredTextGraphQlResponse } from 'datocms-structured-text-utils';
+import type { Position, Rotation, Scale } from 'threlte';
 
 export type ResponsiveImage = {
 	responsiveImage: {
@@ -183,4 +184,8 @@ export type Particle = {
 	zFactor: number;
 	mx: number;
 	my: number;
+
+	position: Position;
+	rotation: Rotation;
+	scale: Scale;
 };

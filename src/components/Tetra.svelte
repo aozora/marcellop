@@ -26,7 +26,7 @@ useFrame((context) => {
 <Mesh castShadow
       receiveShadow
       geometry={new TetrahedronGeometry()}
-      material={new MeshStandardMaterial({color: '#0f0f0f', roughness:0, metalness:0})}
+      material={new MeshStandardMaterial({color: '#696767', roughness:0, metalness:0.1})}
       position={[12, -3, 35]}
       rotation={rotation}
 />

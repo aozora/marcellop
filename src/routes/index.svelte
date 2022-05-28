@@ -18,7 +18,7 @@ export type HomeProps = {
 }
 
 /**
- * Props
+ * PROPS
  */
 export let data: HomeProps;
 let { site, menu, home }: HomeProps = data;
@@ -28,16 +28,6 @@ let { site, menu, home }: HomeProps = data;
 menuItems.update(() => {
   return menu.menuItems;
 });
-
-
-// let canvas;
-// onMount(() => {
-//   createScene(canvas);
-// });
-//
-// onDestroy(() => {
-//   destroyScene();
-// });
 
 /**
  * State
