@@ -17,6 +17,9 @@ const config = {
 
 		// config for three.js
 		vite: {
+			optimizeDeps: {
+				include: ['highlight.js/lib/core']
+			},
 			ssr: {
 				noExternal: ['three']
 			}

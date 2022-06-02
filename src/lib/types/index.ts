@@ -1,4 +1,4 @@
-// import { SeoMetaTagType, StructuredTextGraphQlResponse } from 'react-datocms';
+// import { StructuredTextGraphQlResponse } from 'react-datocms';
 import type { StructuredText as StructuredTextGraphQlResponse } from 'datocms-structured-text-utils';
 import type { Position, Rotation, Scale } from 'threlte';
 

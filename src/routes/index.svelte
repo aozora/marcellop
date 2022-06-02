@@ -1,5 +1,5 @@
 <script lang="ts">
-import type { Home, Menu, SeoMetaTagType, Site } from "$lib/types";
+import type { Home, Menu, Site } from "$lib/types";
 import { Image } from "svelte-datocms";
 import What from "../components/What.svelte";
 import Seo from "../components/Seo.svelte";

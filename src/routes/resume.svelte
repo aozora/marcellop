@@ -1,5 +1,5 @@
 <script lang="ts">
-import type { Menu, SeoMetaTagType, Site } from "$lib/types";
+import type { Menu, Site } from "$lib/types";
 import { menuItems } from "../store";
 import type { ResumeJob } from "$lib/types";
 

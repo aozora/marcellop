@@ -1,5 +1,5 @@
 <script lang="ts">
-import type { Menu, SeoMetaTagType, Site, Use } from "$lib/types";
+import type { Menu, Site, Use } from "$lib/types";
 import { menuItems } from "../store";
 
 export type UsesProps = {
