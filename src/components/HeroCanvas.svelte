@@ -2,7 +2,6 @@
 import {
   AmbientLight,
   Canvas,
-  Group,
   PerspectiveCamera,
   PointLight,
   Fog
@@ -17,11 +16,10 @@ y.subscribe(value => {
   swarmYposition = value;
 });
 
-
 </script>
 
 <div class="canvas-container">
-  <Canvas shadows>
+  <Canvas shadows >
     <AmbientLight intensity={0.5} />
     <PointLight position={{ x: 100, y: 10, z:-50 }}
                 intensity={20}
@@ -45,7 +43,3 @@ y.subscribe(value => {
   </Canvas>
 </div>
 
-
-<style lang="scss">
-
-</style>

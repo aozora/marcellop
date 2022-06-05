@@ -5,6 +5,8 @@ import { menuItems } from "../../store";
 import type { Post } from "$lib/types";
 import { getPublishedDateFormatted, getPublishedDateShort } from "../../lib/helpers.js";
 import { Image, StructuredText } from "svelte-datocms";
+import VideoBlock from "../../components/VideoBlock.svelte";
+import ImageBlock from "../../components/ImageBlock.svelte";
 // import Highlight from "svelte-highlight";
 // import darcula from "svelte-highlight/src/styles/darcula";
 // import javascript from "svelte-highlight/src/languages/javascript";
@@ -86,42 +88,11 @@ menuItems.update(() => {
   <div class="post__body">
     <StructuredText
       data={post.body2}
-      components={({ record }) => {
-        switch (record.__typename) {
-          case 'ImageBlockRecord':
-          return (
-          <Image
-          data={{
-            ...record.image.responsiveImage
-          }}
-          />
-          );
-          case 'VideoBlockRecord':
-          return <video controls src={record.video.url} />;
-          default:
-          return null;
-        }
-      }}
+      components={{
+        ImageBlockRecord: ImageBlock,
+		  VideoBlockRecord: VideoBlock
+	    }}
     />
-    <!--      renderBlock={({ record }) => {-->
-    <!--                  switch (record.__typename) {-->
-    <!--                    case 'ImageBlockRecord':-->
-    <!--                      // @ts-ignore-->
-    <!--                      return (-->
-    <!--                        // eslint-disable-next-line jsx-a11y/alt-text-->
-    <!--                        <Image-->
-    <!--                          data={{-->
-    <!--                            ...record.image.responsiveImage-->
-    <!--                          }}-->
-    <!--                        />-->
-    <!--                      );-->
-    <!--                    case 'VideoBlockRecord':-->
-    <!--                      // eslint-disable-next-line jsx-a11y/media-has-caption-->
-    <!--                      return <video controls src={record.video.url} />;-->
-    <!--                    default:-->
-    <!--                      return null;-->
-    <!--                  }-->
-    <!--                }}-->
   </div>
 
   <footer>

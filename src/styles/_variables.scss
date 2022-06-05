@@ -20,6 +20,8 @@
   --color-white: #fff;
   --color-pantone: #6968AA;
 
+  --body-background: var(--color-white);
+
   /* Breakpoint variables */
   --breakpoint-small: #{strip-unit(map_get($breakpoints, phone))};
   --breakpoint-medium: #{strip-unit(map_get($breakpoints, tablet))};

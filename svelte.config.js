@@ -22,18 +22,24 @@ const config = {
 			},
 			ssr: {
 				noExternal: ['three']
-			}
-		}
-	},
-
-	vite: {
-		resolve: {
-			alias: {
-				$lib: path.resolve('./src/lib'),
-				$components: path.resolve('./src/lib/components')
+			},
+			resolve: {
+				alias: {
+					$lib: path.resolve('./src/lib'),
+					$components: path.resolve('./src/lib/components')
+				}
 			}
 		}
 	}
+
+	// vite: {
+	// 	resolve: {
+	// 		alias: {
+	// 			$lib: path.resolve('./src/lib'),
+	// 			$components: path.resolve('./src/lib/components')
+	// 		}
+	// 	}
+	// }
 };
 
 export default config;
