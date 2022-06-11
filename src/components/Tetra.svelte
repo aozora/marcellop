@@ -1,9 +1,15 @@
 <script lang="ts">
 import {
-  Mesh, type Rotation,
+  Mesh, type Position, type Rotation,
   useFrame
 } from "threlte";
-import { MeshStandardMaterial, TetrahedronGeometry } from "three";
+import { MeshStandardMaterial, TetrahedronGeometry, Vector3 } from "three";
+
+/**
+ * PROPS
+ */
+export let position: Position = new Vector3(12, -3, 35);
+
 
 let rotation: Rotation = { x: 0, y: 0, z: 0 };
 const xFactor = -40 + Math.random() * 80;
@@ -12,7 +18,6 @@ const zFactor = -20 + Math.random() * 40;
 
 useFrame((context) => {
   const time = context.clock.getElapsedTime();
-  // console.log(context.pointer);
 
   rotation = {
     x: ((Math.cos(time / 4) / 2) * xFactor) / 2,
@@ -27,6 +32,6 @@ useFrame((context) => {
       receiveShadow
       geometry={new TetrahedronGeometry()}
       material={new MeshStandardMaterial({color: '#696767', roughness:0, metalness:0.1})}
-      position={[12, -3, 35]}
+      position={position}
       rotation={rotation}
 />

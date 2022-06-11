@@ -4,7 +4,7 @@ import {
   Canvas,
   PerspectiveCamera,
   PointLight,
-  Fog
+  Fog, useThrelte
 } from "threlte";
 import Tetra from "./Tetra.svelte";
 import Swarm from "./Swarm.svelte";
@@ -13,13 +13,14 @@ import { useWindowScroll } from "../hooks/useWindowScroll";
 const { y } = useWindowScroll();
 let swarmYposition;
 y.subscribe(value => {
+  console.log({ value });
   swarmYposition = value;
 });
 
 </script>
 
 <div class="canvas-container">
-  <Canvas shadows >
+  <Canvas shadows>
     <AmbientLight intensity={0.5} />
     <PointLight position={{ x: 100, y: 10, z:-50 }}
                 intensity={20}

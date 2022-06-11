@@ -1,5 +1,5 @@
 <script lang="ts">
-import type { Home, Menu, Site } from "$lib/types";
+import type { Home, Menu, SeoMetaTagType, Site } from "$lib/types";
 import { Image } from "svelte-datocms";
 import What from "../components/What.svelte";
 import Seo from "../components/Seo.svelte";
@@ -7,6 +7,7 @@ import { menuItems } from "../store";
 import { onMount } from "svelte";
 import { fly } from "svelte/transition";
 import HeroCanvas from "../components/HeroCanvas.svelte";
+import { intersectionAPI } from "svelte-intersection-api-action";
 
 export type HomeProps = {
   site: Site,
@@ -38,6 +39,13 @@ let animate = false;
 onMount(() => {
   animate = true;
 });
+
+
+/**
+ *
+ */
+
+
 </script>
 
 <Seo
@@ -91,7 +99,7 @@ onMount(() => {
     <!--{/*</p>*/}-->
   </section>
 
-  <section class="about">
+  <section class="about" use:intersectionAPI on:crossed={(e)=>doSomething(e.detail)}>
     <div id="about" class="about-container">
       <h2>{home.aboutHeading}</h2>
 
