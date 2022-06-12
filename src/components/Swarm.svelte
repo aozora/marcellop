@@ -4,8 +4,8 @@ import { MeshStandardMaterial, TetrahedronGeometry, Vector2 } from "three";
 import type { Particle } from "../lib/types";
 import { getParticles } from "../lib/three-utils";
 import { BokehPass } from "three/examples/jsm/postprocessing/BokehPass";
-import { UnrealBloomPass } from "three/examples/jsm/postprocessing/UnrealBloomPass";
-import { AfterimagePass } from "three/examples/jsm/postprocessing/AfterimagePass";
+// import { UnrealBloomPass } from "three/examples/jsm/postprocessing/UnrealBloomPass";
+// import { AfterimagePass } from "three/examples/jsm/postprocessing/AfterimagePass";
 import { Color } from "three";
 
 
@@ -19,7 +19,7 @@ let particles: Array<Particle> = getParticles(150);
 const material = new MeshStandardMaterial({ color: "#696767", roughness: 0, metalness: 0.1 });
 const geometry = new TetrahedronGeometry(1);
 const { scene, camera } = useThrelte();
-scene.background = new Color('#ffffff');
+scene.background = new Color("#ffffff");
 
 useFrame((state) => {
   particles.forEach((particle, i) => {
@@ -74,13 +74,13 @@ useFrame((state) => {
   {/each}
 </InstancedMesh>
 
-<Pass pass={new BokehPass(scene, $camera, {
-      focus: 		0.72,
-      aperture:	0.5,
-      maxblur:	.01,
-      width: window.innerWidth,
-       height: window.innerHeight
-    })} />
+<!--<Pass pass={new BokehPass(scene, $camera, {-->
+<!--      focus: 		0.72,-->
+<!--      aperture:	0.5,-->
+<!--      maxblur:	.01,-->
+<!--      width: window.innerWidth,-->
+<!--      height: window.innerHeight-->
+<!--    })} />-->
 <!--<Pass pass={new AfterimagePass(0.96)} />-->
 <!--<Pass pass={new UnrealBloomPass(-->
 <!--	new Vector2( window.innerWidth, window.innerHeight ),-->

@@ -1,7 +1,7 @@
 <script lang="ts">
 import { page } from "$app/stores";
 import type { Menu, Site } from "$lib/types";
-import { menuItems } from "../../store";
+import { menuItems } from "../../lib/stores/menu-store";
 import type { Post } from "$lib/types";
 import { getPublishedDateFormatted, getPublishedDateShort } from "../../lib/helpers.js";
 import { Image, StructuredText } from "svelte-datocms";

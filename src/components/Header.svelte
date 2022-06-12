@@ -2,7 +2,7 @@
 import { page } from '$app/stores';
 import { onDestroy } from 'svelte';
 import { browser } from '$app/env';
-import { menuItems } from "../store";
+import { menuItems } from "../lib/stores/menu-store";
 
 /**
  * Props

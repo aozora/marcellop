@@ -1,6 +1,6 @@
 <script lang="ts">
 import {
-  Mesh, type Position, type Rotation,
+  Mesh, type Position, type Rotation, type Scale,
   useFrame
 } from "threlte";
 import { MeshStandardMaterial, TetrahedronGeometry, Vector3 } from "three";
@@ -8,7 +8,9 @@ import { MeshStandardMaterial, TetrahedronGeometry, Vector3 } from "three";
 /**
  * PROPS
  */
-export let position: Position = new Vector3(12, -3, 35);
+// export let position: Position = new Vector3(12, -3, 35);
+export let position: Position = new Vector3(0, 0, 35);
+export let scale: Scale = new Vector3(0, 0, 0);
 
 
 let rotation: Rotation = { x: 0, y: 0, z: 0 };
@@ -34,4 +36,5 @@ useFrame((context) => {
       material={new MeshStandardMaterial({color: '#696767', roughness:0, metalness:0.1})}
       position={position}
       rotation={rotation}
+      scale={scale}
 />

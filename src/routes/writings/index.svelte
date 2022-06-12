@@ -1,6 +1,6 @@
 <script lang="ts">
 import type { Menu, Site } from "$lib/types";
-import { menuItems } from "../../store";
+import { menuItems } from "../../lib/stores/menu-store";
 import type { Post } from "$lib/types";
 import { getPublishedDateFormatted, getPublishedDateShort } from "../../lib/helpers.js";
 

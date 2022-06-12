@@ -4,19 +4,47 @@ import {
   Canvas,
   PerspectiveCamera,
   PointLight,
-  Fog, useThrelte
+  Fog, type Position, type Scale
 } from "threlte";
 import Tetra from "./Tetra.svelte";
 import Swarm from "./Swarm.svelte";
 import { useWindowScroll } from "../hooks/useWindowScroll";
+import { Vector3 } from "three";
+import gsap from "gsap";
+import { aboutSectionIsInView } from "$lib/stores/home-scroll-store";
 
+/**
+ * Scroll position of swarm
+ */
 const { y } = useWindowScroll();
 let swarmYposition;
 y.subscribe(value => {
-  console.log({ value });
+  // console.log({ value });
   swarmYposition = value;
 });
 
+/**
+ * Scroll position of Tetra
+ */
+
+// initial position
+let tetraPosition: Position = new Vector3(12, -3, 35);
+let tetraScale: Scale = new Vector3(0, 0, 0);
+let scrolled = false;
+
+aboutSectionIsInView.subscribe(isInView => {
+  if (isInView && !scrolled) {
+    gsap.to(tetraScale, {
+      duration: 1,
+      // ease: 'power2.inOut',
+      x: "+=1",
+      y: "+=1",
+      z: "+=1"
+    });
+
+    scrolled = true;
+  }
+});
 </script>
 
 <div class="canvas-container">
@@ -37,7 +65,7 @@ y.subscribe(value => {
     <Fog color={'#f0f0f0'} />
     <PerspectiveCamera fov={75} near={10} far={150} position={{ x: 0, y: -2, z: 50 }} />
 
-    <Tetra />
+    <Tetra position={tetraPosition} scale={tetraScale} />
 
     <Swarm position={{x: 0, y: swarmYposition / 4, z:0}} />
 

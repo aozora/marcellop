@@ -1,6 +1,6 @@
 <script lang="ts">
 import type { Menu, Site, Use } from "$lib/types";
-import { menuItems } from "../store";
+import { menuItems } from "../lib/stores/menu-store";
 
 export type UsesProps = {
   site: Site,

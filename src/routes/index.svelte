@@ -3,11 +3,12 @@ import type { Home, Menu, SeoMetaTagType, Site } from "$lib/types";
 import { Image } from "svelte-datocms";
 import What from "../components/What.svelte";
 import Seo from "../components/Seo.svelte";
-import { menuItems } from "../store";
+import { menuItems } from "$lib/stores/menu-store";
 import { onMount } from "svelte";
 import { fly } from "svelte/transition";
 import HeroCanvas from "../components/HeroCanvas.svelte";
-import { intersectionAPI } from "svelte-intersection-api-action";
+import { intersectionAPI } from "$lib/intersection-observer-action.ts";
+import { aboutSectionIsInView } from "$lib/stores/home-scroll-store";
 
 export type HomeProps = {
   site: Site,
@@ -42,8 +43,11 @@ onMount(() => {
 
 
 /**
- *
+ * Scroll managment
  */
+const updateAboutIsInView = (isInView) => {
+  aboutSectionIsInView.update(() => isInView);
+};
 
 
 </script>
@@ -63,9 +67,6 @@ onMount(() => {
 
 <div class="main-content">
   <HeroCanvas />
-  <!--    <div class="canvas-container">-->
-  <!--      <canvas bind:this={canvas}></canvas>-->
-  <!--    </div>-->
 
   <section class="hero">
     {#if animate}
@@ -99,7 +100,9 @@ onMount(() => {
     <!--{/*</p>*/}-->
   </section>
 
-  <section class="about" use:intersectionAPI on:crossed={(e)=>doSomething(e.detail)}>
+  <section class="about" use:intersectionAPI on:crossed={(e)=>{
+    updateAboutIsInView(e.detail.isIntersecting);
+  }}>
     <div id="about" class="about-container">
       <h2>{home.aboutHeading}</h2>
 

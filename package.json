@@ -17,12 +17,11 @@
   "dependencies": {
     "datocms-structured-text-utils": "^2.0.0",
     "graphql": "^16.2.0",
+    "gsap": "^3.10.4",
     "install": "^0.13.0",
     "schema-dts": "^1.1.0",
     "svelte-datocms": "^0.6.3",
     "svelte-highlight": "^6.0.1",
-    "svelte-intersection-api-action": "^0.0.3",
-    "svelte-intersection-observer": "^0.10.0",
     "svelte-seo": "^1.4.0",
     "three": "^0.141.0",
     "threlte": "^3.1.2"

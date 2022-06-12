@@ -30,16 +30,15 @@ const config = {
 				}
 			}
 		}
-	}
+	},
 
-	// vite: {
-	// 	resolve: {
-	// 		alias: {
-	// 			$lib: path.resolve('./src/lib'),
-	// 			$components: path.resolve('./src/lib/components')
-	// 		}
-	// 	}
-	// }
+	experimental: {
+		inspector: true
+	},
+
+	compilerOptions: {
+		dev: false
+	}
 };
 
 export default config;

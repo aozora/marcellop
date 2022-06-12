@@ -23,13 +23,13 @@
   --body-background: var(--color-white);
 
   /* Breakpoint variables */
-  --breakpoint-small: #{strip-unit(map_get($breakpoints, phone))};
-  --breakpoint-medium: #{strip-unit(map_get($breakpoints, tablet))};
-  --breakpoint-large: #{strip-unit(map_get($breakpoints, desktop))};
-  --breakpoint-xlarge: #{strip-unit(map_get($breakpoints, desktophd))};
+  //--breakpoint-small: #{strip-unit(map_get($breakpoints, phone))};
+  //--breakpoint-medium: #{strip-unit(map_get($breakpoints, tablet))};
+  //--breakpoint-large: #{strip-unit(map_get($breakpoints, desktop))};
+  //--breakpoint-xlarge: #{strip-unit(map_get($breakpoints, desktophd))};
 
   /* sectioning */
-  --var-section-margin: 3rem;
+  //--var-section-margin: 3rem;
 
   /* type modular scale */
   // body font size
