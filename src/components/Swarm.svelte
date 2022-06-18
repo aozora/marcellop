@@ -1,12 +1,11 @@
 <script lang="ts">
-import { type Size, useFrame, InstancedMesh, Instance, type Position, Pass, useThrelte } from "threlte";
-import { MeshStandardMaterial, TetrahedronGeometry, Vector2 } from "three";
+import { type Size, useFrame, InstancedMesh, Instance, type Position } from "threlte";
+import { MeshStandardMaterial, TetrahedronGeometry } from "three";
 import type { Particle } from "../lib/types";
 import { getParticles } from "../lib/three-utils";
 import { BokehPass } from "three/examples/jsm/postprocessing/BokehPass";
 // import { UnrealBloomPass } from "three/examples/jsm/postprocessing/UnrealBloomPass";
 // import { AfterimagePass } from "three/examples/jsm/postprocessing/AfterimagePass";
-import { Color } from "three";
 
 
 /**
@@ -18,8 +17,8 @@ let particles: Array<Particle> = getParticles(150);
 
 const material = new MeshStandardMaterial({ color: "#696767", roughness: 0, metalness: 0.1 });
 const geometry = new TetrahedronGeometry(1);
-const { scene, camera } = useThrelte();
-scene.background = new Color("#ffffff");
+// const { scene, camera } = useThrelte();
+// scene.background = new Color("#ffffff");
 
 useFrame((state) => {
   particles.forEach((particle, i) => {

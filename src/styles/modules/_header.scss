@@ -73,8 +73,8 @@
   background-color: transparent;
 
   // fix odd safari issue
-  &:focus {
-    border: 0;
+  &:focus-visible {
+    //border: 0;
   }
 
   > li {
@@ -99,7 +99,7 @@
     text-transform: uppercase;
     text-decoration: none;
     text-align: center;
-    color: var(--color-primary);
+    color: var(--color-white);
     transition: all .2s ease-out;
 
 

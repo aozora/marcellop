@@ -1,15 +1,14 @@
-<script lang='ts'>
-import { HeroData } from '$lib/types';
+<script lang="ts">
+import { HeroData } from "$lib/types";
 
 export let hero: HeroData;
 </script>
 
-<section class='hero'>
+<section class="hero">
   <h1>
     {hero.heading1}
-    <br />
-    Design Engineer
   </h1>
+  <h2>Design Engineer</h2>
 
   <!--{/*<p>*/}-->
   <!--{/*  <span>{heading2A}</span>*/}-->
@@ -18,7 +17,7 @@ export let hero: HeroData;
   <!--{/*</p>*/}-->
 </section>
 
-<style lang='scss'>
+<style lang="scss">
   @import '../styles/shared';
 
   .hero {

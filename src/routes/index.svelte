@@ -9,6 +9,7 @@ import { fly } from "svelte/transition";
 import HeroCanvas from "../components/HeroCanvas.svelte";
 import { intersectionAPI } from "$lib/intersection-observer-action.ts";
 import { aboutSectionIsInView } from "$lib/stores/home-scroll-store";
+import CanvasWrapper from "../components/CanvasWrapper.svelte";
 
 export type HomeProps = {
   site: Site,
@@ -66,38 +67,34 @@ const updateAboutIsInView = (isInView) => {
 />
 
 <div class="main-content">
-  <HeroCanvas />
+  <CanvasWrapper>
+    <HeroCanvas />
+  </CanvasWrapper>
 
   <section class="hero">
     {#if animate}
       <h1 class="splitting">
+        <span class="visuallyhidden">{home.heading1}</span>
         {#each heroHeading1Words as word}
         <span class="word">
           {#each Array.from(word) as char, index}
-            <span class="char" in:fly={{y:-20, duration: 1000, delay: 90 * index}}>{char}</span>
+            <span aria-hidden="true" class="char" in:fly={{y: index % 2 === 0 ? -20 : 20, duration: 1000, delay: 90 * index}}>{char}</span>
           {/each}
-          &nbsp;
-        </span>
-        {/each}
-
-        <br />
-
-        {#each heroHeading2Words as word}
-        <span class="word">
-          {#each Array.from(word) as char, index}
-            <span class="char" in:fly={{y:20, duration: 1000, delay: 90 * index}}>{char}</span>
-          {/each}
-          &nbsp;
         </span>
         {/each}
       </h1>
-    {/if}
 
-    <!--{/*<p>*/}-->
-    <!--{/*  <span>{heading2A}</span>*/}-->
-    <!--{/*  <span>{heading2B}</span>*/}-->
-    <!--{/*  <span>{heading2C}</span>*/}-->
-    <!--{/*</p>*/}-->
+      <h2>
+        <span class="visuallyhidden">{home.heading2}</span>
+        {#each heroHeading2Words as word}
+        <span class="word">
+          {#each Array.from(word) as char, index}
+            <span aria-hidden="true" class="char" in:fly={{y:20, duration: 1000, delay: 90 * index}}>{char}</span>
+          {/each}
+        </span>
+        {/each}
+      </h2>
+    {/if}
   </section>
 
   <section class="about" use:intersectionAPI on:crossed={(e)=>{
@@ -176,6 +173,7 @@ const updateAboutIsInView = (isInView) => {
 
     position: relative;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     @include container;
@@ -204,6 +202,19 @@ const updateAboutIsInView = (isInView) => {
       @media (max-width: 360px) {
         font-size: 2.5rem;
       }
+    }
+
+    h2 {
+      margin: 0 0 .667rem 0;
+      font-family: var(--heading-font-family);
+
+      --text-weight: var(--hero-weight);
+      //@if $use-variable-font-for-headings {
+      //  font-variation-settings: 'wght' var(--hero-weight), 'slnt' var(--hero-slant);
+      //}
+
+      font-size: clamp(var(--hero-hi-font-size-min), 8vw, var(--hero-hi-font-size-max));
+      line-height: var(--hero-hi-line-height-min);
     }
 
     p {

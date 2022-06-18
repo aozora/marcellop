@@ -20,7 +20,7 @@
   --color-white: #fff;
   --color-pantone: #6968AA;
 
-  --body-background: var(--color-white);
+  --body-background: var(--color-black);
 
   /* Breakpoint variables */
   //--breakpoint-small: #{strip-unit(map_get($breakpoints, phone))};
@@ -136,7 +136,7 @@
   --body-font-weight: 500;
   --heading-font-weight: 700;
   --kerning: normal; // auto (default), normal (enabled), none (disabled)
-  --body-font-color: var(--color-primary);
+  --body-font-color: var(--color-white);
   //$body-font-letter-spacing: normal;
 
   // Fonts
