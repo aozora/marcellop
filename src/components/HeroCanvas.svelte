@@ -3,7 +3,7 @@ import {
   AmbientLight,
   PerspectiveCamera,
   PointLight,
-  Fog, type Position, type Scale, useThrelte, Pass
+  Fog, type Position, type Scale, useThrelte, Pass, useFrame, OrbitControls
 } from "threlte";
 import Tetra from "./Tetra.svelte";
 import Swarm from "./Swarm.svelte";
@@ -19,8 +19,7 @@ import { BokehPass } from "three/examples/jsm/postprocessing/BokehPass";
  * Canvas setup
  */
 const { scene, camera } = useThrelte();
-scene.background = new Color("#000000");
-
+scene.background = new Color("#ffffff");
 
 /**
  * Scroll position of swarm
@@ -40,7 +39,7 @@ y.subscribe(value => {
 let tetraPosition: Position = new Vector3(12, -3, 35);
 let tetraScale: Scale = new Vector3(0, 0, 0);
 let scrolled = false;
-
+/*
 aboutSectionIsInView.subscribe(isInView => {
   if (isInView && !scrolled) {
     gsap.to(tetraScale, {
@@ -53,7 +52,7 @@ aboutSectionIsInView.subscribe(isInView => {
 
     scrolled = true;
   }
-});
+});*/
 </script>
 
 <!--<div class="canvas-container">-->
@@ -72,19 +71,20 @@ aboutSectionIsInView.subscribe(isInView => {
                 }} />
 />
 <Fog color={'#f0f0f0'} />
-<PerspectiveCamera fov={75} near={10} far={150} position={{ x: 0, y: -2, z: 50 }} />
+<PerspectiveCamera fov={75} near={10} far={150} position={{ x: 0, y: -2, z: 50 }}/>
 
-<Tetra position={tetraPosition} scale={tetraScale} />
+<!--<Tetra position={tetraPosition} scale={tetraScale} />-->
+<Tetra />
 
 <Swarm position={{x: 0, y: swarmYposition / 4, z:0}} />
 
-<Pass pass={new BokehPass(scene, $camera, {
-      focus: 		0.72,
-      aperture:	0.5,
-      maxblur:	.01,
-      width: window.innerWidth,
-      height: window.innerHeight
-    })} />
+<!--<Pass pass={new BokehPass(scene, $camera, {-->
+<!--      focus: 		0.72,-->
+<!--      aperture:	0.5,-->
+<!--      maxblur:	.01,-->
+<!--      width: window.innerWidth,-->
+<!--      height: window.innerHeight-->
+<!--    })} />-->
 <!--<Pass pass={new AfterimagePass(0.96)} />-->
 <!--<Pass pass={new UnrealBloomPass(-->
 <!--	new Vector2( window.innerWidth, window.innerHeight ),-->

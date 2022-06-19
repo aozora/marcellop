@@ -20,19 +20,28 @@
   --color-white: #fff;
   --color-pantone: #6968AA;
 
-  --body-background: var(--color-black);
-
-  /* Breakpoint variables */
-  //--breakpoint-small: #{strip-unit(map_get($breakpoints, phone))};
-  //--breakpoint-medium: #{strip-unit(map_get($breakpoints, tablet))};
-  //--breakpoint-large: #{strip-unit(map_get($breakpoints, desktop))};
-  //--breakpoint-xlarge: #{strip-unit(map_get($breakpoints, desktophd))};
+  --body-background: var(--color-white);
+  --body-font-color: var(--body-font-color);
 
   /* sectioning */
   //--var-section-margin: 3rem;
 
+  // ################################################################
+  //    TYPOGRAPHY SCALE & FONTS
+  // ################################################################
+  --baseline: 1.5;
+  --body-font-weight: 500;
+  --heading-font-weight: 700;
+  --kerning: normal; // auto (default), normal (enabled), none (disabled)
+
+  // Fonts
+  --variable-font-family: 'Inter var', Helvetica, Roboto, Arial, sans-serif;
+  --variable-heading-font-family: 'Playfair Display', serif;
+  --body-font-family: 'MuseoSans', Helvetica, Roboto, Arial, sans-serif;
+  --heading-font-family: 'BonVivantSerifBold', serif;
+
+
   /* type modular scale */
-  // body font size
   --text-base-size: 1rem; // 18px - html is set to 112.5%
 
   // type scale
@@ -126,24 +135,6 @@
   // ################################################################
   --sectionMaxWidth: 1024px;
 
-
-
-  // ################################################################
-  //    TYPOGRAPHY SCALE & FONTS
-  // ################################################################
-  --baseline: 1.5;
-
-  --body-font-weight: 500;
-  --heading-font-weight: 700;
-  --kerning: normal; // auto (default), normal (enabled), none (disabled)
-  --body-font-color: var(--color-white);
-  //$body-font-letter-spacing: normal;
-
-  // Fonts
-  --variable-font-family: 'Inter var', Helvetica, Roboto, Arial, sans-serif;
-  --variable-heading-font-family: 'Playfair Display', serif;
-  --body-font-family: 'MuseoSans', Helvetica, Roboto, Arial, sans-serif;
-  --heading-font-family: 'BonVivantSerifBold', serif;
 
 
   // ################################################################

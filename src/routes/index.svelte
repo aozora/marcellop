@@ -75,23 +75,27 @@ const updateAboutIsInView = (isInView) => {
     {#if animate}
       <h1 class="splitting">
         <span class="visuallyhidden">{home.heading1}</span>
-        {#each heroHeading1Words as word}
+        {#each heroHeading1Words as word, wordIndex}
         <span class="word">
           {#each Array.from(word) as char, index}
-            <span aria-hidden="true" class="char" in:fly={{y: index % 2 === 0 ? -20 : 20, duration: 1000, delay: 90 * index}}>{char}</span>
+            <span aria-hidden="true" class="char" in:fly={{y: index % 2 === 0 ? -20 : 20, duration: 1000, delay: 90 * index}}>
+              {char}
+            </span>
           {/each}
         </span>
+        {#if wordIndex < heroHeading1Words.length - 1}&nbsp;{/if}
         {/each}
       </h1>
 
       <h2>
         <span class="visuallyhidden">{home.heading2}</span>
-        {#each heroHeading2Words as word}
+        {#each heroHeading2Words as word, wordIndex}
         <span class="word">
           {#each Array.from(word) as char, index}
             <span aria-hidden="true" class="char" in:fly={{y:20, duration: 1000, delay: 90 * index}}>{char}</span>
           {/each}
         </span>
+        {#if wordIndex < heroHeading2Words.length - 1}&nbsp;{/if}
         {/each}
       </h2>
     {/if}
@@ -180,7 +184,6 @@ const updateAboutIsInView = (isInView) => {
     height: 100vh;
     padding: 3rem 1rem 0 1rem;
     margin-bottom: 2rem;
-    //background-color: var(--color-white);
 
     h1 {
       max-width: 99%; // this prevent the text to be on the same line between 1024-1032px

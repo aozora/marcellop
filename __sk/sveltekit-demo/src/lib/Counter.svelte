@@ -50,7 +50,7 @@
 		justify-content: center;
 		border: 0;
 		background-color: transparent;
-		color: var(--text-color);
+		color: var(--body-font-color);
 		font-size: 2rem;
 	}
 
@@ -66,7 +66,7 @@
 	path {
 		vector-effect: non-scaling-stroke;
 		stroke-width: 2px;
-		stroke: var(--text-color);
+		stroke: var(--body-font-color);
 	}
 
 	.counter-viewport {

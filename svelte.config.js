@@ -1,6 +1,7 @@
 import adapter from '@sveltejs/adapter-auto';
 import preprocess from 'svelte-preprocess';
 import path from 'path';
+import { threeMinifier } from '@yushijinhun/three-minifier-rollup';
 
 /** @type {import("@sveltejs/kit").Config} */
 const config = {
@@ -28,12 +29,18 @@ const config = {
 					$lib: path.resolve('./src/lib'),
 					$components: path.resolve('./src/lib/components')
 				}
-			}
+			},
+			plugins: [
+				{
+					...threeMinifier(),
+					enforce: 'pre'
+				}
+			]
 		}
 	},
 
 	experimental: {
-		inspector: true
+		inspector: false
 	},
 
 	compilerOptions: {

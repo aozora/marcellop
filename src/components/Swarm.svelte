@@ -1,8 +1,10 @@
 <script lang="ts">
-import { type Size, useFrame, InstancedMesh, Instance, type Position } from "threlte";
+import { onDestroy } from "svelte";
+import { useFrame, InstancedMesh, Instance, type Position, useThrelte } from "threlte";
 import { MeshStandardMaterial, TetrahedronGeometry } from "three";
 import type { Particle } from "../lib/types";
 import { getParticles } from "../lib/three-utils";
+import { type ClientXY, cursorPosition } from "$lib/stores/cursor-store";
 import { BokehPass } from "three/examples/jsm/postprocessing/BokehPass";
 // import { UnrealBloomPass } from "three/examples/jsm/postprocessing/UnrealBloomPass";
 // import { AfterimagePass } from "three/examples/jsm/postprocessing/AfterimagePass";
@@ -14,14 +16,24 @@ import { BokehPass } from "three/examples/jsm/postprocessing/BokehPass";
 export let position: Position;
 
 let particles: Array<Particle> = getParticles(150);
-
 const material = new MeshStandardMaterial({ color: "#696767", roughness: 0, metalness: 0.1 });
 const geometry = new TetrahedronGeometry(1);
-// const { scene, camera } = useThrelte();
-// scene.background = new Color("#ffffff");
+const { size } = useThrelte();
+
+const storeCursorPosition = (event) => {
+  cursorPosition.update(() => {
+      return {
+        x: event.clientX / $size.width - 0.5,
+        y: event.clientY / $size.height - 0.5
+      } as ClientXY;
+    }
+  );
+};
+window.addEventListener("mousemove", storeCursorPosition);
+
 
 useFrame((state) => {
-  particles.forEach((particle, i) => {
+  particles.forEach((particle) => {
     let { t, factor, speed, xFactor, yFactor, zFactor } = particle;
     t = particle.t += speed / 2;
     const time = state.clock.getElapsedTime();
@@ -30,16 +42,9 @@ useFrame((state) => {
     const b = Math.sin(t) + Math.cos(t * 2) / 10;
     const s = Math.max(1.5, Math.cos(t) * 5);
 
-    let viewportSize: Size;
-    state.size.subscribe(s => {
-      viewportSize = s;
-    });
-
-    // console.log(state.pointer)
-    state.pointer.subscribe(vector => {
-      particle.mx += (vector.x * viewportSize.width - particle.mx) * 0.02;
-      particle.my += (vector.y * viewportSize.height - particle.my) * 0.02;
-    });
+    // adjust particle position with cursor position
+    particle.mx += ($cursorPosition.x * $size.width - particle.mx) * 0.005;
+    particle.my += ($cursorPosition.y * $size.height - particle.my) * 0.005;
 
     // position
     particle.position = {
@@ -62,6 +67,10 @@ useFrame((state) => {
   particles = particles;
 });
 
+onDestroy(() => {
+  window.removeEventListener("mousemove", storeCursorPosition);
+});
+
 </script>
 
 
@@ -73,17 +82,3 @@ useFrame((state) => {
   {/each}
 </InstancedMesh>
 
-<!--<Pass pass={new BokehPass(scene, $camera, {-->
-<!--      focus: 		0.72,-->
-<!--      aperture:	0.5,-->
-<!--      maxblur:	.01,-->
-<!--      width: window.innerWidth,-->
-<!--      height: window.innerHeight-->
-<!--    })} />-->
-<!--<Pass pass={new AfterimagePass(0.96)} />-->
-<!--<Pass pass={new UnrealBloomPass(-->
-<!--	new Vector2( window.innerWidth, window.innerHeight ),-->
-<!--  1.5,-->
-<!--	 0,-->
-<!--	 0-->
-<!--)} />-->
