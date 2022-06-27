@@ -13,7 +13,7 @@ import gsap from "gsap";
 import { aboutSectionIsInView } from "$lib/stores/home-scroll-store";
 import { BokehPass } from "three/examples/jsm/postprocessing/BokehPass";
 // import { UnrealBloomPass } from "three/examples/jsm/postprocessing/UnrealBloomPass";
-// import { AfterimagePass } from "three/examples/jsm/postprocessing/AfterimagePass";
+import { AfterimagePass } from "three/examples/jsm/postprocessing/AfterimagePass";
 
 /**
  * Canvas setup
@@ -78,14 +78,14 @@ aboutSectionIsInView.subscribe(isInView => {
 
 <Swarm position={{x: 0, y: swarmYposition / 4, z:0}} />
 
-<!--<Pass pass={new BokehPass(scene, $camera, {-->
-<!--      focus: 		0.72,-->
-<!--      aperture:	0.5,-->
-<!--      maxblur:	.01,-->
-<!--      width: window.innerWidth,-->
-<!--      height: window.innerHeight-->
-<!--    })} />-->
-<!--<Pass pass={new AfterimagePass(0.96)} />-->
+<Pass pass={new BokehPass(scene, $camera, {
+      focus: 		0.72,
+      aperture:	0.5,
+      maxblur:	.005,
+      width: window.innerWidth,
+      height: window.innerHeight
+    })} />
+<Pass pass={new AfterimagePass(0.96)} />
 <!--<Pass pass={new UnrealBloomPass(-->
 <!--	new Vector2( window.innerWidth, window.innerHeight ),-->
 <!--  1.5,-->

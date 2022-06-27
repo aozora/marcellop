@@ -38,19 +38,19 @@ html {
   }
 }
 
-/*
-  this rules controls the fluid typography across breakpoints
-*/
-:root {
-  @media (min-width: 48em) and (max-width: 64em) {
-    --text-base-size: 1.111rem;
-    --text-scale-ratio: 1.25;
-  }
-  @media (min-width: 64em) {
-    --text-base-size: 1.222rem;
-    --text-scale-ratio: 1.25;
-  }
-}
+///*
+//  this rules controls the fluid typography across breakpoints
+//*/
+//:root {
+//  @media (min-width: 48em) and (max-width: 64em) {
+//    --text-base-size: 1.111rem;
+//    --text-scale-ratio: 1.25;
+//  }
+//  @media (min-width: 64em) {
+//    --text-base-size: 1.222rem;
+//    --text-scale-ratio: 1.25;
+//  }
+//}
 
 body,
 div,

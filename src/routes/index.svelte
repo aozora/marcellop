@@ -35,7 +35,7 @@ menuItems.update(() => {
 const metaTags: Array<SeoMetaTagType> = home && home.seo ? home.seo.concat(site.favicon) : [];
 const heroHeading1Words = home.heading1.split(" ");
 const heroHeading2Words = home.heading2.split(" ");
-
+const heading1Ja = home.heading1Ja.split(" ");
 
 let animate = false;
 onMount(() => {
@@ -68,7 +68,7 @@ const updateAboutIsInView = (isInView) => {
 
 <div class="main-content">
   <CanvasWrapper>
-    <HeroCanvas />
+    <!--    <HeroCanvas />-->
   </CanvasWrapper>
 
   <section class="hero">
@@ -83,7 +83,10 @@ const updateAboutIsInView = (isInView) => {
             </span>
           {/each}
         </span>
-        {#if wordIndex < heroHeading1Words.length - 1}&nbsp;{/if}
+          <div class="title-hover">
+            <span lang="ja">{heading1Ja[wordIndex]}</span>
+          </div>
+          <!--{#if wordIndex < heroHeading1Words.length - 1}&nbsp;{/if}-->
         {/each}
       </h1>
 
@@ -95,8 +98,12 @@ const updateAboutIsInView = (isInView) => {
             <span aria-hidden="true" class="char" in:fly={{y:20, duration: 1000, delay: 90 * index}}>{char}</span>
           {/each}
         </span>
-        {#if wordIndex < heroHeading2Words.length - 1}&nbsp;{/if}
+          {#if wordIndex < heroHeading2Words.length - 1}&nbsp;{/if}
         {/each}
+
+        <div class="title-hover">
+          <span lang="ja">{home.heading2Ja}</span>
+        </div>
       </h2>
     {/if}
   </section>
@@ -105,7 +112,7 @@ const updateAboutIsInView = (isInView) => {
     updateAboutIsInView(e.detail.isIntersecting);
   }}>
     <div id="about" class="about-container">
-      <h2>{home.aboutHeading}</h2>
+      <!--      <h2>{home.aboutHeading}</h2>-->
 
       <div class="image-container">
         <Image
@@ -155,12 +162,6 @@ const updateAboutIsInView = (isInView) => {
 
   .hero {
     // use 'em' otherwise the fluid-type mixin doesn't work
-    --hero-hi-line-height-min: 1.5em;
-    --hero-hi-line-height-max: 1.5em;
-    --hero-hi-font-size-min: 1.8rem;
-    --hero-hi-font-size-max: 2.18rem;
-
-    // use 'em' otherwise the fluid-type mixin doesn't work
     --hero-h1-line-height-min: 1.1em;
     --hero-h1-line-height-max: 1.1em;
 
@@ -178,16 +179,17 @@ const updateAboutIsInView = (isInView) => {
     position: relative;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
     @include container;
-    height: 100vh;
+    height: 90vh;
     padding: 3rem 1rem 0 1rem;
     margin-bottom: 2rem;
 
     h1 {
-      max-width: 99%; // this prevent the text to be on the same line between 1024-1032px
-      max-height: 28rem;
+      width: 100%;
+      max-width: none;
+      //max-height: 28rem;
       margin: 0 auto 2rem auto;
 
       --text-weight: var(--hero-weight);
@@ -196,18 +198,48 @@ const updateAboutIsInView = (isInView) => {
       //  font-variation-settings: 'wght' var(--hero-weight), 'slnt' var(--hero-slant);
       //}
 
-      font-size: clamp(var(--hero-h1-font-size-min), 8vw, var(--hero-h1-font-size-max));
+      //font-size: clamp(var(--hero-h1-font-size-min), 8vw, var(--hero-h1-font-size-max));
+      font-size: clamp(2.88rem, 5.4vw + 1.8rem, 6.667rem);
       line-height: var(--hero-h1-line-height-min);
 
-      text-align: center;
+      text-align: left;
       text-transform: uppercase;
 
       @media (max-width: 360px) {
         font-size: 2.5rem;
       }
+
+      [lang="ja"] {
+        font-size: 32px;
+        transform: translateX(-100%);
+        transition: transform .5s ease-out;
+      }
+
+      &:hover {
+        .title-hover {
+          [lang="ja"] {
+            @media (min-width: 64em) {
+              transform: translateX(0);
+            }
+          }
+        }
+      }
+    }
+
+    .title-hover {
+      position: relative;
+      display: inline-flex;
+      overflow: hidden;
+
+      @media (max-width: 64em) {
+        display: none;
+      }
     }
 
     h2 {
+      position: relative; // needed for reveal animation
+      width: 100%;
+      max-width: none;
       margin: 0 0 .667rem 0;
       font-family: var(--heading-font-family);
 
@@ -217,42 +249,35 @@ const updateAboutIsInView = (isInView) => {
       //}
 
       font-size: clamp(var(--hero-hi-font-size-min), 8vw, var(--hero-hi-font-size-max));
+      font-size: clamp(1.778rem, 3.2vw + 1.1rem, 4rem);
       line-height: var(--hero-hi-line-height-min);
-    }
+      text-align: right;
 
-    p {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-end;
-      max-width: none;
-      margin: 0 0 1rem 0;
+      .title-hover {
+        position: absolute;
+        top: -32px;
+        right: 0;
 
-      font-size: clamp(var(--hero-p-font-size-min), 8vw, var(--hero-p-font-size-max));
-      line-height: var(--hero-p-line-height-min);
-      --text-weight: 700;
-      letter-spacing: var(--text-on-dark-letter-spacing);
+      }
 
-      span {
-        display: inline-block;
-        padding: 0 1em;
+      [lang="ja"] {
+        font-size: 32px;
         text-align: right;
-        color: var(--color-white);
-        background-color: var(--color-black);
-        z-index: 1; // prevent color bleeding
+        transform: translateY(100%);
+        transition: transform .5s ease-out;
+      }
 
-        &:first-child {
-          margin-right: 2rem;
-
-          @media (max-width: 360px) {
-            margin-right: .3rem;
+      &:hover {
+        .title-hover {
+          [lang="ja"] {
+            @media (min-width: 64em) {
+              transform: translateY(0);
+            }
           }
-        }
-
-        &:last-child {
-          margin-right: 1.5rem;
         }
       }
     }
+
   }
 
   .about {

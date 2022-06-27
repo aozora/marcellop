@@ -25,12 +25,10 @@ export const homeQuery = `
       title
       slug
       canonical
-      hi
       heading1
+      heading1Ja
       heading2
-      heading2A
-      heading2B
-      heading2C
+      heading2Ja
       aboutHeading
       aboutDescription1
       aboutDescription2
