@@ -76,15 +76,16 @@ const updateAboutIsInView = (isInView) => {
       <h1 class="splitting">
         <span class="visuallyhidden">{home.heading1}</span>
         {#each heroHeading1Words as word, wordIndex}
-        <span class="word">
-          {#each Array.from(word) as char, index}
+          <div class="word">
+            {#each Array.from(word) as char, index}
             <span aria-hidden="true" class="char" in:fly={{y: index % 2 === 0 ? -20 : 20, duration: 1000, delay: 90 * index}}>
               {char}
             </span>
-          {/each}
-        </span>
-          <div class="title-hover">
-            <span lang="ja">{heading1Ja[wordIndex]}</span>
+            {/each}
+
+            <div class="title-hover">
+              <span lang="ja">{heading1Ja[wordIndex]}</span>
+            </div>
           </div>
           <!--{#if wordIndex < heroHeading1Words.length - 1}&nbsp;{/if}-->
         {/each}
@@ -161,21 +162,6 @@ const updateAboutIsInView = (isInView) => {
   }
 
   .hero {
-    // use 'em' otherwise the fluid-type mixin doesn't work
-    --hero-h1-line-height-min: 1.1em;
-    --hero-h1-line-height-max: 1.1em;
-
-    --hero-h1-font-size-min: 2.6rem;
-    --hero-h1-font-size-max: 5.81rem;
-
-    --hero-weight: 900;
-    --hero-slant: 2.73;
-
-    --hero-p-line-height-min: 1.5em; // use 'em' otherwise the fluid-type mixin doesn't work
-    --hero-p-line-height-max: 1.5em;
-    --hero-p-font-size-min: 1.388rem;
-    --hero-p-font-size-max: 1.81rem;
-
     position: relative;
     display: flex;
     flex-direction: column;
@@ -187,26 +173,27 @@ const updateAboutIsInView = (isInView) => {
     margin-bottom: 2rem;
 
     h1 {
+      display: flex;
+      flex-direction: column;
       width: 100%;
       max-width: none;
-      //max-height: 28rem;
       margin: 0 auto 2rem auto;
-
-      --text-weight: var(--hero-weight);
-
-      //@if $use-variable-font-for-headings {
-      //  font-variation-settings: 'wght' var(--hero-weight), 'slnt' var(--hero-slant);
-      //}
-
-      //font-size: clamp(var(--hero-h1-font-size-min), 8vw, var(--hero-h1-font-size-max));
+      font-family: var(--heading-font-family);
       font-size: clamp(2.88rem, 5.4vw + 1.8rem, 6.667rem);
+      font-weight: 300;
       line-height: var(--hero-h1-line-height-min);
-
       text-align: left;
       text-transform: uppercase;
 
       @media (max-width: 360px) {
         font-size: 2.5rem;
+      }
+
+      span{
+        font-family: var(--heading-font-family);
+        font-size: clamp(2.88rem, 5.4vw + 1.8rem, 6.667rem);
+        font-weight: 300;
+        line-height: var(--hero-h1-line-height-min);
       }
 
       [lang="ja"] {
