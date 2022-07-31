@@ -15,10 +15,6 @@ const config = {
 		}
 	},
 
-	experimental: {
-		inspector: false
-	},
-
 	compilerOptions: {
 		dev: false
 	}

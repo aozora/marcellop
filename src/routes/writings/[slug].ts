@@ -3,7 +3,7 @@ import { cmsRequest } from '$lib/datocms';
 import type { RequestType } from '$lib/datocms';
 import { postBySlugQuery } from '../../queries/post-by-slug.query';
 
-export const get: RequestHandler = async ({ params }) => {
+export const GET: RequestHandler = async ({ params }) => {
 	const graphqlRequest: RequestType = {
 		query: postBySlugQuery,
 		variables: {

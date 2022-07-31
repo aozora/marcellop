@@ -1,5 +1,5 @@
 <script lang="ts">
-import { Canvas } from "threlte";
+import { Canvas } from "@threlte/core";
 </script>
 
 <div class="canvas-container">

@@ -4,7 +4,7 @@ import {
   PerspectiveCamera,
   PointLight,
   Fog, type Position, type Scale, useThrelte, Pass, useFrame, OrbitControls
-} from "threlte";
+} from "@threlte/core";
 import Tetra from "./Tetra.svelte";
 import Swarm from "./Swarm.svelte";
 import { useWindowScroll } from "../hooks/useWindowScroll";

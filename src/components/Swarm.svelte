@@ -1,6 +1,6 @@
 <script lang="ts">
 import { onDestroy } from "svelte";
-import { useFrame, InstancedMesh, Instance, type Position, useThrelte } from "threlte";
+import { useFrame, InstancedMesh, Instance, type Position, useThrelte } from "@threlte/core";
 import { MeshStandardMaterial, TetrahedronGeometry } from "three";
 import type { Particle } from "../lib/types";
 import { getParticles } from "../lib/three-utils";

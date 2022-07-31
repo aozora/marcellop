@@ -2,7 +2,7 @@
 import {
   Mesh, type Position, type Rotation, type Scale,
   useFrame
-} from "threlte";
+} from "@threlte/core";
 import { MeshStandardMaterial, TetrahedronGeometry, Vector3 } from "three";
 import GUI from "lil-gui";
 

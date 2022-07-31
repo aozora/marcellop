@@ -116,12 +116,40 @@ const updateAboutIsInView = (isInView) => {
       <!--      <h2>{home.aboutHeading}</h2>-->
 
       <div class="image-container">
-        <Image
-          class="image-wrapper"
-          data={{
-              ...home.aboutPicture.responsiveImage
-            }}
-        />
+        <svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+          <defs>
+            <filter id="squiggly-0">
+              <feTurbulence id="turbulence" baseFrequency="0.02" numOctaves="3" result="noise" seed="0" />
+              <feDisplacementMap id="displacement" in="SourceGraphic" in2="noise" scale="6" />
+            </filter>
+            <filter id="squiggly-1">
+              <feTurbulence id="turbulence" baseFrequency="0.02" numOctaves="3" result="noise" seed="1" />
+              <feDisplacementMap in="SourceGraphic" in2="noise" scale="8" />
+            </filter>
+
+            <filter id="squiggly-2">
+              <feTurbulence id="turbulence" baseFrequency="0.02" numOctaves="3" result="noise" seed="2" />
+              <feDisplacementMap in="SourceGraphic" in2="noise" scale="6" />
+            </filter>
+            <filter id="squiggly-3">
+              <feTurbulence id="turbulence" baseFrequency="0.02" numOctaves="3" result="noise" seed="3" />
+              <feDisplacementMap in="SourceGraphic" in2="noise" scale="8" />
+            </filter>
+
+            <filter id="squiggly-4">
+              <feTurbulence id="turbulence" baseFrequency="0.02" numOctaves="3" result="noise" seed="4" />
+              <feDisplacementMap in="SourceGraphic" in2="noise" scale="6" />
+            </filter>
+          </defs>
+        </svg>
+
+        <!--        <Image-->
+        <!--          class="image-wrapper"-->
+        <!--          data={{-->
+        <!--              ...home.aboutPicture.responsiveImage-->
+        <!--            }}-->
+        <!--        />-->
+        <img src={home.aboutPicture.responsiveImage.src} srcset={home.aboutPicture.responsiveImage.srcSet} sizes={home.aboutPicture.responsiveImage.sizes} alt={home.aboutPicture.responsiveImage.alt} />
       </div>
 
       <div class="about-container-textblock-wrapper">
@@ -148,6 +176,28 @@ const updateAboutIsInView = (isInView) => {
 
 <style lang="scss">
   @import '../styles/shared';
+
+  @keyframes squiggly-anim {
+    0% {
+      filter: url('#squiggly-0')
+    }
+
+    25% {
+      filter: url('#squiggly-1')
+    }
+
+    50% {
+      filter: url('#squiggly-2')
+    }
+
+    75% {
+      filter: url('#squiggly-3')
+    }
+
+    100% {
+      filter: url('#squiggly-4')
+    }
+  }
 
   .main-content > section,
   .main-content > article {
@@ -189,7 +239,7 @@ const updateAboutIsInView = (isInView) => {
         font-size: 2.5rem;
       }
 
-      span{
+      span {
         font-family: var(--heading-font-family);
         font-size: clamp(2.88rem, 5.4vw + 1.8rem, 6.667rem);
         font-weight: 300;
@@ -217,6 +267,7 @@ const updateAboutIsInView = (isInView) => {
       position: relative;
       display: inline-flex;
       overflow: hidden;
+      font-weight: 400;
 
       @media (max-width: 64em) {
         display: none;
@@ -336,6 +387,12 @@ const updateAboutIsInView = (isInView) => {
       grid-area: figure;
       margin: 0;
       padding: 0;
+    }
+
+    img {
+      &:hover {
+        animation: squiggly-anim 0.34s linear infinite;
+      }
     }
   }
 

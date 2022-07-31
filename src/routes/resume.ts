@@ -3,7 +3,7 @@ import { cmsRequest } from '$lib/datocms';
 import type { RequestType } from '$lib/datocms';
 import { resumeQuery } from '../queries/resume.query';
 
-export const get: RequestHandler = async () => {
+export const GET: RequestHandler = async () => {
 	const graphqlRequest: RequestType = {
 		query: resumeQuery
 	};
