@@ -1,12 +1,12 @@
 <script lang="ts">
 import { page } from "$app/stores";
 import type { Menu, Site } from "$lib/types";
-import { menuItems } from "../../lib/stores/menu-store";
+import { menuItems } from "../../../lib/stores/menu-store";
 import type { Post } from "$lib/types";
-import { getPublishedDateFormatted, getPublishedDateShort } from "../../lib/helpers.js";
+import { getPublishedDateFormatted, getPublishedDateShort } from "../../../lib/helpers.js";
 import { Image, StructuredText } from "svelte-datocms";
-import VideoBlock from "../../components/VideoBlock.svelte";
-import ImageBlock from "../../components/ImageBlock.svelte";
+import VideoBlock from "../../../components/VideoBlock.svelte";
+import ImageBlock from "../../../components/ImageBlock.svelte";
 // import Highlight from "svelte-highlight";
 // import darcula from "svelte-highlight/src/styles/darcula";
 // import javascript from "svelte-highlight/src/languages/javascript";

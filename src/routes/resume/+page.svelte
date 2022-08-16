@@ -1,8 +1,8 @@
 <script lang="ts">
 import type { Menu, SeoMetaTagType, Site } from "$lib/types";
-import { menuItems } from "../lib/stores/menu-store";
+import { menuItems } from "../../lib/stores/menu-store";
 import type { ResumeJob } from "$lib/types";
-import Seo from "../components/Seo.svelte";
+import Seo from "../../components/Seo.svelte";
 
 export type ResumeProps = {
   site: Site,

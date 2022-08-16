@@ -1,9 +1,9 @@
-import type { RequestHandler } from '@sveltejs/kit';
+import type { PageServerLoad } from './$types';
 import { cmsRequest } from '$lib/datocms';
 import type { RequestType } from '$lib/datocms';
-import { postBySlugQuery } from '../../queries/post-by-slug.query';
+import { postBySlugQuery } from '../../../queries/post-by-slug.query';
 
-export const GET: RequestHandler = async ({ params }) => {
+export const load: PageServerLoad = async ({ params }) => {
 	const graphqlRequest: RequestType = {
 		query: postBySlugQuery,
 		variables: {
@@ -14,8 +14,6 @@ export const GET: RequestHandler = async ({ params }) => {
 	const data = await cmsRequest(graphqlRequest);
 
 	return {
-		body: {
-			data
-		}
+		...data
 	};
 };

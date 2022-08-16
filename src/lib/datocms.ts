@@ -5,15 +5,15 @@ export type RequestType = {
 };
 
 export async function cmsRequest({ query, variables, preview }: RequestType): Promise<any | null> {
-	let endpoint = 'https://graphql.datocms.com';
+	const endpoint = 'https://graphql.datocms.com';
 
-	if (import.meta.env.VITE_DATOCMS_ENVIRONMENT) {
-		endpoint += `/environments/${import.meta.env.VITE_DATOCMS_ENVIRONMENT}`;
-	}
-
-	if (preview) {
-		endpoint += `/preview`;
-	}
+	// if (import.meta.env.VITE_DATOCMS_ENVIRONMENT) {
+	// 	endpoint += `/environments/${import.meta.env.VITE_DATOCMS_ENVIRONMENT}`;
+	// }
+	//
+	// if (preview) {
+	// 	endpoint += `/preview`;
+	// }
 
 	// // eslint-disable-next-line no-console
 	// console.log(endpoint);
@@ -25,7 +25,9 @@ export async function cmsRequest({ query, variables, preview }: RequestType): Pr
 		headers: {
 			'Content-Type': 'application/json',
 			accept: 'application/json',
-			Authorization: `Bearer ${import.meta.env.VITE_DATOCMS_API_TOKEN}`
+			Authorization: `Bearer ${import.meta.env.VITE_DATOCMS_API_TOKEN}`,
+			'X-Environment': import.meta.env.VITE_DATOCMS_ENVIRONMENT,
+			'X-Include-Drafts': String(preview)
 		},
 		body: JSON.stringify({
 			query,
