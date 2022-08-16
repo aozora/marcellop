@@ -140,6 +140,21 @@ const updateAboutIsInView = (isInView) => {
               <feTurbulence id="turbulence" baseFrequency="0.02" numOctaves="3" result="noise" seed="4" />
               <feDisplacementMap in="SourceGraphic" in2="noise" scale="6" />
             </filter>
+
+            <filter id="splash-filter">
+              <feFlood flood-color="#16b5ff" flood-opacity="1" x="0%" y="0%" width="100%" height="100%" result="flood" />
+              <feFlood flood-color="#9800ff" flood-opacity="1" x="0%" y="0%" width="100%" height="100%" result="flood1" />
+              <feFlood flood-color="#a64dff" flood-opacity="1" x="0%" y="0%" width="100%" height="100%" result="flood2" />
+
+              <feTurbulence type="fractalNoise" baseFrequency="0.05 0.1" numOctaves="1" seed="2" stitchTiles="stitch" x="0%" y="0%" width="100%" height="100%" result="turbulence1" />
+              <feGaussianBlur stdDeviation="6.5 10" x="0%" y="0%" width="100%" height="100%" in="displacementMap" edgeMode="none" result="blur1" />
+              <feDisplacementMap in="blur1" in2="turbulence1" scale="420" xChannelSelector="R" yChannelSelector="B" x="0%" y="0%" width="100%" height="100%" result="displacementMap1" />
+              <feComposite in="flood" in2="displacementMap1" operator="in" x="0%" y="0%" width="100%" height="100%" result="composite" />
+
+              <feTurbulence type="fractalNoise" baseFrequency="0.01 0.1" numOctaves="1" seed="1" stitchTiles="stitch" x="0%" y="0%" width="100%" height="100%" result="turbulence" />
+              <feGaussianBlur stdDeviation="0.1 0" x="0%" y="0%" width="100%" height="100%" in="turbulence" edgeMode="none" result="blur" />
+              <feDisplacementMap in="SourceGraphic" in2="blur" scale="25" xChannelSelector="R" yChannelSelector="B" x="0%" y="0%" width="100%" height="100%" result="displacementMap" />
+            </filter>
           </defs>
         </svg>
 
@@ -392,6 +407,7 @@ const updateAboutIsInView = (isInView) => {
     img {
       &:hover {
         animation: squiggly-anim 0.34s linear infinite;
+        //filter: url('#splash-filter');
       }
     }
   }
