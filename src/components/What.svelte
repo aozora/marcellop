@@ -1,44 +1,51 @@
 <script lang="ts">
-
+import { scroll, animate } from "motion";
 import type { Home } from "../lib/types";
+import { browser } from "$app/env";
 
 export let home: Home;
+
+// const isClient = browser === true;
+//
+// if (isClient) {
+//   scroll(
+//     animate(".marquee__content", { transform: ["translateX(0)", `translateX(calc(100% + 1rem))`] })
+//   );
+// }
 </script>
 
 <article id="whatido" class="whatido">
-  <h2>{home.whatidoHeading}</h2>
+  <!--  <h2>{home.whatidoHeading}</h2>-->
 
   <section class="whatido__items">
-    {#each home.whatido as item}
-      <div class="whatido__item">
-        <div class="WhatidoItemContainer">
-          <div class="WhatidoItemContent">
-            <p class="whatido__title">
-              <span>{item.title}</span>
-            </p>
-            <p class="whatido__description">
-              <span>{item.description}</span>
-            </p>
-          </div>
+    <div class="marquee marquee--fit-content marquee--pos-absolute">
+      <ul class="marquee__content">
+        {#each home.whatido as item}
+          <li>{item.title}</li>
+        {/each}
+      </ul>
 
-          <figure role="presentation" class="Figure">
-            {#if item.cover}
-              <div class="ImageWrapper">
-                <picture>
-                  <source
-                    srcset={item.cover.responsiveImage.webpSrcSet}
-                    sizes={item.cover.responsiveImage.sizes}
-                    type="image/webp"
-                  />
-                  <source srcset={item.cover.responsiveImage.srcSet} sizes={item.cover.responsiveImage.sizes} />
-                  <img alt="" src={item.cover.responsiveImage.src} />
-                </picture>
-              </div>
-            {/if}
-          </figure>
-        </div>
-      </div>
-    {/each}
+      <ul class="marquee__content" aria-hidden="true">
+        {#each home.whatido as item}
+          <li>{item.title}</li>
+        {/each}
+      </ul>
+    </div>
+
+    <div class="marquee marquee--reverse marquee--dark marquee--fit-content marquee--pos-absolute">
+      <ul class="marquee__content">
+        {#each home.whatido as item}
+          <li>{item.title}</li>
+        {/each}
+      </ul>
+
+      <ul class="marquee__content" aria-hidden="true">
+        {#each home.whatido as item}
+          <li>{item.title}</li>
+        {/each}
+      </ul>
+    </div>
+
   </section>
 </article>
 
@@ -46,189 +53,108 @@ export let home: Home;
   @import '../styles/shared';
 
   .whatido {
-    --whatido-item-title-line-height-min: 1.5em; // use 'em' otherwise the fluid-type mixin doesn't work
-    --whatido-item-title-line-height-max: 1.5em;
-    --whatido-item-title-font-size-min: 2rem;
-    --whatido-item-title-font-size-max: 3.45rem;
-
-    //@include container;
-    margin-bottom: 5rem;
-    padding-top: calc(3 * var(--text-base-size));
-
-    h2 {
-      width: 100%;
-      max-width: none;
-      @include container;
-      padding: 0 1rem;
-    }
-
-    ul {
-      list-style-type: none;
-      display: grid;
-      grid-template-columns: repeat(6, 1fr);
-      grid-template-rows: auto;
-      gap: 1rem;
-      width: 100%;
-      max-width: none;
-      margin: 0;
-      padding: 0 1rem;
-      overflow: hidden;
-    }
-
-    li {
-      width: 100%;
-      grid-column: 1/6;
-      margin-bottom: 3rem;
-      overflow: hidden;
-    }
 
   }
 
-  .whatido__items {
-
-  }
-
-  .whatido__title {
-    --color-text: var(--color-black);
-    position: relative;
-    width: 100%;
-    margin: 0 auto 1rem auto;
-    max-width: 570px;
-    padding: 0 0 1rem 0;
-
-    color: var(--color-text);
-    --text-weight: 700;
-    font-family: var(--heading-font-family);
-
-    font-size: clamp(var(--whatido-item-title-font-size-min), 11vw, var(--whatido-item-title-font-size-max));
-    line-height: var(--whatido-item-title-line-height-min);
-    text-transform: capitalize;
-    z-index: 2;
-  }
-
-  .whatido__description {
-    --color-text: var(--color-black);
-    position: relative;
-    width: 100%;
-    max-width: 570px;
-    margin: 0;
-    padding: 0 1rem 0 0;
-    color: var(--color-text);
-    z-index: 1;
-    transition: clip-path 1.5s ease;
-  }
-
-  .whatido__title span,
-  .whatido__description span {
-    display: block;
-  }
-
-  .whatido__item {
-    &:nth-child(even) {
-      background-color: var(--color-black);
-
-      .whatido__title {
-        --color-text: var(--color-white);
-      }
-
-      .whatido__description {
-        --color-text: var(--color-white);
-      }
-    }
-  }
-
-  .WhatidoItemContainer {
-    position: relative;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-
-    width: 100%;
-    margin: 0 auto;
-    padding: 0 0 0 3rem;
-
-    @media (max-width: 42em) {
-      grid-template-columns: 1fr;
-      padding: 0;
-    }
-
-    //@include media("<tablet") {
-    //  padding: 0 0 0 1.5rem;
-    //}
-
-    @media (min-width: 64em) and (max-width: 1092px) {
-      padding: 0 0 0 1.5rem;
-    }
-
-    @media (min-width: 72em) {
-      padding: 0;
-    }
-
-  }
-
-  .WhatidoItemContent {
-    grid-column: 1/2;
+  .marquee {
+    --gap: 1rem;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    z-index: 2;
-
-    p {
-      overflow: hidden;
-    }
-
-    @media (max-width: 42em) {
-      padding: 0 0 0 1.5rem;
-    }
-  }
-
-  .whatido__item {
-
-    &:nth-child(even) {
-      .whatido__item-content {
-        background-color: rgba(0, 0, 0, .8);
-      }
-    }
-
-    &:nth-child(odd) {
-      .whatido__item-content {
-        background-color: rgba(255, 255, 255, .8);
-      }
-    }
-  }
-
-
-  .Figure {
     overflow: hidden;
+    user-select: none;
+    gap: var(--gap);
+    //max-width: fit-content;
+  }
+
+  .marquee__content {
+    flex-shrink: 0;
+    display: flex;
+    justify-content: flex-start;
+    min-width: 100%;
+    gap: 5rem;
+  }
+
+  @keyframes scroll {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(calc(-100% - var(--gap)));
+    }
+  }
+
+  /* Pause animation when reduced-motion is set */
+  @media (prefers-reduced-motion: reduce) {
+    .marquee__content {
+      animation-play-state: paused !important;
+    }
+  }
+
+  /* Enable animation */
+  .marquee__content {
+    animation: scroll 10s linear infinite;
+  }
+
+  /* Reverse animation */
+  .marquee--reverse .marquee__content {
+    animation-direction: reverse;
+  }
+
+  .marquee:hover .marquee__content {
+    animation-play-state: paused;
+  }
+
+  /* Attempt to size parent based on content. Keep in mind that the parent width is equal to both content containers that stretch to fill the parent. */
+  //.marquee--fit-content {
+  //  max-width: fit-content;
+  //}
+
+  /* A fit-content sizing fix: Absolute position the duplicate container. This will set the size of the parent wrapper to a single child container. Shout out to Olavi's article that had this solution 👏 @link: https://olavihaapala.fi/2021/02/23/modern-marquee.html  */
+  .marquee--pos-absolute .marquee__content:last-child {
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
-    //opacity: 0.5;
+  }
 
-    @media (min-width: 42em) {
-      grid-column: 2/3;
-      position: relative;
-      opacity: 1;
+  /* Enable position absolute animation on the duplicate content (last-child) */
+  .marquee--pos-absolute .marquee__content:last-child {
+    animation-name: scroll-abs;
+  }
+
+  @keyframes scroll-abs {
+    from {
+      transform: translateX(calc(100% + var(--gap)));
+    }
+    to {
+      transform: translateX(0);
     }
   }
 
-  .ImageWrapper {
-    position: absolute;
-    left: 0;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 100%;
-    height: 160vh;
-    overflow: hidden;
+  .marquee__content {
+    ul, li {
+      list-style-type: none;
+      max-width: none;
+      margin: 0;
+      padding: 0;
+    }
 
-    img,
-    picture {
-      object-fit: cover;
-      width: 100%;
-      height: 100%;
+    li {
+      color: var(--color-black);
+
+      @media (min-width: 64em) {
+        font-size: 220px;
+        text-transform: uppercase;
+      }
     }
   }
+
+  .marquee--dark {
+    //.marquee__content {
+    background-color: var(--color-black);
+    //}
+
+    li {
+      color: var(--color-white);
+    }
+  }
+
 </style>

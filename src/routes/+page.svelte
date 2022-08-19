@@ -1,5 +1,5 @@
 <script lang="ts">
-import type { Home, Menu, SeoMetaTagType, Site } from "$lib/types";
+import type { Home, Menu, ResponsiveImage, SeoMetaTagType, Site } from "$lib/types";
 import { Image } from "svelte-datocms";
 import What from "../components/What.svelte";
 import Seo from "../components/Seo.svelte";
@@ -49,8 +49,6 @@ onMount(() => {
 const updateAboutIsInView = (isInView) => {
   aboutSectionIsInView.update(() => isInView);
 };
-
-
 </script>
 
 <Seo
@@ -68,7 +66,7 @@ const updateAboutIsInView = (isInView) => {
 
 <div class="main-content">
   <CanvasWrapper>
-    <!--    <HeroCanvas />-->
+<!--    <HeroCanvas />-->
   </CanvasWrapper>
 
   <section class="hero">
@@ -157,14 +155,16 @@ const updateAboutIsInView = (isInView) => {
             </filter>
           </defs>
         </svg>
-
-        <!--        <Image-->
-        <!--          class="image-wrapper"-->
-        <!--          data={{-->
-        <!--              ...home.aboutPicture.responsiveImage-->
-        <!--            }}-->
-        <!--        />-->
-        <img src={home.aboutPicture.responsiveImage.src} srcset={home.aboutPicture.responsiveImage.srcSet} sizes={home.aboutPicture.responsiveImage.sizes} alt={home.aboutPicture.responsiveImage.alt} />
+        {#each home.aboutPicture as picture}
+          <img loading="lazy"
+               fetchpriority="low"
+               src={picture.responsiveImage.src}
+               srcset={picture.responsiveImage.srcSet}
+               sizes={picture.responsiveImage.sizes}
+               alt={picture.responsiveImage.alt}
+               style="aspect-ratio: {picture.responsiveImage.aspectRatio};"
+          />
+        {/each}
       </div>
 
       <div class="about-container-textblock-wrapper">
@@ -396,15 +396,45 @@ const updateAboutIsInView = (isInView) => {
 
   .image-container {
     overflow: hidden;
+    position: relative;
     z-index: 1;
+    margin: 6rem 0;
+    padding: 0;
 
     @media (min-width: 64em) {
-      grid-area: figure;
-      margin: 0;
-      padding: 0;
+      //grid-area: figure;
+      display: grid;
+      grid-template-columns: repeat(var(--grid-columns-mobile), 1fr);
+      grid-template-rows: repeat(7, 1fr);
+      //grid-gap: var(--grid-gap);
+      //gap: var(--grid-gap);
+      gap: 0;
+      align-items: start;
+      width: 100%;
+    }
+
+    svg {
+      display: none;
     }
 
     img {
+      border: 8px solid var(--color-white);
+
+      &:nth-child(2) {
+        grid-column: 1/7;
+        grid-row: 2/7;
+      }
+
+      &:nth-child(3) {
+        grid-column: 5/9;
+        grid-row: 3/-1;
+      }
+
+      &:nth-child(4) {
+        grid-column: 8/12;
+        grid-row: 1/7;
+      }
+
       &:hover {
         animation: squiggly-anim 0.34s linear infinite;
         //filter: url('#splash-filter');
@@ -412,29 +442,29 @@ const updateAboutIsInView = (isInView) => {
     }
   }
 
-  .image-wrapper {
-    margin: 0;
-    padding: 0 0 0 calc(2 * var(--text-base-size));
-
-    img {
-      //max-width: 630px;
-      margin: 0 auto;
-      object-fit: cover;
-      //clip-path: polygon(0% 4.43%, 24.53% 0.5%, 47.1% 4.64%, 73.96% 2.89%, 100% 4.89%, 100.00% 96.68%, 73.53% 100%, 46.73% 95.15%, 21.78% 100%, 0% 95.36%)
-    }
-
-    @media (min-width: 64em) {
-      //grid-area: figure;
-      margin: 0;
-      padding: 0;
-    }
-  }
+  //.image-wrapper {
+  //  padding: 0 0 0 calc(2 * var(--text-base-size));
+  //
+  //  img {
+  //    //max-width: 630px;
+  //    margin: 0 auto;
+  //    object-fit: cover;
+  //    //clip-path: polygon(0% 4.43%, 24.53% 0.5%, 47.1% 4.64%, 73.96% 2.89%, 100% 4.89%, 100.00% 96.68%, 73.53% 100%, 46.73% 95.15%, 21.78% 100%, 0% 95.36%)
+  //  }
+  //
+  //  @media (min-width: 64em) {
+  //    //grid-area: figure;
+  //    margin: 0;
+  //    padding: 0;
+  //  }
+  //}
 
   .about-container-textblock-wrapper {
     padding: calc(1 * var(--text-base-size)) 0;
 
     p {
-      line-height: 1.6;
+      font-size: clamp(1.33rem, 1.9vw + 0.9rem, 2.667rem);
+      line-height: 1.5;
       margin-bottom: calc(1 * var(--text-base-size));
     }
 

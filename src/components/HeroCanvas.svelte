@@ -85,7 +85,7 @@ aboutSectionIsInView.subscribe(isInView => {
       width: window.innerWidth,
       height: window.innerHeight
     })} />
-<Pass pass={new AfterimagePass(0.96)} />
+<!--<Pass pass={new AfterimagePass(0.96)} />-->
 <!--<Pass pass={new UnrealBloomPass(-->
 <!--	new Vector2( window.innerWidth, window.innerHeight ),-->
 <!--  1.5,-->
