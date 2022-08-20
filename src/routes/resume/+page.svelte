@@ -56,7 +56,7 @@ const getYear = date => {
 </section>
 
 <style lang="scss">
-  @import '../styles/shared';
+  @import '../../styles/shared';
 
   .resume {
     @include container;

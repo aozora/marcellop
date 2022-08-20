@@ -11,6 +11,7 @@
 
 @import 'variables';
 @import 'settings';
+@import 'shared';
 @import 'mixins/math';
 @import 'mixins/mixins';
 //@import './core/check-contrast';
@@ -28,7 +29,5 @@
 
 // Application Components
 @import 'modules/alert';
-@import 'modules/header';
-@import 'modules/footer';
 @import 'modules/home';
 

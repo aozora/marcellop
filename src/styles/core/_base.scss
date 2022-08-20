@@ -169,14 +169,14 @@ h1 {
 
 h2 {
   //margin: calc(1 * var(--text-base-size)) 0 calc(3 * var(--text-base-size)) 0;
-  max-width: var(--text-max-width);
+  //max-width: var(--text-max-width);
   font-size: var(--h2-font-size);
   line-height: var(--h2-line-height);
 }
 
 h3 {
   //margin: calc(1 * var(--text-base-size)) 0 calc(2 * var(--text-base-size)) 0;
-  max-width: var(--text-max-width);
+  //max-width: var(--text-max-width);
   text-align: left;
   font-size: var(--h3-font-size);
   line-height: var(--h3-line-height);
@@ -199,7 +199,7 @@ strong {
   ============== */
 p {
   margin: 0 0 calc(1.5 * var(--text-base-size)) 0;
-  max-width: var(--text-max-width);
+  //max-width: var(--text-max-width);
   transition: all linear 0.2s;
   hyphens: auto;
   hanging-punctuation: first;
@@ -255,14 +255,14 @@ a:not([class]) {
 ul {
   margin-left: auto;
   margin-right: auto;
-  max-width: var(--text-max-width);
-
-  @media (min-width: 48em) and (max-width: 64em) {
-    max-width: calc(38.5 * var(--text-base-size));
-  }
-  @media (min-width: 64em) {
-    max-width: calc(42 * var(--text-base-size));
-  }
+  //max-width: var(--text-max-width);
+  //
+  //@media (min-width: 48em) and (max-width: 64em) {
+  //  max-width: calc(38.5 * var(--text-base-size));
+  //}
+  //@media (min-width: 64em) {
+  //  max-width: calc(42 * var(--text-base-size));
+  //}
 }
 
 figure {

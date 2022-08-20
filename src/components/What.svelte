@@ -5,46 +5,56 @@ import { browser } from "$app/env";
 
 export let home: Home;
 
-// const isClient = browser === true;
-//
-// if (isClient) {
-//   scroll(
-//     animate(".marquee__content", { transform: ["translateX(0)", `translateX(calc(100% + 1rem))`] })
-//   );
-// }
+const isClient = browser === true;
+
+if (isClient) {
+  scroll(
+    animate(".skill-words li", { x: [0, "-100%"] })
+  );
+}
 </script>
 
 <article id="whatido" class="whatido">
   <!--  <h2>{home.whatidoHeading}</h2>-->
 
   <section class="whatido__items">
-    <div class="marquee marquee--fit-content marquee--pos-absolute">
-      <ul class="marquee__content">
-        {#each home.whatido as item}
-          <li>{item.title}</li>
-        {/each}
-      </ul>
 
-      <ul class="marquee__content" aria-hidden="true">
-        {#each home.whatido as item}
-          <li>{item.title}</li>
-        {/each}
-      </ul>
-    </div>
+    <ul class="skill-words">
+      {#each home.whatido as item}
+        <li>
+          <span>{item.title}</span>
+        </li>
+      {/each}
+    </ul>
 
-    <div class="marquee marquee--reverse marquee--dark marquee--fit-content marquee--pos-absolute">
-      <ul class="marquee__content">
-        {#each home.whatido as item}
-          <li>{item.title}</li>
-        {/each}
-      </ul>
 
-      <ul class="marquee__content" aria-hidden="true">
-        {#each home.whatido as item}
-          <li>{item.title}</li>
-        {/each}
-      </ul>
-    </div>
+    <!--    <div class="marquee marquee&#45;&#45;fit-content marquee&#45;&#45;pos-absolute">-->
+    <!--      <ul class="marquee__content">-->
+    <!--        {#each home.whatido as item}-->
+    <!--          <li>{item.title}</li>-->
+    <!--        {/each}-->
+    <!--      </ul>-->
+
+    <!--      <ul class="marquee__content" aria-hidden="true">-->
+    <!--        {#each home.whatido as item}-->
+    <!--          <li>{item.title}</li>-->
+    <!--        {/each}-->
+    <!--      </ul>-->
+    <!--    </div>-->
+
+    <!--    <div class="marquee marquee&#45;&#45;reverse marquee&#45;&#45;dark marquee&#45;&#45;fit-content marquee&#45;&#45;pos-absolute">-->
+    <!--      <ul class="marquee__content">-->
+    <!--        {#each home.whatido as item}-->
+    <!--          <li>{item.title}</li>-->
+    <!--        {/each}-->
+    <!--      </ul>-->
+
+    <!--      <ul class="marquee__content" aria-hidden="true">-->
+    <!--        {#each home.whatido as item}-->
+    <!--          <li>{item.title}</li>-->
+    <!--        {/each}-->
+    <!--      </ul>-->
+    <!--    </div>-->
 
   </section>
 </article>
@@ -56,8 +66,49 @@ export let home: Home;
 
   }
 
+  .skill-words {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    justify-content: flex-start;
+    min-width: 100%;
+    margin: 0;
+    padding: 0;
+
+    ul, li {
+      list-style-type: none;
+      max-width: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    li {
+      position: relative;
+      overflow: hidden;
+      color: var(--color-black);
+
+      &:nth-child(odd) {
+        background-color: var(--color-black);
+        color: var(--color-white);
+      }
+    }
+
+    span {
+      display: block;
+      color: inherit;
+
+      @media (min-width: 64em) {
+        font-size: 220px;
+        text-transform: uppercase;
+      }
+    }
+
+  }
+
   .marquee {
     --gap: 1rem;
+    position: relative;
     display: flex;
     overflow: hidden;
     user-select: none;

@@ -113,48 +113,36 @@ const updateAboutIsInView = (isInView) => {
     <div id="about" class="about-container">
       <!--      <h2>{home.aboutHeading}</h2>-->
 
+      <div class="about-container-textblock-wrapper">
+        <p class="dropcap">{@html home.aboutDescription1}</p>
+      </div>
+
       <div class="image-container">
         <svg xmlns="http://www.w3.org/2000/svg" version="1.1">
           <defs>
             <filter id="squiggly-0">
-              <feTurbulence id="turbulence" baseFrequency="0.02" numOctaves="3" result="noise" seed="0" />
+              <feTurbulence id="turbulence" baseFrequency="0.01" numOctaves="3" result="noise" seed="0" />
               <feDisplacementMap id="displacement" in="SourceGraphic" in2="noise" scale="6" />
             </filter>
             <filter id="squiggly-1">
-              <feTurbulence id="turbulence" baseFrequency="0.02" numOctaves="3" result="noise" seed="1" />
+              <feTurbulence id="turbulence" baseFrequency="0.01" numOctaves="3" result="noise" seed="1" />
               <feDisplacementMap in="SourceGraphic" in2="noise" scale="8" />
             </filter>
-
             <filter id="squiggly-2">
-              <feTurbulence id="turbulence" baseFrequency="0.02" numOctaves="3" result="noise" seed="2" />
+              <feTurbulence id="turbulence" baseFrequency="0.01" numOctaves="3" result="noise" seed="2" />
               <feDisplacementMap in="SourceGraphic" in2="noise" scale="6" />
             </filter>
             <filter id="squiggly-3">
-              <feTurbulence id="turbulence" baseFrequency="0.02" numOctaves="3" result="noise" seed="3" />
+              <feTurbulence id="turbulence" baseFrequency="0.01" numOctaves="3" result="noise" seed="3" />
               <feDisplacementMap in="SourceGraphic" in2="noise" scale="8" />
             </filter>
-
             <filter id="squiggly-4">
-              <feTurbulence id="turbulence" baseFrequency="0.02" numOctaves="3" result="noise" seed="4" />
+              <feTurbulence id="turbulence" baseFrequency="0.01" numOctaves="3" result="noise" seed="4" />
               <feDisplacementMap in="SourceGraphic" in2="noise" scale="6" />
-            </filter>
-
-            <filter id="splash-filter">
-              <feFlood flood-color="#16b5ff" flood-opacity="1" x="0%" y="0%" width="100%" height="100%" result="flood" />
-              <feFlood flood-color="#9800ff" flood-opacity="1" x="0%" y="0%" width="100%" height="100%" result="flood1" />
-              <feFlood flood-color="#a64dff" flood-opacity="1" x="0%" y="0%" width="100%" height="100%" result="flood2" />
-
-              <feTurbulence type="fractalNoise" baseFrequency="0.05 0.1" numOctaves="1" seed="2" stitchTiles="stitch" x="0%" y="0%" width="100%" height="100%" result="turbulence1" />
-              <feGaussianBlur stdDeviation="6.5 10" x="0%" y="0%" width="100%" height="100%" in="displacementMap" edgeMode="none" result="blur1" />
-              <feDisplacementMap in="blur1" in2="turbulence1" scale="420" xChannelSelector="R" yChannelSelector="B" x="0%" y="0%" width="100%" height="100%" result="displacementMap1" />
-              <feComposite in="flood" in2="displacementMap1" operator="in" x="0%" y="0%" width="100%" height="100%" result="composite" />
-
-              <feTurbulence type="fractalNoise" baseFrequency="0.01 0.1" numOctaves="1" seed="1" stitchTiles="stitch" x="0%" y="0%" width="100%" height="100%" result="turbulence" />
-              <feGaussianBlur stdDeviation="0.1 0" x="0%" y="0%" width="100%" height="100%" in="turbulence" edgeMode="none" result="blur" />
-              <feDisplacementMap in="SourceGraphic" in2="blur" scale="25" xChannelSelector="R" yChannelSelector="B" x="0%" y="0%" width="100%" height="100%" result="displacementMap" />
             </filter>
           </defs>
         </svg>
+
         {#each home.aboutPicture as picture}
           <img loading="lazy"
                fetchpriority="low"
@@ -167,9 +155,6 @@ const updateAboutIsInView = (isInView) => {
         {/each}
       </div>
 
-      <div class="about-container-textblock-wrapper">
-        <p class="dropcap">{@html home.aboutDescription1}</p>
-      </div>
       <div class="about-container-textblock-wrapper">
         <p>{@html home.aboutDescription2}</p>
       </div>
@@ -401,13 +386,11 @@ const updateAboutIsInView = (isInView) => {
     margin: 6rem 0;
     padding: 0;
 
-    @media (min-width: 64em) {
-      //grid-area: figure;
+    @media (min-width: 48em) {
       display: grid;
       grid-template-columns: repeat(var(--grid-columns-mobile), 1fr);
       grid-template-rows: repeat(7, 1fr);
-      //grid-gap: var(--grid-gap);
-      //gap: var(--grid-gap);
+      grid-gap: 0;
       gap: 0;
       align-items: start;
       width: 100%;
@@ -428,6 +411,7 @@ const updateAboutIsInView = (isInView) => {
       &:nth-child(3) {
         grid-column: 5/9;
         grid-row: 3/-1;
+        z-index: 2;
       }
 
       &:nth-child(4) {

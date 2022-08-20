@@ -43,7 +43,7 @@ menuItems.update(() => {
 </section>
 
 <style lang="scss">
-  @import '../styles/shared';
+  @import '../../styles/shared';
 
   .uses {
     @include container;

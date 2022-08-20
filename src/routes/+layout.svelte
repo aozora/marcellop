@@ -2,7 +2,7 @@
 import Header from "../components/Header.svelte";
 import Footer from "../components/Footer.svelte";
 import SkipLink from "../components/SkipLink.svelte";
-import "../styles/fonts.css";
+// import "../styles/fonts.css";
 import "../styles/app.scss";
 </script>
 

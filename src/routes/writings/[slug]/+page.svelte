@@ -124,7 +124,7 @@ menuItems.update(() => {
 
     .post__body,
     footer {
-      max-width: var(--text-max-width);
+      //max-width: var(--text-max-width);
     }
 
     .post__metadata {

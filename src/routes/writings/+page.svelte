@@ -81,7 +81,7 @@ menuItems.update(() => {
 
   .posts {
     @include container;
-    max-width: var(--text-max-width);
+    //max-width: var(--text-max-width);
     padding: 0 1rem;
   }
 
