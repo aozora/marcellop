@@ -1,7 +1,7 @@
 <script lang="ts">
 import { scroll, animate } from "motion";
 import type { Home } from "../lib/types";
-import { browser } from "$app/env";
+import { browser } from '$app/environment';
 
 export let home: Home;
 

@@ -1,7 +1,7 @@
 <script lang='ts'>
 import { page } from '$app/stores';
 import { onDestroy } from 'svelte';
-import { browser } from '$app/env';
+import { browser } from '$app/environment';
 import { menuItems } from "../lib/stores/menu-store";
 
 /**

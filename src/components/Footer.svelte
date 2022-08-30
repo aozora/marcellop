@@ -1,4 +1,16 @@
+<script lang="ts">
+import { Canvas } from "@threlte/core";
+import Tati from "./Tati.svelte";
+
+</script>
+
 <footer class="footer">
+  <div class="footer-canvas-container">
+    <Canvas shadows>
+      <Tati/>
+    </Canvas>
+  </div>
+
   <nav class="menu__social">
     <ul>
       <li>
@@ -40,68 +52,73 @@
     position: relative;
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: auto auto auto;
+    grid-template-rows: 200px auto auto auto;
     grid-gap: 1rem;
-    grid-template-areas: "social" "copyright" "credits";
+    grid-template-areas: "canvas" "social" "copyright" "credits";
     @include container;
     margin: 6rem auto 0 auto;
+  }
 
+  .footer-canvas-container {
+    position: relative;
+    grid-area: canvas;
+    height: 100%;
+  }
 
-    .menu__social {
-      grid-area: social;
+  .menu__social {
+    grid-area: social;
 
-      ul {
-        list-style-type: none;
-        display: flex;
-        justify-content: space-evenly;
-        align-items: flex-start;
-        gap: 1rem;
-        max-width: none;
-        height: 1.778rem;
-        margin: 0 0 3rem 0;
-        padding: 0;
-      }
-
-      span {
-        @include visuallyhidden;
-      }
-
-      a {
-        display: block;
-        width: 1.778rem;
-        height: 1.778rem;
-        padding: .2rem;
-        color: var(--body-font-color);
-
-        &:hover,
-        &:focus,
-        &:active {
-          color: var(--color-pantone);
-          border-color: var(--color-pantone);
-        }
-      }
+    ul {
+      list-style-type: none;
+      display: flex;
+      justify-content: space-evenly;
+      align-items: flex-start;
+      gap: 1rem;
+      max-width: none;
+      height: 1.778rem;
+      margin: 0 0 3rem 0;
+      padding: 0;
     }
 
-    .footer__copyright {
-      grid-area: copyright;
-      margin: 0 auto 2rem auto;
-      padding: 0 1rem;
-      font-size: .888rem;
-      color: var(--color-black);
-      text-align: center;
+    span {
+      @include visuallyhidden;
     }
 
-    .footer__credits {
-      grid-area: credits;
-      margin: 0 auto 2rem auto;
-      padding: 0 1rem;
-      font-size: .778rem;
-      color: var(--color-black);
-      text-align: center;
+    a {
+      display: block;
+      width: 1.778rem;
+      height: 1.778rem;
+      padding: .2rem;
+      color: var(--body-font-color);
 
-      a {
-        font-size: inherit;
+      &:hover,
+      &:focus,
+      &:active {
+        color: var(--color-pantone);
+        border-color: var(--color-pantone);
       }
+    }
+  }
+
+  .footer__copyright {
+    grid-area: copyright;
+    margin: 0 auto 2rem auto;
+    padding: 0 1rem;
+    font-size: .888rem;
+    color: var(--color-black);
+    text-align: center;
+  }
+
+  .footer__credits {
+    grid-area: credits;
+    margin: 0 auto 2rem auto;
+    padding: 0 1rem;
+    font-size: .778rem;
+    color: var(--color-black);
+    text-align: center;
+
+    a {
+      font-size: inherit;
     }
   }
 
