@@ -18,7 +18,6 @@
 # misc
 .DS_Store
 node_modules
-/.svelte-kit
 /package
 .env
 .env.*
@@ -27,3 +26,7 @@ node_modules
 # IDEs
 .idea
 .vscode
+.fleet
+
+# svelte
+/.svelte-kit

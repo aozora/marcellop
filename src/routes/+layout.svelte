@@ -4,6 +4,8 @@ import Footer from "../components/Footer.svelte";
 import SkipLink from "../components/SkipLink.svelte";
 // import "../styles/fonts.css";
 import "../styles/app.scss";
+
+export const prerender = true;
 </script>
 
 <svelte:head>

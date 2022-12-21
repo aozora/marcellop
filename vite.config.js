@@ -17,11 +17,11 @@ const config = {
 		}
 	},
 	plugins: [
-		sveltekit(),
-		{
-			// ...threeMinifier(),
-			enforce: 'pre'
-		}
+		sveltekit()
+		// {
+		// 	// ...threeMinifier(),
+		// 	enforce: 'pre'
+		// }
 	]
 };
 

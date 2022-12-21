@@ -104,7 +104,7 @@ menuItems.update(() => {
 
 
 <style lang="scss">
-  @import '../../styles/shared';
+  @import '../../../styles/shared';
 
   .post {
 

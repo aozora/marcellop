@@ -43,13 +43,13 @@ const getYear = date => {
   {#each allResumeJobs as job}
     <article>
       <header>
+        <p class="job__date">
+          <span>{`${getYear(job.from)} - `}</span>
+          {#if job.to}<span>{getYear(job.to)}</span>{/if}
+          {#if !job.to}<span>present</span>{/if}
+        </p>
         <h3>{`${job.title} @ ${job.company}`}</h3>
       </header>
-      <p class="job__date">
-        <span>{`${getYear(job.from)} - `}</span>
-        {#if job.to}<span>{getYear(job.to)}</span>{/if}
-        {#if !job.to}<span>present</span>{/if}
-      </p>
       <p class="job__description">{@html job.description}</p>
     </article>
   {/each}
@@ -101,7 +101,7 @@ const getYear = date => {
     margin: 0;
     font-family: var(--heading-font-family);
     font-size: 2rem;
-    text-align: right;
+    //text-align: right;
     color: var(--color-black);
 
     @media (min-width: 48em) {
@@ -109,10 +109,10 @@ const getYear = date => {
       align-self: start;
       justify-self: start;
       margin-left: 2rem;
-      transform: rotate(180deg);
+      //transform: rotate(180deg);
       font-size: 3rem;
       //width: 100%;
-      writing-mode: vertical-lr;
+      //writing-mode: vertical-lr;
     }
   }
 
