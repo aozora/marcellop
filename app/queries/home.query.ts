@@ -1,42 +1,42 @@
-import { responsiveImageFragment } from "~/queries/fragments";
+import { metaTagsFragment, responsiveImageFragment } from "~/queries/fragments";
 
 export const homeQuery = `
-  {
+  query Home {
     home {
-      hi
+      title
+      slug
       heading1
-      heading2A
-      heading2B
-      heading2C
+      heading1Ja
+      heading2
+      heading2Ja
       aboutHeading
       aboutDescription1
       aboutDescription2
       aboutDescription3
       aboutDescription4
       aboutPicture {
+        mimeType
         responsiveImage(imgixParams: {fm: jpg, auto: compress, w: 630 h: 464 }) {
           ...responsiveImageFragment
         }
-       alt
       }
       whatidoHeading
       whatido {
         title
         description
         cover {
+          mimeType
           responsiveImage(imgixParams: {fm: jpg, auto: compress }) {
             ...responsiveImageFragment
           }
-         alt
         }
       }
       seo: _seoMetaTags {
-        tag
-        content
-        attributes
+        ...metaTagsFragment
       }
     }
   }
 
   ${responsiveImageFragment}
+  ${metaTagsFragment}
 `;

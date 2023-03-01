@@ -1,5 +1,4 @@
 import type { LinksFunction, LoaderArgs, MetaFunction } from "@remix-run/node";
-import { json } from "@remix-run/node";
 import {
   Links,
   LiveReload,
@@ -54,6 +53,8 @@ export async function loader({ request }: LoaderArgs) {
 
 export default function App() {
   const { datoQuerySubscription } = useLoaderData();
+
+  console.log({ datoQuerySubscription });
 
   const {
     data: { site, menu },
