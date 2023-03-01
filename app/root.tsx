@@ -15,9 +15,12 @@ import {
   useQuerySubscription,
 } from "react-datocms";
 import globalStylesUrl from "./styles/app.css";
-import { datoQuerySubscription } from "~/lib/datocms";
+import { datoQuerySubscription } from "~/lib/datocms.server";
 import { commonQuery } from "~/queries/common.query";
 import type { MetaRoot } from "~/types";
+import { Alert } from "~/components/Alert";
+import Header from "~/components/Header";
+import { Footer } from "~/components/Footer";
 
 export const links: LinksFunction = () => {
   return [{ rel: "stylesheet", href: globalStylesUrl }];
@@ -53,8 +56,9 @@ export default function App() {
   const { datoQuerySubscription } = useLoaderData();
 
   const {
-    data: { site },
+    data: { site, menu },
   } = useQuerySubscription(datoQuerySubscription);
+
   const previewEnabled =
     datoQuerySubscription.enabled === undefined ||
     datoQuerySubscription.enabled === true;
@@ -67,10 +71,14 @@ export default function App() {
         {renderMetaTags([...site.favicon])}
       </head>
       <body>
-        {/*{previewEnabled ?? <Alert/>}*/}
+        {previewEnabled ?? <Alert />}
+
+        <Header menu={menu} />
         <main id="main" role="main">
           <Outlet />
         </main>
+
+        <Footer />
 
         <ScrollRestoration />
         <Scripts />

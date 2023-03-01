@@ -6,7 +6,7 @@ export const commonQuery = `
       favicon: faviconMetaTags {
         ...metaTagsFragment
       }
-      globalSeo(locale: $locale) {
+      globalSeo {
         ...globalSeoFragment
       }
       locales

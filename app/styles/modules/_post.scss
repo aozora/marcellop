@@ -3,7 +3,7 @@
   h1 {
     line-height: 1.2;
 
-    @include media('>=tablet') {
+    @media (min-width: 48em) {
       line-height: 1.2;
     }
   }

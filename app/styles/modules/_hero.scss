@@ -42,7 +42,7 @@
     font-size: clamp(var(--hero-hi-font-size-min), 8vw, var(--hero-hi-font-size-max));
     line-height: var(--hero-hi-line-height-min);
 
-    @include media(">=tablet") {
+    @media (min-width: 48em) {
       display: block;
     }
   }
@@ -63,7 +63,7 @@
 
     text-transform: uppercase;
 
-    @include media("<=360px") {
+    @media (max-width: 360px) {
       font-size: 2.5rem;
     }
   }
@@ -91,7 +91,7 @@
       &:first-child {
         margin-right: 2rem;
 
-        @include media('<=360px') {
+        @media (max-width: 360px) {
           margin-right: .3rem;
         }
       }

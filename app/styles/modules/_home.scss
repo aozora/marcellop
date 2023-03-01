@@ -16,7 +16,7 @@
 //  /*
 //    Only for mobile
 //  */
-//  @include media("<tablet") {
+//  @media (max-width: 48em) {
 //    .home {
 //      &::before {
 //        content: 'Marcello\APalmitessa';

@@ -6,13 +6,13 @@
     position: relative;
     margin: 0 0 3rem 0;
 
-    @include media(">=tablet","<desktop") {
+    @media (min-width: 48em) and (max-width: 64em) {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       grid-template-rows: auto auto;
       grid-template-areas: ". title title" "date desc desc";
     }
-    @include media(">=desktop") {
+    @media (min-width: 64em) {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       grid-template-rows: auto auto;
@@ -20,7 +20,7 @@
     }
 
     header {
-      @include media(">=tablet") {
+      @media (min-width: 48em) {
         grid-area: title;
       }
     }
@@ -45,7 +45,7 @@
   text-align: right;
   color: var(--color-black);
 
-  @include media(">=tablet") {
+  @media (min-width: 48em) {
     grid-area: date;
     align-self: start;
     justify-self: start;
@@ -58,7 +58,7 @@
 }
 
 .job__description {
-  @include media(">=tablet") {
+  @media (min-width: 48em) {
     grid-area: desc;
   }
 }

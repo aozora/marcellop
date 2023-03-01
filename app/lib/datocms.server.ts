@@ -23,23 +23,30 @@ export async function load({ query, variables, preview }: CmsRequestType) {
     endpoint += `/preview`;
   }
 
-  const { body } = await tiny.post({
-    url: endpoint,
-    headers: {
-      authorization: `Bearer ${process.env.DATOCMS_READONLY_TOKEN}`,
-    },
-    data: {
-      query,
-      variables,
-    },
-  });
+  console.log("DEBUG ", endpoint, process.env.DATOCMS_ENVIRONMENT);
 
-  if (body.errors) {
-    console.error("Ouch! The query has some errors!", body.errors);
-    throw body.errors;
+  try {
+    const { body } = await tiny.post({
+      url: endpoint,
+      headers: {
+        authorization: `Bearer ${process.env.DATOCMS_API_TOKEN}`,
+      },
+      data: {
+        query,
+        variables,
+      },
+    });
+
+    if (body.errors) {
+      console.error("Ouch! The query has some errors!", body.errors);
+      throw body.errors;
+    }
+
+    return body.data;
+  } catch (e) {
+    console.error({ e });
+    throw e;
   }
-
-  return body.data;
 }
 
 export async function datoQuerySubscription({

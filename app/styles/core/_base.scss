@@ -42,11 +42,11 @@ html {
   this rules controls the fluid typography across breakpoints
 */
 :root {
-  @include media('>=tablet', '<desktop') {
+  @media (min-width: 48em) and (max-width: 64em) {
     --text-base-size: 1.111rem;
     --text-scale-ratio: 1.25;
   }
-  @include media('>=desktop') {
+  @media (min-width: 64em) {
     --text-base-size: 1.222rem;
     --text-scale-ratio: 1.25;
   }
@@ -210,7 +210,7 @@ p {
 p.initial:first-of-type::first-line {
   --text-weight: calc(var(--p-vf-weight) * 1.25);
 
-  @include media(">=tablet") {
+  @media (min-width: 48em) {
     --text-weight: calc(var(--p-vf-weight) * 1.25);
   }
 }
@@ -257,10 +257,10 @@ ul {
   margin-right: auto;
   max-width: var(--text-max-width);
 
-  @include media(">=tablet", "<desktop") {
+  @media (min-width: 48em) and (max-width: 64em) {
     max-width: calc(38.5 * var(--text-base-size));
   }
-  @include media(">desktop") {
+  @media (min-width: 64em) {
     max-width: calc(42 * var(--text-base-size));
   }
 }

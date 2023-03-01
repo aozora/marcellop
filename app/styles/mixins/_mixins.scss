@@ -18,15 +18,15 @@
   margin: 0 auto;
   padding: 0 3rem;
 
-  @include media("<tablet") {
+  @media (max-width: 48em) {
     padding: 0 1.5rem;
   }
 
-  @include media(">=desktop","<1092") {
+  @media (min-width: 48em) and (max-width: 1092px) {
     padding: 0 1.5rem;
   }
 
-  @include media(">=desktophd") {
+  @media (min-width: 92em) {
     padding: 0;
   }
 }
