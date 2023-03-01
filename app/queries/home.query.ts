@@ -1,0 +1,42 @@
+import { responsiveImageFragment } from "~/queries/fragments";
+
+export const homeQuery = `
+  {
+    home {
+      hi
+      heading1
+      heading2A
+      heading2B
+      heading2C
+      aboutHeading
+      aboutDescription1
+      aboutDescription2
+      aboutDescription3
+      aboutDescription4
+      aboutPicture {
+        responsiveImage(imgixParams: {fm: jpg, auto: compress, w: 630 h: 464 }) {
+          ...responsiveImageFragment
+        }
+       alt
+      }
+      whatidoHeading
+      whatido {
+        title
+        description
+        cover {
+          responsiveImage(imgixParams: {fm: jpg, auto: compress }) {
+            ...responsiveImageFragment
+          }
+         alt
+        }
+      }
+      seo: _seoMetaTags {
+        tag
+        content
+        attributes
+      }
+    }
+  }
+
+  ${responsiveImageFragment}
+`;

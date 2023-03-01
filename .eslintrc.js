@@ -1,25 +1,21 @@
-'use strict';
-
+/** @type {import('@types/eslint').Linter.BaseConfig} */
 module.exports = {
-  extends: ['next/core-web-vitals', 'prettier', 'plugin:storybook/recommended'],
-  rules: {
-    'comma-dangle': ['error', 'never'],
-    indent: [
-      'error',
-      2,
-      {
-        SwitchCase: 1,
-        ignoredNodes: ['TemplateLiteral']
-      }
-    ],
-    'max-len': 'off',
-    'no-console': [
-      2,
-      {
-        allow: ['warn', 'error']
-      }
-    ],
-    'import/prefer-default-export': 0,
-    'import/no-anonymous-default-export': 0
-  }
+  extends: [
+    "@remix-run/eslint-config",
+    "@remix-run/eslint-config/node",
+    "@remix-run/eslint-config/jest-testing-library",
+    "prettier",
+  ],
+  env: {
+    "cypress/globals": true,
+  },
+  plugins: ["cypress"],
+  // we're using vitest which has a very similar API to jest
+  // (so the linting plugins work nicely), but it means we have to explicitly
+  // set the jest version.
+  settings: {
+    jest: {
+      version: 28,
+    },
+  },
 };

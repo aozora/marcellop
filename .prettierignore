@@ -3,9 +3,3 @@ node_modules
 /build
 /public/build
 .env
-.env.local
-
-
-# IDEs
-.idea
-.vscode
