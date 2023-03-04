@@ -78,9 +78,9 @@ export type Home = {
   title: string;
   slug: string;
   heading1: string;
-  heading2A: string;
-  heading2B: string;
-  heading2C: string;
+  heading1Ja: string;
+  heading2: string;
+  heading2Ja: string;
   aboutHeading: string;
   aboutDescription1: string;
   aboutDescription2: string;

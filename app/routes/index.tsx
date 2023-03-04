@@ -4,6 +4,12 @@ import { homeQuery } from "~/queries/home.query";
 import { datoQuerySubscription } from "~/lib/datocms.server";
 import type { LoaderArgs } from "@remix-run/node";
 import { useQuerySubscription } from "react-datocms";
+import { Hero } from "~/components/Hero";
+import type { Home } from "~/types";
+
+type PageData = {
+  home: Home;
+};
 
 export async function loader({ request }: LoaderArgs) {
   return datoQuerySubscription({
@@ -14,12 +20,11 @@ export async function loader({ request }: LoaderArgs) {
 
 export default function Index() {
   const { datoQuerySubscription } = useLoaderData();
+  const { data } = useQuerySubscription(datoQuerySubscription);
 
-  const {
-    data: { home },
-  } = useQuerySubscription(datoQuerySubscription);
+  const { home }: PageData = data;
 
-  console.log({ home });
+  // console.log({ home });
 
   // temp
   const loaded = true;
@@ -30,7 +35,12 @@ export default function Index() {
         <body className={loaded ? "home loaded" : "home"} />
       </Helmet>
 
-      <h1>Yo!</h1>
+      <Hero
+        heading1={home.heading1}
+        heading1Ja={home.heading1Ja}
+        heading2={home.heading2}
+        heading2Ja={home.heading2Ja}
+      />
       {/*{heroData && <Hero hero={heroData} />}*/}
       {/*{aboutData && <About about={aboutData} />}*/}
       {/*{whatido && <What whatido={whatido} />}*/}
