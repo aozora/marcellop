@@ -24,11 +24,14 @@
     "/public/build"
   ],
   "dependencies": {
-    "@remix-run/node": "^1.13.0",
-    "@remix-run/react": "^1.13.0",
-    "@remix-run/serve": "^1.13.0",
-    "@remix-run/server-runtime": "^1.13.0",
-    "@remix-run/vercel": "^1.13.0",
+    "@remix-run/node": "^1.12.0",
+    "@remix-run/react": "^1.12.0",
+    "@remix-run/serve": "^1.15.0",
+    "@remix-run/server-runtime": "^1.12.0",
+    "@remix-run/vercel": "^1.15.0",
+    "@vercel/kv": "^0.1.1",
+    "@vercel/node": "^2.10.3",
+    "@vercel/remix": "^1.15.0",
     "bcryptjs": "^2.4.3",
     "concurrently": "^7.6.0",
     "isbot": "^3.6.5",
@@ -71,6 +74,6 @@
     "vite-tsconfig-paths": "^3.6.0"
   },
   "engines": {
-    "node": ">=14"
+    "node": ">=18"
   }
 }

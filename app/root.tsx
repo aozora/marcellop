@@ -47,6 +47,7 @@ export const meta = ({
 export async function loader({ request }: LoaderArgs) {
   return datoQuerySubscription({
     request,
+    useCache: true,
     query: commonQuery,
   });
 }

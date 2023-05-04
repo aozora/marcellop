@@ -1,4 +1,4 @@
-import { Link, useLoaderData } from "@remix-run/react";
+import { useLoaderData } from "@remix-run/react";
 import Helmet from "react-helmet";
 import { homeQuery } from "~/queries/home.query";
 import { datoQuerySubscription } from "~/lib/datocms.server";
@@ -41,7 +41,7 @@ export default function Index() {
         heading2={home.heading2}
         heading2Ja={home.heading2Ja}
       />
-      {/*{heroData && <Hero hero={heroData} />}*/}
+
       {/*{aboutData && <About about={aboutData} />}*/}
       {/*{whatido && <What whatido={whatido} />}*/}
     </div>
