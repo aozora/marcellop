@@ -1,14 +1,14 @@
-/* eslint-disable react/destructuring-assignment */
-import React, { useState, useEffect, useCallback, useMemo } from "react";
-import type { Menu } from "~/types";
+import React from "react";
 import { Link } from "@remix-run/react";
+import { usePageState } from "~/components/PageProvider";
 
 export type HeaderProps = {
-  menu: Menu;
   showMenu?: boolean;
 };
 
-export const Header = ({ menu, showMenu = true }: HeaderProps): JSX.Element => {
+export const Header = ({ showMenu = true }: HeaderProps): JSX.Element => {
+  const { menu } = usePageState();
+
   // eslint-disable-next-line no-unused-vars
   // const [showMobileMenu, setShowMobileMenu] = useState(false);
   // const isClient = typeof window !== 'undefined';

@@ -24,7 +24,7 @@ export default function Index() {
 
   const { home }: PageData = data;
 
-  // console.log({ home });
+  console.log({ home });
 
   // temp
   const loaded = true;

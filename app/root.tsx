@@ -1,5 +1,6 @@
-import type { LinksFunction, LoaderArgs, MetaFunction } from "@remix-run/node";
+import type { LinksFunction, LoaderArgs } from "@remix-run/node";
 import {
+  isRouteErrorResponse,
   Links,
   LiveReload,
   Meta,
@@ -7,6 +8,7 @@ import {
   Scripts,
   ScrollRestoration,
   useLoaderData,
+  useRouteError,
 } from "@remix-run/react";
 import {
   renderMetaTags,
@@ -16,10 +18,13 @@ import {
 import globalStylesUrl from "./styles/app.css";
 import { datoQuerySubscription } from "~/lib/datocms.server";
 import { commonQuery } from "~/queries/common.query";
-import type { MetaRoot } from "~/types";
 import { Alert } from "~/components/Alert";
 import Header from "~/components/Header";
 import { Footer } from "~/components/Footer";
+import { PageProvider, usePageState } from "~/components/PageProvider";
+import type { MetaRoot } from "~/types";
+import type { ReactNode } from "react";
+import type { PageState } from "~/components/PageProvider";
 
 export const links: LinksFunction = () => {
   return [{ rel: "stylesheet", href: globalStylesUrl }];
@@ -52,32 +57,32 @@ export async function loader({ request }: LoaderArgs) {
   });
 }
 
-export default function App() {
-  const { datoQuerySubscription } = useLoaderData();
-
-  console.log({ datoQuerySubscription });
-
-  const {
-    data: { site, menu },
-  } = useQuerySubscription(datoQuerySubscription);
-
-  const previewEnabled =
-    datoQuerySubscription.enabled === undefined ||
-    datoQuerySubscription.enabled === true;
+function Document({
+  children,
+  title,
+  preview,
+}: {
+  children: ReactNode;
+  title?: string;
+  preview?: boolean;
+}) {
+  const { site } = usePageState();
 
   return (
     <html lang="en">
       <head>
         <Meta />
         <Links />
-        {renderMetaTags([...site.favicon])}
+        {site && renderMetaTags([...site.favicon])}
       </head>
-      <body>
-        {previewEnabled ?? <Alert />}
 
-        <Header menu={menu} />
+      <body>
+        {preview ?? <Alert />}
+
+        <Header />
+
         <main id="main" role="main">
-          <Outlet />
+          {children}
         </main>
 
         <Footer />
@@ -88,4 +93,65 @@ export default function App() {
       </body>
     </html>
   );
+}
+
+export default function App() {
+  const { datoQuerySubscription } = useLoaderData();
+  // console.log({ datoQuerySubscription });
+  console.log(datoQuerySubscription.initialData);
+
+  const {
+    data: { site, menu },
+  } = useQuerySubscription(datoQuerySubscription);
+  const initialPageState: PageState = {
+    site,
+    menu,
+  };
+
+  const previewEnabled =
+    datoQuerySubscription.enabled === undefined ||
+    datoQuerySubscription.enabled === true;
+
+  return (
+    <PageProvider initialState={initialPageState}>
+      <Document preview={previewEnabled}>
+        <Outlet />
+      </Document>
+    </PageProvider>
+  );
+}
+
+export function ErrorBoundary() {
+  let error = useRouteError();
+  console.error(error);
+
+  if (isRouteErrorResponse(error)) {
+    return (
+      <Document title="Uh-oh!">
+        <div>
+          <h1>
+            {error.status} {error.statusText}
+          </h1>
+          <p>{error.data}</p>
+        </div>
+      </Document>
+    );
+  } else if (error instanceof Error) {
+    return (
+      <Document title="Uh-oh!">
+        <div>
+          <h1>Ops, si è verificato un Errore.</h1>
+          <p>{error.message}</p>
+          <p>Per favore riporta questo errore a Marcello.</p>
+          <pre>{error.stack}</pre>
+        </div>
+      </Document>
+    );
+  } else {
+    return (
+      <Document title="Uh-oh!">
+        <h1>Unknown Error</h1>
+      </Document>
+    );
+  }
 }

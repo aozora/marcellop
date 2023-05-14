@@ -2,10 +2,10 @@
  * @type {import("@remix-run/dev").AppConfig}
  */
 module.exports = {
-  // future: {
-  //   v2_routeConvention: true,
-  //   v2_errorBoundary: true
-  // },
+  future: {
+    v2_routeConvention: true,
+    v2_errorBoundary: true,
+  },
   // future: {
   //   unstable_cssModules: true
   // },
