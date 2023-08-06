@@ -1,15 +1,15 @@
 <script lang="ts">
-import type { Home, Menu, ResponsiveImage, SeoMetaTagType, Site } from "$lib/types";
-import { Image } from "svelte-datocms";
+import type { Home, Menu, Site } from "$lib/types";
+// import { Image } from "svelte-datocms";
 import What from "../components/What.svelte";
-import Seo from "../components/Seo.svelte";
+// import Seo from "../components/Seo.svelte";
 import { menuItems } from "$lib/stores/menu-store";
 import { onMount } from "svelte";
 import { fly } from "svelte/transition";
-import HeroCanvas from "../components/HeroCanvas.svelte";
+// import HeroCanvas from "../components/HeroCanvas.svelte";
 import { intersectionAPI } from "$lib/intersection-observer-action.ts";
 import { aboutSectionIsInView } from "$lib/stores/home-scroll-store";
-import CanvasWrapper from "../components/CanvasWrapper.svelte";
+// import CanvasWrapper from "../components/CanvasWrapper.svelte";
 
 export type HomeProps = {
   site: Site,
@@ -21,7 +21,7 @@ export type HomeProps = {
  * PROPS
  */
 export let data: HomeProps;
-let { site, menu, home }: HomeProps = data;
+let { /* site, */ menu, home }: HomeProps = data;
 
 // write the menuItems store with the data form the page endpoint
 // the Header component will use that.
@@ -32,7 +32,7 @@ menuItems.update(() => {
 /**
  * State
  */
-const metaTags: Array<SeoMetaTagType> = home && home.seo ? home.seo.concat(site.favicon) : [];
+// const metaTags: Array<SeoMetaTagType> = home && home.seo ? home.seo.concat(site.favicon) : [];
 const heroHeading1Words = home.heading1.split(" ");
 const heroHeading2Words = home.heading2.split(" ");
 const heading1Ja = home.heading1Ja.split(" ");
@@ -51,23 +51,23 @@ const updateAboutIsInView = (isInView) => {
 };
 </script>
 
-<Seo
-  siteSeo={site.globalSeo}
-  metaTags={metaTags}
-  canonicalUrl={null}
-  pageLink={
-          {
-            id: home.id,
-            slug: home.slug,
-            _modelApiKey: home._modelApiKey
-          }
-        }
-/>
+<!--<Seo-->
+<!--  siteSeo={site.globalSeo}-->
+<!--  metaTags={metaTags}-->
+<!--  canonicalUrl={null}-->
+<!--  pageLink={-->
+<!--          {-->
+<!--            id: home.id,-->
+<!--            slug: home.slug,-->
+<!--            _modelApiKey: home._modelApiKey-->
+<!--          }-->
+<!--        }-->
+<!--/>-->
 
 <div class="main-content">
-  <CanvasWrapper>
+<!--  <CanvasWrapper>-->
 <!--    <HeroCanvas />-->
-  </CanvasWrapper>
+<!--  </CanvasWrapper>-->
 
   <section class="hero">
     {#if animate}
@@ -113,9 +113,9 @@ const updateAboutIsInView = (isInView) => {
     <div id="about" class="about-container">
       <!--      <h2>{home.aboutHeading}</h2>-->
 
-      <div class="about-container-textblock-wrapper">
-        <p class="dropcap">{@html home.aboutDescription1}</p>
-      </div>
+<!--      <div class="about-container-textblock-wrapper">-->
+<!--        <p class="dropcap">{@html home.aboutDescription1}</p>-->
+<!--      </div>-->
 
       <div class="image-container">
         <svg xmlns="http://www.w3.org/2000/svg" version="1.1">
@@ -155,17 +155,17 @@ const updateAboutIsInView = (isInView) => {
         {/each}
       </div>
 
-      <div class="about-container-textblock-wrapper">
-        <p>{@html home.aboutDescription2}</p>
-      </div>
+<!--      <div class="about-container-textblock-wrapper">-->
+<!--        <p>{@html home.aboutDescription2}</p>-->
+<!--      </div>-->
 
-      <div class="about-container-textblock-wrapper">
-        <p>{@html home.aboutDescription3}</p>
-      </div>
+<!--      <div class="about-container-textblock-wrapper">-->
+<!--        <p>{@html home.aboutDescription3}</p>-->
+<!--      </div>-->
 
-      <div class="about-container-textblock-wrapper">
-        <p>{@html home.aboutDescription4}</p>
-      </div>
+<!--      <div class="about-container-textblock-wrapper">-->
+<!--        <p>{@html home.aboutDescription4}</p>-->
+<!--      </div>-->
     </div>
   </section>
 

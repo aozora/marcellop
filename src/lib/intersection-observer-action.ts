@@ -3,14 +3,13 @@
  * @param entries
  * @param node
  */
-
-const handle = (entries, node) => {
+const handle = (entries: IntersectionObserverEntry[], node: HTMLElement) => {
 	entries.forEach((entry) => {
 		node.dispatchEvent(new CustomEvent('crossed', { detail: entry }));
 	});
 };
 
-export function intersectionAPI(node, options = {}) {
+export function intersectionAPI(node: HTMLElement, options = {}) {
 	const observer = new IntersectionObserver((entries) => handle(entries, node), options);
 	observer.observe(node);
 
