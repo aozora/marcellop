@@ -26,9 +26,7 @@ export const homeQuery = `
       slug
       canonical
       heading1
-      heading1Ja
       heading2
-      heading2Ja
       aboutHeading
       aboutDescription1
       aboutDescription2

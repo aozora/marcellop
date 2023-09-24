@@ -107,3 +107,17 @@
     transition: opacity .55s ease-in;
   }
 }
+
+@mixin ligature {
+  font-variant-ligatures: normal;
+  font-feature-settings: "liga" 1, "dlig" 0;
+}
+
+@mixin light-shadow {
+  --hue: 320;
+  --bg: oklch(35% .3 var(--hue));
+  --text: oklch(85% .1 var(--hue));
+  --shadow: oklch(25% .2 var(--hue));
+  --highlight: oklch(98% .05 var(--hue));
+  text-shadow: 0 .15ch 15px var(--shadow), 0 -2px 0 var(--highlight);
+}

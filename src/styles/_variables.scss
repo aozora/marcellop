@@ -9,7 +9,6 @@
     a CSS variable for a font rule.
 
     **************************************************************** */
-@import 'settings';
 
 :root {
   // ################################################################
@@ -20,7 +19,9 @@
   --color-white: #fff;
   --color-pantone: #6968AA;
 
-  --body-background: var(--color-white);
+  //--body-background: var(--color-white);
+  //--body-background: oklch(15% .3 120);
+  --body-background: oklch(0.86 0.2 191.28);
   --body-font-color: var(--color-primary);
 
   /* sectioning */
@@ -30,16 +31,15 @@
   //    TYPOGRAPHY SCALE & FONTS
   // ################################################################
   --baseline: 1.5;
-  --body-font-weight: 500;
-  --heading-font-weight: 700;
+  --body-font-weight: 400;
+  --heading-font-weight: 400;
   --kerning: normal; // auto (default), normal (enabled), none (disabled)
 
   // Fonts
   --variable-font-family: 'Inter var', Helvetica, Roboto, Arial, sans-serif;
-  --variable-heading-font-family: 'Playfair Display', serif;
-  --body-font-family: 'MuseoSans', Helvetica, Roboto, Arial, sans-serif;
-  --heading-font-family: 'BonVivantSerifBold', serif;
-
+  --variable-heading-font-family: none;
+  --body-font-family: 'Inter', Helvetica, Roboto, Arial, sans-serif;
+  --heading-font-family: 'TypeMaestro', serif;
 
   /* type modular scale */
   --text-base-size: 1rem; // 18px - html is set to 112.5%
@@ -50,7 +50,6 @@
   --text-scale-1: calc(1rem * var(--text-scale-ratio)); // h3
   --text-scale-2: calc(var(--text-scale-1) * var(--text-scale-ratio)); // h2
   --text-scale-3: calc(var(--text-scale-2) * var(--text-scale-ratio)); // h1
-
   --text-scale-4: calc(var(--text-scale-3) * var(--text-scale-ratio));
   --text-scale-5: calc(var(--text-scale-4) * var(--text-scale-ratio));
   --text-scale-6: calc(var(--text-scale-5) * var(--text-scale-ratio)); // h2 hero

@@ -33,9 +33,8 @@ menuItems.update(() => {
  * State
  */
 // const metaTags: Array<SeoMetaTagType> = home && home.seo ? home.seo.concat(site.favicon) : [];
-const heroHeading1Words = home.heading1.split(" ");
-const heroHeading2Words = home.heading2.split(" ");
-const heading1Ja = home.heading1Ja.split(" ");
+// const heroHeading1Words = home.heading1.split(" ");
+// const heroHeading2Words = home.heading2.split(" ");
 
 let animate = false;
 onMount(() => {
@@ -65,46 +64,15 @@ const updateAboutIsInView = (isInView) => {
 <!--/>-->
 
 <div class="main-content">
-<!--  <CanvasWrapper>-->
-<!--    <HeroCanvas />-->
-<!--  </CanvasWrapper>-->
+  <!--  <CanvasWrapper>-->
+  <!--    <HeroCanvas />-->
+  <!--  </CanvasWrapper>-->
 
   <section class="hero">
-    {#if animate}
-      <h1 class="splitting">
-        <span class="visuallyhidden">{home.heading1}</span>
-        {#each heroHeading1Words as word, wordIndex}
-          <div class="word">
-            {#each Array.from(word) as char, index}
-            <span aria-hidden="true" class="char" in:fly={{y: index % 2 === 0 ? -20 : 20, duration: 1000, delay: 90 * index}}>
-              {char}
-            </span>
-            {/each}
+    <h1>{home.heading1}</h1>
+    <h2>{home.heading2}</h2>
 
-            <div class="title-hover">
-              <span lang="ja">{heading1Ja[wordIndex]}</span>
-            </div>
-          </div>
-          <!--{#if wordIndex < heroHeading1Words.length - 1}&nbsp;{/if}-->
-        {/each}
-      </h1>
-
-      <h2>
-        <span class="visuallyhidden">{home.heading2}</span>
-        {#each heroHeading2Words as word, wordIndex}
-        <span class="word">
-          {#each Array.from(word) as char, index}
-            <span aria-hidden="true" class="char" in:fly={{y:20, duration: 1000, delay: 90 * index}}>{char}</span>
-          {/each}
-        </span>
-          {#if wordIndex < heroHeading2Words.length - 1}&nbsp;{/if}
-        {/each}
-
-        <div class="title-hover">
-          <span lang="ja">{home.heading2Ja}</span>
-        </div>
-      </h2>
-    {/if}
+    <div class="decoration" aria-hidden="true">S</div>
   </section>
 
   <section class="about" use:intersectionAPI on:crossed={(e)=>{
@@ -113,9 +81,9 @@ const updateAboutIsInView = (isInView) => {
     <div id="about" class="about-container">
       <!--      <h2>{home.aboutHeading}</h2>-->
 
-<!--      <div class="about-container-textblock-wrapper">-->
-<!--        <p class="dropcap">{@html home.aboutDescription1}</p>-->
-<!--      </div>-->
+      <!--      <div class="about-container-textblock-wrapper">-->
+      <!--        <p class="dropcap">{@html home.aboutDescription1}</p>-->
+      <!--      </div>-->
 
       <div class="image-container">
         <svg xmlns="http://www.w3.org/2000/svg" version="1.1">
@@ -155,17 +123,17 @@ const updateAboutIsInView = (isInView) => {
         {/each}
       </div>
 
-<!--      <div class="about-container-textblock-wrapper">-->
-<!--        <p>{@html home.aboutDescription2}</p>-->
-<!--      </div>-->
+      <!--      <div class="about-container-textblock-wrapper">-->
+      <!--        <p>{@html home.aboutDescription2}</p>-->
+      <!--      </div>-->
 
-<!--      <div class="about-container-textblock-wrapper">-->
-<!--        <p>{@html home.aboutDescription3}</p>-->
-<!--      </div>-->
+      <!--      <div class="about-container-textblock-wrapper">-->
+      <!--        <p>{@html home.aboutDescription3}</p>-->
+      <!--      </div>-->
 
-<!--      <div class="about-container-textblock-wrapper">-->
-<!--        <p>{@html home.aboutDescription4}</p>-->
-<!--      </div>-->
+      <!--      <div class="about-container-textblock-wrapper">-->
+      <!--        <p>{@html home.aboutDescription4}</p>-->
+      <!--      </div>-->
     </div>
   </section>
 
@@ -215,7 +183,7 @@ const updateAboutIsInView = (isInView) => {
     position: relative;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
     @include container;
     height: 90vh;
@@ -229,48 +197,17 @@ const updateAboutIsInView = (isInView) => {
       max-width: none;
       margin: 0 auto 2rem auto;
       font-family: var(--heading-font-family);
-      font-size: clamp(2.88rem, 5.4vw + 1.8rem, 6.667rem);
-      font-weight: 300;
+      //font-size: clamp(2.88rem, 5.4vw + 1.8rem, 6.667rem);
+      font-size: clamp(2.88rem, 6.3vw + 1.4rem, 7.1rem);
       line-height: var(--hero-h1-line-height-min);
-      text-align: left;
+      text-align: center;
       text-transform: uppercase;
+      @include ligature;
+      @include light-shadow;
+      //color: oklch(85% .1 320);
 
       @media (max-width: 360px) {
         font-size: 2.5rem;
-      }
-
-      span {
-        font-family: var(--heading-font-family);
-        font-size: clamp(2.88rem, 5.4vw + 1.8rem, 6.667rem);
-        font-weight: 300;
-        line-height: var(--hero-h1-line-height-min);
-      }
-
-      [lang="ja"] {
-        font-size: 32px;
-        transform: translateX(-100%);
-        transition: transform .5s ease-out;
-      }
-
-      &:hover {
-        .title-hover {
-          [lang="ja"] {
-            @media (min-width: 64em) {
-              transform: translateX(0);
-            }
-          }
-        }
-      }
-    }
-
-    .title-hover {
-      position: relative;
-      display: inline-flex;
-      overflow: hidden;
-      font-weight: 400;
-
-      @media (max-width: 64em) {
-        display: none;
       }
     }
 
@@ -280,40 +217,23 @@ const updateAboutIsInView = (isInView) => {
       max-width: none;
       margin: 0 0 .667rem 0;
       font-family: var(--heading-font-family);
-
-      --text-weight: var(--hero-weight);
-      //@if $use-variable-font-for-headings {
-      //  font-variation-settings: 'wght' var(--hero-weight), 'slnt' var(--hero-slant);
-      //}
-
-      font-size: clamp(var(--hero-hi-font-size-min), 8vw, var(--hero-hi-font-size-max));
-      font-size: clamp(1.778rem, 3.2vw + 1.1rem, 4rem);
+      font-size: clamp(2.88rem, 6.3vw + 1.4rem, 7.1rem);
       line-height: var(--hero-hi-line-height-min);
-      text-align: right;
+      text-align: center;
+      @include ligature;
+      @include light-shadow;
+      //color: oklch(85% .1 320);
+    }
 
-      .title-hover {
-        position: absolute;
-        top: -32px;
-        right: 0;
-
-      }
-
-      [lang="ja"] {
-        font-size: 32px;
-        text-align: right;
-        transform: translateY(100%);
-        transition: transform .5s ease-out;
-      }
-
-      &:hover {
-        .title-hover {
-          [lang="ja"] {
-            @media (min-width: 64em) {
-              transform: translateY(0);
-            }
-          }
-        }
-      }
+    .decoration {
+      position: absolute;
+      bottom: 0;
+      left: -20%;
+      font-family: var(--heading-font-family);
+      font-weight: 400;
+      font-size: 38rem;
+      line-height: 1;
+      @include ligature;
     }
 
   }
@@ -420,7 +340,7 @@ const updateAboutIsInView = (isInView) => {
       }
 
       &:hover {
-        animation: squiggly-anim 0.34s linear infinite;
+        animation: squiggly-anim .5s linear;
         //filter: url('#splash-filter');
       }
     }

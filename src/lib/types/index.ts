@@ -1,6 +1,6 @@
 // import { StructuredTextGraphQlResponse } from 'react-datocms';
-import type { StructuredText as StructuredTextGraphQlResponse } from 'datocms-structured-text-utils';
-import type { Position, Rotation, Scale } from '@threlte/core';
+// import type { StructuredText as StructuredTextGraphQlResponse } from 'datocms-structured-text-utils';
+// import type { Position, Rotation, Scale } from '@threlte/core';
 
 export type ResponsiveImage = {
 	responsiveImage: {
@@ -103,9 +103,7 @@ export type Home = {
 	canonical: string;
 	hi: string;
 	heading1: string;
-	heading1Ja: string;
 	heading2: string;
-	heading2Ja: string;
 	aboutHeading: string;
 	aboutDescription1: string;
 	aboutDescription2: string;
@@ -162,29 +160,18 @@ export type Use = {
 	seo: Array<SeoMetaTagType>;
 };
 
-export type Post = {
-	id: string;
-	title: string;
-	slug: string;
-	category: string;
-	body: string;
-	body2: StructuredTextGraphQlResponse<any>;
-	cover: ResponsiveImage;
-	seo: Array<SeoMetaTagType>;
-	publishedAt: string;
-};
-
-export type Particle = {
-	t: number;
-	factor: number;
-	speed: number;
-	xFactor: number;
-	yFactor: number;
-	zFactor: number;
-	mx: number;
-	my: number;
-
-	position: Position;
-	rotation: Rotation;
-	scale: Scale;
-};
+//
+// export type Particle = {
+// 	t: number;
+// 	factor: number;
+// 	speed: number;
+// 	xFactor: number;
+// 	yFactor: number;
+// 	zFactor: number;
+// 	mx: number;
+// 	my: number;
+//
+// 	position: Position;
+// 	rotation: Rotation;
+// 	scale: Scale;
+// };

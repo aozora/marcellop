@@ -23,16 +23,16 @@
     "schema-dts": "^1.1.0",
     "svelte-datocms": "^0.6.3",
     "svelte-seo": "^1.4.0",
-    "three": "^0.155.0"
+    "three": "^0.156.1"
   },
   "devDependencies": {
     "@sveltejs/adapter-auto": "^2.1.0",
     "@sveltejs/kit": "^1.22.4",
-    "@types/three": "^0.155.0",
+    "@types/three": "^0.156.0",
     "@typescript-eslint/eslint-plugin": "^6.2.1",
     "@typescript-eslint/parser": "^6.2.1",
     "eslint": "^8.28.0",
-    "eslint-config-prettier": "^8.5.0",
+    "eslint-config-prettier": "^9.0.0",
     "eslint-plugin-svelte": "^2.32.4",
     "prettier": "^3.0.1",
     "prettier-plugin-svelte": "^3.0.3",

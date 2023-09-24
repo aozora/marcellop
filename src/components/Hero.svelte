@@ -34,7 +34,7 @@ export let hero: HeroData;
     --hero-h1-font-size-min: 2.6rem;
     --hero-h1-font-size-max: 5.81rem;
 
-    --hero-weight: 900;
+    --hero-weight: 400;
     --hero-slant: 2.73;
 
     --hero-p-line-height-min: 1.5em; // use 'em' otherwise the fluid-type mixin doesn't work

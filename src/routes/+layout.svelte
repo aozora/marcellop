@@ -16,7 +16,7 @@ export const prerender = true;
 <Header />
 
 
-<main id="main" role="main">
+<main id="main">
   <slot></slot>
 </main>
 
