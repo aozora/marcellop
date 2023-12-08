@@ -5,7 +5,7 @@ import { menuItems } from '$lib/stores/menu-store';
 import { intersectionAPI } from '$lib/intersection-observer-action.ts';
 import { aboutSectionIsInView } from '$lib/stores/home-scroll-store';
 import { onMount } from 'svelte';
-import { fly } from 'svelte/transition';
+import gsap from "gsap/dist/gsap";
 // import { Image } from "svelte-datocms";
 // import Seo from "../components/Seo.svelte";
 // import HeroCanvas from "../components/HeroCanvas.svelte";
@@ -33,13 +33,21 @@ menuItems.update(() => {
  * State
  */
 // const metaTags: Array<SeoMetaTagType> = home && home.seo ? home.seo.concat(site.favicon) : [];
-// const heroHeading1Words = home.heading1.split(' ');
-// const heroHeading2Words = home.heading2.split(' ');
+const heroHeading1Words = home.heading1.split(' ');
+const heroHeading2Words = home.heading2.split(' ');
 
-let animate = false;
-onMount(() => {
-	animate = true;
-});
+// onMount(() => {
+// 	const ctx = gsap.context((self) => {
+// 		const boxes = self.selector(".box");
+// 		tl = gsap.timeline({ paused: true });
+// 		tl.to(boxes[0], { x: 120, rotation: 360 })
+// 			.to(boxes[1], { x: -120, rotation: -360 }, "<")
+// 			.to(boxes[2], { y: -166 })
+// 			.reverse();
+// 	}, boxesContainer); // <- Scope!
+//
+// 	return () => ctx.revert(); // <- Cleanup!
+// });
 
 /**
  * Scroll managment
@@ -69,37 +77,33 @@ const updateAboutIsInView = (isInView) => {
 	<!--  </CanvasWrapper>-->
 
 	<div class="hero">
-<!--		    <h1>{home.heading1}</h1>-->
-<!--		    <h2>{home.heading2}</h2>-->
+<!--		<h1>{home.heading1}</h1>-->
+<!--		<h2>{home.heading2}</h2>-->
 
-		{#if animate}
-			<h1 class="splitting">
-				<span class="visuallyhidden">{home.heading1}</span>
-				{#each Array.from(home.heading1) as char, index}
-            <span aria-hidden="true" class="char" in:fly={{y: index % 2 === 0 ? -20 : 20, duration: 1000, delay: 90 * index}}>
-              {#if char === ' '}
-								&nbsp;
-							{:else}
-								{char}
-							{/if}
-            </span>
-				{/each}
-			</h1>
+		<!--{#if animate}-->
+		<h1 class="splitting">
+			<span class="visuallyhidden">{home.heading1}</span>
+			{#each heroHeading1Words as word, wordIndex}
+        <span class="word">
+          {word}
+					{#if wordIndex < heroHeading1Words.length - 1}&nbsp;{/if}
+        </span>
+			{/each}
+		</h1>
 
-			<h2>
-				<span class="visuallyhidden">{home.heading2}</span>
-				{#each Array.from(home.heading2) as char, index}
-					<span aria-hidden="true" class="char" in:fly={{y:20, duration: 1000, delay: 90 * index}}>
-						{#if char === ' '}
-								&nbsp;
-							{:else}
-								{char}
-							{/if}
-					</span>
-				{/each}
-			</h2>
-		{/if}
-		<!--    <div class="decoration" aria-hidden="true">S</div>-->
+		<div class="separator">
+			<div class="diamond"/>
+		</div>
+
+		<h2 class="splitting">
+			<span class="visuallyhidden">{home.heading2}</span>
+			{#each heroHeading2Words as word, wordIndex}
+        <span class="word">
+          {word}
+					{#if wordIndex < heroHeading2Words.length - 1}&nbsp;{/if}
+        </span>
+			{/each}
+		</h2>
 	</div>
 
 	<!--  <section class="about" use:intersectionAPI on:crossed={(e)=>{-->
@@ -243,7 +247,7 @@ const updateAboutIsInView = (isInView) => {
       //flex-direction: column;
       width: 100%;
       max-width: none;
-      margin: 0 auto 2rem auto;
+      margin: 0 auto;
       font-family: var(--heading-font-family);
       //font-size: clamp(2.88rem, 5.4vw + 1.8rem, 6.667rem);
       font-size: clamp(2.88rem, 6.3vw + 1.4rem, 7.1rem);
@@ -263,7 +267,7 @@ const updateAboutIsInView = (isInView) => {
       position: relative; // needed for reveal animation
       width: 100%;
       max-width: none;
-      margin: 0 0 .667rem 0;
+      margin: 0 auto;
       font-family: var(--heading-font-family);
       font-size: clamp(2.88rem, 6.3vw + 1.4rem, 7.1rem);
       line-height: var(--hero-hi-line-height-min);

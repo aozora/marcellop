@@ -1,0 +1,11 @@
+html[data-theme='light'] {
+  --theme-foreground: var(--color-black);
+  --theme-background: var(--color-white);
+  --theme-brand: var(--color-pantone);
+}
+
+html[data-theme='dark'] {
+  --theme-foreground: var(--color-white);
+  --theme-background: var(--color-black);
+  --theme-brand: var(--color-pantone);
+}

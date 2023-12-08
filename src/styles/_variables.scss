@@ -19,13 +19,20 @@
   --color-white: #fff;
   --color-pantone: #6968AA;
 
-  //--body-background: var(--color-white);
-  //--body-background: oklch(15% .3 120);
-  --body-background: var(--color-white);
-  --body-font-color: var(--color-primary);
+  // ################################################################
+  //    DARK/LIGHT THEME
+  // ################################################################
 
-  /* sectioning */
-  //--var-section-margin: 3rem;
+  --theme-foreground: var(--color-black);
+  --theme-background: var(--color-white);
+  --theme-brand: var(--color-pantone);
+
+  // defaults
+  --body-background: var(--theme-background);
+  --body-font-color: var(--theme-foreground);
+
+
+
 
   // ################################################################
   //    TYPOGRAPHY SCALE & FONTS
