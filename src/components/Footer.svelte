@@ -15,7 +15,7 @@ import Tati from "./Tati.svelte";
     <ul>
       <li>
         <a rel="noopener noreferrer" target="_blank" href="https://www.twitter.com/marcellopalmit">
-          Twitter
+          X (Twitter)
         </a>
       </li>
 
@@ -27,7 +27,7 @@ import Tati from "./Tati.svelte";
     </ul>
   </nav>
 
-  <p class="footer__copyright">&copy; 2010–2022 Copyright Marcello Palmitessa. All rights reserved.</p>
+  <p class="footer__copyright">&copy;{new Date().getFullYear()} Copyright Marcello Palmitessa. All rights reserved.</p>
   <p class="footer__credits">
     This site is built with&nbsp;
     <a target="_blank" rel="noopener noreferrer" href="https://svelte.dev/">

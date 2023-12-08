@@ -1,18 +1,20 @@
 <script lang="ts">
-import type { Home, Menu, Site } from "$lib/types";
-import What from "../components/What.svelte";
-import { menuItems } from "$lib/stores/menu-store";
-import { intersectionAPI } from "$lib/intersection-observer-action.ts";
-import { aboutSectionIsInView } from "$lib/stores/home-scroll-store";
+import type { Home, Menu, Site } from '$lib/types';
+import What from '../components/What.svelte';
+import { menuItems } from '$lib/stores/menu-store';
+import { intersectionAPI } from '$lib/intersection-observer-action.ts';
+import { aboutSectionIsInView } from '$lib/stores/home-scroll-store';
+import { onMount } from 'svelte';
+import { fly } from 'svelte/transition';
 // import { Image } from "svelte-datocms";
 // import Seo from "../components/Seo.svelte";
 // import HeroCanvas from "../components/HeroCanvas.svelte";
 // import CanvasWrapper from "../components/CanvasWrapper.svelte";
 
 export type HomeProps = {
-  site: Site,
-  menu: Menu,
-  home: Home
+	site: Site,
+	menu: Menu,
+	home: Home
 }
 
 /**
@@ -24,62 +26,28 @@ let { /* site, */ menu, home }: HomeProps = data;
 // write the menuItems store with the data form the page endpoint
 // the Header component will use that.
 menuItems.update(() => {
-  return menu.menuItems;
+	return menu.menuItems;
 });
 
 /**
  * State
  */
 // const metaTags: Array<SeoMetaTagType> = home && home.seo ? home.seo.concat(site.favicon) : [];
-// const heroHeading1Words = home.heading1.split(" ");
-// const heroHeading2Words = home.heading2.split(" ");
-//
-// let animate = false;
-// onMount(() => {
-//   animate = true;
-// });
+// const heroHeading1Words = home.heading1.split(' ');
+// const heroHeading2Words = home.heading2.split(' ');
 
-let title1: HTMLHeadingElement;
-let title2: HTMLHeadingElement;
-let shadowMax;
-let shadowMin;
-let shadowMidPoints = [];
-let shadowX;
-let shadowY;
-
-$:{
-  if (title1) {
-    const box = title1.getBoundingClientRect();
-    shadowMax = 48; //box.height;
-    shadowMin = shadowMax * -1;
-    shadowMidPoints = [
-      box.x + box.width / 2 / 100,
-      box.y + box.height / 2 / 100
-    ];
-  }
-}
-
-const walk = 10;
-const onMouseMove = (e: MouseEvent) => {
-  // console.log(event.pageX, event.pageY)
-  // console.log(shadowMidPoints[0] - event.pageX, shadowMidPoints[1] - event.pageY)
-  let x = e.offsetX;
-  let y = e.offsetY;
-  x = x + e.target.offsetLeft;
-  y = y + e.target.offsetTop;
-  const box = title1.getBoundingClientRect();
-  shadowX = Math.round((x / box.width * walk) - (walk / 2));
-  shadowY = Math.round((y / box.height * walk) - (walk / 2));
-  // shadowX = Math.min(shadowMax, Math.max(shadowMin, shadowMidPoints[0] - event.pageX));
-  // shadowY = Math.min(shadowMax, Math.max(shadowMin, shadowMidPoints[1] - event.pageY));
-};
+let animate = false;
+onMount(() => {
+	animate = true;
+});
 
 /**
  * Scroll managment
  */
 const updateAboutIsInView = (isInView) => {
-  aboutSectionIsInView.update(() => isInView);
+	aboutSectionIsInView.update(() => isInView);
 };
+
 </script>
 
 <!--<Seo-->
@@ -96,80 +64,107 @@ const updateAboutIsInView = (isInView) => {
 <!--/>-->
 
 <div class="main-content">
-  <!--  <CanvasWrapper>-->
-  <!--    <HeroCanvas />-->
-  <!--  </CanvasWrapper>-->
+	<!--  <CanvasWrapper>-->
+	<!--    <HeroCanvas />-->
+	<!--  </CanvasWrapper>-->
 
-  <div class="hero" on:mousemove={onMouseMove}>
-    <h1 bind:this={title1} style:--shadow-x={`${shadowX}px`} style:--shadow-y={`${shadowY}px`}>{home.heading1}</h1>
-    <h2>{home.heading2}</h2>
+	<div class="hero">
+<!--		    <h1>{home.heading1}</h1>-->
+<!--		    <h2>{home.heading2}</h2>-->
 
-    <div class="decoration" aria-hidden="true">S</div>
-  </div>
+		{#if animate}
+			<h1 class="splitting">
+				<span class="visuallyhidden">{home.heading1}</span>
+				{#each Array.from(home.heading1) as char, index}
+            <span aria-hidden="true" class="char" in:fly={{y: index % 2 === 0 ? -20 : 20, duration: 1000, delay: 90 * index}}>
+              {#if char === ' '}
+								&nbsp;
+							{:else}
+								{char}
+							{/if}
+            </span>
+				{/each}
+			</h1>
 
-  <section class="about" use:intersectionAPI on:crossed={(e)=>{
-    updateAboutIsInView(e.detail.isIntersecting);
-  }}>
-    <div id="about" class="about-container">
-      <!--      <h2>{home.aboutHeading}</h2>-->
+			<h2>
+				<span class="visuallyhidden">{home.heading2}</span>
+				{#each Array.from(home.heading2) as char, index}
+					<span aria-hidden="true" class="char" in:fly={{y:20, duration: 1000, delay: 90 * index}}>
+						{#if char === ' '}
+								&nbsp;
+							{:else}
+								{char}
+							{/if}
+					</span>
+				{/each}
+			</h2>
+		{/if}
+		<!--    <div class="decoration" aria-hidden="true">S</div>-->
+	</div>
 
-      <!--      <div class="about-container-textblock-wrapper">-->
-      <!--        <p class="dropcap">{@html home.aboutDescription1}</p>-->
-      <!--      </div>-->
+	<!--  <section class="about" use:intersectionAPI on:crossed={(e)=>{-->
+	<!--    updateAboutIsInView(e.detail.isIntersecting);-->
+	<!--  }}>-->
+	<!--    <div id="about" class="about-container">-->
+	<!--      &lt;!&ndash;      <h2>{home.aboutHeading}</h2>&ndash;&gt;-->
 
-      <div class="image-container">
-        <svg xmlns="http://www.w3.org/2000/svg" version="1.1">
-          <defs>
-            <filter id="squiggly-0">
-              <feTurbulence id="turbulence" baseFrequency="0.01" numOctaves="3" result="noise" seed="0" />
-              <feDisplacementMap id="displacement" in="SourceGraphic" in2="noise" scale="6" />
-            </filter>
-            <filter id="squiggly-1">
-              <feTurbulence id="turbulence" baseFrequency="0.01" numOctaves="3" result="noise" seed="1" />
-              <feDisplacementMap in="SourceGraphic" in2="noise" scale="8" />
-            </filter>
-            <filter id="squiggly-2">
-              <feTurbulence id="turbulence" baseFrequency="0.01" numOctaves="3" result="noise" seed="2" />
-              <feDisplacementMap in="SourceGraphic" in2="noise" scale="6" />
-            </filter>
-            <filter id="squiggly-3">
-              <feTurbulence id="turbulence" baseFrequency="0.01" numOctaves="3" result="noise" seed="3" />
-              <feDisplacementMap in="SourceGraphic" in2="noise" scale="8" />
-            </filter>
-            <filter id="squiggly-4">
-              <feTurbulence id="turbulence" baseFrequency="0.01" numOctaves="3" result="noise" seed="4" />
-              <feDisplacementMap in="SourceGraphic" in2="noise" scale="6" />
-            </filter>
-          </defs>
-        </svg>
+	<!--      &lt;!&ndash;      <div class="about-container-textblock-wrapper">&ndash;&gt;-->
+	<!--      &lt;!&ndash;        <p class="dropcap">{@html home.aboutDescription1}</p>&ndash;&gt;-->
+	<!--      &lt;!&ndash;      </div>&ndash;&gt;-->
 
-        {#each home.aboutPicture as picture}
-          <img loading="lazy"
-               fetchpriority="low"
-               src={picture.responsiveImage.src}
-               srcset={picture.responsiveImage.srcSet}
-               sizes={picture.responsiveImage.sizes}
-               alt={picture.responsiveImage.alt}
-               style="aspect-ratio: {picture.responsiveImage.aspectRatio};"
-          />
-        {/each}
-      </div>
+	<!--      <div class="image-container">-->
+	<!--        <svg xmlns="http://www.w3.org/2000/svg" version="1.1">-->
+	<!--          <defs>-->
+	<!--            <filter id="squiggly-0">-->
+	<!--              <feTurbulence id="turbulence" baseFrequency="0.01" numOctaves="3" result="noise" seed="0" />-->
+	<!--              <feDisplacementMap id="displacement" in="SourceGraphic" in2="noise" scale="6" />-->
+	<!--            </filter>-->
+	<!--            <filter id="squiggly-1">-->
+	<!--              <feTurbulence id="turbulence" baseFrequency="0.01" numOctaves="3" result="noise" seed="1" />-->
+	<!--              <feDisplacementMap in="SourceGraphic" in2="noise" scale="8" />-->
+	<!--            </filter>-->
+	<!--            <filter id="squiggly-2">-->
+	<!--              <feTurbulence id="turbulence" baseFrequency="0.01" numOctaves="3" result="noise" seed="2" />-->
+	<!--              <feDisplacementMap in="SourceGraphic" in2="noise" scale="6" />-->
+	<!--            </filter>-->
+	<!--            <filter id="squiggly-3">-->
+	<!--              <feTurbulence id="turbulence" baseFrequency="0.01" numOctaves="3" result="noise" seed="3" />-->
+	<!--              <feDisplacementMap in="SourceGraphic" in2="noise" scale="8" />-->
+	<!--            </filter>-->
+	<!--            <filter id="squiggly-4">-->
+	<!--              <feTurbulence id="turbulence" baseFrequency="0.01" numOctaves="3" result="noise" seed="4" />-->
+	<!--              <feDisplacementMap in="SourceGraphic" in2="noise" scale="6" />-->
+	<!--            </filter>-->
+	<!--          </defs>-->
+	<!--        </svg>-->
 
-      <!--      <div class="about-container-textblock-wrapper">-->
-      <!--        <p>{@html home.aboutDescription2}</p>-->
-      <!--      </div>-->
+	<!--        {#each home.aboutPicture as picture}-->
+	<!--          <img loading="lazy"-->
+	<!--               fetchpriority="low"-->
+	<!--               src={picture.responsiveImage.src}-->
+	<!--               srcset={picture.responsiveImage.srcSet}-->
+	<!--               sizes={picture.responsiveImage.sizes}-->
+	<!--               alt={picture.responsiveImage.alt}-->
+	<!--               style="aspect-ratio: {picture.responsiveImage.aspectRatio};"-->
+	<!--          />-->
+	<!--        {/each}-->
+	<!--      </div>-->
 
-      <!--      <div class="about-container-textblock-wrapper">-->
-      <!--        <p>{@html home.aboutDescription3}</p>-->
-      <!--      </div>-->
+	<!--      &lt;!&ndash;      <div class="about-container-textblock-wrapper">&ndash;&gt;-->
+	<!--      &lt;!&ndash;        <p>{@html home.aboutDescription2}</p>&ndash;&gt;-->
+	<!--      &lt;!&ndash;      </div>&ndash;&gt;-->
 
-      <!--      <div class="about-container-textblock-wrapper">-->
-      <!--        <p>{@html home.aboutDescription4}</p>-->
-      <!--      </div>-->
-    </div>
-  </section>
+	<!--      &lt;!&ndash;      <div class="about-container-textblock-wrapper">&ndash;&gt;-->
+	<!--      &lt;!&ndash;        <p>{@html home.aboutDescription3}</p>&ndash;&gt;-->
+	<!--      &lt;!&ndash;      </div>&ndash;&gt;-->
 
-  <What home={home} />
+	<!--      &lt;!&ndash;      <div class="about-container-textblock-wrapper">&ndash;&gt;-->
+	<!--      &lt;!&ndash;        <p>{@html home.aboutDescription4}</p>&ndash;&gt;-->
+	<!--      &lt;!&ndash;      </div>&ndash;&gt;-->
+	<!--    </div>-->
+	<!--  </section>-->
+
+	<!--  <What home={home} />-->
 
 </div>
 
@@ -244,8 +239,8 @@ const updateAboutIsInView = (isInView) => {
     margin-bottom: 2rem;
 
     h1 {
-      display: flex;
-      flex-direction: column;
+      //display: flex;
+      //flex-direction: column;
       width: 100%;
       max-width: none;
       margin: 0 auto 2rem auto;
@@ -256,7 +251,7 @@ const updateAboutIsInView = (isInView) => {
       text-align: center;
       text-transform: uppercase;
       @include ligature;
-      @include light-shadow;
+      //@include light-shadow;
       //color: oklch(85% .1 320);
 
       @media (max-width: 360px) {
@@ -274,7 +269,7 @@ const updateAboutIsInView = (isInView) => {
       line-height: var(--hero-hi-line-height-min);
       text-align: center;
       @include ligature;
-      @include light-shadow;
+      //@include light-shadow;
       //color: oklch(85% .1 320);
     }
 
