@@ -1,11 +1,11 @@
 <script lang="ts">
 import type { Home, Menu, Site } from '$lib/types';
-import What from '../components/What.svelte';
+// import What from '../components/What.svelte';
 import { menuItems } from '$lib/stores/menu-store';
-import { intersectionAPI } from '$lib/intersection-observer-action.ts';
-import { aboutSectionIsInView } from '$lib/stores/home-scroll-store';
+// import { intersectionAPI } from '$lib/intersection-observer-action.ts';
+// import { aboutSectionIsInView } from '$lib/stores/home-scroll-store';
 import { onMount } from 'svelte';
-import gsap from "gsap/dist/gsap";
+import gsap from 'gsap/dist/gsap';
 // import { Image } from "svelte-datocms";
 // import Seo from "../components/Seo.svelte";
 // import HeroCanvas from "../components/HeroCanvas.svelte";
@@ -36,25 +36,48 @@ menuItems.update(() => {
 const heroHeading1Words = home.heading1.split(' ');
 const heroHeading2Words = home.heading2.split(' ');
 
-// onMount(() => {
-// 	const ctx = gsap.context((self) => {
-// 		const boxes = self.selector(".box");
-// 		tl = gsap.timeline({ paused: true });
-// 		tl.to(boxes[0], { x: 120, rotation: 360 })
-// 			.to(boxes[1], { x: -120, rotation: -360 }, "<")
-// 			.to(boxes[2], { y: -166 })
-// 			.reverse();
-// 	}, boxesContainer); // <- Scope!
-//
-// 	return () => ctx.revert(); // <- Cleanup!
-// });
+let heroContainer;
+// let tl = gsap.timeline({ paused: true });
+
+onMount(() => {
+	const ctx = gsap.context((self) => {
+		const h1Words = self.selector('h1 .word');
+		const h2Words = self.selector('h2 .word');
+		const diamond = self.selector('.diamond');
+		const lineLeft = self.selector('.line-left');
+		const lineRight = self.selector('.line-right');
+
+		const tl = gsap.timeline({ paused: true });
+
+		// tl.fromTo(h1Words[0], { scale: 0 }, { duration: 1, transformOrigin: '0 100%', scale: 1 })
+		// 	.fromTo(h1Words[1], { scale: 0 }, { duration: 1, transformOrigin: '100% 100%', scale: 1 }, '<')
+		// 	.fromTo(h2Words[0], { scale: 0 }, { duration: 1, transformOrigin: '0 0', scale: 1 }, '<')
+		// 	.fromTo(h2Words[1], { scale: 0 }, { duration: 1, transformOrigin: '100% 0', scale: 1 }, '<')
+		// 	.fromTo(diamond, { scale: 0 }, { scale: 1, rotate: '765deg', duration: 1 })
+		// 	.fromTo(lineLeft, { scaleX: 0 }, { scaleX: 1, duration: 1 }, '<')
+		// 	.fromTo(lineRight, { scaleX: 0 }, { scaleX: 1, duration: 1 }, '<');
+		//
+		tl.to(h1Words[0], { duration: 1, transformOrigin: '0 100%', scale: 1 })
+			.to(h1Words[1], { duration: 1, transformOrigin: '100% 100%', scale: 1 }, '<')
+			.to(h2Words[0], { duration: 1, transformOrigin: '0 0', scale: 1 }, '<')
+			.to(h2Words[1], { duration: 1, transformOrigin: '100% 0', scale: 1 }, '<')
+			.to(diamond, { scale: 1, rotate: '765deg', duration: 1 })
+			.to(lineLeft, { scaleX: 1, duration: 1 }, '<')
+			.to(lineRight, { scaleX: 1, duration: 1 }, '<');
+
+
+		tl.play();
+	}, heroContainer); // <- Scope!
+
+	return () => ctx.revert(); // <- Cleanup!
+});
 
 /**
  * Scroll managment
  */
-const updateAboutIsInView = (isInView) => {
-	aboutSectionIsInView.update(() => isInView);
-};
+// const updateAboutIsInView = (isInView) => {
+// 	aboutSectionIsInView.update(() => isInView);
+// };
 
 </script>
 
@@ -76,9 +99,9 @@ const updateAboutIsInView = (isInView) => {
 	<!--    <HeroCanvas />-->
 	<!--  </CanvasWrapper>-->
 
-	<div class="hero">
-<!--		<h1>{home.heading1}</h1>-->
-<!--		<h2>{home.heading2}</h2>-->
+	<div class="hero" bind:this={heroContainer}>
+		<!--		<h1>{home.heading1}</h1>-->
+		<!--		<h2>{home.heading2}</h2>-->
 
 		<!--{#if animate}-->
 		<h1 class="splitting">
@@ -92,7 +115,9 @@ const updateAboutIsInView = (isInView) => {
 		</h1>
 
 		<div class="separator">
-			<div class="diamond"/>
+			<div class="line-left" />
+			<div class="diamond" />
+			<div class="line-right" />
 		</div>
 
 		<h2 class="splitting">

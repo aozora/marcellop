@@ -91,23 +91,6 @@
   width: 100%;
   height: 32px;
   margin: 0 0 1rem 0;
-
-  &::before,
-  &::after {
-    content: '';
-    position: absolute;
-    top: calc(50% - 1px);
-    left: 0;
-    width: calc(50% - 20px);
-    height: 1px;
-    background-color: var(--theme-foreground);
-    //transform: translate3d(0,0, 0) rotate(-45deg);
-  }
-
-  &::after {
-    left: auto;
-    right: 0;
-  }
 }
 
 .diamond {
@@ -119,4 +102,36 @@
   height: 12px;
   background-color: var(--theme-foreground);
   transform: translate3d(-50%, -50%, 0) rotate(45deg);
+}
+
+.line-left,
+.line-right {
+  content: '';
+  position: absolute;
+  top: calc(50% - 1px);
+  left: 0;
+  width: calc(50% - 20px);
+  height: 1px;
+  background-color: var(--theme-foreground);
+  //transform: translate3d(0,0, 0) rotate(-45deg);
+}
+
+.line-right {
+  left: auto;
+  right: 0;
+}
+
+
+// initial position
+.hero {
+  h1 .word,
+  h2 .word,
+  .diamond {
+    transform: scale(0);
+  }
+
+  .line-left,
+  .line-right {
+    transform: scaleX(0);
+  }
 }
