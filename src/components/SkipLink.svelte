@@ -13,16 +13,15 @@
     height: var(--menu-height);
     padding: 0 1rem;
     margin: 0;
-    background-color: var(--color-black);
+    background-color: var(--theme-brand);
     font-size: 1.6rem;
     line-height: var(--menu-height);
-    color: var(--color-white);
+    color: var(--theme-foreground);
     text-decoration: underline;
 
     &:focus {
       right: auto;
       z-index: var(--skiplink-zindex);
-      color: var(--color-white);
     }
   }
 

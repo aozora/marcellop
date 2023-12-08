@@ -1,48 +1,12 @@
-@keyframes pulse {
+@keyframes menuEnterTransition {
   0% {
-    opacity: 1;
-    transform: scale(1);
-  }
-  50% {
-    opacity: .8;
-    transform: scale(.8);
+    transform: translateY(-200%);
   }
   100% {
-    opacity: 1;
-    transform: scale(1);
+    transform: translateY(0);
   }
 }
 
-// mobile menu
-@keyframes menu-enter {
-  0% {
-    clip-path: polygon(10% 0%, 25% 0%, 50% 0%, 75% 0%, 100% 0%, 100% 100%, 75% 100%, 50% 100%, 25% 100%, 0% 100%, 0% 0%);
-  }
-
-  100% {
-    clip-path: polygon(13% 0%, 35% 4%, 50% 2%, 75% 8%, 100% 1%, 100% 90%, 75% 100%, 50% 93%, 25% 98%, 0% 95%, 0% 0%);
-  }
-  //
-  //100% {
-  //  clip-path: polygon(10% 0%, 25% 0%, 50% 0%, 75% 0%, 100% 0%, 100% 100%, 75% 100%, 50% 100%, 25% 100%, 0% 100%, 0% 100%, 0% 100%);
-  //}
-}
-
-
-/* about clip-path animations */
-@keyframes about-enter {
-  0% {
-    clip-path: polygon(0% 0%, 25.48% 5.09%, 51.25% 2.95%, 74.91% 7%, 100% 4.37%, 100% 100%, 75.07% 96.35%, 50.29% 99%, 25.22% 97.01%, 0% 100%);
-  }
-
-  50% {
-    clip-path: polygon(0% 4.43%, 24.53% 0.5%, 47.1% 4.64%, 73.96% 2.89%, 100% 4.89%, 100.00% 96.68%, 73.53% 100%, 46.73% 95.15%, 21.78% 100%, 0% 95.36%)
-  }
-
-  100% {
-    clip-path: polygon(0% 0%, 25.48% 5.09%, 51.25% 2.95%, 74.91% 7%, 100% 4.37%, 100% 100%, 75.07% 96.35%, 50.29% 99%, 25.22% 97.01%, 0% 100%);
-  }
-}
 
 
 /* whatido item description clip-path animations */
@@ -95,13 +59,13 @@
 
 .diamond {
   position: absolute;
-  top: 50%;
-  left: 50%;
+  top: calc(50% - 6px);
+  left: calc(50% - 6px);
   display: block;
   width: 12px;
   height: 12px;
   background-color: var(--theme-foreground);
-  transform: translate3d(-50%, -50%, 0) rotate(45deg);
+  transform: rotate(45deg);
 }
 
 .line-left,
@@ -125,7 +89,10 @@
 // initial position
 .hero {
   h1 .word,
-  h2 .word,
+  h2 .word {
+    transform: scale(0) skewX(30deg);
+  }
+
   .diamond {
     transform: scale(0);
   }

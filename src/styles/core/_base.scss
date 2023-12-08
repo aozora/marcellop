@@ -85,6 +85,7 @@ body {
   padding: 0;
   background-color: var(--body-background);
   color: var(--body-font-color);
+  transition: background-color .5s ease, color .5s ease;
 
   font-size: var(--text-base-size);
   line-height: var(--baseline);

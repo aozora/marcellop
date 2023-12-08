@@ -62,6 +62,7 @@ import Tati from "./Tati.svelte";
   .footer-canvas-container {
     position: relative;
     grid-area: canvas;
+    width: 100%;
     height: 100%;
   }
 
@@ -86,16 +87,16 @@ import Tati from "./Tati.svelte";
 
     a {
       display: block;
-      width: 1.778rem;
+      //width: 1.778rem;
       height: 1.778rem;
       padding: .2rem;
-      color: var(--body-font-color);
+      color: var(--theme-foreground);
 
       &:hover,
       &:focus,
       &:active {
-        color: var(--color-pantone);
-        border-color: var(--color-pantone);
+        color: var(--theme-brand);
+        border-color: var(--theme-brand);
       }
     }
   }
@@ -105,7 +106,7 @@ import Tati from "./Tati.svelte";
     margin: 0 auto 2rem auto;
     padding: 0 1rem;
     font-size: .888rem;
-    color: var(--color-black);
+    color: var(--theme-foreground);
     text-align: center;
   }
 
@@ -114,11 +115,12 @@ import Tati from "./Tati.svelte";
     margin: 0 auto 2rem auto;
     padding: 0 1rem;
     font-size: .778rem;
-    color: var(--color-black);
+    color: var(--theme-foreground);
     text-align: center;
 
     a {
       font-size: inherit;
+      color: var(--theme-foreground);
     }
   }
 

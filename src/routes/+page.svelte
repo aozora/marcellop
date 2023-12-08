@@ -6,10 +6,15 @@ import { menuItems } from '$lib/stores/menu-store';
 // import { aboutSectionIsInView } from '$lib/stores/home-scroll-store';
 import { onMount } from 'svelte';
 import gsap from 'gsap/dist/gsap';
+import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 // import { Image } from "svelte-datocms";
 // import Seo from "../components/Seo.svelte";
 // import HeroCanvas from "../components/HeroCanvas.svelte";
 // import CanvasWrapper from "../components/CanvasWrapper.svelte";
+
+if (typeof window !== 'undefined') {
+	gsap.registerPlugin(ScrollTrigger);
+}
 
 export type HomeProps = {
 	site: Site,
@@ -49,24 +54,41 @@ onMount(() => {
 
 		const tl = gsap.timeline({ paused: true });
 
-		// tl.fromTo(h1Words[0], { scale: 0 }, { duration: 1, transformOrigin: '0 100%', scale: 1 })
-		// 	.fromTo(h1Words[1], { scale: 0 }, { duration: 1, transformOrigin: '100% 100%', scale: 1 }, '<')
-		// 	.fromTo(h2Words[0], { scale: 0 }, { duration: 1, transformOrigin: '0 0', scale: 1 }, '<')
-		// 	.fromTo(h2Words[1], { scale: 0 }, { duration: 1, transformOrigin: '100% 0', scale: 1 }, '<')
-		// 	.fromTo(diamond, { scale: 0 }, { scale: 1, rotate: '765deg', duration: 1 })
-		// 	.fromTo(lineLeft, { scaleX: 0 }, { scaleX: 1, duration: 1 }, '<')
-		// 	.fromTo(lineRight, { scaleX: 0 }, { scaleX: 1, duration: 1 }, '<');
-		//
-		tl.to(h1Words[0], { duration: 1, transformOrigin: '0 100%', scale: 1 })
-			.to(h1Words[1], { duration: 1, transformOrigin: '100% 100%', scale: 1 }, '<')
-			.to(h2Words[0], { duration: 1, transformOrigin: '0 0', scale: 1 }, '<')
-			.to(h2Words[1], { duration: 1, transformOrigin: '100% 0', scale: 1 }, '<')
-			.to(diamond, { scale: 1, rotate: '765deg', duration: 1 })
-			.to(lineLeft, { scaleX: 1, duration: 1 }, '<')
-			.to(lineRight, { scaleX: 1, duration: 1 }, '<');
-
+		tl
+			.to(diamond, { scale: 1, rotate: '765deg', duration: 1, ease: 'power1.inOut' })
+			.to(lineLeft, { scaleX: 1, duration: 1, ease: 'power1.inOut' }, '<')
+			.to(lineRight, { scaleX: 1, duration: 1, ease: 'power1.inOut' }, '<')
+			.to(h1Words[0], { duration: 1, ease: 'power1.inOut', transformOrigin: '0 100%', scale: 1, skewX: 0 }, '-=.6')
+			.to(h1Words[1], { duration: 1, ease: 'power1.inOut', transformOrigin: '100% 100%', scale: 1, skewX: 0 }, '<')
+			.to(h2Words[0], { duration: 1, ease: 'power1.inOut', transformOrigin: '0 0', scale: 1, skewX: 0 }, '<')
+			.to(h2Words[1], { duration: 1, ease: 'power1.inOut', transformOrigin: '100% 0', scale: 1, skewX: 0 }, '<');
 
 		tl.play();
+
+		const tl2 = gsap.timeline({
+			scrollTrigger: {
+				trigger: heroContainer,
+				start: 'top top',
+				end: 'bottom top',
+				scrub: true,
+				pin: true,
+				pinSpacing: true,
+				invalidateOnRefresh: true
+			}
+		});
+
+		tl2.fromTo(heroContainer, {
+			rotate: 0
+		}, {
+			rotate: '-45deg'
+		})
+			.to(self.selector('h1'), {
+				xPercent: -200
+			}, '<')
+			.to(self.selector('h2'), {
+				xPercent: 200
+			}, '<');
+
 	}, heroContainer); // <- Scope!
 
 	return () => ctx.revert(); // <- Cleanup!
@@ -268,6 +290,7 @@ onMount(() => {
     margin-bottom: 2rem;
 
     h1 {
+      position: relative;
       //display: flex;
       //flex-direction: column;
       width: 100%;
