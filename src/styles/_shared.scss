@@ -114,10 +114,13 @@
 }
 
 @mixin light-shadow {
+  --light-shadow-x: 0;
+  --light-shadow-y: .15ch;
   --hue: 320;
   --bg: oklch(35% .3 var(--hue));
   --text: oklch(85% .1 var(--hue));
   --shadow: oklch(25% .2 var(--hue));
   --highlight: oklch(98% .05 var(--hue));
-  text-shadow: 0 .15ch 15px var(--shadow), 0 -2px 0 var(--highlight);
+  //text-shadow: 0 .15ch 15px var(--shadow), 0 -2px 0 var(--highlight);
+  text-shadow: var(--shadow-x) var(--shadow-y) 15px var(--shadow), 0 -2px 0 var(--highlight);
 }

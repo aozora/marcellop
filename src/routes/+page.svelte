@@ -1,14 +1,12 @@
 <script lang="ts">
 import type { Home, Menu, Site } from "$lib/types";
-// import { Image } from "svelte-datocms";
 import What from "../components/What.svelte";
-// import Seo from "../components/Seo.svelte";
 import { menuItems } from "$lib/stores/menu-store";
-import { onMount } from "svelte";
-import { fly } from "svelte/transition";
-// import HeroCanvas from "../components/HeroCanvas.svelte";
 import { intersectionAPI } from "$lib/intersection-observer-action.ts";
 import { aboutSectionIsInView } from "$lib/stores/home-scroll-store";
+// import { Image } from "svelte-datocms";
+// import Seo from "../components/Seo.svelte";
+// import HeroCanvas from "../components/HeroCanvas.svelte";
 // import CanvasWrapper from "../components/CanvasWrapper.svelte";
 
 export type HomeProps = {
@@ -35,12 +33,46 @@ menuItems.update(() => {
 // const metaTags: Array<SeoMetaTagType> = home && home.seo ? home.seo.concat(site.favicon) : [];
 // const heroHeading1Words = home.heading1.split(" ");
 // const heroHeading2Words = home.heading2.split(" ");
+//
+// let animate = false;
+// onMount(() => {
+//   animate = true;
+// });
 
-let animate = false;
-onMount(() => {
-  animate = true;
-});
+let title1: HTMLHeadingElement;
+let title2: HTMLHeadingElement;
+let shadowMax;
+let shadowMin;
+let shadowMidPoints = [];
+let shadowX;
+let shadowY;
 
+$:{
+  if (title1) {
+    const box = title1.getBoundingClientRect();
+    shadowMax = 48; //box.height;
+    shadowMin = shadowMax * -1;
+    shadowMidPoints = [
+      box.x + box.width / 2 / 100,
+      box.y + box.height / 2 / 100
+    ];
+  }
+}
+
+const walk = 10;
+const onMouseMove = (e: MouseEvent) => {
+  // console.log(event.pageX, event.pageY)
+  // console.log(shadowMidPoints[0] - event.pageX, shadowMidPoints[1] - event.pageY)
+  let x = e.offsetX;
+  let y = e.offsetY;
+  x = x + e.target.offsetLeft;
+  y = y + e.target.offsetTop;
+  const box = title1.getBoundingClientRect();
+  shadowX = Math.round((x / box.width * walk) - (walk / 2));
+  shadowY = Math.round((y / box.height * walk) - (walk / 2));
+  // shadowX = Math.min(shadowMax, Math.max(shadowMin, shadowMidPoints[0] - event.pageX));
+  // shadowY = Math.min(shadowMax, Math.max(shadowMin, shadowMidPoints[1] - event.pageY));
+};
 
 /**
  * Scroll managment
@@ -68,12 +100,12 @@ const updateAboutIsInView = (isInView) => {
   <!--    <HeroCanvas />-->
   <!--  </CanvasWrapper>-->
 
-  <section class="hero">
-    <h1>{home.heading1}</h1>
+  <div class="hero" on:mousemove={onMouseMove}>
+    <h1 bind:this={title1} style:--shadow-x={`${shadowX}px`} style:--shadow-y={`${shadowY}px`}>{home.heading1}</h1>
     <h2>{home.heading2}</h2>
 
     <div class="decoration" aria-hidden="true">S</div>
-  </section>
+  </div>
 
   <section class="about" use:intersectionAPI on:crossed={(e)=>{
     updateAboutIsInView(e.detail.isIntersecting);
@@ -150,20 +182,41 @@ const updateAboutIsInView = (isInView) => {
       filter: url('#squiggly-0')
     }
 
-    25% {
+    15% {
       filter: url('#squiggly-1')
     }
 
-    50% {
+    25% {
       filter: url('#squiggly-2')
     }
 
-    75% {
+    35% {
+      filter: url('#squiggly-3')
+    }
+
+    50% {
+      filter: url('#squiggly-4')
+    }
+    // -
+
+    65% {
+      filter: url('#squiggly-4')
+    }
+
+    80% {
       filter: url('#squiggly-3')
     }
 
     100% {
-      filter: url('#squiggly-4')
+      filter: url('#squiggly-2')
+    }
+
+    75% {
+      filter: url('#squiggly-1')
+    }
+
+    100% {
+      filter: url('#squiggly-0')
     }
   }
 
@@ -227,13 +280,14 @@ const updateAboutIsInView = (isInView) => {
 
     .decoration {
       position: absolute;
-      bottom: 0;
-      left: -20%;
+      bottom: -45%;
+      left: -10%;
       font-family: var(--heading-font-family);
       font-weight: 400;
       font-size: 38rem;
       line-height: 1;
       @include ligature;
+      color: #ccc;
     }
 
   }
@@ -340,7 +394,7 @@ const updateAboutIsInView = (isInView) => {
       }
 
       &:hover {
-        animation: squiggly-anim .5s linear;
+        animation: squiggly-anim 1s linear;
         //filter: url('#splash-filter');
       }
     }

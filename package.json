@@ -13,22 +13,22 @@
   },
   "dependencies": {
     "@dimforge/rapier3d-compat": "^0.11.2",
-    "@threlte/core": "^6.0.1",
-    "@threlte/extras": "^5.0.3",
+    "@threlte/core": "^7.0.9",
+    "@threlte/extras": "^8.0.8",
     "@threlte/rapier": "^1.0.2",
     "datocms-structured-text-utils": "^2.0.0",
     "gsap": "^3.10.4",
-    "lil-gui": "^0.18.0",
+    "lil-gui": "^0.19.1",
     "motion": "^10.14.0",
     "schema-dts": "^1.1.0",
     "svelte-datocms": "^0.6.3",
     "svelte-seo": "^1.4.0",
-    "three": "^0.156.1"
+    "three": "^0.159.0"
   },
   "devDependencies": {
     "@sveltejs/adapter-auto": "^2.1.0",
     "@sveltejs/kit": "^1.22.4",
-    "@types/three": "^0.156.0",
+    "@types/three": "^0.159.0",
     "@typescript-eslint/eslint-plugin": "^6.2.1",
     "@typescript-eslint/parser": "^6.2.1",
     "eslint": "^8.28.0",
@@ -41,6 +41,6 @@
     "svelte-check": "^3.4.6",
     "tslib": "^2.4.1",
     "typescript": "^5.1.6",
-    "vite": "^4.0.0"
+    "vite": "^5.0.7"
   }
 }

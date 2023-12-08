@@ -178,7 +178,6 @@ onDestroy(unsubscribePageStore);
 <style lang="scss">
   @import '../styles/shared';
 
-
   .header {
     --menu-background: transparent;
 
@@ -252,11 +251,6 @@ onDestroy(unsubscribePageStore);
     padding: 0;
     background-color: transparent;
 
-    // fix odd safari issue
-    &:focus-visible {
-      //border: 0;
-    }
-
     > li {
       margin: 0;
       list-style-type: none;
@@ -272,9 +266,10 @@ onDestroy(unsubscribePageStore);
       margin: 0;
       padding: 0;
       border: .10em solid transparent;
-      font-family: var(--heading-font-family);
+      //font-family: var(--heading-font-family);
       line-height: 1;
-      font-weight: 500;
+      font-weight: 400;
+      letter-spacing: -1px;
       text-transform: uppercase;
       text-decoration: none;
       text-align: center;
