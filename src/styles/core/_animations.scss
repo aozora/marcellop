@@ -102,3 +102,20 @@
     transform: scaleX(0);
   }
 }
+
+
+@keyframes breathe {
+  0% {
+    font-variation-settings: 'wght' 700;
+    //font-size: 10vw;
+  }
+  60% {
+    font-variation-settings: 'wght' 100;
+    //font-size: 11vw;
+  }
+
+  100% {
+    font-variation-settings: 'wght' 700;
+    //font-size: 10vw;
+  }
+}

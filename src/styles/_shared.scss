@@ -20,6 +20,23 @@
   }
 }
 
+@mixin layout-grid {
+  display: grid;
+  grid-template-columns: 1.5rem calc(100% - 3rem) 1.5rem;
+  grid-gap: 0;
+  gap: 0;
+  margin: 0;
+
+  @media (min-width: 64em) {
+    grid-template-columns: 2rem calc(100% - 4rem) 2rem;
+  }
+
+  @media (min-width: 1920px) {
+    // 1920px - 32px - 32px = 1856px
+    grid-template-columns: 1fr min(1856px, 100%) 1fr;
+  }
+}
+
 @mixin container-layout-grid {
   display: grid;
   grid-template-columns: repeat(var(--grid-columns-mobile), 1fr);
