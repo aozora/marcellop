@@ -7,6 +7,8 @@ import { menuItems } from '$lib/stores/menu-store';
 import { onMount } from 'svelte';
 import gsap from 'gsap/dist/gsap';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
+import MarcelloAndTatiAscii from '../components/MarcelloAndTatiAscii.svelte';
+import { Image } from 'svelte-datocms';
 // import { Image } from "svelte-datocms";
 // import Seo from "../components/Seo.svelte";
 // import HeroCanvas from "../components/HeroCanvas.svelte";
@@ -40,20 +42,30 @@ menuItems.update(() => {
 // const metaTags: Array<SeoMetaTagType> = home && home.seo ? home.seo.concat(site.favicon) : [];
 const heroHeading1Words = home.heading1.split(' ');
 const heroHeading2Words = home.heading2.split(' ');
+const aboutDescription1 = home.aboutDescription1.split(' ')
+const aboutDescription2 = home.aboutDescription2.split(' ')
 
-let heroContainer;
+let mainContainer;
 // let tl = gsap.timeline({ paused: true });
 
 onMount(() => {
 	const ctx = gsap.context((self) => {
-		const h1Words = self.selector('h1 .word');
-		const h2Words = self.selector('h2 .word');
+		const heroContainer = self.selector('.hero');
+		const aboutContainer = self.selector('.about');
+		const h1Words = self.selector('.hero-title1 .word');
+		const h2Words = self.selector('.hero-title2 .word');
 		const diamond = self.selector('.diamond');
 		const lineLeft = self.selector('.line-left');
 		const lineRight = self.selector('.line-right');
+		const aboutTitle = self.selector('.about-title span');
+		const aboutParagraphs = self.selector('.about-textblock-wrapper p');
+		const aboutTexts = self.selector('.about-textblock-wrapper span');
 
 		const tl = gsap.timeline({ paused: true });
 
+		/**
+		 * Animation on load
+		 */
 		tl
 			.to(diamond, { scale: 1, rotate: '765deg', duration: 1, ease: 'power1.inOut' })
 			.to(lineLeft, { scaleX: 1, duration: 1, ease: 'power1.inOut' }, '<')
@@ -65,6 +77,9 @@ onMount(() => {
 
 		tl.play();
 
+		/**
+		 * Rotation of the hero on scroll
+		 */
 		const tl2 = gsap.timeline({
 			scrollTrigger: {
 				trigger: heroContainer,
@@ -82,26 +97,58 @@ onMount(() => {
 		}, {
 			rotate: '-45deg'
 		})
-			.to(self.selector('h1'), {
+			.to(self.selector('.hero-title1'), {
 				xPercent: -200
 			}, '<')
-			.to(self.selector('h2'), {
+			.to(self.selector('.hero-title2'), {
 				xPercent: 200
 			}, '<')
 			.fromTo(lineLeft, { scaleX: 1 }, { scaleX: 0, duration: .35, ease: 'power1.inOut' }, '-=.5')
-			.fromTo(lineRight, { scaleX: 1 }, { scaleX: 0, duration: .35, ease: 'power1.inOut' }, '<');
+			.fromTo(lineRight, { scaleX: 1 }, { scaleX: 0, duration: .35, ease: 'power1.inOut' }, '<')
+			.fromTo(diamond, { rotate: '-45deg' }, { rotate: 405, scale: 50, backgroundColor: 'var(--theme-inverted-background)' }, '-=.3');
 
-	}, heroContainer); // <- Scope!
+		/**
+		 * About section animations
+		 */
+		gsap.timeline({
+			scrollTrigger: {
+				trigger: aboutContainer,
+				start: 'top 60%',
+				end: 'bottom top',
+				scrub: false
+			}
+		}).fromTo(aboutTitle, {
+			opacity: 0
+		}, {
+			duration: 1.2,
+			opacity: 1,
+			stagger: 0.2,
+			ease: 'power1.inOut'
+		});
+
+		aboutParagraphs.forEach(p =>{
+			gsap.timeline({
+				scrollTrigger: {
+					trigger: p,
+					start: 'top 60%',
+					end: 'bottom top',
+					scrub: false
+				}
+			}).fromTo(p, {
+				opacity: 0
+			}, {
+				duration: 1.2,
+				opacity: 1,
+				stagger: 0.2,
+				ease: 'power1.inOut'
+			});
+		})
+
+	}, mainContainer); // <- Scope!
 
 	return () => ctx.revert(); // <- Cleanup!
 });
 
-/**
- * Scroll managment
- */
-// const updateAboutIsInView = (isInView) => {
-// 	aboutSectionIsInView.update(() => isInView);
-// };
 
 </script>
 
@@ -118,17 +165,13 @@ onMount(() => {
 <!--        }-->
 <!--/>-->
 
-<div class="main-content">
+<div class="main-content" bind:this={mainContainer}>
 	<!--  <CanvasWrapper>-->
 	<!--    <HeroCanvas />-->
 	<!--  </CanvasWrapper>-->
 
-	<div class="hero" bind:this={heroContainer}>
-		<!--		<h1>{home.heading1}</h1>-->
-		<!--		<h2>{home.heading2}</h2>-->
-
-		<!--{#if animate}-->
-		<h1 class="splitting">
+	<div class="hero">
+		<h1 class="hero-title1 splitting">
 			<span class="visuallyhidden">{home.heading1}</span>
 			{#each heroHeading1Words as word, wordIndex}
         <span class="word">
@@ -140,11 +183,18 @@ onMount(() => {
 
 		<div class="separator">
 			<div class="line-left" />
-			<div class="diamond" />
+			<div class="diamond">
+				<Image
+					class="image-wrapper"
+					data={{
+              ...home.aboutPicture.responsiveImage
+            }}
+				/>
+			</div>
 			<div class="line-right" />
 		</div>
 
-		<h2 class="splitting">
+		<h2 class="hero-title2 splitting">
 			<span class="visuallyhidden">{home.heading2}</span>
 			{#each heroHeading2Words as word, wordIndex}
         <span class="word">
@@ -157,17 +207,21 @@ onMount(() => {
 
 	<div class="about">
 		<div class="about-inner">
-			<h2>{home.aboutHeading}</h2>
+			<h2 aria-label={home.aboutHeading} class="about-title">
+				{#each Array.from(home.aboutHeading) as char}
+					<span>{char}</span>
+				{/each}
+			</h2>
 
 			<div class="about-textblock-wrapper">
-				<p>
-					{#each home.aboutDescription1.split(' ') as char}
-						<span>{char}&nbsp;</span>
+				<p style:--char-count={aboutDescription1.length}>
+					{#each aboutDescription1 as char, charIndex}
+						<span style:--char-index={charIndex}>{char}&nbsp;</span>
 					{/each}
 				</p>
-				<p>
-					{#each home.aboutDescription2.split(' ') as char}
-						<span>{char}&nbsp;</span>
+				<p style:--char-count={aboutDescription2.length}>
+					{#each aboutDescription2 as char, charIndex}
+						<span style:--char-index={charIndex}>{char}&nbsp;</span>
 					{/each}
 				</p>
 			</div>
@@ -224,11 +278,15 @@ onMount(() => {
     }
   }
 
-  .main-content > section,
-  .main-content > article {
-    position: relative;
-    z-index: 1;
-  }
+  //.main-content > section,
+  //.main-content > article {
+  //  position: relative;
+  //  z-index: 1;
+  //}
+
+	.main-content {
+		overflow: hidden;
+	}
 
   h1 {
     width: 100%;
@@ -298,6 +356,8 @@ onMount(() => {
   .about {
     position: relative;
     @include layout-grid;
+
+    background-color: var(--theme-inverted-background);
   }
 
   .about-inner {
@@ -311,37 +371,44 @@ onMount(() => {
       text-align: left;
       //text-transform: uppercase;
       @include ligature;
+      color: var(--theme-inverted-foreground);
     }
   }
 
-	.about-textblock-wrapper {
-		p {
+  .about-textblock-wrapper {
+    p {
       display: flex;
       flex-wrap: wrap;
       margin-bottom: 4rem;
       --text-weight: 700;
+      color: var(--theme-inverted-foreground);
 
       span {
-        --text-weight: 700;
+        --text-weight-max: 600;
+        --text-weight-min: 300;
 
-        //display: inline-block;
-        font-size: 3.5vw;
-        //font-weight: var(--text-weight);
-        //font-variation-settings: 'wght' var(--text-weight);
+        font-size: 4vw;
         line-height: 1.2;
-        //transition: font-weight .4s ease-in-out;
-
-        font-variation-settings: 'wght' 700;
+        font-variation-settings: 'wght' var(--text-weight-max), 'wdth' 80;
+        //--delay: 300ms; // calc((var(--char-index) + 1) * 400ms);
         --delay: calc((var(--char-index) + 1) * 400ms);
+        //animation: breathe calc(var(--char-count) * 400ms) infinite both;
+        //animation-delay: var(--delay);
 
-        &:hover {
-          animation: breathe 4000ms infinite both;
-          animation-delay: var(--delay);
-          //--text-weight: 400;
-        }
+        //&:hover {
+        //  animation: breathe 4000ms infinite both;
+        //  animation-delay: var(--delay);
+        //}
       }
+
+			&:hover {
+				span {
+          animation: breathe calc(var(--char-count) * 400ms) infinite both;
+          animation-delay: var(--delay);
+				}
+			}
     }
-	}
+  }
 
 </style>
 

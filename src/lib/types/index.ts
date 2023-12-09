@@ -109,7 +109,7 @@ export type Home = {
 	aboutDescription2: string;
 	aboutDescription3: string;
 	aboutDescription4: string;
-	aboutPicture: Array<ResponsiveImage>;
+	aboutPicture: ResponsiveImage;
 	whatidoHeading: string;
 	whatido: Array<WhatidoItem>;
 	seo: Array<SeoMetaTagType>;
