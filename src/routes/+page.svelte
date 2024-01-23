@@ -7,9 +7,6 @@ import { menuItems } from '$lib/stores/menu-store';
 import { onMount } from 'svelte';
 import gsap from 'gsap/dist/gsap';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
-import MarcelloAndTatiAscii from '../components/MarcelloAndTatiAscii.svelte';
-import { Image } from 'svelte-datocms';
-// import { Image } from "svelte-datocms";
 // import Seo from "../components/Seo.svelte";
 // import HeroCanvas from "../components/HeroCanvas.svelte";
 // import CanvasWrapper from "../components/CanvasWrapper.svelte";
@@ -59,7 +56,7 @@ onMount(() => {
 		const lineRight = self.selector('.line-right');
 		const aboutTitle = self.selector('.about-title span');
 		const aboutParagraphs = self.selector('.about-textblock-wrapper p');
-		const aboutTexts = self.selector('.about-textblock-wrapper span');
+		// const aboutTexts = self.selector('.about-textblock-wrapper span');
 
 		const tl = gsap.timeline({ paused: true });
 
@@ -106,6 +103,10 @@ onMount(() => {
 			.fromTo(lineLeft, { scaleX: 1 }, { scaleX: 0, duration: .35, ease: 'power1.inOut' }, '-=.5')
 			.fromTo(lineRight, { scaleX: 1 }, { scaleX: 0, duration: .35, ease: 'power1.inOut' }, '<')
 			.fromTo(diamond, { rotate: '-45deg' }, { rotate: 405, scale: 50, backgroundColor: 'var(--theme-inverted-background)' }, '-=.3');
+
+		// clip-path: polygon(0 0,100% 0, 100% 100%,0 100%);
+		// clip-path: polygon(50% 50%, 50% 50%, 50% 50%, 50% 50%);
+
 
 		/**
 		 * About section animations
@@ -183,14 +184,7 @@ onMount(() => {
 
 		<div class="separator">
 			<div class="line-left" />
-			<div class="diamond">
-				<Image
-					class="image-wrapper"
-					data={{
-              ...home.aboutPicture.responsiveImage
-            }}
-				/>
-			</div>
+			<div class="diamond"/>
 			<div class="line-right" />
 		</div>
 
@@ -204,6 +198,12 @@ onMount(() => {
 			{/each}
 		</h2>
 	</div>
+	<img class="hero-img"
+			 srcset={home.aboutPicture.responsiveImage.webpSrcSet}
+			 sizes={home.aboutPicture.responsiveImage.sizes}
+			 src={home.aboutPicture.responsiveImage.src}
+			 alt={home.aboutPicture.responsiveImage.alt}/>
+
 
 	<div class="about">
 		<div class="about-inner">
@@ -278,14 +278,9 @@ onMount(() => {
     }
   }
 
-  //.main-content > section,
-  //.main-content > article {
-  //  position: relative;
-  //  z-index: 1;
-  //}
-
 	.main-content {
 		overflow: hidden;
+		position: relative;
 	}
 
   h1 {
@@ -410,5 +405,49 @@ onMount(() => {
     }
   }
 
+  .separator {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 32px;
+    margin: 0 0 1rem 0;
+  }
+
+  .diamond {
+    position: absolute;
+    top: calc(50% - 6px);
+    left: calc(50% - 6px);
+    display: block;
+    width: 12px;
+    height: 12px;
+    background-color: var(--theme-foreground);
+    transform: rotate(45deg);
+    z-index: 0;
+  }
+
+  .line-left,
+  .line-right {
+    content: '';
+    position: absolute;
+    top: calc(50% - 1px);
+    left: 0;
+    width: calc(50% - 20px);
+    height: 1px;
+    background-color: var(--theme-foreground);
+    //transform: translate3d(0,0, 0) rotate(-45deg);
+  }
+
+  .line-right {
+    left: auto;
+    right: 0;
+  }
+
+	.hero-img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    max-width: 400px;
+    transform: translate3d(-50%, -50%, 0);
+  }
 </style>
 

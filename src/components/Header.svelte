@@ -2,7 +2,7 @@
 import { page } from '$app/stores';
 import { onDestroy } from 'svelte';
 import { browser } from '$app/environment';
-import { menuItems } from '../lib/stores/menu-store';
+import { menuItems } from '$lib/stores/menu-store';
 
 /**
  * Props
@@ -130,7 +130,7 @@ onDestroy(unsubscribePageStore);
   .header {
     --menu-background: transparent;
 
-    position: -webkit-sticky;
+    //position: -webkit-sticky;
     position: sticky;
     top: 0;
     display: grid;
@@ -182,16 +182,18 @@ onDestroy(unsubscribePageStore);
       margin: 0;
       padding: 1rem 0;
       text-align: left;
+      transform: translateY(-200%);
       transition: transform .5s ease-in-out;
 
 			@media (min-width: 48em){
-        &:hover {
-          transform: scale(.9);
-        }
-			}
+        animation: menuEnterTransition .5s ease-in-out 1s forwards;
+      }
     }
 
     a {
+      --text-weight-max: 600;
+      --text-weight-min: 300;
+
       position: relative;
       display: block;
       width: 100%;
@@ -201,13 +203,12 @@ onDestroy(unsubscribePageStore);
       border: .10em solid transparent;
       line-height: 1;
       font-weight: 400;
+      font-variation-settings: 'wght' 400, 'wdth' 80;
       letter-spacing: -1px;
       text-decoration: none;
       text-align: center;
       color: var(--theme-foreground);
-      transform: translateY(-200%);
-      //transition: transform .5s ease-out 1s;
-      animation: menuEnterTransition .5s ease-in-out 1s forwards;
+      transition: all 1s ease-in-out;
 
       /*
        * Don't enable hover on links on mobile, it will cause this issue on ios:
@@ -222,6 +223,14 @@ onDestroy(unsubscribePageStore);
         border-bottom: .10em dashed var(--theme-brand);
         outline: 0;
       }
+
+			@media (min-width: 48em){
+				&:hover {
+          //animation: breathe 3s infinite both;
+          font-weight: 700;
+          font-variation-settings: 'wght' 700, 'wdth' 80;
+        }
+			}
     }
 
     @media (min-width: 48em) {

@@ -49,42 +49,7 @@
   will-change: transform;
 }
 
-.separator {
-  position: relative;
-  display: block;
-  width: 100%;
-  height: 32px;
-  margin: 0 0 1rem 0;
-}
 
-.diamond {
-  position: absolute;
-  top: calc(50% - 6px);
-  left: calc(50% - 6px);
-  display: block;
-  width: 12px;
-  height: 12px;
-  background-color: var(--theme-foreground);
-  transform: rotate(45deg);
-  z-index: 0;
-}
-
-.line-left,
-.line-right {
-  content: '';
-  position: absolute;
-  top: calc(50% - 1px);
-  left: 0;
-  width: calc(50% - 20px);
-  height: 1px;
-  background-color: var(--theme-foreground);
-  //transform: translate3d(0,0, 0) rotate(-45deg);
-}
-
-.line-right {
-  left: auto;
-  right: 0;
-}
 
 
 // initial position
