@@ -1,233 +1,240 @@
 <script lang="ts">
-import type { Home, Menu, Site } from '$lib/types';
-// import What from '../components/What.svelte';
-import { menuItems } from '$lib/stores/menu-store';
-// import { intersectionAPI } from '$lib/intersection-observer-action.ts';
-// import { aboutSectionIsInView } from '$lib/stores/home-scroll-store';
-import { onMount } from 'svelte';
-import gsap from 'gsap/dist/gsap';
-import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
-// import Seo from "../components/Seo.svelte";
-// import HeroCanvas from "../components/HeroCanvas.svelte";
-// import CanvasWrapper from "../components/CanvasWrapper.svelte";
+  import type { Home, Menu, SeoMetaTagType, Site } from '$lib/types';
+  // import What from '../components/What.svelte';
+  import { menuItems } from '$lib/stores/menu-store';
+  // import { intersectionAPI } from '$lib/intersection-observer-action.ts';
+  // import { aboutSectionIsInView } from '$lib/stores/home-scroll-store';
+  import { onMount } from 'svelte';
+  import gsap from 'gsap/dist/gsap';
+  import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
+  import Seo from '../components/Seo.svelte';
+  // import { Image } from "svelte-datocms";
+  // import Seo from "../components/Seo.svelte";
+  // import HeroCanvas from "../components/HeroCanvas.svelte";
+  // import CanvasWrapper from "../components/CanvasWrapper.svelte";
 
-if (typeof window !== 'undefined') {
-	gsap.registerPlugin(ScrollTrigger);
-}
+  if (typeof window !== 'undefined') {
+    gsap.registerPlugin(ScrollTrigger);
+  }
 
-export type HomeProps = {
-	site: Site,
-	menu: Menu,
-	home: Home
-}
+  export type HomeProps = {
+    site: Site,
+    menu: Menu,
+    home: Home,
+    domainUrl: string
+  }
 
-/**
- * PROPS
- */
-export let data: HomeProps;
-let { /* site, */ menu, home }: HomeProps = data;
+  /**
+   * PROPS
+   */
+  export let data: HomeProps;
+  let { site, menu, home, domainUrl }: HomeProps = data;
 
-// write the menuItems store with the data form the page endpoint
-// the Header component will use that.
-menuItems.update(() => {
-	return menu.menuItems;
-});
+  // write the menuItems store with the data form the page endpoint
+  // the Header component will use that.
+  menuItems.update(() => {
+    return menu.menuItems;
+  });
 
-/**
- * State
- */
-// const metaTags: Array<SeoMetaTagType> = home && home.seo ? home.seo.concat(site.favicon) : [];
-const heroHeading1Words = home.heading1.split(' ');
-const heroHeading2Words = home.heading2.split(' ');
-const aboutDescription1 = home.aboutDescription1.split(' ')
-const aboutDescription2 = home.aboutDescription2.split(' ')
+  /**
+   * State
+   */
+  const metaTags: Array<SeoMetaTagType> = home && home.seo ? home.seo.concat(site.favicon) : [];
+  const heroHeading1Words = home.heading1.split(' ');
+  const heroHeading2Words = home.heading2.split(' ');
+  const aboutDescription1 = home.aboutDescription1.split(' ');
+  const aboutDescription2 = home.aboutDescription2.split(' ');
 
-let mainContainer;
-// let tl = gsap.timeline({ paused: true });
+  let mainContainer;
+  // let tl = gsap.timeline({ paused: true });
 
-onMount(() => {
-	const ctx = gsap.context((self) => {
-		const heroContainer = self.selector('.hero');
-		const aboutContainer = self.selector('.about');
-		const h1Words = self.selector('.hero-title1 .word');
-		const h2Words = self.selector('.hero-title2 .word');
-		const diamond = self.selector('.diamond');
-		const lineLeft = self.selector('.line-left');
-		const lineRight = self.selector('.line-right');
-		const aboutTitle = self.selector('.about-title span');
-		const aboutParagraphs = self.selector('.about-textblock-wrapper p');
-		// const aboutTexts = self.selector('.about-textblock-wrapper span');
+  onMount(() => {
+    const ctx = gsap.context((self) => {
+      const heroContainer = self.selector('.hero');
+      const aboutContainer = self.selector('.about');
+      const h1Words = self.selector('.hero-title1 .word');
+      const h2Words = self.selector('.hero-title2 .word');
+      const diamond = self.selector('.diamond');
+      const lineLeft = self.selector('.line-left');
+      const lineRight = self.selector('.line-right');
+      const aboutTitle = self.selector('.about-title span');
+      const aboutParagraphs = self.selector('.about-textblock-wrapper p');
+      // const aboutTexts = self.selector('.about-textblock-wrapper span');
 
-		const tl = gsap.timeline({ paused: true });
+      const tl = gsap.timeline({ paused: true });
 
-		/**
-		 * Animation on load
-		 */
-		tl
-			.to(diamond, { scale: 1, rotate: '765deg', duration: 1, ease: 'power1.inOut' })
-			.to(lineLeft, { scaleX: 1, duration: 1, ease: 'power1.inOut' }, '<')
-			.to(lineRight, { scaleX: 1, duration: 1, ease: 'power1.inOut' }, '<')
-			.to(h1Words[0], { duration: 1, ease: 'power1.inOut', transformOrigin: '0 100%', scale: 1, skewX: 0 }, '-=.6')
-			.to(h1Words[1], { duration: 1, ease: 'power1.inOut', transformOrigin: '100% 100%', scale: 1, skewX: 0 }, '<')
-			.to(h2Words[0], { duration: 1, ease: 'power1.inOut', transformOrigin: '0 0', scale: 1, skewX: 0 }, '<')
-			.to(h2Words[1], { duration: 1, ease: 'power1.inOut', transformOrigin: '100% 0', scale: 1, skewX: 0 }, '<');
+      /**
+       * Animation on load
+       */
+      tl
+        .to(diamond, { scale: 1, rotate: '765deg', duration: 1, ease: 'power1.inOut' })
+        .to(lineLeft, { scaleX: 1, duration: 1, ease: 'power1.inOut' }, '<')
+        .to(lineRight, { scaleX: 1, duration: 1, ease: 'power1.inOut' }, '<')
+        .to(h1Words[0], { duration: 1, ease: 'power1.inOut', transformOrigin: '0 100%', scale: 1, skewX: 0 }, '-=.6')
+        .to(h1Words[1], { duration: 1, ease: 'power1.inOut', transformOrigin: '100% 100%', scale: 1, skewX: 0 }, '<')
+        .to(h2Words[0], { duration: 1, ease: 'power1.inOut', transformOrigin: '0 0', scale: 1, skewX: 0 }, '<')
+        .to(h2Words[1], { duration: 1, ease: 'power1.inOut', transformOrigin: '100% 0', scale: 1, skewX: 0 }, '<');
 
-		tl.play();
+      tl.play();
 
-		/**
-		 * Rotation of the hero on scroll
-		 */
-		const tl2 = gsap.timeline({
-			scrollTrigger: {
-				trigger: heroContainer,
-				start: 'top top',
-				end: 'bottom top',
-				scrub: true,
-				pin: true,
-				pinSpacing: true,
-				invalidateOnRefresh: true
-			}
-		});
+      /**
+       * Rotation of the hero on scroll
+       */
+      const tl2 = gsap.timeline({
+        scrollTrigger: {
+          trigger: heroContainer,
+          start: 'top top',
+          end: 'bottom top',
+          scrub: true,
+          pin: true,
+          pinSpacing: true,
+          invalidateOnRefresh: true
+        }
+      });
 
-		tl2.fromTo(heroContainer, {
-			rotate: 0
-		}, {
-			rotate: '-45deg'
-		})
-			.to(self.selector('.hero-title1'), {
-				xPercent: -200
-			}, '<')
-			.to(self.selector('.hero-title2'), {
-				xPercent: 200
-			}, '<')
-			.fromTo(lineLeft, { scaleX: 1 }, { scaleX: 0, duration: .35, ease: 'power1.inOut' }, '-=.5')
-			.fromTo(lineRight, { scaleX: 1 }, { scaleX: 0, duration: .35, ease: 'power1.inOut' }, '<')
-			.fromTo(diamond, { rotate: '-45deg' }, { rotate: 405, scale: 50, backgroundColor: 'var(--theme-inverted-background)' }, '-=.3');
+      tl2.fromTo(heroContainer, {
+        rotate: 0
+      }, {
+        rotate: '-45deg'
+      })
+        .to(self.selector('.hero-title1'), {
+          xPercent: -200
+        }, '<')
+        .to(self.selector('.hero-title2'), {
+          xPercent: 200
+        }, '<')
+        .fromTo(lineLeft, { scaleX: 1 }, { scaleX: 0, duration: .35, ease: 'power1.inOut' }, '-=.5')
+        .fromTo(lineRight, { scaleX: 1 }, { scaleX: 0, duration: .35, ease: 'power1.inOut' }, '<')
+        .fromTo(diamond, { rotate: '-45deg' }, {
+          rotate: 405,
+          scale: 50,
+          backgroundColor: 'var(--theme-inverted-background)'
+        }, '-=.3');
 
-		// clip-path: polygon(0 0,100% 0, 100% 100%,0 100%);
-		// clip-path: polygon(50% 50%, 50% 50%, 50% 50%, 50% 50%);
+      // clip-path: polygon(0 0,100% 0, 100% 100%,0 100%);
+      // clip-path: polygon(50% 50%, 50% 50%, 50% 50%, 50% 50%);
 
 
-		/**
-		 * About section animations
-		 */
-		gsap.timeline({
-			scrollTrigger: {
-				trigger: aboutContainer,
-				start: 'top 60%',
-				end: 'bottom top',
-				scrub: false
-			}
-		}).fromTo(aboutTitle, {
-			opacity: 0
-		}, {
-			duration: 1.2,
-			opacity: 1,
-			stagger: 0.2,
-			ease: 'power1.inOut'
-		});
+      /**
+       * About section animations
+       */
+      gsap.timeline({
+        scrollTrigger: {
+          trigger: aboutContainer,
+          start: 'top 60%',
+          end: 'bottom top',
+          scrub: false
+        }
+      }).fromTo(aboutTitle, {
+        opacity: 0
+      }, {
+        duration: 1.2,
+        opacity: 1,
+        stagger: 0.2,
+        ease: 'power1.inOut'
+      });
 
-		aboutParagraphs.forEach(p =>{
-			gsap.timeline({
-				scrollTrigger: {
-					trigger: p,
-					start: 'top 60%',
-					end: 'bottom top',
-					scrub: false
-				}
-			}).fromTo(p, {
-				opacity: 0
-			}, {
-				duration: 1.2,
-				opacity: 1,
-				stagger: 0.2,
-				ease: 'power1.inOut'
-			});
-		})
+      aboutParagraphs.forEach(p => {
+        gsap.timeline({
+          scrollTrigger: {
+            trigger: p,
+            start: 'top 60%',
+            end: 'bottom top',
+            scrub: false
+          }
+        }).fromTo(p, {
+          opacity: 0
+        }, {
+          duration: 1.2,
+          opacity: 1,
+          stagger: 0.2,
+          ease: 'power1.inOut'
+        });
+      });
 
-	}, mainContainer); // <- Scope!
+    }, mainContainer); // <- Scope!
 
-	return () => ctx.revert(); // <- Cleanup!
-});
+    return () => ctx.revert(); // <- Cleanup!
+  });
 
 
 </script>
 
-<!--<Seo-->
-<!--  siteSeo={site.globalSeo}-->
-<!--  metaTags={metaTags}-->
-<!--  canonicalUrl={null}-->
-<!--  pageLink={-->
-<!--          {-->
-<!--            id: home.id,-->
-<!--            slug: home.slug,-->
-<!--            _modelApiKey: home._modelApiKey-->
-<!--          }-->
-<!--        }-->
-<!--/>-->
+<Seo
+  domainUrl={domainUrl}
+  siteSeo={site.globalSeo}
+  metaTags={metaTags}
+  canonicalUrl={null}
+  pageLink={
+          {
+            id: home.id,
+            slug: home.slug,
+            _modelApiKey: home._modelApiKey
+          }
+        }
+/>
 
 <div class="main-content" bind:this={mainContainer}>
-	<!--  <CanvasWrapper>-->
-	<!--    <HeroCanvas />-->
-	<!--  </CanvasWrapper>-->
+  <!--  <CanvasWrapper>-->
+  <!--    <HeroCanvas />-->
+  <!--  </CanvasWrapper>-->
 
-	<div class="hero">
-		<h1 class="hero-title1 splitting">
-			<span class="visuallyhidden">{home.heading1}</span>
-			{#each heroHeading1Words as word, wordIndex}
+  <div class="hero">
+    <h1 class="hero-title1 splitting">
+      <span class="visuallyhidden">{home.heading1}</span>
+      {#each heroHeading1Words as word, wordIndex}
         <span class="word">
           {word}
-					{#if wordIndex < heroHeading1Words.length - 1}&nbsp;{/if}
+          {#if wordIndex < heroHeading1Words.length - 1}&nbsp;{/if}
         </span>
-			{/each}
-		</h1>
+      {/each}
+    </h1>
 
-		<div class="separator">
-			<div class="line-left" />
-			<div class="diamond"/>
-			<div class="line-right" />
-		</div>
+    <div class="separator">
+      <div class="line-left" />
+      <div class="diamond" />
+      <div class="line-right" />
+    </div>
 
-		<h2 class="hero-title2 splitting">
-			<span class="visuallyhidden">{home.heading2}</span>
-			{#each heroHeading2Words as word, wordIndex}
+    <h2 class="hero-title2 splitting">
+      <span class="visuallyhidden">{home.heading2}</span>
+      {#each heroHeading2Words as word, wordIndex}
         <span class="word">
           {word}
-					{#if wordIndex < heroHeading2Words.length - 1}&nbsp;{/if}
+          {#if wordIndex < heroHeading2Words.length - 1}&nbsp;{/if}
         </span>
-			{/each}
-		</h2>
-	</div>
-	<img class="hero-img"
-			 srcset={home.aboutPicture.responsiveImage.webpSrcSet}
-			 sizes={home.aboutPicture.responsiveImage.sizes}
-			 src={home.aboutPicture.responsiveImage.src}
-			 alt={home.aboutPicture.responsiveImage.alt}/>
+      {/each}
+    </h2>
+  </div>
+  <img class="hero-img"
+       srcset={home.aboutPicture.responsiveImage.webpSrcSet}
+       sizes={home.aboutPicture.responsiveImage.sizes}
+       src={home.aboutPicture.responsiveImage.src}
+       alt={home.aboutPicture.responsiveImage.alt} />
 
+  <div class="about">
+    <div class="about-inner">
+      <h2 aria-label={home.aboutHeading} class="about-title">
+        {#each Array.from(home.aboutHeading) as char}
+          <span>{char}</span>
+        {/each}
+      </h2>
 
-	<div class="about">
-		<div class="about-inner">
-			<h2 aria-label={home.aboutHeading} class="about-title">
-				{#each Array.from(home.aboutHeading) as char}
-					<span>{char}</span>
-				{/each}
-			</h2>
+      <div class="about-textblock-wrapper">
+        <p style:--char-count={aboutDescription1.length}>
+          {#each aboutDescription1 as char, charIndex}
+            <span style:--char-index={charIndex}>{char}&nbsp;</span>
+          {/each}
+        </p>
+        <p style:--char-count={aboutDescription2.length}>
+          {#each aboutDescription2 as char, charIndex}
+            <span style:--char-index={charIndex}>{char}&nbsp;</span>
+          {/each}
+        </p>
+      </div>
 
-			<div class="about-textblock-wrapper">
-				<p style:--char-count={aboutDescription1.length}>
-					{#each aboutDescription1 as char, charIndex}
-						<span style:--char-index={charIndex}>{char}&nbsp;</span>
-					{/each}
-				</p>
-				<p style:--char-count={aboutDescription2.length}>
-					{#each aboutDescription2 as char, charIndex}
-						<span style:--char-index={charIndex}>{char}&nbsp;</span>
-					{/each}
-				</p>
-			</div>
-
-		</div>
-	</div>
+    </div>
+  </div>
 
 </div>
 
@@ -278,10 +285,11 @@ onMount(() => {
     }
   }
 
-	.main-content {
-		overflow: hidden;
-		position: relative;
-	}
+  .main-content {
+    overflow: hidden;
+    position: relative;
+
+  }
 
   h1 {
     width: 100%;
@@ -396,12 +404,12 @@ onMount(() => {
         //}
       }
 
-			&:hover {
-				span {
+      &:hover {
+        span {
           animation: breathe calc(var(--char-count) * 400ms) infinite both;
           animation-delay: var(--delay);
-				}
-			}
+        }
+      }
     }
   }
 
@@ -442,7 +450,7 @@ onMount(() => {
     right: 0;
   }
 
-	.hero-img {
+  .hero-img {
     position: absolute;
     top: 50%;
     left: 50%;

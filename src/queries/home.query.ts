@@ -25,6 +25,9 @@ export const homeQuery = `
       title
       slug
       canonical
+      seo: _seoMetaTags {
+        ...metaTagsFragment
+      }
       heading1
       heading2
       aboutHeading
@@ -48,9 +51,6 @@ export const homeQuery = `
           }
          alt
         }
-      }
-      seo: _seoMetaTags {
-        ...metaTagsFragment
       }
     }
   }
