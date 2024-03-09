@@ -57,21 +57,10 @@ strong,
 button {
   --text-weight: var(--body-font-weight);
   font-family: var(--body-font-family);
-  //font-size: 1rem;
-  //font-size: var(--text-base-size);
-  //line-height: $baseline;
-  //font-weight: var(--text-weight);
-  //font-style: normal;
-  //letter-spacing: var(--text-letter-spacing);
-  //font-kerning: $kerning;
-  //
+
   @supports (font-variation-settings: normal) {
     font-family: var(--variable-font-family);
-    // this settings depends on th vf selected
     font-variation-settings: 'wght' var(--text-weight);
-    /* ,
-       'wdth' var(--text-width),
-       'opsz' var(--text-opticalsize); */
   }
 }
 
