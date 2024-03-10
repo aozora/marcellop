@@ -90,12 +90,25 @@ onDestroy(unsubscribePageStore);
 	id="header"
 	class={`header ${isHome ? 'header--home' : ''} ${showMobileMenu ? 'header--menu-open' : ''}`}
 >
-	{#if isHome}
 		<div aria-hidden="true" class="menu__title">
-			<span aria-hidden="true">MP</span>
-			<span>Marcello Palmitessa</span>
+<!--			<span aria-hidden="true">MP</span>-->
+<!--			<span>Marcello Palmitessa</span>-->
+			<span class="header-title-word" style:--char-count={'MARCELLO'.length}>
+      {#each Array.from('MARCELLO') as char, charIndex}
+        <span class="header-title-char">
+          <span style:--char-index={charIndex}>{char}</span>
+        </span>
+      {/each}
+      </span>
+
+			<span class="header-title-word" style:--char-count={'PALMITESSA'.length}>
+      {#each Array.from('PALMITESSA') as char, charIndex}
+        <span class="header-title-char">
+          <span style:--char-index={charIndex}>{char}</span>
+        </span>
+      {/each}
+      </span>
 		</div>
-	{/if}
 
 	<nav class="menu">
 		<ul class="menu__items">
@@ -147,9 +160,40 @@ onDestroy(unsubscribePageStore);
     z-index: var(--menu-zindex);
   }
 
-  /**
-    Mobile Navigation
-   */
+  .header-title-word {
+    display: inline-flex;
+  }
+
+  .header-title-char {
+    position: relative;
+    display: inline-flex;
+    overflow: hidden;
+
+    span {
+      will-change: transform;
+    }
+  }
+
+  .menu__title {
+    grid-area: title;
+		overflow: hidden;
+		height: 100%;
+    margin: 0 .5rem;
+    padding: 0;
+    font-family: var(--body-font-family);
+    font-optical-sizing: auto;
+    font-variation-settings: "slnt" 0, "GRAD" 0, "XOPQ" 96, "XTRA" 468, "YOPQ" 79, "YTAS" 750, "YTDE" -203, "YTFI" 738, "YTLC" 514, "YTUC" 712;
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: var(--menu-height);
+    color: var(--theme-foreground);
+    text-transform: uppercase;
+
+		span {
+      height: 100%;
+    }
+  }
+
   .menu {
     grid-area: menu;
     position: relative;
@@ -258,60 +302,6 @@ onDestroy(unsubscribePageStore);
     }
   }
 
-  .menu__title {
-    grid-area: title;
-    padding: 1rem 0;
-    margin: 0 .5rem;
-    font-family: var(--heading-font-family);
-    font-size: 1.833rem;
-    line-height: 2.667rem;
-    color: var(--theme-foreground);
-    text-transform: uppercase;
-
-    @media (min-width: 48em) and (max-width: 846px) {
-      grid-column: span 2;
-      justify-self: center;
-      padding: .388rem 0;
-    }
-
-    span {
-      &:last-child {
-        display: none;
-      }
-    }
-
-    @media (min-width: 48em) and (max-width: 1060px) {
-      grid-column: span 2;
-      padding-left: 1rem;
-      font-size: 1.111rem;
-      line-height: 1.5;
-
-      span {
-        &:first-child {
-          display: none;
-        }
-
-        &:last-child {
-          display: block;
-        }
-      }
-    }
-
-    @media (min-width: 1060px) {
-      font-size: 1.833rem;
-      line-height: 1;
-
-      span {
-        &:first-child {
-          display: none;
-        }
-
-        &:last-child {
-          display: block;
-        }
-      }
-    }
-  }
 
   .toggle-theme {
     display: flex;

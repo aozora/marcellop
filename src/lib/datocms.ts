@@ -41,7 +41,7 @@ export async function cmsRequest({ query, variables, preview }: RequestType): Pr
 		throw json.errors;
 	}
 
-	console.log(json.data);
+	// console.log(json.data);
 
 	return json.data;
 }

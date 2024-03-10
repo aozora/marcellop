@@ -40,13 +40,17 @@
 }
 
 .word {
-  display: inline-block;
+  display: block;
 }
 
 .char {
   position: relative;
-  display: inline-block;
-  will-change: transform;
+  display: inline-flex;
+  overflow: hidden;
+
+  span {
+    will-change: transform;
+  }
 }
 
 
@@ -80,5 +84,18 @@
   }
   100% {
     font-variation-settings: 'wght' var(--text-weight-max), 'wdth' 80;
+  }
+}
+
+@keyframes breathe2 {
+  0% {
+    font-weight: var(--text-weight-max);
+  }
+  60% {
+    font-weight: var(--text-weight-min);
+
+  }
+  100% {
+    font-weight: var(--text-weight-max);
   }
 }

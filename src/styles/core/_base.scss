@@ -76,6 +76,8 @@ body {
   color: var(--body-font-color);
   transition: background-color .5s ease, color .5s ease;
 
+  font-optical-sizing: auto;
+  font-variation-settings: "slnt" 0, "GRAD" 0, "XOPQ" 96, "XTRA" 468, "YOPQ" 79, "YTAS" 750, "YTDE" -203, "YTFI" 738, "YTLC" 514, "YTUC" 712;
   font-size: var(--text-base-size);
   line-height: var(--baseline);
   font-weight: var(--text-weight);
