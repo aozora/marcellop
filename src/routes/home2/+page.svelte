@@ -48,7 +48,6 @@ onMount(() => {
 		const tl = gsap.timeline({ paused: true });
 
 		tl
-			// .set()
 			.fromTo(chars1,
 			{
 				x: '-100%'
@@ -62,7 +61,7 @@ onMount(() => {
 		)
 			.to(title1, {
 				ease: 'Power1.easeInOut',
-				y: '-100%'
+				y: '-200%'
 			})
 			.fromTo(menuTitleChars,
 				{
@@ -73,12 +72,13 @@ onMount(() => {
 					ease: 'Power1.easeInOut',
 					stagger: 0.1,
 					duration: 1
-				}
+				},
+				'<'
 			)
 			.to(title2, {
 				ease: 'Power1.easeInOut',
 				y: '-50%'
-			})
+			},'<')
 			.fromTo(chars2,
 				{
 					x: '-100%'
@@ -88,8 +88,22 @@ onMount(() => {
 					ease: 'Power1.easeInOut',
 					stagger: 0.1,
 					duration: 1
+				},
+				'-=90%'
+			)
+			.fromTo(chars2,
+				{
+					'--text-weight': 700
+				},
+				{
+					'--text-weight': 300,
+					yoyo: true,
+					repeat: -1,
+					duration: 2,
+					stagger: 0.1
 				}
-			);
+			)
+		;
 
 		tl.play();
 
@@ -228,12 +242,12 @@ onMount(() => {
         --text-weight-min: 300;
       }
 
-      &:hover {
-        span:not(.char) {
-          animation: breathe2 calc(var(--char-count) * 500ms) infinite both;
-          animation-delay: var(--delay);
-        }
-      }
+      //&:hover {
+      //  span:not(.char) {
+      //    animation: breathe2 calc(var(--char-count) * 500ms) infinite both;
+      //    animation-delay: var(--delay);
+      //  }
+      //}
     }
 
     h2 {
@@ -253,14 +267,16 @@ onMount(() => {
         --delay: calc((var(--char-index) + 1) * 400ms);
         --text-weight-max: 700;
         --text-weight-min: 300;
+        --text-weight: var(--text-weight-max);
+        font-weight: var(--text-weight);
       }
 
-      &:hover {
-        span:not(.char) {
-          animation: breathe2 calc(var(--char-count) * 500ms) infinite both;
-          animation-delay: var(--delay);
-        }
-      }
+      //&:hover {
+      //  span:not(.char) {
+      //    animation: breathe2 calc(var(--char-count) * 500ms) infinite both;
+      //    animation-delay: var(--delay);
+      //  }
+      //}
     }
 
   }
