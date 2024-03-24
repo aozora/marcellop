@@ -4,6 +4,7 @@ import Footer from '../components/Footer.svelte';
 import SkipLink from '../components/SkipLink.svelte';
 import '../styles/app.scss';
 import { onMount } from 'svelte';
+import CustomCursor from '../components/CustomCursor.svelte';
 
 /**
  * Set the current theme
@@ -33,3 +34,5 @@ export const prerender = true;
 </main>
 
 <Footer />
+
+<CustomCursor/>

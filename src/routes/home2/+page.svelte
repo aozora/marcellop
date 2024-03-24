@@ -49,16 +49,16 @@ onMount(() => {
 
 		tl
 			.fromTo(chars1,
-			{
-				x: '-100%'
-			},
-			{
-				x: '0%',
-				ease: 'Power1.easeInOut',
-				stagger: 0.1,
-				duration: 1
-			}
-		)
+				{
+					x: '-100%'
+				},
+				{
+					x: '0%',
+					ease: 'Power1.easeInOut',
+					stagger: 0.1,
+					duration: 1
+				}
+			)
 			.to(title1, {
 				ease: 'Power1.easeInOut',
 				y: '-200%'
@@ -78,7 +78,7 @@ onMount(() => {
 			.to(title2, {
 				ease: 'Power1.easeInOut',
 				y: '-50%'
-			},'<')
+			}, '<')
 			.fromTo(chars2,
 				{
 					x: '-100%'
@@ -186,6 +186,16 @@ onMount(() => {
 		</h2>
 	</div>
 
+	<div class="about2">
+		<h2>About</h2>
+
+		<div class="about2-highlight">
+			<p>Yo!
+				I’m an experienced Front-end engineer and architect with a background in Full-Stack development.</p>
+			<img src="/img/marcello-and-tato.png" alt="Marcello and Tato" />
+		</div>
+	</div>
+
 </div>
 
 
@@ -258,7 +268,7 @@ onMount(() => {
       font-family: var(--body-font-family);
       font-optical-sizing: auto;
       font-variation-settings: "slnt" 0, "GRAD" 0, "XOPQ" 96, "XTRA" 468, "YOPQ" 79, "YTAS" 750, "YTDE" -203, "YTFI" 738, "YTLC" 514, "YTUC" 712;
-			font-size: 20vw;
+      font-size: 20vw;
       font-weight: 700;
       line-height: 1.1;
       text-align: center;
@@ -277,6 +287,42 @@ onMount(() => {
       //    animation-delay: var(--delay);
       //  }
       //}
+    }
+
+  }
+
+  .about2 {
+    @include layout-grid;
+
+    > * {
+      grid-column: 2;
+    }
+
+  }
+
+  .about2-highlight {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+		gap: 2rem;
+		padding: 2rem 0;
+
+    p {
+			flex: 1 1 70%;
+			//max-width: 700px;
+      font-optical-sizing: auto;
+      font-variation-settings: "slnt" 0, "GRAD" 0, "XOPQ" 96, "XTRA" 468, "YOPQ" 79, "YTAS" 750, "YTDE" -203, "YTFI" 738, "YTLC" 514, "YTUC" 712;
+      font-size: 2.6rem;
+      font-weight: 600;
+			line-height: 1.2;
+			text-transform: uppercase;
+    }
+
+    img {
+      flex: 1 1 30%;
+      width: 30vw;
+      height: auto;
+      transform: rotate(6deg);
     }
 
   }
