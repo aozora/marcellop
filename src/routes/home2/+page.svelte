@@ -107,6 +107,49 @@ onMount(() => {
 
 		tl.play();
 
+
+		/**
+		 * About section animations
+		 */
+		const aboutContainer = self.selector('.about2');
+		const aboutPicture1 = self.selector('.about2 img');
+		const highlightChars = self.selector('.about2-highlight p .char span');
+
+		gsap.timeline({
+			scrollTrigger: {
+				trigger: aboutContainer,
+				start: 'top 60%',
+				end: 'bottom top',
+				scrub: false,
+				markers: true
+			}
+		})
+			.fromTo(highlightChars,
+				{
+					x: '-100%'
+				},
+				{
+					x: '0%',
+					ease: 'Power1.easeInOut',
+					stagger: 0.1,
+					duration: .6
+				}
+			)
+			.fromTo(aboutPicture1,
+				{
+					autoAlpha: 0,
+					rotate: '-6deg',
+					x: '-100%'
+				},
+				{
+					autoAlpha: 1,
+					rotate: '6deg',
+					x: '0%',
+					ease: 'Power1.easeInOut',
+					duration: 1
+				},
+				'<');
+
 		// gsap.to(title, {
 		//   xPercent: -100,
 		//   x: () => innerWidth,
@@ -126,7 +169,7 @@ onMount(() => {
 	return () => ctx.revert(); // <- Cleanup!
 });
 
-
+const aboutHighlight = 'Yo! I’m a Senior Front-end engineer on a mission to turn digital dreams into delightful realities, with the invaluable support of my cat assistant!';
 </script>
 
 <!--<Seo-->
@@ -151,7 +194,7 @@ onMount(() => {
 			<span class="word" style:--char-count={'MARCELLO'.length}>
       {#each Array.from('MARCELLO') as char, charIndex}
         <span class="char">
-          <span style:--char-index={charIndex}>{char}</span>
+          <span style:--char-index={charIndex} aria-hidden="true">{char}</span>
         </span>
       {/each}
       </span>
@@ -159,7 +202,7 @@ onMount(() => {
 			<span class="word" style:--char-count={'PALMITESSA'.length}>
       {#each Array.from('PALMITESSA') as char, charIndex}
         <span class="char">
-          <span style:--char-index={charIndex}>{char}</span>
+          <span style:--char-index={charIndex} aria-hidden="true">{char}</span>
         </span>
       {/each}
       </span>
@@ -190,9 +233,27 @@ onMount(() => {
 		<h2>About</h2>
 
 		<div class="about2-highlight">
-			<p>Yo!
-				I’m an experienced Front-end engineer and architect with a background in Full-Stack development.</p>
-			<img src="/img/marcello-and-tato.png" alt="Marcello and Tato" />
+			<p>
+				<span class="visuallyhidden">{aboutHighlight}</span>
+
+				{#each aboutHighlight.split(' ') as word}
+					<span class="word">
+						{#each Array.from(word) as char}
+							<span class="char">
+								<span aria-hidden="true">
+									{#if char === ' '}&nbsp;{:else}{char}{/if}
+								</span>
+							</span>
+						{/each}
+
+						&nbsp;
+					</span>
+				{/each}
+			</p>
+
+			<figure>
+				<img src="/img/marcello-and-tato.png" alt="Marcello and Tato" />
+			</figure>
 		</div>
 	</div>
 
@@ -205,7 +266,6 @@ onMount(() => {
   .main-content {
     overflow: hidden;
     position: relative;
-
   }
 
   h1 {
@@ -292,6 +352,7 @@ onMount(() => {
   }
 
   .about2 {
+    position: relative;
     @include layout-grid;
 
     > * {
@@ -304,25 +365,32 @@ onMount(() => {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-		gap: 2rem;
-		padding: 2rem 0;
+    gap: 2rem;
+    padding: 2rem 0;
 
     p {
-			flex: 1 1 70%;
-			//max-width: 700px;
+      flex: 1 1 70%;
+      //max-width: 700px;
       font-optical-sizing: auto;
       font-variation-settings: "slnt" 0, "GRAD" 0, "XOPQ" 96, "XTRA" 468, "YOPQ" 79, "YTAS" 750, "YTDE" -203, "YTFI" 738, "YTLC" 514, "YTUC" 712;
       font-size: 2.6rem;
       font-weight: 600;
-			line-height: 1.2;
-			text-transform: uppercase;
+      line-height: 1.2;
+      text-transform: uppercase;
     }
+
+		figure {
+			overflow: hidden;
+      flex: 1 1 30%;
+      width: 30vw;
+			padding: 1rem;
+		}
 
     img {
       flex: 1 1 30%;
       width: 30vw;
       height: auto;
-      transform: rotate(6deg);
+      //transform: rotate(6deg);
     }
 
   }
