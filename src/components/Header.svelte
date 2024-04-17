@@ -90,25 +90,21 @@ onDestroy(unsubscribePageStore);
 	id="header"
 	class={`header ${isHome ? 'header--home' : ''} ${showMobileMenu ? 'header--menu-open' : ''}`}
 >
-		<div aria-hidden="true" class="menu__title">
-<!--			<span aria-hidden="true">MP</span>-->
-<!--			<span>Marcello Palmitessa</span>-->
-			<span class="header-title-word" style:--char-count={'MARCELLO'.length}>
-      {#each Array.from('MARCELLO') as char, charIndex}
-        <span class="header-title-char">
-          <span style:--char-index={charIndex}>{char}</span>
-        </span>
-      {/each}
-      </span>
+	<div aria-hidden="true" class="menu__title">
+		<!--			<span aria-hidden="true">MP</span>-->
+		<!--			<span>Marcello Palmitessa</span>-->
+<!--		<span class="header-title-word">-->
+<!--      {#each Array.from('MARCELLO') as char, charIndex}-->
+<!--          <span class="header-title-char" data-flip-id={`hero-w1-${charIndex}`}>{char}</span>-->
+<!--      {/each}-->
+<!--		</span>-->
 
-			<span class="header-title-word" style:--char-count={'PALMITESSA'.length}>
-      {#each Array.from('PALMITESSA') as char, charIndex}
-        <span class="header-title-char">
-          <span style:--char-index={charIndex}>{char}</span>
-        </span>
-      {/each}
-      </span>
-		</div>
+<!--		<span class="header-title-word" style:&#45;&#45;char-count={'PALMITESSA'.length}>-->
+<!--      {#each Array.from('PALMITESSA') as char, charIndex}-->
+<!--          <span class="header-title-char" data-flip-id={`hero-w1-${charIndex}`}>{char}</span>-->
+<!--      {/each}-->
+<!--		</span>-->
+	</div>
 
 	<nav class="menu">
 		<ul class="menu__items">
@@ -144,8 +140,8 @@ onDestroy(unsubscribePageStore);
     --menu-background: transparent;
 
     //position: -webkit-sticky;
-    position: sticky;
-    top: 0;
+    //position: sticky;
+    //top: 0;
     display: grid;
     grid-template-columns: 2.667rem 1fr 1fr 2.667rem;
     grid-template-rows: var(--menu-height);
@@ -167,17 +163,13 @@ onDestroy(unsubscribePageStore);
   .header-title-char {
     position: relative;
     display: inline-flex;
-    overflow: hidden;
-
-    span {
-      will-change: transform;
-    }
+    will-change: transform;
   }
 
   .menu__title {
     grid-area: title;
-		overflow: hidden;
-		height: 100%;
+    overflow: hidden;
+    height: 100%;
     margin: 0 .5rem;
     padding: 0;
     font-family: var(--body-font-family);
@@ -189,7 +181,7 @@ onDestroy(unsubscribePageStore);
     color: var(--theme-foreground);
     text-transform: uppercase;
 
-		span {
+    span {
       height: 100%;
     }
   }
@@ -226,12 +218,12 @@ onDestroy(unsubscribePageStore);
       margin: 0;
       padding: 1rem 0;
       text-align: left;
-      transform: translateY(-200%);
-      transition: transform .5s ease-in-out;
-
-			@media (min-width: 48em){
-        animation: menuEnterTransition .5s ease-in-out 1s forwards;
-      }
+      //transform: translateY(-200%);
+      //transition: transform .5s ease-in-out;
+      //
+      //@media (min-width: 48em) {
+      //  animation: menuEnterTransition .5s ease-in-out 1s forwards;
+      //}
     }
 
     a {
@@ -268,13 +260,13 @@ onDestroy(unsubscribePageStore);
         outline: 0;
       }
 
-			@media (min-width: 48em){
-				&:hover {
+      @media (min-width: 48em) {
+        &:hover {
           //animation: breathe 3s infinite both;
           font-weight: 700;
           font-variation-settings: 'wght' 700, 'wdth' 80;
         }
-			}
+      }
     }
 
     @media (min-width: 48em) {

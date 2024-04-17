@@ -4,10 +4,12 @@ import { menuItems } from '$lib/stores/menu-store';
 import { onMount } from 'svelte';
 import gsap from 'gsap/dist/gsap';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
+import { Flip } from 'gsap/dist/Flip';
 // import Seo from '../../components/Seo.svelte';
 
 if (typeof window !== 'undefined') {
 	gsap.registerPlugin(ScrollTrigger);
+	gsap.registerPlugin(Flip);
 }
 
 type HomeProps = {
@@ -39,73 +41,99 @@ let mainContainer: HTMLDivElement;
 
 onMount(() => {
 	const ctx = gsap.context((self) => {
-		const chars1 = self.selector('.hero2-title1 .char span');
+		const chars1 = self.selector('.hero2-title1 .char');
 		const title1 = self.selector('.hero2-title1');
 		const title2 = self.selector('.hero2-title2');
 		const chars2 = self.selector('.hero2-title2 .char span');
-		const menuTitleChars = Array.from(document.querySelectorAll('.menu__title .header-title-char span'));
+		const menuTitleChars = Array.from(document.querySelectorAll('.menu__title .header-title-char'));
 
-		const tl = gsap.timeline({ paused: true });
+		// const state = Flip.getState('.hero2-title1 .char span, .menu__title .header-title-char span');
+		const state = Flip.getState(chars1);
 
-		tl
-			.fromTo(chars1,
-				{
-					x: '-100%'
-				},
-				{
-					x: '0%',
-					ease: 'Power1.easeInOut',
-					stagger: 0.1,
-					duration: 1
-				}
-			)
-			.to(title1, {
-				ease: 'Power1.easeInOut',
-				y: '-200%'
-			})
-			.fromTo(menuTitleChars,
-				{
-					x: '-100%'
-				},
-				{
-					x: '0%',
-					ease: 'Power1.easeInOut',
-					stagger: 0.1,
-					duration: 1
-				},
-				'<'
-			)
-			.to(title2, {
-				ease: 'Power1.easeInOut',
-				y: '-50%'
-			}, '<')
-			.fromTo(chars2,
-				{
-					x: '-100%'
-				},
-				{
-					x: '0%',
-					ease: 'Power1.easeInOut',
-					stagger: 0.1,
-					duration: 1
-				},
-				'-=90%'
-			)
-			.fromTo(chars2,
-				{
-					'--text-weight': 700
-				},
-				{
-					'--text-weight': 300,
-					yoyo: true,
-					repeat: -1,
-					duration: 2,
-					stagger: 0.1
-				}
-			)
-		;
+		// create the final state
+		// for (let ch of chars1) {
+		// 	ch.classList.toggle('active');
+		// }
+		// for (let menuCh of menuTitleChars) {
+		// 	menuCh.classList.toggle('active');
+		// }
+		const containerDest = document.querySelector('.menu__title');
+		//Switch the parent
+		chars1.forEach(char => containerDest.appendChild(char));
 
-		tl.play();
+		Flip.from(state, {
+			absolute: true,
+			spin: true,
+			scale: true,
+			duration: 2,
+			stagger: 0.09,
+			ease: 'back.out(1.3)',
+			// nested: true
+			toggleClass: 'flipping',
+			// ease: 'power1.inOut'
+		});
+
+		// const tl = gsap.timeline({ paused: true });
+
+		// tl
+		// 	.fromTo(chars1,
+		// 		{
+		// 			x: '-100%'
+		// 		},
+		// 		{
+		// 			x: '0%',
+		// 			ease: 'Power1.easeInOut',
+		// 			stagger: 0.1,
+		// 			duration: 1
+		// 		}
+		// 	)
+		// 	.to(title1, {
+		// 		ease: 'Power1.easeInOut',
+		// 		y: '-200%'
+		// 	})
+		// 	// .fromTo(menuTitleChars,
+		// 	// 	{
+		// 	// 		x: '-100%'
+		// 	// 	},
+		// 	// 	{
+		// 	// 		x: '0%',
+		// 	// 		ease: 'Power1.easeInOut',
+		// 	// 		stagger: 0.1,
+		// 	// 		duration: 1
+		// 	// 	},
+		// 	// 	'<'
+		// 	// )
+		// 	.to(title2, {
+		// 		ease: 'Power1.easeInOut',
+		// 		y: '-50%'
+		// 	}, '<')
+		// 	.fromTo(chars2,
+		// 		{
+		// 			x: '-100%'
+		// 		},
+		// 		{
+		// 			x: '0%',
+		// 			ease: 'Power1.easeInOut',
+		// 			stagger: 0.1,
+		// 			duration: 1
+		// 		},
+		// 		'-=90%'
+		// 	)
+		// 	.fromTo(chars2,
+		// 		{
+		// 			'--text-weight': 700
+		// 		},
+		// 		{
+		// 			'--text-weight': 300,
+		// 			yoyo: true,
+		// 			repeat: -1,
+		// 			duration: 2,
+		// 			stagger: 0.1
+		// 		}
+		// 	)
+		// ;
+		//
+		// tl.play();
 
 
 		/**
@@ -120,8 +148,8 @@ onMount(() => {
 				trigger: aboutContainer,
 				start: 'top 60%',
 				end: 'bottom top',
-				scrub: false,
-				markers: true
+				scrub: false
+				// markers: true
 			}
 		})
 			.fromTo(highlightChars,
@@ -191,19 +219,15 @@ const aboutHighlight = 'Yo! I’m a Senior Front-end engineer on a mission to tu
 		<h1 class="hero2-title1">
 			<span class="visuallyhidden">MARCELLO PALMITESSA</span>
 
-			<span class="word" style:--char-count={'MARCELLO'.length}>
+			<span class="word">
       {#each Array.from('MARCELLO') as char, charIndex}
-        <span class="char">
-          <span style:--char-index={charIndex} aria-hidden="true">{char}</span>
-        </span>
+          <span class="char" data-flip-id={`hero-w1-${charIndex}`} aria-hidden="true">{char}</span>
       {/each}
       </span>
 
 			<span class="word" style:--char-count={'PALMITESSA'.length}>
       {#each Array.from('PALMITESSA') as char, charIndex}
-        <span class="char">
-          <span style:--char-index={charIndex} aria-hidden="true">{char}</span>
-        </span>
+          <span class="char" data-flip-id={`hero-w2-${charIndex}`} aria-hidden="true">{char}</span>
       {/each}
       </span>
 		</h1>
@@ -306,11 +330,11 @@ const aboutHighlight = 'Yo! I’m a Senior Front-end engineer on a mission to tu
         font-size: 2.5rem;
       }
 
-      span:not(.char) {
-        --delay: calc((var(--char-index) + 1) * 400ms);
-        --text-weight-max: 700;
-        --text-weight-min: 300;
-      }
+      //span:not(.char) {
+      //  --delay: calc((var(--char-index) + 1) * 400ms);
+      //  --text-weight-max: 700;
+      //  --text-weight-min: 300;
+      //}
 
       //&:hover {
       //  span:not(.char) {
@@ -379,12 +403,12 @@ const aboutHighlight = 'Yo! I’m a Senior Front-end engineer on a mission to tu
       text-transform: uppercase;
     }
 
-		figure {
-			overflow: hidden;
+    figure {
+      overflow: hidden;
       flex: 1 1 30%;
       width: 30vw;
-			padding: 1rem;
-		}
+      padding: 1rem;
+    }
 
     img {
       flex: 1 1 30%;
