@@ -1,5 +1,3 @@
-import { metaTagsFragment } from './__fragments';
-
 export const resumeQuery = `
   query Resume {
     allResumeJobs(orderBy: from_DESC) {
@@ -9,11 +7,6 @@ export const resumeQuery = `
       to
       company
       description
-      seo: _seoMetaTags {
-        ...metaTagsFragment
-      }
     }     
   }
-
-  ${metaTagsFragment}
 `;

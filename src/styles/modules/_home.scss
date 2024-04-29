@@ -9,7 +9,7 @@
   }
 }
 
-.about2 {
+.about {
   position: relative;
   @include layout-grid;
 
@@ -19,7 +19,7 @@
 
   h2 {
     margin-bottom: 3rem;
-    font-size: 20rem;
+    font-size: 30vw;
     --text-weight: 600;
     font-family: var(--body-font-family);
     text-transform: uppercase;
@@ -32,11 +32,18 @@
   }
 }
 
-.about2-highlight {
+.about-highlight {
   display: grid;
-  grid-template-columns: 65% 35%;
   gap: 2rem;
   padding: 2rem 0;
+
+  &.picture-text {
+    grid-template-columns: 35% 65%;
+  }
+
+  &.text-picture {
+    grid-template-columns: 65% 35%;
+  }
 
   p {
     font-optical-sizing: auto;
@@ -44,7 +51,10 @@
     font-size: 2.6rem;
     font-weight: 600;
     line-height: 1.2;
-    text-transform: uppercase;
+
+    &.about-highlight-up {
+      text-transform: uppercase;
+    }
   }
 
   figure {

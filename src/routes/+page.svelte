@@ -5,6 +5,8 @@ import gsap from 'gsap/dist/gsap';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 import { getHeroTimeline } from '$lib/animations';
 import AboutPicture1 from '$components/AboutPicture1.svelte';
+import { commonData } from '$lib/store';
+import Head from '$components/Head.svelte';
 
 if (typeof window !== 'undefined') {
 	gsap.registerPlugin(ScrollTrigger);
@@ -19,6 +21,9 @@ type HomeProps = {
  * PROPS
  */
 export let data: HomeProps;
+let { home }: HomeProps = data;
+const { site } = $commonData;
+const headTags = home && site ? home.seo.concat(site.favicon) : [];
 
 let mainContainer: HTMLDivElement;
 
@@ -37,10 +42,10 @@ onMount(() => {
 		/**
 		 * About section animations
 		 */
-		const aboutContainer = self.selector('.about2');
-		const aboutTitle = self.selector('.about2 h2');
-		const aboutPicture1 = self.selector('.about2 svg');
-		const highlightChars = self.selector('.about2-highlight p .char span');
+		const aboutContainer = self.selector('.about');
+		const aboutTitle = self.selector('.about h2');
+		const aboutPicture1 = self.selector('.about svg');
+		const highlightChars = self.selector('.about-highlight[data-animate="1"] p .char span');
 
 		gsap.fromTo(aboutTitle,
 			{ x: '100%' },
@@ -63,7 +68,7 @@ onMount(() => {
 			{
 				x: '0%',
 				ease: 'Power1.easeInOut',
-				stagger: 0.1,
+				stagger: 0.07,
 				duration: .35,
 				scrollTrigger: {
 					trigger: aboutContainer,
@@ -72,7 +77,16 @@ onMount(() => {
 			}
 		);
 
-		gsap.fromTo(aboutPicture1,
+		const tl2 = gsap.timeline({
+			paused: true,
+			scrollTrigger: {
+				trigger: aboutContainer,
+				start: 'top 50%',
+				toggleActions: 'play none none none'
+			}
+		});
+
+		tl2.fromTo(aboutPicture1,
 			{
 				autoAlpha: 0,
 				rotate: '-6deg',
@@ -83,35 +97,27 @@ onMount(() => {
 				rotate: '6deg',
 				x: '0%',
 				ease: 'Power1.easeInOut',
-				duration: 1,
-				scrollTrigger: {
-					trigger: aboutContainer,
-					start: 'top 50%',
-					toggleActions: 'play none none none'
-				}
-			});
+				duration: 1
+			})
+			.to(aboutPicture1,
+				{
+					rotate: '-6deg',
+					ease: 'Power1.easeInOut',
+					duration: 1
+				});
 
+		tl2.play();
 	}, mainContainer); // <- Scope!
 
 	return () => ctx.revert(); // <- Cleanup!
 });
 
 const aboutHighlight = 'Yo! I’m a Senior Front-end engineer on a mission to turn digital dreams into delightful realities, with the invaluable support of my cat assistant!';
+const aboutHighlight2 = 'Passionate about crafting efficient, accessible, user-friendly interfaces and scalable architectures while leading development and design teams.';
+const aboutHighlight3 = 'Dedicated to bridging the gap between design and development, leveraging collaborative approaches to create visually stunning and highly functional digital experiences within dynamic team environments.';
 </script>
 
-<!--<Seo-->
-<!--  domainUrl={domainUrl}-->
-<!--  siteSeo={site.globalSeo}-->
-<!--  metaTags={metaTags}-->
-<!--  canonicalUrl={null}-->
-<!--  pageLink={-->
-<!--          {-->
-<!--            id: home.id,-->
-<!--            slug: home.slug,-->
-<!--            _modelApiKey: home._modelApiKey-->
-<!--          }-->
-<!--        }-->
-<!--/>-->
+<Head {headTags} />
 
 <div class="main-content" bind:this={mainContainer}>
 	<div class="hero2">
@@ -136,11 +142,11 @@ const aboutHighlight = 'Yo! I’m a Senior Front-end engineer on a mission to tu
 		</h2>
 	</div>
 
-	<div class="about2">
+	<div class="about">
 		<h2>About</h2>
 
-		<div class="about2-highlight">
-			<p>
+		<div class="about-highlight text-picture" data-animate="1">
+			<p class="about-highlight-up">
 				<span class="visuallyhidden">{aboutHighlight}</span>
 
 				{#each aboutHighlight.split(' ') as word}
@@ -160,6 +166,55 @@ const aboutHighlight = 'Yo! I’m a Senior Front-end engineer on a mission to tu
 
 			<figure>
 				<AboutPicture1 />
+			</figure>
+		</div>
+
+		<div class="about-highlight picture-text">
+			<figure>
+				<img src="/img/tato1.jpg" alt="" />
+			</figure>
+
+			<p>
+				<span class="visuallyhidden">{aboutHighlight2}</span>
+
+				{#each aboutHighlight2.split(' ') as word}
+					<span class="word">
+						{#each Array.from(word) as char}
+							<span class="char">
+								<span aria-hidden="true">
+									{#if char === ' '}&nbsp;{:else}{char}{/if}
+								</span>
+							</span>
+						{/each}
+
+						&nbsp;
+					</span>
+				{/each}
+			</p>
+		</div>
+
+
+		<div class="about-highlight text-picture">
+			<p data-animate-text="">
+				<span class="visuallyhidden">{aboutHighlight3}</span>
+
+				{#each aboutHighlight3.split(' ') as word}
+					<span class="word">
+						{#each Array.from(word) as char}
+							<span class="char">
+								<span aria-hidden="true">
+									{#if char === ' '}&nbsp;{:else}{char}{/if}
+								</span>
+							</span>
+						{/each}
+
+						&nbsp;
+					</span>
+				{/each}
+			</p>
+
+			<figure>
+				<img src="/img/tato2.jpg" alt="" />
 			</figure>
 		</div>
 	</div>

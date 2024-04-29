@@ -103,6 +103,7 @@ export type CommonData = {
 export type Home = {
 	id: string;
 	_modelApiKey: string;
+	seo: Array<SeoMetaTagType>;
 	title: string;
 	slug: string;
 	canonical: string;
@@ -117,7 +118,6 @@ export type Home = {
 	aboutPicture: ResponsiveImage;
 	whatidoHeading: string;
 	whatido: Array<WhatidoItem>;
-	seo: Array<SeoMetaTagType>;
 };
 
 // export type HeroData = {

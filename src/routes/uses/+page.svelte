@@ -1,6 +1,7 @@
 <script lang="ts">
 
 import type { Use } from '$types';
+import { commonData } from '$lib/store';
 
 type UsesProps = {
 	allUses: Array<Use>

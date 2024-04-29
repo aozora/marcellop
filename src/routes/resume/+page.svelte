@@ -1,11 +1,9 @@
 <script lang="ts">
 import type { ResumeJob } from '$types';
-// import Seo from "../../components/Seo.svelte";
 
 type ResumeProps = {
   allResumeJobs: Array<ResumeJob>
 }
-
 
 /**
  * PROPS
@@ -13,23 +11,17 @@ type ResumeProps = {
 export let data: ResumeProps;
 let { allResumeJobs }: ResumeProps = data;
 
-
-/**
- * State
- */
-// const metaTags: Array<SeoMetaTagType> = home && home.seo ? home.seo.concat(site.favicon) : [];
-
 const getYear = date => {
   const d = new Date(date);
   return d.getFullYear();
 };
-
 </script>
+
+<!--<Head {headTags} />-->
 
 <section class="resume">
   <h1>Resume</h1>
 
-  <!--{allResumeJobs && allResumeJobs.map(job => <Job job={job} key={job.id} />)}-->
   {#each allResumeJobs as job}
     <article>
       <header>

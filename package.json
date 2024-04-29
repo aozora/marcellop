@@ -19,6 +19,7 @@
     "@threlte/rapier": "^2.0.0",
     "datocms-structured-text-utils": "^4.0.0",
     "gsap": "^3.12.5",
+    "lenis": "^1.0.45",
     "lil-gui": "^0.19.1",
     "motion": "^10.17.0",
     "schema-dts": "^1.1.2",
