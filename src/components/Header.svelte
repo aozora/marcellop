@@ -1,25 +1,18 @@
 <script lang="ts">
 import { page } from '$app/stores';
-import { onDestroy } from 'svelte';
 import { browser } from '$app/environment';
-import { menuItems } from '$lib/stores/menu-store';
+import { commonData } from '$lib/store';
 
 /**
  * Props
  */
 // export let menu: Array<MenuItem>;
 
-/**
- * State
- */
+	const {menu} = $commonData;
 let showMobileMenu = false;
 // const isMobile = window.matchMedia('(max-width: 768px)').matches;
 const isClient = browser === true;
-
-// subscribe the page store to get page info
-let pageInfo;
-const unsubscribePageStore = page.subscribe(value => pageInfo = value);
-let isHome = pageInfo.pathname === '/';
+let isHome = $page.pathname === '/';
 
 /**
  * Toggle the mobile menu
@@ -78,40 +71,37 @@ const toggleTheme = () => {
 //     menuElement.setAttribute('aria-labelledby', 'menu__toggle');
 //   }
 // }, [isMobile, isClient]);
-
-
-/**
- * Cleanup
- */
-onDestroy(unsubscribePageStore);
 </script>
 
 <header
 	id="header"
 	class={`header ${isHome ? 'header--home' : ''} ${showMobileMenu ? 'header--menu-open' : ''}`}
 >
-	<div aria-hidden="true" class="menu__title">
-		<!--			<span aria-hidden="true">MP</span>-->
-		<!--			<span>Marcello Palmitessa</span>-->
-<!--		<span class="header-title-word">-->
-<!--      {#each Array.from('MARCELLO') as char, charIndex}-->
-<!--          <span class="header-title-char" data-flip-id={`hero-w1-${charIndex}`}>{char}</span>-->
-<!--      {/each}-->
-<!--		</span>-->
+	<h1 class="menu__title">
+		<span class="visuallyhidden">Marcello Palmitessa</span>
+		<span class="header-title-word" style:--char-count={'MARCELLO'.length}>
+      {#each Array.from('MARCELLO') as char, charIndex}
+        <span class="header-title-char">
+          <span aria-hidden="true" style:--char-index={charIndex}>{char}</span>
+        </span>
+      {/each}
+      </span>
 
-<!--		<span class="header-title-word" style:&#45;&#45;char-count={'PALMITESSA'.length}>-->
-<!--      {#each Array.from('PALMITESSA') as char, charIndex}-->
-<!--          <span class="header-title-char" data-flip-id={`hero-w1-${charIndex}`}>{char}</span>-->
-<!--      {/each}-->
-<!--		</span>-->
-	</div>
+		<span class="header-title-word" style:--char-count={'PALMITESSA'.length}>
+      {#each Array.from('PALMITESSA') as char, charIndex}
+        <span class="header-title-char">
+          <span aria-hidden="true" style:--char-index={charIndex}>{char}</span>
+        </span>
+      {/each}
+      </span>
+	</h1>
 
 	<nav class="menu">
 		<ul class="menu__items">
-			{#if $menuItems}
-				{#each $menuItems as item}
+			{#if menu && menu.menuItems}
+				{#each menu.menuItems as item}
 					<li>
-						<a href={item.url} class={pageInfo.pathname === item.url ? 'active' : ''} onClick={()=>toggleMobileMenu()}>
+						<a href={item.url} class={$page.pathname === item.url ? 'active' : ''} on:click={()=>toggleMobileMenu()}>
 							<span>{item.title}</span>
 						</a>
 					</li>
@@ -140,8 +130,8 @@ onDestroy(unsubscribePageStore);
     --menu-background: transparent;
 
     //position: -webkit-sticky;
-    //position: sticky;
-    //top: 0;
+    position: sticky;
+    top: 0;
     display: grid;
     grid-template-columns: 2.667rem 1fr 1fr 2.667rem;
     grid-template-rows: var(--menu-height);
@@ -163,7 +153,11 @@ onDestroy(unsubscribePageStore);
   .header-title-char {
     position: relative;
     display: inline-flex;
-    will-change: transform;
+    overflow: hidden;
+
+    span {
+      will-change: transform;
+    }
   }
 
   .menu__title {
@@ -218,12 +212,12 @@ onDestroy(unsubscribePageStore);
       margin: 0;
       padding: 1rem 0;
       text-align: left;
-      //transform: translateY(-200%);
-      //transition: transform .5s ease-in-out;
-      //
-      //@media (min-width: 48em) {
-      //  animation: menuEnterTransition .5s ease-in-out 1s forwards;
-      //}
+      transform: translateY(-200%);
+      transition: transform .5s ease-in-out;
+
+      @media (min-width: 48em) {
+        animation: menuEnterTransition .5s ease-in-out 1s forwards;
+      }
     }
 
     a {

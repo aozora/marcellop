@@ -1,14 +1,14 @@
 import { metaTagsFragment } from './__fragments';
 
-export const usesQuery = `
+export const tatiQuery = `
   query Uses {
-    allUses {
+    tati {
       id
-      title
-      description(markdown: true)
       seo: _seoMetaTags {
         ...metaTagsFragment
       }
+      title
+      intro
     }
   }
 

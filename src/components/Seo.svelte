@@ -1,7 +1,7 @@
 <script lang="ts">
   import SvelteSeo from 'svelte-seo';
   // import { OpenGraphImage, TwitterCard } from "svelte-seo/types/SvelteSeo";
-  import type { GlobalSeo, PageLink, SeoMetaTagType } from '../lib/types';
+  import type { GlobalSeo, PageLink, SeoMetaTagType } from '../types';
   import usePageLink from '../hooks/usePageLink';
   import type { Thing, WithContext } from 'schema-dts';
 

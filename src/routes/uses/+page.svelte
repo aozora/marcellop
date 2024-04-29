@@ -1,11 +1,9 @@
 <script lang="ts">
-import type { Menu, Site, Use } from "$lib/types";
-import { menuItems } from "../../lib/stores/menu-store";
 
-export type UsesProps = {
-  site: Site,
-  menu: Menu,
-  allUses: Array<Use>
+import type { Use } from '$types';
+
+type UsesProps = {
+	allUses: Array<Use>
 }
 
 
@@ -13,33 +11,19 @@ export type UsesProps = {
  * PROPS
  */
 export let data: UsesProps;
-let { site, menu, allUses }: UsesProps = data;
-
-
-// write the menuItems store with the data form the page endpoint
-// the Header component will use that.
-menuItems.update(() => {
-  return menu.menuItems;
-});
-
-/**
- * State
- */
-// const metaTags: Array<SeoMetaTagType> = home && home.seo ? home.seo.concat(site.favicon) : [];
-
-
+let { allUses }: UsesProps = data;
 </script>
 
 <section class="uses">
-  <h1>Uses</h1>
-  <p>Here the specifics of some piece of software or hardware I regularly use.</p>
+	<h1>Uses</h1>
+	<p>Here the specifics of some piece of software or hardware I regularly use.</p>
 
-  {#each allUses as use}
-    <article key={use.id} class="uses__use">
-      <h2>{use.title}</h2>
-      <p class="job__description">{@html use.description}</p>
-    </article>
-  {/each}
+	{#each allUses as use}
+		<article class="uses__use">
+			<h2>{use.title}</h2>
+			<p class="job__description">{@html use.description}</p>
+		</article>
+	{/each}
 </section>
 
 <style lang="scss">

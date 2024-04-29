@@ -95,6 +95,11 @@ export type MenuItem = {
 	url: string;
 };
 
+export type CommonData = {
+	site: Site;
+	menu: Menu;
+};
+
 export type Home = {
 	id: string;
 	_modelApiKey: string;

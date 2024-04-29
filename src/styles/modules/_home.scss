@@ -8,3 +8,53 @@
     font-size: var(--text-scale-6);
   }
 }
+
+.about2 {
+  position: relative;
+  @include layout-grid;
+
+  > * {
+    grid-column: 2;
+  }
+
+  h2 {
+    margin-bottom: 3rem;
+    font-size: 20rem;
+    --text-weight: 600;
+    font-family: var(--body-font-family);
+    text-transform: uppercase;
+    color: var(--color-pantone);
+
+    @supports (font-variation-settings: normal) {
+      font-family: var(--variable-font-family);
+      font-variation-settings: 'wght' var(--text-weight);
+    }
+  }
+}
+
+.about2-highlight {
+  display: grid;
+  grid-template-columns: 65% 35%;
+  gap: 2rem;
+  padding: 2rem 0;
+
+  p {
+    font-optical-sizing: auto;
+    font-variation-settings: "slnt" 0, "GRAD" 0, "XOPQ" 96, "XTRA" 468, "YOPQ" 79, "YTAS" 750, "YTDE" -203, "YTFI" 738, "YTLC" 514, "YTUC" 712;
+    font-size: 2.6rem;
+    font-weight: 600;
+    line-height: 1.2;
+    text-transform: uppercase;
+  }
+
+  figure {
+    width: 100%;
+    padding: 1rem;
+  }
+
+
+  svg {
+    width: 100%;
+  }
+
+}

@@ -1,12 +1,8 @@
 <script lang="ts">
-import type { Menu, SeoMetaTagType, Site } from "$lib/types";
-import { menuItems } from "../../lib/stores/menu-store";
-import type { ResumeJob } from "$lib/types";
-import Seo from "../../components/Seo.svelte";
+import type { ResumeJob } from '$types';
+// import Seo from "../../components/Seo.svelte";
 
-export type ResumeProps = {
-  site: Site,
-  menu: Menu,
+type ResumeProps = {
   allResumeJobs: Array<ResumeJob>
 }
 
@@ -15,14 +11,8 @@ export type ResumeProps = {
  * PROPS
  */
 export let data: ResumeProps;
-let { site, menu, allResumeJobs }: ResumeProps = data;
+let { allResumeJobs }: ResumeProps = data;
 
-
-// write the menuItems store with the data form the page endpoint
-// the Header component will use that.
-menuItems.update(() => {
-  return menu.menuItems;
-});
 
 /**
  * State

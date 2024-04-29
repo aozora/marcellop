@@ -1,24 +1,7 @@
-import { globalSeoFragment, metaTagsFragment, responsiveImageFragment } from './__fragments';
+import { metaTagsFragment, responsiveImageFragment } from './__fragments';
 
 export const homeQuery = `
   query Home {
-    site: _site {
-      favicon: faviconMetaTags {
-        ...metaTagsFragment
-      }
-      globalSeo {
-        ...globalSeoFragment
-      }
-    }
-    
-    menu {
-      menuItems {
-        id
-        title
-        url
-      }
-    }   
-       
     home {
       id
       _modelApiKey
@@ -56,6 +39,5 @@ export const homeQuery = `
   }
 
   ${metaTagsFragment}
-  ${globalSeoFragment}
   ${responsiveImageFragment}
 `;

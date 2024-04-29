@@ -2,7 +2,7 @@
 import { onDestroy } from "svelte";
 import { useFrame, InstancedMesh, Instance, type Position, useThrelte } from "@threlte/core";
 import { MeshStandardMaterial, TetrahedronGeometry } from "three";
-import type { Particle } from "../lib/types";
+import type { Particle } from "../types";
 import { getParticles } from "../lib/three-utils";
 import { type ClientXY, cursorPosition } from "$lib/stores/cursor-store";
 import { BokehPass } from "three/examples/jsm/postprocessing/BokehPass";

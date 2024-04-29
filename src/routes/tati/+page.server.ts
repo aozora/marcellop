@@ -1,11 +1,11 @@
 import type { PageServerLoad } from './$types';
 import { cmsRequest } from '$lib/datocms';
 import type { RequestType } from '$lib/datocms';
-import { usesQuery } from '$queries/uses.query';
+import { tatiQuery } from '$queries/tati.query';
 
 export const load: PageServerLoad = async () => {
 	const graphqlRequest: RequestType = {
-		query: usesQuery
+		query: tatiQuery
 	};
 
 	const data = await cmsRequest(graphqlRequest);

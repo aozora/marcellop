@@ -1,6 +1,6 @@
 import { globalSeoFragment, metaTagsFragment } from './__fragments';
 
-export const layoutQuery = `
+export const commonQuery = `
   query Layout {
     site: _site {
       favicon: faviconMetaTags {

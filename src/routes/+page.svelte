@@ -1,240 +1,168 @@
 <script lang="ts">
-  import type { Home, Menu, SeoMetaTagType, Site } from '$lib/types';
-  // import What from '../components/What.svelte';
-  import { menuItems } from '$lib/stores/menu-store';
-  // import { intersectionAPI } from '$lib/intersection-observer-action.ts';
-  // import { aboutSectionIsInView } from '$lib/stores/home-scroll-store';
-  import { onMount } from 'svelte';
-  import gsap from 'gsap/dist/gsap';
-  import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
-  import Seo from '../components/Seo.svelte';
-  // import { Image } from "svelte-datocms";
-  // import Seo from "../components/Seo.svelte";
-  // import HeroCanvas from "../components/HeroCanvas.svelte";
-  // import CanvasWrapper from "../components/CanvasWrapper.svelte";
+import type { Home } from '$types';
+import { onMount } from 'svelte';
+import gsap from 'gsap/dist/gsap';
+import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
+import { getHeroTimeline } from '$lib/animations';
+import AboutPicture1 from '$components/AboutPicture1.svelte';
 
-  if (typeof window !== 'undefined') {
-    gsap.registerPlugin(ScrollTrigger);
-  }
+if (typeof window !== 'undefined') {
+	gsap.registerPlugin(ScrollTrigger);
+}
 
-  export type HomeProps = {
-    site: Site,
-    menu: Menu,
-    home: Home,
-    domainUrl: string
-  }
+type HomeProps = {
+	home: Home,
+	domainUrl: string
+}
 
-  /**
-   * PROPS
-   */
-  export let data: HomeProps;
-  let { site, menu, home, domainUrl }: HomeProps = data;
+/**
+ * PROPS
+ */
+export let data: HomeProps;
 
-  // write the menuItems store with the data form the page endpoint
-  // the Header component will use that.
-  menuItems.update(() => {
-    return menu.menuItems;
-  });
+let mainContainer: HTMLDivElement;
 
-  /**
-   * State
-   */
-  const metaTags: Array<SeoMetaTagType> = home && home.seo ? home.seo.concat(site.favicon) : [];
-  const heroHeading1Words = home.heading1.split(' ');
-  const heroHeading2Words = home.heading2.split(' ');
-  const aboutDescription1 = home.aboutDescription1.split(' ');
-  const aboutDescription2 = home.aboutDescription2.split(' ');
+onMount(() => {
+	const ctx = gsap.context((self) => {
+		const chars1 = self.selector('.hero2-title1 .char span');
+		const title1 = self.selector('.hero2-title1');
+		const title2 = self.selector('.hero2-title2');
+		const chars2 = self.selector('.hero2-title2 .char span');
+		const menuTitleChars = Array.from(document.querySelectorAll<HTMLElement>('.menu__title .header-title-char span'));
 
-  let mainContainer;
-  // let tl = gsap.timeline({ paused: true });
-
-  onMount(() => {
-    const ctx = gsap.context((self) => {
-      const heroContainer = self.selector('.hero');
-      const aboutContainer = self.selector('.about');
-      const h1Words = self.selector('.hero-title1 .word');
-      const h2Words = self.selector('.hero-title2 .word');
-      const diamond = self.selector('.diamond');
-      const lineLeft = self.selector('.line-left');
-      const lineRight = self.selector('.line-right');
-      const aboutTitle = self.selector('.about-title span');
-      const aboutParagraphs = self.selector('.about-textblock-wrapper p');
-      // const aboutTexts = self.selector('.about-textblock-wrapper span');
-
-      const tl = gsap.timeline({ paused: true });
-
-      /**
-       * Animation on load
-       */
-      tl
-        .to(diamond, { scale: 1, rotate: '765deg', duration: 1, ease: 'power1.inOut' })
-        .to(lineLeft, { scaleX: 1, duration: 1, ease: 'power1.inOut' }, '<')
-        .to(lineRight, { scaleX: 1, duration: 1, ease: 'power1.inOut' }, '<')
-        .to(h1Words[0], { duration: 1, ease: 'power1.inOut', transformOrigin: '0 100%', scale: 1, skewX: 0 }, '-=.6')
-        .to(h1Words[1], { duration: 1, ease: 'power1.inOut', transformOrigin: '100% 100%', scale: 1, skewX: 0 }, '<')
-        .to(h2Words[0], { duration: 1, ease: 'power1.inOut', transformOrigin: '0 0', scale: 1, skewX: 0 }, '<')
-        .to(h2Words[1], { duration: 1, ease: 'power1.inOut', transformOrigin: '100% 0', scale: 1, skewX: 0 }, '<');
-
-      tl.play();
-
-      /**
-       * Rotation of the hero on scroll
-       */
-      const tl2 = gsap.timeline({
-        scrollTrigger: {
-          trigger: heroContainer,
-          start: 'top top',
-          end: 'bottom top',
-          scrub: true,
-          pin: true,
-          pinSpacing: true,
-          invalidateOnRefresh: true
-        }
-      });
-
-      tl2.fromTo(heroContainer, {
-        rotate: 0
-      }, {
-        rotate: '-45deg'
-      })
-        .to(self.selector('.hero-title1'), {
-          xPercent: -200
-        }, '<')
-        .to(self.selector('.hero-title2'), {
-          xPercent: 200
-        }, '<')
-        .fromTo(lineLeft, { scaleX: 1 }, { scaleX: 0, duration: .35, ease: 'power1.inOut' }, '-=.5')
-        .fromTo(lineRight, { scaleX: 1 }, { scaleX: 0, duration: .35, ease: 'power1.inOut' }, '<')
-        .fromTo(diamond, { rotate: '-45deg' }, {
-          rotate: 405,
-          scale: 50,
-          backgroundColor: 'var(--theme-inverted-background)'
-        }, '-=.3');
-
-      // clip-path: polygon(0 0,100% 0, 100% 100%,0 100%);
-      // clip-path: polygon(50% 50%, 50% 50%, 50% 50%, 50% 50%);
+		const tl = getHeroTimeline(chars1, title1, title2, chars2, menuTitleChars);
+		tl.play();
 
 
-      /**
-       * About section animations
-       */
-      gsap.timeline({
-        scrollTrigger: {
-          trigger: aboutContainer,
-          start: 'top 60%',
-          end: 'bottom top',
-          scrub: false
-        }
-      }).fromTo(aboutTitle, {
-        opacity: 0
-      }, {
-        duration: 1.2,
-        opacity: 1,
-        stagger: 0.2,
-        ease: 'power1.inOut'
-      });
+		/**
+		 * About section animations
+		 */
+		const aboutContainer = self.selector('.about2');
+		const aboutTitle = self.selector('.about2 h2');
+		const aboutPicture1 = self.selector('.about2 svg');
+		const highlightChars = self.selector('.about2-highlight p .char span');
 
-      aboutParagraphs.forEach(p => {
-        gsap.timeline({
-          scrollTrigger: {
-            trigger: p,
-            start: 'top 60%',
-            end: 'bottom top',
-            scrub: false
-          }
-        }).fromTo(p, {
-          opacity: 0
-        }, {
-          duration: 1.2,
-          opacity: 1,
-          stagger: 0.2,
-          ease: 'power1.inOut'
-        });
-      });
+		gsap.fromTo(aboutTitle,
+			{ x: '100%' },
+			{
+				x: '0%',
+				ease: 'Power1.easeInOut',
+				scrollTrigger: {
+					trigger: aboutTitle,
+					start: 'clamp(top bottom)',
+					end: 'clamp(top top)',
+					toggleActions: 'play none none none',
+					scrub: true
+				}
+			});
 
-    }, mainContainer); // <- Scope!
+		gsap.fromTo(highlightChars,
+			{
+				x: '-100%'
+			},
+			{
+				x: '0%',
+				ease: 'Power1.easeInOut',
+				stagger: 0.1,
+				duration: .35,
+				scrollTrigger: {
+					trigger: aboutContainer,
+					toggleActions: 'play none none none'
+				}
+			}
+		);
 
-    return () => ctx.revert(); // <- Cleanup!
-  });
+		gsap.fromTo(aboutPicture1,
+			{
+				autoAlpha: 0,
+				rotate: '-6deg',
+				x: '100%'
+			},
+			{
+				autoAlpha: 1,
+				rotate: '6deg',
+				x: '0%',
+				ease: 'Power1.easeInOut',
+				duration: 1,
+				scrollTrigger: {
+					trigger: aboutContainer,
+					start: 'top 50%',
+					toggleActions: 'play none none none'
+				}
+			});
 
+	}, mainContainer); // <- Scope!
 
+	return () => ctx.revert(); // <- Cleanup!
+});
+
+const aboutHighlight = 'Yo! I’m a Senior Front-end engineer on a mission to turn digital dreams into delightful realities, with the invaluable support of my cat assistant!';
 </script>
 
-<Seo
-  domainUrl={domainUrl}
-  siteSeo={site.globalSeo}
-  metaTags={metaTags}
-  canonicalUrl={null}
-  pageLink={
-          {
-            id: home.id,
-            slug: home.slug,
-            _modelApiKey: home._modelApiKey
-          }
-        }
-/>
+<!--<Seo-->
+<!--  domainUrl={domainUrl}-->
+<!--  siteSeo={site.globalSeo}-->
+<!--  metaTags={metaTags}-->
+<!--  canonicalUrl={null}-->
+<!--  pageLink={-->
+<!--          {-->
+<!--            id: home.id,-->
+<!--            slug: home.slug,-->
+<!--            _modelApiKey: home._modelApiKey-->
+<!--          }-->
+<!--        }-->
+<!--/>-->
 
 <div class="main-content" bind:this={mainContainer}>
-  <!--  <CanvasWrapper>-->
-  <!--    <HeroCanvas />-->
-  <!--  </CanvasWrapper>-->
+	<div class="hero2">
+		<h2 class="hero2-title2">
+			<span class="visuallyhidden">DESIGN ENGINEER</span>
 
-  <div class="hero">
-    <h1 class="hero-title1 splitting">
-      <span class="visuallyhidden">{home.heading1}</span>
-      {#each heroHeading1Words as word, wordIndex}
-        <span class="word">
-          {word}
-          {#if wordIndex < heroHeading1Words.length - 1}&nbsp;{/if}
+			<span class="word" style:--char-count={'DESIGN'.length}>
+      {#each Array.from('DESIGN') as char, charIndex}
+        <span class="char">
+          <span style:--char-index={charIndex}>{char}</span>
         </span>
       {/each}
-    </h1>
+      </span>
 
-    <div class="separator">
-      <div class="line-left" />
-      <div class="diamond" />
-      <div class="line-right" />
-    </div>
-
-    <h2 class="hero-title2 splitting">
-      <span class="visuallyhidden">{home.heading2}</span>
-      {#each heroHeading2Words as word, wordIndex}
-        <span class="word">
-          {word}
-          {#if wordIndex < heroHeading2Words.length - 1}&nbsp;{/if}
+			<span class="word" style:--char-count={'ENGINEER'.length}>
+      {#each Array.from('ENGINEER') as char, charIndex}
+        <span class="char">
+          <span style:--char-index={charIndex}>{char}</span>
         </span>
       {/each}
-    </h2>
-  </div>
-  <img class="hero-img"
-       srcset={home.aboutPicture.responsiveImage.webpSrcSet}
-       sizes={home.aboutPicture.responsiveImage.sizes}
-       src={home.aboutPicture.responsiveImage.src}
-       alt={home.aboutPicture.responsiveImage.alt} />
+      </span>
+		</h2>
+	</div>
 
-  <div class="about">
-    <div class="about-inner">
-      <h2 aria-label={home.aboutHeading} class="about-title">
-        {#each Array.from(home.aboutHeading) as char}
-          <span>{char}</span>
-        {/each}
-      </h2>
+	<div class="about2">
+		<h2>About</h2>
 
-      <div class="about-textblock-wrapper">
-        <p style:--char-count={aboutDescription1.length}>
-          {#each aboutDescription1 as char, charIndex}
-            <span style:--char-index={charIndex}>{char}&nbsp;</span>
-          {/each}
-        </p>
-        <p style:--char-count={aboutDescription2.length}>
-          {#each aboutDescription2 as char, charIndex}
-            <span style:--char-index={charIndex}>{char}&nbsp;</span>
-          {/each}
-        </p>
-      </div>
+		<div class="about2-highlight">
+			<p>
+				<span class="visuallyhidden">{aboutHighlight}</span>
 
-    </div>
-  </div>
+				{#each aboutHighlight.split(' ') as word}
+					<span class="word">
+						{#each Array.from(word) as char}
+							<span class="char">
+								<span aria-hidden="true">
+									{#if char === ' '}&nbsp;{:else}{char}{/if}
+								</span>
+							</span>
+						{/each}
+
+						&nbsp;
+					</span>
+				{/each}
+			</p>
+
+			<figure>
+				<AboutPicture1 />
+			</figure>
+		</div>
+	</div>
 
 </div>
 
@@ -242,53 +170,9 @@
 <style lang="scss">
   @import '../styles/shared';
 
-  @keyframes squiggly-anim {
-    0% {
-      filter: url('#squiggly-0')
-    }
-
-    15% {
-      filter: url('#squiggly-1')
-    }
-
-    25% {
-      filter: url('#squiggly-2')
-    }
-
-    35% {
-      filter: url('#squiggly-3')
-    }
-
-    50% {
-      filter: url('#squiggly-4')
-    }
-    // -
-
-    65% {
-      filter: url('#squiggly-4')
-    }
-
-    80% {
-      filter: url('#squiggly-3')
-    }
-
-    100% {
-      filter: url('#squiggly-2')
-    }
-
-    75% {
-      filter: url('#squiggly-1')
-    }
-
-    100% {
-      filter: url('#squiggly-0')
-    }
-  }
-
   .main-content {
     overflow: hidden;
     position: relative;
-
   }
 
   h1 {
@@ -297,34 +181,50 @@
     text-align: center;
   }
 
-  .hero {
+  .hero2 {
+    overflow: hidden;
     position: relative;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     @include container;
-    height: 90vh;
+    height: calc(100vh - var(--menu-height));
     padding: 3rem 1rem 0 1rem;
     margin-bottom: 2rem;
 
     h1 {
       position: relative;
-      width: 100%;
+      width: auto;
       max-width: none;
       margin: 0 auto;
-      font-family: var(--heading-font-family);
-      font-size: clamp(2.88rem, 6.3vw + 1.4rem, 7.1rem);
-      line-height: var(--hero-h1-line-height-min);
+      font-family: var(--body-font-family);
+      font-optical-sizing: auto;
+      font-variation-settings: "slnt" 0, "GRAD" 0, "XOPQ" 96, "XTRA" 468, "YOPQ" 79, "YTAS" 750, "YTDE" -203, "YTFI" 738, "YTLC" 514, "YTUC" 712;
+
+      font-size: 16vw; // so is kept in the viewport width
+      //font-size: 30vw; // così devo scrollare
+      font-weight: 700;
+      line-height: 1.1;
       text-align: center;
       text-transform: uppercase;
-      @include ligature;
-      //@include light-shadow;
-      //color: oklch(85% .1 320);
 
       @media (max-width: 360px) {
         font-size: 2.5rem;
       }
+
+      span:not(.char) {
+        --delay: calc((var(--char-index) + 1) * 400ms);
+        --text-weight-max: 700;
+        --text-weight-min: 300;
+      }
+
+      //&:hover {
+      //  span:not(.char) {
+      //    animation: breathe2 calc(var(--char-count) * 500ms) infinite both;
+      //    animation-delay: var(--delay);
+      //  }
+      //}
     }
 
     h2 {
@@ -332,130 +232,30 @@
       width: 100%;
       max-width: none;
       margin: 0 auto;
-      font-family: var(--heading-font-family);
-      font-size: clamp(2.88rem, 6.3vw + 1.4rem, 7.1rem);
-      line-height: var(--hero-hi-line-height-min);
+      font-family: var(--body-font-family);
+      font-optical-sizing: auto;
+      font-variation-settings: "slnt" 0, "GRAD" 0, "XOPQ" 96, "XTRA" 468, "YOPQ" 79, "YTAS" 750, "YTDE" -203, "YTFI" 738, "YTLC" 514, "YTUC" 712;
+      font-size: 20vw;
+      font-weight: 700;
+      line-height: 1.1;
       text-align: center;
-      @include ligature;
-      //@include light-shadow;
-      //color: oklch(85% .1 320);
-    }
 
-    .decoration {
-      position: absolute;
-      bottom: -45%;
-      left: -10%;
-      font-family: var(--heading-font-family);
-      font-weight: 400;
-      font-size: 38rem;
-      line-height: 1;
-      @include ligature;
-      color: #ccc;
-    }
-
-  }
-
-
-  .about {
-    position: relative;
-    @include layout-grid;
-
-    background-color: var(--theme-inverted-background);
-  }
-
-  .about-inner {
-    grid-column: 2;
-
-    h2 {
-      font-family: var(--heading-font-family);
-      font-size: 25vw;
-      //font-size: clamp(2.88rem, 6.3vw + 1.4rem, 7.1rem);
-      //line-height: var(--hero-h1-line-height-min);
-      text-align: left;
-      //text-transform: uppercase;
-      @include ligature;
-      color: var(--theme-inverted-foreground);
-    }
-  }
-
-  .about-textblock-wrapper {
-    p {
-      display: flex;
-      flex-wrap: wrap;
-      margin-bottom: 4rem;
-      --text-weight: 700;
-      color: var(--theme-inverted-foreground);
-
-      span {
-        --text-weight-max: 600;
-        --text-weight-min: 300;
-
-        font-size: 4vw;
-        line-height: 1.2;
-        font-variation-settings: 'wght' var(--text-weight-max), 'wdth' 80;
-        //--delay: 300ms; // calc((var(--char-index) + 1) * 400ms);
+      span:not(.char) {
         --delay: calc((var(--char-index) + 1) * 400ms);
-        //animation: breathe calc(var(--char-count) * 400ms) infinite both;
-        //animation-delay: var(--delay);
-
-        //&:hover {
-        //  animation: breathe 4000ms infinite both;
-        //  animation-delay: var(--delay);
-        //}
+        --text-weight-max: 700;
+        --text-weight-min: 300;
+        --text-weight: var(--text-weight-max);
+        font-weight: var(--text-weight);
       }
 
-      &:hover {
-        span {
-          animation: breathe calc(var(--char-count) * 400ms) infinite both;
-          animation-delay: var(--delay);
-        }
-      }
+      //&:hover {
+      //  span:not(.char) {
+      //    animation: breathe2 calc(var(--char-count) * 500ms) infinite both;
+      //    animation-delay: var(--delay);
+      //  }
+      //}
     }
+
   }
 
-  .separator {
-    position: relative;
-    display: block;
-    width: 100%;
-    height: 32px;
-    margin: 0 0 1rem 0;
-  }
-
-  .diamond {
-    position: absolute;
-    top: calc(50% - 6px);
-    left: calc(50% - 6px);
-    display: block;
-    width: 12px;
-    height: 12px;
-    background-color: var(--theme-foreground);
-    transform: rotate(45deg);
-    z-index: 0;
-  }
-
-  .line-left,
-  .line-right {
-    content: '';
-    position: absolute;
-    top: calc(50% - 1px);
-    left: 0;
-    width: calc(50% - 20px);
-    height: 1px;
-    background-color: var(--theme-foreground);
-    //transform: translate3d(0,0, 0) rotate(-45deg);
-  }
-
-  .line-right {
-    left: auto;
-    right: 0;
-  }
-
-  .hero-img {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    max-width: 400px;
-    transform: translate3d(-50%, -50%, 0);
-  }
 </style>
-
