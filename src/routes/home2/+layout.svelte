@@ -1,10 +1,10 @@
 <script lang="ts">
-import Header from '../components/Header.svelte';
-import Footer from '../components/Footer.svelte';
-import SkipLink from '../components/SkipLink.svelte';
-import '../styles/app.scss';
+import Header from '../../components/Header.svelte';
+import Footer from '../../components/Footer.svelte';
+import SkipLink from '../../components/SkipLink.svelte';
+import '../../styles/app.scss';
 import { onMount } from 'svelte';
-import CustomCursor from '../components/CustomCursor.svelte';
+import CustomCursor from '../../components/CustomCursor.svelte';
 
 /**
  * Set the current theme
@@ -16,7 +16,6 @@ onMount(() => {
 	}
 });
 
-export const prerender = true;
 </script>
 
 <svelte:head>

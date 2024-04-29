@@ -16,20 +16,20 @@
     "@threlte/core": "^7.0.12",
     "@threlte/extras": "^8.3.0",
     "@threlte/rapier": "^2.0.0",
-    "datocms-structured-text-utils": "^3.0.0",
+    "datocms-structured-text-utils": "^4.0.0",
     "gsap": "^3.12.5",
     "lil-gui": "^0.19.1",
     "motion": "^10.17.0",
     "schema-dts": "^1.1.2",
     "svelte-datocms": "^0.6.4",
     "svelte-seo": "^1.5.4",
-    "three": "^0.162.0"
+    "three": "^0.164.1"
   },
   "devDependencies": {
     "@sveltejs/adapter-auto": "^3.1.1",
     "@sveltejs/kit": "^2.5.0",
     "@sveltejs/vite-plugin-svelte": "^3.0.1",
-    "@types/three": "^0.162.0",
+    "@types/three": "^0.164.0",
     "@typescript-eslint/eslint-plugin": "^7.0.2",
     "@typescript-eslint/parser": "^7.0.2",
     "eslint": "^8.56.0",
