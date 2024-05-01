@@ -7,6 +7,7 @@ import { getHeroTimeline } from '$lib/animations';
 import AboutPicture1 from '$components/AboutPicture1.svelte';
 import { commonData } from '$lib/store';
 import Head from '$components/Head.svelte';
+import Skills from '$components/Skills.svelte';
 
 if (typeof window !== 'undefined') {
 	gsap.registerPlugin(ScrollTrigger);
@@ -171,7 +172,7 @@ const aboutHighlight3 = 'Dedicated to bridging the gap between design and develo
 
 		<div class="about-highlight picture-text">
 			<figure>
-				<img src="/img/tato1.jpg" alt="" />
+				<img src="/img/tato1.webp" alt="" />
 			</figure>
 
 			<p>
@@ -214,10 +215,12 @@ const aboutHighlight3 = 'Dedicated to bridging the gap between design and develo
 			</p>
 
 			<figure>
-				<img src="/img/tato2.jpg" alt="" />
+				<img src="/img/tato2.webp" alt="" />
 			</figure>
 		</div>
 	</div>
+
+	<Skills/>
 
 </div>
 

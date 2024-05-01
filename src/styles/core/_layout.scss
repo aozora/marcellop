@@ -8,34 +8,8 @@
 
 main {
   position: relative;
-  margin: 0;
-  //margin-top: $menu-height;
-}
-
-main > section,
-main > article {
-  max-width: var(--sectionMaxWidth);
-  margin: 0 auto;
-  padding: 0;
-}
-
-main > section.full-width {
   width: 100%;
-  max-width: none;
-  padding: 0;
-}
-
-
-// https://piccalil.li/quick-tip/flow-css-utility/
-.flow > * + * {
-  margin-top: var(--flow-space, 1em);
-}
-
-html, body, main, #root {
-  width: 100%;
-  min-height: 100%;
   margin: 0;
-  padding: 0;
 }
 
 .dom {

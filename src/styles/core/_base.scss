@@ -21,10 +21,13 @@ body {
   min-height: 100%;
   margin: 0;
   padding: 0;
+}
 
-  //@include media("<desktop") {
-  //  overflow-x: hidden; // this conflict with position sticky
-  //}
+html, body, main, #root {
+  width: 100%;
+  min-height: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 html {

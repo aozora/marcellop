@@ -212,12 +212,12 @@ const toggleTheme = () => {
       margin: 0;
       padding: 1rem 0;
       text-align: left;
-      transform: translateY(-200%);
-      transition: transform .5s ease-in-out;
-
-      @media (min-width: 48em) {
-        animation: menuEnterTransition .5s ease-in-out 1s forwards;
-      }
+      //transform: translateY(-200%);
+      //transition: transform .5s ease-in-out;
+			//
+      //@media (min-width: 48em) {
+      //  animation: menuEnterTransition .5s ease-in-out 1s forwards;
+      //}
     }
 
     a {

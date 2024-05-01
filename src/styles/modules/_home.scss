@@ -68,3 +68,45 @@
   }
 
 }
+
+.skills {
+  position: relative;
+  @include layout-grid;
+
+  > * {
+    grid-column: 2;
+  }
+
+  h2 {
+    margin-bottom: 3rem;
+    font-size: 30vw;
+    --text-weight: 600;
+    font-family: var(--body-font-family);
+    text-transform: uppercase;
+    color: var(--color-pantone);
+
+    @supports (font-variation-settings: normal) {
+      font-family: var(--variable-font-family);
+      font-variation-settings: 'wght' var(--text-weight);
+    }
+  }
+}
+
+.skills-title-wrapper {
+  overflow-x: auto;
+  grid-column: 1/-1;
+
+  h2 {
+    text-wrap: nowrap;
+    padding-left: 1.5rem;
+
+    @media (min-width: 64em) {
+      padding-left: 2rem;
+    }
+
+    //@media (min-width: 1920px) {
+    //  // 1920px - 32px - 32px = 1856px
+    //  padding-left: 1fr min(1856px, 100%) 1fr;
+    //}
+  }
+}
