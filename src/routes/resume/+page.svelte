@@ -77,9 +77,9 @@ onMount(() => {
 		/* Do nothing if user prefers reduced motion */
 		if (prefersReducedMotion.matches) return;
 
-		sections.forEach((section, index) => {
+		sections.forEach((section) => {
 			const heading = section.querySelector('h2');
-			const image = section.querySelector('.section__image');
+			// const image = section.querySelector('.section__image');
 
 			/* Set animation start state */
 			gsap.set(heading, {
