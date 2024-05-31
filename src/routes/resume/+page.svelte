@@ -210,7 +210,7 @@ onMount(() => {
     top: var(--menu-height);
     left: 0;
     width: 100%;
-    background: var(--navBgColor);
+    background: var(--theme-background);
     color: var(--navTextColor);
     z-index: 2;
     height: 6rem;
@@ -316,31 +316,34 @@ onMount(() => {
     //flex-direction: column;
     justify-content: left;
     align-items: center;
-		gap: 1rem;
+    gap: 1rem;
     min-height: 100vh;
     padding: 8rem 0 max(5vh, 2rem);
 
   }
 
   .job__date {
-		flex: 0 0 30%;
+    flex: 0 0 30%;
     margin: 0;
-    font-family: var(--heading-font-family);
+		color: var(--theme-brand);
+    //font-family: var(--heading-font-family);
     //font-size: 2rem;
 
-    @media (min-width: 48em) {
+    @supports (font-variation-settings: normal) {
+      font-family: var(--variable-font-family);
+      font-variation-settings: 'wght' var(--text-weight);
     }
   }
 
-	.job__title {
-		font-size: 2rem;
-		font-weight: 700;
+  .job__title {
+    font-size: 2rem;
+    font-weight: 700;
     font-variation-settings: 'wght' 700;
   }
 
-	.job__job {
-		flex: 1 1 70%;
-	}
+  .job__job {
+    flex: 1 1 70%;
+  }
 
 
 </style>

@@ -127,10 +127,8 @@ const toggleTheme = () => {
   @import '../styles/shared';
 
   .header {
-    --menu-background: transparent;
-
-    //position: -webkit-sticky;
-    position: sticky;
+    --menu-background: var(--theme-background);
+    position: fixed;
     top: 0;
     display: grid;
     grid-template-columns: 2.667rem 1fr 1fr 2.667rem;
@@ -142,7 +140,7 @@ const toggleTheme = () => {
     height: var(--menu-height);
     margin: 0;
     padding: 0;
-    background-color: transparent;
+    background-color: var(--menu-background);
     z-index: var(--menu-zindex);
   }
 
