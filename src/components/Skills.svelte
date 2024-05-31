@@ -192,6 +192,11 @@ onMount(() => {
 		</div>
 	</Marquee>
 
-
-	Headless CMS
+	<Marquee inverted="true">
+		<div><span>Headless CMS</span></div>
+		<div><span>Agile</span></div>
+		<div><span>Scrum</span></div>
+		<div><span>Accessibility</span></div>
+		<div><span>Performance</span></div>
+	</Marquee>
 </div>
