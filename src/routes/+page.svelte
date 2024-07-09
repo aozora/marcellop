@@ -46,7 +46,33 @@ onMount(() => {
 		const aboutContainer = self.selector('.about');
 		const aboutTitle = self.selector('.about h2');
 		const aboutPicture1 = self.selector('.about svg');
-		const highlightChars = self.selector('.about-highlight[data-animate="1"] p .char span');
+		const words = self.selector('.about-highlight[data-animate="1"] p .word');
+		const defaultColor = '#333'; // grey
+		const divHighlight = '#fff'; // white
+		const proNumWords = words.length;
+		const wordsTimeline = gsap.timeline();
+
+		let wordsScrollTrigger = ScrollTrigger.create({
+			trigger: '.about-highlight[data-animate="1"]',
+			start: 'top 75%',
+			end: 'center 40%',
+			scrub: 1,
+			animation: wordsTimeline
+		});
+
+		function animateWord(word) {
+			if (wordsScrollTrigger.direction == 1) {
+				gsap.to(word, { color: divHighlight });
+			} else {
+				gsap.to(word, { color: defaultColor });
+			}
+		}
+
+		words.forEach((word, index) => {
+			wordsTimeline.call(animateWord, [word], index / proNumWords + 0.01);
+		});
+
+		wordsTimeline.to({}, { duration: 0.01 });
 
 		gsap.fromTo(aboutTitle,
 			{ x: '100%' },
@@ -62,52 +88,34 @@ onMount(() => {
 				}
 			});
 
-		gsap.fromTo(highlightChars,
-			{
-				x: '-100%'
-			},
-			{
-				x: '0%',
-				ease: 'Power1.easeInOut',
-				stagger: 0.07,
-				duration: .35,
-				scrollTrigger: {
-					trigger: aboutContainer,
-					toggleActions: 'play none none none'
-				}
-			}
-		);
 
-		const tl2 = gsap.timeline({
-			paused: true,
-			scrollTrigger: {
-				trigger: aboutContainer,
-				start: 'top 50%',
-				toggleActions: 'play none none none'
-			}
+		ScrollTrigger.create({
+			trigger: aboutPicture1,
+			start: 'top 75%',
+			toggleActions: 'play pause resume reverse',
+			// markers: true,
+			animation: gsap.timeline()
+				.fromTo(aboutPicture1,
+					{
+						autoAlpha: 0,
+						rotate: '-6deg',
+						x: '100%'
+					},
+					{
+						autoAlpha: 1,
+						rotate: '6deg',
+						x: '0%',
+						ease: 'Power1.easeInOut',
+						duration: 1
+					})
+				.to(aboutPicture1,
+					{
+						rotate: '-6deg',
+						ease: 'Power1.easeInOut',
+						duration: 1
+					})
 		});
 
-		tl2.fromTo(aboutPicture1,
-			{
-				autoAlpha: 0,
-				rotate: '-6deg',
-				x: '100%'
-			},
-			{
-				autoAlpha: 1,
-				rotate: '6deg',
-				x: '0%',
-				ease: 'Power1.easeInOut',
-				duration: 1
-			})
-			.to(aboutPicture1,
-				{
-					rotate: '-6deg',
-					ease: 'Power1.easeInOut',
-					duration: 1
-				});
-
-		tl2.play();
 	}, mainContainer); // <- Scope!
 
 	return () => ctx.revert(); // <- Cleanup!
@@ -151,17 +159,7 @@ const aboutHighlight3 = 'Dedicated to bridging the gap between design and develo
 				<span class="visuallyhidden">{aboutHighlight}</span>
 
 				{#each aboutHighlight.split(' ') as word}
-					<span class="word">
-						{#each Array.from(word) as char}
-							<span class="char">
-								<span aria-hidden="true">
-									{#if char === ' '}&nbsp;{:else}{char}{/if}
-								</span>
-							</span>
-						{/each}
-
-						&nbsp;
-					</span>
+					<span class="word">{word}&nbsp;</span>
 				{/each}
 			</p>
 
@@ -170,47 +168,27 @@ const aboutHighlight3 = 'Dedicated to bridging the gap between design and develo
 			</figure>
 		</div>
 
-		<div class="about-highlight picture-text">
+		<div class="about-highlight picture-text" data-animate="1">
 			<figure>
 				<img src="/img/tato1.webp" alt="" />
 			</figure>
 
-			<p>
+			<p class="about-highlight-up">
 				<span class="visuallyhidden">{aboutHighlight2}</span>
 
 				{#each aboutHighlight2.split(' ') as word}
-					<span class="word">
-						{#each Array.from(word) as char}
-							<span class="char">
-								<span aria-hidden="true">
-									{#if char === ' '}&nbsp;{:else}{char}{/if}
-								</span>
-							</span>
-						{/each}
-
-						&nbsp;
-					</span>
+					<span class="word">{word}&nbsp;</span>
 				{/each}
 			</p>
 		</div>
 
 
-		<div class="about-highlight text-picture">
-			<p data-animate-text="">
+		<div class="about-highlight text-picture" data-animate="1">
+			<p class="about-highlight-up">
 				<span class="visuallyhidden">{aboutHighlight3}</span>
 
 				{#each aboutHighlight3.split(' ') as word}
-					<span class="word">
-						{#each Array.from(word) as char}
-							<span class="char">
-								<span aria-hidden="true">
-									{#if char === ' '}&nbsp;{:else}{char}{/if}
-								</span>
-							</span>
-						{/each}
-
-						&nbsp;
-					</span>
+					<span class="word">{word}&nbsp;</span>
 				{/each}
 			</p>
 
@@ -220,7 +198,7 @@ const aboutHighlight3 = 'Dedicated to bridging the gap between design and develo
 		</div>
 	</div>
 
-	<Skills/>
+	<Skills />
 
 </div>
 
