@@ -43,36 +43,13 @@ onMount(() => {
 		/**
 		 * About section animations
 		 */
-		const aboutContainer = self.selector('.about');
+			// const aboutContainer = self.selector('.about');
 		const aboutTitle = self.selector('.about h2');
 		const aboutPicture1 = self.selector('.about svg');
-		const words = self.selector('.about-highlight[data-animate="1"] p .word');
 		const defaultColor = '#333'; // grey
 		const divHighlight = '#fff'; // white
-		const proNumWords = words.length;
-		const wordsTimeline = gsap.timeline();
 
-		let wordsScrollTrigger = ScrollTrigger.create({
-			trigger: '.about-highlight[data-animate="1"]',
-			start: 'top 75%',
-			end: 'center 40%',
-			scrub: 1,
-			animation: wordsTimeline
-		});
-
-		function animateWord(word) {
-			if (wordsScrollTrigger.direction == 1) {
-				gsap.to(word, { color: divHighlight });
-			} else {
-				gsap.to(word, { color: defaultColor });
-			}
-		}
-
-		words.forEach((word, index) => {
-			wordsTimeline.call(animateWord, [word], index / proNumWords + 0.01);
-		});
-
-		wordsTimeline.to({}, { duration: 0.01 });
+		const aboutSections: Array<HTMLElement> = self.selector('.about-highlight[data-animate="1"]');
 
 		gsap.fromTo(aboutTitle,
 			{ x: '100%' },
@@ -88,35 +65,64 @@ onMount(() => {
 				}
 			});
 
+		aboutSections.forEach(section => {
+			const wordsTimeline = gsap.timeline();
+			const words = section.querySelectorAll('p .word');
+			const wordsCount = words.length;
+			const picture = section.querySelector('.about svg, .about img');
+			const isPictureOnTheRight = section.classList.contains('text-picture');
 
-		ScrollTrigger.create({
-			trigger: aboutPicture1,
-			start: 'top 75%',
-			toggleActions: 'play pause resume reverse',
-			// markers: true,
-			animation: gsap.timeline()
-				.fromTo(aboutPicture1,
-					{
-						autoAlpha: 0,
-						rotate: '-6deg',
-						x: '100%'
-					},
-					{
-						autoAlpha: 1,
-						rotate: '6deg',
-						x: '0%',
-						ease: 'Power1.easeInOut',
-						duration: 1
-					})
-				.to(aboutPicture1,
-					{
-						rotate: '-6deg',
-						ease: 'Power1.easeInOut',
-						duration: 1
-					})
+			function animateWord(word) {
+				if (wordsScrollTrigger.direction == 1) {
+					gsap.to(word, { color: divHighlight });
+				} else {
+					gsap.to(word, { color: defaultColor });
+				}
+			}
+
+			let wordsScrollTrigger = ScrollTrigger.create({
+				trigger: section,
+				start: 'top 75%',
+				end: 'center 40%',
+				scrub: 1,
+				animation: wordsTimeline
+			});
+
+			words.forEach((word, index) => {
+				wordsTimeline.call(animateWord, [word], index / wordsCount + 0.01);
+			});
+
+			wordsTimeline.to({}, { duration: 0.01 });
+
+			// animate pictures
+			ScrollTrigger.create({
+				trigger: picture,
+				start: 'top 75%',
+				toggleActions: 'play pause resume reverse',
+				// markers: true,
+				animation: gsap.timeline()
+					.fromTo(picture,
+						{
+							autoAlpha: 0,
+							rotate: '-6deg',
+							x: isPictureOnTheRight ? '100%' : '-100%'
+						},
+						{
+							autoAlpha: 1,
+							rotate: '6deg',
+							x: '0%',
+							ease: 'Power1.easeInOut',
+							duration: 1
+						})
+					.to(picture,
+						{
+							rotate: '-6deg',
+							ease: 'Power1.easeInOut',
+							duration: 1
+						})
+			});
 		});
-
-	}, mainContainer); // <- Scope!
+			}, mainContainer); // <- Scope!
 
 	return () => ctx.revert(); // <- Cleanup!
 });
