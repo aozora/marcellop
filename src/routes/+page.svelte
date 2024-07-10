@@ -45,7 +45,7 @@ onMount(() => {
 		 */
 			// const aboutContainer = self.selector('.about');
 		const aboutTitle = self.selector('.about h2');
-		const aboutPicture1 = self.selector('.about svg');
+		// const aboutPicture1 = self.selector('.about svg');
 		const defaultColor = '#333'; // grey
 		const divHighlight = '#fff'; // white
 
@@ -98,7 +98,7 @@ onMount(() => {
 			ScrollTrigger.create({
 				trigger: picture,
 				start: 'top 75%',
-				toggleActions: 'play pause resume reverse',
+				toggleActions: 'play reverse play reverse',
 				// markers: true,
 				animation: gsap.timeline()
 					.fromTo(picture,
@@ -217,12 +217,6 @@ const aboutHighlight3 = 'Dedicated to bridging the gap between design and develo
     position: relative;
   }
 
-  h1 {
-    width: 100%;
-    margin: 0 auto;
-    text-align: center;
-  }
-
   .hero2 {
     overflow: hidden;
     position: relative;
@@ -234,40 +228,6 @@ const aboutHighlight3 = 'Dedicated to bridging the gap between design and develo
     height: calc(100vh - var(--menu-height));
     padding: 3rem 1rem 0 1rem;
     margin-bottom: 2rem;
-
-    h1 {
-      position: relative;
-      width: auto;
-      max-width: none;
-      margin: 0 auto;
-      font-family: var(--body-font-family);
-      font-optical-sizing: auto;
-      font-variation-settings: "slnt" 0, "GRAD" 0, "XOPQ" 96, "XTRA" 468, "YOPQ" 79, "YTAS" 750, "YTDE" -203, "YTFI" 738, "YTLC" 514, "YTUC" 712;
-
-      font-size: 16vw; // so is kept in the viewport width
-      //font-size: 30vw; // così devo scrollare
-      font-weight: 700;
-      line-height: 1.1;
-      text-align: center;
-      text-transform: uppercase;
-
-      @media (max-width: 360px) {
-        font-size: 2.5rem;
-      }
-
-      span:not(.char) {
-        --delay: calc((var(--char-index) + 1) * 400ms);
-        --text-weight-max: 700;
-        --text-weight-min: 300;
-      }
-
-      //&:hover {
-      //  span:not(.char) {
-      //    animation: breathe2 calc(var(--char-count) * 500ms) infinite both;
-      //    animation-delay: var(--delay);
-      //  }
-      //}
-    }
 
     h2 {
       position: relative; // needed for reveal animation
@@ -289,15 +249,7 @@ const aboutHighlight3 = 'Dedicated to bridging the gap between design and develo
         --text-weight: var(--text-weight-max);
         font-weight: var(--text-weight);
       }
-
-      //&:hover {
-      //  span:not(.char) {
-      //    animation: breathe2 calc(var(--char-count) * 500ms) infinite both;
-      //    animation-delay: var(--delay);
-      //  }
-      //}
     }
-
   }
 
 </style>

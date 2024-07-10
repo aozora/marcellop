@@ -86,10 +86,6 @@ onMount(() => {
 				opacity: 0,
 				y: 50
 			});
-			// gsap.set(image, {
-			// 	opacity: 0,
-			// 	rotateY: 15
-			// });
 
 			/* Create the timeline */
 			const sectionTl = gsap.timeline({
@@ -98,24 +94,16 @@ onMount(() => {
 					start: () => 'top center',
 					end: () => `+=${window.innerHeight}`,
 					toggleActions: 'play reverse play reverse'
-					// toggleClass: 'is-active',
-					// markers: true,
 				}
 			});
 
 			/* Add tweens to the timeline */
 			sectionTl
-				// 	.to(image, {
-				// 	opacity: 1,
-				// 	rotateY: -5,
-				// 	duration: 6,
-				// 	ease: 'elastic'
-				// })
 				.to(heading, {
 					opacity: 1,
 					y: 0,
-					duration: 2
-				}, 0.5);
+					duration: 1
+				}, 0.2);
 
 			/* Create a new timeline to add an active class to the nav link for the current section */
 			// const sectionTl2 = gsap.timeline({
@@ -144,28 +132,28 @@ onMount(() => {
 
 <!--<Head {headTags} />-->
 
+<h1 class="resume-title">Resume</h1>
+
+<nav class="nav-timeline">
+	<!--Shows our position on the timeline-->
+	<div class="marker"></div>
+
+	<!--Draggable element-->
+	<div class="nav__track" data-draggable>
+		<ul class="nav__list">
+			{#each allResumeJobs as job}
+				<li>
+					<a href={`#timeline-${!job.to ? 'present' : getYear(job.to)}`} class="nav__link" data-link>
+						{#if job.to}<span>{getYear(job.to)}</span>{/if}
+						{#if !job.to}<span>present</span>{/if}
+					</a>
+				</li>
+			{/each}
+		</ul>
+	</div>
+</nav>
+
 <div class="resume">
-	<h1>Resume</h1>
-
-	<nav>
-		<!--Shows our position on the timeline-->
-		<div class="marker"></div>
-
-		<!--Draggable element-->
-		<div class="nav__track" data-draggable>
-			<ul class="nav__list">
-				{#each allResumeJobs as job}
-					<li>
-						<a href={`#timeline-${!job.to ? 'present' : getYear(job.to)}`} class="nav__link" data-link>
-							{#if job.to}<span>{getYear(job.to)}</span>{/if}
-							{#if !job.to}<span>present</span>{/if}
-						</a>
-					</li>
-				{/each}
-			</ul>
-		</div>
-	</nav>
-
 	{#each allResumeJobs as job, jobIndex}
 		<section id={`timeline-${!job.to ? 'present' : getYear(job.to)}`} style:--i={jobIndex}>
 			<h2 class="job__date">
@@ -185,27 +173,34 @@ onMount(() => {
 <style lang="scss">
   @import '../../styles/shared';
 
-  .resume {
+  .resume-title {
+    --text-weight: 600;
     @include container;
+    margin-bottom: 3rem;
+    font-family: var(--body-font-family);
+    font-size: 26vw;
+    line-height: 1.2;
+    text-transform: uppercase;
+    color: var(--color-pantone);
 
-    h1 {
-      --text-weight: 600;
-      margin-bottom: 3rem;
-      font-family: var(--body-font-family);
-      font-size: 15rem;
-      line-height: 1.2;
-      text-transform: uppercase;
-      color: var(--color-pantone);
-
-      @supports (font-variation-settings: normal) {
-        font-family: var(--variable-font-family);
-        font-variation-settings: 'wght' var(--text-weight);
-      }
+    @supports (font-variation-settings: normal) {
+      font-family: var(--variable-font-family);
+      font-variation-settings: 'wght' var(--text-weight);
     }
   }
 
-  nav {
+  .resume {
     overflow: hidden;
+    position: relative;
+    @include container;
+  }
+
+  .resume-list {
+    position: relative;
+  }
+
+  .nav-timeline {
+    //overflow: hidden;
     position: sticky;
     top: var(--menu-height);
     left: 0;
@@ -325,7 +320,7 @@ onMount(() => {
   .job__date {
     flex: 0 0 30%;
     margin: 0;
-		color: var(--theme-brand);
+    color: var(--theme-brand);
     //font-family: var(--heading-font-family);
     //font-size: 2rem;
 

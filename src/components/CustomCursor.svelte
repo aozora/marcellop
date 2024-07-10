@@ -60,5 +60,6 @@ let size = spring(32);
     width: 100vw;
     height: 100vh;
 		mix-blend-mode: screen;
+		z-index: 10;
   }
 </style>

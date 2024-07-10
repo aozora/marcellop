@@ -6,7 +6,7 @@
   @import '../styles/shared';
 
   .skiplink {
-    position: absolute;
+    position: fixed;
     top: 0;
     right: 100%; /* moves off screen */
     width: 100vw;
