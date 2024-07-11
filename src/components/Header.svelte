@@ -8,7 +8,7 @@ import { commonData } from '$lib/store';
  */
 // export let menu: Array<MenuItem>;
 
-	const {menu} = $commonData;
+const { menu } = $commonData;
 let showMobileMenu = false;
 // const isMobile = window.matchMedia('(max-width: 768px)').matches;
 const isClient = browser === true;
@@ -96,7 +96,22 @@ const toggleTheme = () => {
       </span>
 	</h1>
 
-	<nav class="menu">
+	<button type="button" class="mobile-toggle-menu" aria-expanded={showMobileMenu} on:click={()=>showMobileMenu = !showMobileMenu}>
+		<span class="visuallyhidden">{showMobileMenu ? 'Open the menu' : 'Close the menu'}</span>
+		<span class="menu-closed">
+			{#each Array.from('Menu ') as char}
+				<span aria-hidden="true">{char}</span>
+			{/each}
+		</span>
+
+		<span class="menu-opened">
+			{#each Array.from('Close') as char}
+				<span aria-hidden="true">{char}</span>
+			{/each}
+		</span>
+	</button>
+
+	<nav class="menu" aria-label="Main navigation">
 		<ul class="menu__items">
 			{#if menu && menu.menuItems}
 				{#each menu.menuItems as item}
@@ -130,18 +145,25 @@ const toggleTheme = () => {
     --menu-background: var(--theme-background);
     position: fixed;
     top: 0;
-    display: grid;
-    grid-template-columns: 2.667rem 1fr 1fr 2.667rem;
-    grid-template-rows: var(--menu-height);
-    grid-template-areas: "toggle title menu search";
-    grid-gap: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
     width: 100%;
     max-width: none;
     height: var(--menu-height);
     margin: 0;
-    padding: 0;
+    padding: 0 1rem;
     background-color: var(--menu-background);
     z-index: var(--menu-zindex);
+
+    @media (min-width: 64em) {
+      display: grid;
+      grid-template-columns: 2.667rem 1fr 1fr 2.667rem;
+      grid-template-rows: var(--menu-height);
+      grid-gap: 1rem;
+      padding: 0;
+    }
   }
 
   .header-title-word {
@@ -159,7 +181,8 @@ const toggleTheme = () => {
   }
 
   .menu__title {
-    grid-area: title;
+    //grid-area: title;
+    grid-column: 2/3;
     overflow: hidden;
     height: 100%;
     margin: 0 .5rem;
@@ -176,10 +199,15 @@ const toggleTheme = () => {
     span {
       height: 100%;
     }
+
+    @media (min-width: 64em) {
+      margin: 0;
+    }
   }
 
   .menu {
-    grid-area: menu;
+    //grid-area: menu;
+    grid-column: 3/4;
     position: relative;
     display: none;
     width: 100%;
@@ -189,8 +217,9 @@ const toggleTheme = () => {
     background-color: transparent;
     z-index: var(--menu-zindex);
 
-    @media (min-width: 48em) {
-      display: flex;
+    @media (min-width: 64em) {
+      display: none;
+      //display: flex;
       justify-content: flex-end;
       align-items: center;
     }
@@ -212,7 +241,7 @@ const toggleTheme = () => {
       text-align: left;
       //transform: translateY(-200%);
       //transition: transform .5s ease-in-out;
-			//
+      //
       //@media (min-width: 48em) {
       //  animation: menuEnterTransition .5s ease-in-out 1s forwards;
       //}
@@ -286,6 +315,95 @@ const toggleTheme = () => {
     }
   }
 
+  .mobile-toggle-menu {
+    position: relative;
+    width: 100px;
+    height: 60%;
+    margin: 0;
+    padding: 0 1rem;
+    border: 1px solid var(--body-font-color);
+    background-color: transparent;
+    color: var(--body-font-color);
+    overflow: hidden;
+
+    &:hover,
+    &:focus-visible,
+    &:focus {
+
+    }
+
+    &[aria-expanded="false"] {
+      .menu-closed {
+        span {
+          transform: translate3d(0, 0, 0);
+        }
+      }
+
+      .menu-opened {
+        span {
+          transform: translate3d(0, 100%, 0);
+        }
+      }
+    }
+
+    &[aria-expanded="true"] {
+      .menu-closed {
+        span {
+          transform: translate3d(0, 100%, 0);
+        }
+      }
+
+      .menu-opened {
+        span {
+          transform: translate3d(0, 0, 0);
+        }
+      }
+    }
+
+    .menu-closed,
+    .menu-opened {
+      position: absolute;
+      top: 0;
+      left: 1rem;
+      width: calc(100% - 2rem);
+      height: 100%;
+      z-index: 2;
+
+      span {
+        position: relative;
+        display: inline-flex;
+        align-items: center;
+        height: 100%;
+        font-size: 0.875rem;
+        line-height: 1;
+        transition: transform .35s ease-in-out;
+
+        &:nth-child(1) {
+          transition-delay: 0s;
+        }
+
+        &:nth-child(2) {
+          transition-delay: 0.2s;
+        }
+
+        &:nth-child(3) {
+          transition-delay: 0.4s;
+        }
+
+        &:nth-child(4) {
+          transition-delay: 0.6s;
+        }
+
+        &:nth-child(5) {
+          transition-delay: 0.8s;
+        }
+      }
+    }
+
+    .menu-opened {
+      z-index: 1;
+    }
+  }
 
   .toggle-theme {
     display: flex;

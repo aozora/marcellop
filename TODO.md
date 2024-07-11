@@ -4,6 +4,7 @@
 * mobile layout
   * menu toggle 
 * test 404 cat not found
+* check seo meta
 * test a11y: 
     * focus
     * screen reader
