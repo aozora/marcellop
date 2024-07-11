@@ -98,20 +98,11 @@ const toggleTheme = () => {
 
 	<button type="button" class="mobile-toggle-menu" aria-expanded={showMobileMenu} on:click={()=>showMobileMenu = !showMobileMenu}>
 		<span class="visuallyhidden">{showMobileMenu ? 'Open the menu' : 'Close the menu'}</span>
-		<span class="menu-closed">
-			{#each Array.from('Menu ') as char}
-				<span aria-hidden="true">{char}</span>
-			{/each}
-		</span>
-
-		<span class="menu-opened">
-			{#each Array.from('Close') as char}
-				<span aria-hidden="true">{char}</span>
-			{/each}
-		</span>
+		<span class="menu-closed">Menu</span>
+		<span class="menu-opened">Close</span>
 	</button>
 
-	<nav class="menu" aria-label="Main navigation">
+	<nav class="menu" aria-label="Main navigation" class:open={showMobileMenu}>
 		<ul class="menu__items">
 			{#if menu && menu.menuItems}
 				{#each menu.menuItems as item}
@@ -123,16 +114,16 @@ const toggleTheme = () => {
 				{/each}
 			{/if}
 
-			<li>
-				<button type="button" class="toggle-theme" on:click={()=> toggleTheme()}>
-					<span class="visuallyhidden">Toggle colors</span>
-					<svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-						<path d="M12 24a12 12 0 0 1 0-24v24Z" fill="var(--theme-foreground)" />
-						<path d="M12 0a12 12 0 1 1 0 24V0Z" fill="var(--theme-background)" />
-						<circle cx="12" cy="12" r="11.5" stroke="var(--theme-foreground)" />
-					</svg>
-				</button>
-			</li>
+<!--			<li>-->
+<!--				<button type="button" class="toggle-theme" on:click={()=> toggleTheme()}>-->
+<!--					<span class="visuallyhidden">Toggle colors</span>-->
+<!--					<svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">-->
+<!--						<path d="M12 24a12 12 0 0 1 0-24v24Z" fill="var(&#45;&#45;theme-foreground)" />-->
+<!--						<path d="M12 0a12 12 0 1 1 0 24V0Z" fill="var(&#45;&#45;theme-background)" />-->
+<!--						<circle cx="12" cy="12" r="11.5" stroke="var(&#45;&#45;theme-foreground)" />-->
+<!--					</svg>-->
+<!--				</button>-->
+<!--			</li>-->
 		</ul>
 	</nav>
 </header>
@@ -208,20 +199,36 @@ const toggleTheme = () => {
   .menu {
     //grid-area: menu;
     grid-column: 3/4;
-    position: relative;
-    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
     width: 100%;
-    height: var(--menu-height);
-    padding: 0;
+    height: 100dvh;
+    padding: var(--menu-height) 0 0 0;
     //overflow: hidden;
-    background-color: transparent;
+    background-color: var(--theme-brand);
     z-index: var(--menu-zindex);
+		transition: all .5s ease-in-out;
+		transform-origin: top right;
+		transform: scale(0);
+		clip-path: circle(0);
+
+		&.open {
+      transform: scale(1);
+      clip-path: circle(100%);
+		}
 
     @media (min-width: 64em) {
-      display: none;
-      //display: flex;
+      //display: none;
+      display: flex;
       justify-content: flex-end;
       align-items: center;
+      height: var(--menu-height);
+      background-color: var(--menu-background);
+      transform: scale(1);
+      clip-path: none
     }
   }
 
@@ -239,12 +246,6 @@ const toggleTheme = () => {
       margin: 0;
       padding: 1rem 0;
       text-align: left;
-      //transform: translateY(-200%);
-      //transition: transform .5s ease-in-out;
-      //
-      //@media (min-width: 48em) {
-      //  animation: menuEnterTransition .5s ease-in-out 1s forwards;
-      //}
     }
 
     a {
@@ -256,16 +257,25 @@ const toggleTheme = () => {
       width: 100%;
       height: 100%;
       margin: 0;
-      padding: 0;
+      padding: 0 1rem;
       border: .10em solid transparent;
+      font-size: 20vw;
       line-height: 1;
       font-weight: 400;
       font-variation-settings: 'wght' 400, 'wdth' 80;
       letter-spacing: -1px;
       text-decoration: none;
-      text-align: center;
+      text-align: right;
+			text-transform: uppercase;
       color: var(--theme-foreground);
       transition: all 1s ease-in-out;
+
+      @media (min-width: 64em) {
+        padding: 0;
+        font-size: 1rem;
+        text-align: center;
+        text-transform: none;
+      }
 
       /*
        * Don't enable hover on links on mobile, it will cause this issue on ios:
@@ -281,7 +291,7 @@ const toggleTheme = () => {
         outline: 0;
       }
 
-      @media (min-width: 48em) {
+      @media (min-width: 64em) {
         &:hover {
           //animation: breathe 3s infinite both;
           font-weight: 700;
@@ -290,29 +300,29 @@ const toggleTheme = () => {
       }
     }
 
-    @media (min-width: 48em) {
-      position: relative;
-      top: auto;
-      left: auto;
-      display: flex;
-      justify-content: flex-end;
-      align-items: center;
-      flex-direction: row;
-      height: 100%;
-      margin: 0;
-      padding: 0;
-
-      > li {
-        flex: 0 0 auto;
-        margin: 0 .5rem;
-      }
-
-      a {
-        display: block;
-        width: auto;
-        margin: 0 1rem;
-      }
-    }
+    //@media (min-width: 48em) {
+    //  position: relative;
+    //  top: auto;
+    //  left: auto;
+    //  display: flex;
+    //  justify-content: flex-end;
+    //  align-items: center;
+    //  flex-direction: row;
+    //  height: 100%;
+    //  margin: 0;
+    //  padding: 0;
+		//
+    //  > li {
+    //    flex: 0 0 auto;
+    //    margin: 0 .5rem;
+    //  }
+		//
+    //  a {
+    //    display: block;
+    //    width: auto;
+    //    margin: 0 1rem;
+    //  }
+    //}
   }
 
   .mobile-toggle-menu {
@@ -324,7 +334,7 @@ const toggleTheme = () => {
     border: 1px solid var(--body-font-color);
     background-color: transparent;
     color: var(--body-font-color);
-    overflow: hidden;
+    z-index: calc(var(--menu-zindex) + 1);
 
     &:hover,
     &:focus-visible,
@@ -334,75 +344,67 @@ const toggleTheme = () => {
 
     &[aria-expanded="false"] {
       .menu-closed {
-        span {
-          transform: translate3d(0, 0, 0);
-        }
+        display: inline-flex;
       }
 
       .menu-opened {
-        span {
-          transform: translate3d(0, 100%, 0);
-        }
+        display: none;
       }
     }
 
     &[aria-expanded="true"] {
       .menu-closed {
-        span {
-          transform: translate3d(0, 100%, 0);
-        }
+        display: none;
       }
 
       .menu-opened {
-        span {
-          transform: translate3d(0, 0, 0);
-        }
-      }
-    }
-
-    .menu-closed,
-    .menu-opened {
-      position: absolute;
-      top: 0;
-      left: 1rem;
-      width: calc(100% - 2rem);
-      height: 100%;
-      z-index: 2;
-
-      span {
-        position: relative;
         display: inline-flex;
-        align-items: center;
-        height: 100%;
-        font-size: 0.875rem;
-        line-height: 1;
-        transition: transform .35s ease-in-out;
-
-        &:nth-child(1) {
-          transition-delay: 0s;
-        }
-
-        &:nth-child(2) {
-          transition-delay: 0.2s;
-        }
-
-        &:nth-child(3) {
-          transition-delay: 0.4s;
-        }
-
-        &:nth-child(4) {
-          transition-delay: 0.6s;
-        }
-
-        &:nth-child(5) {
-          transition-delay: 0.8s;
-        }
       }
     }
 
-    .menu-opened {
-      z-index: 1;
-    }
+    //.menu-closed,
+    //.menu-opened {
+    //  position: absolute;
+    //  top: 0;
+    //  left: 1rem;
+    //  width: calc(100% - 2rem);
+    //  height: 100%;
+    //  z-index: 2;
+    //
+    //  span {
+    //    position: relative;
+    //    display: inline-flex;
+    //    align-items: center;
+    //    height: 100%;
+    //    font-size: 0.875rem;
+    //    line-height: 1;
+    //    transition: transform .35s ease-in-out;
+    //
+    //    &:nth-child(1) {
+    //      transition-delay: 0s;
+    //    }
+    //
+    //    &:nth-child(2) {
+    //      transition-delay: 0.2s;
+    //    }
+    //
+    //    &:nth-child(3) {
+    //      transition-delay: 0.4s;
+    //    }
+    //
+    //    &:nth-child(4) {
+    //      transition-delay: 0.6s;
+    //    }
+    //
+    //    &:nth-child(5) {
+    //      transition-delay: 0.8s;
+    //    }
+    //  }
+    //}
+    //
+    //.menu-opened {
+    //  z-index: 1;
+    //}
   }
 
   .toggle-theme {
