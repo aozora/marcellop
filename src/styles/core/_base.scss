@@ -104,11 +104,13 @@ body {
   //  background-size: 100% vr(1);
   //}
 
-  // > don't use font-smoothing for light text on dark background!!
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  font-smoothing: antialiased;
-  text-rendering: optimizeLegibility;
+  & {
+    // > don't use font-smoothing for light text on dark background!!
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
 }
 
 /* Generic header styles */
@@ -206,7 +208,6 @@ a:not([class]) {
     text-decoration-color: var(--color-pantone);
     text-decoration-thickness: 0.2rem;
   }
-
 
   &:hover {
     //text-decoration-thickness: 0.5rem;

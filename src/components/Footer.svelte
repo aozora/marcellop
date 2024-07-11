@@ -1,48 +1,48 @@
 <script lang="ts">
-import { Canvas } from "@threlte/core";
-import Tati from "./Tati.svelte";
+import { Canvas } from '@threlte/core';
+import Tati from './Tati.svelte';
 
 </script>
 
 <footer class="footer">
-  <div class="footer-canvas-container">
-    <Canvas shadows>
-      <Tati/>
-    </Canvas>
-  </div>
+	<div class="footer-canvas-container">
+		<Canvas shadows>
+			<Tati />
+		</Canvas>
+	</div>
 
-  <nav class="menu__social">
-    <ul>
-      <li>
-        <a rel="noopener noreferrer" target="_blank" href="https://www.twitter.com/marcellopalmit">
-          X (Twitter)
-        </a>
-      </li>
+	<nav class="menu__social">
+		<ul>
+			<li>
+				<a rel="noopener noreferrer" target="_blank" href="https://www.twitter.com/marcellopalmit">
+					X (Twitter)
+				</a>
+			</li>
 
-      <li>
-        <a rel="noopener noreferrer" target="_blank" href="https://it.linkedin.com/in/marcellopalmitessa">
-          LinkedIn
-        </a>
-      </li>
-    </ul>
-  </nav>
+			<li>
+				<a rel="noopener noreferrer" target="_blank" href="https://it.linkedin.com/in/marcellopalmitessa">
+					LinkedIn
+				</a>
+			</li>
+		</ul>
+	</nav>
 
-  <p class="footer__copyright">&copy;{new Date().getFullYear()} Copyright Marcello Palmitessa. All rights reserved.</p>
-  <p class="footer__credits">
-    This site is built with&nbsp;
-    <a target="_blank" rel="noopener noreferrer" href="https://svelte.dev/">
-      Svelte and SvelteKit
-    </a>
-    &nbsp;and hosted on&nbsp;
-    <a target="_blank" rel="noopener noreferrer" href="https://vercel.com/">
-      Vercel
-    </a>
-    . The source code is hosted on&nbsp;
-    <a target="_blank" rel="noopener noreferrer" href="https://github.com/aozora/marcellop">
-      GitHub
-    </a>
-    .
-  </p>
+	<p class="footer__copyright">&copy;{new Date().getFullYear()} Copyright Marcello Palmitessa. All rights reserved.</p>
+	<p class="footer__credits">
+		This site is built with&nbsp;
+		<a target="_blank" rel="noopener noreferrer" href="https://svelte.dev/">
+			Svelte and SvelteKit
+		</a>
+		&nbsp;and hosted on&nbsp;
+		<a target="_blank" rel="noopener noreferrer" href="https://vercel.com/">
+			Vercel
+		</a>
+		. The source code is hosted on&nbsp;
+		<a target="_blank" rel="noopener noreferrer" href="https://github.com/aozora/marcellop">
+			GitHub
+		</a>
+		.
+	</p>
 </footer>
 
 <style lang="scss">
@@ -56,7 +56,10 @@ import Tati from "./Tati.svelte";
     grid-gap: 1rem;
     grid-template-areas: "canvas" "social" "copyright" "credits";
     @include container;
-    margin: 6rem auto 0 auto;
+
+    & {
+      margin: 6rem auto 0 auto;
+    }
   }
 
   .footer-canvas-container {

@@ -28,9 +28,9 @@ onMount(() => {
 });
 </script>
 
-<svelte:head>
-	<meta name="viewport" content="initial-scale=1, viewport-fit=cover" />
-</svelte:head>
+<!--<svelte:head>-->
+<!--	<meta name="viewport" content="initial-scale=1, viewport-fit=cover" />-->
+<!--</svelte:head>-->
 
 <svelte:body></svelte:body>
 

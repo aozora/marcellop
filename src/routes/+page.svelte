@@ -122,7 +122,7 @@ onMount(() => {
 						})
 			});
 		});
-			}, mainContainer); // <- Scope!
+	}, mainContainer); // <- Scope!
 
 	return () => ctx.revert(); // <- Cleanup!
 });
@@ -225,9 +225,12 @@ const aboutHighlight3 = 'Dedicated to bridging the gap between design and develo
     justify-content: center;
     align-items: center;
     @include container;
-    height: calc(100vh - var(--menu-height));
-    padding: 3rem 1rem 0 1rem;
-    margin-bottom: 2rem;
+
+    & {
+      height: calc(100vh - var(--menu-height));
+      padding: 3rem 1rem 0 1rem;
+      margin-bottom: 2rem;
+    }
 
     h2 {
       position: relative; // needed for reveal animation

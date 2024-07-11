@@ -7,9 +7,7 @@
 import { commonData } from '$lib/store';
 import Head from '$components/Head.svelte';
 import type { ResponsiveImage, SeoMetaTagType } from '$types';
-// import { NakedImage } from '@datocms/svelte';
 import { onMount } from 'svelte';
-// import Lenis from 'lenis';
 import gsap from 'gsap/dist/gsap';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 
@@ -50,28 +48,6 @@ let groups: ResponsiveImage[][];
 $: {
 	groups = createGroups(tati.gallery, 5);
 }
-
-// let lenis: Lenis;
-
-// Function to initialize Lenis for smooth scrolling
-// const initSmoothScrolling = () => {
-// 	// Instantiate the Lenis object with specified properties
-// 	lenis = new Lenis({
-// 		lerp: 0.25, // Lower values create a smoother scroll effect
-// 		smoothWheel: true // Enables smooth scrolling for mouse wheel events
-// 	});
-//
-// 	// Update ScrollTrigger each time the user scrolls
-// 	lenis.on('scroll', () => ScrollTrigger.update());
-//
-// 	// Define a function to run at each animation frame
-// 	const scrollFn = (time: number) => {
-// 		lenis.raf(time); // Run Lenis' requestAnimationFrame method
-// 		requestAnimationFrame(scrollFn); // Recursively call scrollFn on each frame
-// 	};
-// 	// Start the animation frame loop
-// 	requestAnimationFrame(scrollFn);
-// };
 
 // Helper function that lets you dynamically figure out a grid's rows/columns as well as further refine those with "odd" or "even" ones
 // https://greensock.com/forums/topic/34808-how-can-i-animate-the-odd-and-even-columns-rows-of-a-grid-with-gsapto/?do=findComment&comment=174346
@@ -198,12 +174,6 @@ onMount(() => {
 	<h1>{tati.title}</h1>
 	<p>{tati.intro}</p>
 
-	<!--	<div class="tati-gallery">-->
-	<!--		{#each tati.gallery as picture}-->
-	<!--			<NakedImage data={picture.responsiveImage} />-->
-	<!--		{/each}-->
-	<!--	</div>-->
-
 	<div class="columns">
 		{#each groups as column}
 			<div class="column">
@@ -224,6 +194,7 @@ onMount(() => {
   @import '../../styles/shared';
 
   .tati {
+    overflow: hidden;
     @include container;
 
     h1 {
@@ -247,24 +218,12 @@ onMount(() => {
     }
   }
 
-  //.tati-gallery {
-  //  display: grid;
-  //  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-  //  grid-gap: 1rem;
-  //  gap: 1rem;
-  //
-  //  picture,
-  //  img {
-  //    object-fit: cover;
-  //  }
-  //}
-
   .columns {
     --grid-item-translate: 0px;
     --grid-item-ratio: 0.75;
     --grid-item-radius: 0px;
     --grid-gap: 2vw;
-    --grid-columns: 5;
+    --grid-columns: 2;
     --grid-width: 140%;
     --grid-max-width: none;
 
@@ -276,6 +235,10 @@ onMount(() => {
     place-items: center;
     grid-template-columns: repeat(var(--grid-columns), 1fr);
     gap: var(--grid-gap);
+
+		@media (min-width: 64em){
+      --grid-columns: 5;
+		}
   }
 
   .column {

@@ -157,6 +157,7 @@ onMount(() => {
 	{#each allResumeJobs as job, jobIndex}
 		<section id={`timeline-${!job.to ? 'present' : getYear(job.to)}`} style:--i={jobIndex}>
 			<h2 class="job__date">
+				<strong>from</strong>
 				<span>{getYear(job.from)}</span>
 			</h2>
 			<div class="job__job">
@@ -176,12 +177,15 @@ onMount(() => {
   .resume-title {
     --text-weight: 600;
     @include container;
-    margin-bottom: 3rem;
-    font-family: var(--body-font-family);
-    font-size: 26vw;
-    line-height: 1.2;
-    text-transform: uppercase;
-    color: var(--color-pantone);
+
+    & {
+      margin-bottom: 3rem;
+      font-family: var(--body-font-family);
+      font-size: 26vw;
+      line-height: 1.2;
+      text-transform: uppercase;
+      color: var(--color-pantone);
+    }
 
     @supports (font-variation-settings: normal) {
       font-family: var(--variable-font-family);
@@ -307,38 +311,47 @@ onMount(() => {
   }
 
   section {
-    display: flex;
-    //flex-direction: column;
-    justify-content: left;
-    align-items: center;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
     gap: 1rem;
+    //justify-content: left;
+    //align-items: center;
+    //gap: 1rem;
     min-height: 100vh;
     padding: 8rem 0 max(5vh, 2rem);
-
   }
 
   .job__date {
-    flex: 0 0 30%;
+    grid-column: 1 / 5;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
     margin: 0;
+    font-size: 14vw;
+    line-height: 1.1;
     color: var(--theme-brand);
-    //font-family: var(--heading-font-family);
-    //font-size: 2rem;
 
     @supports (font-variation-settings: normal) {
       font-family: var(--variable-font-family);
       font-variation-settings: 'wght' var(--text-weight);
     }
+
+    strong {
+      font-size: 2rem;
+      line-height: 1.1;
+    }
+  }
+
+  .job__job {
+    //flex: 1 1 70%;
+    grid-column: 6 / 12;
   }
 
   .job__title {
     font-size: 2rem;
+    line-height: 1.2;
     font-weight: 700;
     font-variation-settings: 'wght' 700;
   }
-
-  .job__job {
-    flex: 1 1 70%;
-  }
-
-
 </style>
