@@ -33,7 +33,7 @@
 }
 
 .about-highlight {
-  display: grid;
+  display: block;
   gap: 2rem;
   padding: 2rem 0;
   margin: 0 0 30vh 0;
@@ -60,6 +60,7 @@
 
   figure {
     width: 100%;
+    margin-bottom: 2rem;
     padding: 1rem;
   }
 
@@ -67,6 +68,13 @@
     width: 100%;
   }
 
+  @media (min-width: 64em) {
+    display: grid;
+
+    figure {
+      margin-bottom: 0;
+    }
+  }
 }
 
 .skills {

@@ -181,7 +181,7 @@ onMount(() => {
     & {
       margin-bottom: 3rem;
       font-family: var(--body-font-family);
-      font-size: 26vw;
+      font-size: 24vw;
       line-height: 1.2;
       text-transform: uppercase;
       color: var(--color-pantone);
@@ -204,7 +204,7 @@ onMount(() => {
   }
 
   .nav-timeline {
-    //overflow: hidden;
+    overflow: hidden;
     position: sticky;
     top: var(--menu-height);
     left: 0;
@@ -311,14 +311,15 @@ onMount(() => {
   }
 
   section {
-    display: grid;
-    grid-template-columns: repeat(12, 1fr);
-    gap: 1rem;
-    //justify-content: left;
-    //align-items: center;
-    //gap: 1rem;
+		display: block;
     min-height: 100vh;
     padding: 8rem 0 max(5vh, 2rem);
+
+		@media (min-width: 64em) {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 1rem;
+    }
   }
 
   .job__date {
@@ -327,7 +328,7 @@ onMount(() => {
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
-    margin: 0;
+    margin: 0 0 2rem 0;
     font-size: 14vw;
     line-height: 1.1;
     color: var(--theme-brand);
@@ -336,6 +337,10 @@ onMount(() => {
       font-family: var(--variable-font-family);
       font-variation-settings: 'wght' var(--text-weight);
     }
+
+    @media (min-width: 64em) {
+			margin: 0;
+		}
 
     strong {
       font-size: 2rem;

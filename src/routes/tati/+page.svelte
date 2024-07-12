@@ -201,7 +201,7 @@ onMount(() => {
       --text-weight: 600;
       margin-bottom: 3rem;
       font-family: var(--body-font-family);
-      font-size: 20rem;
+      font-size: 24vw;
       line-height: 1.2;
       text-transform: uppercase;
       color: var(--color-pantone);

@@ -44,22 +44,28 @@ let size = spring(32);
 	class="custom-cursor"
 >
 	<circle cx={$coords1.x} cy={$coords1.y} r={$size} fill="var(--color-pantone)" stroke-width="1" fill-opacity="1" />
-<!--	<circle cx={$coords2.x} cy={$coords2.y} r={$size/4} fill="var(&#45;&#45;color-pantone)" />-->
+	<!--	<circle cx={$coords2.x} cy={$coords2.y} r={$size/4} fill="var(&#45;&#45;color-pantone)" />-->
 </svg>
 
 <style>
   :global(body) {
-    cursor: none;
+    @media (min-width: 64em) {
+      cursor: none;
+    }
   }
 
   .custom-cursor {
-    position: fixed;
-    top: 0;
-    left: 0;
-    pointer-events: none;
-    width: 100vw;
-    height: 100vh;
-		mix-blend-mode: screen;
-		z-index: calc(var(--menu-zindex) + 1);
+		display: none;
+
+    @media (min-width: 64em) {
+      position: fixed;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+      width: 100vw;
+      height: 100vh;
+      mix-blend-mode: screen;
+      z-index: calc(var(--menu-zindex) + 1);
+    }
   }
 </style>
