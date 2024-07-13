@@ -1,46 +1,39 @@
 const path = require('path');
 
 module.exports = {
-  stories: [
-    '../components/**/*.stories.mdx',
-    '../components/**/*.stories.@(js|jsx|ts|tsx)',
-    '../stories/**/*.stories.mdx',
-    '../stories/**/*.stories.@(js|jsx|ts|tsx)'
+  'stories': [
+    '../src/**/*.stories.mdx',
+    '../src/**/*.stories.@(js|jsx|ts|tsx|svelte)'
   ],
-
-  addons: ['@storybook/addon-links', '@storybook/addon-essentials'],
-
-  babel: async options => ({
-    ...options,
-    presets: [
-      ...options.presets,
-      [
-        '@babel/preset-react',
-        {
-          runtime: 'automatic'
-        },
-        'preset-react-jsx-transform' // Can name this anything, just an arbitrary alias to avoid duplicate presets'
-      ]
-    ]
-  }),
-
-  webpackFinal: async (config, { configType }) => {
-    // SCSS
+  'addons': [
+    '@storybook/addon-links',
+    '@storybook/addon-essentials',
+    '@storybook/addon-svelte-csf',
+    {
+      name: '@storybook/addon-postcss',
+      options: {
+        postcssLoaderOptions: {
+          implementation: require('postcss')
+        }
+      }
+    }
+  ],
+  'framework': '@storybook/svelte',
+  'svelteOptions': {
+    'preprocess': import('../svelte.config.js').preprocess
+  },
+  webpackFinal: async (config) => {
     config.module.rules.push({
-      test: /\.(s*)css$/,
-      loaders: ['style-loader', 'css-loader', 'sass-loader']
+      test: [/\.stories\.@(js|jsx|ts|tsx|svelte)$/, /index\.js$/],
+      use: [require.resolve('@storybook/source-loader')],
+      include: [path.resolve(__dirname, '../src')],
+      enforce: 'pre'
     });
-
-    // support the alias @
     config.resolve.alias = {
       ...config.resolve.alias,
-      '@/components': path.resolve(__dirname, '../components'),
-      // '@/lib': path.resolve(__dirname, '../lib'),
-      // '@/containers': path.resolve(__dirname, '../containers'),
-      // '@/store': path.resolve(__dirname, '../store'),
-      '@/styles': path.resolve(__dirname, '../styles')
+      $lib: path.resolve(__dirname, '../src/lib'),
+      $components: path.resolve(__dirname, '../src/lib/components')
     };
-
     return config;
   }
 };
