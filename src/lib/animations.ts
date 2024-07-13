@@ -9,44 +9,19 @@ export function getHeroTimeline(
 ): gsap.core.Timeline {
 	const tl = gsap.timeline({ paused: true });
 
-	tl
-		// 	.fromTo(
-		// 	chars1,
-		// 	{
-		// 		x: '-100%'
-		// 	},
-		// 	{
-		// 		x: '0%',
-		// 		ease: 'Power1.easeInOut',
-		// 		stagger: 0.1,
-		// 		duration: 1
-		// 	}
-		// )
-		// 	.to(title1, {
-		// 		ease: 'Power1.easeInOut',
-		// 		y: '-200%'
-		// 	})
-		.fromTo(
-			menuTitleChars,
-			{
-				x: '-100%'
-			},
-			{
-				x: '0%',
-				ease: 'Power1.easeInOut',
-				stagger: 0.1,
-				duration: 1
-			}
-			// '<'
-		)
-		// .to(
-		// 	title2,
-		// 	{
-		// 		ease: 'Power1.easeInOut',
-		// 		y: '-50%'
-		// 	},
-		// 	'<'
-		// )
+	tl.fromTo(
+		menuTitleChars,
+		{
+			x: '-100%'
+		},
+		{
+			x: '0%',
+			ease: 'Power1.easeInOut',
+			stagger: 0.1,
+			duration: 1
+		}
+		// '<'
+	)
 		.fromTo(
 			chars2,
 			{

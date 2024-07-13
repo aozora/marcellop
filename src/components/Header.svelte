@@ -108,22 +108,30 @@ const toggleTheme = () => {
 				{#each menu.menuItems as item}
 					<li>
 						<a href={item.url} class={$page.pathname === item.url ? 'active' : ''} on:click={()=>toggleMobileMenu()}>
-							<span>{item.title}</span>
+							<span class="visuallyhidden">{item.title}</span>
+
+							<span class="word" style:--char-count={item.title.length}>
+							{#each Array.from(item.title) as char, charIndex}
+								<span class="char">
+									<span style:--char-index={charIndex}>{char}</span>
+								</span>
+							{/each}
+							</span>
 						</a>
 					</li>
 				{/each}
 			{/if}
 
-<!--			<li>-->
-<!--				<button type="button" class="toggle-theme" on:click={()=> toggleTheme()}>-->
-<!--					<span class="visuallyhidden">Toggle colors</span>-->
-<!--					<svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">-->
-<!--						<path d="M12 24a12 12 0 0 1 0-24v24Z" fill="var(&#45;&#45;theme-foreground)" />-->
-<!--						<path d="M12 0a12 12 0 1 1 0 24V0Z" fill="var(&#45;&#45;theme-background)" />-->
-<!--						<circle cx="12" cy="12" r="11.5" stroke="var(&#45;&#45;theme-foreground)" />-->
-<!--					</svg>-->
-<!--				</button>-->
-<!--			</li>-->
+			<!--			<li>-->
+			<!--				<button type="button" class="toggle-theme" on:click={()=> toggleTheme()}>-->
+			<!--					<span class="visuallyhidden">Toggle colors</span>-->
+			<!--					<svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">-->
+			<!--						<path d="M12 24a12 12 0 0 1 0-24v24Z" fill="var(&#45;&#45;theme-foreground)" />-->
+			<!--						<path d="M12 0a12 12 0 1 1 0 24V0Z" fill="var(&#45;&#45;theme-background)" />-->
+			<!--						<circle cx="12" cy="12" r="11.5" stroke="var(&#45;&#45;theme-foreground)" />-->
+			<!--					</svg>-->
+			<!--				</button>-->
+			<!--			</li>-->
 		</ul>
 	</nav>
 </header>
@@ -131,6 +139,19 @@ const toggleTheme = () => {
 
 <style lang="scss">
   @import '../styles/shared';
+
+  @keyframes letter-breathe {
+    from,
+    to {
+      font-variation-settings: 'wght' 100;
+      //--text-weight: 300;
+    }
+
+    50% {
+      font-variation-settings: 'wght' 900;
+      //--text-weight: 700;
+    }
+  }
 
   .header {
     --menu-background: var(--theme-background);
@@ -197,7 +218,6 @@ const toggleTheme = () => {
   }
 
   .menu {
-    //grid-area: menu;
     grid-column: 3/4;
     position: fixed;
     top: 0;
@@ -207,25 +227,28 @@ const toggleTheme = () => {
     width: 100%;
     height: 100dvh;
     padding: var(--menu-height) 0 0 0;
-    //overflow: hidden;
     background-color: var(--theme-brand);
     z-index: var(--menu-zindex);
-		transition: all .5s ease-in-out;
-		transform-origin: top right;
-		transform: scale(0);
-		clip-path: circle(0);
+    transition: all .5s ease;
+    transform-origin: calc(100% - 3rem) 1.5rem;
+    transform: scale(0);
+    clip-path: circle(0);
 
-		&.open {
+    &.open {
       transform: scale(1);
       clip-path: circle(100%);
-		}
+    }
 
     @media (min-width: 64em) {
-      //display: none;
+			position: relative;
+      top: auto;
+      left: auto;
       display: flex;
+      flex-direction: row;
       justify-content: flex-end;
       align-items: center;
       height: var(--menu-height);
+			padding: 0;
       background-color: var(--menu-background);
       transform: scale(1);
       clip-path: none
@@ -240,12 +263,28 @@ const toggleTheme = () => {
     padding: 0;
     background-color: transparent;
 
+		@media (min-width: 64em){
+      position: relative;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      flex-direction: row;
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+
     > li {
       overflow: hidden;
       list-style-type: none;
       margin: 0;
       padding: 1rem 0;
       text-align: left;
+
+      @media (min-width: 64em){
+        flex: 0 0 auto;
+        margin: 0 .5rem;
+			}
     }
 
     a {
@@ -262,11 +301,15 @@ const toggleTheme = () => {
       font-size: 20vw;
       line-height: 1;
       font-weight: 400;
-      font-variation-settings: 'wght' 400, 'wdth' 80;
+      //font-variation-settings: 'wght' 400, 'wdth' 80;
+      font-family: var(--body-font-family);
+      font-optical-sizing: auto;
+      font-variation-settings: "slnt" 0, "GRAD" 0, "XOPQ" 96, "XTRA" 468, "YOPQ" 79, "YTAS" 750, "YTDE" -203, "YTFI" 738, "YTLC" 514, "YTUC" 712;
+
       letter-spacing: -1px;
       text-decoration: none;
       text-align: right;
-			text-transform: uppercase;
+      text-transform: uppercase;
       color: var(--theme-foreground);
       transition: all 1s ease-in-out;
 
@@ -291,38 +334,30 @@ const toggleTheme = () => {
         outline: 0;
       }
 
-      @media (min-width: 64em) {
-        &:hover {
-          //animation: breathe 3s infinite both;
-          font-weight: 700;
-          font-variation-settings: 'wght' 700, 'wdth' 80;
-        }
+      //@media (min-width: 64em) {
+      //  &:hover {
+      //    //animation: breathe 3s infinite both;
+      //    font-weight: 700;
+      //    font-variation-settings: 'wght' 700, 'wdth' 80;
+      //  }
+      //}
+
+      span:not(.char):not(.word) {
+        --delay: calc((var(--char-index) + 1) * 400ms);
+        --text-weight-max: 700;
+        --text-weight-min: 300;
+        --text-weight: var(--text-weight-max);
+        font-weight: var(--text-weight);
+        font-variation-settings: 'wght' var(--text-weight);
+				//transition: all
+
+        animation: letter-breathe 5s ease-in-out var(--delay) infinite;
+
+				@media (min-width: 64em){
+          animation: none;
+				}
       }
     }
-
-    //@media (min-width: 48em) {
-    //  position: relative;
-    //  top: auto;
-    //  left: auto;
-    //  display: flex;
-    //  justify-content: flex-end;
-    //  align-items: center;
-    //  flex-direction: row;
-    //  height: 100%;
-    //  margin: 0;
-    //  padding: 0;
-		//
-    //  > li {
-    //    flex: 0 0 auto;
-    //    margin: 0 .5rem;
-    //  }
-		//
-    //  a {
-    //    display: block;
-    //    width: auto;
-    //    margin: 0 1rem;
-    //  }
-    //}
   }
 
   .mobile-toggle-menu {
@@ -362,49 +397,9 @@ const toggleTheme = () => {
       }
     }
 
-    //.menu-closed,
-    //.menu-opened {
-    //  position: absolute;
-    //  top: 0;
-    //  left: 1rem;
-    //  width: calc(100% - 2rem);
-    //  height: 100%;
-    //  z-index: 2;
-    //
-    //  span {
-    //    position: relative;
-    //    display: inline-flex;
-    //    align-items: center;
-    //    height: 100%;
-    //    font-size: 0.875rem;
-    //    line-height: 1;
-    //    transition: transform .35s ease-in-out;
-    //
-    //    &:nth-child(1) {
-    //      transition-delay: 0s;
-    //    }
-    //
-    //    &:nth-child(2) {
-    //      transition-delay: 0.2s;
-    //    }
-    //
-    //    &:nth-child(3) {
-    //      transition-delay: 0.4s;
-    //    }
-    //
-    //    &:nth-child(4) {
-    //      transition-delay: 0.6s;
-    //    }
-    //
-    //    &:nth-child(5) {
-    //      transition-delay: 0.8s;
-    //    }
-    //  }
-    //}
-    //
-    //.menu-opened {
-    //  z-index: 1;
-    //}
+		@media (min-width: 64em){
+			display: none;
+		}
   }
 
   .toggle-theme {
