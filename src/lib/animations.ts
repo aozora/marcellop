@@ -20,7 +20,6 @@ export function getHeroTimeline(
 			stagger: 0.1,
 			duration: 1
 		}
-		// '<'
 	)
 		.fromTo(
 			chars2,
