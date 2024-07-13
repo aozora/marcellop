@@ -98,8 +98,8 @@ const toggleTheme = () => {
 
 	<button type="button" class="mobile-toggle-menu" aria-expanded={showMobileMenu} on:click={()=>showMobileMenu = !showMobileMenu}>
 		<span class="visuallyhidden">{showMobileMenu ? 'Open the menu' : 'Close the menu'}</span>
-		<span class="menu-closed">Menu</span>
-		<span class="menu-opened">Close</span>
+		<span class="menu-closed" aria-hidden="true">Menu</span>
+		<span class="menu-opened" aria-hidden="true">Close</span>
 	</button>
 
 	<nav class="menu" aria-label="Main navigation" class:open={showMobileMenu}>
@@ -365,7 +365,7 @@ const toggleTheme = () => {
     width: 100px;
     height: 60%;
     margin: 0;
-    padding: 0 1rem;
+    padding: 0 .6rem;
     border: 1px solid var(--body-font-color);
     background-color: transparent;
     color: var(--body-font-color);
