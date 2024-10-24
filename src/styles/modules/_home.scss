@@ -36,7 +36,11 @@
   display: block;
   gap: 2rem;
   padding: 2rem 0;
-  margin: 0 0 30vh 0;
+  margin: 0 0 10vh 0;
+
+  @media (min-width: 64em) {
+    margin: 0 0 30vh 0;
+  }
 
   &.picture-text {
     grid-template-columns: 35% 65%;
@@ -73,6 +77,22 @@
 
     figure {
       margin-bottom: 0;
+    }
+  }
+}
+
+html[data-theme='light'] {
+  .about-highlight {
+    p {
+      color: #aaa;
+    }
+  }
+}
+
+html[data-theme='dark'] {
+  .about-highlight {
+    p {
+      color: #333;
     }
   }
 }
