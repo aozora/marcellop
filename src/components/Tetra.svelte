@@ -11,9 +11,14 @@ const gui = new GUI();
 /**
  * PROPS
  */
-// export let position: Position = new Vector3(12, -3, 35);
-export let position: Position = new Vector3(7, -2, 39);
-export let scale: Scale = new Vector3(0, 0, 0);
+
+  interface Props {
+    // export let position: Position = new Vector3(12, -3, 35);
+    position?: Position;
+    scale?: Scale;
+  }
+
+  let { position = $bindable(new Vector3(7, -2, 39)), scale = new Vector3(0, 0, 0) }: Props = $props();
 
 gui.add(position, "x", -100, 100, 1).onChange(value => {
   position.x = value;
@@ -28,7 +33,7 @@ gui.add(position, "z", -100, 100, 1).onChange(value => {
   position = position;
 });
 
-let rotation: Rotation = { x: 0, y: 0, z: 0 };
+let rotation: Rotation = $state({ x: 0, y: 0, z: 0 });
 const xFactor = -40 + Math.random() * 80;
 const yFactor = -30 + Math.random() * 40;
 const zFactor = -20 + Math.random() * 40;

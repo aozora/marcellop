@@ -3,7 +3,7 @@
 </a>
 
 <style lang='scss'>
-  @import '../styles/shared';
+  @use '../styles/shared' as *;
 
   .skiplink {
     position: fixed;

@@ -9,10 +9,15 @@ type ResumeProps = {
 	allResumeJobs: Array<ResumeJob>
 }
 
-/**
+
+	interface Props {
+		/**
  * PROPS
  */
-export let data: ResumeProps;
+		data: ResumeProps;
+	}
+
+	let { data }: Props = $props();
 let { allResumeJobs }: ResumeProps = data;
 
 const getYear = (date: string) => {
@@ -172,7 +177,7 @@ onMount(() => {
 </div>
 
 <style lang="scss">
-  @import '../../styles/shared';
+  @use '../../styles/shared' as *;
 
   .resume-title {
     --text-weight: 600;

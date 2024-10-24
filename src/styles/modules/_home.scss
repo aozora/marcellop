@@ -1,8 +1,6 @@
+@use '../shared' as *;
+
 .home {
-  h1 {
-
-  }
-
   h2 {
     --text-scale-ratio: 1.25; // base mobile ratio
     font-size: var(--text-scale-6);

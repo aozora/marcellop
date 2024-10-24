@@ -3,7 +3,7 @@ import { onMount } from 'svelte';
 import gsap from 'gsap/dist/gsap';
 import Marquee from '$components/Marquee.svelte';
 
-let container: HTMLDivElement;
+let container: HTMLDivElement = $state();
 
 onMount(() => {
 	const ctx = gsap.context((self) => {

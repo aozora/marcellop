@@ -18,15 +18,20 @@ type HomeProps = {
 	domainUrl: string
 }
 
-/**
+
+	interface Props {
+		/**
  * PROPS
  */
-export let data: HomeProps;
+		data: HomeProps;
+	}
+
+	let { data }: Props = $props();
 let { home }: HomeProps = data;
 const { site } = $commonData;
 const headTags = home && site ? home.seo.concat(site.favicon) : [];
 
-let mainContainer: HTMLDivElement;
+let mainContainer: HTMLDivElement = $state();
 
 onMount(() => {
 	const ctx = gsap.context((self) => {
@@ -210,7 +215,7 @@ const aboutHighlight3 = 'Dedicated to bridging the gap between design and develo
 
 
 <style lang="scss">
-  @import '../styles/shared';
+  @use '../styles/shared' as *;
 
   .main-content {
     overflow: hidden;

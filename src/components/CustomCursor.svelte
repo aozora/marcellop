@@ -28,14 +28,14 @@ let size = spring(32);
 </script>
 
 <svelte:window
-	on:mousemove={(e) => {
+	onmousemove={(e) => {
 		coords1.set({ x: e.clientX, y: e.clientY })
 		coords2.set({ x: e.clientX, y: e.clientY })
 	}}
-	on:mousedown={(e) => {
+	onmousedown={(e) => {
 		size.set(48);
 	}}
-	on:mouseup={(e) => {
+	onmouseup={(e) => {
 		size.set(32);
 	}}
 />

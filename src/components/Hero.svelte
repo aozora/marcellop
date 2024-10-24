@@ -1,7 +1,11 @@
 <script lang="ts">
 import { HeroData } from "../types";
 
-export let hero: HeroData;
+  interface Props {
+    hero: HeroData;
+  }
+
+  let { hero }: Props = $props();
 </script>
 
 <section class="hero">
@@ -18,7 +22,7 @@ export let hero: HeroData;
 </section>
 
 <style lang="scss">
-  @import '../styles/shared';
+  @use '../styles/shared' as *;
 
   .hero {
     // use 'em' otherwise the fluid-type mixin doesn't work

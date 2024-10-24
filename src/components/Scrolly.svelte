@@ -1,4 +1,6 @@
 <script>
+  import { run } from 'svelte/legacy';
+
 /**
  * This component manages which item is most in view for scroll triggering
  * example:
@@ -13,20 +15,33 @@
  */
 import { onMount } from "svelte";
 
-export let root = null;
-export let top = 0;
-export let bottom = 0;
-export let increments = 100;
-export let value = undefined;
+  /**
+   * @typedef {Object} Props
+   * @property {any} [root]
+   * @property {number} [top]
+   * @property {number} [bottom]
+   * @property {number} [increments]
+   * @property {any} [value]
+   * @property {import('svelte').Snippet} [children]
+   */
+
+  /** @type {Props} */
+  let {
+    root = null,
+    top = 0,
+    bottom = 0,
+    increments = 100,
+    value = $bindable(undefined),
+    children
+  } = $props();
 
 const steps = [];
 const threshold = [];
 
 let nodes = [];
 let intersectionObservers = [];
-let container;
+let container = $state();
 
-$: top, bottom, update();
 
 const update = () => {
   if (!nodes.length) return;
@@ -83,8 +98,11 @@ onMount(() => {
   nodes = container.querySelectorAll(":scope > *");
   update();
 });
+run(() => {
+    top, bottom, update();
+  });
 </script>
 
 <div bind:this={container}>
-  <slot />
+  {@render children?.()}
 </div>

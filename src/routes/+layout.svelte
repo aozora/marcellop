@@ -9,10 +9,16 @@ import type { CommonData } from '$types';
 import { commonData } from '$lib/store';
 
 
-/**
+
+	interface Props {
+		/**
  * PROPS
  */
-export let data: CommonData;
+		data: CommonData;
+		children?: import('svelte').Snippet;
+	}
+
+	let { data, children }: Props = $props();
 // console.log({data});
 // write the data into common store
 $commonData = { ...data };
@@ -39,7 +45,7 @@ onMount(() => {
 
 
 <main id="main">
-	<slot></slot>
+	{@render children?.()}
 </main>
 
 <Footer />

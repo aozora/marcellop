@@ -1,3 +1,4 @@
+<!-- @migration-task Error while migrating Svelte code: `<a>` is invalid inside `<a>` -->
 <script>
 import { page } from '$app/stores';
 </script>
@@ -20,7 +21,7 @@ import { page } from '$app/stores';
 
   <nav>
     <a href="/">
-      <a>Back to home</a>
+      <span>Back to home</span>
     </a>
   </nav>
 </div>

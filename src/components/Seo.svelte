@@ -5,15 +5,27 @@
   import usePageLink from '../hooks/usePageLink';
   import type { Thing, WithContext } from 'schema-dts';
 
-  /**
+  
+  interface Props {
+    /**
    * Props
    */
-  export let domainUrl: string;
-  export let siteSeo: GlobalSeo;
-  export let pageLink: PageLink;
-  export let metaTags: Array<SeoMetaTagType>;
-  export let canonicalUrl: string;
-  export let jsonLd: Thing | WithContext<Thing>;
+    domainUrl: string;
+    siteSeo: GlobalSeo;
+    pageLink: PageLink;
+    metaTags: Array<SeoMetaTagType>;
+    canonicalUrl: string;
+    jsonLd: Thing | WithContext<Thing>;
+  }
+
+  let {
+    domainUrl,
+    siteSeo,
+    pageLink,
+    metaTags,
+    canonicalUrl,
+    jsonLd
+  }: Props = $props();
 
 
   const { getLinkProps } = usePageLink();

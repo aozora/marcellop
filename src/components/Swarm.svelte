@@ -10,12 +10,17 @@ import { BokehPass } from "three/examples/jsm/postprocessing/BokehPass";
 // import { AfterimagePass } from "three/examples/jsm/postprocessing/AfterimagePass";
 
 
-/**
+
+  interface Props {
+    /**
  * PROPS
  */
-export let position: Position;
+    position: Position;
+  }
 
-let particles: Array<Particle> = getParticles(150);
+  let { position }: Props = $props();
+
+let particles: Array<Particle> = $state(getParticles(150));
 const material = new MeshStandardMaterial({ color: "#696767", roughness: 0, metalness: 0.1 });
 const geometry = new TetrahedronGeometry(1);
 const { size } = useThrelte();

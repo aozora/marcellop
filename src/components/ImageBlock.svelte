@@ -5,10 +5,14 @@
  */
 import { Image } from "svelte-datocms";
 
-/**
- * PROPS
- */
-export let image;
+
+  /**
+   * @typedef {Object} Props
+   * @property {any} image - PROPS
+   */
+
+  /** @type {Props} */
+  let { image } = $props();
 </script>
 
 <Image

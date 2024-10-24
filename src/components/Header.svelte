@@ -9,7 +9,7 @@ import { commonData } from '$lib/store';
 // export let menu: Array<MenuItem>;
 
 const { menu } = $commonData;
-let showMobileMenu = false;
+let showMobileMenu = $state(false);
 // const isMobile = window.matchMedia('(max-width: 768px)').matches;
 const isClient = browser === true;
 let isHome = $page.pathname === '/';
@@ -96,7 +96,7 @@ const toggleTheme = () => {
       </span>
 	</h1>
 
-	<button type="button" class="mobile-toggle-menu" aria-expanded={showMobileMenu} on:click={()=>showMobileMenu = !showMobileMenu}>
+	<button type="button" class="mobile-toggle-menu" aria-expanded={showMobileMenu} onclick={()=>showMobileMenu = !showMobileMenu}>
 		<span class="visuallyhidden">{showMobileMenu ? 'Open the menu' : 'Close the menu'}</span>
 		<span class="menu-closed" aria-hidden="true">Menu</span>
 		<span class="menu-opened" aria-hidden="true">Close</span>
@@ -107,7 +107,7 @@ const toggleTheme = () => {
 			{#if menu && menu.menuItems}
 				{#each menu.menuItems as item}
 					<li>
-						<a href={item.url} class={$page.pathname === item.url ? 'active' : ''} on:click={()=>toggleMobileMenu()}>
+						<a href={item.url} class={$page.pathname === item.url ? 'active' : ''} onclick={()=>toggleMobileMenu()}>
 							<span class="visuallyhidden">{item.title}</span>
 
 							<span class="word" style:--char-count={item.title.length}>
@@ -138,7 +138,7 @@ const toggleTheme = () => {
 
 
 <style lang="scss">
-  @import '../styles/shared';
+  @use '../styles/shared' as *;
 
   @keyframes letter-breathe {
     from,

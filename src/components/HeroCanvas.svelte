@@ -18,14 +18,14 @@ import { AfterimagePass } from "three/examples/jsm/postprocessing/AfterimagePass
 /**
  * Canvas setup
  */
-const { scene, camera } = useThrelte();
+const { scene, camera } = $state(useThrelte());
 scene.background = new Color("#ffffff");
 
 /**
  * Scroll position of swarm
  */
 const { y } = useWindowScroll();
-let swarmYposition;
+let swarmYposition = $state();
 y.subscribe(value => {
   // console.log({ value });
   swarmYposition = value;

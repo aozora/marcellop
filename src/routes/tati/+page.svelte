@@ -26,10 +26,15 @@ type PageProps = {
 }
 
 
-/**
+
+	interface Props {
+		/**
  * PROPS
  */
-export let data: PageProps;
+		data: PageProps;
+	}
+
+	let { data }: Props = $props();
 
 let { tati }: PageProps = data;
 const { site } = $commonData;
@@ -43,11 +48,9 @@ function createGroups(arr: ResponsiveImage[], numGroups: number) {
 		.map((_, i) => arr.slice(i * perGroup, (i + 1) * perGroup));
 }
 
-let groups: ResponsiveImage[][];
+let groups: ResponsiveImage[][] = $derived(createGroups(tati.gallery, 5));
 
-$: {
-	groups = createGroups(tati.gallery, 5);
-}
+
 
 // Helper function that lets you dynamically figure out a grid's rows/columns as well as further refine those with "odd" or "even" ones
 // https://greensock.com/forums/topic/34808-how-can-i-animate-the-odd-and-even-columns-rows-of-a-grid-with-gsapto/?do=findComment&comment=174346
@@ -191,7 +194,7 @@ onMount(() => {
 </section>
 
 <style lang="scss">
-  @import '../../styles/shared';
+  @use '../../styles/shared' as *;
 
   .tati {
     overflow: hidden;

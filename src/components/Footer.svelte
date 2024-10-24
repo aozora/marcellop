@@ -46,7 +46,7 @@ import Tati from './Tati.svelte';
 </footer>
 
 <style lang="scss">
-  @import '../styles/shared';
+  @use '../styles/shared' as *;
 
   .footer {
     position: relative;

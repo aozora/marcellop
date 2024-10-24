@@ -1,12 +1,17 @@
 <script lang="ts">
-export let inverted = false;
+	interface Props {
+		inverted?: boolean;
+		children?: import('svelte').Snippet;
+	}
+
+	let { inverted = false, children }: Props = $props();
 </script>
 
 <section class="marquee">
 	<div class="marquee-wrapper">
 		<div class="marquee-inner" style:animation-name={inverted ? 'marquee-inverted' : 'marquee'}>
-			<slot />
-			<slot />
+			{@render children?.()}
+			{@render children?.()}
 		</div>
 	</div>
 </section>

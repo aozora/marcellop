@@ -1,9 +1,13 @@
 <script lang="ts">
-	export let headTags: { tag: string; content: string | null; attributes: object | null }[] = [];
+	interface Props {
+		headTags?: { tag: string; content: string | null; attributes: object | null }[];
+	}
 
-	$: titleTag = headTags && headTags.find((t) => t.tag === 'title');
-	$: metaTags = headTags ? headTags.filter((t) => t.tag === 'meta') : [];
-	$: linkTags = headTags ? headTags.filter((t) => t.tag === 'link') : [];
+	let { headTags = [] }: Props = $props();
+
+	let titleTag = $derived(headTags && headTags.find((t) => t.tag === 'title'));
+	let metaTags = $derived(headTags ? headTags.filter((t) => t.tag === 'meta') : []);
+	let linkTags = $derived(headTags ? headTags.filter((t) => t.tag === 'link') : []);
 </script>
 
 <svelte:head>
