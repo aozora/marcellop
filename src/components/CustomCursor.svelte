@@ -48,11 +48,11 @@ let size = spring(32);
 </svg>
 
 <style>
-  :global(body) {
-    @media (min-width: 64em) {
-      cursor: none;
-    }
-  }
+  /*:global(body) {*/
+  /*  @media (min-width: 64em) {*/
+  /*    cursor: none;*/
+  /*  }*/
+  /*}*/
 
   .custom-cursor {
 		display: none;

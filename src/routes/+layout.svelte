@@ -2,7 +2,7 @@
 import Footer from '$components/Footer.svelte';
 import SkipLink from '$components/SkipLink.svelte';
 // import { onMount } from 'svelte';
-import CustomCursor from '$components/CustomCursor.svelte';
+// import CustomCursor from '$components/CustomCursor.svelte';
 import Header from '$components/Header.svelte';
 import type { CommonData } from '$types';
 import { commonData } from '$lib/store';
@@ -40,4 +40,4 @@ $commonData = { ...data };
 
 <Footer />
 
-<CustomCursor />
+<!--<CustomCursor />-->
