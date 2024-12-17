@@ -4,6 +4,7 @@
 // font styles, and body backgrounds.
 // There should be no need to use !important in a Base style.
 // ==========================================================================
+@use '../shared' as *;
 
 // Set box-sizing globally to handle padding and border widths
 html {
@@ -18,22 +19,24 @@ html {
 
 html,
 body {
-  min-height: 100%;
+  //min-height: 100%;
   margin: 0;
   padding: 0;
 }
 
-html, body, main, #root {
-  width: 100%;
-  min-height: 100%;
-  margin: 0;
-  padding: 0;
-}
+//html, body, main, #root {
+//  width: 100%;
+//  min-height: 100%;
+//  margin: 0;
+//  padding: 0;
+//}
 
 html {
   height: 100%;
   font-size: 112.5%;
   scroll-behavior: smooth;
+  //overflow-x: hidden;
+  scrollbar-gutter: stable;
 
   // Use smooth scrolling for anchor links—but not if the reduce motion accessibility preference is enabled
   @media (prefers-reduced-motion: reduce) {
@@ -71,8 +74,10 @@ button {
 body {
   position: relative;
   //max-width: $sectionMaxWidth;
-  width: 100vw;
-  height: 100%;
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  width: 100%;
   margin: 0 auto;
   padding: 0;
   background-color: var(--body-background);
@@ -90,19 +95,8 @@ body {
 
   @supports (font-variation-settings: normal) {
     font-family: var(--variable-font-family);
-    // this settings depends on th vf selected
     font-variation-settings: 'wght' var(--text-weight);
-    /* ,
-       'wdth' var(--text-width),
-       'opsz' var(--text-opticalsize); */
   }
-
-  //@if $render-vertical-rhythm-lines {
-  //  background-image: linear-gradient(to bottom, hsla(200, 100%, 50%, .3) 1px, transparent 1px);
-  //  background-position: left top;
-  //  background-repeat: repeat;
-  //  background-size: 100% vr(1);
-  //}
 
   & {
     // > don't use font-smoothing for light text on dark background!!
@@ -119,44 +113,21 @@ h1, h2, h3, h4, h5, h6 {
   margin: calc(2 * var(--text-base-size)) 0 calc(1 * var(--text-base-size)) 0;
   font-family: var(--heading-font-family);
   font-weight: var(--heading-font-weight);
+  line-height: 1;
   transition: all linear 0.2s;
   --text-weight: var(--heading-weight);
-  color: inherit;
-  @include ligature;
+  color: var(--theme-brand);
+  text-transform: uppercase;
 
-  //@supports (font-variation-settings: normal) {
-  //  font-family: var(--variable-heading-font-family);
-  //  // this settings depends on th vf selected
-  //  font-variation-settings: 'wght' var(--heading-weight);
-  //  /* ,
-  //     'wdth' var(--text-width),
-  //     'opsz' var(--text-opticalsize); */
-  //}
-}
-
-
-h1 {
-  //margin: calc(2 * var(--text-base-size)) 0 calc(3 * var(--text-base-size)) 0;
-  max-width: 50rem;
-  font-size: var(--h1-font-size);
-  line-height: var(--h1-line-height);
+  @supports (font-variation-settings: normal) {
+    font-family: var(--variable-heading-font-family);
+    font-variation-settings: 'wght' var(--text-weight);
+  }
 }
 
 h2 {
-  //margin: calc(1 * var(--text-base-size)) 0 calc(3 * var(--text-base-size)) 0;
-  //max-width: var(--text-max-width);
-  font-size: 11rem;
-  line-height: 1.5;
+  font-size: 26vw;
 }
-
-h3 {
-  //margin: calc(1 * var(--text-base-size)) 0 calc(2 * var(--text-base-size)) 0;
-  //max-width: var(--text-max-width);
-  text-align: left;
-  font-size: var(--h3-font-size);
-  line-height: var(--h3-line-height);
-}
-
 
 .italic,
 i,
@@ -199,20 +170,21 @@ p.initial:first-of-type::first-line {
 // to get in the way of the styling that .button generates,
 // https://piccalil.li/tutorial/improve-the-readability-of-the-content-on-your-website
 a:not([class]) {
-  transition: all 0.3s ease;
+  transition: all 0.35s ease;
 
   &:visited,
   &:link {
-    color: var(--color-primary);
+    color: var(--theme-brand);
     text-decoration: underline;
-    text-decoration-color: var(--color-pantone);
+    text-decoration-color: var(--theme-brand);
     text-decoration-thickness: 0.2rem;
   }
 
   &:hover {
     //text-decoration-thickness: 0.5rem;
-    color: var(--color-white);
-    background-color: var(--color-pantone);;
+    color: var(--theme-background);
+    background-color: var(--theme-highlight);
+    text-decoration-color: var(--theme-background);
   }
 
   > * {
@@ -223,20 +195,26 @@ a:not([class]) {
 }
 
 
+// porkaround
+.skills {
+  a:not([class]) {
+    font-size: 5.5vw;
+    line-height: 1.3;
+    --text-weight: 700;
+    //color: var(--color-highlight);
+
+    @media (min-width: 64em) {
+      font-size: 4vw;
+    }
+  }
+}
+
 /**
  * Turn off margins on nested lists.
  */
 ul {
   margin-left: auto;
   margin-right: auto;
-  //max-width: var(--text-max-width);
-  //
-  //@media (min-width: 48em) and (max-width: 64em) {
-  //  max-width: calc(38.5 * var(--text-base-size));
-  //}
-  //@media (min-width: 64em) {
-  //  max-width: calc(42 * var(--text-base-size));
-  //}
 }
 
 figure {

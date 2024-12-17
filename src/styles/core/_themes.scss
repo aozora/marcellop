@@ -4,6 +4,7 @@ html[data-theme='light'] {
   --theme-inverted-foreground: var(--color-white);
   --theme-inverted-background: var(--color-black);
   --theme-brand: var(--color-pantone);
+  --theme-highlight: var(--color-highlight);
 }
 
 html[data-theme='dark'] {
@@ -12,4 +13,5 @@ html[data-theme='dark'] {
   --theme-inverted-foreground: var(--color-white);
   --theme-inverted-background: var(--color-dark);
   --theme-brand: var(--color-pantone);
+  --theme-highlight: var(--color-highlight);
 }

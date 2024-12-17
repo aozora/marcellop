@@ -1,0 +1,65 @@
+---
+import {SEO} from "astro-seo";
+import Header from '@/components/Header.svelte';
+import Footer from '@/components/Footer.svelte';
+import '@/styles/app.scss';
+
+interface Props {
+  title: string;
+}
+
+const {title} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="description" content="Astro description"/>
+  <meta name="viewport" content="width=device-width"/>
+  <meta name="generator" content={Astro.generator}/>
+  <title>{title}</title>
+
+  <SEO
+      title="Marcello Palmitessa"
+      description="This is the web presence of Marcello Palmitessa, a passionate freelance full-stack developer from Italy"
+      openGraph={{
+        basic: {
+          title: "A Very Descriptive Title",
+          type: "A type.",
+          image: "https://www.marcellop.com/img/og-image.jpg"
+        }
+      }}
+      twitter={{
+        creator: "@marcellopalmit"
+      }}
+      extend={{
+        // extending the default link tags
+
+        link: [{rel: "icon", href: "https://www.marcellop.com/favicon.png"}],
+        // extending the default meta tags
+
+        meta: [
+          {
+            name: "twitter:image",
+            content: "https://www.marcellop.com/img/og-image.jpg",
+          },
+          {name: "twitter:title", content: "Marcello Palmitessa"},
+          {
+            name: "twitter:description",
+            content: "This is the web presence of Marcello Palmitessa, a passionate freelance full-stack developer from Italy"
+          },
+        ],
+      }}
+  />
+</head>
+<body>
+
+<Header client:load />
+<main id="main">
+  <slot></slot>
+</main>
+<Footer />
+
+</body>
+</html>

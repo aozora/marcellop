@@ -9,17 +9,18 @@
 main {
   position: relative;
   width: 100%;
-  margin: var(--menu-height) 0 0 0;
+  //margin: var(--menu-height) 0 0 0;
+  margin: 0;
 }
 
-.dom {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 80vh;
-  overflow: hidden;
-}
+//.dom {
+//  position: absolute;
+//  top: 0;
+//  left: 0;
+//  width: 100vw;
+//  height: 80vh;
+//  overflow: hidden;
+//}
 
 .canvas-container {
   position: fixed;
