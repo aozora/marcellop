@@ -1,0 +1,200 @@
+---
+const title1 = "MARCELLO PALMITESSA";
+const title2 = "FREELANCE FULL STACK";
+const title3 = "ARCHITECT DEVELOPER";
+const title4 = "MENTOR TEAM LEADER";
+
+const title1Split = title1.split(" ");
+---
+
+<div class="hero2">
+  <h2 class="hero2-title1">
+    <span class="visuallyhidden"
+      >{title1}, {title2}
+      &nbsp;{title3}&nbsp;{title4}</span
+    >
+
+    <span class="title-top">
+      <span class="word marcello">
+        {
+          Array.from(title1Split[0]).map((char) => (
+            <span class="char">
+              {char === " " && <span class="space">&nbsp;</span>}
+              {char !== " " && <span>{char}</span>}
+            </span>
+          ))
+        }
+      </span>
+      <span class="space">&nbsp;</span>
+      <span class="word palmitessa">
+        {
+          Array.from(title1Split[1]).map((char) => (
+            <span class="char">
+              {char === " " && <span class="space">&nbsp;</span>}
+              {char !== " " && <span>{char}</span>}
+            </span>
+          ))
+        }
+      </span>
+    </span>
+
+    <span class="word">
+      {
+        Array.from(title2).map((char) => (
+          <span class="char">
+            {char === " " && <span class="space">&nbsp;</span>}
+            {char !== " " && <span>{char}</span>}
+          </span>
+        ))
+      }
+    </span>
+
+    <span class="word">
+      {
+        Array.from(title3).map((char) => (
+          <span class="char">
+            {char === " " && <span class="space">&nbsp;</span>}
+            {char !== " " && <span>{char}</span>}
+          </span>
+        ))
+      }
+    </span>
+
+    <span class="word">
+      {
+        Array.from(title4).map((char) => (
+          <span class="char">
+            {char === " " && <span class="space">&nbsp;</span>}
+            {char !== " " && <span>{char}</span>}
+          </span>
+        ))
+      }
+    </span>
+  </h2>
+</div>
+
+<style lang="scss">
+  @use "../styles/shared" as *;
+
+  .main-content {
+    overflow: hidden;
+    position: relative;
+  }
+
+  .hero2 {
+    overflow: hidden;
+    position: relative;
+    display: grid;
+    grid-template-columns: 100%;
+    gap: 1rem;
+    width: 100%;
+    @include container;
+
+    & {
+      --color-line: #1d1c1c;
+      --line-size: 1.5rem;
+
+      margin-bottom: 2rem;
+      padding-top: 3rem;
+      padding-bottom: 3rem;
+    }
+  }
+
+  .hero2-title1 {
+    position: relative; // needed for reveal animation
+    width: 100%;
+    max-width: none;
+    margin: 0 auto;
+    font-size: 15vw;
+    --text-weight: 900;
+    line-height: 1;
+    text-align: justify;
+    text-wrap: balance;
+    color: var(--theme-foreground);
+
+    .title-top {
+      display: flex;
+      flex-direction: column;
+      color: var(--theme-brand);
+      font-size: 31vw;
+
+      @media (min-width: 64em) {
+        flex-direction: row;
+        font-size: inherit;
+      }
+
+      .space {
+        display: none;
+        @media (min-width: 64em) {
+          display: flex;
+        }
+      }
+    }
+
+    span:not(.char) {
+      /*--delay: calc((var(--char-index) + 1) * 400ms);*/
+      --text-weight-max: 900;
+      --text-weight-min: 500;
+      --text-weight: var(--text-weight-max);
+      font-weight: var(--text-weight);
+
+      @supports (font-variation-settings: normal) {
+        font-variation-settings: "wght" var(--text-weight);
+      }
+    }
+
+    .space {
+      width: 1ch;
+    }
+  }
+
+  .hero2-img {
+    height: 100%;
+    max-width: 100%;
+    width: 100%;
+    object-fit: cover;
+    filter: grayscale(1);
+
+    &:hover,
+    &:focus-visible {
+      filter: none;
+    }
+  }
+
+  .word {
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
+  }
+</style>
+
+<script>
+  import gsap from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  window.addEventListener("load", () => {
+    const chars1 = Array.from(
+      document.querySelectorAll<HTMLElement>(
+        ".hero2-title1 :not(.title-top) .char span",
+      ),
+    );
+    const tl = gsap.timeline({ paused: true });
+
+    tl.fromTo(
+      chars1,
+      {
+        "--text-weight": 500,
+      },
+      {
+        "--text-weight": 900,
+        yoyo: true,
+        repeat: -1,
+        duration: 2,
+        stagger: 0.1,
+      },
+    );
+    tl.play();
+  });
+</script>

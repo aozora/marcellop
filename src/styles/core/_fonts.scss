@@ -1,0 +1,29 @@
+
+
+
+//@font-face {
+//  font-display: swap;
+//  src: url("/fonts/MangoGrotesque/MangoGrotesque-Medium.woff2") format('woff2');
+//  font-family: "MangoGrotesque";
+//  font-weight: 500;
+//  font-style: normal;
+//}
+
+@font-face {
+  font-display: swap;
+  src: url("/fonts/MangoGrotesque/Mango Grotesque-VF.ttf") format('truetype');
+  font-family: "MangoGrotesque";
+  font-weight: 100 900;
+  font-style: normal;
+  //font-stretch: 25% 151%;
+}
+
+
+@font-face {
+  font-display: swap;
+  src: url("/fonts/RobotoFlex-VariableFont_GRAD,XOPQ,XTRA,YOPQ,YTAS,YTDE,YTFI,YTLC,YTUC,opsz,slnt,wdth,wght-subset.woff2") format('woff2-variations');
+  font-family: "Roboto Flex";
+  font-weight: 100 1000;
+  font-stretch: 25% 151%;
+  font-style: oblique -10deg 0deg;
+}

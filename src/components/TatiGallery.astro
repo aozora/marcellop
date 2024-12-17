@@ -1,0 +1,105 @@
+---
+import {Picture} from 'astro:assets';
+
+const gallery = await Astro.glob("/src/assets/img/tati/*").then(files => {
+  return files.map(file => file.default);
+});
+---
+
+<section class="tati">
+  <h1>Tati</h1>
+  <p>In loving memory of my dear Tati 15/04/2011 - 03/03/2023</p>
+
+  <div class="grid">
+    {gallery.map((item) => (
+        <figure class="item">
+          <Picture class="column__item-img"
+                   src={item} formats={['avif', 'webp']} alt="" width={500} height={700}/>
+        </figure>
+    ))}
+  </div>
+</section>
+
+<style lang="scss">
+  @use "../styles/shared" as *;
+
+  .tati {
+    overflow: hidden;
+    @include container;
+
+    h1 {
+      --text-weight: 600;
+      margin-bottom: 3rem;
+      //font-family: var(--body-font-family);
+      font-size: 26vw;
+      line-height: 1.2;
+      text-transform: uppercase;
+      color: var(--theme-brand);
+
+      @supports (font-variation-settings: normal) {
+        font-family: var(--variable-font-family);
+        font-variation-settings: 'wght' var(--text-weight);
+      }
+    }
+
+    p {
+      margin-bottom: 3rem;
+      font-size: 3rem;
+    }
+  }
+
+  .grid {
+    --grid-item-translate: 0px;
+    --grid-item-ratio: 0.75;
+    --grid-item-radius: 0px;
+    --grid-gap: 2vw;
+    --grid-columns: 2;
+    --grid-width: 100%;
+    --grid-max-width: none;
+
+    position: relative;
+    display: grid;
+    place-items: center;
+    grid-template-columns: repeat(var(--grid-columns), 1fr);
+    gap: var(--grid-gap);
+    width: var(--grid-width);
+    max-width: var(--grid-max-width);
+    padding: 10vh 0;
+
+    @media (min-width: 64em) {
+      --grid-columns: 5;
+    }
+  }
+
+  .item {
+    margin: 0;
+    position: relative;
+    z-index: 1;
+
+    picture {
+      display: flex;
+      width: 100%;
+      aspect-ratio: var(--grid-item-ratio);
+      height: auto;
+      position: relative;
+      overflow: hidden;
+      border-radius: var(--grid-item-radius);
+
+      img {
+        /*position: absolute;*/
+        /*top: calc(-1 * var(--grid-item-translate));*/
+        /*left: calc(-1 * var(--grid-item-translate));*/
+        height: calc(100% + var(--grid-item-translate) * 2);
+        width: calc(100% + var(--grid-item-translate) * 2);
+        object-fit: cover;
+        /*background-size: cover;*/
+        /*background-position: 50% 20%;*/
+        /*backface-visibility: hidden;*/
+      }
+    }
+  }
+
+
+
+
+</style>

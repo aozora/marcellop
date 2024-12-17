@@ -1,0 +1,23 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import Hero from "@/components/Hero.astro";
+import About from "../components/About.astro";
+// import Portfolio from "@/components/Portfolio.svelte";
+import TechStack from "../components/TechStack.svelte";
+import Skills from "../components/Skills.svelte";
+import { getCollection } from "astro:content";
+
+// const portfolio = await getCollection("portfolio");
+const techStack = await getCollection("techStack");
+const skills = await getCollection("skills");
+---
+
+<Layout
+  title="Marcello Palmitessa | Freelance Full Stack Developer | Architect Developer | Mentor Team Leader"
+>
+  <Hero />
+  <About />
+  <!--<Portfolio portfolio={portfolio} />-->
+  <TechStack techStack={techStack} />
+  <Skills skills={skills} />
+</Layout>
