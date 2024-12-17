@@ -27,6 +27,14 @@
   @use "../styles/shared" as *;
 
   .skills {
+    position: relative;
+    @include layout-grid;
+
+    > * {
+      grid-column: 2;
+      margin: 20vh 0;
+    }
+
     h3 {
       margin-bottom: 3rem;
       font-size: 20vw;

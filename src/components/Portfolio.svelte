@@ -34,11 +34,6 @@
     & {
       min-height: 100vh;
     }
-
-    //h2 {
-    //  --text-weight: 700;
-    //  color: var(--theme-brand);
-    //}
   }
 
   .disclaimer {

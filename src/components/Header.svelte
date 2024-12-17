@@ -1,124 +1,115 @@
 <script lang="ts">
-  const menu = {
-    items: [
-      {url: '/', title: 'Home'},
-      {url: 'https://it.linkedin.com/in/marcellopalmitessa', title: 'Resume', external: true},
-      // {url: '/uses', title: 'Uses'},
-      {url: '/tati', title: 'Tati'},
-    ]
-  }
-  let showMobileMenu = false;
+	const menu = {
+		items: [
+			{ url: '/', title: 'Home' },
+			{ url: 'https://it.linkedin.com/in/marcellopalmitessa', title: 'Resume', external: true },
+			// {url: '/uses', title: 'Uses'},
+			{ url: '/tati', title: 'Tati' }
+		]
+	};
+	let showMobileMenu = false;
 
-  /**
-   * Toggle the mobile menu
-   */
-  const toggleMobileMenu = () => {
-    if (window.matchMedia('(max-width: 768px)').matches) {
-      const {body} = document;
-      const menuElement = document.querySelector('.menu');
+	/**
+	 * Toggle the mobile menu
+	 */
+	const toggleMobileMenu = () => {
+		if (window.matchMedia('(max-width: 768px)').matches) {
+			const { body } = document;
+			const menuElement = document.querySelector('.menu');
 
-      // on open
-      if (!showMobileMenu) {
-        // fix ios issues
-        // ref: https://css-tricks.com/prevent-page-scrolling-when-a-modal-is-open/
-        body.style.position = 'fixed';
-      } else {
-        body.style.position = '';
-      }
+			// on open
+			if (!showMobileMenu) {
+				// fix ios issues
+				// ref: https://css-tricks.com/prevent-page-scrolling-when-a-modal-is-open/
+				body.style.position = 'fixed';
+			} else {
+				body.style.position = '';
+			}
 
-      // toggle
-      showMobileMenu = !showMobileMenu;
-      menuElement.setAttribute('aria-hidden', `${!showMobileMenu}`);
-      menuElement.setAttribute('tabindex', showMobileMenu ? '0' : '-1');
+			// toggle
+			showMobileMenu = !showMobileMenu;
+			menuElement.setAttribute('aria-hidden', `${!showMobileMenu}`);
+			menuElement.setAttribute('tabindex', showMobileMenu ? '0' : '-1');
 
-      // on open, set focus on the first <a>
-      if (showMobileMenu) {
-        menuElement.querySelector('a').focus();
-      } else {
-        // on close, set focus to the triggering button
-        // eslint-disable-next-line no-undef
-        const el = document.querySelector('.menu__toggle') as HTMLElement;
-        el.focus();
-      }
-    }
-  };
+			// on open, set focus on the first <a>
+			if (showMobileMenu) {
+				menuElement.querySelector('a').focus();
+			} else {
+				// on close, set focus to the triggering button
+				// eslint-disable-next-line no-undef
+				const el = document.querySelector('.menu__toggle') as HTMLElement;
+				el.focus();
+			}
+		}
+	};
 
-  // const toggleTheme = () => {
-  //   const currentTheme = document.documentElement.getAttribute('data-theme');
-  //   let targetTheme = 'light';
-  //
-  //   if (currentTheme === 'light') {
-  //     targetTheme = 'dark';
-  //   }
-  //
-  //   document.documentElement.setAttribute('data-theme', targetTheme);
-  //   localStorage.setItem('theme', targetTheme);
-  // };
+	// const toggleTheme = () => {
+	//   const currentTheme = document.documentElement.getAttribute('data-theme');
+	//   let targetTheme = 'light';
+	//
+	//   if (currentTheme === 'light') {
+	//     targetTheme = 'dark';
+	//   }
+	//
+	//   document.documentElement.setAttribute('data-theme', targetTheme);
+	//   localStorage.setItem('theme', targetTheme);
+	// };
 
 </script>
 
 <header
-    id="header"
-    class={`header ${showMobileMenu ? 'header--menu-open' : ''}`}
+	id="header"
+	class={`header ${showMobileMenu ? 'header--menu-open' : ''}`}
 >
-  <h1 class="menu__title">
-    <span class="visuallyhidden">Marcello Palmitessa</span>
-    <span aria-hidden="true">MP</span>
-  </h1>
+	<div class="header-inner">
+		<h1 class="menu__title">
+			<span class="visuallyhidden">Marcello Palmitessa</span>
+			<span aria-hidden="true">MP</span>
+		</h1>
 
-  <button type="button" class="mobile-toggle-menu" aria-expanded={showMobileMenu}
-          on:click={()=>showMobileMenu = !showMobileMenu}>
-    <span class="visuallyhidden">{showMobileMenu ? 'Open the menu' : 'Close the menu'}</span>
-    <span class="menu-closed" aria-hidden="true">Menu</span>
-    <span class="menu-opened" aria-hidden="true">Close</span>
-  </button>
+		<button type="button" class="mobile-toggle-menu" aria-expanded={showMobileMenu}
+						on:click={()=>showMobileMenu = !showMobileMenu}>
+			<span class="visuallyhidden">{showMobileMenu ? 'Open the menu' : 'Close the menu'}</span>
+			<span class="menu-closed" aria-hidden="true">Menu</span>
+			<span class="menu-opened" aria-hidden="true">Close</span>
+		</button>
 
-  <nav class="menu" aria-label="Main navigation" class:open={showMobileMenu}>
-    <ul class="menu__items">
-      {#if menu && menu.items}
-        {#each menu.items as item}
-          <li>
-            <a href={item.url} target={item.external ? '_blank' :''} on:click={()=>toggleMobileMenu()}>
-              <span class="visuallyhidden">{item.title}</span>
+		<nav class="menu" aria-label="Main navigation" class:open={showMobileMenu}>
+			<ul class="menu__items">
+				{#if menu && menu.items}
+					{#each menu.items as item}
+						<li>
+							<a href={item.url} target={item.external ? '_blank' :''} on:click={()=>toggleMobileMenu()}>
+								<span class="visuallyhidden">{item.title}</span>
 
-              <span class="word" style:--char-count={item.title.length}>
+								<span class="word" style:--char-count={item.title.length}>
 							{#each Array.from(item.title) as char, charIndex}
 								<span class="char">
 									<span style:--char-index={charIndex}>{char}</span>
 								</span>
 							{/each}
 							</span>
-            </a>
-          </li>
-        {/each}
-      {/if}
-
-      <!--			<li>-->
-      <!--				<button type="button" class="toggle-theme" on:click={()=> toggleTheme()}>-->
-      <!--					<span class="visuallyhidden">Toggle colors</span>-->
-      <!--					<svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">-->
-      <!--						<path d="M12 24a12 12 0 0 1 0-24v24Z" fill="var(&#45;&#45;theme-foreground)" />-->
-      <!--						<path d="M12 0a12 12 0 1 1 0 24V0Z" fill="var(&#45;&#45;theme-background)" />-->
-      <!--						<circle cx="12" cy="12" r="11.5" stroke="var(&#45;&#45;theme-foreground)" />-->
-      <!--					</svg>-->
-      <!--				</button>-->
-      <!--			</li>-->
-    </ul>
-  </nav>
+							</a>
+						</li>
+					{/each}
+				{/if}
+			</ul>
+		</nav>
+	</div>
 </header>
 
 
 <style lang="scss">
+  @use "../styles/shared" as *;
+
   @keyframes letter-breathe {
     from,
     to {
       font-variation-settings: 'wght' 100;
-      //--text-weight: 300;
     }
 
     50% {
       font-variation-settings: 'wght' 900;
-      //--text-weight: 700;
     }
   }
 
@@ -139,11 +130,27 @@
     z-index: var(--menu-zindex);
 
     @media (min-width: 64em) {
-      display: grid;
-      grid-template-columns: 2.667rem 1fr 1fr 2.667rem;
-      grid-template-rows: var(--menu-height);
-      grid-gap: 1rem;
-      padding: 0;
+      //display: grid;
+      //grid-template-columns: 1fr 1fr;
+      //grid-template-rows: var(--menu-height);
+      //grid-gap: 1rem;
+      //padding: 0 1.5rem;
+      @include layout-grid;
+
+      @media (min-width: 48em) {
+        padding: 0 2rem;
+      }
+    }
+  }
+
+  .header-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+
+    @media (min-width: 64em) {
+			grid-column: 2;
     }
   }
 
@@ -162,8 +169,7 @@
   }
 
   .menu__title {
-    //grid-area: title;
-    grid-column: 2/3;
+    grid-column: 1/2;
     overflow: hidden;
     height: 100%;
     margin: 0 .5rem;
@@ -187,7 +193,7 @@
   }
 
   .menu {
-    grid-column: 3/4;
+    grid-column: 2/3;
     position: fixed;
     top: 0;
     left: 0;
@@ -332,7 +338,7 @@
   .mobile-toggle-menu {
     position: relative;
     width: 100px;
-    height: 60%;
+    height: 32px;
     margin: 0;
     padding: 0 .6rem;
     border: 1px solid var(--body-font-color);

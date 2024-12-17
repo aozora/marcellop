@@ -30,16 +30,10 @@ const gallery = await Astro.glob("/src/assets/img/tati/*").then(files => {
     h1 {
       --text-weight: 600;
       margin-bottom: 3rem;
-      //font-family: var(--body-font-family);
       font-size: 26vw;
       line-height: 1.2;
       text-transform: uppercase;
       color: var(--theme-brand);
-
-      @supports (font-variation-settings: normal) {
-        font-family: var(--variable-font-family);
-        font-variation-settings: 'wght' var(--text-weight);
-      }
     }
 
     p {
