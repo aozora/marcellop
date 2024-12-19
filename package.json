@@ -14,7 +14,7 @@
     "@astrojs/sitemap": "^3.2.1",
     "@astrojs/svelte": "^7.0.1",
     "@unpic/svelte": "^0.0.57",
-    "astro": "^5.0.1",
+    "astro": "^5.1.0",
     "astro-seo": "^0.8.4",
     "gsap": "^3.12.5"
   },
