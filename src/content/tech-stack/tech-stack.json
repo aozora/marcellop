@@ -8,6 +8,10 @@
         "subTitle": "Next.js, Remix"
       },
       {
+        "title": "React Native",
+        "subTitle": "Expo"
+      },
+      {
         "title": "Svelte",
         "subTitle": "Sveltekit"
       },
@@ -55,6 +59,9 @@
     "items": [
       {
         "title": "Prisma.js"
+      },
+      {
+        "title": "Drizzle"
       },
       {
         "title": "GSAP"
