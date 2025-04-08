@@ -13,8 +13,6 @@
 	 * Toggle the mobile menu
 	 */
 	const toggleMobileMenu = () => {
-		console.log('pippo');
-
 		if (window.matchMedia('(max-width: 64em)').matches) {
 			const { body } = document;
 			const menuElement = document.querySelector('.menu');
