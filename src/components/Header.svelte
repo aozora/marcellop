@@ -13,7 +13,9 @@
 	 * Toggle the mobile menu
 	 */
 	const toggleMobileMenu = () => {
-		if (window.matchMedia('(max-width: 768px)').matches) {
+		console.log('pippo');
+
+		if (window.matchMedia('(max-width: 64em)').matches) {
 			const { body } = document;
 			const menuElement = document.querySelector('.menu');
 
@@ -22,8 +24,10 @@
 				// fix ios issues
 				// ref: https://css-tricks.com/prevent-page-scrolling-when-a-modal-is-open/
 				body.style.position = 'fixed';
+				body.style.overflow = 'hidden';
 			} else {
 				body.style.position = '';
+				body.style.overflow = '';
 			}
 
 			// toggle
@@ -68,7 +72,7 @@
 		</h1>
 
 		<button type="button" class="mobile-toggle-menu" aria-expanded={showMobileMenu}
-						on:click={()=>showMobileMenu = !showMobileMenu}>
+						on:click={()=>toggleMobileMenu()}>
 			<span class="visuallyhidden">{showMobileMenu ? 'Open the menu' : 'Close the menu'}</span>
 			<span class="menu-closed" aria-hidden="true">Menu</span>
 			<span class="menu-opened" aria-hidden="true">Close</span>
@@ -150,7 +154,7 @@
     width: 100%;
 
     @media (min-width: 64em) {
-			grid-column: 2;
+      grid-column: 2;
     }
   }
 
@@ -200,6 +204,7 @@
     display: flex;
     flex-direction: column;
     width: 100%;
+    height: 100%;
     height: 100dvh;
     padding: var(--menu-height) 0 0 0;
     background-color: var(--theme-brand);
